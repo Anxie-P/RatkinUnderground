@@ -1,0 +1,130 @@
+﻿using HarmonyLib;
+using RimWorld;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using UnityEngine;
+using UnityEngine.UIElements;
+using Verse;
+using Verse.AI;
+
+namespace RatkinUnderground;
+public class CompProperties_RKU_Radio : CompProperties
+{
+    public CompProperties_RKU_Radio()
+    {
+        compClass = typeof(Comp_RKU_Radio);
+    }
+}
+
+public class Comp_RKU_Radio : ThingComp
+{
+    // 消息历史记录
+    private List<string> messageHistory = new List<string>();
+    private const int MAX_MESSAGE_HISTORY = 50; // 最大保存50条消息
+
+    public List<string> MessageHistory => messageHistory;
+
+    public override void PostSpawnSetup(bool respawningAfterLoad)
+    {
+        base.PostSpawnSetup(respawningAfterLoad);
+        if (messageHistory == null)
+        {
+            messageHistory = new List<string>();
+        }
+    }
+
+    public override void PostExposeData()
+    {
+        base.PostExposeData();
+        Scribe_Collections.Look(ref messageHistory, "messageHistory", LookMode.Value);
+        if (Scribe.mode == LoadSaveMode.LoadingVars && messageHistory == null)
+        {
+            messageHistory = new List<string>();
+        }
+    }
+
+    public void AddMessage(string message)
+    {
+        if (messageHistory == null)
+        {
+            messageHistory = new List<string>();
+        }
+
+        messageHistory.Add(message);
+        
+        // 限制消息历史数量
+        if (messageHistory.Count > MAX_MESSAGE_HISTORY)
+        {
+            messageHistory.RemoveAt(0);
+        }
+    }
+
+    public void ClearMessageHistory()
+    {
+        messageHistory?.Clear();
+    }
+
+    public override IEnumerable<Gizmo> CompGetGizmosExtra()
+    {
+        foreach (Gizmo gizmo in base.CompGetGizmosExtra())
+        {
+            yield return gizmo;
+        }
+
+        // 添加打开电台对话窗口的按钮
+        yield return new Command_Action
+        {
+            defaultLabel = "RKU.OpenRadio".Translate(),
+            defaultDesc = "RKU.OpenRadioDesc".Translate(),
+            icon = Resources.dig,
+            action = delegate
+            {
+                Find.WindowStack.Add(new Dialog_RKU_Radio(parent));
+            }
+        };
+
+        // 开发用Gizmo - 取消交易冷却
+        if (Prefs.DevMode)
+        {
+            yield return new Command_Action
+            {
+                defaultLabel = "取消冷却",
+                defaultDesc = "立即取消交易冷却时间",
+                icon = ContentFinder<Texture2D>.Get("RKU_Null"),
+                action = delegate
+                {
+                    var radioComponent = Current.Game.GetComponent<RKU_RadioGameComponent>();
+                    if (radioComponent != null)
+                    {
+                        radioComponent.canTrade = true;
+                        radioComponent.isWaitingForTrade = false;
+                        radioComponent.lastTradeTick = 0;
+                        Messages.Message("交易冷却已取消", MessageTypeDefOf.PositiveEvent);
+                    }
+                }
+            };
+
+            // 开发用Gizmo - 立即准备交易
+            yield return new Command_Action
+            {
+                defaultLabel = "立即交易",
+                defaultDesc = "立即准备交易，跳过所有等待时间",
+                icon = ContentFinder<Texture2D>.Get("RKU_Null"),
+                action = delegate
+                {
+                    var radioComponent = Current.Game.GetComponent<RKU_RadioGameComponent>();
+                    if (radioComponent != null)
+                    {
+                        radioComponent.canTrade = true;
+                        radioComponent.isWaitingForTrade = false;
+                        radioComponent.lastTradeTick = 0;
+                        Messages.Message("交易已准备就绪", MessageTypeDefOf.PositiveEvent);
+                    }
+                }
+            };
+        }
+    }
+}
