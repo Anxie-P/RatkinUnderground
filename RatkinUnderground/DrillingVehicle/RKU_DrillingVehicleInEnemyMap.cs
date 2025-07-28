@@ -1,11 +1,13 @@
 using Mono.Unix.Native;
 using RimWorld;
 using RimWorld.Planet;
+using SPExtended;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.AI;
+using Verse.Noise;
 
 namespace RatkinUnderground
 {
