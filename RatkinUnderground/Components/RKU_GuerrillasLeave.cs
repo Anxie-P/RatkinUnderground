@@ -14,6 +14,7 @@ namespace RatkinUnderground
     public class RKU_GuerrillasLeave : MapComponent
     {
         int tick = 0;
+        bool isSpawned = false;          // 该地图是否生成地鼠
         bool gotoEdge = false;           // 是否到时间离开地图
         bool drillDetect = false;       // 是否检测过钻机
         bool drillLeave = true;         // 钻机是否具备离开条件
@@ -25,6 +26,12 @@ namespace RatkinUnderground
         {
             this.startLeave = startLeave;
         }
+
+        public void SetSpawned(bool isSpawned)
+        {
+            this.isSpawned = isSpawned;
+        }
+
         public RKU_GuerrillasLeave(Map map) : base(map)
         {
         }
@@ -33,18 +40,25 @@ namespace RatkinUnderground
         {
             base.MapComponentTick();
 
+            if (!isSpawned) return;
+
             // 60tick 进行一次逻辑的检测和执行
             tick++;
             if (tick < 60) return;
             tick = 0;
-
+            /*Log.Message($"isSpawned{isSpawned}");
+            Log.Message($"gotoEdge{gotoEdge}");
+            Log.Message($"drillDetect{drillDetect}");
+            Log.Message($"drillLeave{drillLeave}");
+            Log.Message($"startLeave{startLeave}");
+            Log.Message($"————————————————————————");*/
             TryDrillOnMap();
             if(!drillDetect) return;    // 地图上未检测过钻机，不执行下面逻辑
             
             // 检测到地鼠的钻机后获取所有地鼠
             if (!(guerrillas.Count > 0))
             {
-                foreach(var p in map.mapPawns.AllHumanlike)
+                foreach(var p in map.mapPawns.AllHumanlikeSpawned)
                 {
                     if (p.Faction.def != DefOfs.RKU_Faction) continue;
                     guerrillas.Add(p);
@@ -81,8 +95,8 @@ namespace RatkinUnderground
                 if (drill != null)
                 {
                     drillDetect = true;
-                    break;
-                }
+                    return;
+                } 
             }
         }
 
@@ -164,7 +178,7 @@ namespace RatkinUnderground
         void RestWithNoDrill()
         {
             if (!startLeave || drillLeave) return;
-            foreach (var p in map.mapPawns.AllHumanlike)
+            foreach (var p in map.mapPawns.AllHumanlikeSpawned)
             {
                 if (p.Faction.def == DefOfs.RKU_Faction) return;
 
@@ -180,6 +194,7 @@ namespace RatkinUnderground
             drillLeave = true;
             drillDetect = false;
             startLeave = false;
+            isSpawned = false;
             guerrillas = new();
         }
 
@@ -187,6 +202,7 @@ namespace RatkinUnderground
         {
             base.ExposeData();
             Scribe_References.Look(ref drill, "drill");
+            Scribe_Values.Look(ref tick, "tick", 0);
             Scribe_Values.Look(ref drillDetect, "drillDetect", false);
             Scribe_Values.Look(ref drillLeave, "drillLeave", true);
             Scribe_Values.Look(ref gotoEdge, "gotoEdge", false);
