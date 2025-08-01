@@ -18,5 +18,6 @@ namespace RatkinUnderground
         public static JobDef RKU_EnterDrillingVehicle;
         public static JobDef RKU_AIEnterDrillingVehicle;
         public static JobDef RKU_AssistResearch;
+        public static ThingDef RKU_Radio;
     }
 }

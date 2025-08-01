@@ -12,7 +12,8 @@ namespace RatkinUnderground
         private ThingOwner<Pawn> passengers;
         public bool canMove=false;
         public int hitPoints;   // 传递耐久
-        
+        public Faction faction;
+        public IThingHolder drillingVehicle;
         public RKU_TunnelHiveSpawner()
         {
             passengers = new ThingOwner<Pawn>(this);
@@ -60,9 +61,6 @@ namespace RatkinUnderground
                     return;
                 }
             }
-
-            // 生成钻地车
-            IThingHolder drillingVehicle;
             if (canMove)
             {
                 drillingVehicle = (IThingHolder)ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_DrillingVehicle"));
@@ -73,7 +71,7 @@ namespace RatkinUnderground
             }
 
             // 生成钻地车
-            ((Thing)drillingVehicle).SetFaction(Faction.OfPlayer);
+            ((Thing)drillingVehicle).SetFaction(faction ?? Faction.OfPlayer);
             ((Thing)drillingVehicle).HitPoints = this.hitPoints;    // 传递耐久
             GenSpawn.Spawn((Thing)drillingVehicle, loc, map);
             // 将所有乘客转移到钻地车中

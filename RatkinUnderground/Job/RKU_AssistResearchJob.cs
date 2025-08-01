@@ -59,7 +59,6 @@ namespace RatkinUnderground
 
     public class WorkGiver_AssistResearch : WorkGiver_Scanner
     {
-        public override ThingRequest PotentialWorkThingRequest => ThingRequest.ForDef(ThingDef.Named("RKU_Radio"));
 
         public override PathEndMode PathEndMode => PathEndMode.InteractionCell;
 

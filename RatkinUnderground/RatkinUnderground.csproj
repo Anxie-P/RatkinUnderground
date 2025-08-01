@@ -39,6 +39,7 @@
     <Compile Include="Components\RKU_RadioGameComponent.cs" />
     <Compile Include="DrillingVehicle\Dialog_ManagePassengers.cs" />
     <Compile Include="DrillingVehicle\JobDriver_AIEnterDrillingVehicle.cs" />
+    <Compile Include="Job\JobDriver_DeliverToCaptain.cs" />
     <Compile Include="DrillingVehicle\JobDriver_EnterDrillingVehicle.cs" />
     <Compile Include="DrillingVehicle\RKU_DrilingBullet.cs" />
     <Compile Include="DrillingVehicle\RKU_DrillingVehicle.cs" />
@@ -62,6 +63,9 @@
     <Compile Include="Patches\PawnGroupMaker_Patch.cs" />
     <Compile Include="Patches\RemoveMapPatch.cs" />
     <Compile Include="PawnGroupMaker\RKU_PawnGroupKindWorker.cs" />
+    <Compile Include="Quest\QuestNode_RKU_GuerrillasComing.cs" />
+    <Compile Include="Quest\QuestPart_GiveRewards.cs" />
+    <Compile Include="Quest\QuestPart_TrackPawnsStatus.cs" />
     <Compile Include="ThingClass\RKU_DrillingCargoPodBullet.cs" />
     <Compile Include="ThingClass\RKU_DrillingCargoPod.cs" />
     <Compile Include="ThingClass\RKU_BunkerBuster.cs" />
