@@ -10,7 +10,7 @@ using Verse;
 using static UnityEngine.GraphicsBuffer;
 using Verse.Noise;
 using Verse.AI.Group;
-
+/*
 namespace RatkinUnderground
 {
     // 这部分是patch的原版生成袭击单位的，跳过原版的生成逻辑，将生成的小人传入到地道
@@ -67,14 +67,20 @@ namespace RatkinUnderground
                 string label = isHostile ? "游击队袭击" : "游击队救援";
                 string text = isHostile ? "袭击" : "救援";
                 Find.LetterStack.ReceiveLetter(label, text, letterDef, new GlobalTargetInfo(loc, map));
+
+                var comp = map.GetComponent<RKU_GuerrillasLeave>();
+                if (comp != null)
+                {
+                    Log.Message("已生成地鼠");
+                    comp.SetSpawned(true);
+                }
             }
             else
             {
                 Log.Warning("未找到合适边缘点放置 hive。");
             }
-
             __result = Enumerable.Empty<Pawn>();
             return false;
         }
     }
-}
+}*/

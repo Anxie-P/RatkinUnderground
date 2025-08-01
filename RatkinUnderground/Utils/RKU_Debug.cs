@@ -45,5 +45,32 @@ namespace RatkinUnderground
                 Log.Message($"[RatkinUnderground] Generated new faction: {RKUDef.defName}");
             }
         }
+
+
+        [DebugAction(
+            category: "RatkinUnderground",
+            name: "Generate Specified Incident")]
+        private static void GenerateSpecifiedIncident()
+        {
+            IncidentDef def = DefOfs.RKU_Raid;
+
+            // 获取当前地图
+            Map map = Find.CurrentMap;
+            if (map == null)
+            {
+                Log.Message("[RatkinUnderground] 当前没有活动地图。");
+                return;
+            }
+
+            // 构造事件参数
+            IncidentParms parms = StorytellerUtility.DefaultParmsNow(def.category, map);
+
+            // 尝试执行事件
+            bool success = def.Worker.TryExecute(parms);
+            if (success)
+                Log.Message($"[RatkinUnderground] 成功触发事件：{def.defName}");
+            else
+                Log.Message($"[RatkinUnderground] 触发事件失败：{def.defName}");
+        }
     }
 }
