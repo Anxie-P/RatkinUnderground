@@ -152,10 +152,15 @@ namespace RatkinUnderground
             }
             float threatPoints = points.GetValue(slate) ?? StorytellerUtility.DefaultThreatPointsNow(targetMap);
             int numPawns = pawnCount.GetValue(slate);
-            PawnKindDef kind = pawnKind.GetValue(slate) ?? PawnKindDef.Named("RKU_Officer");
+            PawnKindDef kind = pawnKind.GetValue(slate);
             int delay = delayTicks.GetValue(slate);
             Faction faction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
             List<Pawn> pawns = new List<Pawn>();
+            //队长
+            PawnGenerationRequest requestOfficer = new PawnGenerationRequest(PawnKindDef.Named("RKU_Officer"), faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: true);
+            Pawn pawnOfficer = PawnGenerator.GeneratePawn(requestOfficer);
+            pawns.Add(pawnOfficer);
+            //侦察兵
             for (int i = 0; i < numPawns; i++) {
                 PawnGenerationRequest request = new PawnGenerationRequest(kind, faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: true);
                 Pawn pawn = PawnGenerator.GeneratePawn(request);

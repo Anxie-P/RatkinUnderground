@@ -74,8 +74,25 @@ namespace RatkinUnderground
             ((Thing)drillingVehicle).SetFaction(faction ?? Faction.OfPlayer);
             ((Thing)drillingVehicle).HitPoints = this.hitPoints;    // 传递耐久
             GenSpawn.Spawn((Thing)drillingVehicle, loc, map);
-            // 将所有乘客转移到钻地车中
-            MovePassengers(drillingVehicle, passengers);
+
+            //非玩家情况：立刻下车
+            if (faction != Faction.OfPlayer)
+            {
+                if (passengers != null)
+                {
+                    List<Pawn> pawnsToTransfer = new List<Pawn>(passengers);
+                    for (int i = 0; i < pawnsToTransfer.Count; i++)
+                    {
+                        drillingVehicle.GetDirectlyHeldThings().Remove(pawnsToTransfer[i]);
+                        GenSpawn.Spawn(pawnsToTransfer[i], Position, map);
+                    }
+                }
+            }
+            else
+            {
+                // 将所有乘客转移到钻地车中
+                MovePassengers(drillingVehicle, passengers);
+            }
         }
 
         protected void MovePassengers(IThingHolder drillingVehicle, ThingOwner<Pawn> passengers)

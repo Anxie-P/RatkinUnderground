@@ -109,7 +109,7 @@ public class Dialog_RKU_Radio : Window, ITrader
         Texture2D avatarTex = ContentFinder<Texture2D>.Get("Things/Commander", false);
         if (avatarTex != null)
         {
-            Widgets.DrawTextureFitted(avatarRect, avatarTex, 0.8f);
+            Widgets.DrawTextureFitted(avatarRect, avatarTex, 0.9f);
         }
         Rect dialogRect = new Rect(180f, 45f, inRect.width - 190f, 440f);
         Widgets.DrawBoxSolid(dialogRect, new Color(0.1f, 0.1f, 0.1f, 0.8f));

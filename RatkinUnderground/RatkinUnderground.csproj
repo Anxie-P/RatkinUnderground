@@ -39,6 +39,7 @@
     <Compile Include="Components\RKU_RadioGameComponent.cs" />
     <Compile Include="DrillingVehicle\Dialog_ManagePassengers.cs" />
     <Compile Include="DrillingVehicle\JobDriver_AIEnterDrillingVehicle.cs" />
+    <Compile Include="IncidentWorkers\RKU_IncidentWorker_Guerrillas.cs" />
     <Compile Include="Job\JobDriver_DeliverToCaptain.cs" />
     <Compile Include="DrillingVehicle\JobDriver_EnterDrillingVehicle.cs" />
     <Compile Include="DrillingVehicle\RKU_DrilingBullet.cs" />
