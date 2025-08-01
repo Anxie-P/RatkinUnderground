@@ -9,7 +9,7 @@ using Verse.AI.Group;
 
 namespace RatkinUnderground
 {
-    public class RKU_TunnelHiveSpawner_Und: RKU_TunnelHiveSpawner, IThingHolder
+    public class RKU_TunnelHiveSpawner_Und : RKU_TunnelHiveSpawner, IThingHolder
     {
         public Faction faction;
         ThingOwner<Pawn> passengers => (ThingOwner<Pawn>)this.GetDirectlyHeldThings();
@@ -35,13 +35,13 @@ namespace RatkinUnderground
             var passengerHolder = (ThingOwner<Pawn>)this.GetDirectlyHeldThings();
             List<Pawn> toSpawn = new List<Pawn>();
 
-            
+
             foreach (var p in passengerHolder)
             {
                 toSpawn.Add(p);
             }
 
-            var lordJob = new LordJob_AssaultColony(
+            /*var lordJob = new LordJob_AssaultColony(
             faction,                          // 袭击方派系
             canKidnap: true,                       // 允许绑架
             canTimeoutOrFlee: true,                // 时间到了逃跑
@@ -57,16 +57,18 @@ namespace RatkinUnderground
                 lordJob,         // 上面 new 出来的 LordJob
                 map,             // 当前地图
                 toSpawn          // 这一批要纳入 Lord 管理的 Pawn 列表
-            );
+            );*/
+
+            LordJob lordJob = new RKU_GuerrillaAction(faction);
+            LordMaker.MakeNewLord(faction, lordJob, map, toSpawn);
             foreach (var p in toSpawn)
             {
-                
+
                 passengers.Remove(p);
                 //GenSpawn.Spawn(selPawn, Position, Map);
                 // 放到载具生成点附近
                 //var dropPos = CellFinder.RandomClosewalkCellNear(Position, Map, 1);
                 GenSpawn.Spawn(p, loc, map);
-                Log.Message($"{p}当前的Job{p.CurJobDef}");
             }
             // MovePassengers(drillingVehicle, passengers);
 
@@ -75,7 +77,7 @@ namespace RatkinUnderground
         public override void ExposeData()
         {
             base.ExposeData();
-            
+
             Scribe_Deep.Look(ref faction, "faction", this);
         }
     }

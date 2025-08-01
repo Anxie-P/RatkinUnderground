@@ -52,7 +52,6 @@ namespace RatkinUnderground
             Log.Message($"————————————————————————");*/
             TryDrillOnMap();
             if(!drillDetect) return;    // 地图上不存在钻机，不执行下面逻辑
-            LeaveMapWithoutDrill();
             // 检测到地鼠的钻机后获取所有地鼠
             if (!(guerrillas.Count > 0))
             {
