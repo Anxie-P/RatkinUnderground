@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Verse;
+using Verse.AI.Group;
 
 namespace RatkinUnderground
 {
@@ -19,10 +20,6 @@ namespace RatkinUnderground
             var faction = Find.FactionManager.FirstFactionOfDef(factionDef); ;
 
             float points = 2000;
-            // if (points < 0) points = StorytellerUtility.DefaultThreatPointsNow(map);
-
-            //parms.faction = faction;
-            //parms.points = 2000;
 
             var pawnGroupParams = new PawnGroupMakerParms
             {
@@ -35,6 +32,8 @@ namespace RatkinUnderground
 
             List<Pawn> pawns = PawnGroupMakerUtility.GeneratePawns(pawnGroupParams).ToList();
 
+            //LordJob lordJob = new RKU_GuerrillaAction(faction);
+            //LordMaker.MakeNewLord(faction, lordJob, map, pawns);
             // IntVec3 spawnCenter = map.Center;
             /*foreach (var pawn in pawns)
             {

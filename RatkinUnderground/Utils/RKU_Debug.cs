@@ -67,10 +67,10 @@ namespace RatkinUnderground
 
             // 尝试执行事件
             bool success = def.Worker.TryExecute(parms);
-            if (success)
+            /*if (success)
                 Log.Message($"[RatkinUnderground] 成功触发事件：{def.defName}");
             else
-                Log.Message($"[RatkinUnderground] 触发事件失败：{def.defName}");
+                Log.Message($"[RatkinUnderground] 触发事件失败：{def.defName}");*/
         }
     }
 }

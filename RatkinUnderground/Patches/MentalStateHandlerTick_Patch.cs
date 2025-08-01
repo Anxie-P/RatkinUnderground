@@ -9,7 +9,7 @@ using Verse.AI;
 using Verse;
 using System.Reflection;
 using Verse.AI.Group;
-
+/*
 namespace RatkinUnderground
 {
     // 我看战败cg的小人走的是精神状态，所以就patch的这一部分
@@ -37,4 +37,4 @@ namespace RatkinUnderground
             }
         }
     }
-}
+}*/
