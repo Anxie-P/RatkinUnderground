@@ -159,7 +159,6 @@ namespace RatkinUnderground
                 yield return command_Return;
             }
 
-            // 地图上没有敌人，且钻机内有人时
             if (!Map.mapPawns.AllPawnsSpawned.Any(p => p.Faction != null && p.Faction.HostileTo(Faction.OfPlayer)) &&
                 passengers.Count > 0) 
             {

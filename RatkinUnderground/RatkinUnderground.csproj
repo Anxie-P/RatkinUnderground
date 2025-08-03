@@ -38,10 +38,8 @@
     <Compile Include="Components\RKU_GuerrillasLeave.cs" />
     <Compile Include="Components\RKU_RadioGameComponent.cs" />
     <Compile Include="DrillingVehicle\Dialog_ManagePassengers.cs" />
-    <Compile Include="DrillingVehicle\JobDriver_AIEnterDrillingVehicle.cs" />
     <Compile Include="IncidentWorkers\RKU_IncidentWorker_Guerrillas.cs" />
-    <Compile Include="Job\JobDriver_DeliverToCaptain.cs" />
-    <Compile Include="DrillingVehicle\JobDriver_EnterDrillingVehicle.cs" />
+    <Compile Include="Job\JobDriver_EnterDrillingVehicle.cs" />
     <Compile Include="DrillingVehicle\RKU_DrilingBullet.cs" />
     <Compile Include="DrillingVehicle\RKU_DrillingVehicle.cs" />
     <Compile Include="DrillingVehicle\RKU_DrillingVehicleInEnemyMap.cs" />
@@ -51,6 +49,7 @@
     <Compile Include="Hediffs\HediffCompProperties_YunNanToxin.cs" />
     <Compile Include="IncidentWorkers\RKU_IncidentWorker_BuildMap.cs" />
     <Compile Include="Job\RKU_AssistResearchJob.cs" />
+    <Compile Include="Job\RKU_GuerrillaAction.cs" />
     <Compile Include="MapGenerator\GenSteps\RKU_GenStep_ElevationFertility.cs" />
     <Compile Include="MapGenerator\GenSteps\RKU_GenStep_FairyRing.cs" />
     <Compile Include="MapGenerator\GenSteps\RKU_GenStep_Flesh.cs" />
@@ -64,8 +63,13 @@
     <Compile Include="Patches\PawnGroupMaker_Patch.cs" />
     <Compile Include="Patches\RemoveMapPatch.cs" />
     <Compile Include="PawnGroupMaker\RKU_PawnGroupKindWorker.cs" />
+    <Compile Include="Job\LordJob_WaitForItemsAndReturn.cs" />
+    <Compile Include="Job\LordJob_WaitForResources.cs" />
     <Compile Include="Quest\QuestNode_RKU_GuerrillasComing.cs" />
-    <Compile Include="Quest\QuestPart_GiveRewards.cs" />
+    <Compile Include="Quest\QuestPart_CheckPawnsEntered.cs" />
+    <Compile Include="Quest\QuestPart_DrillingVehicleDeparture.cs" />
+    <Compile Include="Quest\QuestPart_CheckGuerrillas.cs" />
+    <Compile Include="Quest\QuestPart_RequestResources.cs" />
     <Compile Include="Quest\QuestPart_TrackPawnsStatus.cs" />
     <Compile Include="ThingClass\RKU_DrillingCargoPodBullet.cs" />
     <Compile Include="ThingClass\RKU_DrillingCargoPod.cs" />

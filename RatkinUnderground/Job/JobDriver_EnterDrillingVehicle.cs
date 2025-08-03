@@ -1,14 +1,12 @@
-﻿using System;
+using RimWorld;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Verse;
 using Verse.AI;
 
 namespace RatkinUnderground
 {
-    public class JobDriver_AIEnterDrillingVehicle : JobDriver
+    public class JobDriver_EnterDrillingVehicle : JobDriver
     {
         private const TargetIndex VehicleInd = TargetIndex.A;
 
@@ -16,8 +14,6 @@ namespace RatkinUnderground
         {
             return true;
         }
-
-
         protected override IEnumerable<Toil> MakeNewToils()
         {
             this.FailOnDespawnedOrNull(VehicleInd);

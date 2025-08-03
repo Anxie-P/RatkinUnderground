@@ -59,8 +59,6 @@ namespace RatkinUnderground
                 toSpawn          // 这一批要纳入 Lord 管理的 Pawn 列表
             );*/
 
-            LordJob lordJob = new RKU_GuerrillaAction(faction);
-            LordMaker.MakeNewLord(faction, lordJob, map, toSpawn);
             foreach (var p in toSpawn)
             {
 

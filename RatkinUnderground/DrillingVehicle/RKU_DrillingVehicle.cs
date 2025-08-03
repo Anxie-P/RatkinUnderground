@@ -18,6 +18,7 @@ namespace RatkinUnderground
     public class RKU_DrillingVehicle : Building, IThingHolder
     {
         public ThingOwner<Pawn> passengers;
+        
         public RKU_DrillingVehicle()
         {
             passengers = new ThingOwner<Pawn>(this);
