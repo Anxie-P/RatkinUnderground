@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.AI;
+using Verse.AI.Group;
 
 namespace RatkinUnderground
 {
@@ -85,6 +86,7 @@ namespace RatkinUnderground
                     {
                         drillingVehicle.GetDirectlyHeldThings().Remove(pawnsToTransfer[i]);
                         GenSpawn.Spawn(pawnsToTransfer[i], Position, map);
+                        passengers.Remove(pawnsToTransfer[i]);
                     }
                 }
             }
