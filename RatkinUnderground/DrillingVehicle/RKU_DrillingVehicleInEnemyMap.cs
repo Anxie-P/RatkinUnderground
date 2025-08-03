@@ -7,6 +7,7 @@ using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.AI;
+using Verse.AI.Group;
 using Verse.Noise;
 
 namespace RatkinUnderground

@@ -1,4 +1,3 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
 using Verse;
@@ -14,8 +13,12 @@ namespace RatkinUnderground
         {
             return true;
         }
+
+
+
         protected override IEnumerable<Toil> MakeNewToils()
         {
+
             this.FailOnDespawnedOrNull(VehicleInd);
             yield return Toils_Goto.GotoThing(VehicleInd, PathEndMode.Touch);
             yield return Toils_General.Wait(60).WithProgressBarToilDelay(VehicleInd);
@@ -26,9 +29,9 @@ namespace RatkinUnderground
                     Thing thing = job.GetTarget(VehicleInd).Thing;
                     if (thing is IThingHolder vehicle)
                     {
-                        pawn.CurJob.Clear();
                         pawn.DeSpawnOrDeselect();
                         vehicle.GetDirectlyHeldThings().TryAddOrTransfer(pawn);
+                        Log.Message($"{vehicle} “—Ω” ’{pawn}");
                     }
                 }
             };

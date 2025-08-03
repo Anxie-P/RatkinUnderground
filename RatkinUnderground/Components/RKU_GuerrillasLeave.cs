@@ -9,7 +9,7 @@ using Verse;
 using Verse.AI;
 
 namespace RatkinUnderground
-{
+{/*
     public class RKU_GuerrillasLeave : MapComponent
     {
         int tick = 0;
@@ -21,7 +21,7 @@ namespace RatkinUnderground
         List<Pawn> guerrillas = new();
         RKU_DrillingVehicleInEnemyMap drill = null;
 
-        public void SetStartLeave(bool startLeave)
+        public void StartLeave(bool startLeave)
         {
             this.startLeave = startLeave;
         }
@@ -44,12 +44,12 @@ namespace RatkinUnderground
             tick++;
             if (tick < 60) return;
             tick = 0;
-            /*Log.Message($"isSpawned{isSpawned}");
+            *//*Log.Message($"isSpawned{isSpawned}");
             Log.Message($"gotoEdge{gotoEdge}");
             Log.Message($"drillDetect{drillDetect}");
             Log.Message($"drillLeave{drillLeave}");
             Log.Message($"startLeave{startLeave}");
-            Log.Message($"————————————————————————");*/
+            Log.Message($"————————————————————————");*//*
             TryDrillOnMap();
             if(!drillDetect) return;    // 地图上不存在钻机，不执行下面逻辑
             // 检测到地鼠的钻机后获取所有地鼠
@@ -167,5 +167,67 @@ namespace RatkinUnderground
             Scribe_Values.Look(ref gotoEdge, "gotoEdge", false);
             Scribe_Collections.Look(ref guerrillas, "guerrillas", LookMode.Reference);
         }
-    }
+    }*/
+    /*public class RKU_GuerrillasLeave : MapComponent
+    {
+        int tick = 0;
+        bool startLeave = false;
+        List<Pawn> guerrillas = new();
+        RKU_DrillingVehicleInEnemyMap drill = null;
+
+        public void StartLeave(bool startLeave) => this.startLeave = startLeave;
+        public void SetGuerrillas(List<Pawn> guerrillas) => this.guerrillas = guerrillas;
+        public void SetDrill(RKU_DrillingVehicleInEnemyMap drill) => this.drill = drill;
+        public RKU_GuerrillasLeave(Map map) : base(map)
+        {
+        }
+
+        public override void MapComponentTick()
+        {
+            base.MapComponentTick();
+
+            tick++;
+            if (tick < 60) return;
+            tick = 0;
+
+            if (!startLeave) return;
+            if (drill == null) return;
+
+            foreach (var p in guerrillas)
+            {
+                // pawn能正常移动 || pawn不在船里
+                if (!(p.Dead || p.Downed) && !drill.ContainsPassenger(p)) return;
+            }
+
+            // 如果地图上没有能够移动的地鼠，就触发钻机离开
+            if (drill.GetDirectlyHeldThings().Count > 0)
+            {
+                Messages.Message("地鼠们已经通过钻机离开了地图", MessageTypeDefOf.NeutralEvent);
+                drill.DeSpawn();
+                Reset();
+            }
+            else
+            {
+                Messages.Message("已经没有能够把钻机开回去的地鼠了...", MessageTypeDefOf.NeutralEvent);
+                Reset();
+            }
+        }
+
+        // 重置
+        void Reset()
+        {
+            startLeave = false;
+            guerrillas.Clear();
+            drill = null;
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look(ref tick, "tick", 0);
+            Scribe_References.Look(ref drill, "drill");
+            Scribe_Values.Look(ref startLeave, "startLeave", false);
+            Scribe_Collections.Look(ref guerrillas, "guerrillas", LookMode.Reference);
+        }
+    }*/
 }
