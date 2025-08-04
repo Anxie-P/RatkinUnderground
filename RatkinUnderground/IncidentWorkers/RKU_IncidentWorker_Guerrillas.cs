@@ -37,10 +37,6 @@ namespace RatkinUnderground
             // hive.canMove = false;
             pawns.ForEach(p => hive.GetDirectlyHeldThings().TryAddOrTransfer(p));
             var loc = Utils.FindRandomEdgeSpawnPosition(map);
-            /*if (CellFinder.TryFindRandomEdgeCellWith(x => x.Standable(map) && x.InBounds(map),
-                                                    map,
-                                                    CellFinder.EdgeRoadChance_Hostile,
-                                                    out var loc))*/
             GenSpawn.Spawn(hive, loc, map, WipeMode.Vanish);
             bool isHostile = parms.faction.HostileTo(Faction.OfPlayer);
 

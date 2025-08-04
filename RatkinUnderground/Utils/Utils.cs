@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Verse.Grammar;
 using Verse;
 using Verse.AI.Group;
+using Verse.AI;
 
 namespace RatkinUnderground
 {
@@ -220,12 +221,16 @@ namespace RatkinUnderground
                         break;
                 }
 
-                if (IsValidSpawnPosition(cell, map)) return cell;
+                if (IsValidSpawnPosition(cell, map) &&
+                    map.reachability.CanReachNonLocal(cell, new TargetInfo(defaultPos, map), PathEndMode.OnCell, TraverseMode.PassDoors, Danger.Deadly))
+                    return cell;
 
                 const int searchRadius = 5;
                 foreach (var candidate in GenRadial.RadialCellsAround(cell, searchRadius, true))
                 {
-                    if (candidate.InBounds(map) && IsValidSpawnPosition(candidate, map))
+                    if (candidate.InBounds(map) &&
+                        IsValidSpawnPosition(candidate, map) &&
+                        map.reachability.CanReachNonLocal(cell, new TargetInfo(defaultPos, map), PathEndMode.OnCell, TraverseMode.PassDoors, Danger.Deadly)) 
                     {
                         return candidate;
                     }
