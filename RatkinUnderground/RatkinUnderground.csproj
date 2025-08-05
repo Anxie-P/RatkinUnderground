@@ -77,6 +77,7 @@
     <Compile Include="ThingClass\RKU_BunkerBusterBullet.cs" />
     <Compile Include="ThingClass\RKU_Panjandrum.cs" />
     <Compile Include="ThingClass\RKU_PanjandrumBullet.cs" />
+    <Compile Include="ThingClass\RKU_RadioIncidentDef.cs" />
     <Compile Include="ThingComps\CompProperties_KillDreadmeld.cs" />
     <Compile Include="ThingComps\RKU_YunNanBullet.cs" />
     <Compile Include="ThingComps\Window_RKURadio.cs" />
