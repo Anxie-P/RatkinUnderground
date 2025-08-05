@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Verse.Grammar;
 using Verse;
+using Verse.AI.Group;
+using Verse.AI;
 
 namespace RatkinUnderground
 {
@@ -164,6 +166,79 @@ namespace RatkinUnderground
             }
 
             return validCells.Count > 0 ? validCells.RandomElement() : IntVec3.Invalid;
+        }
+
+        // 尝试搜寻钻机
+        public static bool TryFindDrill(Map map, out RKU_DrillingVehicleInEnemyMap drill)
+        {
+
+            foreach (var building in map.listerBuildings.allBuildingsNonColonist)
+            {
+                if (building.def != DefOfs.RKU_DrillingVehicleInEnemyMap) continue;
+                drill = (RKU_DrillingVehicleInEnemyMap)building;
+                return true;
+            }
+            drill = null;
+            return false;
+        }
+
+        // 寻找距离地图边缘10格有效格
+        public static IntVec3 FindRandomEdgeSpawnPosition(Map map, int bandWidth = 20, int count = 3, IntVec3 defaultPos = default)
+        {
+            IntVec3 cell;
+            if (defaultPos == default)
+            {
+                defaultPos = map.Center;
+            }
+
+            var sizeX = map.Size.x;
+            var sizeZ = map.Size.z;
+            var rand = Rand.Value;
+
+            // 重试3轮
+            for (int i = 0; i < count; i++)
+            {
+                int side = Rand.Range(0, 4);    // 随机一个方向
+                int offset;                     // 该方向的偏移
+
+                switch (side)
+                {
+                    case 0: // 西侧
+                        offset = Rand.Range(2, sizeZ);
+                        cell = new IntVec3(Rand.Range(2, bandWidth), 0, offset);
+                        break;
+                    case 1: // 东侧
+                        offset = Rand.Range(2, sizeZ);
+                        cell = new IntVec3(sizeX - 1 - Rand.Range(2, bandWidth), 0, offset);
+                        break;
+                    case 2: // 南侧
+                        offset = Rand.Range(2, sizeX);
+                        cell = new IntVec3(offset, 0, Rand.Range(2, bandWidth));
+                        break;
+                    default: // 北侧
+                        offset = Rand.Range(2, sizeX);
+                        cell = new IntVec3(offset, 0, sizeZ - 1 - Rand.Range(2, bandWidth));
+                        break;
+                }
+
+                if (IsValidSpawnPosition(cell, map) &&
+                    map.reachability.CanReachNonLocal(cell, new TargetInfo(defaultPos, map), PathEndMode.OnCell, TraverseMode.PassDoors, Danger.Deadly))
+                    return cell;
+
+                const int searchRadius = 5;
+                foreach (var candidate in GenRadial.RadialCellsAround(cell, searchRadius, true))
+                {
+                    if (candidate.InBounds(map) &&
+                        IsValidSpawnPosition(candidate, map) &&
+                        map.reachability.CanReachNonLocal(cell, new TargetInfo(defaultPos, map), PathEndMode.OnCell, TraverseMode.PassDoors, Danger.Deadly)) 
+                    {
+                        return candidate;
+                    }
+                }
+            }
+
+            // 找到不到生成点了，生成到中心跟你们爆了
+            return defaultPos;
         }
     }
 }

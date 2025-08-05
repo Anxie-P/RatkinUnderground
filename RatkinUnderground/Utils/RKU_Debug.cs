@@ -46,7 +46,7 @@ namespace RatkinUnderground
             }
         }
 
-
+        // 生成游击队事件
         [DebugAction(
             category: "RatkinUnderground",
             name: "Generate Specified Incident")]

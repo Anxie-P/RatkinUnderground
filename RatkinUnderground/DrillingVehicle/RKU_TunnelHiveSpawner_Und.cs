@@ -26,16 +26,17 @@ namespace RatkinUnderground
 
             // 生成钻地车
             IThingHolder drillingVehicle;
-            drillingVehicle = (IThingHolder)ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_DrillingVehicleInEnemyMap"));
+            drillingVehicle = (IThingHolder)ThingMaker.MakeThing(DefOfs.RKU_DrillingVehicleInEnemyMap_Und);
             ((Thing)drillingVehicle).SetFaction(faction);
             ((Thing)drillingVehicle).HitPoints = ((Thing)drillingVehicle).MaxHitPoints;
             ((Thing)drillingVehicle).FactionPreventsClaimingOrAdopting(faction, false);
-            //((Thing)drillingVehicle).ClaimableBy(Faction.IsPlayer);
             GenSpawn.Spawn((Thing)drillingVehicle, loc, map);
-            var passengerHolder = (ThingOwner<Pawn>)this.GetDirectlyHeldThings();
+
+            var drill = ((RKU_DrillingVehicleInEnemyMap_Und)drillingVehicle);
+
+            // 人员生成
+            var passengerHolder = (ThingOwner<Pawn>)GetDirectlyHeldThings();
             List<Pawn> toSpawn = new List<Pawn>();
-
-
             foreach (var p in passengerHolder)
             {
                 toSpawn.Add(p);
@@ -61,15 +62,9 @@ namespace RatkinUnderground
 
             foreach (var p in toSpawn)
             {
-
                 passengers.Remove(p);
-                //GenSpawn.Spawn(selPawn, Position, Map);
-                // 放到载具生成点附近
-                //var dropPos = CellFinder.RandomClosewalkCellNear(Position, Map, 1);
                 GenSpawn.Spawn(p, loc, map);
             }
-            // MovePassengers(drillingVehicle, passengers);
-
         }
 
         public override void ExposeData()

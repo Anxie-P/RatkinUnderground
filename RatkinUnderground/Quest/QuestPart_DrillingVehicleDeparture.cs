@@ -28,11 +28,13 @@ namespace RatkinUnderground
         {
             RKU_DrillingVehicleInEnemyMap targetDrillingVehicle = drillingVehicle;
             
+            // 如果直接引用为null，尝试从QuestGen.slate获取钻机引用
             if (targetDrillingVehicle == null)
             {
                 targetDrillingVehicle = QuestGen.slate.Get<RKU_DrillingVehicleInEnemyMap>("drillingVehicle");
             }
             
+            // 如果slate中也没有，尝试通过派系查找钻机
             if (targetDrillingVehicle == null && faction != null)
             {
                 Map map = Find.AnyPlayerHomeMap;
