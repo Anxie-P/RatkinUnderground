@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\1.5\Assemblies\</OutputPath>
+    <OutputPath>D:\Steam\steamapps\common\RimWorld\Mods\250407\1.5\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -101,6 +101,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\DefOf.cs" />
     <Compile Include="Utils\Resources.cs" />
+    <Compile Include="Utils\RKU_Debug.cs" />
     <Compile Include="Utils\Utils.cs" />
     <Compile Include="ThingClass\RKK_Projecticle_DestroyerMine.cs" />
     <Compile Include="ThingClass\RKU_DestroyerMineBuilding.cs" />

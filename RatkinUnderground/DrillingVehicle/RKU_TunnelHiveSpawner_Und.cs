@@ -33,7 +33,6 @@ namespace RatkinUnderground
             GenSpawn.Spawn((Thing)drillingVehicle, loc, map);
 
             var drill = ((RKU_DrillingVehicleInEnemyMap_Und)drillingVehicle);
-
             // 人员生成
             var passengerHolder = (ThingOwner<Pawn>)GetDirectlyHeldThings();
             List<Pawn> toSpawn = new List<Pawn>();
@@ -41,25 +40,15 @@ namespace RatkinUnderground
             {
                 toSpawn.Add(p);
             }
-
-            /*var lordJob = new LordJob_AssaultColony(
-            faction,                          // 袭击方派系
-            canKidnap: true,                       // 允许绑架
-            canTimeoutOrFlee: true,                // 时间到了逃跑
-            sappers: true,                         // 破坏
-            useAvoidGridSmart: true,                // 智能避让
-            canSteal: true,                        // 俺拾嘞
-            breachers: true,                       // 破墙
-            canPickUpOpportunisticWeapons: true    // 捡武器
-            );
-
+            drill.SetGuerrillas(toSpawn);
+            
+            var lordJob = new RKU_GuerrillaAction(drill);
             LordMaker.MakeNewLord(
                 faction,   // Lord 所属派系
                 lordJob,         // 上面 new 出来的 LordJob
                 map,             // 当前地图
                 toSpawn          // 这一批要纳入 Lord 管理的 Pawn 列表
-            );*/
-
+            );
             foreach (var p in toSpawn)
             {
                 passengers.Remove(p);
