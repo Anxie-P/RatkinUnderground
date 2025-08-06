@@ -33,17 +33,6 @@ namespace RatkinUnderground
             }
         }
 
-        /*public override void SpawnSetup(Map map, bool respawningAfterLoad)
-        {
-            base.SpawnSetup(map, respawningAfterLoad);
-            EffecterDef sustainedDef = this.def.building?.groundSpawnerSustainedEffecter
-                                  ?? throw new System.Exception("缺少 groundSpawnerSustainedEffecter 定义");
-
-            // 2) 生成 Sustainer
-            LocalTargetInfo myTarget = LocalTargetInfo.FromThing(this);
-            moveSustainer = sustainedDef.SpawnMaintained(ThingMaker.MakeThing(this.), Map);
-        }*/
-
         public override void Tick()
         {
             base.Tick();
@@ -85,6 +74,17 @@ namespace RatkinUnderground
 
         public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
         {
+            EffecterDef completeDef = def.building.groundSpawnerCompleteEffecter;
+            effecter = completeDef.SpawnMaintained(ThingMaker.MakeThing(this.def), Map);
+
+            effecter.Trigger(
+                A: new TargetInfo(this),
+                B: new TargetInfo(this)
+            );
+            effecter.EffectTick(
+                A: new TargetInfo(this),
+                B: new TargetInfo(this)
+            );
             effecter?.Cleanup();
             effecter = null;
             base.DeSpawn(mode);
