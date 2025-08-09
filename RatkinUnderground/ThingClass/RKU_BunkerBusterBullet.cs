@@ -13,10 +13,11 @@ namespace RatkinUnderground
     public class RKU_BunkerBusterBullet : Projectile_Explosive
     {
         int ticks = 0;
+        int effectTick = 0;
         Rot4 FinalRotation;
+        Sustainer moveSustainer;
         public RKU_BunkerBuster vehicle;
-        
-
+        Effecter effecter;
         private float ArcHeightFactor
         {
             get
@@ -36,10 +37,57 @@ namespace RatkinUnderground
         {
             base.Tick();
             ticks++;
+            effectTick++;
+            if (effectTick < 10) return;
+            effectTick = 0;
+            SpawnSustainedEffecter();
+
             if (ticks > 3000)
             {
                 Destroy();
             }
+        }
+
+        void SpawnSustainedEffecter()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                EffecterDef sustainedDef = def.building.groundSpawnerSustainedEffecter;
+                if (sustainedDef == null)
+                {
+                    Log.Warning("sustainedDef为空");
+                    return;
+                }
+                effecter = sustainedDef.SpawnMaintained(ThingMaker.MakeThing(this.def), Map, 0.5f);
+
+                effecter.Trigger(
+                    A: new TargetInfo(this),
+                    B: new TargetInfo(this)
+                );
+                effecter.EffectTick(
+                    A: new TargetInfo(this),
+                    B: new TargetInfo(this)
+                );
+                effecter?.Cleanup();
+            }
+        }
+
+        public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
+        {
+            EffecterDef completeDef = def.building.groundSpawnerCompleteEffecter;
+            effecter = completeDef.SpawnMaintained(ThingMaker.MakeThing(this.def), Map);
+
+            effecter.Trigger(
+                A: new TargetInfo(this),
+                B: new TargetInfo(this)
+            );
+            effecter.EffectTick(
+                A: new TargetInfo(this),
+                B: new TargetInfo(this)
+            );
+            effecter?.Cleanup();
+            effecter = null;
+            base.DeSpawn(mode);
         }
         protected override void DrawAt(Vector3 drawLoc, bool flip = false)
         {

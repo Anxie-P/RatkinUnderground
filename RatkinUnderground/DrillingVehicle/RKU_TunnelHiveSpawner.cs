@@ -1,17 +1,20 @@
+using Mono.Unix.Native;
 using RimWorld;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.AI;
 using Verse.AI.Group;
+using Verse.Sound;
 
 namespace RatkinUnderground
 {
     public class RKU_TunnelHiveSpawner : TunnelHiveSpawner, IThingHolder
     {
         private ThingOwner<Pawn> passengers;
-        public bool canMove=false;
+        public bool canMove = false;
         public int hitPoints;   // 传递耐久
         public Faction faction;
         public IThingHolder drillingVehicle;
@@ -107,7 +110,7 @@ namespace RatkinUnderground
                     if (!pawn.Destroyed)
                     {
                         passengers.Remove(pawn);
-                        drillingVehicle.GetDirectlyHeldThings().TryAddOrTransfer(pawn);                        
+                        drillingVehicle.GetDirectlyHeldThings().TryAddOrTransfer(pawn);
                     }
                 }
             }
@@ -120,7 +123,7 @@ namespace RatkinUnderground
         }
         protected IntVec3 FindClosestValidPosition(IntVec3 loc, Map map)
         {
-            for (int radius = 1; radius <= 3; radius++) 
+            for (int radius = 1; radius <= 3; radius++)
             {
                 foreach (IntVec3 candidate in GenRadial.RadialCellsAround(loc, radius, true))
                 {
@@ -130,7 +133,7 @@ namespace RatkinUnderground
                     }
                 }
             }
-            return loc; 
+            return loc;
         }
     }
 } 
