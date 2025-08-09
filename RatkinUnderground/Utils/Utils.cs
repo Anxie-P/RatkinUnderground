@@ -240,5 +240,38 @@ namespace RatkinUnderground
             // 找到不到生成点了，生成到中心跟你们爆了
             return defaultPos;
         }
+        
+        /// <summary>
+        /// 将长文本按指定长度分割成多行
+        /// </summary>
+        /// <param name="message">要分割的文本</param>
+        /// <param name="maxCharsPerLine">每行最大字符数，默认30</param>
+        /// <returns>分割后的行列表</returns>
+        public static List<string> SplitMessageIntoLines(string message, int maxCharsPerLine = 30)
+        {
+            var lines = new List<string>();
+            
+            if (string.IsNullOrEmpty(message))
+            {
+                return lines;
+            }
+            
+            // 如果消息长度小于等于最大长度，直接返回
+            if (message.Length <= maxCharsPerLine)
+            {
+                lines.Add(message);
+                return lines;
+            }
+            
+            // 分割长消息
+            for (int i = 0; i < message.Length; i += maxCharsPerLine)
+            {
+                int length = Math.Min(maxCharsPerLine, message.Length - i);
+                string line = message.Substring(i, length);
+                lines.Add(line);
+            }
+            
+            return lines;
+        }
     }
 }

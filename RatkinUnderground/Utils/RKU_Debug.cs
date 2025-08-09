@@ -45,32 +45,57 @@ namespace RatkinUnderground
                 Log.Message($"[RatkinUnderground] Generated new faction: {RKUDef.defName}");
             }
         }
-
-        // 生成游击队事件
-        [DebugAction(
-            category: "RatkinUnderground",
-            name: "Generate Specified Incident")]
-        private static void GenerateSpecifiedIncident()
+        
+        public static class Debug_DialogueSystem
         {
-            IncidentDef def = DefOfs.RKU_Raid;
-
-            // 获取当前地图
-            Map map = Find.CurrentMap;
-            if (map == null)
+            [DebugAction(
+                category: "RatkinUnderground",
+                name: "Reset Dialogue Triggers")]
+            private static void ResetDialogueTriggers()
             {
-                Log.Message("[RatkinUnderground] 当前没有活动地图。");
-                return;
+                RKU_DialogueManager.ResetAllTriggers();
+                Messages.Message("对话触发器已重置", MessageTypeDefOf.PositiveEvent);
             }
-
-            // 构造事件参数
-            IncidentParms parms = StorytellerUtility.DefaultParmsNow(def.category, map);
-
-            // 尝试执行事件
-            bool success = def.Worker.TryExecute(parms);
-            /*if (success)
-                Log.Message($"[RatkinUnderground] 成功触发事件：{def.defName}");
-            else
-                Log.Message($"[RatkinUnderground] 触发事件失败：{def.defName}");*/
+            
+            [DebugAction(
+                category: "RatkinUnderground",
+                name: "List Dialogue Events")]
+            private static void ListDialogueEvents()
+            {
+                var allEvents = DefDatabase<RKU_DialogueEventDef>.AllDefs;
+                Log.Message($"[RKUDialogue] 找到 {allEvents.Count()} 个对话事件:");
+                
+                foreach (var dialogueEvent in allEvents)
+                {
+                    Log.Message($"- {dialogueEvent.defName}: {dialogueEvent.dialogueText}");
+                }
+            }
+            
+            [DebugAction(
+                category: "RatkinUnderground",
+                name: "Trigger Test Dialogue")]
+            private static void TriggerTestDialogue()
+            {
+                var map = Find.CurrentMap;
+                if (map == null)
+                {
+                    Messages.Message("没有当前地图", MessageTypeDefOf.RejectInput);
+                    return;
+                }
+                
+                var radio = map.listerThings.ThingsOfDef(DefOfs.RKU_Radio).FirstOrDefault();
+                if (radio == null)
+                {
+                    Messages.Message("地图中没有找到电台", MessageTypeDefOf.RejectInput);
+                    return;
+                }
+                
+                // 创建一个临时的电台窗口来测试对话
+                var radioWindow = new Dialog_RKU_Radio(radio);
+                RKU_DialogueManager.TriggerDialogueEvents(radioWindow, "trade");
+                
+                Messages.Message("已触发测试对话", MessageTypeDefOf.PositiveEvent);
+            }
         }
     }
 }

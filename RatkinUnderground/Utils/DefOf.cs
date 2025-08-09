@@ -22,5 +22,12 @@ namespace RatkinUnderground
         public static JobDef RKU_AssistResearch;
         public static ThingDef RKU_Radio;
         public static IncidentDef RKU_Raid;
+
+        //对话
+        public static RKU_DialogueEventDef RKU_FirstContact;
+        public static RKU_DialogueEventDef RKU_TradeWelcome;
+        public static RKU_DialogueEventDef RKU_ResearchProgress;
+        public static RKU_DialogueEventDef RKU_ScanSignal;
+        public static RKU_DialogueEventDef RKU_EmergencyCall;
     }
 }
