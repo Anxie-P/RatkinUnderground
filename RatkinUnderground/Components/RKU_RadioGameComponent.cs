@@ -63,13 +63,15 @@ namespace RatkinUnderground
 
         #region 好感度相关
 
+        public int ralationshipGrade = 0;
 
         #endregion
 
         #region 协助研究相关
 
         // 研究进度相关
-        public float researchProgress = 0;
+        public float researchProgress = 0;//研究进度
+        public byte researchGrade = 0;//研究等级
         public const float RESEARCH_PROGRESS_MAX = 3000; // 研究进度上限
 
         /// <summary>
@@ -91,7 +93,8 @@ namespace RatkinUnderground
             Scribe_Values.Look(ref tradeStartTick, "tradeStartTick", 0);
             Scribe_Values.Look(ref currentTradeDelayTicks, "currentTradeDelayTicks", 0);
             Scribe_Values.Look(ref researchProgress, "researchProgress", 0);
-
+            Scribe_Values.Look<byte>(ref researchGrade, "researchGrade", 0);
+            Scribe_Values.Look(ref ralationshipGrade, "ralationshipGrade", 0);
         }
     }
 } 

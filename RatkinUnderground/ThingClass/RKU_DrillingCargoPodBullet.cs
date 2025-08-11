@@ -41,8 +41,6 @@ namespace RatkinUnderground
             if (!Find.TickManager.Paused)
             {
                 FleckMaker.ThrowDustPuffThick(DrawPos + new Vector3(0f, 0f, 1f) + new Vector3(Rand.Range(-0.5f, 0.5f), 0, Rand.Range(-0.5f, 0.5f)), Map, 1f, Color.black);
-                FleckMaker.ThrowDustPuffThick(DrawPos + new Vector3(0f, 0f, 1f) + new Vector3(Rand.Range(-0.5f, 0.5f), 0, Rand.Range(-0.5f, 0.5f)), Map, 1f, Color.black);
-                FleckMaker.ThrowDustPuffThick(DrawPos + new Vector3(0f, 0f, 1f) + new Vector3(Rand.Range(-0.5f, 0.5f), 0, Rand.Range(-0.5f, 0.5f)), Map, 1f, Color.black);
             }
 
             effectTick++;
@@ -108,12 +106,22 @@ namespace RatkinUnderground
             base.Destroy(mode);
         }
 
+
         protected override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
             Vector3 vector = drawLoc;
             Log.Warning(ExactRotation.ToStringSafe());
             Graphic.Draw(vector, Rot4.North, this);
             Comps_PostDraw();
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look(ref ticks, "ticks", 0);
+            Scribe_Values.Look(ref effectTick, "effectTick", 0);
+            Scribe_Values.Look(ref FinalRotation, "FinalRotation", Rot4.North);
+            Scribe_References.Look(ref rKU_DrillingCargoPod, "rKU_DrillingCargoPod");
         }
     }
 }

@@ -59,7 +59,6 @@ namespace RatkinUnderground
 
     public class WorkGiver_AssistResearch : WorkGiver_Scanner
     {
-
         public override PathEndMode PathEndMode => PathEndMode.InteractionCell;
 
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
@@ -72,6 +71,10 @@ namespace RatkinUnderground
                 return false;
 
             return true;
+        }
+        public override IEnumerable<Thing> PotentialWorkThingsGlobal(Pawn pawn)
+        {
+            return pawn.Map.listerThings.ThingsOfDef(ThingDef.Named("RKU_Radio"));
         }
 
         public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)

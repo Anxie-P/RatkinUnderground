@@ -47,13 +47,10 @@ public class Dialog_RKU_Radio : Window, ITrader
         this.absorbInputAroundWindow = true;
         this.closeOnClickedOutside = true;
 
-        // 添加初始消息
-        if (GetRadioComp().MessageHistory.Count != 0)
-        {
-            AddMessage("电台已启动，正在监听信号...");
-            AddMessage("地下网络连接正常");
-            AddMessage(" ");
-        }
+        // 触发初始对话
+        AddMessage("电台已启动，正在监听信号...");
+        AddMessage("地下网络连接正常");
+        AddMessage(" ");
 
         // 触发一般对话事件
         RKU_DialogueManager.TriggerDialogueEvents(this);
@@ -84,7 +81,7 @@ public class Dialog_RKU_Radio : Window, ITrader
         return Current.Game.GetComponent<RKU_RadioGameComponent>();
     }
 
-    //电台comp，拿来存历史记录
+    //电台comp
     private Comp_RKU_Radio GetRadioComp()
     {
         return radio?.TryGetComp<Comp_RKU_Radio>();
@@ -129,14 +126,14 @@ public class Dialog_RKU_Radio : Window, ITrader
         if (radioComp != null)
         {
             // 如果正在打字，不显示最后一条消息（因为它正在被特效显示）
-            int messageCount = isTyping ? radioComp.MessageHistory.Count - 1 : radioComp.MessageHistory.Count;
-            for (int i = 0; i < messageCount; i++)
+            int messageCount = isTyping ? 0: radioComp.MessageHistory.Count;
+            if (messageCount > 0)
             {
-                string message = radioComp.MessageHistory[i];
-                DrawMessageWithLineBreaks(new Rect(0f, curY, messageRect.width - 16f, 20f), message, ref curY);
+                string lastMessage = radioComp.MessageHistory[messageCount - 1];
+                DrawMessageWithLineBreaks(new Rect(0f, curY, messageRect.width - 16f, 20f), lastMessage, ref curY);
             }
         }
-        
+
         // 显示当前正在打字的消息
         if (isTyping)
         {
@@ -380,7 +377,7 @@ public class Dialog_RKU_Radio : Window, ITrader
             }
         }
     }
-    
+
     /// <summary>
     /// 绘制消息，支持换行符
     /// </summary>
@@ -391,11 +388,11 @@ public class Dialog_RKU_Radio : Window, ITrader
             curY += 25f;
             return;
         }
-        
+
         // 按换行符分割消息
         string[] lines = message.Split('\n');
         float lineHeight = 20f;
-        
+
         foreach (string line in lines)
         {
             Widgets.Label(new Rect(rect.x, curY, rect.width, lineHeight), line);
@@ -418,7 +415,7 @@ public class Dialog_RKU_Radio : Window, ITrader
         Text.Font = GameFont.Tiny;
         Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 5f, statusRect.width - 10f, 20f), "电台状态:");
         Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 30f, statusRect.width - 10f, 20f), $"● {RadioStatus}");
-        
+
         string researchText = "研究进度: 0/100";
         if (radioComponent != null)
         {
@@ -427,7 +424,7 @@ public class Dialog_RKU_Radio : Window, ITrader
         Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 105f, statusRect.width - 10f, 20f), $"● {researchText}");
         Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 55f, statusRect.width - 10f, 20f), $"● {SignalQuality}");
         Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 80f, statusRect.width - 10f, 20f), $"● {PowerStatus}");
-        
+
         string rationText = "阵营关系: 0";
         var faction = Find.FactionManager?.FirstFactionOfDef(DefOfs.RKU_Faction);
         if (faction != null)
@@ -453,14 +450,25 @@ public class Dialog_RKU_Radio : Window, ITrader
     public IEnumerable<Thing> ColonyThingsWillingToBuy(Pawn playerNegotiator)
     {
         IEnumerable<Thing> enumerable = from x in radio.Map.listerThings.AllThings
-                                        where
-                                        (x is Pawn p && p.Faction == Faction.OfPlayer) || (x.def.category == ThingCategory.Item && TradeUtility.PlayerSellableNow(x, this) && !x.IsForbidden(playerNegotiator)) && !x.Position.Fogged(x.Map)
+                                        where (x is Pawn p && p.Faction == Faction.OfPlayer) ||
+                                              (x.def.category == ThingCategory.Item &&
+                                               !x.IsForbidden(playerNegotiator) &&
+                                               !x.Position.Fogged(x.Map))
                                         select x;
+        foreach (Thing thing in radio.Map.listerThings.AllThings)
+        {
+            if (thing.def.IsProcessedFood && 
+                !thing.IsForbidden(playerNegotiator) &&
+                !thing.Position.Fogged(radio.Map))  
+            {
+                yield return thing;
+            }
+        }
+
         foreach (Thing thing in enumerable)
         {
             yield return thing;
         }
-        yield break;
     }
 
     public void GiveSoldThingToTrader(Thing toGive, int countToGive, Pawn playerNegotiator)

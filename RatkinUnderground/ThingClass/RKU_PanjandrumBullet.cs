@@ -110,7 +110,11 @@ namespace RatkinUnderground
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Deep.Look(ref vehicle, "RKU_BunkerBusterBullet", this);
+            Scribe_Values.Look(ref direction, "direction");
+            Scribe_Values.Look(ref currentDrawPos, "currentDrawPos");
+            Scribe_Values.Look(ref initialized, "initialized", false);
+            Scribe_Values.Look(ref ticks, "ticks", 0);
+            Scribe_References.Look(ref vehicle, "vehicle");
         }
 
         void DoExplosion()
