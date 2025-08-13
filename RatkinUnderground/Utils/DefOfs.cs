@@ -20,7 +20,7 @@ namespace RatkinUnderground
         public static JobDef RKU_EnterDrillingVehicle;
         public static JobDef RKU_AIEnterDrillingVehicle;
         public static JobDef RKU_AssistResearch;
-        public static JobDef RKU_EatMindspark;
+        public static JobDef RKU_EatSpecialMushroom;
         public static ThingDef RKU_Radio;
         public static IncidentDef RKU_Raid;
         public static SketchResolverDef RKU_DamageBuildingsAndRepair;
