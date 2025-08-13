@@ -275,5 +275,52 @@ namespace RatkinUnderground
             
             return lines;
         }
+
+        /// <summary>
+        /// 映射表
+        /// </summary>
+        public static class InspirationMapper
+        {
+
+            public static readonly Dictionary<SkillDef, InspirationDef[]> SkillToInspirationMap = BuildSkillToInspirationMap();
+
+            public static Dictionary<SkillDef, InspirationDef[]> BuildSkillToInspirationMap()
+            {
+                var map = new Dictionary<SkillDef, InspirationDef[]>();
+
+                void AddMapping(string skillDefName, params string[] inspirationDefNames)
+                {
+                    var sdef = DefDatabase<SkillDef>.GetNamedSilentFail(skillDefName);
+                    if (sdef == null)
+                    {
+                        Log.Warning($"InspirationMapper: 未找到 SkillDef '{skillDefName}'，跳过映射。");
+                        return;
+                    }
+
+                    var inspDefs = new List<InspirationDef>();
+                    foreach (var inspName in inspirationDefNames)
+                    {
+                        var idef = DefDatabase<InspirationDef>.GetNamedSilentFail(inspName);
+                        if (idef == null)
+                        {
+                            Log.Warning($"InspirationMapper: 未找到 InspirationDef '{inspName}'（对应 Skill '{skillDefName}'）。");
+                            continue;
+                        }
+                        inspDefs.Add(idef);
+                    }
+
+                    if (inspDefs.Count > 0)
+                        map[sdef] = inspDefs.ToArray();
+                }
+
+                AddMapping("Social", "Inspired_Trade", "Inspired_Recruitment");
+                AddMapping("Animals", "Inspired_Taming");
+                AddMapping("Medicine", "Inspired_Surgery");
+                AddMapping("Crafting", "Inspired_Creativity");
+                AddMapping("Construction", "Inspired_Creativity");
+                AddMapping("Artistic", "Inspired_Creativity");
+                return map;
+            }
+        }
     }
 }
