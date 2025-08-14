@@ -224,7 +224,7 @@ public class Dialog_RKU_Radio : Window, ITrader
         if (Widgets.ButtonText(new Rect(buttonX, buttonArea.y + 12f, buttonWidth, buttonHeight), "求救呼叫"))
         {
             // 触发紧急呼叫相关对话事件
-            RKU_DialogueManager.TriggerDialogueEvents(this, "emergency");
+            RKU_DialogueManager.ExecuteDialogueEvent(DefDatabase<RKU_DialogueEventDef>.GetNamed("RKU_EmergencyCall"),this);
             AddMessage("紧急呼叫已发送!");
         }
         buttonX += buttonWidth + 15f;
@@ -426,10 +426,9 @@ public class Dialog_RKU_Radio : Window, ITrader
         Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 80f, statusRect.width - 10f, 20f), $"● {PowerStatus}");
 
         string rationText = "阵营关系: 0";
-        var faction = Find.FactionManager?.FirstFactionOfDef(DefOfs.RKU_Faction);
-        if (faction != null)
+        if (GetRadioComponent() != null)
         {
-            rationText = $"阵营关系: {faction.PlayerGoodwill}";
+            rationText = $"阵营关系: {radioComponent.ralationshipGrade}";
         }
         Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 130f, statusRect.width - 10f, 20f), $"● {rationText}");
 

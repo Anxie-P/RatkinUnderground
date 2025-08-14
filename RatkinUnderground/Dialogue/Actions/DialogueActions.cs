@@ -12,10 +12,10 @@ namespace RatkinUnderground
         
         public override void ExecuteAction(Dialog_RKU_Radio radio)
         {
-            var faction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
-            if (faction != null)
+            var component = radio.GetRadioComponent();
+            if (component != null)
             {
-                faction.TryAffectGoodwillWith(Faction.OfPlayer, changeAmount);
+                component.ralationshipGrade += changeAmount;
             }
         }
     }
@@ -128,6 +128,24 @@ namespace RatkinUnderground
         public override void ExecuteAction(Dialog_RKU_Radio radio)
         {
             radio.AddMessage(message);
+        }
+    }
+
+    public class DialogueAction_SpawnTechprint : DialogueAction
+    {
+        public string researchDefName;
+        public int count = 1;
+        
+        public override void ExecuteAction(Dialog_RKU_Radio radio)
+        {
+            var map = radio.radio?.Map;
+            if (map == null) return;
+            
+            for (int i = 0; i < count; i++)
+            {
+                Thing techprint = ThingMaker.MakeThing(ResearchProjectDef.Named(researchDefName).Techprint);
+                GenPlace.TryPlaceThing(techprint, radio.radio.Position, map, ThingPlaceMode.Near);
+            }
         }
     }
 } 

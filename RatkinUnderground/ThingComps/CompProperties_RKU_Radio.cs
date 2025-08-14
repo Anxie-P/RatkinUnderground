@@ -125,6 +125,57 @@ public class Comp_RKU_Radio : ThingComp
                     }
                 }
             };
+
+            // 开发用Gizmo - 加满研究进度
+            yield return new Command_Action
+            {
+                defaultLabel = "加满研究进度",
+                defaultDesc = "将当前研究进度设置为上限",
+                icon = ContentFinder<Texture2D>.Get("RKU_Null"),
+                action = delegate
+                {
+                    var component = Current.Game.GetComponent<RKU_RadioGameComponent>();
+                    if (component != null)
+                    {
+                        component.researchProgress = RKU_RadioGameComponent.RESEARCH_PROGRESS_MAX;
+                        Messages.Message("研究进度已加满", MessageTypeDefOf.PositiveEvent);
+                    }
+                }
+            };
+
+            // 开发用Gizmo - 关系等级 +10
+            yield return new Command_Action
+            {
+                defaultLabel = "关系等级 +10",
+                defaultDesc = "增加游击队关系等级10点",
+                icon = ContentFinder<Texture2D>.Get("RKU_Null"),
+                action = delegate
+                {
+                    var component = Current.Game.GetComponent<RKU_RadioGameComponent>();
+                    if (component != null)
+                    {
+                        component.ralationshipGrade += 10;
+                        Messages.Message("关系等级已增加10点", MessageTypeDefOf.PositiveEvent);
+                    }
+                }
+            };
+
+            // 开发用Gizmo - 关系等级 -10
+            yield return new Command_Action
+            {
+                defaultLabel = "关系等级 -10",
+                defaultDesc = "减少游击队关系等级10点",
+                icon = ContentFinder<Texture2D>.Get("RKU_Null"),
+                action = delegate
+                {
+                    var component = Current.Game.GetComponent<RKU_RadioGameComponent>();
+                    if (component != null)
+                    {
+                        component.ralationshipGrade -= 10;
+                        Messages.Message("关系等级已减少10点", MessageTypeDefOf.PositiveEvent);
+                    }
+                }
+            };
         }
     }
 }

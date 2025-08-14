@@ -51,8 +51,6 @@ namespace RatkinUnderground
                     return dialogueEvent.triggerOnTrade;
                 case "scan":
                     return dialogueEvent.triggerOnScan;
-                case "emergency":
-                    return dialogueEvent.triggerOnEmergency;
                 default:
                     return string.IsNullOrEmpty(triggerType);
             }
@@ -60,6 +58,7 @@ namespace RatkinUnderground
         
         private static bool CheckConditions(RKU_DialogueEventDef dialogueEvent, Dialog_RKU_Radio radio)
         {
+            if (dialogueEvent.triggerNon) return false;
             foreach (var condition in dialogueEvent.conditions)
             {
                 if (!condition.CheckCondition(radio))
@@ -68,7 +67,7 @@ namespace RatkinUnderground
             return true;
         }
         
-        private static void ExecuteDialogueEvent(RKU_DialogueEventDef dialogueEvent, Dialog_RKU_Radio radio)
+        public static void ExecuteDialogueEvent(RKU_DialogueEventDef dialogueEvent, Dialog_RKU_Radio radio)
         {
             // 记录触发时间
             lastTriggerTimes[dialogueEvent.defName] = Find.TickManager.TicksGame;

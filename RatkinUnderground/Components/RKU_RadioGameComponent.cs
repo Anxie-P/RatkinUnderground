@@ -81,6 +81,11 @@ namespace RatkinUnderground
         public void AddResearchProgress(float points)
         {
             researchProgress = (float)Math.Round( Mathf.Min(researchProgress + points, RESEARCH_PROGRESS_MAX),2);
+            if (researchProgress >= RESEARCH_PROGRESS_MAX)
+            {
+                researchProgress = 0;
+                researchGrade++;
+            }
         }
 
         #endregion

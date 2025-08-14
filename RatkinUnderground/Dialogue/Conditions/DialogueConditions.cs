@@ -112,4 +112,30 @@ namespace RatkinUnderground
             return component.isWaitingForTrade == isWaiting;
         }
     }
+
+    public class DialogueCondition_ResearchGrade : DialogueCondition
+    {
+        public int requiredGrade;
+        
+        public override bool CheckCondition(Dialog_RKU_Radio radio)
+        {
+            var component = radio.GetRadioComponent();
+            return component != null && component.researchGrade == requiredGrade;
+        }
+    }
+
+    public class DialogueCondition_RelationshipGrade : DialogueCondition
+    {
+        public int minGrade;
+        public int maxGrade = 100;
+        
+        public override bool CheckCondition(Dialog_RKU_Radio radio)
+        {
+            var component = radio.GetRadioComponent();
+            if (component == null) return false;
+            
+            return component.ralationshipGrade >= minGrade && 
+                   component.ralationshipGrade <= maxGrade;
+        }
+    }
 } 

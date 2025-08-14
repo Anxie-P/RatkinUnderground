@@ -38,6 +38,18 @@ namespace RatkinUnderground
             research.defaultCompleteMode = ToilCompleteMode.Delay;
             research.defaultDuration = ResearchTicks;
             yield return research;
+
+            Toil checkProgress = new Toil();
+            checkProgress.initAction = () =>
+            {
+                var radioThing = job.targetA.Thing;
+                if (radioThing != null)
+                {
+                    var tempDialog = new Dialog_RKU_Radio(radioThing);
+                    RKU_DialogueManager.TriggerDialogueEvents(tempDialog, "research");
+                }
+            };
+            yield return checkProgress;
         }
 
         private float CalculateResearchPoints()
@@ -66,9 +78,11 @@ namespace RatkinUnderground
             if (t == null || t.IsForbidden(pawn) || !pawn.CanReserve(t, 1, -1, null, forced))
                 return false;
 
-            //在这加好感度判断和任务阶段判断，还没写
             if (pawn.WorkTypeIsDisabled(WorkTypeDefOf.Research))
                 return false;
+
+            var component = Current.Game.GetComponent<RKU_RadioGameComponent>();
+            if (component == null || component.ralationshipGrade <= 20) return false;
 
             return true;
         }

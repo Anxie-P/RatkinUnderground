@@ -13,9 +13,6 @@ namespace RatkinUnderground
         {
             return true;
         }
-
-
-
         protected override IEnumerable<Toil> MakeNewToils()
         {
 

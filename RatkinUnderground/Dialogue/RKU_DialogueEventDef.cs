@@ -33,7 +33,8 @@ namespace RatkinUnderground
         
         // 是否在紧急呼叫时触发
         public bool triggerOnEmergency = false;
-        
+
+        public bool triggerNon = false;//一般情况下不触发
         // 自定义触发条件
         public string customTriggerMethod;
     }

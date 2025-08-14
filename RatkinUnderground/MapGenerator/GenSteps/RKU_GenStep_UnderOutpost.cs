@@ -6,6 +6,7 @@ using Verse.Noise;
 using UnityEngine;
 using System.Linq;
 using RimWorld.BaseGen;
+using RimWorld.SketchGen;
 
 namespace RatkinUnderground
 {
@@ -16,17 +17,25 @@ namespace RatkinUnderground
 
         public override int SeedPart => 446845;
 
+        private SimpleCurve ruinSizeChanceCurve = new SimpleCurve
+        {
+            new CurvePoint(6f, 0f),
+            new CurvePoint(6.001f, 4f),
+            new CurvePoint(10f, 1f),
+            new CurvePoint(30f, 0f)
+        };
+
+        private bool clearSurroundingArea;
+
+        private float destroyChanceExp = 1.32f;
+
+        private bool mustBeStandable;
+
+        private bool canBeOnEdge;
+
         public override void Generate(Map map, GenStepParams parms)
         {
             if (map == null) return;
-
-            // 找到湖的中心点
-            IntVec3 lakeCenter = FindLakeCenter(map);
-            if (lakeCenter == IntVec3.Invalid) return;
-
-            // 从湖中心开始寻找可放置区域
-            bool[,] visited = new bool[map.Size.x, map.Size.z];
-            CellRect outpostRect = FindAreaFromLakeCenter(map, lakeCenter, visited);
 
             // 清除所有水体
             foreach (IntVec3 cell in map.AllCells)
@@ -34,51 +43,93 @@ namespace RatkinUnderground
                 if (cell.InBounds(map))
                 {
                     TerrainDef currentTerrain = cell.GetTerrain(map);
+                    List<TerrainDef> stoneFloors = new List<TerrainDef>
+            {
+                TerrainDef.Named("TileGranite"),
+                TerrainDef.Named("TileLimestone"),
+                TerrainDef.Named("TileMarble"),
+                TerrainDef.Named("TileSandstone"),
+                TerrainDef.Named("TileSlate")
+            };
                     if (currentTerrain == TerrainDefOf.WaterDeep || currentTerrain == TerrainDefOf.WaterShallow)
                     {
                         // 清除当前格子
                         ClearCell(map, cell);
-                        
-                        // 设置地形为混凝土
+                        TerrainDef randomFloor = stoneFloors.RandomElement();
                         map.terrainGrid.SetTerrain(cell, TerrainDefOf.Concrete);
                     }
                 }
             }
 
-            // 标记区域内的所有格子
-            MarkAreaCells(map, outpostRect, visited);
+            // 固定在地图中心生成
+            IntVec3 center = map.Center;
 
-            // 在区域边界添加沙袋
-            PlaceSandbagsOnBoundary(map, visited);
+            CellRect rect = CellRect.CenteredOn(center, OUTPOST_SIZE, OUTPOST_SIZE).ClipInsideMap(map);
 
-            // 在区域中心生成前哨站
-            GenerateOutpost(map, outpostRect, parms);
-        }
-
-        private void MarkAreaCells(Map map, CellRect rect, bool[,] visited)
-        {
-            int markedCount = 0;
-            for (int x = rect.minX; x <= rect.maxX; x++)
+            if (!CanPlaceAncientBuildingInRange(rect, map))
             {
-                for (int z = rect.minZ; z <= rect.maxZ; z++)
-                {
-                    IntVec3 cell = new IntVec3(x, 0, z);
-                    if (cell.InBounds(map))
-                    {
-                        TerrainDef currentTerrain = cell.GetTerrain(map);
-                        bool isWater = currentTerrain == TerrainDefOf.WaterDeep || currentTerrain == TerrainDefOf.WaterShallow;
-                        bool isNearShore = IsNearShore(map, cell);
+                return;
+            }
 
-                        // 标记不是水体且距离湖岸4格以内的格子
-                        if (!isWater && isNearShore)
+            RimWorld.SketchGen.ResolveParams parms2 = default(RimWorld.SketchGen.ResolveParams);
+            parms2.sketch = new Sketch();
+            parms2.monumentSize = new IntVec2(rect.Width, rect.Height);
+            parms2.destroyChanceExp = destroyChanceExp;
+            RimWorld.SketchGen.SketchGen.Generate(DefOfs.RKU_MonumentRuin, parms2).Spawn(map, rect.CenterCell, null, Sketch.SpawnPosType.Unchanged, Sketch.SpawnMode.Normal, wipeIfCollides: false, clearEdificeWhereFloor: false, null, dormant: false, buildRoofsInstantly: false, delegate (SketchEntity entity, IntVec3 cell)
+            {
+                IntVec3[] cardinalDirectionsAndInside = GenAdj.CardinalDirectionsAndInside;
+                foreach (IntVec3 intVec in cardinalDirectionsAndInside)
+                {
+                    if ((cell + intVec).InBounds(map))
+                    {
+                        Building edifice = (cell + intVec).GetEdifice(map);
+                        if (edifice != null && !edifice.Position.CloseToEdge(map, 3) && edifice.def.building.isNaturalRock)
                         {
-                            visited[x, z] = true;
-                            markedCount++;
+                            edifice.Destroy();
                         }
                     }
                 }
+
+                bool result = false;
+                foreach (IntVec3 adjacentCell in entity.OccupiedRect.AdjacentCells)
+                {
+                    IntVec3 c2 = cell + adjacentCell;
+                    if (c2.InBounds(map))
+                    {
+                        Building edifice2 = c2.GetEdifice(map);
+                        if (edifice2 == null || !edifice2.def.building.isNaturalRock)
+                        {
+                            result = true;
+                            break;
+                        }
+                    }
+                }
+                return result;
+            });
+        }
+
+        protected bool CanPlaceAncientBuildingInRange(CellRect rect, Map map)
+        {
+            foreach (IntVec3 cell in rect.Cells)
+            {
+                if (!canBeOnEdge && !cell.InBounds(map))
+                {
+                    return false;
+                }
+
+                TerrainDef terrainDef = map.terrainGrid.TerrainAt(cell);
+                if (terrainDef.HasTag("River") || terrainDef.HasTag("Road"))
+                {
+                    return false;
+                }
+
+                if (!GenConstruct.CanBuildOnTerrain(ThingDefOf.Wall, cell, map, Rot4.North))
+                {
+                    return false;
+                }
             }
-            Log.Message($"[RKU_UnderOutpost] Marked {markedCount} cells in area");
+
+            return true;
         }
 
         private void PlaceSandbagsOnBoundary(Map map, bool[,] visited)
@@ -138,7 +189,7 @@ namespace RatkinUnderground
                     {
                         // 清除当前格子
                         ClearCell(map, cell);
-                        
+
                         // 设置地形为混凝土
                         map.terrainGrid.SetTerrain(cell, TerrainDefOf.Concrete);
                     }
@@ -152,10 +203,10 @@ namespace RatkinUnderground
 
             // 检查地形是否支持重型建筑
             bool supportsHeavy = terrain.affordances.Contains(TerrainAffordanceDefOf.Heavy);
-            
+
             // 检查地形是否可站立
             bool isStandable = terrain.passability != Traversability.Impassable;
-            
+
             // 检查地形是否不是水体
             bool isNotWater = terrain != TerrainDefOf.WaterDeep && terrain != TerrainDefOf.WaterShallow;
 
@@ -269,40 +320,7 @@ namespace RatkinUnderground
             return false;
         }
 
-        private void GenerateOutpost(Map map, CellRect rect, GenStepParams parms)
-        {
-            // 获取派系
-            Faction faction = (map.ParentFaction != null && map.ParentFaction != Faction.OfPlayer) 
-                ? map.ParentFaction 
-                : Find.FactionManager.RandomEnemyFaction();
 
-            // 计算前哨站的实际位置（在区域中心）
-            int outpostX = rect.minX + (rect.Width - OUTPOST_SIZE) / 2;
-            int outpostZ = rect.minZ + (rect.Height - OUTPOST_SIZE) / 2;
-            CellRect outpostRect = new CellRect(outpostX, outpostZ, OUTPOST_SIZE, OUTPOST_SIZE);
-
-            // 设置生成参数
-            ResolveParams resolveParams = new ResolveParams
-            {
-                rect = outpostRect,
-                faction = faction,
-                edgeDefenseWidth = 2,
-                edgeDefenseTurretsCount = Rand.RangeInclusive(0, 1),
-                edgeDefenseMortarsCount = 0,
-                settlementDontGeneratePawns = false,
-                allowGeneratingThronerooms = true,
-            };
-
-            // 设置全局参数
-            BaseGen.globalSettings.map = map;
-            BaseGen.globalSettings.minBuildings = 2;
-            BaseGen.globalSettings.minBarracks = 1;
-            BaseGen.globalSettings.maxFarms = -1;
-
-            // 生成前哨站
-            BaseGen.symbolStack.Push("settlement", resolveParams);
-            BaseGen.Generate();
-        }
 
         private void ClearCell(Map map, IntVec3 cell)
         {
