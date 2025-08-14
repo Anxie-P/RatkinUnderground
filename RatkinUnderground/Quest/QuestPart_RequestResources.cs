@@ -56,9 +56,9 @@ namespace RatkinUnderground
                     result = IntVec3.Invalid;
                 }
             }
-                        
+
             // 创建LordJob_WaitForItemsAndReturn
-            var newLord = LordMaker.MakeNewLord(faction, new LordJob_WaitForItemsAndReturn(faction, result, target, thingDef, amount, outSignalItemsReceived, outSignalStartReturnToDrillingVehicle), base.Map);
+            var newLord = LordMaker.MakeNewLord(faction, new LordJob_WaitForItemsAndReturn(faction, result, target, thingDef, drillingVehicle, amount, outSignalItemsReceived, outSignalStartReturnToDrillingVehicle), base.Map);
             
             lordCreated = true; // 标记已创建
             return newLord;

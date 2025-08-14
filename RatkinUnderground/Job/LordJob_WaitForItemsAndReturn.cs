@@ -13,6 +13,7 @@ namespace RatkinUnderground
         private Faction faction;
         private Pawn target;
         private ThingDef thingDef;
+        private RKU_DrillingVehicleInEnemyMap drillingVehicle => Map.listerBuildings.allBuildingsNonColonist.Find(b => b is RKU_DrillingVehicleInEnemyMap) as RKU_DrillingVehicleInEnemyMap;
         private int amount;
         private string outSignalItemsReceived;
         private string outSignalStartReturnToDrillingVehicle;
@@ -21,7 +22,7 @@ namespace RatkinUnderground
         {
         }
 
-        public LordJob_WaitForItemsAndReturn(Faction faction, IntVec3 idleSpot, Pawn target, ThingDef thingDef, int amount, string outSignalItemsReceived, string outSignalStartReturnToDrillingVehicle)
+        public LordJob_WaitForItemsAndReturn(Faction faction, IntVec3 idleSpot, Pawn target, ThingDef thingDef, RKU_DrillingVehicleInEnemyMap drillingVehicle, int amount, string outSignalItemsReceived, string outSignalStartReturnToDrillingVehicle)
         {
             this.idleSpot = idleSpot;
             this.faction = faction;
@@ -52,31 +53,57 @@ namespace RatkinUnderground
             LordToil_WaitForReturnSignal waitForReturnSignal = new LordToil_WaitForReturnSignal();
             stateGraph.AddToil(waitForReturnSignal);
 
+            LordToil_FixDrill fixDrill = new(drillingVehicle);
+            stateGraph.AddToil(fixDrill);
+
+            
+
             // 从旅行状态转换到等待物品状态
             Transition transition = new Transition(lordToil_TravelAndWaitForItems, waitForItems);
             transition.AddTrigger(new Trigger_Memo("TravelArrived"));
             stateGraph.AddTransition(transition);
 
-            // 从等待物品状态转换到等待返回信号状态
-            Transition transition2 = new Transition(waitForItems, waitForReturnSignal);
+            // 从等待物品状态转换到修理钻机
+            Transition transition2 = new Transition(waitForItems, fixDrill);
             transition2.AddTrigger(new Trigger_Custom((TriggerSignal s) => 
             {
                 bool hasAllItems = waitForItems.HasAllRequestedItems;
                 return hasAllItems;
             }));
-            transition2.AddPostAction(new TransitionAction_EndAllJobs());
+            
+            stateGraph.AddTransition(transition2);
+
+            // 修完钻机到离开
+            Transition transitionFix = new Transition(fixDrill, waitForReturnSignal);
+            transitionFix.AddTrigger(new Trigger_Custom((TriggerSignal s) =>
+            {
+                if (drillingVehicle == null)
+                {
+                    Log.Message("drill为空");
+                    return false;
+                }
+                bool hitPoints = drillingVehicle.HitPoints >= drillingVehicle.MaxHitPoints;
+                return hitPoints;
+            }));
+            transitionFix.AddPostAction(new TransitionAction_EndAllJobs());
             if (!outSignalItemsReceived.NullOrEmpty())
             {
-                transition2.AddPostAction(new TransitionAction_Custom((Action)delegate
+                Log.Message("");
+            }
+            if (!outSignalItemsReceived.NullOrEmpty()/* &&
+                drillingVehicle.HitPoints >= drillingVehicle.MaxHitPoints*/)
+            {
+                transitionFix.AddPostAction(new TransitionAction_Custom((Action)delegate
                 {
+                    Log.Message($"[RKU] 发送信号: {outSignalItemsReceived}");
                     Find.SignalManager.SendSignal(new Signal(outSignalItemsReceived));
                 }));
             }
-            stateGraph.AddTransition(transition2);
+            stateGraph.AddTransition(transitionFix);
 
             // 从等待返回信号状态转换到离开地图状态
             Transition transition2_5 = new Transition(waitForReturnSignal, lordToil_ExitMap);
-            transition2_5.AddTrigger(new Trigger_Custom((TriggerSignal s) => 
+            transition2_5.AddTrigger(new Trigger_Custom((TriggerSignal s) =>
             {
                 // 首先检查是否已经等待了足够的时间
                 if (!waitForReturnSignal.HasWaitedLongEnough())
@@ -89,11 +116,15 @@ namespace RatkinUnderground
                 int pawnsInVehicle = 0;
                 int pawnsReturning = 0;
                 int totalPawns = 0;
-                
+
                 foreach (Pawn pawn in lord.ownedPawns)
                 {
                     if (pawn != null && !pawn.Dead)
                     {
+                        Log.Message($"pawnsInVehicle:{pawnsInVehicle}");
+                        Log.Message($"pawnsReturning:{pawnsReturning}");
+                        Log.Message($"totalPawns:{totalPawns}");
+                        Log.Message($"-----");
                         totalPawns++;
                         if (pawn.Spawned)
                         {
@@ -110,7 +141,7 @@ namespace RatkinUnderground
                         }
                     }
                 }
-                
+
                 // 如果所有pawn都离开了地图，或者至少有一个pawn正在返回，就允许转换
                 bool shouldTransition = (pawnsInVehicle + pawnsReturning) >= totalPawns;
                 return shouldTransition;
@@ -269,6 +300,7 @@ namespace RatkinUnderground
 
         public override void UpdateAllDuties()
         {
+            Log.Message("进入LordToil_WaitForReturnSignal");
             tickCounter = 0;
             foreach (Pawn pawn in lord.ownedPawns)
             {
@@ -285,6 +317,32 @@ namespace RatkinUnderground
         public bool HasWaitedLongEnough()
         {
             return tickCounter >= DELAY_TICKS;
+        }
+    }
+
+    // 修理钻机的状态
+    public class LordToil_FixDrill : LordToil
+    {
+        private RKU_DrillingVehicleInEnemyMap drillingVehicle;
+        public LordToil_FixDrill(RKU_DrillingVehicleInEnemyMap drillingVehicle)
+        {
+            this.drillingVehicle = drillingVehicle;
+        }
+        public override void UpdateAllDuties()
+        {
+            Log.Message("进入LordToil_FixDrill");
+            foreach (var p in lord.ownedPawns)
+            {
+                if (p == null) continue;
+                if (drillingVehicle == null)
+                {
+                    Log.Message("drill为空");
+                    return;
+                } 
+                Job job = JobMaker.MakeJob(JobDefOf.Repair, drillingVehicle);
+                p.jobs.StartJob(job, JobCondition.InterruptForced, null, resumeCurJobAfterwards: false);
+                return;
+            }
         }
     }
 } 
