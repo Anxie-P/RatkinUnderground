@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,13 +35,15 @@ namespace RatkinUnderground
             tick = 0;
 
             IEnumerable<Pawn> pawns = GenRadial.RadialDistinctThingsAround(parent.Position, parent.Map, Props.allureRadius, true).OfType<Pawn>();
-            foreach(var p in pawns)
+            foreach (var p in pawns)
             {
                 if (!p.RaceProps.Humanlike ||
+                    p.Drafted ||
                     p.CurJob.def == DefOfs.RKU_EatSpecialMushroom ||
+                    p.CurJob.def == JobDefOf.HarvestDesignated ||
+                    p.CurJob.def == JobDefOf.CutPlantDesignated ||
                     p.Downed ||
-                    p.InMentalState ||
-                    p.Dead) continue;
+                    p.InMentalState) continue;
                 if (p.IsColonist)
                 {
                     Messages.Message($"{p.Name.ToStringShort}正打算食用魅惑菇", MessageTypeDefOf.NegativeEvent);
@@ -57,7 +60,7 @@ namespace RatkinUnderground
             try
             {
                 MentalStateDef state = null;
-                while(state == null)
+                while (state == null)
                 {
                     var ele = Props.stateList.RandomElement();
                     state = DefDatabase<MentalStateDef>.GetNamed(ele, false);
