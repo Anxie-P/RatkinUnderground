@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -26,6 +27,14 @@ namespace RatkinUnderground
         ISpecialMushroom
     {
         int tick = 0;
+        int minMush = 3;
+        int maxMush = 15;
+        List<ThingDef> randomMush => DefDatabase<ThingDef>.AllDefsListForReading
+                                    .Where(td => td.ingestible != null &&
+                                                 td.ingestible.foodType == FoodTypeFlags.Fungus &&
+                                                 td.defName != "RKU_RawAllurecap" /*&&
+                                                 td.defName != "RKU_RawHatecap"*/)
+                                    .ToList();
         GasGrid gasGrid => new(parent.Map);
         List<IntVec3> cells => GenRadial.RadialCellsAround(parent.Position, Props.toxinRadius, true)
                               .Where(c => c.InBounds(parent.Map))
@@ -46,6 +55,21 @@ namespace RatkinUnderground
                 if (!p.RaceProps.Humanlike ||
                     p.Dead) continue;
                 SpawnToxGas();
+            }
+        }
+
+        public override void PostDeSpawn(Map map)
+        {
+            base.PostDeSpawn(map);
+
+            var typesCount = Rand.RangeInclusive(0, 3);
+            for (int i = 0; i < typesCount; i++)
+            {
+                var idx = Rand.RangeInclusive(0, randomMush.Count - 1);
+                var count = Rand.RangeInclusive(15, 75);
+                Thing mush = ThingMaker.MakeThing(randomMush[idx]);
+                mush.stackCount = count;
+                GenPlace.TryPlaceThing(mush, parent.Position, map, ThingPlaceMode.Near);
             }
         }
 

@@ -362,3 +362,8 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /RatkinUnderground/RatkinUnderground.csproj
+/RatkinUnderground/RatkinUnderground.csproj
+/.gitignore
+/.gitignore
+/.gitignore
+/RatkinUnderground/RatkinUnderground.csproj
