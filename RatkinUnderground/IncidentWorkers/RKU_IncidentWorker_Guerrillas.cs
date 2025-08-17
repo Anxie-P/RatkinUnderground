@@ -36,17 +36,31 @@ namespace RatkinUnderground
             hive.faction = faction;
             // hive.canMove = false;
             pawns.ForEach(p => hive.GetDirectlyHeldThings().TryAddOrTransfer(p));
-            var loc = Utils.FindRandomEdgeSpawnPosition(map);
+            IntVec3 loc;
+            if (!Utils.TryFindValidSpawnPosition(map, out loc))
+            {
+                return false;
+            }
+
             GenSpawn.Spawn(hive, loc, map, WipeMode.Vanish);
             bool isHostile = parms.faction.HostileTo(Faction.OfPlayer);
 
-            // 创建信件
-            LetterDef letterDef = isHostile ? LetterDefOf.ThreatSmall : LetterDefOf.PositiveEvent;
-            // 标题正文
-            string label = isHostile ? "游击队袭击" : "游击队救援";
-            string text = isHostile ? "袭击" : "救援";
-            Find.LetterStack.ReceiveLetter(label, text, letterDef, new GlobalTargetInfo(loc, map));
+            RKU_RadioGameComponent radioComponent = Current.Game.GetComponent<RKU_RadioGameComponent>();
 
+            // 根据关系等级确定事件类型
+            if (radioComponent != null && radioComponent.ralationshipGrade <= -25)
+            {
+                isHostile = true;
+                Faction rkuFaction = Find.FactionManager.FirstFactionOfDef(FactionDef.Named("RKU_Faction"));
+                if (rkuFaction != null)
+                {
+                    rkuFaction.SetRelationDirect(Faction.OfPlayer, FactionRelationKind.Hostile, false, null, null);
+                }
+            }
+            LetterDef letterDef = isHostile ? LetterDefOf.ThreatSmall : LetterDefOf.PositiveEvent;
+            string label = "鼠族隧道游击队";
+            string text = isHostile ? "侦测到地下活动，一支鼠族地下游击队正在进攻殖民地" : "侦测到地下活动，一支鼠族地下游击队正在赶来协助殖民地防守";
+            Find.LetterStack.ReceiveLetter(label, text, letterDef, new GlobalTargetInfo(loc, map));
             return true;
         }
 

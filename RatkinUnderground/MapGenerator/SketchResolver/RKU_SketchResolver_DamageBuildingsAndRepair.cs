@@ -42,76 +42,7 @@ namespace RatkinUnderground
                     }
                 }
             }
-
-            // 新添加的代码：从外向内扫描层，找到最多墙的层，并填充外层成封闭墙
-            int width = occupiedRect.Width;
-            int height = occupiedRect.Height;
-            int maxPossibleLayer = Mathf.Min(width / 2, height / 2);
-
-            Dictionary<int, List<IntVec3>> wallsByLayer = new Dictionary<int, List<IntVec3>>();
-            int maxWallLayer = 0;
-            int maxWallCount = 0;
-            int prevWallCount = 0;
-            bool foundMax = false;
-
-            for (int layer = 0; layer <= maxPossibleLayer && !foundMax; layer++)
-            {
-                List<IntVec3> layerWalls = new List<IntVec3>();
-                int wallCount = 0;
-
-                foreach (IntVec3 c in occupiedRect)
-                {
-                    int distToEdge = Mathf.Min(c.x - occupiedRect.minX, occupiedRect.maxX - c.x, c.z - occupiedRect.minZ, occupiedRect.maxZ - c.z);
-                    if (distToEdge == layer)
-                    {
-                        if (parms.sketch.ThingsAt(c).Any(t => t.def == ThingDefOf.Wall))
-                        {
-                            wallCount++;
-                            layerWalls.Add(c);
-                        }
-                    }
-                }
-
-                wallsByLayer[layer] = layerWalls;
-
-                if (wallCount > maxWallCount)
-                {
-                    maxWallCount = wallCount;
-                    maxWallLayer = layer;
-                }
-
-                if (layer > 0 && wallCount < prevWallCount)
-                {
-                    foundMax = true;
-                }
-
-                prevWallCount = wallCount;
-            }
-
-            // 现在填充从0到maxWallLayer的层成封闭墙
-            ThingDef wallStuff = GenStuff.RandomStuffFor(ThingDefOf.Wall); // 假设随机材料，调整如果需要
-            for (int layer = 0; layer <= maxWallLayer; layer++)
-            {
-                foreach (IntVec3 c in occupiedRect)
-                {
-                    int distToEdge = Mathf.Min(c.x - occupiedRect.minX, occupiedRect.maxX - c.x, c.z - occupiedRect.minZ, occupiedRect.maxZ - c.z);
-                    if (distToEdge == layer)
-                    {
-                        if (!parms.sketch.ThingsAt(c).Any(t => t.def == ThingDefOf.Wall))
-                        {
-                            // 移除现有实体
-                            foreach (var t in parms.sketch.ThingsAt(c).ToList())
-                            {
-                                parms.sketch.Remove(t);
-                            }
-                            parms.sketch.RemoveTerrain(c);
-
-                            // 添加墙
-                            parms.sketch.AddThing(ThingDefOf.Wall, c, Rot4.North, wallStuff, 1);
-                        }
-                    }
-                }
-            }
+            RepairWalls(parms.sketch);
         }
 
         private void ClearDisconnectedDoors(ResolveParams parms, IntVec3 position)
@@ -150,55 +81,163 @@ namespace RatkinUnderground
                 num = 1f - num;
             }
 
-            destroyed = false;
-
-            if (buildable is SketchTerrain sketchTerrain)
+            if (Rand.Chance(Mathf.Pow(num, destroyChanceExp ?? 1.32f)))
             {
-                // 对于地形，保持原销毁逻辑（使用概率）
-                if (Rand.Chance(Mathf.Pow(num, destroyChanceExp ?? 1.32f)))
+                //不摧毁
+                destroyed = true;
+                if (buildable is SketchTerrain sketchTerrain && sketchTerrain.def.burnedDef != null)
                 {
-                    sketch.Remove(buildable);
-                    destroyed = true;
-
-                    TerrainDef naturalTerrain = DefDatabase<ThingDef>.AllDefs.Where(d => d.IsStuff && d.building != null && d.building.isNaturalRock).RandomElement().building.naturalTerrain;
-                    if (naturalTerrain != null)
-                    {
-                        sketch.AddTerrain(naturalTerrain, sketchTerrain.pos);
-                    }
+                    sketch.AddTerrain(sketchTerrain.def.burnedDef, sketchTerrain.pos);
                 }
             }
-            else if (buildable is SketchThing sketchThing)
+            else
             {
-                // 计算hitPoints
-                int maxHp = sketchThing.MaxHitPoints;
-                int calculatedHp = Mathf.Clamp(Mathf.RoundToInt((float)maxHp * (1f - num) * Rand.Range(1f, 1.2f)), 1, maxHp);
-
-                if (calculatedHp < (int)(0.2f * maxHp))
+                destroyed = false;
+                if (buildable is SketchThing sketchThing)
                 {
                     if (sketchThing.def == ThingDefOf.Wall)
                     {
-                        // 用沙袋替换
-                        sketch.Remove(buildable);
-                        sketch.AddThing(ThingDefOf.Sandbags, buildable.pos, sketchThing.rot, ThingDefOf.Cloth);
-                        destroyed = true;
+                        // 只损坏墙的HP，但不移除
+                        sketchThing.hitPoints = Mathf.Clamp(Mathf.RoundToInt((float)sketchThing.MaxHitPoints * (1f - num) * Rand.Range(0.5f, 1f)), 1, sketchThing.MaxHitPoints);
                     }
                     else
                     {
-                        sketch.Remove(buildable);
-                        destroyed = true;
-                        // 添加naturalTerrain作为地板
-                        TerrainDef naturalTerrain = DefDatabase<ThingDef>.AllDefs.Where(d => d.IsStuff && d.building != null && d.building.isNaturalRock).RandomElement().building.naturalTerrain;
-                        if (naturalTerrain != null)
-                        {
-                            sketch.AddTerrain(naturalTerrain, buildable.pos);
-                        }
+                        sketchThing.hitPoints = Mathf.Clamp(Mathf.RoundToInt((float)sketchThing.MaxHitPoints * (1f - num) * Rand.Range(1f, 1.2f)), 1, sketchThing.MaxHitPoints);
                     }
                 }
-                else
+            }
+        }
+
+        private void RepairWalls(Sketch sketch)
+        {
+            CellRect rect = sketch.OccupiedRect;
+            int maxLayers = Mathf.Min(rect.Width, rect.Height) / 2;
+            int bestLayer = -1;
+            int maxWalls = 0;
+            List<IntVec3> bestPerimeter = null;
+
+            for (int layer = 0; layer <= maxLayers; layer++)
+            {
+                int minX = rect.minX + layer;
+                int maxX = rect.maxX - layer;
+                int minZ = rect.minZ + layer;
+                int maxZ = rect.maxZ - layer;
+
+                if (minX > maxX || minZ > maxZ) break;
+
+                List<IntVec3> perimeter = GetPerimeterCells(minX, maxX, minZ, maxZ);
+                int wallCount = 0;
+                foreach (var pos in perimeter)
                 {
-                    sketchThing.hitPoints = calculatedHp;
+                    if (sketch.ThingsAt(pos).Any(t => t.def == ThingDefOf.Wall))
+                        wallCount++;
+                }
+
+                if (wallCount > maxWalls)
+                {
+                    maxWalls = wallCount;
+                    bestLayer = layer;
+                    bestPerimeter = perimeter;
                 }
             }
+
+            if (bestPerimeter == null) return;
+
+            foreach (var pos in bestPerimeter)
+            {
+                if (!HasEdifice(sketch, pos))
+                {
+                    sketch.AddThing(ThingDefOf.Sandbags, pos, Rot4.North, ThingDefOf.Cloth, 1);
+                }
+            }
+
+            // 新添加：替换中心最近的建筑为篝火
+            ReplaceNearestEdificeWithCampfire(sketch);
+        }
+
+        private void ReplaceNearestEdificeWithCampfire(Sketch sketch)
+        {
+            IntVec3 center = sketch.OccupiedRect.CenterCell;
+           
+            // 移除中心原有建筑
+            sketch.Remove(sketch.EdificeAt(center));
+
+            // 添加篝火（中心位置）
+            sketch.AddThing(ThingDefOf.Campfire, center, Rot4.North, null, 1);
+
+            // 在篝火东侧和西侧并排放置两个睡袋
+            IntVec3 bedPos1 = center + IntVec3.East;  // 东侧睡袋
+            IntVec3 bedPos2 = center + IntVec3.West;  // 西侧睡袋
+
+            // 检查位置是否可用
+            if (!sketch.ThingsAt(bedPos1).Any())
+            {
+                sketch.AddThing(ThingDefOf.Bedroll, bedPos1, Rot4.South, ThingDefOf.Cloth, 1); // 朝南
+            }
+            else if (!sketch.ThingsAt(bedPos1 + IntVec3.North).Any()) // 如果东侧被占，尝试北移一格
+            {
+                sketch.AddThing(ThingDefOf.Bedroll, bedPos1 + IntVec3.North, Rot4.South, ThingDefOf.Cloth, 1);
+            }
+
+            if (!sketch.ThingsAt(bedPos2).Any())
+            {
+                sketch.AddThing(ThingDefOf.Bedroll, bedPos2, Rot4.South, ThingDefOf.Cloth, 1); // 朝南
+            }
+            else if (!sketch.ThingsAt(bedPos2 + IntVec3.North).Any()) // 如果西侧被占，尝试北移一格
+            {
+                sketch.AddThing(ThingDefOf.Bedroll, bedPos2 + IntVec3.North, Rot4.South, ThingDefOf.Cloth, 1);
+            }
+
+            ReplaceSarcophagiWithBedrolls(sketch);
+        }
+
+        private void ReplaceSarcophagiWithBedrolls(Sketch sketch)
+        {
+            List<SketchThing> sarcophagi = new List<SketchThing>();
+            foreach (SketchEntity entity in sketch.Things)
+            {
+                if (entity is SketchThing thing && thing.def == ThingDefOf.Sarcophagus)
+                {
+                    sarcophagi.Add(thing);
+                }
+            }
+
+            foreach (var sarc in sarcophagi)
+            {
+                IntVec3 pos = sarc.pos;
+                Rot4 rot = sarc.rot;
+                sketch.Remove(sarc);
+                // 添加布制睡袋（假设使用Bed Def）
+                sketch.AddThing(ThingDefOf.Bedroll, pos, rot, ThingDefOf.Cloth, 1);
+            }
+        }
+
+        private List<IntVec3> GetPerimeterCells(int minX, int maxX, int minZ, int maxZ)
+        {
+            List<IntVec3> cells = new List<IntVec3>();
+
+            // Top
+            for (int x = minX; x <= maxX; x++)
+                cells.Add(new IntVec3(x, 0, maxZ));
+
+            // Bottom
+            for (int x = minX; x <= maxX; x++)
+                cells.Add(new IntVec3(x, 0, minZ));
+
+            // Left (excluding corners)
+            for (int z = minZ + 1; z < maxZ; z++)
+                cells.Add(new IntVec3(minX, 0, z));
+
+            // Right (excluding corners)
+            for (int z = minZ + 1; z < maxZ; z++)
+                cells.Add(new IntVec3(maxX, 0, z));
+
+            return cells;
+        }
+
+        private bool HasEdifice(Sketch sketch, IntVec3 pos)
+        {
+            return sketch.ThingsAt(pos).Any(t => t.def.building != null && t.def.building.isEdifice);
         }
     }
 }

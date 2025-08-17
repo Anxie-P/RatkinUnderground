@@ -275,5 +275,115 @@ namespace RatkinUnderground
             
             return lines;
         }
+
+        public static void ClearArea(Sketch sketch, IntVec3 origin, int width, int height, Predicate<SketchEntity> filter = null)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                for (int z = 0; z < height; z++)
+                {
+                    IntVec3 pos = origin + new IntVec3(x, 0, z);
+
+                    foreach (var entity in sketch.ThingsAt(pos).ToList())
+                    {
+                        if (filter == null || !filter(entity))
+                        {
+                            sketch.Remove(entity);
+                        }
+                    }
+
+                    // 地形清理保持不变
+                    if (sketch.TerrainAt(pos) != null)
+                    {
+                        sketch.RemoveTerrain(pos);
+                    }
+                }
+            }
+        }
+
+        public static int GetRelationshipLevel(int relationshipValue)
+        {
+            if (relationshipValue <= -75) return -4;
+            if (relationshipValue <= -50) return -3;
+            if (relationshipValue <= -25) return -2;
+            if (relationshipValue < 0) return -1;
+            if (relationshipValue == 0) return 1;
+            if (relationshipValue < 25) return 1;
+            if (relationshipValue < 50) return 2;
+            if (relationshipValue < 75) return 3;
+            return 4; 
+        }
+
+
+        // 使用 CellFinder 寻找有效位置
+        public static bool TryFindValidSpawnPosition(Map map, out IntVec3 loc)
+        {
+            if (TryFindPlayerRoomPosition(map, out loc))
+            {
+                return true;
+            }
+
+            if (TryFindEdgePosition(map, out loc))
+            {
+                return true;
+            }
+            return CellFinder.TryFindRandomCellNear(map.Center, map, 30,
+                c => CanSpawnTunnelAt(c, map), out loc);
+        }
+
+        // 尝试在玩家房间内寻找有效位置
+        public static bool TryFindPlayerRoomPosition(Map map, out IntVec3 loc)
+        {
+            // 获取所有玩家拥有的房间
+            var playerRooms = map.regionGrid.allRooms
+                .Where(room =>  room.CellCount > 10) 
+                .ToList();
+
+            if (playerRooms.Count == 0)
+            {
+                loc = IntVec3.Invalid;
+                return false;
+            }
+
+            playerRooms.Shuffle();
+
+            foreach (var room in playerRooms)
+            {
+                if (CellFinder.TryFindRandomCellInRegion(room.FirstRegion, c => CanSpawnTunnelAt(c, map), out loc))
+                {
+                    return true;
+                }
+            }
+
+            loc = IntVec3.Invalid;
+            return false;
+        }
+
+        // 尝试在地图边缘寻找有效位置
+        public static bool TryFindEdgePosition(Map map, out IntVec3 loc)
+        {
+            // 尝试多个边缘位置
+            for (int i = 0; i < 30; i++)
+            {
+                loc = CellFinder.RandomEdgeCell(map);
+                if (CanSpawnTunnelAt(loc, map))
+                {
+                    return true;
+                }
+            }
+
+            loc = IntVec3.Invalid;
+            return false;
+        }
+
+        // 检查位置是否可以放置隧道
+        public static bool CanSpawnTunnelAt(IntVec3 cell, Map map)
+        {
+            return GenConstruct.CanPlaceBlueprintAt(DefOfs.RKU_TunnelHiveSpawner_Und, cell, Rot4.North,map) &&
+                   cell.Standable(map) &&
+                   !cell.Fogged(map) &&
+                   !cell.Roofed(map) && // 确保没有屋顶
+                   map.reachability.CanReachColony(cell); // 确保可以到达
+        }
     }
 }

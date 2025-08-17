@@ -27,6 +27,7 @@ public class Dialog_RKU_Radio : Window, ITrader
     private bool isTyping = false;
 
     // 电台状态字符串属性
+    public RKU_RadioGameComponent radioComponent => GetRadioComponent();
     public string RadioStatus { get; set; } = "在线";
     public string SignalQuality { get; set; } = "信号良好";
     public string PowerStatus { get; set; } = "电量充足";
@@ -48,12 +49,7 @@ public class Dialog_RKU_Radio : Window, ITrader
         this.closeOnClickedOutside = true;
 
         // 触发初始对话
-        AddMessage("电台已启动，正在监听信号...");
-        AddMessage("地下网络连接正常");
-        AddMessage(" ");
-
-        // 触发一般对话事件
-        RKU_DialogueManager.TriggerDialogueEvents(this);
+        RKU_DialogueManager.TriggerDialogueEvents(this, "startup");
     }
     #endregion
 
@@ -105,12 +101,27 @@ public class Dialog_RKU_Radio : Window, ITrader
         Widgets.DrawBoxSolid(avatarRect, Color.gray);
         Widgets.DrawBox(avatarRect, 2);
 
-        // 绘制头像图标
-        Texture2D avatarTex = ContentFinder<Texture2D>.Get("Things/Commander", false);
+        // 根据关系等级加载不同头像
+        Texture2D avatarTex = null;
+        if (radioComponent != null)
+        {
+            int relationshipLevel = Utils.GetRelationshipLevel(radioComponent.ralationshipGrade);
+            string texPath = $"Things/Commander_{relationshipLevel}";
+            avatarTex = ContentFinder<Texture2D>.Get(texPath, false);
+        }
+
+        // 如果未加载到关系头像，使用默认头像
+        if (avatarTex == null)
+        {
+            avatarTex = ContentFinder<Texture2D>.Get("Things/Commander_Default", false);
+        }
+
+        // 绘制头像
         if (avatarTex != null)
         {
             Widgets.DrawTextureFitted(avatarRect, avatarTex, 0.9f);
         }
+
         Rect dialogRect = new Rect(180f, 45f, inRect.width - 190f, 440f);
         Widgets.DrawBoxSolid(dialogRect, new Color(0.1f, 0.1f, 0.1f, 0.8f));
         Widgets.DrawBox(dialogRect, 2);
@@ -126,7 +137,7 @@ public class Dialog_RKU_Radio : Window, ITrader
         if (radioComp != null)
         {
             // 如果正在打字，不显示最后一条消息（因为它正在被特效显示）
-            int messageCount = isTyping ? 0: radioComp.MessageHistory.Count;
+            int messageCount = isTyping ? 0 : radioComp.MessageHistory.Count;
             if (messageCount > 0)
             {
                 string lastMessage = radioComp.MessageHistory[messageCount - 1];
@@ -157,7 +168,6 @@ public class Dialog_RKU_Radio : Window, ITrader
         float buttonHeight = 35f;
 
         // 交易信号按钮
-        var radioComponent = GetRadioComponent();
         string tradeButtonText = "交易信号";
         bool canClickTrade = true;
 
@@ -223,9 +233,16 @@ public class Dialog_RKU_Radio : Window, ITrader
         // 紧急呼叫按钮
         if (Widgets.ButtonText(new Rect(buttonX, buttonArea.y + 12f, buttonWidth, buttonHeight), "求救呼叫"))
         {
-            // 触发紧急呼叫相关对话事件
-            RKU_DialogueManager.ExecuteDialogueEvent(DefDatabase<RKU_DialogueEventDef>.GetNamed("RKU_EmergencyCall"),this);
             AddMessage("紧急呼叫已发送!");
+            var emergencyEvents = DefDatabase<RKU_DialogueEventDef>.AllDefs
+                .Where(e => e.defName.StartsWith("RKU_EmergencyCall"))
+                .ToList();
+
+            if (emergencyEvents.Count > 0)
+            {
+                RKU_DialogueEventDef randomEvent = emergencyEvents.RandomElement();
+                RKU_DialogueManager.ExecuteDialogueEvent(randomEvent, this);
+            }
         }
         buttonX += buttonWidth + 15f;
 
@@ -456,9 +473,9 @@ public class Dialog_RKU_Radio : Window, ITrader
                                         select x;
         foreach (Thing thing in radio.Map.listerThings.AllThings)
         {
-            if (thing.def.IsProcessedFood && 
+            if (thing.def.IsProcessedFood &&
                 !thing.IsForbidden(playerNegotiator) &&
-                !thing.Position.Fogged(radio.Map))  
+                !thing.Position.Fogged(radio.Map))
             {
                 yield return thing;
             }

@@ -131,7 +131,6 @@ namespace RatkinUnderground
 
         private TerrainDef TerrainFrom(IntVec3 c, Map map, float fertility, bool preferSolid)
         {
-            // 洞穴格子
             if (preferSolid)
             {
                 float noise = (float)fertilityNoise.GetValue(c.x, 0, c.z);
@@ -142,7 +141,6 @@ namespace RatkinUnderground
                     return TerrainDefOf.Gravel;
             }
 
-            // 非洞穴格子，按原逻辑
             if (fertility >= 0.6f)
                 return TerrainDefOf.SoilRich;
             else if (fertility >= 0.3f)

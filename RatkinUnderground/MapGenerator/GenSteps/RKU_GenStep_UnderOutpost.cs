@@ -7,12 +7,13 @@ using UnityEngine;
 using System.Linq;
 using RimWorld.BaseGen;
 using RimWorld.SketchGen;
+using Verse.AI.Group;
 
 namespace RatkinUnderground
 {
     public class RKU_GenStep_UnderOutpost : GenStep
     {
-        private const int OUTPOST_SIZE = 24; // 前哨站大小
+        private const int OUTPOST_SIZE = 18; // 前哨站大小
         private const int SHORE_DISTANCE = 3; // 湖岸距离改为4格
 
         public override int SeedPart => 446845;
@@ -56,7 +57,7 @@ namespace RatkinUnderground
                         // 清除当前格子
                         ClearCell(map, cell);
                         TerrainDef randomFloor = stoneFloors.RandomElement();
-                        map.terrainGrid.SetTerrain(cell, TerrainDefOf.Concrete);
+                        map.terrainGrid.SetTerrain(cell, GenStep_RocksFromGrid.RockDefAt(cell).building.naturalTerrain);
                     }
                 }
             }
@@ -106,6 +107,7 @@ namespace RatkinUnderground
                 }
                 return result;
             });
+            GenerateDrillingVehicleAndScouts(map, rect);
         }
 
         protected bool CanPlaceAncientBuildingInRange(CellRect rect, Map map)
@@ -320,6 +322,81 @@ namespace RatkinUnderground
             return false;
         }
 
+        private void GenerateDrillingVehicleAndScouts(Map map, CellRect rect)
+        {
+            IntVec3 center = rect.CenterCell;
+            IntVec3 vehiclePos = IntVec3.Invalid;
+            int minDistance = 5; // 最小距离中心5格
+            int maxRadius = Mathf.Max(rect.Width, rect.Height) / 2;
+
+            for (int radius = minDistance; radius <= maxRadius; radius++)
+            {
+                foreach (var dir in new[] { Rot4.East, Rot4.West })
+                {
+                    IntVec3 cell = center + dir.FacingCell * radius;
+                    if (cell.InBounds(map) && IsEmptyTwoCells(map, cell, dir))
+                    {
+                        vehiclePos = cell;
+                        break;
+                    }
+                }
+                if (vehiclePos.IsValid) break;
+                for (int x = -radius; x <= radius; x++)
+                {
+                    for (int z = -radius; z <= radius; z++)
+                    {
+                        if (Mathf.Abs(x) != radius && Mathf.Abs(z) != radius)
+                            continue;
+
+                        IntVec3 cell = center + new IntVec3(x, 0, z);
+                        if (cell.DistanceTo(center) < minDistance || !cell.InBounds(map))
+                            continue;
+
+                        if (IsEmptyTwoCells(map, cell, Rot4.North))
+                        {
+                            vehiclePos = cell;
+                            break;
+                        }
+                    }
+                    if (vehiclePos.IsValid) break;
+                }
+                if (vehiclePos.IsValid) break;
+            }
+
+            if (!vehiclePos.IsValid) return;
+
+            Thing vehicle = ThingMaker.MakeThing(DefOfs.RKU_DrillingVehicle);
+            GenSpawn.Spawn(vehicle, vehiclePos, map, Rot4.North); // 固定Rot4.North
+
+            List<Pawn> scouts = new List<Pawn>();
+            Faction faction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
+            for (int i = 0; i < 2; i++)
+            {
+                Pawn scout = PawnGenerator.GeneratePawn(DefOfs.RKU_Scout, faction);
+                IntVec3 spawnPos = CellFinder.RandomClosewalkCellNear(vehiclePos, map, 3);
+                GenSpawn.Spawn(scout, spawnPos, map);
+                scouts.Add(scout);
+            }
+            for (int i = 0; i < 1; i++)
+            {
+                Pawn scout = PawnGenerator.GeneratePawn(PawnKindDef.Named("RKU_Commissar"), faction);
+                IntVec3 spawnPos = CellFinder.RandomClosewalkCellNear(vehiclePos, map, 3);
+                GenSpawn.Spawn(scout, spawnPos, map);
+                scouts.Add(scout);
+            }
+
+            LordMaker.MakeNewLord(faction, new LordJob_DefendPoint(vehiclePos), map, scouts);
+        }
+
+
+        private bool IsEmptyTwoCells(Map map, IntVec3 pos, Rot4 dir)
+        {
+            IntVec3 next = pos + dir.FacingCell;
+            if (!next.InBounds(map)) return false;
+            return pos.Standable(map) && next.Standable(map) &&
+                   pos.GetEdifice(map) == null && next.GetEdifice(map) == null &&
+                   pos.GetFirstBuilding(map) == null && next.GetFirstBuilding(map) == null;
+        }
 
 
         private void ClearCell(Map map, IntVec3 cell)

@@ -329,7 +329,7 @@ namespace RatkinUnderground
             Faction faction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
             List<Pawn> pawns = new List<Pawn>();
             //队长
-            PawnGenerationRequest requestOfficer = new PawnGenerationRequest(PawnKindDef.Named("RKU_Officer"), faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: true);
+            PawnGenerationRequest requestOfficer = new PawnGenerationRequest(PawnKindDef.Named("RKU_Commissar"), faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: true);
             Pawn pawnOfficer = PawnGenerator.GeneratePawn(requestOfficer);
             slate.Set("captain", pawnOfficer);
             pawns.Add(pawnOfficer);

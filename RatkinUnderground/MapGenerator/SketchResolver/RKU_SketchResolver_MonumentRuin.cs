@@ -23,6 +23,7 @@ namespace RatkinUnderground
             if (parms2.allowedMonumentThings == null)
             {
                 parms2.allowedMonumentThings = new ThingFilter();
+                parms2.monumentOpen = false;
                 parms2.allowedMonumentThings.SetAllowAll(null, includeNonStorable: true);
             }
 

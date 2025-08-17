@@ -142,6 +142,9 @@
     <Reference Include="NVorbis">
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\NVorbis.dll</HintPath>
     </Reference>
+    <Reference Include="RatkinFaction">
+      <HintPath>..\..\..\..\..\..\workshop\content\294100\3036302713\1.6\Assemblies\RatkinFaction.dll</HintPath>
+    </Reference>
     <Reference Include="SRTS">
       <HintPath>..\..\..\..\..\..\workshop\content\294100\2878587061\v1.5\Assemblies\SRTS.dll</HintPath>
     </Reference>

@@ -24,17 +24,19 @@ namespace RatkinUnderground
         
         // 冷却时间
         public int cooldownTicks = 0;
-        
-        // 是否在交易时触发
+
+        // 启动时触发
+        public bool triggerOnStartup = false; 
+        // 交易时触发
         public bool triggerOnTrade = false;
         
-        // 是否在扫描时触发
+        // 扫描时触发
         public bool triggerOnScan = false;
         
-        // 是否在紧急呼叫时触发
+        // 紧急呼叫时触发
         public bool triggerOnEmergency = false;
 
-        public bool triggerNon = false;//一般情况下不触发
+        public bool triggerNon = false;//一般情况下不触发，用于特定事件的调用def触发
         // 自定义触发条件
         public string customTriggerMethod;
     }

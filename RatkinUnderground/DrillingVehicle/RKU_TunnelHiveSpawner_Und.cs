@@ -44,10 +44,10 @@ namespace RatkinUnderground
             
             var lordJob = new RKU_GuerrillaAction(drill);
             LordMaker.MakeNewLord(
-                faction,   // Lord 所属派系
-                lordJob,         // 上面 new 出来的 LordJob
-                map,             // 当前地图
-                toSpawn          // 这一批要纳入 Lord 管理的 Pawn 列表
+                faction,  
+                lordJob,       
+                map,          
+                toSpawn       
             );
             foreach (var p in toSpawn)
             {

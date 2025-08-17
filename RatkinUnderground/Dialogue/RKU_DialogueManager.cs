@@ -10,29 +10,37 @@ namespace RatkinUnderground
     {
         private static Dictionary<string, int> lastTriggerTimes = new Dictionary<string, int>();
         private static HashSet<string> triggeredOnceEvents = new HashSet<string>();
-        
+
         public static void TriggerDialogueEvents(Dialog_RKU_Radio radio, string triggerType = "")
         {
+            // 获取所有符合条件的对话事件
             var allEvents = DefDatabase<RKU_DialogueEventDef>.AllDefs
                 .Where(e => ShouldTriggerEvent(e, triggerType))
-                .OrderBy(e => e.priority)
                 .ToList();
-            
-            foreach (var dialogueEvent in allEvents)
+
+            // 按优先级分组并随机排序相同优先级的事件
+            var groupedEvents = allEvents
+                .GroupBy(e => e.priority)
+                .OrderBy(g => g.Key) 
+                .Select(g => g.OrderBy(e => Rand.Range(0, 10000)))
+                .SelectMany(g => g);
+
+            // 遍历所有事件，找到第一个满足条件的执行
+            foreach (var dialogueEvent in groupedEvents)
             {
                 if (CheckConditions(dialogueEvent, radio))
                 {
                     ExecuteDialogueEvent(dialogueEvent, radio);
-                    break; 
+                    break;
                 }
             }
         }
-        
+
         private static bool ShouldTriggerEvent(RKU_DialogueEventDef dialogueEvent, string triggerType)
         {
             if (dialogueEvent.triggerOnce && triggeredOnceEvents.Contains(dialogueEvent.defName))
                 return false;
-            
+
             // 检查冷却时间
             if (dialogueEvent.cooldownTicks > 0)
             {
@@ -43,7 +51,7 @@ namespace RatkinUnderground
                         return false;
                 }
             }
-            
+
             // 检查触发类型
             switch (triggerType)
             {
@@ -51,11 +59,13 @@ namespace RatkinUnderground
                     return dialogueEvent.triggerOnTrade;
                 case "scan":
                     return dialogueEvent.triggerOnScan;
+                case "startup": 
+                    return dialogueEvent.triggerOnStartup;
                 default:
                     return string.IsNullOrEmpty(triggerType);
             }
         }
-        
+
         private static bool CheckConditions(RKU_DialogueEventDef dialogueEvent, Dialog_RKU_Radio radio)
         {
             if (dialogueEvent.triggerNon) return false;
@@ -66,19 +76,17 @@ namespace RatkinUnderground
             }
             return true;
         }
-        
+
         public static void ExecuteDialogueEvent(RKU_DialogueEventDef dialogueEvent, Dialog_RKU_Radio radio)
         {
             // 记录触发时间
             lastTriggerTimes[dialogueEvent.defName] = Find.TickManager.TicksGame;
-            
-            // 标记为已触发（对于一次性事件）
+
             if (dialogueEvent.triggerOnce)
                 triggeredOnceEvents.Add(dialogueEvent.defName);
-            
-            // 添加对话消息
+
             radio.AddMessage(dialogueEvent.dialogueText);
-            
+
             // 执行动作
             foreach (var action in dialogueEvent.actions)
             {
@@ -92,21 +100,21 @@ namespace RatkinUnderground
                 }
             }
         }
-        
+
         // 重置所有触发状态（用于调试或重新开始游戏）
         public static void ResetAllTriggers()
         {
             lastTriggerTimes.Clear();
             triggeredOnceEvents.Clear();
         }
-        
+
         // 检查特定事件是否可以触发
         public static bool CanTriggerEvent(string eventDefName, Dialog_RKU_Radio radio)
         {
             var dialogueEvent = DefDatabase<RKU_DialogueEventDef>.GetNamed(eventDefName, false);
             if (dialogueEvent == null) return false;
-            
+
             return ShouldTriggerEvent(dialogueEvent, "") && CheckConditions(dialogueEvent, radio);
         }
     }
-} 
+}
