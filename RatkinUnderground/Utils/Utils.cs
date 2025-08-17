@@ -275,7 +275,6 @@ namespace RatkinUnderground
             
             return lines;
         }
-
         public static void ClearArea(Sketch sketch, IntVec3 origin, int width, int height, Predicate<SketchEntity> filter = null)
         {
             for (int x = 0; x < width; x++)
@@ -311,7 +310,7 @@ namespace RatkinUnderground
             if (relationshipValue < 25) return 1;
             if (relationshipValue < 50) return 2;
             if (relationshipValue < 75) return 3;
-            return 4; 
+            return 4;
         }
 
 
@@ -336,7 +335,7 @@ namespace RatkinUnderground
         {
             // 获取所有玩家拥有的房间
             var playerRooms = map.regionGrid.allRooms
-                .Where(room =>  room.CellCount > 10) 
+                .Where(room => room.CellCount > 10)
                 .ToList();
 
             if (playerRooms.Count == 0)
@@ -379,11 +378,60 @@ namespace RatkinUnderground
         // 检查位置是否可以放置隧道
         public static bool CanSpawnTunnelAt(IntVec3 cell, Map map)
         {
-            return GenConstruct.CanPlaceBlueprintAt(DefOfs.RKU_TunnelHiveSpawner_Und, cell, Rot4.North,map) &&
+            return GenConstruct.CanPlaceBlueprintAt(DefOfs.RKU_TunnelHiveSpawner_Und, cell, Rot4.North, map) &&
                    cell.Standable(map) &&
                    !cell.Fogged(map) &&
                    !cell.Roofed(map) && // 确保没有屋顶
                    map.reachability.CanReachColony(cell); // 确保可以到达
         }
     }
+    /// <summary>
+    /// 映射表
+    /// </summary>
+    public static class InspirationMapper
+        {
+
+            public static readonly Dictionary<SkillDef, InspirationDef[]> SkillToInspirationMap = BuildSkillToInspirationMap();
+
+            public static Dictionary<SkillDef, InspirationDef[]> BuildSkillToInspirationMap()
+            {
+                var map = new Dictionary<SkillDef, InspirationDef[]>();
+
+                void AddMapping(string skillDefName, params string[] inspirationDefNames)
+                {
+                    var sdef = DefDatabase<SkillDef>.GetNamedSilentFail(skillDefName);
+                    if (sdef == null)
+                    {
+                        Log.Warning($"InspirationMapper: 未找到 SkillDef '{skillDefName}'，跳过映射。");
+                        return;
+                    }
+
+                    var inspDefs = new List<InspirationDef>();
+                    foreach (var inspName in inspirationDefNames)
+                    {
+                        var idef = DefDatabase<InspirationDef>.GetNamedSilentFail(inspName);
+                        if (idef == null)
+                        {
+                            Log.Warning($"InspirationMapper: 未找到 InspirationDef '{inspName}'（对应 Skill '{skillDefName}'）。");
+                            continue;
+                        }
+                        inspDefs.Add(idef);
+                    }
+
+                    if (inspDefs.Count > 0)
+                        map[sdef] = inspDefs.ToArray();
+                }
+
+                AddMapping("Social", "Inspired_Trade", "Inspired_Recruitment");
+                AddMapping("Animals", "Inspired_Taming");
+                AddMapping("Medicine", "Inspired_Surgery");
+                AddMapping("Crafting", "Inspired_Creativity");
+                AddMapping("Construction", "Inspired_Creativity");
+                AddMapping("Artistic", "Inspired_Creativity");
+                return map;
+            }
+        }
+    }
+}
+}
 }

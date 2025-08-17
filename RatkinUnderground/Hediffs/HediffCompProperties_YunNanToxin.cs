@@ -46,7 +46,7 @@ namespace RatkinUnderground
             var ele = stateList.RandomElement();
             MentalStateDef state = DefDatabase<MentalStateDef>.GetNamed(ele, false);
             if (state == null) return;
-            parent.pawn.mindState.mentalStateHandler.TryStartMentalState(state, $"芸南幻觉:{state.defName.Translate()}", forceWake: true);
+            parent.pawn.mindState.mentalStateHandler.TryStartMentalState(state, $"芸南幻觉:{state.label.Translate()}", forceWake: true);
             Log.Message($"{parent.pawn}已进入{state.defName}状态");
         }
     }
