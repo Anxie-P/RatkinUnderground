@@ -150,11 +150,22 @@ namespace RatkinUnderground
         {
             public ThingDef requestedThing;
             public int requestedAmount;
+            public bool isSend = false;
 
             protected override void DelayFinished()
             {
+                if (isSend) return;
                 string message = $"游击队正在等待你提供 {requestedThing?.label ?? "资源"}。请尽快帮助他们修理钻机。";
                 Find.LetterStack.ReceiveLetter("游击队等待支援", message, LetterDefOf.NeutralEvent);
+                isSend = true;
+            }
+
+            public override void ExposeData()
+            {
+                base.ExposeData();
+                Scribe_Defs.Look(ref requestedThing, "requestedThing");
+                Scribe_Values.Look(ref requestedAmount, "requestedAmount");
+                Scribe_Values.Look(ref isSend, "isSend", false);
             }
         }
 
@@ -298,7 +309,7 @@ namespace RatkinUnderground
             {
                 base.ExposeData();
                 Scribe_Values.Look(ref inSignal, "inSignal");
-                Scribe_Collections.Look(ref pawns, "pawns", LookMode.Deep);
+                Scribe_Collections.Look(ref pawns, "pawns", LookMode.Reference);
                 Scribe_References.Look(ref captain, "captain");
                 Scribe_References.Look(ref mapParent, "mapParent");
                 Scribe_Values.Look(ref outSignalArrived, "outSignalArrived");
@@ -332,6 +343,8 @@ namespace RatkinUnderground
             PawnGenerationRequest requestOfficer = new PawnGenerationRequest(PawnKindDef.Named("RKU_Commissar"), faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: true);
             Pawn pawnOfficer = PawnGenerator.GeneratePawn(requestOfficer);
             slate.Set("captain", pawnOfficer);
+            Thing researchReward = ThingMaker.MakeThing(ThingDef.Named("Techprint_RKU_UndergroundGuerrillaEquipments"));
+            pawnOfficer.inventory?.innerContainer.TryAdd(researchReward);
             pawns.Add(pawnOfficer);
             //侦察兵
             for (int i = 0; i < numPawns; i++)
@@ -339,6 +352,14 @@ namespace RatkinUnderground
                 PawnGenerationRequest request = new PawnGenerationRequest(kind, faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: true);
                 Pawn pawn = PawnGenerator.GeneratePawn(request);
                 pawns.Add(pawn);
+            }
+
+            // 添加受伤检测组件
+            foreach (var p in pawns)
+            {
+                Comp_RecordDamage comp = (Comp_RecordDamage)Activator.CreateInstance(typeof(Comp_RecordDamage));
+                comp.parent = p;
+                p.AllComps.Add(comp);
             }
 
             string arrivedSignal = QuestGen.GenerateNewSignal("GuerrillasArrived");
