@@ -71,7 +71,7 @@ namespace RatkinUnderground
                 bool hasAllItems = waitForItems.HasAllRequestedItems;
                 return hasAllItems;
             }));
-            
+
             stateGraph.AddTransition(transition2);
 
             // 修完钻机到离开

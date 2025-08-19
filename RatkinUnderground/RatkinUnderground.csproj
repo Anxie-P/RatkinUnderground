@@ -79,7 +79,6 @@
     <Compile Include="Quest\QuestPart_CheckGuerrillas.cs" />
     <Compile Include="Quest\QuestPart_RequestResources.cs" />
     <Compile Include="Quest\QuestPart_TrackPawnsStatus.cs" />
-    <Compile Include="Quest\QuestPawnWatcher.cs" />
     <Compile Include="ThingClass\RKU_DrillingCargoPodBullet.cs" />
     <Compile Include="ThingClass\RKU_DrillingCargoPod.cs" />
     <Compile Include="ThingClass\RKU_BunkerBuster.cs" />

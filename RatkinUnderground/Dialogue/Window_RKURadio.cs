@@ -50,6 +50,7 @@ public class Dialog_RKU_Radio : Window, ITrader
 
         // 触发初始对话
         RKU_DialogueManager.TriggerDialogueEvents(this, "startup");
+        Log.Message("RKU_RadioDialog initialized with radio: " + (radio != null ? radio.def.defName : "null"));
     }
     #endregion
 

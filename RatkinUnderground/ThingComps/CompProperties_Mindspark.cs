@@ -68,7 +68,7 @@ namespace RatkinUnderground
             InspirationDef chosenInspiration = null;
             foreach (var skillDef in topSkillDefs)
             {
-                if (Utils.InspirationMapper.SkillToInspirationMap.TryGetValue(skillDef, out var insps)
+                if (InspirationMapper.SkillToInspirationMap.TryGetValue(skillDef, out var insps)
                     && insps != null && insps.Length > 0)
                 {
                     // 记录并退出循环

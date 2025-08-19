@@ -390,7 +390,7 @@ namespace RatkinUnderground
     /// </summary>
     public static class InspirationMapper
         {
-
+            
             public static readonly Dictionary<SkillDef, InspirationDef[]> SkillToInspirationMap = BuildSkillToInspirationMap();
 
             public static Dictionary<SkillDef, InspirationDef[]> BuildSkillToInspirationMap()
@@ -430,8 +430,5 @@ namespace RatkinUnderground
                 AddMapping("Artistic", "Inspired_Creativity");
                 return map;
             }
-        }
     }
-}
-}
 }
