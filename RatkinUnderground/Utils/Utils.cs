@@ -135,13 +135,13 @@ namespace RatkinUnderground
             List<IntVec3> edgeCells = new List<IntVec3>();
             for (int x = 0; x < map.Size.x; x++)
             {
-                edgeCells.Add(new IntVec3(x, 0, 0)); 
-                edgeCells.Add(new IntVec3(x, 0, map.Size.z - 1)); 
+                edgeCells.Add(new IntVec3(x, 0, 0));
+                edgeCells.Add(new IntVec3(x, 0, map.Size.z - 1));
             }
             for (int z = 0; z < map.Size.z; z++)
             {
-                edgeCells.Add(new IntVec3(0, 0, z)); 
-                edgeCells.Add(new IntVec3(map.Size.x - 1, 0, z)); 
+                edgeCells.Add(new IntVec3(0, 0, z));
+                edgeCells.Add(new IntVec3(map.Size.x - 1, 0, z));
             }
             return edgeCells.Where(cell => cell.InBounds(map) && cell.Standable(map)).RandomElement();
         }
@@ -153,13 +153,13 @@ namespace RatkinUnderground
             int searchRadius = 20;
 
             List<IntVec3> validCells = new List<IntVec3>();
-            
+
             for (int x = centerX - searchRadius; x <= centerX + searchRadius; x++)
             {
                 for (int z = centerZ - searchRadius; z <= centerZ + searchRadius; z++)
                 {
                     IntVec3 cell = new IntVec3(x, 0, z);
-                    if (cell.InBounds(map) && 
+                    if (cell.InBounds(map) &&
                         cell.Standable(map))
                     {
                         validCells.Add(cell);
@@ -232,7 +232,7 @@ namespace RatkinUnderground
                 {
                     if (candidate.InBounds(map) &&
                         IsValidSpawnPosition(candidate, map) &&
-                        map.reachability.CanReachNonLocal(cell, new TargetInfo(defaultPos, map), PathEndMode.OnCell, TraverseMode.PassDoors, Danger.Deadly)) 
+                        map.reachability.CanReachNonLocal(cell, new TargetInfo(defaultPos, map), PathEndMode.OnCell, TraverseMode.PassDoors, Danger.Deadly))
                     {
                         return candidate;
                     }
@@ -242,7 +242,7 @@ namespace RatkinUnderground
             // 找到不到生成点了，生成到中心跟你们爆了
             return defaultPos;
         }
-        
+
         /// <summary>
         /// 将长文本按指定长度分割成多行
         /// </summary>
@@ -252,19 +252,19 @@ namespace RatkinUnderground
         public static List<string> SplitMessageIntoLines(string message, int maxCharsPerLine = 30)
         {
             var lines = new List<string>();
-            
+
             if (string.IsNullOrEmpty(message))
             {
                 return lines;
             }
-            
+
             // 如果消息长度小于等于最大长度，直接返回
             if (message.Length <= maxCharsPerLine)
             {
                 lines.Add(message);
                 return lines;
             }
-            
+
             // 分割长消息
             for (int i = 0; i < message.Length; i += maxCharsPerLine)
             {
@@ -272,7 +272,7 @@ namespace RatkinUnderground
                 string line = message.Substring(i, length);
                 lines.Add(line);
             }
-            
+
             return lines;
         }
         public static void ClearArea(Sketch sketch, IntVec3 origin, int width, int height, Predicate<SketchEntity> filter = null)
@@ -384,11 +384,11 @@ namespace RatkinUnderground
                    !cell.Roofed(map) && // 确保没有屋顶
                    map.reachability.CanReachColony(cell); // 确保可以到达
         }
-    }
-    /// <summary>
-    /// 映射表
-    /// </summary>
-    public static class InspirationMapper
+
+        /// <summary>
+        /// 映射表
+        /// </summary>
+        public static class InspirationMapper
         {
 
             public static readonly Dictionary<SkillDef, InspirationDef[]> SkillToInspirationMap = BuildSkillToInspirationMap();
@@ -432,6 +432,4 @@ namespace RatkinUnderground
             }
         }
     }
-}
-}
 }

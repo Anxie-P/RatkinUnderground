@@ -44,6 +44,7 @@
     <Compile Include="DrillingVehicle\Dialog_ManagePassengers.cs" />
     <Compile Include="DrillingVehicle\RKU_DrillingVehicleInEnemyMap_Und.cs" />
     <Compile Include="IncidentWorkers\RKU_IncidentWorker_Guerrillas.cs" />
+    <Compile Include="Job\JobDriver_EatSpecialMushroom.cs" />
     <Compile Include="Job\JobDriver_EnterDrillingVehicle.cs" />
     <Compile Include="DrillingVehicle\RKU_DrilingBullet.cs" />
     <Compile Include="DrillingVehicle\RKU_DrillingVehicle.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="IncidentWorkers\RKU_IncidentWorker_BuildMap.cs" />
     <Compile Include="Job\RKU_AssistResearchJob.cs" />
     <Compile Include="Job\RKU_GuerrillaAction.cs" />
+    <Compile Include="MapGenerator\GenSteps\RKU_GenStep_GuerrillasOutpost.cs" />
     <Compile Include="MapGenerator\GenSteps\RKU_GenStep_ElevationFertility.cs" />
     <Compile Include="MapGenerator\GenSteps\RKU_GenStep_FairyRing.cs" />
     <Compile Include="MapGenerator\GenSteps\RKU_GenStep_Flesh.cs" />
@@ -72,6 +74,9 @@
     <Compile Include="PawnGroupMaker\RKU_PawnGroupKindWorker.cs" />
     <Compile Include="Job\LordJob_WaitForItemsAndReturn.cs" />
     <Compile Include="Job\LordJob_WaitForResources.cs" />
+    <Compile Include="Quest\QuestNode_RKU_GetSitePartDefsByTagsAndFaction.cs" />
+    <Compile Include="Quest\QuestNode_RKU_GetPawnByFactionDef.cs" />
+    <Compile Include="Quest\QuestNode_RKU_GetFactionByDef.cs" />
     <Compile Include="Quest\QuestNode_RKU_GuerrillasComing.cs" />
     <Compile Include="Quest\QuestPart_CheckPawnsEntered.cs" />
     <Compile Include="Quest\QuestPart_DrillingVehicleDeparture.cs" />
@@ -84,12 +89,16 @@
     <Compile Include="ThingClass\RKU_BunkerBusterBullet.cs" />
     <Compile Include="ThingClass\RKU_Panjandrum.cs" />
     <Compile Include="ThingClass\RKU_PanjandrumBullet.cs" />
+    <Compile Include="ThingComps\CompProperties_Allurecap.cs" />
+    <Compile Include="ThingComps\CompProperties_Hatecap.cs" />
     <Compile Include="ThingComps\CompProperties_KillDreadmeld.cs" />
+    <Compile Include="ThingComps\CompProperties_Mindspark.cs" />
     <Compile Include="ThingComps\RKU_YunNanBullet.cs" />
     <Compile Include="Dialogue\Window_RKURadio.cs" />
     <Compile Include="ThingComps\CompProperties_RKU_Radio.cs" />
     <Compile Include="ThingComps\CompProperties_SingularitycapBoomber.cs" />
     <Compile Include="ThingComps\CompProperties_RKU_LanternCompProperties.cs" />
+    <Compile Include="Utils\ISpecialMushroom.cs" />
     <Compile Include="Utils\ModExtentions.cs" />
     <Compile Include="Patches\RKU_DrillingVehiclePatch.cs" />
     <Compile Include="DrillingVehicle\RKU_TunnelHiveSpawner.cs" />
