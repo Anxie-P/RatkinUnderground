@@ -4,6 +4,7 @@ using Verse;
 using Verse.AI;
 using Verse.AI.Group;
 using System.Collections.Generic;
+using static UnityEngine.GraphicsBuffer;
 
 namespace RatkinUnderground
 {
@@ -70,7 +71,7 @@ namespace RatkinUnderground
                 bool hasAllItems = waitForItems.HasAllRequestedItems;
                 return hasAllItems;
             }));
-            
+
             stateGraph.AddTransition(transition2);
 
             // 修完钻机到离开
@@ -174,6 +175,7 @@ namespace RatkinUnderground
 
         public override void ExposeData()
         {
+            base.ExposeData();
             Scribe_References.Look(ref target, "target");
             Scribe_References.Look(ref faction, "faction");
             Scribe_Values.Look(ref idleSpot, "idleSpot");

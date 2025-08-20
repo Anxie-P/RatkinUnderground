@@ -31,6 +31,7 @@ namespace RatkinUnderground
                 if (CheckConditions(dialogueEvent, radio))
                 {
                     ExecuteDialogueEvent(dialogueEvent, radio);
+                    Log.Message($"符合条件的：{dialogueEvent}");
                     break;
                 }
             }
@@ -79,11 +80,16 @@ namespace RatkinUnderground
 
         public static void ExecuteDialogueEvent(RKU_DialogueEventDef dialogueEvent, Dialog_RKU_Radio radio)
         {
+            Log.Message("已执行ExecuteDialogueEvent");
             // 记录触发时间
             lastTriggerTimes[dialogueEvent.defName] = Find.TickManager.TicksGame;
 
             if (dialogueEvent.triggerOnce)
+            {
                 triggeredOnceEvents.Add(dialogueEvent.defName);
+                Log.Message($"已执行添加{dialogueEvent.defName}");
+            }
+                
 
             radio.AddMessage(dialogueEvent.dialogueText);
 

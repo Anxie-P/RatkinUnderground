@@ -64,6 +64,7 @@ namespace RatkinUnderground
         #region 好感度相关
 
         public int ralationshipGrade = 0;
+        public bool isFinal = false;
 
         #endregion
 
@@ -100,6 +101,7 @@ namespace RatkinUnderground
             Scribe_Values.Look(ref researchProgress, "researchProgress", 0);
             Scribe_Values.Look<byte>(ref researchGrade, "researchGrade", 0);
             Scribe_Values.Look(ref ralationshipGrade, "ralationshipGrade", 0);
+            Scribe_Values.Look(ref isFinal, "isFinal", false);
         }
     }
 } 
