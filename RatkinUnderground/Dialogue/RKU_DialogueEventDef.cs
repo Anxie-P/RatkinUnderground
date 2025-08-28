@@ -36,6 +36,9 @@ namespace RatkinUnderground
         // 紧急呼叫时触发
         public bool triggerOnEmergency = false;
 
+        // 研究时触发
+        public bool triggerOnResearch = false;
+
         public bool triggerNon = false;//一般情况下不触发，用于特定事件的调用def触发
         // 自定义触发条件
         public string customTriggerMethod;

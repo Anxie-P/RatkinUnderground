@@ -76,6 +76,8 @@ namespace RatkinUnderground
                     return dialogueEvent.triggerOnScan;
                 case "startup": 
                     return dialogueEvent.triggerOnStartup;
+                case "research":
+                    return dialogueEvent.triggerOnResearch;
                 default:
                     return string.IsNullOrEmpty(triggerType);
             }

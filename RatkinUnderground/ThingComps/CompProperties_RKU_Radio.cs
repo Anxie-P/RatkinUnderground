@@ -80,6 +80,7 @@ public class Comp_RKU_Radio : ThingComp
             defaultLabel = "RKU.OpenRadio".Translate(),
             defaultDesc = "RKU.OpenRadioDesc".Translate(),
             icon = Resources.dig,
+            hotKey = KeyBindingDefOf.Misc1,
             action = delegate
             {
                 Find.WindowStack.Add(new Dialog_RKU_Radio(parent));
@@ -139,6 +140,23 @@ public class Comp_RKU_Radio : ThingComp
                     {
                         component.researchProgress = RKU_RadioGameComponent.RESEARCH_PROGRESS_MAX;
                         Messages.Message("研究进度已加满", MessageTypeDefOf.PositiveEvent);
+                    }
+                }
+            };
+
+            // 开发用Gizmo - 研究进度加一半
+            yield return new Command_Action
+            {
+                defaultLabel = "研究进度加一半",
+                defaultDesc = "将当前研究进度加一半",
+                icon = ContentFinder<Texture2D>.Get("RKU_Null"),
+                action = delegate
+                {
+                    var component = Current.Game.GetComponent<RKU_RadioGameComponent>();
+                    if (component != null)
+                    {
+                        component.researchProgress = RKU_RadioGameComponent.RESEARCH_PROGRESS_MAX / 2;
+                        Messages.Message("研究进度已加一半", MessageTypeDefOf.PositiveEvent);
                     }
                 }
             };

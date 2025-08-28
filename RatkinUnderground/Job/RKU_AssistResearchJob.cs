@@ -9,6 +9,7 @@ namespace RatkinUnderground
     {
         private const int ResearchTicks = 2500;
         private Comp_RKU_Radio RadioComp => TargetThingA.TryGetComp<Comp_RKU_Radio>();
+        private RKU_RadioGameComponent component => Current.Game.GetComponent<RKU_RadioGameComponent>();
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
@@ -23,7 +24,11 @@ namespace RatkinUnderground
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell);
 
             Toil research = new Toil();
-            research.initAction = () => pawn.pather.StopDead();
+            research.initAction = () =>
+            {
+                pawn.pather.StopDead();
+                component.isSearch = true;      // 设置为正在研究状态
+            };
             research.tickAction = () =>
             {
                 pawn.rotationTracker.FaceTarget(job.targetA);
@@ -37,6 +42,7 @@ namespace RatkinUnderground
             research.FailOnCannotTouch(TargetIndex.A, PathEndMode.InteractionCell);
             research.defaultCompleteMode = ToilCompleteMode.Delay;
             research.defaultDuration = ResearchTicks;
+            research.AddFinishAction(() => component.isSearch = false);     // 关闭正在研究状态
             yield return research;
 
             Toil checkProgress = new Toil();

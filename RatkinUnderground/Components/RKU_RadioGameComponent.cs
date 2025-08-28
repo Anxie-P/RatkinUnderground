@@ -23,7 +23,7 @@ namespace RatkinUnderground
         // 事件相关
         public HashSet<string> triggeredOnceEvents = new HashSet<string>();
         public Dictionary<string, int> lastTriggerTimes = new Dictionary<string, int>();
-        public bool isOpenOnce = false;  // 第一次打开
+        public bool isSearch = false;  // 开始研究
 
         public RKU_RadioGameComponent(Game game) { }
        
@@ -107,7 +107,7 @@ namespace RatkinUnderground
             Scribe_Values.Look<byte>(ref researchGrade, "researchGrade", 0);
             Scribe_Values.Look(ref ralationshipGrade, "ralationshipGrade", 0);
             Scribe_Values.Look(ref isFinal, "isFinal", false);
-            Scribe_Values.Look(ref isOpenOnce, "isOpenOnce", false);
+            Scribe_Values.Look(ref isSearch, "isSearch", false);
             Scribe_Collections.Look(ref triggeredOnceEvents, "RKU_triggeredOnceList", LookMode.Value);
             Scribe_Collections.Look(ref lastTriggerTimes, "lastTriggerTimes", LookMode.Value);
         }

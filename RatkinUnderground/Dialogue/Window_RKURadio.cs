@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using RimWorld;
+using SRTS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,8 @@ public class Dialog_RKU_Radio : Window, ITrader
 
     private List<Rect> rects = new List<Rect>();   // 所有按钮实例 
     private List<RKU_RadioButton> buttons = new();
+    private HashSet<string> triggers = new();
+    private string randTrigger = "startup";
 
     public Dialog_RKU_Radio(Thing radio)
     {
@@ -50,9 +53,17 @@ public class Dialog_RKU_Radio : Window, ITrader
         this.forcePause = false;
         this.absorbInputAroundWindow = true;
         this.closeOnClickedOutside = true;
+        triggers.Clear();
 
+        if (radioComponent.isSearch) triggers.Add("research");
+        if (Rand.Range(0, 100) < 50 &&
+            triggers.Count > 0)
+        {
+            randTrigger = triggers.RandomElement();
+        }
+        Log.Message($"触发的trigger:{randTrigger}");
         // 触发初始对话
-        RKU_DialogueManager.TriggerDialogueEvents(this, "startup");
+        RKU_DialogueManager.TriggerDialogueEvents(this, randTrigger);
     }
     #endregion
 
