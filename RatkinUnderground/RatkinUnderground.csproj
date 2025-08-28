@@ -74,6 +74,7 @@
     <Compile Include="Patches\MentalStateHandlerTick_Patch.cs" />
     <Compile Include="Patches\PawnGroupMaker_Patch.cs" />
     <Compile Include="Patches\RemoveMapPatch.cs" />
+    <Compile Include="Patches\RKU_SiteMakerHelperPatch.cs" />
     <Compile Include="PawnGroupMaker\RKU_PawnGroupKindWorker.cs" />
     <Compile Include="Job\LordJob_WaitForItemsAndReturn.cs" />
     <Compile Include="Job\LordJob_WaitForResources.cs" />
@@ -158,6 +159,10 @@
     </Reference>
     <Reference Include="RatkinFaction">
       <HintPath>..\..\..\..\..\..\workshop\content\294100\3036302713\1.6\Assemblies\RatkinFaction.dll</HintPath>
+    </Reference>
+    <Reference Include="RJW">
+      <HintPath>D:\Steam\steamapps\common\RimWorld\1.5rjw\rjw-master\1.5\Assemblies\RJW.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="SRTS">
       <HintPath>..\..\..\..\..\..\workshop\content\294100\2878587061\v1.5\Assemblies\SRTS.dll</HintPath>
