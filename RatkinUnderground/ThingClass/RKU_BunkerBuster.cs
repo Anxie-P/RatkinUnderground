@@ -14,13 +14,11 @@ namespace RatkinUnderground
         {
             if (mode == DestroyMode.KillFinalize)
             {
-                // 生成一个模拟弹丸，仅用于“投射”
                 var bullet = ThingMaker.MakeThing(DefOfs.RKU_BunkerBusterBullet) as Projectile;
                 if (bullet != null)
                 {
                     GenSpawn.Spawn(bullet, Position, Map);
 
-                    // 调用 Launch 强制其立即命中当前位置，并触发爆炸
                     bullet.Launch(
                         launcher: this,
                         usedTarget: new LocalTargetInfo(Position),
