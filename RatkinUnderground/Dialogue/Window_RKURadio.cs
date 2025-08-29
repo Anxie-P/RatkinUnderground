@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using RimWorld;
+using SRTS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,11 @@ public class Dialog_RKU_Radio : Window, ITrader
     private bool hasTraded = false; // 标记是否发生了实际交易
     private bool tradeInProgress = false; // 一次运货
 
+    private List<Rect> rects = new List<Rect>();   // 所有按钮实例 
+    private List<RKU_RadioButton> buttons = new();
+    private HashSet<string> triggers = new();
+    private string randTrigger = "startup";
+
     public Dialog_RKU_Radio(Thing radio)
     {
         this.radio = radio;
@@ -47,10 +53,17 @@ public class Dialog_RKU_Radio : Window, ITrader
         this.forcePause = false;
         this.absorbInputAroundWindow = true;
         this.closeOnClickedOutside = true;
+        triggers.Clear();
 
+        if (radioComponent.isSearch) triggers.Add("research");
+        if (Rand.Range(0, 100) < 50 &&
+            triggers.Count > 0)
+        {
+            randTrigger = triggers.RandomElement();
+        }
+        Log.Message($"触发的trigger:{randTrigger}");
         // 触发初始对话
-        RKU_DialogueManager.TriggerDialogueEvents(this, "startup");
-        Log.Message("RKU_RadioDialog initialized with radio: " + (radio != null ? radio.def.defName : "null"));
+        RKU_DialogueManager.TriggerDialogueEvents(this, randTrigger);
     }
     #endregion
 
@@ -164,41 +177,78 @@ public class Dialog_RKU_Radio : Window, ITrader
         Widgets.DrawBoxSolid(buttonArea, new Color(0.15f, 0.15f, 0.15f, 0.9f));
         Widgets.DrawBox(buttonArea, 1);
 
+        Thing thing = new();
+        
         float buttonX = 10f;
         float buttonWidth = 140f;
         float buttonHeight = 35f;
 
-        // 交易信号按钮
+        RKU_RadioButton tradeButton = new(buttons, "交易信号", true, null, new Rect(buttonX, buttonArea.y + 12f, buttonWidth, buttonHeight));
+        buttonX += buttonWidth + 15f;
+        RKU_RadioButton scanButton = new(buttons, "扫描信号", true, null, new Rect(buttonX, buttonArea.y + 12f, buttonWidth, buttonHeight));
+        buttonX += buttonWidth + 15f;
+        RKU_RadioButton rescueButton = new(buttons, "求救呼叫", true, null, new Rect(buttonX, buttonArea.y + 12f, buttonWidth, buttonHeight));
+
+        /*// 交易信号按钮
         string tradeButtonText = "交易信号";
         bool canClickTrade = true;
 
+        // 扫描信号按钮
+        string scanButtonText = "交易信号";
+        bool canClickscan = true;
+
+        string DisableReason = null;*/
+
         if (radioComponent != null)
         {
+            // 交易检测
             if (!tradeInProgress && radioComponent.IsWaitingForTrade)
             {
-                tradeButtonText = $"等待交易... ({radioComponent.GetRemainingTradeTime()})";
-                canClickTrade = false;
+                tradeButton.buttonText = $"等待交易... ({radioComponent.GetRemainingTradeTime()})";
+                tradeButton.canClick = false;
             }
             else if (tradeReady)
             {
-                tradeButtonText = "开始交易";
-                canClickTrade = true;
+                tradeButton.buttonText = "开始交易";
+                tradeButton.canClick = true;
             }
             else if (!radioComponent.canTrade)
             {
-                tradeButtonText = "交易冷却中";
-                canClickTrade = false;
+                tradeButton.buttonText = "交易冷却中";
+                tradeButton.canClick = false;
+            }
+            else if (radioComponent.ralationshipGrade < 20)
+            {
+                tradeButton.buttonText = "<color=#808080>交易信号</color>";
+                tradeButton.failReason = "至少需要20的好感才能进行交易";
+                tradeButton.canClick = false;
             }
             else
             {
-                tradeButtonText = "交易信号";
-                canClickTrade = true;
+                tradeButton.buttonText = "交易信号";
+                tradeButton.canClick = true;
+            }
+
+            // 扫描检测
+            if (radioComponent.ralationshipGrade < 40)
+            {
+                scanButton.buttonText = "<color=#808080>扫描信号</color>";
+                scanButton.failReason = "至少需要40的好感才能进行扫描";
+                scanButton.canClick = false;
+            }
+
+            // 救援检测
+            if (radioComponent.ralationshipGrade < 60)
+            {
+                rescueButton.buttonText = "<color=#808080>求救呼叫</color>";
+                rescueButton.failReason = "至少需要60的好感才能进行求救";
+                rescueButton.canClick = false;
             }
         }
 
-        if (Widgets.ButtonText(new Rect(buttonX, buttonArea.y + 12f, buttonWidth, buttonHeight), tradeButtonText))
+        if (Widgets.ButtonText(tradeButton.rect, tradeButton.buttonText))
         {
-            if (canClickTrade)
+            if (tradeButton.canClick)
             {
                 if (tradeReady)
                 {
@@ -214,44 +264,52 @@ public class Dialog_RKU_Radio : Window, ITrader
                 {
                     // 触发交易信号相关对话事件
                     RKU_DialogueManager.TriggerDialogueEvents(this, "trade");
-
                     // 发送交易信号
                     StartTradeSignal();
                 }
             }
         }
-        buttonX += buttonWidth + 15f;
+        //buttonX += buttonWidth + 15f;
 
         // 扫描信号按钮
-        if (Widgets.ButtonText(new Rect(buttonX, buttonArea.y + 12f, buttonWidth, buttonHeight), "扫描地图"))
+        if (Widgets.ButtonText(scanButton.rect, scanButton.buttonText))
         {
-            // 触发扫描相关对话事件
-            RKU_DialogueManager.TriggerDialogueEvents(this, "scan");
-            AddMessage("开始扫描信号...");
-        }
-        buttonX += buttonWidth + 15f;
-
-        // 紧急呼叫按钮
-        if (Widgets.ButtonText(new Rect(buttonX, buttonArea.y + 12f, buttonWidth, buttonHeight), "求救呼叫"))
-        {
-            AddMessage("紧急呼叫已发送!");
-            var emergencyEvents = DefDatabase<RKU_DialogueEventDef>.AllDefs
-                .Where(e => e.defName.StartsWith("RKU_EmergencyCall"))
-                .ToList();
-
-            if (emergencyEvents.Count > 0)
+            if (scanButton.canClick)
             {
-                RKU_DialogueEventDef randomEvent = emergencyEvents.RandomElement();
-                RKU_DialogueManager.ExecuteDialogueEvent(randomEvent, this);
+                // 触发扫描相关对话事件
+                RKU_DialogueManager.TriggerDialogueEvents(this, "scan");
+                AddMessage("开始扫描信号...");
             }
         }
-        buttonX += buttonWidth + 15f;
+        //buttonX += buttonWidth + 15f;
+
+        // 紧急呼叫按钮
+        if (Widgets.ButtonText(rescueButton.rect, rescueButton.buttonText))
+        {
+            if (rescueButton.canClick)
+            {
+                AddMessage("紧急呼叫已发送!");
+                var emergencyEvents = DefDatabase<RKU_DialogueEventDef>.AllDefs
+                    .Where(e => e.defName.StartsWith("RKU_EmergencyCall"))
+                    .ToList();
+
+                if (emergencyEvents.Count > 0)
+                {
+                    RKU_DialogueEventDef randomEvent = emergencyEvents.RandomElement();
+                    RKU_DialogueManager.ExecuteDialogueEvent(randomEvent, this);
+                }
+            }
+        }
+        //buttonX += buttonWidth + 15f;
 
         // 添加自定义关闭按钮
         if (Widgets.ButtonText(new Rect(inRect.width - 80f, buttonArea.y + 12f, 70f, buttonHeight), "关闭"))
         {
             this.Close();
         }
+
+        // 绘制失败提示
+        DrawFailReason(buttons);
     }
     #endregion
 
@@ -461,6 +519,21 @@ public class Dialog_RKU_Radio : Window, ITrader
 
     }
 
+    /// <summary>
+    /// 绘制选项失败原因提示
+    /// </summary>
+    /// <param name="canClick"></param>
+    /// <param name="rects"></param>
+    /// <param name="tradeDisableReason"></param>
+    void DrawFailReason(List<RKU_RadioButton> buttons)
+    {
+        
+        foreach (var button in buttons)
+        {
+            if (button.canClick && string.IsNullOrEmpty(button.failReason)) continue;
+            TooltipHandler.TipRegion(button.rect, button.failReason);
+        }
+    }
 
     #region ITrader接口方法实现
 
@@ -582,5 +655,24 @@ public class Dialog_RKU_Radio : Window, ITrader
     }
     #endregion
 
-
 }
+
+#region 按钮类
+public class RKU_RadioButton
+{
+    public string buttonText;
+    public bool canClick = true;
+    public string failReason = null;
+    public Rect rect = new();
+
+    public RKU_RadioButton() { }
+    public RKU_RadioButton(List<RKU_RadioButton> targetList, string buttonText, bool canClick = true, string failReason = null, Rect rect = default)
+    {
+        this.buttonText = buttonText;
+        this.canClick = canClick;
+        this.failReason = failReason;
+        this.rect = rect;
+        targetList?.Add(this);
+    }
+}
+#endregion

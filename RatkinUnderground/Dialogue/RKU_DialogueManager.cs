@@ -8,8 +8,9 @@ namespace RatkinUnderground
 {
     public class RKU_DialogueManager
     {
-        private static Dictionary<string, int> lastTriggerTimes = new Dictionary<string, int>();
-        private static HashSet<string> triggeredOnceEvents = new HashSet<string>();
+        //private static Dictionary<string, int> lastTriggerTimes = new Dictionary<string, int>();
+        //private static HashSet<string> triggeredOnceEvents = new HashSet<string>();
+        private static RKU_RadioGameComponent comp => Current.Game.GetComponent<RKU_RadioGameComponent>();
 
         public static void TriggerDialogueEvents(Dialog_RKU_Radio radio, string triggerType = "")
         {
@@ -17,7 +18,7 @@ namespace RatkinUnderground
             var allEvents = DefDatabase<RKU_DialogueEventDef>.AllDefs
                 .Where(e => ShouldTriggerEvent(e, triggerType))
                 .ToList();
-
+            
             // 按优先级分组并随机排序相同优先级的事件
             var groupedEvents = allEvents
                 .GroupBy(e => e.priority)
@@ -25,13 +26,26 @@ namespace RatkinUnderground
                 .Select(g => g.OrderBy(e => Rand.Range(0, 10000)))
                 .SelectMany(g => g);
 
-            // 遍历所有事件，找到第一个满足条件的执行
             foreach (var dialogueEvent in groupedEvents)
             {
                 if (CheckConditions(dialogueEvent, radio))
                 {
-                    ExecuteDialogueEvent(dialogueEvent, radio);
                     Log.Message($"符合条件的：{dialogueEvent}");
+                }
+            }
+
+            foreach (var ban in comp.triggeredOnceEvents)
+            {
+                Log.Message($"已经播放过的：{ban}");
+            }
+
+            // 遍历所有事件，找到第一个满足条件的执行
+            foreach (var first in groupedEvents)
+            {
+                if (CheckConditions(first, radio))
+                {
+                    ExecuteDialogueEvent(first, radio);
+                    Log.Message($"第一个符合条件的：{first}");
                     break;
                 }
             }
@@ -39,14 +53,14 @@ namespace RatkinUnderground
 
         private static bool ShouldTriggerEvent(RKU_DialogueEventDef dialogueEvent, string triggerType)
         {
-            if (dialogueEvent.triggerOnce && triggeredOnceEvents.Contains(dialogueEvent.defName))
+            if (dialogueEvent.triggerOnce && comp.triggeredOnceEvents.Contains(dialogueEvent.defName))
                 return false;
 
             // 检查冷却时间
             if (dialogueEvent.cooldownTicks > 0)
             {
                 int currentTick = Find.TickManager.TicksGame;
-                if (lastTriggerTimes.TryGetValue(dialogueEvent.defName, out int lastTrigger))
+                if (comp.lastTriggerTimes.TryGetValue(dialogueEvent.defName, out int lastTrigger))
                 {
                     if (currentTick - lastTrigger < dialogueEvent.cooldownTicks)
                         return false;
@@ -62,6 +76,8 @@ namespace RatkinUnderground
                     return dialogueEvent.triggerOnScan;
                 case "startup": 
                     return dialogueEvent.triggerOnStartup;
+                case "research":
+                    return dialogueEvent.triggerOnResearch;
                 default:
                     return string.IsNullOrEmpty(triggerType);
             }
@@ -80,13 +96,12 @@ namespace RatkinUnderground
 
         public static void ExecuteDialogueEvent(RKU_DialogueEventDef dialogueEvent, Dialog_RKU_Radio radio)
         {
-            Log.Message("已执行ExecuteDialogueEvent");
             // 记录触发时间
-            lastTriggerTimes[dialogueEvent.defName] = Find.TickManager.TicksGame;
+            comp.lastTriggerTimes[dialogueEvent.defName] = Find.TickManager.TicksGame;
 
             if (dialogueEvent.triggerOnce)
             {
-                triggeredOnceEvents.Add(dialogueEvent.defName);
+                comp.triggeredOnceEvents.Add(dialogueEvent.defName);
                 Log.Message($"已执行添加{dialogueEvent.defName}");
             }
                 
@@ -110,8 +125,8 @@ namespace RatkinUnderground
         // 重置所有触发状态（用于调试或重新开始游戏）
         public static void ResetAllTriggers()
         {
-            lastTriggerTimes.Clear();
-            triggeredOnceEvents.Clear();
+            comp.lastTriggerTimes.Clear();
+            comp.triggeredOnceEvents.Clear();
         }
 
         // 检查特定事件是否可以触发
