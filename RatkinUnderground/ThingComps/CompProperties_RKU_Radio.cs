@@ -23,7 +23,7 @@ public class Comp_RKU_Radio : ThingComp
 {
     // 消息历史记录
     private List<string> messageHistory = new List<string>();
-    private const int MAX_MESSAGE_HISTORY = 50; // 最大保存50条消息
+    private const int MAX_MESSAGE_HISTORY = 50;
 
     public List<string> MessageHistory => messageHistory;
 
@@ -73,8 +73,6 @@ public class Comp_RKU_Radio : ThingComp
         {
             yield return gizmo;
         }
-
-        // 添加打开电台对话窗口的按钮
         yield return new Command_Action
         {
             defaultLabel = "RKU.OpenRadio".Translate(),

@@ -53,6 +53,14 @@ namespace RatkinUnderground
                 return false;
             }
 
+            foreach (Map playerMap in Find.Maps.Where(m => m.IsPlayerHome))
+            {
+                if (playerMap.listerThings.ThingsOfDef(DefOfs.RKU_Radio).Any())
+                {
+                    return false;
+                }
+            }
+
             return true;
         }
 

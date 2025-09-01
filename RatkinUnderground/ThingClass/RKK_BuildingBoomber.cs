@@ -1,6 +1,7 @@
 ﻿using RimWorld;
 using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace RatkinUnderground
 {
@@ -9,7 +10,6 @@ namespace RatkinUnderground
         private bool useHighTexture = true;
         private int textureSwitchTicks = 0;
         private int explosionCountdown = 1440; // 24秒
-
         public override Graphic Graphic
         {
             get
@@ -27,13 +27,25 @@ namespace RatkinUnderground
             }
         }
 
+        public override void PostMake()
+        {
+            base.PostMake();
+            SoundDef.Named("RKU_BombSet").PlayOneShot(new TargetInfo(Position, Map));
+        }
+
         public override void Tick()
         {
             base.Tick();
             if (!Spawned) return;
 
+            // 循环播放音效（每隔一段时间播放一次）
+            if (Find.TickManager.TicksGame % 35 == 0) 
+            {
+                SoundDef.Named("RKU_BombLoop").PlayOneShot(new TargetInfo(Position, Map));
+            }
+
             textureSwitchTicks++;
-            if (textureSwitchTicks >= 120) 
+            if (textureSwitchTicks >= 120)
             {
                 textureSwitchTicks = 0;
                 useHighTexture = !useHighTexture;
@@ -42,7 +54,7 @@ namespace RatkinUnderground
                 {
                     Map.mapDrawer.MapMeshDirty(
                         Position,
-                        MapMeshFlagDefOf.Things, 
+                        MapMeshFlagDefOf.Things,
                         regenAdjacentCells: false,
                         regenAdjacentSections: false
                     );
@@ -58,14 +70,20 @@ namespace RatkinUnderground
 
         private void Explode()
         {
+
             GenExplosion.DoExplosion(
                 Position,
                 Map,
                 10f,
-                DamageDefOf.Extinguish,
+                DamageDefOf.Vaporize,
                 instigator: this
             );
             Destroy();
+        }
+
+        public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
+        {
+            base.Destroy(mode);
         }
 
         public override void ExposeData()

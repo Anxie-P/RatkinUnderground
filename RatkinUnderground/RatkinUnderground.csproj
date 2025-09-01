@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>D:\Steam\steamapps\common\RimWorld\Mods\250407\1.5\Assemblies\</OutputPath>
+    <OutputPath>..\..\1.5\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -43,8 +43,10 @@
     <Compile Include="Dialogue\RKU_DialogueManager.cs" />
     <Compile Include="DrillingVehicle\Dialog_ManagePassengers.cs" />
     <Compile Include="DrillingVehicle\RKU_DrillingVehicleInEnemyMap_Und.cs" />
+    <Compile Include="IncidentWorkers\RKU_IncidentWorker_IvanComing.cs" />
     <Compile Include="IncidentWorkers\RKU_IncidentWorker_Guerrillas.cs" />
     <Compile Include="Job\JobDriver_EatSpecialMushroom.cs" />
+    <Compile Include="Job\JobDriver_SetC4.cs" />
     <Compile Include="Job\JobDriver_EnterDrillingVehicle.cs" />
     <Compile Include="DrillingVehicle\RKU_DrilingBullet.cs" />
     <Compile Include="DrillingVehicle\RKU_DrillingVehicle.cs" />
@@ -67,6 +69,7 @@
     <Compile Include="Motes\RKU_DigDust.cs" />
     <Compile Include="Patches\EquipmentTracker_Patch.cs" />
     <Compile Include="Patches\FactionGenerator_Patch.cs" />
+    <Compile Include="Patches\FactionGoodwill_Patch.cs" />
     <Compile Include="Patches\MakeCube_Patch.cs" />
     <Compile Include="Patches\MentalStateHandlerTick_Patch.cs" />
     <Compile Include="Patches\PawnGroupMaker_Patch.cs" />
@@ -83,6 +86,7 @@
     <Compile Include="Quest\QuestPart_CheckGuerrillas.cs" />
     <Compile Include="Quest\QuestPart_RequestResources.cs" />
     <Compile Include="Quest\QuestPart_TrackPawnsStatus.cs" />
+    <Compile Include="ThingClass\RKK_BuildingBoomber.cs" />
     <Compile Include="ThingClass\RKU_DrillingCargoPodBullet.cs" />
     <Compile Include="ThingClass\RKU_DrillingCargoPod.cs" />
     <Compile Include="ThingClass\RKU_BunkerBuster.cs" />
@@ -92,6 +96,8 @@
     <Compile Include="ThingComps\CompProperties_Allurecap.cs" />
     <Compile Include="ThingComps\CompProperties_Hatecap.cs" />
     <Compile Include="ThingComps\CompProperties_KillDreadmeld.cs" />
+    <Compile Include="ThingComps\CompProperties_Mindspark.cs" />
+    <Compile Include="ThingComps\CompProperties_RecordDamage.cs" />
     <Compile Include="ThingComps\RKU_YunNanBullet.cs" />
     <Compile Include="Dialogue\Window_RKURadio.cs" />
     <Compile Include="ThingComps\CompProperties_RKU_Radio.cs" />

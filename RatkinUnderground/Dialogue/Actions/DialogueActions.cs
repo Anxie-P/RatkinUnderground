@@ -19,7 +19,26 @@ namespace RatkinUnderground
             }
         }
     }
-    
+
+    // 改变关系范围
+    public class DialogueAction_ChangeFactionRelationRange : DialogueAction
+    {
+        public int max;
+
+        public int min;
+
+        public override void ExecuteAction(Dialog_RKU_Radio radio)
+        {
+            var component = radio.GetRadioComponent();
+            if (component != null)
+            {
+                component.maxRelationshipGrade =max;
+                component.minRelationshipGrade = min;
+
+            }
+        }
+    }
+
     // 增加研究进度
     public class DialogueAction_AddResearchProgress : DialogueAction
     {

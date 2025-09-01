@@ -34,7 +34,7 @@ public static class RKU_DrillingVehiclePatch
             if (caravanField(__instance) is RKU_DrillingVehicleOnMap)
             {
                 System.Random rand = new System.Random();
-                if (rand.Next(0, 999) < 2) 
+                if (rand.Next(0, 3000)==1) 
                 {
                     Log.Message($"已生成地图");
                     __result = 1f;

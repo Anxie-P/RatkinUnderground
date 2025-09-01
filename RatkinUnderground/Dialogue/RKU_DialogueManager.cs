@@ -10,7 +10,22 @@ namespace RatkinUnderground
     {
         //private static Dictionary<string, int> lastTriggerTimes = new Dictionary<string, int>();
         //private static HashSet<string> triggeredOnceEvents = new HashSet<string>();
-        private static RKU_RadioGameComponent comp => Current.Game.GetComponent<RKU_RadioGameComponent>();
+        private static RKU_RadioGameComponent comp
+        {
+            get
+            {
+                if (Current.Game == null)
+                    return null;
+
+                var component = Current.Game.GetComponent<RKU_RadioGameComponent>();
+                if (component == null)
+                {
+                    component = new RKU_RadioGameComponent(Current.Game);
+                    Current.Game.components.Add(component);
+                }
+                return component;
+            }
+        }
 
         public static void TriggerDialogueEvents(Dialog_RKU_Radio radio, string triggerType = "")
         {
@@ -18,11 +33,11 @@ namespace RatkinUnderground
             var allEvents = DefDatabase<RKU_DialogueEventDef>.AllDefs
                 .Where(e => ShouldTriggerEvent(e, triggerType))
                 .ToList();
-            
+
             // 按优先级分组并随机排序相同优先级的事件
             var groupedEvents = allEvents
                 .GroupBy(e => e.priority)
-                .OrderBy(g => g.Key) 
+                .OrderBy(g => g.Key)
                 .Select(g => g.OrderBy(e => Rand.Range(0, 10000)))
                 .SelectMany(g => g);
 
@@ -33,19 +48,12 @@ namespace RatkinUnderground
                     Log.Message($"符合条件的：{dialogueEvent}");
                 }
             }
-
-            foreach (var ban in comp.triggeredOnceEvents)
-            {
-                Log.Message($"已经播放过的：{ban}");
-            }
-
             // 遍历所有事件，找到第一个满足条件的执行
             foreach (var first in groupedEvents)
             {
                 if (CheckConditions(first, radio))
                 {
                     ExecuteDialogueEvent(first, radio);
-                    Log.Message($"第一个符合条件的：{first}");
                     break;
                 }
             }
@@ -53,14 +61,21 @@ namespace RatkinUnderground
 
         private static bool ShouldTriggerEvent(RKU_DialogueEventDef dialogueEvent, string triggerType)
         {
-            if (dialogueEvent.triggerOnce && comp.triggeredOnceEvents.Contains(dialogueEvent.defName))
+            if (dialogueEvent == null)
                 return false;
 
-            // 检查冷却时间
+            var currentComp = comp;
+            if (currentComp == null)
+                return false;
+
+            if (dialogueEvent.triggerOnce && currentComp.triggeredOnceEvents != null &&
+                currentComp.triggeredOnceEvents.Contains(dialogueEvent.defName))
+                return false;
             if (dialogueEvent.cooldownTicks > 0)
             {
                 int currentTick = Find.TickManager.TicksGame;
-                if (comp.lastTriggerTimes.TryGetValue(dialogueEvent.defName, out int lastTrigger))
+                if (currentComp.lastTriggerTimes != null &&
+                    currentComp.lastTriggerTimes.TryGetValue(dialogueEvent.defName, out int lastTrigger))
                 {
                     if (currentTick - lastTrigger < dialogueEvent.cooldownTicks)
                         return false;
@@ -74,7 +89,7 @@ namespace RatkinUnderground
                     return dialogueEvent.triggerOnTrade;
                 case "scan":
                     return dialogueEvent.triggerOnScan;
-                case "startup": 
+                case "startup":
                     return dialogueEvent.triggerOnStartup;
                 case "research":
                     return dialogueEvent.triggerOnResearch;
@@ -85,7 +100,14 @@ namespace RatkinUnderground
 
         private static bool CheckConditions(RKU_DialogueEventDef dialogueEvent, Dialog_RKU_Radio radio)
         {
-            if (dialogueEvent.triggerNon) return false;
+            if (dialogueEvent == null)
+                return false;
+
+            var currentComp = comp;
+            if (dialogueEvent.triggerOnce && currentComp != null &&
+                currentComp.triggeredOnceEvents != null &&
+                currentComp.triggeredOnceEvents.Contains(dialogueEvent.defName))
+                return false;
             foreach (var condition in dialogueEvent.conditions)
             {
                 if (!condition.CheckCondition(radio))
@@ -96,15 +118,24 @@ namespace RatkinUnderground
 
         public static void ExecuteDialogueEvent(RKU_DialogueEventDef dialogueEvent, Dialog_RKU_Radio radio)
         {
-            // 记录触发时间
-            comp.lastTriggerTimes[dialogueEvent.defName] = Find.TickManager.TicksGame;
+            if (dialogueEvent == null || radio == null)
+                return;
 
-            if (dialogueEvent.triggerOnce)
+            var currentComp = comp;
+            if (currentComp == null)
+                return;
+
+            // 记录触发时间
+            if (currentComp.lastTriggerTimes != null)
             {
-                comp.triggeredOnceEvents.Add(dialogueEvent.defName);
-                Log.Message($"已执行添加{dialogueEvent.defName}");
+                currentComp.lastTriggerTimes[dialogueEvent.defName] = Find.TickManager.TicksGame;
             }
-                
+
+            if (dialogueEvent.triggerOnce && currentComp.triggeredOnceEvents != null)
+            {
+                currentComp.triggeredOnceEvents.Add(dialogueEvent.defName);
+            }
+
 
             radio.AddMessage(dialogueEvent.dialogueText);
 
@@ -125,17 +156,18 @@ namespace RatkinUnderground
         // 重置所有触发状态（用于调试或重新开始游戏）
         public static void ResetAllTriggers()
         {
-            comp.lastTriggerTimes.Clear();
-            comp.triggeredOnceEvents.Clear();
-        }
+            var currentComp = comp;
+            if (currentComp == null)
+                return;
 
-        // 检查特定事件是否可以触发
-        public static bool CanTriggerEvent(string eventDefName, Dialog_RKU_Radio radio)
-        {
-            var dialogueEvent = DefDatabase<RKU_DialogueEventDef>.GetNamed(eventDefName, false);
-            if (dialogueEvent == null) return false;
-
-            return ShouldTriggerEvent(dialogueEvent, "") && CheckConditions(dialogueEvent, radio);
+            if (currentComp.lastTriggerTimes != null)
+            {
+                currentComp.lastTriggerTimes.Clear();
+            }
+            if (currentComp.triggeredOnceEvents != null)
+            {
+                currentComp.triggeredOnceEvents.Clear();
+            }
         }
     }
 }

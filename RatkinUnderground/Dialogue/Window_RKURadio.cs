@@ -47,23 +47,37 @@ public class Dialog_RKU_Radio : Window, ITrader
 
     public Dialog_RKU_Radio(Thing radio)
     {
-        this.radio = radio;
-        this.doCloseButton = false;
-        this.doCloseX = true;
-        this.forcePause = false;
-        this.absorbInputAroundWindow = true;
-        this.closeOnClickedOutside = true;
-        triggers.Clear();
-
-        if (radioComponent.isSearch) triggers.Add("research");
-        if (Rand.Range(0, 100) < 50 &&
-            triggers.Count > 0)
+        try
         {
-            randTrigger = triggers.RandomElement();
+            this.radio = radio;
+            this.doCloseButton = false;
+            this.doCloseX = true;
+            this.forcePause = false;
+            this.absorbInputAroundWindow = true;
+            this.closeOnClickedOutside = true;
+            triggers.Clear();
+
+            var comp = radioComponent;
+            if (comp != null && comp.isSearch)
+            {
+                triggers.Add("research");
+            }
+
+            if (Rand.Range(0, 100) < 50 && triggers.Count > 0)
+            {
+                randTrigger = triggers.RandomElement();
+            }
+            // 延迟触发初始对话，避免构造函数中出现问题
+            LongEventHandler.QueueLongEvent(() =>
+            {
+                RKU_DialogueManager.TriggerDialogueEvents(this, randTrigger);
+            }, "RKU_TriggerInitialDialogue", false, null);
         }
-        Log.Message($"触发的trigger:{randTrigger}");
-        // 触发初始对话
-        RKU_DialogueManager.TriggerDialogueEvents(this, randTrigger);
+        catch (Exception ex)
+        {
+            Log.Error($"[RKU] Dialog_RKU_Radio构造函数失败: {ex.Message}\n{ex.StackTrace}");
+            throw;
+        }
     }
     #endregion
 
@@ -88,7 +102,19 @@ public class Dialog_RKU_Radio : Window, ITrader
     //地鼠组件
     public RKU_RadioGameComponent GetRadioComponent()
     {
-        return Current.Game.GetComponent<RKU_RadioGameComponent>();
+        if (Current.Game == null)
+        {
+            return null;
+        }
+
+        var component = Current.Game.GetComponent<RKU_RadioGameComponent>();
+        if (component == null)
+        {
+            component = new RKU_RadioGameComponent(Current.Game);
+            Current.Game.components.Add(component);
+        }
+
+        return component;
     }
 
     //电台comp

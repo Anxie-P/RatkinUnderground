@@ -196,7 +196,6 @@ public class RKU_DrillingVehicleOnMap : Caravan
                     Arrived();
                 }
             }
-            //Log.Message($"traveledPct的值{detectTick}");
         }
     }
 
@@ -261,9 +260,7 @@ public class RKU_DrillingVehicleOnMap : Caravan
                         traveledPct = 0;    //生成事件后起始地点会变，进度归0
                     }
                 }
-                
             };
-            
         }
     }
 }
