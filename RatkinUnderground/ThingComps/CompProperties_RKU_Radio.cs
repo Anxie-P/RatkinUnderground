@@ -27,6 +27,10 @@ public class Comp_RKU_Radio : ThingComp
 
     public List<string> MessageHistory => messageHistory;
 
+    public bool isSearchJob = false;  // 是否正在协助研究
+
+    RKU_RadioGameComponent radioComponent = Current.Game.GetComponent<RKU_RadioGameComponent>();
+
     public override void PostSpawnSetup(bool respawningAfterLoad)
     {
         base.PostSpawnSetup(respawningAfterLoad);
@@ -40,6 +44,7 @@ public class Comp_RKU_Radio : ThingComp
     {
         base.PostExposeData();
         Scribe_Collections.Look(ref messageHistory, "messageHistory", LookMode.Value);
+        Scribe_Values.Look(ref isSearchJob, "isSearchJob", false);
         if (Scribe.mode == LoadSaveMode.LoadingVars && messageHistory == null)
         {
             messageHistory = new List<string>();
@@ -84,6 +89,22 @@ public class Comp_RKU_Radio : ThingComp
                 Find.WindowStack.Add(new Dialog_RKU_Radio(parent));
             }
         };
+
+        // 开关自动研究
+        if (radioComponent.ralationshipGrade > 20)
+        {
+            yield return new Command_Action
+            {
+                defaultLabel = "自动研究",
+                defaultDesc = "开关自动研究的状态",
+                icon = isSearchJob ? ContentFinder<Texture2D>.Get("UI/Widgets/CheckOn") : ContentFinder<Texture2D>.Get("UI/Widgets/CheckOff"),
+                hotKey = KeyBindingDefOf.Misc1,
+                action = delegate
+                {
+                    isSearchJob = !isSearchJob;
+                }
+            };
+        }
 
         // 开发用Gizmo - 取消交易冷却
         if (Prefs.DevMode)

@@ -192,7 +192,7 @@ namespace RatkinUnderground
             Scribe_Values.Look(ref minRelationshipGrade, "minRelationshipGrade", -25);
             Scribe_Values.Look(ref maxRelationshipGrade, "maxRelationshipGrade", 25);
             Scribe_Values.Look(ref isFinal, "isFinal", false);
-            Scribe_Values.Look(ref isSearch, "isSearch", false);
+            Scribe_Values.Look(ref isSearch, "isSearchJob", false);
             Scribe_Collections.Look(ref triggeredOnceEvents, "RKU_triggeredOnceList", LookMode.Value);
             Scribe_Collections.Look(ref lastTriggerTimes, "lastTriggerTimes", LookMode.Value, LookMode.Value);
         }

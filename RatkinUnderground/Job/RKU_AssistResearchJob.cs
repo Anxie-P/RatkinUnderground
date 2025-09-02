@@ -88,6 +88,8 @@ namespace RatkinUnderground
                 return false;
 
             var component = Current.Game.GetComponent<RKU_RadioGameComponent>();
+            var RadioComp = t.TryGetComp<Comp_RKU_Radio>();
+            if (!RadioComp.isSearchJob) return false;
             if (component == null || component.ralationshipGrade <= 20) return false;
 
             return true;
