@@ -18,10 +18,10 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\1.5\Assemblies\</OutputPath>
+    <OutputPath>D:\Steam\steamapps\common\RimWorld\Mods\250407\1.5\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>5</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -56,6 +56,7 @@
     <Compile Include="DrillingVehicle\RKU_TunnelHiveSpawner_Und.cs" />
     <Compile Include="Hediffs\HediffCompProperties_YunNanToxin.cs" />
     <Compile Include="IncidentWorkers\RKU_IncidentWorker_BuildMap.cs" />
+    <Compile Include="Job\LordJob_SetC4.cs" />
     <Compile Include="Job\RKU_AssistResearchJob.cs" />
     <Compile Include="Job\RKU_GuerrillaAction.cs" />
     <Compile Include="MapGenerator\GenSteps\RKU_GenStep_GuerrillasOutpost.cs" />
@@ -74,7 +75,7 @@
     <Compile Include="Patches\MentalStateHandlerTick_Patch.cs" />
     <Compile Include="Patches\PawnGroupMaker_Patch.cs" />
     <Compile Include="Patches\RemoveMapPatch.cs" />
-    <Compile Include="Patches\RKU_SiteMakerHelperPatch.cs" />
+    <Compile Include="Patches\SpawnSetup_Patch.cs" />
     <Compile Include="PawnGroupMaker\RKU_PawnGroupKindWorker.cs" />
     <Compile Include="Job\LordJob_WaitForItemsAndReturn.cs" />
     <Compile Include="Job\LordJob_WaitForResources.cs" />
