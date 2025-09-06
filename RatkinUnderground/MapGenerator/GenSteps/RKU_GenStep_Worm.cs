@@ -69,30 +69,38 @@ namespace RatkinUnderground
             {
                 for (int z = -nestRadius; z <= nestRadius; z++)
                 {
-                    IntVec3 cell = new IntVec3(center.x + x, 0, center.z + z);
-                    if (cell.InBounds(map))
+                    try
                     {
-                        // 清除当前格子
-                        ClearCell(map, cell);
-
-                        // 设置地形为肥沃泥土
-                        map.terrainGrid.SetTerrain(cell, TerrainDefOf.SoilRich);
-
-                        // 在中心区域生成虫巢建筑
-                        if (Math.Abs(x) <= 2 && Math.Abs(z) <= 2)
+                        IntVec3 cell = new IntVec3(center.x + x, 0, center.z + z);
+                        if (cell.InBounds(map))
                         {
-                            // 在中心生成主虫巢
-                            if (x == 0 && z == 0)
+                            // 清除当前格子
+                            ClearCell(map, cell);
+
+                            // 设置地形为肥沃泥土
+                            map.terrainGrid.SetTerrain(cell, TerrainDefOf.SoilRich);
+
+                            // 在中心区域生成虫巢建筑
+                            if (Math.Abs(x) <= 2 && Math.Abs(z) <= 2)
+                            {
+                                // 在中心生成主虫巢
+                                if (x == 0 && z == 0)
+                                {
+                                    Hive obj = (Hive)GenSpawn.Spawn(ThingMaker.MakeThing(ThingDefOf.Hive), cell, map, WipeMode.FullRefund);
+                                }
+                            }
+                            // 在周围生成小型虫巢
+                            else if (Rand.Value < 0.3f)
                             {
                                 Hive obj = (Hive)GenSpawn.Spawn(ThingMaker.MakeThing(ThingDefOf.Hive), cell, map, WipeMode.FullRefund);
                             }
                         }
-                        // 在周围生成小型虫巢
-                        else if (Rand.Value < 0.3f)
-                        {
-                            Hive obj = (Hive)GenSpawn.Spawn(ThingMaker.MakeThing(ThingDefOf.Hive), cell, map, WipeMode.FullRefund);
-                        }
                     }
+                    catch (Exception e)
+                    {
+                        Log.Error($"[RKU] 生成错误： ({x}, {z}): {e}");
+                    }
+                    
                 }
             }
         }
@@ -105,23 +113,31 @@ namespace RatkinUnderground
                 // 检查格子是否可以放置虫子
                 if (cell.Standable(map) && cell.GetFirstPawn(map) == null)
                 {
-                    // 检查是否在地图边缘20格内
-                    if (cell.x < 20 || cell.x >= map.Size.x - 20 || cell.z < 20 || cell.z >= map.Size.z - 20)
+                    try
                     {
-                        continue; // 跳过边缘区域
-                    }
-                    
-                    if (Rand.Value < INSECT_SPAWN_CHANCE)
-                    {
-                        // 随机选择一种虫子
-                        PawnKindDef insectKind = GetRandomInsectKind();
-                        if (insectKind != null)
+                        // 检查是否在地图边缘20格内
+                        if (cell.x < 20 || cell.x >= map.Size.x - 20 || cell.z < 20 || cell.z >= map.Size.z - 20)
                         {
-                            Pawn insect = PawnGenerator.GeneratePawn(insectKind, Faction.OfInsects);
-                            GenSpawn.Spawn(insect, cell, map, WipeMode.Vanish);
-                            
+                            continue; // 跳过边缘区域
+                        }
+
+                        if (Rand.Value < INSECT_SPAWN_CHANCE)
+                        {
+                            // 随机选择一种虫子
+                            PawnKindDef insectKind = GetRandomInsectKind();
+                            if (insectKind != null)
+                            {
+                                Pawn insect = PawnGenerator.GeneratePawn(insectKind, Faction.OfInsects);
+                                GenSpawn.Spawn(insect, cell, map, WipeMode.Vanish);
+
+                            }
                         }
                     }
+                    catch (Exception e)
+                    {
+                        Log.Message($"[RKU] 生成错误：{cell}");
+                    }
+                    
                 }
             }
         }

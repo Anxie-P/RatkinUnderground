@@ -13,6 +13,8 @@ using Verse.Grammar;
 namespace RatkinUnderground;
 public class RKU_DrillingVehicleOnMap : Caravan
 {
+    public bool isHandled = false; // 标记是否已经处理过进任务地图
+
     public int destinationTile = -1;
     private bool arrived;
     private int initialTile = -1;
@@ -240,7 +242,7 @@ public class RKU_DrillingVehicleOnMap : Caravan
                 action = () =>
                 {
                     //Log.Message($"生成事件前的进度{traveledPct}");
-                    IncidentDef incidentDef = DefDatabase<IncidentDef>.AllDefs.ToList().FindAll(o=>o.defName.Contains("RKU_Incident_")).RandomElement();
+                    IncidentDef incidentDef = DefDatabase<IncidentDef>.AllDefs.ToList().FindAll(o=>o.defName.Contains(" ")).RandomElement();
                     if (incidentDef != null)
                     {
                         
