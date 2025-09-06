@@ -10,7 +10,6 @@ namespace RatkinUnderground
     {
         public float minProgress;
         public float maxProgress = float.MaxValue;
-        
         public override bool CheckCondition(Dialog_RKU_Radio radio)
         {
             var component = radio.GetRadioComponent();
@@ -89,7 +88,6 @@ namespace RatkinUnderground
     public class DialogueCondition_TradeStatus : DialogueCondition
     {
         public bool canTrade;
-        
         public override bool CheckCondition(Dialog_RKU_Radio radio)
         {
             var component = radio.GetRadioComponent();

@@ -24,7 +24,6 @@ namespace RatkinUnderground
     public class DialogueAction_ChangeFactionRelationRange : DialogueAction
     {
         public int max;
-
         public int min;
 
         public override void ExecuteAction(Dialog_RKU_Radio radio)
@@ -32,9 +31,8 @@ namespace RatkinUnderground
             var component = radio.GetRadioComponent();
             if (component != null)
             {
-                component.maxRelationshipGrade =max;
+                component.maxRelationshipGrade = max;
                 component.minRelationshipGrade = min;
-
             }
         }
     }
@@ -154,16 +152,39 @@ namespace RatkinUnderground
     {
         public string researchDefName;
         public int count = 1;
-        
+
         public override void ExecuteAction(Dialog_RKU_Radio radio)
         {
             var map = radio.radio?.Map;
             if (map == null) return;
-            
+
             for (int i = 0; i < count; i++)
             {
                 Thing techprint = ThingMaker.MakeThing(ResearchProjectDef.Named(researchDefName).Techprint);
                 GenPlace.TryPlaceThing(techprint, radio.radio.Position, map, ThingPlaceMode.Near);
+            }
+        }
+    }
+
+    // 启动延时事件计时器
+    public class DialogueAction_StartDelayedEventTimer : DialogueAction
+    {
+        public string eventType; // "WarningLight" 或 "WarningSerious"
+
+        public override void ExecuteAction(Dialog_RKU_Radio radio)
+        {
+            var component = radio.GetRadioComponent();
+            if (component != null)
+            {
+                switch (eventType)
+                {
+                    case "WarningLight":
+                        component.OnRelationWarningLightTriggered();
+                        break;
+                    case "WarningSerious":
+                        component.OnRelationWarningSeriousTriggered();
+                        break;
+                }
             }
         }
     }

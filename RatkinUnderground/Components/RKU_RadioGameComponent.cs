@@ -1,4 +1,5 @@
 using RimWorld;
+using RimWorld.QuestGen;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,12 @@ namespace RatkinUnderground
         public HashSet<string> triggeredOnceEvents;
         public Dictionary<string, int> lastTriggerTimes;
         public bool isSearch = false;  // 开始研究
+
+        // 延时事件计时器
+        public int relationWarningLightTriggerTick = -1;
+        public int relationWarningSeriousTriggerTick = -1; 
+        public int guerrillaCampLastOfferTick = -1; 
+        public bool guerrillaCampOfferPending = false; 
 
         public RKU_RadioGameComponent(Game game)
         {
@@ -71,6 +78,160 @@ namespace RatkinUnderground
             canTrade = true;
             isWaitingForTrade = false;
         }
+        #endregion
+
+        #region 延时事件处理
+        public override void GameComponentTick()
+        {
+            base.GameComponentTick();
+            // 每0.5天检查一次
+            if (Find.TickManager.TicksGame % 30000 != 0) return;
+            HandleDelayedEvents();
+        }
+
+        private void HandleDelayedEvents()
+        {
+            int currentTick = Find.TickManager.TicksGame;
+            int days1to3Ticks = Rand.Range(60000, 180000); // 1-3天
+            int days3Ticks = 180000; // 3天
+
+            // 土匪营地
+            if (relationWarningLightTriggerTick > 0)
+            {
+                int ticksSinceLightWarning = currentTick - relationWarningLightTriggerTick;
+                if (ticksSinceLightWarning >= days1to3Ticks && !guerrillaCampOfferPending)
+                {
+                    TryOfferGuerrillaCampQuest();
+                }
+            }
+
+            // 伊文入侵
+            if (relationWarningSeriousTriggerTick > 0)
+            {
+                int ticksSinceSeriousWarning = currentTick - relationWarningSeriousTriggerTick;
+                if (ticksSinceSeriousWarning >= days1to3Ticks)
+                {
+                    TryTriggerRatkinTunnelThi();
+                    relationWarningSeriousTriggerTick = -1; 
+                }
+            }
+
+            // 定期检查游击队营地任务发布
+            if (guerrillaCampLastOfferTick > 0)
+            {
+                int ticksSinceLastOffer = currentTick - guerrillaCampLastOfferTick;
+                // 隔3天再次检查是否可以发布任务
+                if (ticksSinceLastOffer >= days3Ticks)
+                {
+                    TryOfferGuerrillaCampQuest();
+                }
+            }
+            else if (guerrillaCampLastOfferTick == -1 && ralationshipGrade == -25)
+            {
+                // 初始检查，如果好感度为-25且从未发布过任务
+                TryOfferGuerrillaCampQuest();
+            }
+        }
+
+        private void TryOfferGuerrillaCampQuest()
+        {
+            // 检查好感度是否为-25
+            if (ralationshipGrade != -25) return;
+            if (HasQuestInPool("RKU_OpportunitySite_GuerrillaCamp")) return;
+            // 检测可用性
+            QuestScriptDef questDef = DefDatabase<QuestScriptDef>.GetNamed("RKU_OpportunitySite_GuerrillaCamp", false);
+            if (questDef == null)
+            {
+                guerrillaCampOfferPending = true;
+                return;
+            }
+
+            // 创建一个基本的slate来检查任务是否可以运行
+            Slate slate = new Slate();
+            slate.Set("points", StorytellerUtility.DefaultThreatPointsNow(Find.World));
+            slate.Set("asker", Find.FactionManager.FirstFactionOfDef(FactionDef.Named("Rakinia"))?.leader);
+            slate.Set("enemyFaction", Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction));
+
+            if (!questDef.CanRun(slate))
+            {
+                guerrillaCampOfferPending = true;
+                return;
+            }
+            Quest quest = QuestUtility.GenerateQuestAndMakeAvailable(questDef, StorytellerUtility.DefaultThreatPointsNow(Find.World));
+            if (quest != null)
+            {
+                guerrillaCampLastOfferTick = Find.TickManager.TicksGame;
+                guerrillaCampOfferPending = false;
+            }
+        }
+
+        private void TryTriggerRatkinTunnelThi()
+        {
+            // 检查好感度是否为-50
+            if (ralationshipGrade != -50) return;
+
+            // 触发伊文事件
+            IncidentDef incidentDef = DefDatabase<IncidentDef>.GetNamed("RKU_RatkinTunnel_Thi", false);
+            if (incidentDef != null && incidentDef.Worker.CanFireNow(new IncidentParms { target = Find.AnyPlayerHomeMap }))
+            {
+                IncidentParms parms = StorytellerUtility.DefaultParmsNow(incidentDef.category, Find.AnyPlayerHomeMap);
+                incidentDef.Worker.TryExecute(parms);
+            }
+        }
+
+        private bool HasQuestInPool(string questDefName)
+        {
+            foreach (Quest quest in Find.QuestManager.QuestsListForReading)
+            {
+                if (quest.root.defName == questDefName && quest.State == QuestState.Ongoing)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// -25好感度启动延时计时器
+        /// </summary>
+        public void OnRelationWarningLightTriggered()
+        {
+            relationWarningLightTriggerTick = Find.TickManager.TicksGame;
+        }
+
+        /// <summary>
+        /// -75好感度启动延时计时器
+        /// </summary>
+        public void OnRelationWarningSeriousTriggered()
+        {
+            relationWarningSeriousTriggerTick = Find.TickManager.TicksGame;
+        }
+
+        /// <summary>
+        /// 调试：立即触发延时事件
+        /// </summary>
+        public void DebugTriggerDelayedEvents()
+        {
+            if (!Prefs.DevMode) return;
+
+            int currentTick = Find.TickManager.TicksGame;
+
+            // 立即设置游击队营地任务计时器为即将触发状态
+            if (relationWarningLightTriggerTick > 0)
+            {
+                relationWarningLightTriggerTick = currentTick - 60000; // 设置为1天前，立即触发
+            }
+
+            // 立即设置伊文入侵计时器为即将触发状态
+            if (relationWarningSeriousTriggerTick > 0)
+            {
+                relationWarningSeriousTriggerTick = currentTick - 60000; // 设置为1天前，立即触发
+            }
+
+            // 强制执行延时事件检查
+            HandleDelayedEvents();
+        }
+
         #endregion
 
         #region 好感度相关
@@ -140,7 +301,6 @@ namespace RatkinUnderground
                     // 检查关系类型变化
                     relation1.CheckKindThresholds(rkuFaction, true, "RKU Relationship Sync", default, out _);
                     relation2.kind = relation1.kind;
-
                 }
             }
         }
@@ -193,6 +353,10 @@ namespace RatkinUnderground
             Scribe_Values.Look(ref maxRelationshipGrade, "maxRelationshipGrade", 25);
             Scribe_Values.Look(ref isFinal, "isFinal", false);
             Scribe_Values.Look(ref isSearch, "isSearch", false);
+            Scribe_Values.Look(ref relationWarningLightTriggerTick, "relationWarningLightTriggerTick", -1);
+            Scribe_Values.Look(ref relationWarningSeriousTriggerTick, "relationWarningSeriousTriggerTick", -1);
+            Scribe_Values.Look(ref guerrillaCampLastOfferTick, "guerrillaCampLastOfferTick", -1);
+            Scribe_Values.Look(ref guerrillaCampOfferPending, "guerrillaCampOfferPending", false);
             Scribe_Collections.Look(ref triggeredOnceEvents, "RKU_triggeredOnceList", LookMode.Value);
             Scribe_Collections.Look(ref lastTriggerTimes, "lastTriggerTimes", LookMode.Value, LookMode.Value);
         }

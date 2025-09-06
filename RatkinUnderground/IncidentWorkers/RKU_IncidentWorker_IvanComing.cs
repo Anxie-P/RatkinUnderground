@@ -11,6 +11,18 @@ namespace RatkinUnderground
 {
     public class RKU_IncidentWorker_IvanComing : IncidentWorker
     {
+        protected override bool CanFireNowSub(IncidentParms parms)
+        {
+            // 检查好感度是否为-50
+            var component = Current.Game.GetComponent<RKU_RadioGameComponent>();
+            if (component != null && component.ralationshipGrade != -50)
+            {
+                return false;
+            }
+
+            return base.CanFireNowSub(parms);
+        }
+
         protected override bool TryExecuteWorker(IncidentParms parms)
         {
             Map map = (Map)parms.target;

@@ -40,18 +40,6 @@ namespace RatkinUnderground
             return true;
         }
 
-        protected override bool TestRunInt(Slate slate)
-        {
-            //if (requiredFactionDefs.GetValue(slate) != null && requiredFactionDefs.GetValue(slate).Any() && !ExistingUsablePawns(slate).Any())
-            //{
-            //    if (canGeneratePawn.GetValue(slate) && !TryFindFactionForPawnGeneration(slate, out _))
-            //    {
-            //        return false;
-            //    }
-            //}
-            return base.TestRunInt(slate);
-        }
-
         protected override void RunInt()
         {
             Slate slate = QuestGen.slate;
@@ -81,12 +69,8 @@ namespace RatkinUnderground
                     QuestGen.quest.AddPart(questPart);
                 }
             }
-            else
-            {
-                Log.Warning("未能找到或生成匹配的Pawn。");
-            }
-
         }
+
         private IEnumerable<Pawn> ExistingUsablePawnsFinder(Slate slate)
         {
             return PawnsFinder.AllMapsWorldAndTemporary_Alive.Where((Pawn x) => IsGoodPawn(x, slate));

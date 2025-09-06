@@ -116,6 +116,23 @@ namespace RatkinUnderground
                     Messages.Message($"组件访问失败: {ex.Message}", MessageTypeDefOf.RejectInput);
                 }
             }
+
+            [DebugAction(
+                category: "RatkinUnderground",
+                name: "立即触发延时事件")]
+            private static void DebugTriggerDelayedEvents()
+            {
+                var component = Current.Game.GetComponent<RKU_RadioGameComponent>();
+                if (component != null)
+                {
+                    component.DebugTriggerDelayedEvents();
+                    Messages.Message("延时事件已立即触发", MessageTypeDefOf.PositiveEvent);
+                }
+                else
+                {
+                    Messages.Message("未找到RKU_RadioGameComponent", MessageTypeDefOf.RejectInput);
+                }
+            }
         }
     }
 }

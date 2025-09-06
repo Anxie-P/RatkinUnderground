@@ -9,36 +9,26 @@ namespace RatkinUnderground
     {
         // 对话内容
         public string dialogueText;
-        
         // 触发条件
         public List<DialogueCondition> conditions = new List<DialogueCondition>();
-        
         // 执行的动作
         public List<DialogueAction> actions = new List<DialogueAction>();
-        
         // 优先级（数字越小优先级越高）
         public int priority = 100;
-        
         // 是否只触发一次
         public bool triggerOnce = false;
-        
         // 冷却时间
         public int cooldownTicks = 0;
-
         // 启动时触发
-        public bool triggerOnStartup = false; 
+        public bool triggerOnStartup = true; 
         // 交易时触发
         public bool triggerOnTrade = false;
-        
         // 扫描时触发
         public bool triggerOnScan = false;
-        
         // 紧急呼叫时触发
         public bool triggerOnEmergency = false;
-
         // 研究时触发
         public bool triggerOnResearch = false;
-
         public bool triggerNon = false;//一般情况下不触发，用于特定事件的调用def触发
         // 自定义触发条件
         public string customTriggerMethod;
