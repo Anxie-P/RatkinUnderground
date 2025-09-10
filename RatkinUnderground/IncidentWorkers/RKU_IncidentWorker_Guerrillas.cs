@@ -35,7 +35,12 @@ namespace RatkinUnderground
             var hive = (RKU_TunnelHiveSpawner_Und)ThingMaker.MakeThing(DefOfs.RKU_TunnelHiveSpawner_Und);
             hive.faction = faction;
             // hive.canMove = false;
-            pawns.ForEach(p => hive.GetDirectlyHeldThings().TryAddOrTransfer(p));
+            // pawns.ForEach(p => hive.GetDirectlyHeldThings().TryAddOrTransfer(p));
+            foreach(var p in pawns)
+            {
+                hive.GetDirectlyHeldThings().TryAddOrTransfer(p);
+                Utils.TryRemoveWorldPawn(p);
+            }
             IntVec3 loc;
             if (!Utils.TryFindValidSpawnPosition(map, out loc))
             {

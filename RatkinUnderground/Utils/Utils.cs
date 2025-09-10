@@ -17,6 +17,26 @@ namespace RatkinUnderground
 {
     public static class Utils
     {
+        public static Faction OfRKU
+        {
+            get
+            {
+                if (Find.FactionManager == null)
+                {
+                    return null;
+                }
+                if (DefOfs.RKU_Faction == null)
+                {
+                    return null;
+                }
+                Faction rkuFaction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
+                if (rkuFaction == null)
+                {
+                    return null;
+                }
+                return rkuFaction;
+            }
+        }
         public static Site GenerateSite(IEnumerable<SitePartDefWithParams> sitePartsParams, int tile, Faction faction, bool hiddenSitePartsPossible = false, RulePack singleSitePartRules = null)
         {
             _ = QuestGen.slate;
@@ -429,6 +449,67 @@ namespace RatkinUnderground
                 AddMapping("Construction", "Inspired_Creativity");
                 AddMapping("Artistic", "Inspired_Creativity");
                 return map;
+            }
+        }
+
+        /// <summary>
+        /// 发布电台消息到所有电台设备
+        /// </summary>
+        /// <param name="message">要发布的消息</param>
+        public static void BroadcastRadioMessage(string message)
+        {
+            // 遍历所有地图，找到所有电台设备
+            foreach (Map map in Find.Maps)
+            {
+                if (map.IsPlayerHome)
+                {
+                    foreach (Building building in map.listerBuildings.allBuildingsColonist)
+                    {
+                        if (building.def == DefOfs.RKU_Radio)
+                        {
+                            Comp_RKU_Radio radioComp = building.GetComp<Comp_RKU_Radio>();
+                            if (radioComp != null)
+                            {
+                                radioComp.AddMessage(message);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+        public static void TryRemoveWorldPawn(Pawn pawn)
+        {
+            if (pawn == null) return;
+
+            if (Find.WorldPawns.Contains(pawn))
+            {
+                try
+                {
+                    Find.WorldPawns.RemovePawn(pawn);
+                }
+                catch (System.Exception ex)
+                {
+                    Log.Warning($"[RKU] 移除 {pawn} 失败: {ex}");
+                }
+            }
+        }
+
+        public static void TryAddWorldPawn(Pawn pawn)
+        {
+            if (pawn == null) return;
+
+            if (!Find.WorldPawns.Contains(pawn))
+            {
+                try
+                {
+                    Find.WorldPawns.AllPawnsAlive.Add(pawn);
+                }
+                catch (System.Exception ex)
+                {
+                    Log.Warning($"[RKU] 添加 {pawn} 失败: {ex}");
+                }
             }
         }
     }

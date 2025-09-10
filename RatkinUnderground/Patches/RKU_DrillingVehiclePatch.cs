@@ -168,6 +168,7 @@ public static class RKU_DrillingVehiclePatch
                         if (!pawn.Destroyed)
                         {
                             tunnelHiveSpawner.GetDirectlyHeldThings().TryAddOrTransfer(pawn);
+                            Utils.TryRemoveWorldPawn(pawn);
                         }
                     }
                     GenSpawn.Spawn(tunnelHiveSpawner, target, map, WipeMode.Vanish);
@@ -195,6 +196,7 @@ public static class RKU_DrillingVehiclePatch
                         if (!pawn.Destroyed)
                         {
                             tunnelHiveSpawner.GetDirectlyHeldThings().TryAddOrTransfer(pawn);
+                            Utils.TryRemoveWorldPawn(pawn);
                         }
                     }
                     GenSpawn.Spawn(tunnelHiveSpawner, target, map, WipeMode.Vanish);
@@ -218,6 +220,7 @@ public static class RKU_DrillingVehiclePatch
                         if (!pawn.Destroyed)
                         {
                             tunnelHiveSpawner.GetDirectlyHeldThings().TryAddOrTransfer(pawn);
+                            Utils.TryRemoveWorldPawn(pawn);
                         }
                     }
                     GenSpawn.Spawn(tunnelHiveSpawner, target, map, WipeMode.Vanish);
@@ -260,6 +263,7 @@ public static class RKU_DrillingVehiclePatch
                                 if (!pawn.Destroyed)
                                 {
                                     tunnelHiveSpawner.GetDirectlyHeldThings().TryAddOrTransfer(pawn);
+                                    Utils.TryRemoveWorldPawn(pawn);
                                 }
                             }
                             GenSpawn.Spawn(tunnelHiveSpawner, target.Cell, map, WipeMode.Vanish);

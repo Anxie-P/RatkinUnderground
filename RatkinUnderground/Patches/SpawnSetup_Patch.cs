@@ -61,6 +61,7 @@ public static class Patch_CaravanEnter
                             try
                             {
                                 vehicle.GetDirectlyHeldThings().TryAddOrTransfer(p);
+                                Utils.TryRemoveWorldPawn(p);
                                 rkuCaravan.RemovePawn(p);
                             }
                             catch (Exception e)

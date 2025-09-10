@@ -21,6 +21,14 @@ namespace RatkinUnderground
         public RKU_TunnelHiveSpawner()
         {
             passengers = new ThingOwner<Pawn>(this);
+            if (passengers != null)
+            {
+                List<Pawn> list = new List<Pawn>(passengers);
+                foreach (var p in list)
+                {
+                    Utils.TryRemoveWorldPawn(p);
+                }
+            }
         }
 
         public ThingOwner GetDirectlyHeldThings()
@@ -88,6 +96,7 @@ namespace RatkinUnderground
                     for (int i = 0; i < pawnsToTransfer.Count; i++)
                     {
                         drillingVehicle.GetDirectlyHeldThings().Remove(pawnsToTransfer[i]);
+                        Utils.TryAddWorldPawn(pawnsToTransfer[i]);
                         GenSpawn.Spawn(pawnsToTransfer[i], Position, map);
                         passengers.Remove(pawnsToTransfer[i]);
                     }
@@ -110,6 +119,7 @@ namespace RatkinUnderground
                     if (!pawn.Destroyed)
                     {
                         passengers.Remove(pawn);
+                        Utils.TryAddWorldPawn(pawn);
                         drillingVehicle.GetDirectlyHeldThings().TryAddOrTransfer(pawn);
                     }
                 }
