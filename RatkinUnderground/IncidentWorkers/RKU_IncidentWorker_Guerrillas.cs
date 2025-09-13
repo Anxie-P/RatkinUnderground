@@ -34,7 +34,6 @@ namespace RatkinUnderground
 
             var hive = (RKU_TunnelHiveSpawner_Und)ThingMaker.MakeThing(DefOfs.RKU_TunnelHiveSpawner_Und);
             hive.faction = faction;
-            // hive.canMove = false;
             pawns.ForEach(p => hive.GetDirectlyHeldThings().TryAddOrTransfer(p));
             IntVec3 loc;
             if (!Utils.TryFindValidSpawnPosition(map, out loc))
@@ -48,13 +47,17 @@ namespace RatkinUnderground
             RKU_RadioGameComponent radioComponent = Current.Game.GetComponent<RKU_RadioGameComponent>();
 
             // 根据关系等级确定事件类型
-            if (radioComponent != null && radioComponent.ralationshipGrade <= -25)
+            if (radioComponent != null && radioComponent.ralationshipGrade < -25)
             {
                 isHostile = true;
                 Faction rkuFaction = Find.FactionManager.FirstFactionOfDef(FactionDef.Named("RKU_Faction"));
                 if (rkuFaction != null)
                 {
-                    rkuFaction.SetRelationDirect(Faction.OfPlayer, FactionRelationKind.Hostile, false, null, null);
+                    FactionRelationKind kind2 = Utils.OfRKU.RelationWith(Faction.OfPlayer).kind;
+                    Utils.OfRKU.RelationWith(Faction.OfPlayer).kind = FactionRelationKind.Hostile;
+                    Faction.OfPlayer.RelationWith(Utils.OfRKU).kind = FactionRelationKind.Hostile;
+                    Utils.OfRKU.Notify_RelationKindChanged(Faction.OfPlayer, kind2, false, "", TargetInfo.Invalid, out var sentLetter);
+                    Faction.OfPlayer.Notify_RelationKindChanged(Utils.OfRKU, kind2, false, "", TargetInfo.Invalid, out sentLetter);
                 }
             }
             LetterDef letterDef = isHostile ? LetterDefOf.ThreatSmall : LetterDefOf.PositiveEvent;

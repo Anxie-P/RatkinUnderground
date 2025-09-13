@@ -29,6 +29,8 @@ class GenerateFactions_Patch
             Faction eFaction = Find.FactionManager.FirstFactionOfDef(enemy);
             eFaction.RelationWith(rFaction).baseGoodwill = -100;
             rFaction.RelationWith(eFaction).baseGoodwill = -100;
+            FactionRelationKind oldKind1 = eFaction.RelationWith(rFaction).kind;
+            FactionRelationKind oldKind2 = rFaction.RelationWith(eFaction).kind;
             eFaction.RelationWith(rFaction).kind = FactionRelationKind.Hostile;
             rFaction.RelationWith(eFaction).kind = FactionRelationKind.Hostile;
         }

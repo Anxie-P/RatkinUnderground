@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>D:\Steam\steamapps\common\RimWorld\Mods\250407\1.5\Assemblies\</OutputPath>
+    <OutputPath>..\..\1.5\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>5</WarningLevel>
@@ -43,6 +43,9 @@
     <Compile Include="Dialogue\RKU_DialogueManager.cs" />
     <Compile Include="DrillingVehicle\Dialog_ManagePassengers.cs" />
     <Compile Include="DrillingVehicle\RKU_DrillingVehicleInEnemyMap_Und.cs" />
+    <Compile Include="GameConditions\RKU_GameCondition_FinalBattle.cs" />
+    <Compile Include="IncidentWorkers\IncidentWorker_LimitedInsectAttack.cs" />
+    <Compile Include="IncidentWorkers\IncidentWorker_LimitedFleshbeastAttack.cs" />
     <Compile Include="IncidentWorkers\RKU_IncidentWorker_IvanComing.cs" />
     <Compile Include="IncidentWorkers\RKU_IncidentWorker_Guerrillas.cs" />
     <Compile Include="Job\JobDriver_EatSpecialMushroom.cs" />
@@ -88,11 +91,15 @@
     <Compile Include="Quest\QuestPart_CheckGuerrillas.cs" />
     <Compile Include="Quest\QuestPart_RequestResources.cs" />
     <Compile Include="Quest\QuestPart_TrackPawnsStatus.cs" />
+    <Compile Include="RaidStrategyWorker\LordJob_HammerSiege.cs" />
+    <Compile Include="RaidStrategyWorker\LordToil_SiegeHammer.cs" />
+    <Compile Include="RaidStrategyWorker\RaidStrategyWorker_HammerAttack.cs" />
     <Compile Include="ThingClass\RKK_BuildingBoomber.cs" />
     <Compile Include="ThingClass\RKU_DrillingCargoPodBullet.cs" />
     <Compile Include="ThingClass\RKU_DrillingCargoPod.cs" />
     <Compile Include="ThingClass\RKU_BunkerBuster.cs" />
     <Compile Include="ThingClass\RKU_BunkerBusterBullet.cs" />
+    <Compile Include="ThingClass\RKU_HammerAttacker.cs" />
     <Compile Include="ThingClass\RKU_Panjandrum.cs" />
     <Compile Include="ThingClass\RKU_PanjandrumBullet.cs" />
     <Compile Include="ThingComps\CompProperties_Allurecap.cs" />

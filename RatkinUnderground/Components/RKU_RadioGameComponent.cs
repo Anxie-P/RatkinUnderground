@@ -29,7 +29,7 @@ namespace RatkinUnderground
         // 延时事件计时器
         public int relationWarningLightTriggerTick = -1;
         public int relationWarningSeriousTriggerTick = -1; 
-        public int guerrillaCampLastOfferTick = -1; 
+        public int guerrillaCampLastOfferTick = -1;
         public bool guerrillaCampOfferPending = false; 
 
         public RKU_RadioGameComponent(Game game)
@@ -104,7 +104,6 @@ namespace RatkinUnderground
                     TryOfferGuerrillaCampQuest();
                 }
             }
-
             // 伊文入侵
             if (relationWarningSeriousTriggerTick > 0)
             {
@@ -135,10 +134,7 @@ namespace RatkinUnderground
 
         private void TryOfferGuerrillaCampQuest()
         {
-            // 检查好感度是否为-25
-            if (ralationshipGrade != -25) return;
             if (HasQuestInPool("RKU_OpportunitySite_GuerrillaCamp")) return;
-            // 检测可用性
             QuestScriptDef questDef = DefDatabase<QuestScriptDef>.GetNamed("RKU_OpportunitySite_GuerrillaCamp", false);
             if (questDef == null)
             {
@@ -167,9 +163,6 @@ namespace RatkinUnderground
 
         private void TryTriggerRatkinTunnelThi()
         {
-            // 检查好感度是否为-50
-            if (ralationshipGrade != -50) return;
-
             // 触发伊文事件
             IncidentDef incidentDef = DefDatabase<IncidentDef>.GetNamed("RKU_RatkinTunnel_Thi", false);
             if (incidentDef != null && incidentDef.Worker.CanFireNow(new IncidentParms { target = Find.AnyPlayerHomeMap }))
@@ -178,6 +171,7 @@ namespace RatkinUnderground
                 incidentDef.Worker.TryExecute(parms);
             }
         }
+
 
         private bool HasQuestInPool(string questDefName)
         {

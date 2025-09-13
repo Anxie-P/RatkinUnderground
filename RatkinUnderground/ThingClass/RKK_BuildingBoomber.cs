@@ -20,7 +20,7 @@ namespace RatkinUnderground
 
                 return GraphicDatabase.Get<Graphic_Single>(
                     texPath,
-                    ShaderDatabase.MoteGlow,
+                    ShaderDatabase.CutoutComplex,
                     this.def.graphicData.drawSize,
                     Color.white
                 );

@@ -14,10 +14,13 @@ public static class Patch_CaravanEnter
     static bool Prefix(Caravan caravan, Map map, Func<Pawn, IntVec3> spawnCellGetter,
                        CaravanDropInventoryMode dropInventoryMode, bool draftColonists)
     {
+        var modExtension = map.generatorDef.GetModExtension<RKU_MapGeneratorDefModExtension>();
+        if (modExtension != null)
+        {
+            return true;
+        }
         if (caravan is RKU_DrillingVehicleOnMap rkuCaravan)
         {
-            Log.Message($"[RKU] Caravan {caravan.Label} 捕获，准备替换为 RKU_DrillingVehicle。");
-
             // 获取生成点
             IntVec3 spawnPos = spawnCellGetter(caravan.PawnsListForReading.FirstOrDefault());
 

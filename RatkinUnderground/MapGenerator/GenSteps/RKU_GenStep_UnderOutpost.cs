@@ -76,7 +76,7 @@ namespace RatkinUnderground
             parms2.sketch = new Sketch();
             parms2.monumentSize = new IntVec2(rect.Width, rect.Height);
             parms2.destroyChanceExp = destroyChanceExp;
-            RimWorld.SketchGen.SketchGen.Generate(DefOfs.RKU_MonumentRuin, parms2).Spawn(map, rect.CenterCell, null, Sketch.SpawnPosType.Unchanged, Sketch.SpawnMode.Normal, wipeIfCollides: false, clearEdificeWhereFloor: false, null, dormant: false, buildRoofsInstantly: false, delegate (SketchEntity entity, IntVec3 cell)
+            SketchGen.Generate(DefOfs.RKU_MonumentRuin, parms2).Spawn(map, rect.CenterCell, null, Sketch.SpawnPosType.Unchanged, Sketch.SpawnMode.Normal, wipeIfCollides: false, clearEdificeWhereFloor: false, null, dormant: false, buildRoofsInstantly: false, delegate (SketchEntity entity, IntVec3 cell)
             {
                 IntVec3[] cardinalDirectionsAndInside = GenAdj.CardinalDirectionsAndInside;
                 foreach (IntVec3 intVec in cardinalDirectionsAndInside)

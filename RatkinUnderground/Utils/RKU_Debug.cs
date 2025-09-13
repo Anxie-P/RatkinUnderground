@@ -49,6 +49,26 @@ namespace RatkinUnderground
             }
         }
 
+        public static class Debug_FinalBattleBeginner
+        {
+            [DebugAction(
+                category: "RatkinUnderground",
+                name: "FinalBattle Beginner")]
+            private static void FinalBattleBeginner()
+            {
+                Current.Game.GetComponent<RKU_RadioGameComponent>().maxRelationshipGrade = 75;
+                Current.Game.GetComponent<RKU_RadioGameComponent>().minRelationshipGrade = -75;
+                Current.Game.GetComponent<RKU_RadioGameComponent>().ralationshipGrade = -75;
+                FactionRelationKind kind2 = Utils.OfRKU.RelationWith(Faction.OfPlayer).kind;
+                Utils.OfRKU.RelationWith(Faction.OfPlayer).kind = FactionRelationKind.Hostile;
+                Faction.OfPlayer.RelationWith(Utils.OfRKU).kind = FactionRelationKind.Hostile;
+                Utils.OfRKU.Notify_RelationKindChanged(Faction.OfPlayer, kind2, false, "", TargetInfo.Invalid, out var sentLetter);
+                Faction.OfPlayer.Notify_RelationKindChanged(Utils.OfRKU, kind2, false, "", TargetInfo.Invalid, out sentLetter);
+                Utils.OfRKU.RelationWith(Faction.OfPlayer).baseGoodwill = -100;
+                Log.Message($"[RatkinUnderground] 关系已调整至-75");
+            }
+        }
+
         public static class Debug_DialogueSystem
         {
             [DebugAction(
@@ -131,6 +151,71 @@ namespace RatkinUnderground
                 else
                 {
                     Messages.Message("未找到RKU_RadioGameComponent", MessageTypeDefOf.RejectInput);
+                }
+            }
+        }
+
+        public static class Debug_MoraleAndCasualty
+        {
+            [DebugAction(
+                category: "RatkinUnderground",
+                name: "士气值 +0.1")]
+            private static void IncreaseMoraleSmall()
+            {
+                ModifyMorale(0.1f);
+            }
+
+            [DebugAction(
+                category: "RatkinUnderground",
+                name: "士气值 -0.1")]
+            private static void DecreaseMoraleSmall()
+            {
+                ModifyMorale(-0.4f);
+            }
+
+            [DebugAction(
+                category: "RatkinUnderground",
+                name: "损失度 +10")]
+            private static void IncreaseCasualty10()
+            {
+                ModifyCasualty(10);
+            }
+
+            [DebugAction(
+                category: "RatkinUnderground",
+                name: "损失度 -10")]
+            private static void DecreaseCasualty10()
+            {
+                ModifyCasualty(-10);
+            }
+          
+            private static void ModifyMorale(float amount)
+            {
+                var finalBattle = Find.CurrentMap.GameConditionManager.GetActiveCondition<RKU_GameCondition_FinalBattle>();
+                if (finalBattle != null)
+                {
+                    finalBattle.ModifyMorale(amount);
+                    Messages.Message($"士气值{(amount > 0 ? "+" : "")}{amount:F1}, 当前: {(finalBattle.Morale * 100):F1}%", MessageTypeDefOf.NeutralEvent);
+                }
+                else
+                {
+                    Messages.Message("当前没有决战状态", MessageTypeDefOf.RejectInput);
+                }
+            }
+
+            private static void ModifyCasualty(int amount)
+            {
+                var finalBattle = Find.CurrentMap.GameConditionManager.GetActiveCondition<RKU_GameCondition_FinalBattle>();
+                if (finalBattle != null)
+                {
+                    // 直接修改私有字段（调试用）
+                    finalBattle.GetType().GetField("totalGuerrillaDeaths", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+                        ?.SetValue(finalBattle, finalBattle.TotalGuerrillaDeaths + amount);
+                    Messages.Message($"损失度{(amount > 0 ? "+" : "")}{amount}, 当前: {finalBattle.TotalGuerrillaDeaths}", MessageTypeDefOf.NeutralEvent);
+                }
+                else
+                {
+                    Messages.Message("当前没有决战状态", MessageTypeDefOf.RejectInput);
                 }
             }
         }

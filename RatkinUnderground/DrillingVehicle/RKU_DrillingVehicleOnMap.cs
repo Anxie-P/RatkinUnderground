@@ -242,7 +242,7 @@ public class RKU_DrillingVehicleOnMap : Caravan
                 action = () =>
                 {
                     //Log.Message($"生成事件前的进度{traveledPct}");
-                    IncidentDef incidentDef = DefDatabase<IncidentDef>.AllDefs.ToList().FindAll(o=>o.defName.Contains(" ")).RandomElement();
+                    IncidentDef incidentDef = DefDatabase<IncidentDef>.AllDefs.ToList().FindAll(o=>o.defName.Contains("")).RandomElement();
                     if (incidentDef != null)
                     {
                         

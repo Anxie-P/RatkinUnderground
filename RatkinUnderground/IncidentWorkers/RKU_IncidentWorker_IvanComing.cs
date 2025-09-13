@@ -13,9 +13,26 @@ namespace RatkinUnderground
     {
         protected override bool CanFireNowSub(IncidentParms parms)
         {
-            // 检查好感度是否为-50
+            // 检查好感度是否小于等与-50，或在最终决战内
             var component = Current.Game.GetComponent<RKU_RadioGameComponent>();
-            if (component != null && component.ralationshipGrade != -50)
+            bool isFinalBattleActive = false;
+            foreach (Map map in Find.Maps)
+            {
+                if (map.IsPlayerHome)
+                {
+                    foreach (GameCondition activeCondition in map.gameConditionManager.ActiveConditions)
+                    {
+                        if (activeCondition.def.defName == "RKU_FinalBattle")
+                        {
+                            isFinalBattleActive = true;
+                            break;
+                        }
+                    }
+                    if (isFinalBattleActive) break;
+                }
+            }
+
+            if (component != null && component.ralationshipGrade <= -50 && !isFinalBattleActive)
             {
                 return false;
             }
@@ -166,19 +183,6 @@ namespace RatkinUnderground
                 // 强制开始工作
                 saboteur.jobs.StartJob(job, JobCondition.InterruptForced);
             }
-        }
-        
-        private void SendNotification(Map map, int saboteurCount, Building bombTarget)
-        {
-            string letterText = $"RKU_IvanComing_LetterText".Translate(saboteurCount);
-            string letterLabel = "RKU_IvanComing_LetterLabel".Translate();
-            
-            Find.LetterStack.ReceiveLetter(
-                letterLabel,
-                letterText,
-                LetterDefOf.ThreatSmall,
-                new TargetInfo(bombTarget.Position, map)
-            );
         }
     }
 }

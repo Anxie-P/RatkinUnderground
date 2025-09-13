@@ -38,18 +38,18 @@ namespace RatkinUnderground
         public void SetPermanentEnemies()
         {
             Faction rFaction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
-            /*Log.Message("派系修复已挂载");*/
             if (rFaction == null) return;
             foreach (FactionDef enemy in enemyFaction)
             {
                 Faction eFaction = Find.FactionManager.FirstFactionOfDef(enemy);
-                /*Log.Message($"当前关系：{rFaction.RelationWith(eFaction).baseGoodwill}");*/
                 eFaction.RelationWith(rFaction).baseGoodwill = -100;
                 rFaction.RelationWith(eFaction).baseGoodwill = -100;
+                FactionRelationKind oldKind1 = eFaction.RelationWith(rFaction).kind;
+                FactionRelationKind oldKind2 = rFaction.RelationWith(eFaction).kind;
                 eFaction.RelationWith(rFaction).kind = FactionRelationKind.Hostile;
                 rFaction.RelationWith(eFaction).kind = FactionRelationKind.Hostile;
-                /*Log.Message($"已设置{rFaction.Name}与{enemy.defName}永久敌对");
-                Log.Message($"修改后的关系：{rFaction.RelationWith(eFaction).baseGoodwill}");*/
+                eFaction.Notify_RelationKindChanged(rFaction, oldKind1, false, "", TargetInfo.Invalid, out var sentLetter1);
+                rFaction.Notify_RelationKindChanged(eFaction, oldKind2, false, "", TargetInfo.Invalid, out var sentLetter2);
             }
         }
     }
