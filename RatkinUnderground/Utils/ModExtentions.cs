@@ -15,5 +15,7 @@ namespace RatkinUnderground
     {
         public bool isEncounterMap;
         public bool requireDrillingVehicle = false;
+        // 需要生成在中间
+        public bool isSpawnCenter = false;
     }
 }

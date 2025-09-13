@@ -1,9 +1,11 @@
 ﻿using HarmonyLib;
 using RimWorld;
+using RimWorld.Planet;
 using SRTS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -39,6 +41,11 @@ public class Dialog_RKU_Radio : Window, ITrader
     private bool tradeReady = false;
     private bool hasTraded = false; // 标记是否发生了实际交易
     private bool tradeInProgress = false; // 一次运货
+
+    // 扫描相关
+    private List<WorldObjectDef> incidentMap => DefDatabase<WorldObjectDef>.AllDefsListForReading
+                                .Where(d => d.defName != null && d.defName.StartsWith("RKU_MapParent"))
+                                .ToList();
 
     private List<Rect> rects = new List<Rect>();   // 所有按钮实例 
     private List<RKU_RadioButton> buttons = new();
@@ -311,6 +318,23 @@ public class Dialog_RKU_Radio : Window, ITrader
                 // 触发扫描相关对话事件
                 RKU_DialogueManager.TriggerDialogueEvents(this, "scan");
                 AddMessage("开始扫描信号...");
+
+                var tile = Utils.GetRadiusTiles(radio.Map.Tile, 20);
+                try
+                {
+                    WorldObjectDef def = DefDatabase<WorldObjectDef>.AllDefs
+                        .Where(d => d.defName.StartsWith("RKU_MapParent")).RandomElement();
+                    WorldObject worldObject = WorldObjectMaker.MakeWorldObject(def);
+                    worldObject.Tile = tile;
+                    worldObject.SetFaction(null);
+                    Find.WorldObjects.Add(worldObject);
+
+                    Log.Message($"[RKU] 成功在 tile {tile} 生成世界物体：{def.defName}");
+                }
+                catch(Exception e)
+                {
+                    Log.Error($"[RKU] 扫描信号生成地图发生错误：{e}");
+                }
             }
         }
         //buttonX += buttonWidth + 15f;

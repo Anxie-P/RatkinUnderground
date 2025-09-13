@@ -6,12 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Verse.Grammar;
-using Verse;
-using Verse.AI.Group;
-using Verse.AI;
-using static UnityEngine.GraphicsBuffer;
 using UnityEngine.UIElements;
+using Verse;
+using Verse.AI;
+using Verse.AI.Group;
+using Verse.Grammar;
+using Verse.Noise;
+using static UnityEngine.GraphicsBuffer;
 
 namespace RatkinUnderground
 {
@@ -512,6 +513,34 @@ namespace RatkinUnderground
                     Log.Warning($"[RKU] 添加 {pawn} 失败: {ex}");
                 }
             }
+        }
+
+        /// <summary>
+        /// 获取当前地图范围内的随机Tile
+        /// </summary>
+        /// <param name="map"></param>
+        /// <param name="rangeTiles"></param>
+        /// <returns></returns>
+        public static int GetRadiusTiles(int tile, int rangeTiles)
+        {
+            WorldGrid grid = Find.WorldGrid;
+            int currentTile = tile;
+
+            for (int i = 0; i < rangeTiles; i++)
+            {
+                List<int> neighbors = new List<int>();
+                grid.GetTileNeighbors(currentTile, neighbors);
+
+                var candidates = neighbors.Where(t => !grid[t].WaterCovered && t != currentTile).ToList();
+                if (candidates.Count == 0)
+                {
+                    break;
+                }
+
+                currentTile = candidates.RandomElement();
+            }
+
+            return currentTile;
         }
     }
 }

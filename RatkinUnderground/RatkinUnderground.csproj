@@ -44,8 +44,6 @@
     <Compile Include="DrillingVehicle\Dialog_ManagePassengers.cs" />
     <Compile Include="DrillingVehicle\RKU_DrillingVehicleInEnemyMap_Und.cs" />
     <Compile Include="GameConditions\RKU_GameCondition_FinalBattle.cs" />
-    <Compile Include="IncidentWorkers\IncidentWorker_LimitedInsectAttack.cs" />
-    <Compile Include="IncidentWorkers\IncidentWorker_LimitedFleshbeastAttack.cs" />
     <Compile Include="IncidentWorkers\RKU_IncidentWorker_IvanComing.cs" />
     <Compile Include="IncidentWorkers\RKU_IncidentWorker_Guerrillas.cs" />
     <Compile Include="Job\JobDriver_EatSpecialMushroom.cs" />
@@ -59,6 +57,7 @@
     <Compile Include="DrillingVehicle\RKU_TunnelHiveSpawner_Und.cs" />
     <Compile Include="Hediffs\HediffCompProperties_YunNanToxin.cs" />
     <Compile Include="IncidentWorkers\RKU_IncidentWorker_BuildMap.cs" />
+    <Compile Include="Job\JobDriver_UseTradingPost.cs" />
     <Compile Include="Job\LordJob_SetC4.cs" />
     <Compile Include="Job\RKU_AssistResearchJob.cs" />
     <Compile Include="Job\RKU_GuerrillaAction.cs" />
@@ -102,6 +101,7 @@
     <Compile Include="ThingClass\RKU_HammerAttacker.cs" />
     <Compile Include="ThingClass\RKU_Panjandrum.cs" />
     <Compile Include="ThingClass\RKU_PanjandrumBullet.cs" />
+    <Compile Include="ThingClass\RKU_TradingPost.cs" />
     <Compile Include="ThingComps\CompProperties_Allurecap.cs" />
     <Compile Include="ThingComps\CompProperties_Hatecap.cs" />
     <Compile Include="ThingComps\CompProperties_KillDreadmeld.cs" />
