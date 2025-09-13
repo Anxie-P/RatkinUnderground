@@ -139,17 +139,20 @@ namespace RatkinUnderground
             #endregion
 
             #region 载员管理
-            Command_Action command_ManagePassengers = new()
+            if (this.Faction.IsPlayer)
             {
-                defaultLabel = "RKU.ManagePassengers".Translate(),
-                hotKey = KeyBindingDefOf.Misc2,
-                icon = Resources.inner,
-                action = () =>
+                Command_Action command_ManagePassengers = new()
                 {
-                    Find.WindowStack.Add(new Dialog_ManagePassengers(this));
-                }
-            };
-            yield return command_ManagePassengers;
+                    defaultLabel = "RKU.ManagePassengers".Translate(),
+                    hotKey = KeyBindingDefOf.Misc2,
+                    icon = Resources.inner,
+                    action = () =>
+                    {
+                        Find.WindowStack.Add(new Dialog_ManagePassengers(this));
+                    }
+                };
+                yield return command_ManagePassengers;
+            }
             #endregion
 
             #region 钻地！
@@ -225,24 +228,26 @@ namespace RatkinUnderground
             {
                 yield return option;
             }
-
-            if (selPawn.CanReach(this, PathEndMode.InteractionCell, Danger.Deadly))
+            if (this.Faction.IsPlayer)
             {
-                if (passengers.Contains(selPawn))
+                if (selPawn.CanReach(this, PathEndMode.InteractionCell, Danger.Deadly))
                 {
-                    yield return new FloatMenuOption("RKU.ExitVehicle".Translate(), () =>
+                    if (passengers.Contains(selPawn))
                     {
-                        passengers.Remove(selPawn);
-                        GenSpawn.Spawn(selPawn, Position, Map);
-                    });
-                }
-                else
-                {
-                    yield return new FloatMenuOption("RKU.EnterVehicle".Translate(), () =>
+                        yield return new FloatMenuOption("RKU.ExitVehicle".Translate(), () =>
+                        {
+                            passengers.Remove(selPawn);
+                            GenSpawn.Spawn(selPawn, Position, Map);
+                        });
+                    }
+                    else
                     {
-                        Job job = JobMaker.MakeJob(DefDatabase<JobDef>.GetNamed("RKU_EnterDrillingVehicle"), this);
-                        selPawn.jobs.TryTakeOrderedJob(job);
-                    });
+                        yield return new FloatMenuOption("RKU.EnterVehicle".Translate(), () =>
+                        {
+                            Job job = JobMaker.MakeJob(DefDatabase<JobDef>.GetNamed("RKU_EnterDrillingVehicle"), this);
+                            selPawn.jobs.TryTakeOrderedJob(job);
+                        });
+                    }
                 }
             }
         }
@@ -254,17 +259,20 @@ namespace RatkinUnderground
                 yield return option;
             }
 
-            // 检查是否有任何选中的 pawn 可以到达车辆
-            if (selPawns.Any(p => p.CanReach(this, PathEndMode.Touch, Danger.Deadly)))
+            if (this.Faction.IsPlayer)
             {
-                yield return new FloatMenuOption("RKU.EnterVehicle".Translate(), () =>
+                // 检查是否有任何选中的 pawn 可以到达车辆
+                if (selPawns.Any(p => p.CanReach(this, PathEndMode.Touch, Danger.Deadly)))
                 {
-                    foreach (Pawn pawn in selPawns)
+                    yield return new FloatMenuOption("RKU.EnterVehicle".Translate(), () =>
                     {
-                        Job job = JobMaker.MakeJob(DefDatabase<JobDef>.GetNamed("RKU_EnterDrillingVehicle"), this);
-                        pawn.jobs.TryTakeOrderedJob(job);
-                    }
-                });
+                        foreach (Pawn pawn in selPawns)
+                        {
+                            Job job = JobMaker.MakeJob(DefDatabase<JobDef>.GetNamed("RKU_EnterDrillingVehicle"), this);
+                            pawn.jobs.TryTakeOrderedJob(job);
+                        }
+                    });
+                }
             }
         }
         #endregion

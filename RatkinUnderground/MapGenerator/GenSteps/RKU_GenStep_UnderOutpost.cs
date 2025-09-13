@@ -108,6 +108,7 @@ namespace RatkinUnderground
                 return result;
             });
             GenerateDrillingVehicleAndScouts(map, rect);
+            SpawnTradingPostInside(map, rect);
         }
 
         protected bool CanPlaceAncientBuildingInRange(CellRect rect, Map map)
@@ -366,10 +367,12 @@ namespace RatkinUnderground
             if (!vehiclePos.IsValid) return;
 
             Thing vehicle = ThingMaker.MakeThing(DefOfs.RKU_DrillingVehicle);
+            Faction faction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
+            vehicle.SetFaction(faction);
             GenSpawn.Spawn(vehicle, vehiclePos, map, Rot4.North); // 固定Rot4.North
 
             List<Pawn> scouts = new List<Pawn>();
-            Faction faction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
+            //Faction faction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
             for (int i = 0; i < 2; i++)
             {
                 Pawn scout = PawnGenerator.GeneratePawn(DefOfs.RKU_Scout, faction);
@@ -386,6 +389,47 @@ namespace RatkinUnderground
             }
 
             LordMaker.MakeNewLord(faction, new LordJob_DefendPoint(vehiclePos), map, scouts);
+        }
+
+        /// <summary>
+        /// 生成交易所
+        /// </summary>
+        /// <param name="map"></param>
+        /// <param name="rect"></param>
+        private void SpawnTradingPostInside(Map map, CellRect rect)
+        {
+            // 获取建筑内部空地格子列表
+            List<IntVec3> emptyCells = new List<IntVec3>();
+
+            foreach (IntVec3 cell in rect.Cells)
+            {
+                if (!cell.InBounds(map)) continue;
+                if (cell.GetEdifice(map) == null && cell.GetFirstThing<Building>(map) == null && cell.Standable(map))
+                {
+                    emptyCells.Add(cell);
+                }
+            }
+
+            if (emptyCells.Count == 0)
+            {
+                Log.Warning("[RKU] 地下据点没有空地，无法生成交易所");
+                return;
+            }
+
+            // 随机选择一个位置生成交易所
+            IntVec3 spawnPos = emptyCells.RandomElement();
+
+            try
+            {
+                Thing tradingPost = ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_TradingPost"));
+                Faction faction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
+                tradingPost.SetFaction(faction);
+                GenSpawn.Spawn(tradingPost, spawnPos, map);
+            }
+            catch (Exception e)
+            {
+                Log.Error($"[RKU] 交易所生成失败: {e}");
+            }
         }
 
 

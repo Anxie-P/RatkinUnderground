@@ -60,7 +60,12 @@ public class Dialog_RKU_Radio : Window, ITrader
             var comp = radioComponent;
             if (comp != null && comp.isSearch)
             {
+                Log.Message("符合正在研究条件");
                 triggers.Add("research");
+            }
+            else
+            {
+                Log.Message("不符合正在研究条件");
             }
 
             if (Rand.Range(0, 100) < 50 && triggers.Count > 0)
@@ -70,6 +75,7 @@ public class Dialog_RKU_Radio : Window, ITrader
             // 延迟触发初始对话，避免构造函数中出现问题
             LongEventHandler.QueueLongEvent(() =>
             {
+                Log.Message($"当前trigger：{randTrigger}");
                 RKU_DialogueManager.TriggerDialogueEvents(this, randTrigger);
             }, "RKU_TriggerInitialDialogue", false, null);
         }

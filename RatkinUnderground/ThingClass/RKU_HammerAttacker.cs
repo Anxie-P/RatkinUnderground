@@ -42,10 +42,12 @@ namespace RatkinUnderground
                 );
             }
         }
+
         public override void PostMake()
         {
             base.PostMake();
         }
+
         public override void Tick()
         {
             base.Tick();
@@ -137,7 +139,7 @@ namespace RatkinUnderground
             else
             {
                 incidentDef = DefDatabase<IncidentDef>.GetNamed("RKU_LimitedInsectAttack");
-            }
+        }
 
             if (incidentDef == null) return;
 

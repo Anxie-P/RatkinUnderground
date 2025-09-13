@@ -452,6 +452,7 @@ namespace RatkinUnderground
             }
         }
 
+
         /// <summary>
         /// 发布电台消息到所有电台设备
         /// </summary>
@@ -474,6 +475,41 @@ namespace RatkinUnderground
                             }
                         }
                     }
+                }
+            }
+        }
+
+
+        public static void TryRemoveWorldPawn(Pawn pawn)
+        {
+            if (pawn == null) return;
+
+            if (Find.WorldPawns.Contains(pawn))
+            {
+                try
+                {
+                    Find.WorldPawns.RemovePawn(pawn);
+                }
+                catch (System.Exception ex)
+                {
+                    Log.Warning($"[RKU] 移除 {pawn} 失败: {ex}");
+                }
+            }
+        }
+
+        public static void TryAddWorldPawn(Pawn pawn)
+        {
+            if (pawn == null) return;
+
+            if (!Find.WorldPawns.Contains(pawn))
+            {
+                try
+                {
+                    Find.WorldPawns.AllPawnsAlive.Add(pawn);
+                }
+                catch (System.Exception ex)
+                {
+                    Log.Warning($"[RKU] 添加 {pawn} 失败: {ex}");
                 }
             }
         }

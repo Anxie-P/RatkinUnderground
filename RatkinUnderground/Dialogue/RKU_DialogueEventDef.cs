@@ -20,7 +20,7 @@ namespace RatkinUnderground
         // 冷却时间
         public int cooldownTicks = 0;
         // 启动时触发
-        public bool triggerOnStartup = true; 
+        public bool triggerOnStartup = false; 
         // 交易时触发
         public bool triggerOnTrade = false;
         // 扫描时触发

@@ -119,6 +119,7 @@ namespace RatkinUnderground
         private float CalculateRaidPoints()
         {
             float points = baseRaidPoints;
+
             // 基于财富调整袭击点数
             if (lastWealth > 200000)
             {
@@ -132,6 +133,7 @@ namespace RatkinUnderground
             {
                 points *= 1.2f;
             }
+
             // 基于殖民者数量调整
             if (lastColonistCount > 10)
             {
@@ -141,6 +143,7 @@ namespace RatkinUnderground
             {
                 points *= 1.1f;
             }
+
             // 基于威胁点数调整
             if (lastThreatPoints > 2000)
             {
@@ -181,7 +184,7 @@ namespace RatkinUnderground
 
         // 检查胜利条件
         private void CheckVictoryConditions()
-        {
+            {
             // 士气值降至0
             if (morale <= 0f)
             {
@@ -208,7 +211,7 @@ namespace RatkinUnderground
 
         // 统计地图上鼠族游击队阵营的尸体数量
         private int CountGuerrillaCorpses()
-        {
+                {
             int corpseCount = 0;
 
             foreach (Map map in Find.Maps)
@@ -245,7 +248,7 @@ namespace RatkinUnderground
                 Faction.OfPlayer.RelationWith(Utils.OfRKU).kind = FactionRelationKind.Hostile;
                 Utils.OfRKU.Notify_RelationKindChanged(Faction.OfPlayer, kind2, false, "", TargetInfo.Invalid, out var sentLetter);
                 Faction.OfPlayer.Notify_RelationKindChanged(Utils.OfRKU, kind2, false, "", TargetInfo.Invalid, out sentLetter);
-            }
+                }
             // 计算伤亡比例 (基于总死亡数占800的百分比)
             float casualtyRatio = Mathf.Min(1.0f, totalGuerrillaDeaths / 500f);
             // 决定可用的袭击类型
@@ -253,12 +256,12 @@ namespace RatkinUnderground
             bool canTriggerThiTunnel = (morale < 0.3f);
             // 基于当前状态动态分配袭击
             if (canTriggerAllTypes)
-            {
+                {
                 // 高士气或高伤亡时，随机触发多种组合
                 TriggerDynamicRaidCombination(totalPoints, canTriggerThiTunnel);
-            }
-            else
-            {
+                }
+                else
+                {
                 // 正常状态下的袭击分配
                 TriggerNormalRaidCombination(totalPoints, canTriggerThiTunnel);
             }
@@ -266,14 +269,14 @@ namespace RatkinUnderground
             if (!string.IsNullOrEmpty(raidMessage))
             {
                 Utils.BroadcastRadioMessage(raidMessage);
+                }
             }
-        }
 
         // 高强度状态下的动态袭击组合
         private void TriggerDynamicRaidCombination(float totalPoints, bool canTriggerThiTunnel)
-        {
+            {
             // 基础围攻袭击 (高强度状态下必定触发)
-            TriggerMortarSiegeRaid(totalPoints);
+                TriggerMortarSiegeRaid(totalPoints);
             // 随机额外事件 (33%概率)
             if (Rand.Value < 0.33f)
             {
@@ -298,17 +301,17 @@ namespace RatkinUnderground
 
         // 正常状态下的袭击组合
         private void TriggerNormalRaidCombination(float totalPoints, bool canTriggerThiTunnel)
-        {
+            {
             float random = Rand.Range(0, 1f);
             if (random < 0.35f)
-            {
+                {
                 // 基础袭击
                 TriggerBasicRaid(Mathf.Clamp(totalPoints, 500f, 3000f));
-            }
+                }
             else if (random < 0.7f)
-            {
+                {
                 // 隧道+ 基础
-                TriggerRatkinTunnelEvent("RKU_RatkinTunnel_Fir");
+                    TriggerRatkinTunnelEvent("RKU_RatkinTunnel_Fir");
                 TriggerBasicRaid(Mathf.Clamp(totalPoints * 0.6f, 500f, 2000f));
             }
             else if (random < 0.9f || !canTriggerThiTunnel)
@@ -316,18 +319,18 @@ namespace RatkinUnderground
                 // 20% 概率：围攻 + 基础
                 TriggerMortarSiegeRaid(totalPoints);
                 TriggerBasicRaid(Mathf.Clamp(totalPoints * 0.7f, 500f, 2500f));
-            }
-            else
-            {
+                }
+                else
+                {
                 // 10% 概率：伊文+一般 
-                TriggerRatkinTunnelEvent("RKU_RatkinTunnel_Thi");
+                    TriggerRatkinTunnelEvent("RKU_RatkinTunnel_Thi");
                 TriggerBasicRaid(Mathf.Clamp(totalPoints * 0.5f, 500f, 2000f));
             }
-        }
+                }
 
         // 发送游击队状态信封消息
         private void SendMoraleAndCasualtyLetter()
-        {
+            {
             // 计算财富损失
             Log.Warning(initialWealth.ToString());
             Log.Warning(lastWealth.ToString());
@@ -394,13 +397,14 @@ namespace RatkinUnderground
                 {
                     return;
                 }
+
                 IncidentDef raidIncident = IncidentDefOf.RaidEnemy;
                 IncidentParms parms = new IncidentParms();
                 parms.faction = Utils.OfRKU;
                 parms.target = targetMap;
                 parms.forced = true;
                 parms.points = Mathf.Max(raidPoints, 500f);
-
+                
                 if (parms.raidArrivalMode == null || parms.raidArrivalMode.defName.Contains("drop"))
                 {
                     RaidStrategyDef immediateStrategy = DefDatabase<RaidStrategyDef>.GetNamed("ImmediateAttack");
@@ -409,6 +413,7 @@ namespace RatkinUnderground
                     parms.raidArrivalMode = DefDatabase<PawnsArrivalModeDef>.AllDefs
                         .FirstOrDefault(d => !d.defName.Contains("Drop"));
                 }
+
                 // 尝试触发事件
                 if (!raidIncident.Worker.TryExecute(parms))
                 {

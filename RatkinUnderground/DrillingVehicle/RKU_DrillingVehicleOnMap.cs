@@ -231,38 +231,40 @@ public class RKU_DrillingVehicleOnMap : Caravan
         {
             yield return gizmo;
         }
-
-        if (!arrived && pather.MovingNow)
+        if (Prefs.DevMode)
         {
-            yield return new Command_Action
+            if (!arrived && pather.MovingNow)
             {
-                defaultLabel = "Test Event",
-                defaultDesc = "Trigger the test event for the drilling vehicle.",
-                icon = ContentFinder<Texture2D>.Get("UI/Commands/LaunchShip"),
-                action = () =>
+                yield return new Command_Action
                 {
-                    //Log.Message($"生成事件前的进度{traveledPct}");
-                    IncidentDef incidentDef = DefDatabase<IncidentDef>.AllDefs.ToList().FindAll(o=>o.defName.Contains("")).RandomElement();
-                    if (incidentDef != null)
+                    defaultLabel = "Test Event",
+                    defaultDesc = "Trigger the test event for the drilling vehicle.",
+                    icon = ContentFinder<Texture2D>.Get("UI/Commands/LaunchShip"),
+                    action = () =>
                     {
-                        
-                        int nodes = pather.curPath.NodesReversed.Count;
-                        int index = (int)(traveledPct * (nodes - 1));
-                        index = Mathf.Clamp(index, 0, nodes - 1);
-                        int eventTile = pather.curPath.NodesReversed[index];
-                        var temp = this;
-                        temp.Tile = eventTile;
-                        //Log.Message($"地图上drill的Tile：{base.Tile}");
-                        IncidentParms parms = StorytellerUtility.DefaultParmsNow(incidentDef.category, temp);
-                        //Log.Message($"parm的Tile：{parms.target.Tile}");
-                        parms.target = this;
-                        parms.faction = Faction.OfPlayer;
-                        incidentDef.Worker.TryExecute(parms);
-                        //Log.Message($"生成事件后的进度{traveledPct}");
-                        traveledPct = 0;    //生成事件后起始地点会变，进度归0
+                        //Log.Message($"生成事件前的进度{traveledPct}");
+                        IncidentDef incidentDef = DefDatabase<IncidentDef>.AllDefs.ToList().FindAll(o => o.defName.Contains(" ")).RandomElement();
+                        if (incidentDef != null)
+                        {
+
+                            int nodes = pather.curPath.NodesReversed.Count;
+                            int index = (int)(traveledPct * (nodes - 1));
+                            index = Mathf.Clamp(index, 0, nodes - 1);
+                            int eventTile = pather.curPath.NodesReversed[index];
+                            var temp = this;
+                            temp.Tile = eventTile;
+                            //Log.Message($"地图上drill的Tile：{base.Tile}");
+                            IncidentParms parms = StorytellerUtility.DefaultParmsNow(incidentDef.category, temp);
+                            //Log.Message($"parm的Tile：{parms.target.Tile}");
+                            parms.target = this;
+                            parms.faction = Faction.OfPlayer;
+                            incidentDef.Worker.TryExecute(parms);
+                            //Log.Message($"生成事件后的进度{traveledPct}");
+                            traveledPct = 0;    //生成事件后起始地点会变，进度归0
+                        }
                     }
-                }
-            };
+                };
+            }
         }
     }
 }

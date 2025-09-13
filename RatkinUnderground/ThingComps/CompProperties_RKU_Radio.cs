@@ -174,7 +174,7 @@ public class Comp_RKU_Radio : ThingComp
                     var component = Current.Game.GetComponent<RKU_RadioGameComponent>();
                     if (component != null)
                     {
-                        component.researchProgress = RKU_RadioGameComponent.RESEARCH_PROGRESS_MAX / 2;
+                        component.researchProgress += RKU_RadioGameComponent.RESEARCH_PROGRESS_MAX / 2;
                         Messages.Message("研究进度已加一半", MessageTypeDefOf.PositiveEvent);
                     }
                 }
