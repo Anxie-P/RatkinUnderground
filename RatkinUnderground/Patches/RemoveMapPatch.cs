@@ -28,7 +28,7 @@ namespace RatkinUnderground
                     Command_Action command_Action = new Command_Action();
                     command_Action.defaultLabel = "RandomSiteDeleteMap".Translate();
                     command_Action.defaultDesc = "CommandViewQuestDesc".Translate();
-                    command_Action.icon = ContentFinder<Texture2D>.Get("Things/Icon/AbandonHome");
+                    command_Action.icon = ContentFinder<Texture2D>.Get("UI/Commands/AbandonHome");
                     command_Action.action = delegate
                     {
                         Find.WindowStack.Add(new Dialog_Confirm(__instance));

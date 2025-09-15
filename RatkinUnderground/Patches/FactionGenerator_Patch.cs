@@ -36,3 +36,21 @@ class GenerateFactions_Patch
         }
     }
 }
+
+[HarmonyPatch(typeof(FactionGenerator), nameof(FactionGenerator.NewGeneratedFaction))]
+public static class Patch_FactionGenerator_NewGeneratedFaction
+{
+    static void Postfix(Faction __result, FactionGeneratorParms parms)
+    {
+        if (__result.def == DefOfs.RKU_Faction)
+        {
+            var settlements = Find.WorldObjects.Settlements;
+            for (int i = settlements.Count - 1; i >= 0; i--)
+            {
+                if (settlements[i].Faction != __result) continue;
+                Find.WorldObjects.Remove(settlements[i]);
+                Log.Message("[RKU] 已移除地鼠据点");
+            }
+        }
+    }
+}

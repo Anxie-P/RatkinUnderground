@@ -529,7 +529,10 @@ namespace RatkinUnderground
                 List<int> neighbors = new List<int>();
                 grid.GetTileNeighbors(currentTile, neighbors);
 
-                var candidates = neighbors.Where(t => !grid[t].WaterCovered && t != currentTile).ToList();
+                var candidates = neighbors.Where(t => !grid[t].WaterCovered &&
+                                                 !grid[t].hilliness.Equals(Hilliness.Impassable) &&
+                                                 t != currentTile &&
+                                                 !Find.WorldObjects.AnyWorldObjectAt(t)).ToList();
                 if (candidates.Count == 0)
                 {
                     break;
