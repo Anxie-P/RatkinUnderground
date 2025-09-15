@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Verse;
 using Verse.AI;
@@ -531,7 +532,8 @@ namespace RatkinUnderground
                 List<int> neighbors = new List<int>();
                 grid.GetTileNeighbors(currentTile, neighbors);
 
-                var candidates = neighbors.Where(t => !grid[t].WaterCovered && 
+                var candidates = neighbors.Where(t => !grid[t].WaterCovered &&
+                                                 !grid[t].hilliness.Equals(Hilliness.Impassable) &&
                                                  t != currentTile &&
                                                  !Find.WorldObjects.AnyWorldObjectAt(t)).ToList();
                 if (candidates.Count == 0)

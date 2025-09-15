@@ -319,15 +319,30 @@ public class Dialog_RKU_Radio : Window, ITrader
                 RKU_DialogueManager.TriggerDialogueEvents(this, "scan");
                 AddMessage("开始扫描信号...");
 
-                var tile = Utils.GetRadiusTiles(radio.Map.Tile, 20);
+                int tile = Utils.GetRadiusTiles(radio.Map.Tile, 20);
                 try
                 {
-                    WorldObjectDef def = DefDatabase<WorldObjectDef>.AllDefs
-                        .Where(d => d.defName.StartsWith("RKU_MapParent")).RandomElement();
+                    // 如果你看到这行，我跟军爷抢饭去了，回来再修
+                    /*WorldObjectDef def = incidentMap.RandomElement();
                     WorldObject worldObject = WorldObjectMaker.MakeWorldObject(def);
                     worldObject.Tile = tile;
-                    worldObject.SetFaction(null);
-                    Find.WorldObjects.Add(worldObject);
+                    worldObject.SetFaction(Faction.OfPlayer);
+                    Find.WorldObjects.Add(worldObject);*/
+
+                    List<IncidentDef> incidentDefs = DefDatabase<IncidentDef>.AllDefsListForReading
+                                .Where(d => d.defName != null && d.defName.StartsWith("RKU_Incident"))
+                                .ToList();
+                    IncidentDef def = incidentDefs.RandomElement();
+                    Map map = Find.Maps.FirstOrDefault(m => m.Tile == tile);
+                    // build parms - 使用 StorytellerUtility 获取合理默认值
+                    IncidentParms parms = StorytellerUtility.DefaultParmsNow(def.category, map);
+
+                    // 指定 tile（许多 world 级事件会使用 parms.targetTile）
+                    parms.faction = null;
+                    def.Worker.TryExecute(parms);
+                    // 有些 Worker 需要 parms.target （IIncidentTarget，如 Map）
+                    // 如果该 tile 上有 Map（比如玩家当前地图），优先把 Map 作为 target
+
 
                     Log.Message($"[RKU] 成功在 tile {tile} 生成世界物体：{def.defName}");
                 }
