@@ -161,16 +161,23 @@ namespace RatkinUnderground
             }
 
             if (!Map.mapPawns.AllPawnsSpawned.Any(p => p.Faction != null && p.Faction.HostileTo(Faction.OfPlayer)) &&
-                passengers.Count > 0) 
+                passengers.Count > 0)
             {
                 // 将钻机钻出
                 Command_Action drillOut = new Command_Action
                 {
                     defaultLabel = "钻出",
                     activateSound = SoundDefOf.Tick_Tiny,
+                    icon = ContentFinder<Texture2D>.Get("UI/RKU_Out"),
                     action = delegate
                     {
-
+                        FleckMaker.Static(Position.ToVector3Shifted(), Map, FleckDefOf.DustPuff, 4f);
+                        FleckMaker.Static(Position.ToVector3Shifted() + new Vector3(1, 0, 0), Map, FleckDefOf.DustPuff, 4f);
+                        FleckMaker.Static(Position.ToVector3Shifted() + new Vector3(0.5f, 0, 0), Map, FleckDefOf.DustPuff, 4f);
+                        if (Rand.Chance(0.2f))
+                        {
+                            FilthMaker.TryMakeFilth(Position, Map, ThingDefOf.Filth_Dirt);
+                        }
                         List<Pawn> passengersToTransfer = new List<Pawn>(passengers);
                         RKU_DrillingVehicle drillingVehicle = (RKU_DrillingVehicle)ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_DrillingVehicle"));
                         foreach (var pawn in passengersToTransfer)
@@ -185,13 +192,12 @@ namespace RatkinUnderground
                         drillingVehicle.HitPoints = this.HitPoints;
                         drillingVehicle.SetFaction(Faction.OfPlayer);
                         GenSpawn.Spawn(drillingVehicle, Position, Map);
-
                     }
                 };
                 yield return drillOut;
 
             }
-            
+
             #endregion
         }
 
@@ -226,23 +232,28 @@ namespace RatkinUnderground
 
         public override IEnumerable<FloatMenuOption> GetMultiSelectFloatMenuOptions(List<Pawn> selPawns)
         {
+
             foreach (FloatMenuOption option in base.GetMultiSelectFloatMenuOptions(selPawns))
             {
                 yield return option;
             }
-
-            if (selPawns.Any(p => p.CanReach(this, PathEndMode.Touch, Danger.Deadly)))
             {
-                yield return new FloatMenuOption("RKU.EnterVehicle".Translate(), () =>
+                string translatedLabel = "RKU.EnterVehicle".Translate();
+                // 创建pawn列表的副本，避免闭包捕获问题
+                List<Pawn> capturedPawns = new List<Pawn>(selPawns);
+                FloatMenuOption option = new FloatMenuOption(translatedLabel, () =>
                 {
-                    foreach (Pawn pawn in selPawns)
+                    foreach (Pawn pawn in capturedPawns)
                     {
-                        Job job = JobMaker.MakeJob(DefDatabase<JobDef>.GetNamed("RKU_EnterDrillingVehicle"), this);
-                        pawn.jobs.TryTakeOrderedJob(job);
+                        JobDef jobDef = DefDatabase<JobDef>.GetNamed("RKU_EnterDrillingVehicle");
+                        Job job = JobMaker.MakeJob(jobDef, this);
+                        pawn.jobs.StartJob(job, JobCondition.InterruptForced);
                     }
                 });
+
+                yield return option;
             }
         }
         #endregion
     }
-} 
+}

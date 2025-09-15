@@ -192,7 +192,7 @@ public static class RKU_DrillingVehiclePatch
                     else
                     {
                         CellFinder.TryFindRandomEdgeCellWith((IntVec3 x) => x.Standable(map) && x.InBounds(map), map, CellFinder.EdgeRoadChance_Hostile, out target);
-                    }    
+                    }
                     RKU_TunnelHiveSpawner tunnelHiveSpawner = (RKU_TunnelHiveSpawner)ThingMaker.MakeThing(DefOfs.RKU_TunnelHiveSpawner);
                     tunnelHiveSpawner.hitPoints = (caravan as RKU_DrillingVehicleOnMap).hitPoints;  // 传递耐久
                     tunnelHiveSpawner.canMove = false;//遇敌地图不能移动
@@ -215,7 +215,6 @@ public static class RKU_DrillingVehiclePatch
 
                     CameraJumper.TryJump(map.Center, map);
                     IntVec3 target = new IntVec3();
-
                     if (modExtension.isSpawnCenter)
                     {
                         CellFinder.TryFindRandomCellNear(map.Center, map, 5, (IntVec3 x) => x.Standable(map) && x.InBounds(map), out target);
@@ -224,7 +223,6 @@ public static class RKU_DrillingVehiclePatch
                     {
                         CellFinder.TryFindRandomEdgeCellWith((IntVec3 x) => x.Standable(map) && x.InBounds(map), map, CellFinder.EdgeRoadChance_Hostile, out target);
                     }
-                    
                     RKU_TunnelHiveSpawner tunnelHiveSpawner = (RKU_TunnelHiveSpawner)ThingMaker.MakeThing(DefOfs.RKU_TunnelHiveSpawner);
                     tunnelHiveSpawner.hitPoints = (caravan as RKU_DrillingVehicleOnMap).hitPoints;  // 传递耐久
                     tunnelHiveSpawner.canMove = true;//资源地图可以移动

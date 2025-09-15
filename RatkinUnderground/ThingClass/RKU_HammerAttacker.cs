@@ -212,7 +212,7 @@ namespace RatkinUnderground
 
         private void CheckFinalBattleMoraleImpact()
         {
-            RKU_GameCondition_FinalBattle finalBattle = Find.World.GameConditionManager.GetActiveCondition<RKU_GameCondition_FinalBattle>();
+            RKU_GameCondition_FinalBattle finalBattle = Map.GameConditionManager.GetActiveCondition<RKU_GameCondition_FinalBattle>();
             if (finalBattle != null)
             {
                 // 减少20%士气值

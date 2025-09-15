@@ -14,8 +14,7 @@ namespace RatkinUnderground
     public class RKU_MapGeneratorDefModExtension : DefModExtension
     {
         public bool isEncounterMap;
+        public bool isSpawnCenter;
         public bool requireDrillingVehicle = false;
-        // 需要生成在中间
-        public bool isSpawnCenter = false;
     }
 }

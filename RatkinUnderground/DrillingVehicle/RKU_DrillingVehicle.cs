@@ -18,7 +18,7 @@ namespace RatkinUnderground
     public class RKU_DrillingVehicle : Building, IThingHolder
     {
         public ThingOwner<Pawn> passengers;
-        
+
         public RKU_DrillingVehicle()
         {
             passengers = new ThingOwner<Pawn>(this);
@@ -254,27 +254,33 @@ namespace RatkinUnderground
 
         public override IEnumerable<FloatMenuOption> GetMultiSelectFloatMenuOptions(List<Pawn> selPawns)
         {
+            Log.Message($"[RKU_DrillingVehicle] GetMultiSelectFloatMenuOptions 被调用，选中pawn数量: {selPawns.Count}, 钻机类型: {this.GetType().Name}");
+
             foreach (FloatMenuOption option in base.GetMultiSelectFloatMenuOptions(selPawns))
             {
                 yield return option;
             }
-
-            if (this.Faction.IsPlayer)
             {
-                // 检查是否有任何选中的 pawn 可以到达车辆
-                if (selPawns.Any(p => p.CanReach(this, PathEndMode.Touch, Danger.Deadly)))
+                // 删除可达性检查，直接创建选项
                 {
-                    yield return new FloatMenuOption("RKU.EnterVehicle".Translate(), () =>
+                    string translatedLabel = "RKU.EnterVehicle".Translate();
+                    // 创建pawn列表的副本，避免闭包捕获问题
+                    List<Pawn> capturedPawns = new List<Pawn>(selPawns);
+
+                    FloatMenuOption option = new FloatMenuOption(translatedLabel, () =>
                     {
-                        foreach (Pawn pawn in selPawns)
+                        foreach (Pawn pawn in capturedPawns)
                         {
-                            Job job = JobMaker.MakeJob(DefDatabase<JobDef>.GetNamed("RKU_EnterDrillingVehicle"), this);
-                            pawn.jobs.TryTakeOrderedJob(job);
+                            JobDef jobDef = DefDatabase<JobDef>.GetNamed("RKU_EnterDrillingVehicle");
+                            Job job = JobMaker.MakeJob(jobDef, this);
+                            pawn.jobs.StartJob(job, JobCondition.InterruptForced);
                         }
                     });
+
+                    yield return option;
                 }
             }
+            #endregion
         }
-        #endregion
     }
 }

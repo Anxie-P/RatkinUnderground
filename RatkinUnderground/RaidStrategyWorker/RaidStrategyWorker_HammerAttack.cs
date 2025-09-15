@@ -13,6 +13,9 @@ namespace RatkinUnderground
     {
         protected override LordJob MakeLordJob(IncidentParms parms, Map map, List<Pawn> pawns, int raidSeed)
         {
+            if (map.GameConditionManager.GetActiveCondition<RKU_GameCondition_FinalBattle>()==null) {
+               return null;
+            }
             if (pawns.NullOrEmpty())
             {
                 Log.Error("[RKU] 锤子攻击策略没有pawn，取消");
