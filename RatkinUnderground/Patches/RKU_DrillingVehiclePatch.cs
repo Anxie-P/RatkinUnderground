@@ -187,7 +187,7 @@ public static class RKU_DrillingVehiclePatch
                     IntVec3 target = new IntVec3();
                     if (modExtension.isSpawnCenter)
                     {
-                        CellFinder.TryFindRandomCellNear(map.Center, map, 5, (IntVec3 x) => x.Standable(map) && x.InBounds(map), out target);
+                        CellFinder.TryFindRandomCellNear(map.Center, map, 15, (IntVec3 x) => x.Standable(map) && x.InBounds(map), out target);
                     }
                     else
                     {
@@ -218,7 +218,7 @@ public static class RKU_DrillingVehiclePatch
 
                     if (modExtension.isSpawnCenter)
                     {
-                        CellFinder.TryFindRandomCellNear(map.Center, map, 5, (IntVec3 x) => x.Standable(map) && x.InBounds(map), out target);
+                        CellFinder.TryFindRandomCellNear(map.Center, map, 15, (IntVec3 x) => x.Standable(map) && x.InBounds(map), out target);
                     }
                     else
                     {

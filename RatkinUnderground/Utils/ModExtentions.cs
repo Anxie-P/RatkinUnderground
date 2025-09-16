@@ -18,4 +18,12 @@ namespace RatkinUnderground
         // 需要生成在中间
         public bool isSpawnCenter = false;
     }
+
+    /// <summary>
+    /// 为了防止出现3个enter
+    /// </summary>
+    public class RKU_MapParentModExtension : DefModExtension
+    {
+        public bool spawnMap = false;
+    }
 }

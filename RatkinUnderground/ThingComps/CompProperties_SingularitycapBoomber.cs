@@ -41,7 +41,7 @@ public class Comp_SingularitycapBoomber : ThingComp
             if (!cell.InBounds(parent.Map)) continue;
 
             Pawn pawn = cell.GetFirstPawn(parent.Map);
-            if (pawn != null && pawn.def.race.FleshType!=FleshTypeDefOf.Insectoid&& !nearbyTargets.Contains(pawn))
+            if (pawn != null && pawn.def.race.Humanlike && !nearbyTargets.Contains(pawn))
             {
                 if (pawn.Map.reachability.CanReach(pawn.Position, parent, PathEndMode.Touch, TraverseParms.For(pawn)))
                 {

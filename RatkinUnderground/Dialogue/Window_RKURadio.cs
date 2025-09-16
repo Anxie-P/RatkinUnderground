@@ -44,7 +44,9 @@ public class Dialog_RKU_Radio : Window, ITrader
 
     // 扫描相关
     private List<WorldObjectDef> incidentMap => DefDatabase<WorldObjectDef>.AllDefsListForReading
-                                .Where(d => d.defName != null && d.defName.StartsWith("RKU_MapParent"))
+                                .Where(d => d.defName != null &&
+                                d.defName.StartsWith("RKU_MapParent") &&
+                                d.HasModExtension<RKU_MapParentModExtension>())
                                 .ToList();
 
     private List<Rect> rects = new List<Rect>();   // 所有按钮实例 
@@ -323,25 +325,38 @@ public class Dialog_RKU_Radio : Window, ITrader
                 try
                 {
                     // 如果你看到这行，我跟军爷抢饭去了，回来再修
-                    /*WorldObjectDef def = incidentMap.RandomElement();
+                    // 后续：没抢过
+                    
+                    WorldObjectDef def = incidentMap.RandomElement();
+                    var ext = def.GetModExtension<RKU_MapParentModExtension>();
+                    if (ext != null)
+                    {
+                        
+                        def.GetModExtension<RKU_MapParentModExtension>().spawnMap = true;
+                    }
+                    else
+                    {
+                        Log.Message($"[RKU] {def.label} 的ext为null");
+                    }
                     WorldObject worldObject = WorldObjectMaker.MakeWorldObject(def);
+
                     worldObject.Tile = tile;
                     worldObject.SetFaction(Faction.OfPlayer);
-                    Find.WorldObjects.Add(worldObject);*/
+                    Find.WorldObjects.Add(worldObject);
 
-                    List<IncidentDef> incidentDefs = DefDatabase<IncidentDef>.AllDefsListForReading
+                    /*List<IncidentDef> incidentDefs = DefDatabase<IncidentDef>.AllDefsListForReading
                                 .Where(d => d.defName != null && d.defName.StartsWith("RKU_Incident"))
                                 .ToList();
                     IncidentDef def = incidentDefs.RandomElement();
-                    Map map = Find.Maps.FirstOrDefault(m => m.Tile == tile);
-                    // build parms - 使用 StorytellerUtility 获取合理默认值
-                    IncidentParms parms = StorytellerUtility.DefaultParmsNow(def.category, map);
+                    Map map = Find.Maps.Find(m => m.Tile == tile);
+                    IIncidentTarget incidentTarget = (IIncidentTarget)(map ?? (IIncidentTarget)Find.World);
 
-                    // 指定 tile（许多 world 级事件会使用 parms.targetTile）
+                    IncidentParms parms = StorytellerUtility.DefaultParmsNow(def.category, incidentTarget);
+
                     parms.faction = null;
-                    def.Worker.TryExecute(parms);
-                    // 有些 Worker 需要 parms.target （IIncidentTarget，如 Map）
-                    // 如果该 tile 上有 Map（比如玩家当前地图），优先把 Map 作为 target
+                    parms.target = map;
+                    def.Worker.TryExecute(parms);*/
+
 
 
                     Log.Message($"[RKU] 成功在 tile {tile} 生成世界物体：{def.defName}");
