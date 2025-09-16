@@ -44,6 +44,8 @@
     <Compile Include="DrillingVehicle\Dialog_ManagePassengers.cs" />
     <Compile Include="DrillingVehicle\RKU_DrillingVehicleInEnemyMap_Und.cs" />
     <Compile Include="GameConditions\RKU_GameCondition_FinalBattle.cs" />
+    <Compile Include="IncidentWorkers\IncidentWorker_LimitedInsectAttack.cs" />
+    <Compile Include="IncidentWorkers\IncidentWorker_LimitedFleshbeastAttack.cs" />
     <Compile Include="IncidentWorkers\RKU_IncidentWorker_IvanComing.cs" />
     <Compile Include="IncidentWorkers\RKU_IncidentWorker_Guerrillas.cs" />
     <Compile Include="Job\JobDriver_EatSpecialMushroom.cs" />
