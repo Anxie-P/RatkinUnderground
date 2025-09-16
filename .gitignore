@@ -367,3 +367,6 @@ FodyWeavers.xsd
 /.gitignore
 /.gitignore
 /RatkinUnderground/RatkinUnderground.csproj
+/RatkinUnderground/RatkinUnderground.csproj
+/.gitignore
+/.gitignore

@@ -17,4 +17,12 @@ namespace RatkinUnderground
         public bool isSpawnCenter;
         public bool requireDrillingVehicle = false;
     }
+
+    /// <summary>
+    /// 为了防止出现3个enter
+    /// </summary>
+    public class RKU_MapParentModExtension : DefModExtension
+    {
+        public bool spawnMap = false;
+    }
 }
