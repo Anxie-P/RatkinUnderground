@@ -46,7 +46,9 @@ public class Dialog_RKU_Radio : Window, ITrader
     private List<WorldObjectDef> incidentMap => DefDatabase<WorldObjectDef>.AllDefsListForReading
                                 .Where(d => d.defName != null && d.defName.StartsWith("RKU_MapParent"))
                                 .ToList();
+    
 
+    // 界面+触发器
     private List<Rect> rects = new List<Rect>();   // 所有按钮实例 
     private List<RKU_RadioButton> buttons = new();
     private HashSet<string> triggers = new();
@@ -275,6 +277,11 @@ public class Dialog_RKU_Radio : Window, ITrader
                 scanButton.failReason = "至少需要40的好感才能进行扫描";
                 scanButton.canClick = false;
             }
+            else if (!radioComponent.canScan)
+            {
+                scanButton.buttonText = "扫描冷却中";
+                scanButton.canClick = false;
+            }
 
             // 救援检测
             if (radioComponent.ralationshipGrade < 60)
@@ -339,10 +346,11 @@ public class Dialog_RKU_Radio : Window, ITrader
 
                     // 指定 tile（许多 world 级事件会使用 parms.targetTile）
                     parms.faction = null;
+                    parms.target = map;
                     def.Worker.TryExecute(parms);
-                    // 有些 Worker 需要 parms.target （IIncidentTarget，如 Map）
-                    // 如果该 tile 上有 Map（比如玩家当前地图），优先把 Map 作为 target
 
+                    radioComponent.canScan = false;
+                    radioComponent.lastScanTick = Find.TickManager.TicksGame;
 
                     Log.Message($"[RKU] 成功在 tile {tile} 生成世界物体：{def.defName}");
                 }
@@ -457,6 +465,20 @@ public class Dialog_RKU_Radio : Window, ITrader
     }
     #endregion
 
+    #region 扫描部分
+    private void UpdateScanStatus()
+    {
+        var comp = GetRadioComponent();
+        int currentTick = Find.TickManager.TicksGame;
+
+        // 冷却结束
+        if (currentTick - comp.lastScanTick >= comp.scanCooldownTicks)
+        {
+            comp.canScan = true;
+        }
+    }
+    #endregion
+
     #region 对话与消息滚动
     public void AddMessage(string message)
     {
@@ -553,6 +575,8 @@ public class Dialog_RKU_Radio : Window, ITrader
     /// </summary>
     private void DrawRadioStatus()
     {
+        
+
         // 状态信息区域 (头像下方) - 调整位置和大小
         Rect statusRect = new Rect(10f, 215f, 160f, 270f);
         Widgets.DrawBoxSolid(statusRect, new Color(0.2f, 0.2f, 0.2f, 0.8f));
@@ -579,11 +603,21 @@ public class Dialog_RKU_Radio : Window, ITrader
         }
         Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 130f, statusRect.width - 10f, 20f), $"● {rationText}");
 
+        var counts = 0;
+
         // 添加交易状态信息
         if (radioComponent != null && !radioComponent.CanTradeNow)
         {
             int remainingDays = radioComponent.GetRemainingCooldownDays();
-            Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 180f, statusRect.width - 10f, 20f), $"交易冷却: {remainingDays}天");
+            Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 180f + counts * 25f, statusRect.width - 10f, 20f), $"交易冷却: {remainingDays}天");
+            counts++;
+        }
+        // 添加扫描状态信息
+        if (radioComponent != null && !radioComponent.canScan)
+        {
+            int remainingDays = radioComponent.GetRemainingCooldownDays();
+            Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 180f + counts * 25f, statusRect.width - 10f, 20f), $"扫描冷却: {radioComponent.GetRemainingScanCooldownDays()}天");
+            counts++;
         }
 
         Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 155f, statusRect.width - 10f, 20f), $"地图位置: {RadioPosition}");

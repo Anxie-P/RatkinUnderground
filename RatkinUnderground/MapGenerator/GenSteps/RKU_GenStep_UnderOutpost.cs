@@ -1,13 +1,15 @@
-﻿using RimWorld;
-using System;
-using System.Collections.Generic;
-using Verse;
-using Verse.Noise;
-using UnityEngine;
-using System.Linq;
+﻿using RatkinUnderground;
+using RimWorld;
 using RimWorld.BaseGen;
 using RimWorld.SketchGen;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using Verse;
 using Verse.AI.Group;
+using Verse.Noise;
+using static UnityEngine.GraphicsBuffer;
 
 namespace RatkinUnderground
 {
@@ -387,8 +389,28 @@ namespace RatkinUnderground
                 GenSpawn.Spawn(scout, spawnPos, map);
                 scouts.Add(scout);
             }
+            //var lord = new LordToil_WaitForSubsidize(vehiclePos, scouts[2], RandThingDef(), 75);
+            var groupLord = new LordJob_WaitForSubsidize(vehiclePos, RandThingDef(), 75, scouts[2]);
+            //groupLord.CreateGraph().AddToil(lord);
+            LordMaker.MakeNewLord(faction, groupLord, map, scouts);
+            foreach(var g in groupLord.CreateGraph().lordToils)
+            {
+                Log.Message($"[RKU] LordToil: {g.GetType().Name}");
+            }
+        }
 
-            LordMaker.MakeNewLord(faction, new LordJob_DefendPoint(vehiclePos), map, scouts);
+        ThingDef RandThingDef()
+        {
+            List<ThingDef> possibleDefs = new List<ThingDef>
+            {
+                ThingDefOf.Steel,
+                ThingDefOf.ComponentIndustrial,
+                ThingDef.Named("RawFungus"),
+                ThingDefOf.MedicineIndustrial
+            };
+
+            var thingDef = possibleDefs.RandomElement();
+            return thingDef;
         }
 
         /// <summary>
