@@ -44,11 +44,9 @@ public class Dialog_RKU_Radio : Window, ITrader
 
     // 扫描相关
     private List<WorldObjectDef> incidentMap => DefDatabase<WorldObjectDef>.AllDefsListForReading
-                                .Where(d => d.defName != null &&
-                                d.defName.StartsWith("RKU_MapParent") &&
-                                d.HasModExtension<RKU_MapParentModExtension>())
+                                .Where(d => d.defName != null && d.defName.StartsWith("RKU_MapParent"))
                                 .ToList();
-    
+
 
     // 界面+触发器
     private List<Rect> rects = new List<Rect>();   // 所有按钮实例 
@@ -221,7 +219,7 @@ public class Dialog_RKU_Radio : Window, ITrader
         Widgets.DrawBox(buttonArea, 1);
 
         Thing thing = new();
-        
+
         float buttonX = 10f;
         float buttonWidth = 140f;
         float buttonHeight = 35f;
@@ -332,34 +330,21 @@ public class Dialog_RKU_Radio : Window, ITrader
                 try
                 {
                     // 如果你看到这行，我跟军爷抢饭去了，回来再修
-                    // 后续：没抢过
-                    
-                    WorldObjectDef def = incidentMap.RandomElement();
-                    var ext = def.GetModExtension<RKU_MapParentModExtension>();
-                    if (ext != null)
-                    {
-                        
-                        def.GetModExtension<RKU_MapParentModExtension>().spawnMap = true;
-                    }
-                    else
-                    {
-                        Log.Message($"[RKU] {def.label} 的ext为null");
-                    }
+                    /*WorldObjectDef def = incidentMap.RandomElement();
                     WorldObject worldObject = WorldObjectMaker.MakeWorldObject(def);
-
                     worldObject.Tile = tile;
                     worldObject.SetFaction(Faction.OfPlayer);
-                    Find.WorldObjects.Add(worldObject);
+                    Find.WorldObjects.Add(worldObject);*/
 
-                    /*List<IncidentDef> incidentDefs = DefDatabase<IncidentDef>.AllDefsListForReading
+                    List<IncidentDef> incidentDefs = DefDatabase<IncidentDef>.AllDefsListForReading
                                 .Where(d => d.defName != null && d.defName.StartsWith("RKU_Incident"))
                                 .ToList();
                     IncidentDef def = incidentDefs.RandomElement();
-                    Map map = Find.Maps.Find(m => m.Tile == tile);
-                    IIncidentTarget incidentTarget = (IIncidentTarget)(map ?? (IIncidentTarget)Find.World);
+                    Map map = Find.Maps.FirstOrDefault(m => m.Tile == tile);
+                    // build parms - 使用 StorytellerUtility 获取合理默认值
+                    IncidentParms parms = StorytellerUtility.DefaultParmsNow(def.category, map);
 
-                    IncidentParms parms = StorytellerUtility.DefaultParmsNow(def.category, incidentTarget);
-
+                    // 指定 tile（许多 world 级事件会使用 parms.targetTile）
                     parms.faction = null;
                     parms.target = map;
                     def.Worker.TryExecute(parms);
@@ -369,7 +354,7 @@ public class Dialog_RKU_Radio : Window, ITrader
 
                     Log.Message($"[RKU] 成功在 tile {tile} 生成世界物体：{def.defName}");
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     Log.Error($"[RKU] 扫描信号生成地图发生错误：{e}");
                 }
@@ -590,7 +575,7 @@ public class Dialog_RKU_Radio : Window, ITrader
     /// </summary>
     private void DrawRadioStatus()
     {
-        
+
 
         // 状态信息区域 (头像下方) - 调整位置和大小
         Rect statusRect = new Rect(10f, 215f, 160f, 270f);
@@ -647,7 +632,7 @@ public class Dialog_RKU_Radio : Window, ITrader
     /// <param name="tradeDisableReason"></param>
     void DrawFailReason(List<RKU_RadioButton> buttons)
     {
-        
+
         foreach (var button in buttons)
         {
             if (button.canClick && string.IsNullOrEmpty(button.failReason)) continue;
