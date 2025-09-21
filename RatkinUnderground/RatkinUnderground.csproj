@@ -46,6 +46,7 @@
     <Compile Include="GameConditions\RKU_GameCondition_FinalBattle.cs" />
     <Compile Include="IncidentWorkers\IncidentWorker_LimitedInsectAttack.cs" />
     <Compile Include="IncidentWorkers\IncidentWorker_LimitedFleshbeastAttack.cs" />
+    <Compile Include="IncidentWorkers\RKU_IncidentWorker_CaravanHijack.cs" />
     <Compile Include="IncidentWorkers\RKU_IncidentWorker_IvanComing.cs" />
     <Compile Include="IncidentWorkers\RKU_IncidentWorker_Guerrillas.cs" />
     <Compile Include="Job\JobDriver_EatSpecialMushroom.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="ThingComps\CompProperties_KillDreadmeld.cs" />
     <Compile Include="ThingComps\CompProperties_Mindspark.cs" />
     <Compile Include="ThingComps\CompProperties_RecordDamage.cs" />
+    <Compile Include="ThingComps\CompProperties_RKU_BackpackRadio.cs" />
     <Compile Include="ThingComps\RKU_YunNanBullet.cs" />
     <Compile Include="Dialogue\Window_RKURadio.cs" />
     <Compile Include="ThingComps\CompProperties_RKU_Radio.cs" />
