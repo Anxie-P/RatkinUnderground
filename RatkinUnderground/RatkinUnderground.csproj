@@ -62,6 +62,8 @@
     <Compile Include="IncidentWorkers\RKU_IncidentWorker_BuildMap.cs" />
     <Compile Include="Job\JobDriver_UseTradingPost.cs" />
     <Compile Include="Job\LordJob_SetC4.cs" />
+    <Compile Include="Job\LordJob_WaitForSubsidize.cs" />
+    <Compile Include="Job\LordToil_WaitForSubsidize.cs" />
     <Compile Include="Job\RKU_AssistResearchJob.cs" />
     <Compile Include="Job\RKU_GuerrillaAction.cs" />
     <Compile Include="MapGenerator\GenSteps\RKU_GenStep_GuerrillasOutpost.cs" />
@@ -70,6 +72,7 @@
     <Compile Include="MapGenerator\GenSteps\RKU_GenStep_Flesh.cs" />
     <Compile Include="MapGenerator\GenSteps\RKU_GenStep_FleshBeast.cs" />
     <Compile Include="MapGenerator\GenSteps\RKU_GenStep_Lode.cs" />
+    <Compile Include="MapGenerator\MapParent\RKU_MapParent.cs" />
     <Compile Include="MapGenerator\SketchResolver\RKU_SketchResolver_DamageBuildingsAndRepair.cs" />
     <Compile Include="MapGenerator\SketchResolver\RKU_SketchResolver_MonumentRuin.cs" />
     <Compile Include="Motes\RKU_DigDust.cs" />

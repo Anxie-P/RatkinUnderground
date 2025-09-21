@@ -120,9 +120,11 @@ public class Comp_RKU_Radio : ThingComp
                     if (radioComponent != null)
                     {
                         radioComponent.canTrade = true;
+                        radioComponent.canScan = true;
                         radioComponent.isWaitingForTrade = false;
                         radioComponent.lastTradeTick = 0;
-                        Messages.Message("交易冷却已取消", MessageTypeDefOf.PositiveEvent);
+                        radioComponent.lastScanTick = 0;
+                        Messages.Message("冷却已取消", MessageTypeDefOf.PositiveEvent);
                     }
                 }
             };

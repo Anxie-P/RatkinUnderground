@@ -21,6 +21,11 @@ namespace RatkinUnderground
         public int minTradeDelayTicks = 1000; // 最小交易延迟
         public int maxTradeDelayTicks = 3000; // 最大交易延迟
 
+        // 扫描相关
+        public int lastScanTick = 0;
+        public int scanCooldownTicks = 900000; // 扫描冷却时间
+        public bool canScan = true;
+
         // 事件相关
         public HashSet<string> triggeredOnceEvents;
         public Dictionary<string, int> lastTriggerTimes;
@@ -60,6 +65,12 @@ namespace RatkinUnderground
             if (canTrade) return 0;
 
             int remainingCooldown = tradeCooldownTicks - (Find.TickManager.TicksGame - lastTradeTick);
+            return Mathf.Max(0, remainingCooldown / 60000);
+        }
+
+        public int GetRemainingScanCooldownDays()
+        {
+            int remainingCooldown = scanCooldownTicks - (Find.TickManager.TicksGame - lastScanTick);
             return Mathf.Max(0, remainingCooldown / 60000);
         }
 
@@ -338,6 +349,8 @@ namespace RatkinUnderground
             Scribe_Values.Look(ref lastTradeTick, "lastTradeTick", 0);
             Scribe_Values.Look(ref canTrade, "canTrade", true);
             Scribe_Values.Look(ref isWaitingForTrade, "isWaitingForTrade", false);
+            Scribe_Values.Look(ref lastScanTick, "lastScanTick", 0);
+            Scribe_Values.Look(ref canScan, "canScan", true);
             Scribe_Values.Look(ref tradeStartTick, "tradeStartTick", 0);
             Scribe_Values.Look(ref currentTradeDelayTicks, "currentTradeDelayTicks", 0);
             Scribe_Values.Look(ref researchProgress, "researchProgress", 0);
