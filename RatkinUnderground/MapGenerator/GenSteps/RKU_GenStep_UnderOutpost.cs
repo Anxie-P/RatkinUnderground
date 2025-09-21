@@ -443,7 +443,8 @@ namespace RatkinUnderground
 
             try
             {
-                Thing tradingPost = ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_TradingPost"));
+                ThingDef stuff = DefDatabase<ThingDef>.AllDefs.Where(o=>o.IsStuff&&o.IsLeather).RandomElement();
+                Thing tradingPost = ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_TradingPost"),stuff);
                 Faction faction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
                 tradingPost.SetFaction(faction);
                 GenSpawn.Spawn(tradingPost, spawnPos, map);

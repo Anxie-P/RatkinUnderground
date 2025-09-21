@@ -13,7 +13,7 @@ namespace RatkinUnderground
         public ThingDef bulletDef;
         public float turretRange = 15f;
         public float wallRange = 10f;
-        public int cooldownTicks = 18000; // 5分钟冷却
+        public int cooldownTicks = 18000; // 3h冷却
         public int radius = 18; // 范围
         
 
@@ -75,15 +75,13 @@ namespace RatkinUnderground
 
             IntVec3 wearerPos = apparel.Wearer.Position;
 
-            // 检查30格内是否有敌对炮塔
+            // 检查30格内是否有敌对阵营炮塔或墙
             IEnumerable<Building> enemyTurrets = map.listerBuildings.allBuildingsNonColonist
                 .Where(b => b.def.building.turretGunDef != null && b.Faction != null &&
                            b.Faction.HostileTo(wearerFaction) && b.Position.DistanceTo(wearerPos) <= 30f);
 
             if (enemyTurrets.Any())
                 return true;
-
-            // 检查30格内是否有敌对墙
             IEnumerable<Building> enemyWalls = map.listerBuildings.allBuildingsNonColonist
                 .Where(b => b.def.defName.Contains("Wall") && b.Faction != null &&
                            b.Faction.HostileTo(wearerFaction) && b.Position.DistanceTo(wearerPos) <= 30f);
@@ -97,7 +95,6 @@ namespace RatkinUnderground
             if (map == null)
                 return IntVec3.Invalid;
 
-            // 获取穿戴者
             if (!(parent is Apparel apparel) || apparel.Wearer == null)
                 return IntVec3.Invalid;
 
@@ -107,7 +104,6 @@ namespace RatkinUnderground
 
             IntVec3 wearerPos = apparel.Wearer.Position;
 
-            // 直接在30格范围内找敌对炮塔
             IEnumerable<Building> enemyTurrets = map.listerBuildings.allBuildingsNonColonist
                 .Where(b => b.def.building.turretGunDef != null && b.Faction != null &&
                            b.Faction.HostileTo(wearerFaction) && b.Position.DistanceTo(wearerPos) <= 30f);
@@ -121,7 +117,6 @@ namespace RatkinUnderground
                 }
             }
 
-            // 如果没有敌对炮塔，找30格范围内敌对墙
             IEnumerable<Building> enemyWalls = map.listerBuildings.allBuildingsNonColonist
                 .Where(b => b.def.defName.Contains("Wall") && b.Faction != null &&
                            b.Faction.HostileTo(wearerFaction) && b.Position.DistanceTo(wearerPos) <= 30f);
@@ -152,7 +147,7 @@ namespace RatkinUnderground
                 {
                     defaultLabel = "呼叫钻地炸弹",
                     defaultDesc = "呼叫一枚钻地炸弹到目标位置爆炸",
-                    icon = ContentFinder<Texture2D>.Get("RKU_Null"),
+                    icon = ContentFinder<Texture2D>.Get("UI/RKU_CallBoomber"),
                     hotKey = KeyBindingDefOf.Misc2,
                     action = delegate
                     {
@@ -163,7 +158,7 @@ namespace RatkinUnderground
                 // 检查冷却时间
                 if (lastBunkerBusterTick!=-1&&Find.TickManager.TicksGame - lastBunkerBusterTick < Props.cooldownTicks)
                 {
-                    bunkerBusterCommand.Disable("技能冷却中");
+                    bunkerBusterCommand.Disable("技能冷却中，剩余"+ (18000-Find.TickManager.TicksGame + lastBunkerBusterTick) /60+"秒");
                 }
 
                 yield return bunkerBusterCommand;
