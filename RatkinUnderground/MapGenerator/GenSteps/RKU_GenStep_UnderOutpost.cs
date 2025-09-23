@@ -35,7 +35,7 @@ namespace RatkinUnderground
         private bool mustBeStandable;
 
         private bool canBeOnEdge;
-
+        
         public override void Generate(Map map, GenStepParams parms)
         {
             if (map == null) return;
@@ -109,6 +109,7 @@ namespace RatkinUnderground
                 }
                 return result;
             });
+            SpawnGraffiti(map, rect);
             GenerateDrillingVehicleAndScouts(map, rect);
             SpawnTradingPostInside(map, rect);
         }
@@ -443,7 +444,12 @@ namespace RatkinUnderground
 
             try
             {
-                Thing tradingPost = ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_TradingPost"));
+                ThingDef stuff = ThingDef.Named("Leather_Lizard");
+                if (stuff == null)
+                {
+                    Log.Error("[RKU] 没有找到 Leather_Lizard 材料，请检查 ThingDef 名称是否正确！");
+                }
+                Thing tradingPost = ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_TradingPost"), stuff);
                 Faction faction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
                 tradingPost.SetFaction(faction);
                 GenSpawn.Spawn(tradingPost, spawnPos, map);
@@ -452,6 +458,40 @@ namespace RatkinUnderground
             {
                 Log.Error($"[RKU] 交易所生成失败: {e}");
             }
+        }
+
+        private void SpawnGraffiti(Map map, CellRect rect)
+        {
+            int succes = 0;
+            List<ThingDef> graffiti = new List<ThingDef>
+                {
+                    DefOfs.RKU_Graffiti_Under,
+                    DefOfs.RKU_Graffiti_Anarchism
+                };
+
+            // 在 rect 内随机 1–4 个地块生成涂鸦
+            int graffitiCount = Rand.RangeInclusive(1, 4);
+            for (int i = 0; i < graffitiCount; i++)
+            {
+                // 随机选取地块
+                IntVec3 randCell = rect.RandomCell;
+
+                // 确保地块在地图内并可见地面（避免涂鸦生成在岩壁或无法站立处）
+                if (randCell.InBounds(map) && 
+                    randCell.Standable(map) &&
+                    GridsUtility.GetFirstBuilding(randCell, map) == null)
+                {
+                    // 随机选择一个涂鸦
+                    ThingDef graffitiDef = graffiti.RandomElement();
+
+                    // 生成涂鸦（默认旋转为随机方向）
+                    Thing graffitiThing = ThingMaker.MakeThing(graffitiDef);
+                    GenSpawn.Spawn(graffitiThing, randCell, map, WipeMode.Vanish);
+                    Log.Message($"[RKU] 已在{randCell}生成贴纸");
+                    succes++;
+                }
+            }
+            Log.Message($"[RKU] 共尝试生成{graffitiCount}个贴纸，成功生成{succes}个");
         }
 
 

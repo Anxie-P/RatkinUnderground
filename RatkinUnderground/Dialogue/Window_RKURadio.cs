@@ -330,24 +330,43 @@ public class Dialog_RKU_Radio : Window, ITrader
                 try
                 {
                     // 如果你看到这行，我跟军爷抢饭去了，回来再修
+                    // 2025/9/23 别动这块了，修了一晚上，我怕
+                    // worldObjectClass要使用RatkinUnderground.RKU_MapParent，走自定义逻辑进地图（实则生成地图）
+                    // RKU_MapParentModExtension用于标记是否为生成地图，防止钻机遭遇的地图有多个进入方法
+
                     /*WorldObjectDef def = incidentMap.RandomElement();
                     WorldObject worldObject = WorldObjectMaker.MakeWorldObject(def);
                     worldObject.Tile = tile;
                     worldObject.SetFaction(Faction.OfPlayer);
                     Find.WorldObjects.Add(worldObject);*/
 
-                    List<IncidentDef> incidentDefs = DefDatabase<IncidentDef>.AllDefsListForReading
-                                .Where(d => d.defName != null && d.defName.StartsWith("RKU_Incident"))
+                    List<WorldObjectDef> worldObjectDefs = DefDatabase<WorldObjectDef>.AllDefsListForReading
+                                .Where(d => d.defName != null &&
+                                d.defName.StartsWith("RKU_MapParent") &&
+                                d.GetModExtension<RKU_MapParentModExtension>() != null)
                                 .ToList();
-                    IncidentDef def = incidentDefs.RandomElement();
+                    if (worldObjectDefs == null || worldObjectDefs.Count == 0)
+                    {
+                        Log.Error("[RKU] 没有找到任何 RKU_Incident 开头的 IncidentDef，无法生成地图/世界物体。");
+                        return;
+                    }
+                    WorldObjectDef def = worldObjectDefs.RandomElement();
+                    var ext = def.GetModExtension<RKU_MapParentModExtension>();
+                    if (ext == null)
+                    {
+                        Log.Warning($"[RKU] 选中的 IncidentDef {def.defName} 没有 RKU_MapParentModExtension；将跳过设置 spawnMap 标记。");
+                    }
+                    def.GetModExtension<RKU_MapParentModExtension>().spawnMap = true;
                     Map map = Find.Maps.FirstOrDefault(m => m.Tile == tile);
                     // build parms - 使用 StorytellerUtility 获取合理默认值
-                    IncidentParms parms = StorytellerUtility.DefaultParmsNow(def.category, map);
-
+                    WorldObject worldObject = WorldObjectMaker.MakeWorldObject(def);
+                    worldObject.Tile = tile;
+                    worldObject.SetFaction(Faction.OfPlayer);
+                    Find.WorldObjects.Add(worldObject);
                     // 指定 tile（许多 world 级事件会使用 parms.targetTile）
-                    parms.faction = null;
+                    /*parms.faction = null;
                     parms.target = map;
-                    def.Worker.TryExecute(parms);
+                    def.Worker.TryExecute(parms);*/
 
                     radioComponent.canScan = false;
                     radioComponent.lastScanTick = Find.TickManager.TicksGame;
