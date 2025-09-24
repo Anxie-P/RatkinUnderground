@@ -65,7 +65,7 @@ namespace RatkinUnderground
 
             for (int i = 0; i < count; i++)
             {
-                PawnKindDef pawnKind = DefOfs.RKU_Scout;
+                PawnKindDef pawnKind = DefOfs.RKU_Invader;
                 if (pawnKind == null)
                 {
                     continue;

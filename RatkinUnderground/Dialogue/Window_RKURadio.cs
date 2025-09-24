@@ -258,10 +258,10 @@ public class Dialog_RKU_Radio : Window, ITrader
                 tradeButton.buttonText = "交易冷却中";
                 tradeButton.canClick = false;
             }
-            else if (radioComponent.ralationshipGrade < 20)
+            else if (radioComponent.ralationshipGrade < 1)
             {
                 tradeButton.buttonText = "<color=#808080>交易信号</color>";
-                tradeButton.failReason = "至少需要20的好感才能进行交易";
+                tradeButton.failReason = "至少需要1的好感才能进行地下商队交易";
                 tradeButton.canClick = false;
             }
             else
@@ -271,10 +271,10 @@ public class Dialog_RKU_Radio : Window, ITrader
             }
 
             // 扫描检测
-            if (radioComponent.ralationshipGrade < 40)
+            if (radioComponent.ralationshipGrade < 50)
             {
                 scanButton.buttonText = "<color=#808080>扫描信号</color>";
-                scanButton.failReason = "至少需要40的好感才能进行扫描";
+                scanButton.failReason = "至少需要50的好感才能进行特殊地点扫描";
                 scanButton.canClick = false;
             }
             else if (!radioComponent.canScan)
@@ -284,10 +284,10 @@ public class Dialog_RKU_Radio : Window, ITrader
             }
 
             // 救援检测
-            if (radioComponent.ralationshipGrade < 60)
+            if (radioComponent.ralationshipGrade < 75)
             {
                 rescueButton.buttonText = "<color=#808080>求救呼叫</color>";
-                rescueButton.failReason = "至少需要60的好感才能进行求救";
+                rescueButton.failReason = "至少需要75的好感才能进行战术支援";
                 rescueButton.canClick = false;
             }
         }

@@ -381,7 +381,6 @@ namespace RatkinUnderground
         // 尝试在地图边缘寻找有效位置
         public static bool TryFindEdgePosition(Map map, out IntVec3 loc)
         {
-            // 尝试多个边缘位置
             for (int i = 0; i < 30; i++)
             {
                 loc = CellFinder.RandomEdgeCell(map);
@@ -398,11 +397,9 @@ namespace RatkinUnderground
         // 检查位置是否可以放置隧道
         public static bool CanSpawnTunnelAt(IntVec3 cell, Map map)
         {
-            return GenConstruct.CanPlaceBlueprintAt(DefOfs.RKU_TunnelHiveSpawner_Und, cell, Rot4.North, map) &&
-                   cell.Standable(map) &&
+            return cell.Standable(map) &&
                    !cell.Fogged(map) &&
-                   !cell.Roofed(map) && // 确保没有屋顶
-                   map.reachability.CanReachColony(cell); // 确保可以到达
+                   !cell.Roofed(map);
         }
 
         /// <summary>
@@ -410,9 +407,7 @@ namespace RatkinUnderground
         /// </summary>
         public static class InspirationMapper
         {
-
             public static readonly Dictionary<SkillDef, InspirationDef[]> SkillToInspirationMap = BuildSkillToInspirationMap();
-
             public static Dictionary<SkillDef, InspirationDef[]> BuildSkillToInspirationMap()
             {
                 var map = new Dictionary<SkillDef, InspirationDef[]>();

@@ -29,6 +29,7 @@ namespace RatkinUnderground
         public static SketchResolverDef RKU_MonumentRuin;
         public static ThingDef RKU_DrillingVehicle;
         public static PawnKindDef RKU_Scout;
+        public static PawnKindDef RKU_Invader;
         //对话
         public static RKU_DialogueEventDef RKU_FirstContact;
         public static RKU_DialogueEventDef RKU_TradeWelcome;

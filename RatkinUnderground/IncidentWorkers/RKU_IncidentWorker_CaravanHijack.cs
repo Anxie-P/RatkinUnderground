@@ -29,7 +29,7 @@ namespace RatkinUnderground
             if (rkuFaction == null) return false;
 
             // 设置参数
-            float points = 2500; // 更高的难度，因为是物资劫持
+            float points = 2500;
 
             var pawnGroupParams = new PawnGroupMakerParms
             {
@@ -53,9 +53,36 @@ namespace RatkinUnderground
             {
                 return false;
             }
-
+            bool isHostile = parms.faction.HostileTo(Faction.OfPlayer);
+            RKU_RadioGameComponent radioComponent = Current.Game.GetComponent<RKU_RadioGameComponent>();
+            // 根据关系等级确定事件类型
+            if (radioComponent != null && radioComponent.ralationshipGrade < -25)
+            {
+                isHostile = true;
+                if (rkuFaction != null)
+                {
+                    FactionRelationKind kind2 = Utils.OfRKU.RelationWith(Faction.OfPlayer).kind;
+                    Utils.OfRKU.RelationWith(Faction.OfPlayer).kind = FactionRelationKind.Hostile;
+                    Faction.OfPlayer.RelationWith(Utils.OfRKU).kind = FactionRelationKind.Hostile;
+                    Utils.OfRKU.Notify_RelationKindChanged(Faction.OfPlayer, kind2, false, "", TargetInfo.Invalid, out var sentLetter);
+                    Faction.OfPlayer.Notify_RelationKindChanged(Utils.OfRKU, kind2, false, "", TargetInfo.Invalid, out sentLetter);
+                }
+            }
+            LetterDef letterDef =  LetterDefOf.NeutralEvent;
+            string label = "游击队物资劫持";
+            string text = "游击队侦察到你的基地里有鼠族王国的一支由贵族带领的商队。他们决定趁机发动突袭，劫持这些珍贵的物资。如果你不予阻止，会得到游击队员们的感谢";
+            Find.LetterStack.ReceiveLetter(label, text, letterDef, new GlobalTargetInfo(loc, map));
             GenSpawn.Spawn(hive, loc, map, WipeMode.Vanish);
+            component.ralationshipGrade += 10;
             return true;
+        }
+
+        void SendStandardLetter(IncidentParms parms, List<Pawn> pawns, string labelKey, string textKey)
+        {
+            var lookTargets = new LookTargets(pawns);
+            TaggedString label = labelKey.Translate(def.label);
+            TaggedString text = textKey.Translate(parms.faction.NameColored, pawns.Count);
+            SendStandardLetter(label, text, def.letterDef, parms, lookTargets);
         }
 
         /// <summary>
@@ -73,36 +100,13 @@ namespace RatkinUnderground
             }
 
             var ratkinFaction = Find.FactionManager.FirstFactionOfDef(FactionDef.Named("Rakinia"));
-            var ratkinWarlordFaction = Find.FactionManager.FirstFactionOfDef(FactionDef.Named("Rakinia_Warlord"));
-            bool hasGoodRelationWithRatkin = (ratkinFaction != null && Faction.OfPlayer.RelationWith(ratkinFaction).kind!=FactionRelationKind.Hostile) ||
-                                           (ratkinWarlordFaction != null && Faction.OfPlayer.RelationWith(ratkinWarlordFaction).kind != FactionRelationKind.Hostile);
-
+            bool hasGoodRelationWithRatkin = (ratkinFaction != null && Faction.OfPlayer.RelationWith(ratkinFaction).kind != FactionRelationKind.Hostile); 
             if (!hasGoodRelationWithRatkin)
             {
                 return false;
             }
-
-            // 检查是否有鼠族王国的商队在玩家基地
-            bool hasRatkinCaravan = false;
-            foreach (var caravan in Find.WorldObjects.Caravans)
-            {
-                if (caravan.Faction == ratkinFaction || caravan.Faction == ratkinWarlordFaction)
-                {
-                    if (caravan.Tile == map.Tile || caravan.pather.Destination == map.Tile)
-                    {
-                        hasRatkinCaravan = true;
-                        break;
-                    }
-                }
-            }
-
-            if (!hasRatkinCaravan)
-            {
-                return false;
-            }
-
-            bool hasRatkinNoble = map.mapPawns.AllPawns.Any(pawn =>
-                (pawn.Faction == ratkinFaction || pawn.Faction == ratkinWarlordFaction) &&
+            bool hasRatkinNoble = map.mapPawns.AllPawnsSpawned.Any(pawn =>
+                (pawn.Faction == ratkinFaction) &&
                 IsNoblePawn(pawn));
 
             return hasRatkinNoble;
