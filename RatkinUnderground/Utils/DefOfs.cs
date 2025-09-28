@@ -32,6 +32,7 @@ namespace RatkinUnderground
         public static ThingDef RKU_DrillingVehicle;
         public static PawnKindDef RKU_Scout;
         public static PawnKindDef RKU_Invader;
+        public static HediffDef RKU_ArmorWeaken;
         //对话
         public static RKU_DialogueEventDef RKU_FirstContact;
         public static RKU_DialogueEventDef RKU_TradeWelcome;

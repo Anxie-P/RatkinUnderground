@@ -35,7 +35,7 @@ namespace RatkinUnderground
         {
             base.CompPostPostRemoved();
             parent.pawn.mindState.mentalStateHandler.CurState.RecoverFromState();
-            Messages.Message($"{parent.pawn.LabelShort} 从芸南幻觉中恢复了过来。", parent.pawn, MessageTypeDefOf.NeutralEvent);
+            Messages.Message("RKU_RecoveredFromYunnanHallucination".Translate(parent.pawn.LabelShort), parent.pawn, MessageTypeDefOf.NeutralEvent);
         }
 
         /// <summary>
@@ -46,8 +46,8 @@ namespace RatkinUnderground
             var ele = stateList.RandomElement();
             MentalStateDef state = DefDatabase<MentalStateDef>.GetNamed(ele, false);
             if (state == null) return;
-            parent.pawn.mindState.mentalStateHandler.TryStartMentalState(state, $"芸南幻觉:{state.label.Translate()}", forceWake: true);
-            Log.Message($"{parent.pawn}已进入{state.defName}状态");
+            parent.pawn.mindState.mentalStateHandler.TryStartMentalState(state, "RKU_YunnanHallucination".Translate() + ":" + state.label.Translate(), forceWake: true);
+            Log.Message("RKU_EnteredMentalState".Translate(parent.pawn, state.defName));
         }
     }
 }

@@ -117,7 +117,7 @@ public class RKU_GenStep_GuerrillasOutpost : GenStep
         PawnGenerationRequest request = new PawnGenerationRequest(DefDatabase<PawnKindDef>.GetNamed("RatkinPriest"), null, PawnGenerationContext.NonPlayer, forceNoIdeo: false, forceNoGear: false, mustBeCapableOfViolence: false);
         IntVec3 result = map.Center;
         Pawn pawn = ((Pawn)GenSpawn.Spawn(PawnGenerator.GeneratePawn(request), result, map));
-        NameTriple name = new NameTriple("Anzleia".Translate(), "Balsam".Translate(), "Balsam".Translate());
+        NameTriple name = new NameTriple("RKU_Anzleia".Translate(), "RKU_Balsam".Translate(), "RKU_Balsam".Translate());
         pawn.Name = name;
         pawn.gender = Gender.Female;
         pawn.SetFaction(Find.FactionManager.FirstFactionOfDef(FactionDef.Named("RKU_Faction")));

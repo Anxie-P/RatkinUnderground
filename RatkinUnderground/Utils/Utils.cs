@@ -327,9 +327,9 @@ namespace RatkinUnderground
             if (relationshipValue <= -25) return -2;
             if (relationshipValue < 0) return -1;
             if (relationshipValue == 0) return 1;
-            if (relationshipValue < 25) return 1;
-            if (relationshipValue < 50) return 2;
-            if (relationshipValue < 75) return 3;
+            if (relationshipValue <= 25) return 1;
+            if (relationshipValue <= 50) return 2;
+            if (relationshipValue <= 75) return 3;
             return 4;
         }
 

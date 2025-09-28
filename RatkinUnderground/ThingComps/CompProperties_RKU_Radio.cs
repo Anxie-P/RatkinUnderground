@@ -82,7 +82,7 @@ public class Comp_RKU_Radio : ThingComp
         {
             defaultLabel = "RKU.OpenRadio".Translate(),
             defaultDesc = "RKU.OpenRadioDesc".Translate(),
-            icon = Resources.dig,
+            icon = Resources.commit,
             hotKey = KeyBindingDefOf.Misc1,
             action = delegate
             {
@@ -124,7 +124,7 @@ public class Comp_RKU_Radio : ThingComp
                         radioComponent.isWaitingForTrade = false;
                         radioComponent.lastTradeTick = 0;
                         radioComponent.lastScanTick = 0;
-                        Messages.Message("冷却已取消", MessageTypeDefOf.PositiveEvent);
+                        Messages.Message("RKU_CooldownCancelled".Translate(), MessageTypeDefOf.PositiveEvent);
                     }
                 }
             };
@@ -143,7 +143,7 @@ public class Comp_RKU_Radio : ThingComp
                         radioComponent.canTrade = true;
                         radioComponent.isWaitingForTrade = false;
                         radioComponent.lastTradeTick = 0;
-                        Messages.Message("交易已准备就绪", MessageTypeDefOf.PositiveEvent);
+                        Messages.Message("RKU_TradeReady".Translate(), MessageTypeDefOf.PositiveEvent);
                     }
                 }
             };
@@ -160,7 +160,7 @@ public class Comp_RKU_Radio : ThingComp
                     if (component != null)
                     {
                         component.researchProgress = RKU_RadioGameComponent.RESEARCH_PROGRESS_MAX;
-                        Messages.Message("研究进度已加满", MessageTypeDefOf.PositiveEvent);
+                        Messages.Message("RKU_ResearchProgressFull".Translate(), MessageTypeDefOf.PositiveEvent);
                     }
                 }
             };
@@ -177,7 +177,7 @@ public class Comp_RKU_Radio : ThingComp
                     if (component != null)
                     {
                         component.researchProgress += RKU_RadioGameComponent.RESEARCH_PROGRESS_MAX / 2;
-                        Messages.Message("研究进度已加一半", MessageTypeDefOf.PositiveEvent);
+                        Messages.Message("RKU_ResearchProgressHalf".Translate(), MessageTypeDefOf.PositiveEvent);
                     }
                 }
             };
@@ -194,7 +194,7 @@ public class Comp_RKU_Radio : ThingComp
                     if (component != null)
                     {
                         component.ralationshipGrade += 10;
-                        Messages.Message("关系等级已增加10点", MessageTypeDefOf.PositiveEvent);
+                        Messages.Message("RKU_RelationIncreased".Translate(), MessageTypeDefOf.PositiveEvent);
                     }
                 }
             };
@@ -211,7 +211,7 @@ public class Comp_RKU_Radio : ThingComp
                     if (component != null)
                     {
                         component.ralationshipGrade -= 10;
-                        Messages.Message("关系等级已减少10点", MessageTypeDefOf.PositiveEvent);
+                        Messages.Message("RKU_RelationDecreased".Translate(), MessageTypeDefOf.PositiveEvent);
                     }
                 }
             };

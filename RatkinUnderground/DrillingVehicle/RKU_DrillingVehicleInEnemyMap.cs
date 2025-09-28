@@ -1,7 +1,6 @@
 using Mono.Unix.Native;
 using RimWorld;
 using RimWorld.Planet;
-using SPExtended;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -128,7 +127,7 @@ namespace RatkinUnderground
                 {
                     defaultLabel = "RKU.Return".Translate(),
                     hotKey = KeyBindingDefOf.Misc1,
-                    icon = ContentFinder<Texture2D>.Get("UI/Commands/LaunchShip"),
+                    icon = Resources.digIn,
                     action = () =>
                     {
                         //返回原地图
@@ -168,7 +167,7 @@ namespace RatkinUnderground
                 {
                     defaultLabel = "钻出",
                     activateSound = SoundDefOf.Tick_Tiny,
-                    icon = ContentFinder<Texture2D>.Get("UI/RKU_Out"),
+                    icon = ContentFinder<Texture2D>.Get("UI/DigOut"),
                     action = delegate
                     {
                         FleckMaker.Static(Position.ToVector3Shifted(), Map, FleckDefOf.DustPuff, 4f);

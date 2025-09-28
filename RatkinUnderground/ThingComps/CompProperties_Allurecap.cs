@@ -46,7 +46,7 @@ namespace RatkinUnderground
                     p.InMentalState) continue;
                 if (p.IsColonist)
                 {
-                    Messages.Message($"{p.Name.ToStringShort}正打算食用魅惑菇", MessageTypeDefOf.NegativeEvent);
+                    Messages.Message("RKU_IntendsToEatAllurecap".Translate(p.Name.ToStringShort), MessageTypeDefOf.NegativeEvent);
                 }
                 Job job = JobMaker.MakeJob(DefOfs.RKU_EatSpecialMushroom, parent);
                 p.jobs.TryTakeOrderedJob(job);
@@ -65,11 +65,11 @@ namespace RatkinUnderground
                     var ele = Props.stateList.RandomElement();
                     state = DefDatabase<MentalStateDef>.GetNamed(ele, false);
                 }
-                pawn.mindState.mentalStateHandler.TryStartMentalState(state, $"吃了魅魔菇:{state.label.Translate()}", forceWake: true);
+                pawn.mindState.mentalStateHandler.TryStartMentalState(state, "RKU_AteAllurecap".Translate() + ":" + state.label.Translate(), forceWake: true);
             }
             catch (Exception e)
             {
-                Log.Error("给与mentalstate出错: " + e);
+                Log.Error("RKU_MentalStateError".Translate() + ": " + e);
             }
         }
     }

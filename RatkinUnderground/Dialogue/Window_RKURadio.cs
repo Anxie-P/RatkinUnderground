@@ -1,7 +1,6 @@
 ﻿using HarmonyLib;
 using RimWorld;
 using RimWorld.Planet;
-using SRTS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,6 +65,15 @@ public class Dialog_RKU_Radio : Window, ITrader
             this.closeOnClickedOutside = true;
             triggers.Clear();
 
+            // 默认：每次打开对话框时清空消息历史，只显示本次对话的消息
+            if (RKU_Mod.Instance.settings.showOnlyCurrentDialogueMessages)
+            {
+                var radioComp = GetRadioComp();
+                if (radioComp != null)
+                {
+                    radioComp.ClearMessageHistory();
+                }
+            }
             var comp = radioComponent;
             if (comp != null && comp.isSearch)
             {
@@ -148,7 +156,7 @@ public class Dialog_RKU_Radio : Window, ITrader
 
         // 窗口标题
         Text.Font = GameFont.Medium;
-        Widgets.Label(new Rect(0f, 0f, inRect.width, 35f), "抵抗军电台");
+        Widgets.Label(new Rect(0f, 0f, inRect.width, 35f), "RKU_GuerrillaRadio".Translate());
         Text.Font = GameFont.Small;
 
         // 头像框区域 (左上角) - 调整为160x160
@@ -162,6 +170,7 @@ public class Dialog_RKU_Radio : Window, ITrader
         {
             int relationshipLevel = Utils.GetRelationshipLevel(radioComponent.ralationshipGrade);
             string texPath = $"Things/Commander_{relationshipLevel}";
+            Log.Warning(texPath);
             avatarTex = ContentFinder<Texture2D>.Get(texPath, false);
         }
 
@@ -181,7 +190,7 @@ public class Dialog_RKU_Radio : Window, ITrader
         Widgets.DrawBoxSolid(dialogRect, new Color(0.1f, 0.1f, 0.1f, 0.8f));
         Widgets.DrawBox(dialogRect, 2);
         Text.Font = GameFont.Small;
-        Widgets.Label(new Rect(dialogRect.x + 5f, dialogRect.y + 5f, dialogRect.width - 10f, 20f), "信号传入中...");
+        Widgets.Label(new Rect(dialogRect.x + 5f, dialogRect.y + 5f, dialogRect.width - 10f, 20f), "RKU_SignalIncoming".Translate());
 
         // 消息历史滚动区域
         Rect messageRect = new Rect(dialogRect.x + 5f, dialogRect.y + 30f, dialogRect.width - 10f, dialogRect.height - 35f);
@@ -324,7 +333,7 @@ public class Dialog_RKU_Radio : Window, ITrader
             {
                 // 触发扫描相关对话事件
                 RKU_DialogueManager.TriggerDialogueEvents(this, "scan");
-                AddMessage("开始扫描信号...");
+                AddMessage("RKU_StartScanningSignal".Translate());
 
                 int tile = Utils.GetRadiusTiles(radio.Map.Tile, 20);
                 try
@@ -386,7 +395,7 @@ public class Dialog_RKU_Radio : Window, ITrader
         {
             if (rescueButton.canClick)
             {
-                AddMessage("紧急呼叫已发送!");
+                AddMessage("RKU_EmergencyCallSent".Translate());
                 var emergencyEvents = DefDatabase<RKU_DialogueEventDef>.AllDefs
                     .Where(e => e.defName.StartsWith("RKU_EmergencyCall"))
                     .ToList();
@@ -401,7 +410,7 @@ public class Dialog_RKU_Radio : Window, ITrader
         //buttonX += buttonWidth + 15f;
 
         // 添加自定义关闭按钮
-        if (Widgets.ButtonText(new Rect(inRect.width - 80f, buttonArea.y + 12f, 70f, buttonHeight), "关闭"))
+        if (Widgets.ButtonText(new Rect(inRect.width - 80f, buttonArea.y + 12f, 70f, buttonHeight), "Close".Translate()))
         {
             this.Close();
         }
@@ -440,9 +449,9 @@ public class Dialog_RKU_Radio : Window, ITrader
         radioComponent.StartTradeSignal();
         tradeReady = false;
 
-        AddMessage("已收到信号，我们正在备货！");
+        AddMessage("RKU_SignalReceived".Translate());
 
-        Messages.Message("交易信号已发送，等待地下运输队到达...", MessageTypeDefOf.PositiveEvent);
+        Messages.Message("RKU_TradeSignalSent".Translate(), MessageTypeDefOf.PositiveEvent);
     }
 
     private void OpenTradeWindow()
@@ -451,7 +460,7 @@ public class Dialog_RKU_Radio : Window, ITrader
         hasTraded = false;
         // 生成交易货物
         this.TraderKind.stockGenerators.ForEach(o => traderGoods.AddRange(o.GenerateThings(radio.Map.Tile)));
-        AddMessage("来看看我们准备了什么好东西！                                                                        ",
+        AddMessage("RKU_CheckOurGoods".Translate(),
             delegate
             {
                 // 打开交易窗口
@@ -472,7 +481,7 @@ public class Dialog_RKU_Radio : Window, ITrader
                 }
                 else
                 {
-                    Messages.Message("没有可用的殖民者进行交易。", MessageTypeDefOf.RejectInput);
+                    Messages.Message("RKU_NoNegotiatorAvailable".Translate(), MessageTypeDefOf.RejectInput);
                 }
             });
     }
@@ -480,7 +489,7 @@ public class Dialog_RKU_Radio : Window, ITrader
     public void OnTradeReady()
     {
         tradeReady = true;
-        AddMessage("货物已准备完毕，可以开始交易了！");
+        AddMessage("RKU_GoodsReady".Translate());
     }
     #endregion
 
@@ -571,15 +580,15 @@ public class Dialog_RKU_Radio : Window, ITrader
     /// </summary>
     private void DrawMessageWithLineBreaks(Rect rect, string message, ref float curY)
     {
+        // 按换行符分割消息
+        string[] lines = message.Split('\n');
+        float lineHeight = 20f;
+
         if (string.IsNullOrEmpty(message))
         {
             curY += 25f;
             return;
         }
-
-        // 按换行符分割消息
-        string[] lines = message.Split('\n');
-        float lineHeight = 20f;
 
         foreach (string line in lines)
         {
@@ -594,8 +603,6 @@ public class Dialog_RKU_Radio : Window, ITrader
     /// </summary>
     private void DrawRadioStatus()
     {
-
-
         // 状态信息区域 (头像下方) - 调整位置和大小
         Rect statusRect = new Rect(10f, 215f, 160f, 270f);
         Widgets.DrawBoxSolid(statusRect, new Color(0.2f, 0.2f, 0.2f, 0.8f));
@@ -603,22 +610,22 @@ public class Dialog_RKU_Radio : Window, ITrader
         var radioComponent = GetRadioComponent();
 
         Text.Font = GameFont.Tiny;
-        Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 5f, statusRect.width - 10f, 20f), "电台状态:");
+        Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 5f, statusRect.width - 10f, 20f), "RKU_RadioStatus".Translate());
         Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 30f, statusRect.width - 10f, 20f), $"● {RadioStatus}");
 
-        string researchText = "研究进度: 0/100";
+        string researchText = "RKU_ResearchProgress".Translate() + ": 0/100";
         if (radioComponent != null)
         {
-            researchText = $"研究进度: {radioComponent.researchProgress}/{RKU_RadioGameComponent.RESEARCH_PROGRESS_MAX}";
+            researchText = "RKU_ResearchProgress".Translate() + $": {radioComponent.researchProgress}/{RKU_RadioGameComponent.RESEARCH_PROGRESS_MAX}";
         }
         Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 105f, statusRect.width - 10f, 20f), $"● {researchText}");
         Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 55f, statusRect.width - 10f, 20f), $"● {SignalQuality}");
         Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 80f, statusRect.width - 10f, 20f), $"● {PowerStatus}");
 
-        string rationText = "阵营关系: 0";
+        string rationText = "RKU_FactionRelation".Translate() + ": 0";
         if (GetRadioComponent() != null)
         {
-            rationText = $"阵营关系: {radioComponent.ralationshipGrade}";
+            rationText = "RKU_FactionRelation".Translate() + $": {radioComponent.ralationshipGrade}";
         }
         Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 130f, statusRect.width - 10f, 20f), $"● {rationText}");
 
@@ -628,18 +635,18 @@ public class Dialog_RKU_Radio : Window, ITrader
         if (radioComponent != null && !radioComponent.CanTradeNow)
         {
             int remainingDays = radioComponent.GetRemainingCooldownDays();
-            Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 180f + counts * 25f, statusRect.width - 10f, 20f), $"交易冷却: {remainingDays}天");
+            Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 180f + counts * 25f, statusRect.width - 10f, 20f), "RKU_TradeCooldown".Translate(remainingDays));
             counts++;
         }
         // 添加扫描状态信息
         if (radioComponent != null && !radioComponent.canScan)
         {
             int remainingDays = radioComponent.GetRemainingCooldownDays();
-            Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 180f + counts * 25f, statusRect.width - 10f, 20f), $"扫描冷却: {radioComponent.GetRemainingScanCooldownDays()}天");
+            Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 180f + counts * 25f, statusRect.width - 10f, 20f), "RKU_ScanCooldown".Translate(radioComponent.GetRemainingScanCooldownDays()));
             counts++;
         }
 
-        Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 155f, statusRect.width - 10f, 20f), $"地图位置: {RadioPosition}");
+        Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 155f, statusRect.width - 10f, 20f), "RKU_MapLocation".Translate(RadioPosition));
 
     }
 
@@ -757,7 +764,7 @@ public class Dialog_RKU_Radio : Window, ITrader
         // 处理货舱发送逻辑
         if (pendingCargo.Count > 0)
         {
-            ChoiceLetter choiceLetter = LetterMaker.MakeLetter("货物抵达".Translate(), "你订购的货物抵达了", LetterDefOf.PositiveEvent);
+            ChoiceLetter choiceLetter = LetterMaker.MakeLetter("RKU_GoodsArrived".Translate(), "RKU_OrderedGoodsArrived".Translate(), LetterDefOf.PositiveEvent);
             RKU_DrillingCargoPodBullet pod = null;
             LongEventHandler.QueueLongEvent(() =>
             {

@@ -162,7 +162,7 @@ namespace RatkinUnderground
                 {
                     defaultLabel = "RKU.Drill".Translate(),
                     hotKey = KeyBindingDefOf.Misc1,
-                    icon = Resources.dig,
+                    icon = Resources.digIn,
                     action = () =>
                     {
                         if (this.HitPoints <= 10)

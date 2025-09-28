@@ -26,8 +26,8 @@ namespace RatkinUnderground
                     var originalGizmos = __result.ToList();
 
                     Command_Action command_Action = new Command_Action();
-                    command_Action.defaultLabel = "RandomSiteDeleteMap".Translate();
-                    command_Action.defaultDesc = "CommandViewQuestDesc".Translate();
+                    command_Action.defaultLabel = "RKU_RandomSiteDeleteMap".Translate();
+                    command_Action.defaultDesc = "RKU_CommandViewQuestDesc".Translate();
                     command_Action.icon = ContentFinder<Texture2D>.Get("UI/Commands/AbandonHome");
                     command_Action.action = delegate
                     {
@@ -59,7 +59,7 @@ namespace RatkinUnderground
                 Listing_Standard listing_Standard = new Listing_Standard();
                 listing_Standard.Begin(inRect);
                 
-                listing_Standard.Label("RandomSite_Confirm".Translate());
+                listing_Standard.Label("RKU_RandomSite_Confirm".Translate());
                 listing_Standard.Gap();
                 
                 listing_Standard.End();
@@ -75,7 +75,7 @@ namespace RatkinUnderground
                     this.Close();
                 }
                 
-                if (Widgets.ButtonText(new Rect(centerX + 5f, buttonY, buttonWidth, buttonHeight), "RandomSite_Confirm_Accept".Translate()))
+                if (Widgets.ButtonText(new Rect(centerX + 5f, buttonY, buttonWidth, buttonHeight), "RKU_RandomSite_Confirm_Accept".Translate()))
                 {
                     confirmed = true;
                     this.mapParent.Destroy();

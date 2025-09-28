@@ -99,6 +99,8 @@
     <Compile Include="RaidStrategyWorker\LordJob_HammerSiege.cs" />
     <Compile Include="RaidStrategyWorker\LordToil_SiegeHammer.cs" />
     <Compile Include="RaidStrategyWorker\RaidStrategyWorker_HammerAttack.cs" />
+    <Compile Include="RKU_Mod.cs" />
+    <Compile Include="RKU_ModSettings.cs" />
     <Compile Include="ThingClass\RKK_BuildingBoomber.cs" />
     <Compile Include="ThingClass\RKU_DrillingCargoPodBullet.cs" />
     <Compile Include="ThingClass\RKU_DrillingCargoPod.cs" />
@@ -114,6 +116,7 @@
     <Compile Include="ThingComps\CompProperties_Mindspark.cs" />
     <Compile Include="ThingComps\CompProperties_RecordDamage.cs" />
     <Compile Include="ThingComps\CompProperties_RKU_BackpackRadio.cs" />
+    <Compile Include="ThingComps\RKU_Projectile_ArmorPiercing.cs" />
     <Compile Include="ThingComps\RKU_YunNanBullet.cs" />
     <Compile Include="Dialogue\Window_RKURadio.cs" />
     <Compile Include="ThingComps\CompProperties_RKU_Radio.cs" />
@@ -175,12 +178,8 @@
     <Reference Include="RatkinFaction">
       <HintPath>..\..\..\..\..\..\workshop\content\294100\3036302713\1.6\Assemblies\RatkinFaction.dll</HintPath>
     </Reference>
-    <Reference Include="RJW">
-      <HintPath>D:\Steam\steamapps\common\RimWorld\1.5rjw\rjw-master\1.5\Assemblies\RJW.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="SRTS">
-      <HintPath>..\..\..\..\..\..\workshop\content\294100\2878587061\v1.5\Assemblies\SRTS.dll</HintPath>
+    <Reference Include="RatkinWeapons">
+      <HintPath>..\..\..\..\..\..\workshop\content\294100\2779404660\1.5\Assemblies\RatkinWeapons.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 using Verse;
 
 namespace RatkinUnderground
@@ -39,7 +40,7 @@ namespace RatkinUnderground
             {
                 defaultLabel = "爆！",
                 hotKey = KeyBindingDefOf.Misc1,
-                icon = null,
+                icon = ContentFinder<Texture2D>.Get("UI/RKU_CallBoomber"),
                 targetingParams = new TargetingParameters
                 {
                     canTargetLocations = true,

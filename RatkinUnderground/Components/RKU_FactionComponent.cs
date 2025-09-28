@@ -39,6 +39,12 @@ namespace RatkinUnderground
         {
             Faction rFaction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
             if (rFaction == null) return;
+
+            if (rFaction.leader != null)
+            {
+                rFaction.leader.Name = new NameTriple("RKU_Zigstark".Translate(), null, "RKU_Cheesecellar".Translate());
+            }
+
             foreach (FactionDef enemy in enemyFaction)
             {
                 Faction eFaction = Find.FactionManager.FirstFactionOfDef(enemy);
