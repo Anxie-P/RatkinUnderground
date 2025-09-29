@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Verse;
 using Verse.Noise;
 using UnityEngine;
+using Verse.AI.Group;
 
 namespace RatkinUnderground
 {
@@ -12,6 +13,8 @@ namespace RatkinUnderground
         private const float INSECT_SPAWN_CHANCE = 0.025f; // 虫子生成概率
 
         public override int SeedPart => 446845;
+
+        List<Pawn> pawns = new List<Pawn>();
 
         public override void Generate(Map map, GenStepParams parms)
         {
@@ -39,6 +42,8 @@ namespace RatkinUnderground
 
             // 随机生成虫子
             GenerateRandomInsects(map);
+            LordJob_DefendAndExpandHive_Incident lordJob = new();
+            LordMaker.MakeNewLord(Faction.OfInsects, lordJob, map, pawns);
         }
 
         private void ClearCell(Map map, IntVec3 cell)
@@ -128,8 +133,8 @@ namespace RatkinUnderground
                             if (insectKind != null)
                             {
                                 Pawn insect = PawnGenerator.GeneratePawn(insectKind, Faction.OfInsects);
+                                pawns.Add(insect);
                                 GenSpawn.Spawn(insect, cell, map, WipeMode.Vanish);
-
                             }
                         }
                     }
