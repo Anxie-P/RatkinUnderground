@@ -120,7 +120,7 @@
     <Compile Include="ThingComps\RKU_YunNanBullet.cs" />
     <Compile Include="Dialogue\Window_RKURadio.cs" />
     <Compile Include="ThingComps\CompProperties_RKU_Radio.cs" />
-    <Compile Include="ThingComps\CompProperties_SingularitycapBoomber.cs" />
+    <Compile Include="ThingClass\RKU_Plant_Singularitycap.cs" />
     <Compile Include="ThingComps\CompProperties_RKU_LanternCompProperties.cs" />
     <Compile Include="Utils\ISpecialMushroom.cs" />
     <Compile Include="Utils\ModExtentions.cs" />
