@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\1.5\Assemblies\</OutputPath>
+    <OutputPath>D:\Steam\steamapps\common\RimWorld\Mods\250407\1.5\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>5</WarningLevel>
@@ -61,6 +61,7 @@
     <Compile Include="Hediffs\HediffCompProperties_YunNanToxin.cs" />
     <Compile Include="IncidentWorkers\RKU_IncidentWorker_BuildMap.cs" />
     <Compile Include="Job\JobDriver_UseTradingPost.cs" />
+    <Compile Include="Job\LordJob_DefendAndExpandHive_Incident.cs" />
     <Compile Include="Job\LordJob_SetC4.cs" />
     <Compile Include="Job\LordJob_WaitForSubsidize.cs" />
     <Compile Include="Job\LordToil_WaitForSubsidize.cs" />
