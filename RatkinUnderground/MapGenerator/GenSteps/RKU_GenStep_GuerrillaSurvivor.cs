@@ -19,7 +19,7 @@ namespace RatkinUnderground
         {
             Pawn singlePawnToSpawn = null;
             MapGenerator.rootsToUnfog.AddRange(map.AllCells);
-            var loc = CellFinder.RandomSpawnCellForPawnNear(map.Center, map, 10);
+            var loc = CellFinder.StandableCellNear(map.Center, map, 50);
             if (parms.sitePart != null && parms.sitePart.things != null && parms.sitePart.things.Any)
             {
                 singlePawnToSpawn = parms.sitePart.things.FirstOrDefault() as Pawn;
