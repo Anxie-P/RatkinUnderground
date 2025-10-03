@@ -95,8 +95,8 @@
     <Compile Include="Quest\QuestNode_RKU_GetPawnByFactionDef.cs" />
     <Compile Include="Quest\QuestNode_RKU_GetFactionByDef.cs" />
     <Compile Include="Quest\QuestNode_RKU_GuerrillasComing.cs" />
-    <Compile Include="Quest\QuestNode_RKU_GuerrillaSurvivor.cs" />
-    <Compile Include="Quest\QuestNode_RKU_UpdateRelationshipLimits.cs" />
+    <Compile Include="Quest\QuestPart_RKU_GuerrillaSurvivor.cs" />
+    <Compile Include="Quest\QuestNode_SurvivorDead.cs" />
     <Compile Include="Quest\QuestPart_CheckPawnsEntered.cs" />
     <Compile Include="Quest\QuestPart_DrillingVehicleDeparture.cs" />
     <Compile Include="Quest\QuestPart_CheckGuerrillas.cs" />

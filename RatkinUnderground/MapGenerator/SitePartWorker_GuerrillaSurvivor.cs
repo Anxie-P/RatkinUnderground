@@ -29,6 +29,7 @@ namespace RatkinUnderground
             Pawn pawn = PawnGenerator.GeneratePawn(request);
             // 击倒不死亡，我称为泰南的仁慈，但这任务写起来跟赤石一样难过
             HealthUtility.DamageUntilDowned(pawn);
+            pawn.health.AddHediff(HediffDef.Named("RKU_Survivor"));
             pawn.guest.SetGuestStatus(Faction.OfPlayer, GuestStatus.Guest);
 
             // Pawn pawn = PawnGenerator.GeneratePawn(PawnKindDef.Named("RKU_Scout"), Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction));
