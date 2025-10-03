@@ -18,13 +18,11 @@ namespace RatkinUnderground
             }
             if (pawns.NullOrEmpty())
             {
-                Log.Error("[RKU] 锤子攻击策略没有pawn，取消");
                 return null;
             }
             IntVec3 siegeSpot = RCellFinder.FindSiegePositionFrom(parms.spawnCenter.IsValid ? parms.spawnCenter : pawns[0].PositionHeld, map);
             if (!siegeSpot.IsValid)
             {
-                Log.Error("[RKU] 找不到有效的围攻位置，取消锤子攻击");
                 return null;
             }
             float num = parms.points * Rand.Range(0.2f, 0.3f);
@@ -40,6 +38,35 @@ namespace RatkinUnderground
             {
                 return false;
             }
+
+            if (parms.faction.def != DefOfs.RKU_Faction) {
+                return false;
+            }
+            var component = Current.Game.GetComponent<RKU_RadioGameComponent>();
+            bool isFinalBattleActive = false;
+            foreach (Map map in Find.Maps)
+            {
+                if (map.IsPlayerHome)
+                {
+                    foreach (GameCondition activeCondition in map.gameConditionManager.ActiveConditions)
+                    {
+                        if (activeCondition.def.defName == "RKU_FinalBattle")
+                        {
+                            isFinalBattleActive = true;
+                            break;
+                        }
+                    }
+                    if (isFinalBattleActive) break;
+                }
+            }
+            if (component == null)
+            {
+                return false;
+            }
+            else if (!isFinalBattleActive) {
+                return false;
+            }
+           
             return parms.faction.def.canSiege;
         }
         public override bool CanUsePawnGenOption(float pointsTotal, PawnGenOption g, List<PawnGenOptionWithXenotype> chosenGroups, Faction faction = null)

@@ -46,6 +46,7 @@ namespace RatkinUnderground
             //中心生成一种特殊蘑菇*1
             ThingDef centerCap = Rand.Range(0, 100) > 50 ? ThingDef.Named("RKU_Hatecap") : ThingDef.Named("RKU_Mindspark");
             Plant plant = (Plant)GenSpawn.Spawn(centerCap, center, map);
+            plant.Growth = Rand.Range(plant.def.plant.harvestMinGrowth, 1f);
         }
         private void ClearCell(Map map, IntVec3 cell)
         {
@@ -91,6 +92,7 @@ namespace RatkinUnderground
                     if (mushroomDef != null)
                     {
                         Plant plant = (Plant)GenSpawn.Spawn(mushroomDef, cell, map);
+                        plant.Growth = Rand.Range(plant.def.plant.harvestMinGrowth, 1f);
                         if (plant != null)
                         {
                             plant.Growth = 1f;

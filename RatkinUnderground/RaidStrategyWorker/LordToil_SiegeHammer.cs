@@ -13,14 +13,11 @@ namespace RatkinUnderground
         private LordToilData_Siege Data => (LordToilData_Siege)data;
         public LordToil_SiegeHammer(IntVec3 siegeCenter, float blueprintPoints) : base(siegeCenter, blueprintPoints)
         {
-            Log.Message($"[RKU] LordToil_SiegeHammer 构造函数调用 - 中心: {siegeCenter}, 点数: {blueprintPoints}");
         }
         public override void Init()
         {
-            Log.Message("[RKU] LordToil_SiegeHammer.Init() 开始执行");
             base.Init(); // 调用 LordToil_Siege.Init()
             LordToilData_Siege data = Data;
-            Log.Message($"[RKU] LordToil_SiegeHammer.Init() 数据初始化完成 - 中心: {data.siegeCenter}, 点数: {data.blueprintPoints}");
             data.baseRadius = Mathf.InverseLerp(14f, 25f, (float)lord.ownedPawns.Count / 50f);
             data.baseRadius = Mathf.Clamp(data.baseRadius, 14f, 25f);
             List<Thing> list = new List<Thing>();
@@ -29,7 +26,6 @@ namespace RatkinUnderground
             {
                 if (item2 == null)
                 {
-                    Log.Error("[RKU] SiegeBlueprintPlacer_Hammer.PlaceBlueprints 返回了null蓝图，跳过");
                     continue;
                 }
                 data.blueprints.Add(item2);
@@ -37,7 +33,6 @@ namespace RatkinUnderground
                 {
                     if (cost.thingDef == null)
                     {
-                        Log.Error($"[RKU] 建筑 {item2.def.defName} 的材料成本中包含null ThingDef，跳过");
                         continue;
                     }
 
@@ -56,7 +51,6 @@ namespace RatkinUnderground
                     }
                     catch (System.Exception e)
                     {
-                        Log.Error($"[RKU] 创建材料 {cost.thingDef.defName} 时出错: {e.Message}");
                     }
                 }
             }
@@ -87,24 +81,12 @@ namespace RatkinUnderground
                 list3.Add(item);
             }
             list2.Add(list3);
-
-            try
-            {
-                Log.Message($"[RKU] 开始投放物资到位置 {data.siegeCenter}, 材料组数: {list2.Count}");
-                DropPodUtility.DropThingGroupsNear(data.siegeCenter, base.Map, list2);
-                Log.Message("[RKU] 物资投放完成");
-            }
-            catch (System.Exception e)
-            {
-                Log.Error($"[RKU] 投放物资时出错: {e}");
-            }
+            DropPodUtility.DropThingGroupsNear(data.siegeCenter, base.Map, list2);
             data.desiredBuilderFraction = new FloatRange(0.25f, 0.4f).RandomInRange;
-            Log.Message("[RKU] LordToil_SiegeHammer.Init() 完成");
         }
 
         public override void UpdateAllDuties()
         {
-            Log.Message("[RKU] LordToil_SiegeHammer.UpdateAllDuties() 调用");
             base.UpdateAllDuties();
         }
 
@@ -185,28 +167,16 @@ namespace RatkinUnderground
 
                 if (hammerAttackerDef == null)
                 {
-                    Log.Error("[RKU] 找不到锤子攻击者定义 HammerAttacker，跳过放置");
                     yield break;
                 }
-
-                if (points < 60f)
-                {
-                    Log.Message("[RKU] 点数不足，跳过放置锤子攻击者");
-                    yield break;
-                }
-
-                Log.Message($"[RKU] 开始放置锤子攻击者: {hammerAttackerDef.defName}");
 
                 Rot4 fixedRotation = Rot4.North;
                 IntVec3 intVec = FindArtySpot(hammerAttackerDef, fixedRotation, map);
 
                 if (!intVec.IsValid)
                 {
-                    Log.Warning($"[RKU] 找不到合适位置放置锤子攻击者 {hammerAttackerDef.defName}");
                     yield break;
                 }
-
-                Log.Message($"[RKU] 在位置 {intVec} 放置锤子攻击者蓝图");
                 yield return GenConstruct.PlaceBlueprintForBuild(hammerAttackerDef, intVec, map, fixedRotation, faction, null);
             }
 
@@ -275,15 +245,38 @@ namespace RatkinUnderground
                 do
                 {
                     num++;
-                    if (num > 200)
+                    if (num > 400)
                     {
-                        return IntVec3.Invalid;
+                        foreach (IntVec3 cell in cellRect)
+                        {
+                            if (CanPlaceBlueprintAt(cell, rot, artyDef, map, ThingDefOf.Steel))
+                            {
+                                return cell;
+                            }
+                        }
+                        ClearBuildingsAround(center, map, 3);
+                        return center;
                     }
 
                     randomCell = cellRect.RandomCell;
                 }
                 while (!map.reachability.CanReach(randomCell, center, PathEndMode.OnCell, TraverseMode.NoPassClosedDoors, Danger.Deadly) || randomCell.Roofed(map) || !CanPlaceBlueprintAt(randomCell, rot, artyDef, map, ThingDefOf.Steel));
                 return randomCell;
+            }
+
+            private static void ClearBuildingsAround(IntVec3 center, Map map, int radius)
+            {
+                foreach (IntVec3 cell in GenRadial.RadialCellsAround(center, radius, true))
+                {
+                    if (cell.InBounds(map))
+                    {
+                        Building building = cell.GetEdifice(map);
+                        if (building != null && building.def.destroyable)
+                        {
+                            building.Destroy(DestroyMode.Vanish);
+                        }
+                    }
+                }
             }
         }
     }

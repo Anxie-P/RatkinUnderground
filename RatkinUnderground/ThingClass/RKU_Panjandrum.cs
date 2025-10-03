@@ -16,7 +16,7 @@ namespace RatkinUnderground
             if (mode == DestroyMode.KillFinalize)
             {
                 // 生成一个模拟弹丸，仅用于“投射”
-                var bullet = ThingMaker.MakeThing(DefOfs.RKU_PanjandrumBullet) as Projectile;
+                var bullet = ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_PanjandrumBullet")) as Projectile;
                 if (bullet != null)
                 {
                     GenSpawn.Spawn(bullet, Position, Map);
@@ -47,7 +47,7 @@ namespace RatkinUnderground
                 },
                 action = delegate (LocalTargetInfo target)
                 {
-                    RKU_PanjandrumBullet projectile = (RKU_PanjandrumBullet)ThingMaker.MakeThing(DefOfs.RKU_PanjandrumBullet);
+                    RKU_PanjandrumBullet projectile = (RKU_PanjandrumBullet)ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_PanjandrumBullet"));
                     GenSpawn.Spawn(projectile, Position, Map);
 
                     LocalTargetInfo localTargetInfo = target;

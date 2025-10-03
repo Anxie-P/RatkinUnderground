@@ -49,6 +49,16 @@ namespace RatkinUnderground
                 return false;
             }
             AssignBombJobs(saboteurs);
+
+            // 修改好感度范围为-50到-75
+            var component = Current.Game.GetComponent<RKU_RadioGameComponent>();
+            if (component != null)
+            {
+                component.minRelationshipGrade = -75;
+                component.maxRelationshipGrade = -50;
+                component.ralationshipGrade = component.ralationshipGrade;
+            }
+
             SoundDef.Named("RKU_EvanHaha").PlayOneShot(new TargetInfo(map.Center, map));
             return true;
         }

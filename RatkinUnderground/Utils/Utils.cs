@@ -168,26 +168,46 @@ namespace RatkinUnderground
 
         public static IntVec3 FindTargetSpot(Map map)
         {
-            int centerX = map.Size.x / 2;
-            int centerZ = map.Size.z / 2;
-            int searchRadius = 20;
-
-            List<IntVec3> validCells = new List<IntVec3>();
-
-            for (int x = centerX - searchRadius; x <= centerX + searchRadius; x++)
+            List<Pawn> colonists = map.mapPawns.FreeColonists.ToList();
+            if (colonists.Count == 0)
             {
-                for (int z = centerZ - searchRadius; z <= centerZ + searchRadius; z++)
+                // 如果没有殖民者，返回地图中心附近的可站立位置
+                int centerX = map.Size.x / 2;
+                int centerZ = map.Size.z / 2;
+                int searchRadius = 20;
+
+                List<IntVec3> validCells = new List<IntVec3>();
+
+                for (int x = centerX - searchRadius; x <= centerX + searchRadius; x++)
                 {
-                    IntVec3 cell = new IntVec3(x, 0, z);
-                    if (cell.InBounds(map) &&
-                        cell.Standable(map))
+                    for (int z = centerZ - searchRadius; z <= centerZ + searchRadius; z++)
                     {
-                        validCells.Add(cell);
+                        IntVec3 cell = new IntVec3(x, 0, z);
+                        if (cell.InBounds(map) && cell.Standable(map))
+                        {
+                            validCells.Add(cell);
+                        }
+                    }
+                }
+
+                return validCells.Count > 0 ? validCells.RandomElement() : IntVec3.Invalid;
+            }
+
+            foreach (Pawn colonist in colonists)
+            {
+                if (!colonist.Spawned || colonist.Downed || colonist.Dead) continue;
+                foreach (IntVec3 cell in GenRadial.RadialCellsAround(colonist.Position, 8f, true))
+                {
+                    if (cell.InBounds(map) &&
+                        cell.Standable(map) &&
+                        map.reachability.CanReach(cell, colonist.Position, PathEndMode.Touch, TraverseMode.PassDoors))
+                    {
+                        return cell; 
                     }
                 }
             }
 
-            return validCells.Count > 0 ? validCells.RandomElement() : IntVec3.Invalid;
+            return IntVec3.Invalid;
         }
 
         // 尝试搜寻钻机
@@ -516,6 +536,7 @@ namespace RatkinUnderground
         /// <returns></returns>
         public static int GetRadiusTiles(int tile, int rangeTiles)
         {
+            int baseTile=tile;
             WorldGrid grid = Find.WorldGrid;
             int currentTile = tile;
 
@@ -527,17 +548,37 @@ namespace RatkinUnderground
                 var candidates = neighbors.Where(t => !grid[t].WaterCovered &&
                                                  !grid[t].hilliness.Equals(Hilliness.Impassable) &&
                                                  t != currentTile &&
+                                                 t != baseTile &&
                                                  !Find.WorldObjects.AnyWorldObjectAt(t)).ToList();
+                if (candidates.Count == 0)
+                {
+                    candidates = neighbors.Where(t => !grid[t].WaterCovered &&
+                                                 t != currentTile &&
+                                                 t != baseTile &&
+                                                 !Find.WorldObjects.AnyWorldObjectAt(t)).ToList();
+                }
                 if (candidates.Count == 0)
                 {
                     break;
                 }
-
                 currentTile = candidates.RandomElement();
             }
 
             return currentTile;
         }
+
+        /// <summary>
+        /// 当游击队营地任务成功时，扩展好感度下限到-50，上限到-25
+        /// </summary>
+        public static void OnGuerrillaCampQuestSuccess()
+        {
+            RKU_RadioGameComponent comp = Current.Game.GetComponent<RKU_RadioGameComponent>();
+            if (comp != null)
+            {
+                comp.minRelationshipGrade = -50;
+                comp.maxRelationshipGrade = -25;
+                comp.ralationshipGrade = comp.ralationshipGrade;
+            }
+        }
     }
 }
-

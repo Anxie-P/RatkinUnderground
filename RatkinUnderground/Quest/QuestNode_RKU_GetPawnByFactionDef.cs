@@ -36,7 +36,6 @@ namespace RatkinUnderground
 
         private bool IsGoodFactionForGeneration(Faction f, Slate slate)
         {
-            // 可以添加额外过滤逻辑，如果需要
             return true;
         }
 

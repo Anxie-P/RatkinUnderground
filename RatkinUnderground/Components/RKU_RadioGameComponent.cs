@@ -188,7 +188,7 @@ namespace RatkinUnderground
         {
             foreach (Quest quest in Find.QuestManager.QuestsListForReading)
             {
-                if (quest.root.defName == questDefName && quest.State == QuestState.Ongoing)
+                if (quest.root.defName == questDefName && (quest.State ==QuestState.NotYetAccepted|| quest.State== QuestState.Ongoing))
                 {
                     return true;
                 }
@@ -333,6 +333,7 @@ namespace RatkinUnderground
         }
 
         #endregion
+
         public override void ExposeData()
         {
             base.ExposeData();

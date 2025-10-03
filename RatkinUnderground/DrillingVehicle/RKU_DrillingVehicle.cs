@@ -12,6 +12,8 @@ using Verse;
 using Verse.AI;
 using static UnityEngine.GraphicsBuffer;
 using UnityEngine;
+using Mono.Unix.Native;
+using static HarmonyLib.Code;
 
 namespace RatkinUnderground
 {
@@ -99,6 +101,12 @@ namespace RatkinUnderground
         }
 
         #endregion
+
+        public override void Tick()
+        {
+            base.Tick();
+            passengers.ThingOwnerTick();
+        }
 
         public override IEnumerable<Gizmo> GetGizmos()
         {

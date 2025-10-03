@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>D:\Steam\steamapps\common\RimWorld\Mods\250407\1.5\Assemblies\</OutputPath>
+    <OutputPath>..\..\1.5\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>5</WarningLevel>
@@ -49,6 +49,7 @@
     <Compile Include="IncidentWorkers\RKU_IncidentWorker_CaravanHijack.cs" />
     <Compile Include="IncidentWorkers\RKU_IncidentWorker_IvanComing.cs" />
     <Compile Include="IncidentWorkers\RKU_IncidentWorker_Guerrillas.cs" />
+    <Compile Include="IncidentWorkers\RKU_IncidentWorker_TriggerQuest.cs" />
     <Compile Include="Job\JobDriver_EatSpecialMushroom.cs" />
     <Compile Include="Job\JobDriver_SetC4.cs" />
     <Compile Include="Job\JobDriver_EnterDrillingVehicle.cs" />
@@ -72,8 +73,10 @@
     <Compile Include="MapGenerator\GenSteps\RKU_GenStep_FairyRing.cs" />
     <Compile Include="MapGenerator\GenSteps\RKU_GenStep_Flesh.cs" />
     <Compile Include="MapGenerator\GenSteps\RKU_GenStep_FleshBeast.cs" />
+    <Compile Include="MapGenerator\GenSteps\RKU_GenStep_GuerrillaSurvivor.cs" />
     <Compile Include="MapGenerator\GenSteps\RKU_GenStep_Lode.cs" />
     <Compile Include="MapGenerator\MapParent\RKU_MapParent.cs" />
+    <Compile Include="MapGenerator\SitePartWorker_GuerrillaSurvivor.cs" />
     <Compile Include="MapGenerator\SketchResolver\RKU_SketchResolver_DamageBuildingsAndRepair.cs" />
     <Compile Include="MapGenerator\SketchResolver\RKU_SketchResolver_MonumentRuin.cs" />
     <Compile Include="Motes\RKU_DigDust.cs" />
@@ -92,6 +95,8 @@
     <Compile Include="Quest\QuestNode_RKU_GetPawnByFactionDef.cs" />
     <Compile Include="Quest\QuestNode_RKU_GetFactionByDef.cs" />
     <Compile Include="Quest\QuestNode_RKU_GuerrillasComing.cs" />
+    <Compile Include="Quest\QuestNode_RKU_GuerrillaSurvivor.cs" />
+    <Compile Include="Quest\QuestNode_RKU_UpdateRelationshipLimits.cs" />
     <Compile Include="Quest\QuestPart_CheckPawnsEntered.cs" />
     <Compile Include="Quest\QuestPart_DrillingVehicleDeparture.cs" />
     <Compile Include="Quest\QuestPart_CheckGuerrillas.cs" />
@@ -100,6 +105,7 @@
     <Compile Include="RaidStrategyWorker\LordJob_HammerSiege.cs" />
     <Compile Include="RaidStrategyWorker\LordToil_SiegeHammer.cs" />
     <Compile Include="RaidStrategyWorker\RaidStrategyWorker_HammerAttack.cs" />
+    <Compile Include="Recipes\Recipe_RKU_AllurecapConversion.cs" />
     <Compile Include="RKU_Mod.cs" />
     <Compile Include="RKU_ModSettings.cs" />
     <Compile Include="ThingClass\RKK_BuildingBoomber.cs" />

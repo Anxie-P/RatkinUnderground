@@ -107,7 +107,7 @@ public class Comp_RKU_Radio : ThingComp
         }
 
         // 开发用Gizmo - 取消交易冷却
-        if (Prefs.DevMode)
+        if (DebugSettings.godMode)
         {
             yield return new Command_Action
             {

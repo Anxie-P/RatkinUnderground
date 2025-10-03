@@ -729,7 +729,6 @@ public class Dialog_RKU_Radio : Window, ITrader
     // 在交易完成时发送钻地货舱
     public RKU_DrillingCargoPodBullet SendCargoPod()
     {
-        Log.Warning("rua");
         if (pendingCargo.Count == 0) return null;
         IntVec3 launchSpot = Utils.FindLaunchSpot(radio.Map);
         if (launchSpot == IntVec3.Invalid) return null;

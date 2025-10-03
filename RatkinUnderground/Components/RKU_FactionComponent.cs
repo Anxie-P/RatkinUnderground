@@ -43,8 +43,11 @@ namespace RatkinUnderground
             if (rFaction.leader != null)
             {
                 rFaction.leader.Name = new NameTriple("RKU_Zigstark".Translate(), null, "RKU_Cheesecellar".Translate());
+                SetFactionLeaderTitle(rFaction, "RKU_commanderTitle".Translate());
+                rFaction.leader.gender=Gender.Female;
+                rFaction.ideos.PrimaryIdeo.leaderTitleMale = "RKU_commanderTitle".Translate();
+                rFaction.ideos.PrimaryIdeo.leaderTitleFemale = "RKU_commanderTitle".Translate();
             }
-
             foreach (FactionDef enemy in enemyFaction)
             {
                 Faction eFaction = Find.FactionManager.FirstFactionOfDef(enemy);
@@ -56,6 +59,15 @@ namespace RatkinUnderground
                 rFaction.RelationWith(eFaction).kind = FactionRelationKind.Hostile;
                 eFaction.Notify_RelationKindChanged(rFaction, oldKind1, false, "", TargetInfo.Invalid, out var sentLetter1);
                 rFaction.Notify_RelationKindChanged(eFaction, oldKind2, false, "", TargetInfo.Invalid, out var sentLetter2);
+            }
+        }
+
+        private void SetFactionLeaderTitle(Faction faction, string title)
+        {
+            var leaderTitleField = typeof(Faction).GetField("leaderTitle", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            if (leaderTitleField != null)
+            {
+                leaderTitleField.SetValue(faction, title);
             }
         }
     }

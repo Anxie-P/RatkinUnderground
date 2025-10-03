@@ -140,6 +140,7 @@ namespace RatkinUnderground
                         centerCap = ThingDef.Named("RKU_Singularitycap");
                     }
                     plant = (Plant)GenSpawn.Spawn(centerCap, cell, map);
+                    plant.Growth = Rand.Range(plant.def.plant.harvestMinGrowth, 1f);
                 }
                 if (plant != null)
                 {

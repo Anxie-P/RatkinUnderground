@@ -12,7 +12,7 @@ namespace RatkinUnderground
         public static WorldObjectDef TravelingDrillingVehicle;
         public static ThingDef RKU_TunnelHiveSpawner;
         public static ThingDef RKU_TunnelHiveSpawner_Und;
-        public static ThingDef RKU_PanjandrumBullet;
+        //public static ThingDef RKU_PanjandrumBullet;
         public static ThingDef RKU_BunkerBusterBullet;
         public static ThingDef RKU_DrillingVehicleInEnemyMap;
         public static ThingDef RKU_DrillingVehicleInEnemyMap_Und;

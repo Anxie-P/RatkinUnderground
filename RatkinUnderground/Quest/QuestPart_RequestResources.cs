@@ -118,8 +118,6 @@ namespace RatkinUnderground
             {
                 return;
             }
-            
-            // 为所有pawn创建返回钻机的任务
             foreach (Pawn pawn in pawns)
             {
                 if (pawn != null && pawn.Spawned && !drillingVehicle.ContainsPassenger(pawn) && pawn.CurJobDef != DefOfs.RKU_EnterDrillingVehicle)
