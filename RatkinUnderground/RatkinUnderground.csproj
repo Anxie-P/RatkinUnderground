@@ -72,8 +72,10 @@
     <Compile Include="MapGenerator\GenSteps\RKU_GenStep_FairyRing.cs" />
     <Compile Include="MapGenerator\GenSteps\RKU_GenStep_Flesh.cs" />
     <Compile Include="MapGenerator\GenSteps\RKU_GenStep_FleshBeast.cs" />
+    <Compile Include="MapGenerator\GenSteps\RKU_GenStep_GuerrillaSurvivor.cs" />
     <Compile Include="MapGenerator\GenSteps\RKU_GenStep_Lode.cs" />
     <Compile Include="MapGenerator\MapParent\RKU_MapParent.cs" />
+    <Compile Include="MapGenerator\SitePartWorker_GuerrillaSurvivor.cs" />
     <Compile Include="MapGenerator\SketchResolver\RKU_SketchResolver_DamageBuildingsAndRepair.cs" />
     <Compile Include="MapGenerator\SketchResolver\RKU_SketchResolver_MonumentRuin.cs" />
     <Compile Include="Motes\RKU_DigDust.cs" />
@@ -92,6 +94,8 @@
     <Compile Include="Quest\QuestNode_RKU_GetPawnByFactionDef.cs" />
     <Compile Include="Quest\QuestNode_RKU_GetFactionByDef.cs" />
     <Compile Include="Quest\QuestNode_RKU_GuerrillasComing.cs" />
+    <Compile Include="Quest\QuestPart_RKU_GuerrillaSurvivor.cs" />
+    <Compile Include="Quest\QuestNode_SurvivorDead.cs" />
     <Compile Include="Quest\QuestPart_CheckPawnsEntered.cs" />
     <Compile Include="Quest\QuestPart_DrillingVehicleDeparture.cs" />
     <Compile Include="Quest\QuestPart_CheckGuerrillas.cs" />
