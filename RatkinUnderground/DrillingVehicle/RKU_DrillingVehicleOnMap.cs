@@ -243,7 +243,7 @@ public class RKU_DrillingVehicleOnMap : Caravan
                     action = () =>
                     {
                         //Log.Message($"生成事件前的进度{traveledPct}");
-                        IncidentDef incidentDef = DefDatabase<IncidentDef>.AllDefs.ToList().FindAll(o => o.defName.Contains("RKU_MapParent_BuildMap_")).RandomElement();
+                        IncidentDef incidentDef = DefDatabase<IncidentDef>.AllDefs.ToList().FindAll(o => o.defName.Contains("RKU_Incident_BuildMap")).RandomElement();
                         if (incidentDef != null)
                         {
                             int nodes = pather.curPath.NodesReversed.Count;
