@@ -152,6 +152,7 @@ public class Dialog_RKU_Radio : Window, ITrader
     public override void DoWindowContents(Rect inRect)
     {
         UpdateTradeStatus();
+        UpdateScanStatus();
         UpdateTypingEffect();
 
         // 窗口标题
@@ -376,6 +377,10 @@ public class Dialog_RKU_Radio : Window, ITrader
                     /*parms.faction = null;
                     parms.target = map;
                     def.Worker.TryExecute(parms);*/
+                    string label = $"发现：{def.label}"; 
+                    string text = $"游击队扫描到了一处新地点:{def.label}";
+                    LookTargets lookTargets = new LookTargets(worldObject);
+                    Find.LetterStack.ReceiveLetter(label, text, LetterDefOf.PositiveEvent, lookTargets);
 
                     radioComponent.canScan = false;
                     radioComponent.lastScanTick = Find.TickManager.TicksGame;

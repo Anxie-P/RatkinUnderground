@@ -190,7 +190,8 @@ namespace RatkinUnderground
                         item.GetFirstBuilding(Map).Destroy();
                     }
                 }
-                vehicle.HitPoints = (vehicle.HitPoints -= damage) > 0 ? vehicle.HitPoints : 1;
+                var newHitPoints = vehicle.HitPoints - damage;
+                vehicle.HitPoints = Math.Max(1, newHitPoints);
                 Log.Message($"生成位置：{this.Position}");
                 GenSpawn.Spawn(vehicle, this.Position, this.Map);
                 vehicle.Rotation = FinalRotation;
