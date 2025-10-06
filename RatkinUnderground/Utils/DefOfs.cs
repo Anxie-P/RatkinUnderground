@@ -23,6 +23,8 @@ namespace RatkinUnderground
         public static JobDef RKU_AIEnterDrillingVehicle;
         public static JobDef RKU_AssistResearch;
         public static JobDef RKU_EatSpecialMushroom;
+        public static JobDef RKU_LoadDrillingCargo;
+        public static WorkGiverDef RKU_LoadDrillingCargoWorkGiver;
         public static JobDef RKU_SetC4;
         public static JobDef RKU_UseTradingPost;
         public static ThingDef RKU_Radio;
@@ -33,6 +35,8 @@ namespace RatkinUnderground
         public static PawnKindDef RKU_Scout;
         public static PawnKindDef RKU_Invader;
         public static HediffDef RKU_ArmorWeaken;
+        public static HediffDef RKU_SpecialNPCAppearance;
+
         //对话
         public static RKU_DialogueEventDef RKU_FirstContact;
         public static RKU_DialogueEventDef RKU_TradeWelcome;

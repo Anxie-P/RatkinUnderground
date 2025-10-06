@@ -42,8 +42,10 @@
     <Compile Include="Dialogue\RKU_DialogueEventDef.cs" />
     <Compile Include="Dialogue\RKU_DialogueManager.cs" />
     <Compile Include="DrillingVehicle\Dialog_ManagePassengers.cs" />
+    <Compile Include="DrillingVehicle\RKU_DrillingVehicleCargo.cs" />
     <Compile Include="DrillingVehicle\RKU_DrillingVehicleInEnemyMap_Und.cs" />
     <Compile Include="GameConditions\RKU_GameCondition_FinalBattle.cs" />
+    <Compile Include="Hediffs\HediffCompProperties_SurvivorQuest.cs" />
     <Compile Include="IncidentWorkers\IncidentWorker_LimitedInsectAttack.cs" />
     <Compile Include="IncidentWorkers\IncidentWorker_LimitedFleshbeastAttack.cs" />
     <Compile Include="IncidentWorkers\RKU_IncidentWorker_CaravanHijack.cs" />
@@ -51,6 +53,7 @@
     <Compile Include="IncidentWorkers\RKU_IncidentWorker_Guerrillas.cs" />
     <Compile Include="IncidentWorkers\RKU_IncidentWorker_TriggerQuest.cs" />
     <Compile Include="Job\JobDriver_EatSpecialMushroom.cs" />
+    <Compile Include="Job\JobDriver_LoadDrillingCargo.cs" />
     <Compile Include="Job\JobDriver_SetC4.cs" />
     <Compile Include="Job\JobDriver_EnterDrillingVehicle.cs" />
     <Compile Include="DrillingVehicle\RKU_DrilingBullet.cs" />
@@ -80,6 +83,7 @@
     <Compile Include="MapGenerator\SketchResolver\RKU_SketchResolver_DamageBuildingsAndRepair.cs" />
     <Compile Include="MapGenerator\SketchResolver\RKU_SketchResolver_MonumentRuin.cs" />
     <Compile Include="Motes\RKU_DigDust.cs" />
+    <Compile Include="Patches\AlienRace_BodyAddon_Patch.cs" />
     <Compile Include="Patches\EquipmentTracker_Patch.cs" />
     <Compile Include="Patches\FactionGenerator_Patch.cs" />
     <Compile Include="Patches\FactionGoodwill_Patch.cs" />
@@ -95,7 +99,7 @@
     <Compile Include="Quest\QuestNode_RKU_GetPawnByFactionDef.cs" />
     <Compile Include="Quest\QuestNode_RKU_GetFactionByDef.cs" />
     <Compile Include="Quest\QuestNode_RKU_GuerrillasComing.cs" />
-    <Compile Include="Quest\QuestPart_RKU_GuerrillaSurvivor.cs" />
+    <Compile Include="Quest\QuestNode_RKU_UpdateRelationshipLimits.cs" />
     <Compile Include="Quest\QuestNode_SurvivorDead.cs" />
     <Compile Include="Quest\QuestPart_CheckPawnsEntered.cs" />
     <Compile Include="Quest\QuestPart_DrillingVehicleDeparture.cs" />
@@ -154,6 +158,9 @@
   <ItemGroup>
     <Reference Include="0Harmony">
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="AlienRace">
+      <HintPath>..\..\..\..\..\..\workshop\content\294100\839005762\1.5\Assemblies\AlienRace.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>

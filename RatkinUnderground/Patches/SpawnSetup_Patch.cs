@@ -22,11 +22,8 @@ public static class Patch_CaravanEnter
         }
         if (caravan is RKU_DrillingVehicleOnMap rkuCaravan)
         {
-            Log.Message($"[RKU] Caravan {caravan.Label} 捕获，准备替换为 RKU_DrillingVehicle。");
-
             if (map == null)
             {
-                Log.Error("[RKU] 目标 map 为 null");
                 return true;
             }
 
@@ -59,6 +56,11 @@ public static class Patch_CaravanEnter
                         var vehicle = (RKU_TunnelHiveSpawner)ThingMaker.MakeThing(DefOfs.RKU_TunnelHiveSpawner);
                         vehicle.hitPoints = rkuCaravan.hitPoints;
                         vehicle.faction = rkuCaravan.Faction;
+                        if (!string.IsNullOrEmpty(rkuCaravan.originalVehicleDefName))
+                        {
+                            vehicle.originalVehicleDef = DefDatabase<ThingDef>.GetNamed((string)rkuCaravan.originalVehicleDefName); // 传递原始钻地机类型
+                        }
+                        if(vehicle.cargo!=null) vehicle.cargo = new List<Thing>(rkuCaravan.cargo); // 传递货物
 
                         // 所有pawn移动到钻机
                         foreach (var p in caravan.PawnsListForReading.ToList())

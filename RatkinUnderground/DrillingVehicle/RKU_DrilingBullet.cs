@@ -53,10 +53,46 @@ namespace RatkinUnderground
             exactPos = origin;
             worldDestination = intendedTarget.Cell.ToVector3Shifted();
             dir = (intendedTarget.Cell.ToVector3Shifted() - exactPos).normalized;
-
         }
 
-        public RKU_DrillingVehicle vehicle;
+        private void SetGraphicForVehicleType()
+        {
+            if (vehicle == null) return;
+
+            // 根据钻机类型设置基础纹理路径
+            if (vehicle is RKU_DrillingVehicleCargo)
+            {
+                baseTexturePath = "Buildings/DrillingVehicle/DrillingVehicleCargoBullet/DrillingVehicleCargoBullet";
+            }
+            else if (vehicle is RKU_DrillingVehicleWithTurret)
+            {
+                baseTexturePath = "Buildings/DrillingVehicle/DrillingVehicleTurretBullet/DrillingVehicleTurretBullet";
+            }
+            else
+            {
+                baseTexturePath = "Buildings/DrillingVehicle/BaseDrillingVehicleBullet/BaseDrillingVehicleBullet";
+            }
+
+            // 纹理路径已设置，DrawAt中会根据rotation选择具体纹理
+        }
+
+        private string baseTexturePath;
+
+
+
+        private RKU_DrillingVehicle _vehicle;
+        public RKU_DrillingVehicle vehicle
+        {
+            get { return _vehicle; }
+            set
+            {
+                _vehicle = value;
+                if (_vehicle != null)
+                {
+                    SetGraphicForVehicleType();
+                }
+            }
+        }
         private float ArcHeightFactor
         {
             get
@@ -166,11 +202,50 @@ namespace RatkinUnderground
         {
             float num = ArcHeightFactor * GenMath.InverseParabola(DistanceCoveredFractionArc);
             Vector3 vector = drawLoc + new Vector3(0f, 0f, 1f) * num;
-            Log.Warning(ExactRotation.ToStringSafe());
 
             FaceAdjacentCell(destination.ToIntVec3());
 
-            Graphic.Draw(vector, Rotation, this, Rand.Range(-2, 2));
+            // 根据rotation选择正确的纹理
+            string texturePath = baseTexturePath ?? "Buildings/DrillingVehicle/BaseDrillingVehicleBullet/BaseDrillingVehicleBullet";
+            if (Rotation == Rot4.North)
+            {
+                texturePath += "_north";
+            }
+            else if (Rotation == Rot4.South)
+            {
+                texturePath += "_south";
+            }
+            else if (Rotation == Rot4.East)
+            {
+                texturePath += "_east";
+            }
+            else if (Rotation == Rot4.West)
+            {
+                texturePath += "_west";
+            }
+            // 其他rotation使用默认纹理
+
+            // 获取纹理并绘制
+            try
+            {
+                Texture2D texture = ContentFinder<Texture2D>.Get(texturePath);
+                if (texture != null)
+                {
+                    Material material = MaterialPool.MatFrom(texture);
+                    material.mainTextureOffset = new Vector2(0f, 0f);
+                    material.mainTextureScale = new Vector2(1f, 1f);
+                    Matrix4x4 matrix = Matrix4x4.TRS(vector, Quaternion.identity, new Vector3(4.5f,1f, 4.5f));
+                    Graphics.DrawMesh(MeshPool.plane10, matrix, material, 0, null, 0, null);
+                }
+                else
+                {
+                    Log.Error($"[RKU] 无法找到纹理: {texturePath}");
+                }
+            }
+            catch (Exception e)
+            {
+                Log.Error($"[RKU] 加载纹理失败 {texturePath}: {e.Message}");
+            }
 
             float numOfHeight = ArcHeightFactor * GenMath.InverseParabola(DistanceCoveredFractionArc);
             Comps_PostDraw();
@@ -179,7 +254,6 @@ namespace RatkinUnderground
             {
                 FleckMaker.ThrowDustPuffThick(DrawPos + new Vector3(0f, 0f, 1f) * numOfHeight + new Vector3(Rand.Range(-0.5f, 0.5f), 0, Rand.Range(-0.5f, 0.5f)), Map, 1f, Color.black);
             }
-
         }
 
         /// <summary>
@@ -217,10 +291,11 @@ namespace RatkinUnderground
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Deep.Look(ref vehicle, "vehicle", this);
+            Scribe_Deep.Look(ref _vehicle, "vehicle", this);
             Scribe_Deep.Look(ref curSpeed, "curSpeed", this);
             Scribe_Deep.Look(ref worldDestination, "worldDestination", this);
             Scribe_Deep.Look(ref exactPos, "exactPos", this);
+            Scribe_Values.Look(ref baseTexturePath, "baseTexturePath");
         }
     }
 }

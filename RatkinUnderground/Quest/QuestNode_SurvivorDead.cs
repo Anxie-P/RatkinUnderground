@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Verse;
 using Verse.Grammar;
-using static RatkinUnderground.HediffCompProperties_SurvivorQuest;
 
 namespace RatkinUnderground
 {

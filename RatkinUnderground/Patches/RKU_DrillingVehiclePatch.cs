@@ -160,6 +160,11 @@ public static class RKU_DrillingVehiclePatch
                     RKU_TunnelHiveSpawner tunnelHiveSpawner = (RKU_TunnelHiveSpawner)ThingMaker.MakeThing(DefOfs.RKU_TunnelHiveSpawner);
                     tunnelHiveSpawner.hitPoints = (caravan as RKU_DrillingVehicleOnMap).hitPoints;  // 传递耐久
                     tunnelHiveSpawner.canMove = true;//可以移动
+                    if (!string.IsNullOrEmpty((caravan as RKU_DrillingVehicleOnMap).originalVehicleDefName))
+                    {
+                        tunnelHiveSpawner.originalVehicleDef = DefDatabase<ThingDef>.GetNamed((string)(caravan as RKU_DrillingVehicleOnMap).originalVehicleDefName); // 传递原始钻地机类型
+                    }
+                    if (tunnelHiveSpawner.cargo != null) tunnelHiveSpawner.cargo = new List<Thing>((caravan as RKU_DrillingVehicleOnMap).cargo); // 传递货物
 
                     List<Pawn> pawnsToTransfer2 = new List<Pawn>(caravan.pawns);
 
@@ -196,6 +201,11 @@ public static class RKU_DrillingVehiclePatch
                     RKU_TunnelHiveSpawner tunnelHiveSpawner = (RKU_TunnelHiveSpawner)ThingMaker.MakeThing(DefOfs.RKU_TunnelHiveSpawner);
                     tunnelHiveSpawner.hitPoints = (caravan as RKU_DrillingVehicleOnMap).hitPoints;  // 传递耐久
                     tunnelHiveSpawner.canMove = false;//遇敌地图不能移动
+                    if (!string.IsNullOrEmpty((caravan as RKU_DrillingVehicleOnMap).originalVehicleDefName))
+                    {
+                        tunnelHiveSpawner.originalVehicleDef = DefDatabase<ThingDef>.GetNamed((string)(caravan as RKU_DrillingVehicleOnMap).originalVehicleDefName); // 传递原始钻地机类型
+                    }
+                    if (tunnelHiveSpawner.cargo != null) tunnelHiveSpawner.cargo = new List<Thing>((caravan as RKU_DrillingVehicleOnMap).cargo); // 传递货物
 
                     List<Pawn> pawnsToTransfer2 = new List<Pawn>(caravan.pawns);
                     foreach (Pawn pawn in pawnsToTransfer2)
@@ -226,6 +236,11 @@ public static class RKU_DrillingVehiclePatch
                     RKU_TunnelHiveSpawner tunnelHiveSpawner = (RKU_TunnelHiveSpawner)ThingMaker.MakeThing(DefOfs.RKU_TunnelHiveSpawner);
                     tunnelHiveSpawner.hitPoints = (caravan as RKU_DrillingVehicleOnMap).hitPoints;  // 传递耐久
                     tunnelHiveSpawner.canMove = true;//资源地图可以移动
+                    if (!string.IsNullOrEmpty((caravan as RKU_DrillingVehicleOnMap).originalVehicleDefName))
+                    {
+                        tunnelHiveSpawner.originalVehicleDef = DefDatabase<ThingDef>.GetNamed((string)(caravan as RKU_DrillingVehicleOnMap).originalVehicleDefName); // 传递原始钻地机类型
+                    }
+                    if (tunnelHiveSpawner.cargo != null) tunnelHiveSpawner.cargo = new List<Thing>((caravan as RKU_DrillingVehicleOnMap).cargo); // 传递货物
 
                     List<Pawn> pawnsToTransfer2 = new List<Pawn>(caravan.pawns);
 
@@ -270,6 +285,11 @@ public static class RKU_DrillingVehiclePatch
 
                             RKU_TunnelHiveSpawner tunnelHiveSpawner = (RKU_TunnelHiveSpawner)ThingMaker.MakeThing(DefOfs.RKU_TunnelHiveSpawner);
                             tunnelHiveSpawner.hitPoints = (caravan as RKU_DrillingVehicleOnMap).hitPoints;  // 传递耐久
+                            if (!string.IsNullOrEmpty((caravan as RKU_DrillingVehicleOnMap).originalVehicleDefName))
+                            {
+                                tunnelHiveSpawner.originalVehicleDef = DefDatabase<ThingDef>.GetNamed((string)(caravan as RKU_DrillingVehicleOnMap).originalVehicleDefName); // 传递原始钻地机类型
+                            }
+                            if (tunnelHiveSpawner.cargo != null) tunnelHiveSpawner.cargo = new List<Thing>((caravan as RKU_DrillingVehicleOnMap).cargo); // 传递货物
                             List<Pawn> pawnsToTransfer2 = new List<Pawn>(caravan.pawns);
 
                             foreach (Pawn pawn in pawnsToTransfer2)

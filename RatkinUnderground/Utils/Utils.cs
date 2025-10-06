@@ -559,6 +559,13 @@ namespace RatkinUnderground
                 }
                 if (candidates.Count == 0)
                 {
+                    candidates = neighbors.Where(t => 
+                                                 t != currentTile &&
+                                                 t != baseTile &&
+                                                 !Find.WorldObjects.AnyWorldObjectAt(t)).ToList();
+                }
+                if (candidates.Count == 0)
+                {
                     break;
                 }
                 currentTile = candidates.RandomElement();

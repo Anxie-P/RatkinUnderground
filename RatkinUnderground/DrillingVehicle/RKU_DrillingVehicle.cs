@@ -64,7 +64,7 @@ namespace RatkinUnderground
             Scribe_Deep.Look(ref passengers, "passengers", this);
         }
 
-        public bool CanAcceptPassenger(Pawn pawn)
+        public virtual bool CanAcceptPassenger(Pawn pawn)
         {
             if (passengers == null)
             {
@@ -129,6 +129,12 @@ namespace RatkinUnderground
                             Messages.Message($"钻机耐久过低，无法使用！", MessageTypeDefOf.NegativeEvent);
                             return;
                         }
+                        // 准备货物（保存到静态存储）
+                        if (this is RKU_DrillingVehicleCargo cargoVehicle)
+                        {
+                            cargoVehicle.PrepareCargoForDrilling();
+                        }
+
                         RKU_DrilingBullet projectile = (RKU_DrilingBullet)ThingMaker.MakeThing(DefOfs.RKU_DrillingVehicleBullet);
                         GenSpawn.Spawn(projectile, Position, Map);
 
@@ -204,6 +210,29 @@ namespace RatkinUnderground
                         vehicleOnMap.SetFaction(Faction.OfPlayer);
                         vehicleOnMap.destinationTile = base.Map.Tile;
                         vehicleOnMap.hitPoints = this.HitPoints;
+                        vehicleOnMap.originalVehicleDefName = this.def.defName;  // 保存原始钻机类型
+
+                        // 保存货物
+                        if (this is RKU_DrillingVehicleCargo cargoVehicle)
+                        {
+                            vehicleOnMap.cargo = new List<Thing>();
+                            var directlyHeldThings = cargoVehicle.GetDirectlyHeldThings();
+                            if (directlyHeldThings != null)
+                            {
+                                foreach (Thing thing in directlyHeldThings)
+                                {
+                                    // 复制Thing对象，避免引用问题
+                                    Thing copiedThing = ThingMaker.MakeThing(thing.def, thing.Stuff);
+                                    copiedThing.stackCount = thing.stackCount;
+                                    copiedThing.TryGetComp<CompQuality>()?.SetQuality(thing.TryGetComp<CompQuality>()?.Quality ?? QualityCategory.Normal, ArtGenerationContext.Colony);
+                                    vehicleOnMap.cargo.Add(copiedThing);
+                                }
+                            }
+                            Log.Message($"[RKU] 保存cargo到RKU_DrillingVehicleOnMap，cargo数量: {vehicleOnMap.cargo.Count}");
+
+                            // 清空cargo，因为钻出后物品应该转移到RKU_DrillingVehicleOnMap
+                            directlyHeldThings.Clear();
+                        }
                         // 转移载员
                         List<Pawn> passengersToTransfer = new List<Pawn>(passengers);
                         foreach (Pawn passenger in passengersToTransfer)

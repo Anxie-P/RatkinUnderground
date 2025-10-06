@@ -316,7 +316,7 @@ namespace RatkinUnderground
         // 研究进度相关
         public float researchProgress = 0;//研究进度
         public byte researchGrade = 0;//研究等级
-        public const float RESEARCH_PROGRESS_MAX = 3000; // 研究进度上限
+        public const float RESEARCH_PROGRESS_MAX = 2000; // 研究进度上限
 
         /// <summary>
         /// // 增加研究进度

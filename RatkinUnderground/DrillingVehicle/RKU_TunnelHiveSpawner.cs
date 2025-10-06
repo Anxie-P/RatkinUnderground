@@ -18,6 +18,15 @@ namespace RatkinUnderground
         public int hitPoints;   // 传递耐久
         public Faction faction;
         public IThingHolder drillingVehicle;
+
+        private string originalVehicleDefName;
+        public ThingDef originalVehicleDef
+        {
+            get => originalVehicleDefName != null ? DefDatabase<ThingDef>.GetNamed(originalVehicleDefName) : null;
+            internal set => originalVehicleDefName = value?.defName;
+        }
+        public List<Thing> cargo = new List<Thing>(); // 保存货物
+
         public RKU_TunnelHiveSpawner()
         {
             passengers = new ThingOwner<Pawn>(this);
@@ -59,10 +68,14 @@ namespace RatkinUnderground
                 passengers = new ThingOwner<Pawn>(this);
             }
             Scribe_Deep.Look(ref passengers, "passengers", this);
+            Scribe_Values.Look(ref originalVehicleDefName, "originalVehicleDefName");
+            Scribe_Collections.Look(ref cargo, "cargo", LookMode.Deep);
         }
 
         protected override void Spawn(Map map, IntVec3 loc)
         {
+            Log.Message($"[RKU] RKU_TunnelHiveSpawner.Spawn 开始，cargo数量: {cargo?.Count ?? 0}");
+
             // 检查目标位置是否在地图边界内（考虑钻地车尺寸为1x2）
             if (!IsValidSpawnPosition(loc, map))
             {
@@ -73,13 +86,36 @@ namespace RatkinUnderground
                     return;
                 }
             }
+            // 使用保存的原始钻机类型
+            ThingDef vehicleDefToCreate;
             if (canMove)
             {
-                drillingVehicle = (IThingHolder)ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_DrillingVehicle"));
+                vehicleDefToCreate = originalVehicleDef ?? DefDatabase<ThingDef>.GetNamed("RKU_DrillingVehicle");
             }
             else
             {
-                drillingVehicle = (IThingHolder)ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_DrillingVehicleInEnemyMap"));
+                vehicleDefToCreate = DefDatabase<ThingDef>.GetNamed("RKU_DrillingVehicleInEnemyMap");
+            }
+
+            drillingVehicle = (IThingHolder)ThingMaker.MakeThing(vehicleDefToCreate);
+
+            // 如果是敌方地图的钻机，传递原始钻机类型和货物
+            if (drillingVehicle is RKU_DrillingVehicleInEnemyMap enemyVehicle)
+            {
+                enemyVehicle.originalVehicleDef = originalVehicleDef;
+                enemyVehicle.cargo = new List<Thing>(cargo); // 传递货物
+                Log.Message($"[RKU] 传递cargo到RKU_DrillingVehicleInEnemyMap，cargo数量: {enemyVehicle.cargo.Count}");
+            }
+
+            // 恢复货物
+            if (drillingVehicle is RKU_DrillingVehicleCargo cargoVehicle && cargo != null)
+            {
+                var cargoHolder = cargoVehicle.GetDirectlyHeldThings();
+                foreach (Thing thing in cargo)
+                {
+                    cargoHolder.TryAdd(thing);
+                }
+                cargo.Clear();
             }
 
             // 生成钻地车
@@ -145,5 +181,6 @@ namespace RatkinUnderground
             }
             return loc;
         }
+
     }
 } 

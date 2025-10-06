@@ -14,6 +14,8 @@ namespace RatkinUnderground
     public class RKU_DrillingVehicleInEnemyMap : Building, IThingHolder
     {
         private ThingOwner<Pawn> passengers;
+        public ThingDef originalVehicleDef; // 保存原始钻机类型
+        public List<Thing> cargo = new List<Thing>(); // 保存货物
 
         public RKU_DrillingVehicleInEnemyMap()
         {
@@ -58,6 +60,8 @@ namespace RatkinUnderground
                 passengers = new ThingOwner<Pawn>(this);
             }
             Scribe_Deep.Look(ref passengers, "passengers", this);
+            Scribe_Defs.Look(ref originalVehicleDef, "originalVehicleDef");
+            Scribe_Collections.Look(ref cargo, "cargo", LookMode.Deep);
         }
 
         public bool CanAcceptPassenger(Pawn pawn)
@@ -159,7 +163,7 @@ namespace RatkinUnderground
                 yield return command_Return;
             }
 
-            if (!Map.mapPawns.AllPawnsSpawned.Any(p => p.Faction != null && p.Faction.HostileTo(Faction.OfPlayer)) &&
+            if (Map.mapPawns.AllPawnsSpawned.Any(p => p.IsColonist ) &&
                 passengers.Count > 0)
             {
                 // 将钻机钻出
@@ -178,7 +182,9 @@ namespace RatkinUnderground
                             FilthMaker.TryMakeFilth(Position, Map, ThingDefOf.Filth_Dirt);
                         }
                         List<Pawn> passengersToTransfer = new List<Pawn>(passengers);
-                        RKU_DrillingVehicle drillingVehicle = (RKU_DrillingVehicle)ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_DrillingVehicle"));
+                        // 使用保存的原始钻机类型
+                        ThingDef vehicleDef = originalVehicleDef ?? DefDatabase<ThingDef>.GetNamed("RKU_DrillingVehicle");
+                        RKU_DrillingVehicle drillingVehicle = (RKU_DrillingVehicle)ThingMaker.MakeThing(vehicleDef);
                         foreach (var pawn in passengersToTransfer)
                         {
                             if (pawn != null && !pawn.Destroyed)
@@ -190,6 +196,19 @@ namespace RatkinUnderground
                         }
                         drillingVehicle.HitPoints = this.HitPoints;
                         drillingVehicle.SetFaction(Faction.OfPlayer);
+
+                        // 恢复货物
+                        if (drillingVehicle is RKU_DrillingVehicleCargo cargoVehicle && cargo != null)
+                        {
+                            var cargoHolder = cargoVehicle.GetDirectlyHeldThings();
+                            foreach (Thing thing in cargo)
+                            {
+                                cargoHolder.TryAdd(thing);
+                            }
+                            Log.Message($"[RKU] 从敌方地图钻出，恢复cargo到钻机，cargo数量: {cargo.Count}");
+                            cargo.Clear();
+                        }
+
                         GenSpawn.Spawn(drillingVehicle, Position, Map);
                     }
                 };
@@ -253,6 +272,7 @@ namespace RatkinUnderground
                 yield return option;
             }
         }
+
         #endregion
     }
 }

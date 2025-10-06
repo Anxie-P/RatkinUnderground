@@ -28,7 +28,7 @@ public class RKU_DrillingVehicleOnMap : Caravan
 
     public int hitPoints = -1;  // 传递耐久
 
-    public float getTraveledPct() 
+    public float getTraveledPct()
     {
         return traveledPct;
     }
@@ -102,6 +102,9 @@ public class RKU_DrillingVehicleOnMap : Caravan
             return num + 90f;
         }
     }
+
+    public string originalVehicleDefName;
+    public List<Thing> cargo = new List<Thing>(); // 保存货物
 
     public override void DrawExtraSelectionOverlays()
     {
@@ -223,6 +226,8 @@ public class RKU_DrillingVehicleOnMap : Caravan
         Scribe_Values.Look(ref arrived, "arrived", defaultValue: false);
         Scribe_Values.Look(ref initialTile, "initialTile", 0);
         Scribe_Values.Look(ref traveledPct, "traveledPct", 0f);
+        Scribe_Values.Look(ref originalVehicleDefName, "originalVehicleDefName");
+        Scribe_Collections.Look(ref cargo, "cargo", LookMode.Deep);
     }
 
     public override IEnumerable<Gizmo> GetGizmos()
