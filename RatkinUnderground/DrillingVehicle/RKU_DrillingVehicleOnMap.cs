@@ -228,6 +228,7 @@ public class RKU_DrillingVehicleOnMap : Caravan
         Scribe_Values.Look(ref traveledPct, "traveledPct", 0f);
         Scribe_Values.Look(ref originalVehicleDefName, "originalVehicleDefName");
         Scribe_Collections.Look(ref cargo, "cargo", LookMode.Deep);
+        Scribe_Values.Look(ref hitPoints, "hitPoints");
     }
 
     public override IEnumerable<Gizmo> GetGizmos()
