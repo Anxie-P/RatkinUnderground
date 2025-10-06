@@ -49,9 +49,9 @@ public static class Patch_CaravanEnter
                     try
                     {
                         // 获取生成点
-                        // IntVec3 spawnPos = spawnCellGetter(caravan.PawnsListForReading.FirstOrDefault());
                         IntVec3 spawnPos = target.Cell;
                         Log.Message($"选择位置:{target.Cell}");
+
                         // 生成钻机建筑
                         var vehicle = (RKU_TunnelHiveSpawner)ThingMaker.MakeThing(DefOfs.RKU_TunnelHiveSpawner);
                         vehicle.hitPoints = rkuCaravan.hitPoints;
@@ -61,6 +61,7 @@ public static class Patch_CaravanEnter
                             vehicle.originalVehicleDef = DefDatabase<ThingDef>.GetNamed((string)rkuCaravan.originalVehicleDefName); // 传递原始钻地机类型
                         }
                         if(vehicle.cargo!=null) vehicle.cargo = new List<Thing>(rkuCaravan.cargo); // 传递货物
+                        map.fogGrid.FloodUnfogAdjacent(target.Cell, false);
 
                         // 所有pawn移动到钻机
                         foreach (var p in caravan.PawnsListForReading.ToList())
@@ -75,8 +76,8 @@ public static class Patch_CaravanEnter
                             {
                                 Log.Message($"遍历报错：{e}");
                             }
-                            
                         }
+
                         GenSpawn.Spawn(vehicle, spawnPos, map);
                         // 移除 caravan
                         if (!caravan.Destroyed)
@@ -94,7 +95,11 @@ public static class Patch_CaravanEnter
                     {
                         if (!target.IsValid) return false;
                         if (!target.Cell.InBounds(map)) return false;
-                        if (!target.Cell.Standable(map)) return false;
+                        if (!target.Cell.Standable(map))
+                        {
+                            Messages.Message("RKU.CannotSpawnOnImpassable".Translate(), MessageTypeDefOf.RejectInput, false);
+                            return false;
+                        }
                         return true;
                     }
                     catch

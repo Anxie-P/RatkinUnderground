@@ -1,19 +1,9 @@
 ﻿using RimWorld;
 using RimWorld.Planet;
-using RimWorld.QuestGen;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine.Tilemaps;
 using Verse;
 using Verse.AI;
-using static UnityEngine.GraphicsBuffer;
 using UnityEngine;
-using Mono.Unix.Native;
-using static HarmonyLib.Code;
 
 namespace RatkinUnderground
 {
@@ -221,15 +211,12 @@ namespace RatkinUnderground
                             {
                                 foreach (Thing thing in directlyHeldThings)
                                 {
-                                    // 复制Thing对象，避免引用问题
                                     Thing copiedThing = ThingMaker.MakeThing(thing.def, thing.Stuff);
                                     copiedThing.stackCount = thing.stackCount;
                                     copiedThing.TryGetComp<CompQuality>()?.SetQuality(thing.TryGetComp<CompQuality>()?.Quality ?? QualityCategory.Normal, ArtGenerationContext.Colony);
                                     vehicleOnMap.cargo.Add(copiedThing);
                                 }
                             }
-                            Log.Message($"[RKU] 保存cargo到RKU_DrillingVehicleOnMap，cargo数量: {vehicleOnMap.cargo.Count}");
-
                             // 清空cargo，因为钻出后物品应该转移到RKU_DrillingVehicleOnMap
                             directlyHeldThings.Clear();
                         }
@@ -242,7 +229,7 @@ namespace RatkinUnderground
                                 passengers.Remove(passenger);
                                 if (!passenger.IsWorldPawn())
                                 {
-                                    Find.WorldPawns.PassToWorld(passenger, PawnDiscardDecideMode.KeepForever);
+                                    passenger.ExitMap(false, Rot4.South);
                                 }
                                 vehicleOnMap.pawns.TryAddOrTransfer(passenger);
                                 passenger.SetFaction(Faction.OfPlayer);

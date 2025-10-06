@@ -1,4 +1,3 @@
-using Mono.Unix.Native;
 using RimWorld;
 using RimWorld.Planet;
 using System.Collections.Generic;
@@ -6,20 +5,20 @@ using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.AI;
-using Verse.AI.Group;
-using Verse.Noise;
 
 namespace RatkinUnderground
 {
     public class RKU_DrillingVehicleInEnemyMap : Building, IThingHolder
     {
         private ThingOwner<Pawn> passengers;
+        private ThingOwner<Thing> cargoHolder; // 货物存储
         public ThingDef originalVehicleDef; // 保存原始钻机类型
         public List<Thing> cargo = new List<Thing>(); // 保存货物
 
         public RKU_DrillingVehicleInEnemyMap()
         {
             passengers = new ThingOwner<Pawn>(this);
+            cargoHolder = new ThingOwner<Thing>(this);
         }
 
         #region 乘客相关
@@ -30,16 +29,40 @@ namespace RatkinUnderground
             {
                 passengers = new ThingOwner<Pawn>(this);
             }
+            if (cargoHolder == null)
+            {
+                cargoHolder = new ThingOwner<Thing>(this);
+            }
+
+            if (originalVehicleDef == DefOfs.RKU_DrillingVehicleCargo && cargo != null && cargo.Count > 0)
+            {
+                foreach (Thing thing in cargo)
+                {
+                    if (thing != null && !thing.Destroyed)
+                    {
+                        cargoHolder.TryAddOrTransfer(thing);
+                    }
+                }
+                cargo.Clear();
+            }
         }
 
         public ThingOwner GetDirectlyHeldThings()
         {
             if (passengers == null)
             {
-                Log.Error("passengers is null in GetDirectlyHeldThings");
                 passengers = new ThingOwner<Pawn>(this);
             }
             return passengers;
+        }
+
+        public ThingOwner GetCargoHolder()
+        {
+            if (cargoHolder == null)
+            {
+                cargoHolder = new ThingOwner<Thing>(this);
+            }
+            return cargoHolder;
         }
 
         public void GetChildHolders(List<IThingHolder> outChildren)
@@ -52,6 +75,19 @@ namespace RatkinUnderground
             ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, GetDirectlyHeldThings());
         }
 
+        public override void Tick()
+        {
+            base.Tick();
+            if (passengers != null)
+            {
+                passengers.ThingOwnerTick();
+            }
+            if (cargoHolder != null)
+            {
+                cargoHolder.ThingOwnerTick();
+            }
+        }
+
         public override void ExposeData()
         {
             base.ExposeData();
@@ -59,7 +95,12 @@ namespace RatkinUnderground
             {
                 passengers = new ThingOwner<Pawn>(this);
             }
+            if (Scribe.mode == LoadSaveMode.LoadingVars && cargoHolder == null)
+            {
+                cargoHolder = new ThingOwner<Thing>(this);
+            }
             Scribe_Deep.Look(ref passengers, "passengers", this);
+            Scribe_Deep.Look(ref cargoHolder, "cargoHolder", this);
             Scribe_Defs.Look(ref originalVehicleDef, "originalVehicleDef");
             Scribe_Collections.Look(ref cargo, "cargo", LookMode.Deep);
         }
@@ -127,19 +168,62 @@ namespace RatkinUnderground
             #region 返回
             if (passengers.Count > 0)
             {
-                Command_Action command_Return = new()
+                Command_Action command_AddGoodWill = new()
                 {
-                    defaultLabel = "RKU.Return".Translate(),
+                    defaultLabel = "RKU.Drill".Translate(),
                     hotKey = KeyBindingDefOf.Misc1,
                     icon = Resources.digIn,
                     action = () =>
                     {
-                        //返回原地图
+                        if (this.HitPoints <= 10)
+                        {
+                            Messages.Message($"钻机耐久过低，无法使用！", MessageTypeDefOf.NegativeEvent);
+                            return;
+                        }
+                        // 点击时爆发烟尘效果
+                        for (int i = 0; i < 15; i++)
+                        {
+                            IntVec3 offset = new IntVec3(Rand.Range(-1, 2), 0, Rand.Range(-1, 2));
+                            FleckMaker.ThrowDustPuffThick((Position + offset).ToVector3(), Map, 2f, Color.gray);
+                        }
+
+                        // 在钻地机位置留下持续的灰尘效果
+                        if (Map != null && Position.IsValid)
+                        {
+                            RKU_DigDust dust = (RKU_DigDust)ThingMaker.MakeThing(ThingDef.Named("RKU_DigDust"));
+                            if (dust != null)
+                            {
+                                // 计算钻地机中心位置（1*2的建筑）
+                                Vector3 centerPos = Position.ToVector3() + new Vector3(0.5f, 0, 0.5f);
+                                dust.exactPosition = centerPos;
+                                GenSpawn.Spawn(dust, Position, Map);
+                            }
+                        }
+
+                        //出地图
                         RKU_DrillingVehicleOnMap vehicleOnMap = (RKU_DrillingVehicleOnMap)WorldObjectMaker.MakeWorldObject(DefOfs.TravelingDrillingVehicle);
                         vehicleOnMap.Tile = base.Map.Tile;
                         vehicleOnMap.SetFaction(Faction.OfPlayer);
                         vehicleOnMap.destinationTile = base.Map.Tile;
                         vehicleOnMap.hitPoints = this.HitPoints;
+                        vehicleOnMap.originalVehicleDefName = originalVehicleDef?.defName ?? "RKU_DrillingVehicle";  // 保存原始钻机类型
+
+                        // 保存货物
+                        if (originalVehicleDef == DefOfs.RKU_DrillingVehicleCargo && cargoHolder != null && cargoHolder.Count > 0)
+                        {
+                            vehicleOnMap.cargo = new List<Thing>();
+                            foreach (Thing thing in cargoHolder)
+                            {
+                                if (thing != null && !thing.Destroyed)
+                                {
+                                    Thing copiedThing = ThingMaker.MakeThing(thing.def, thing.Stuff);
+                                    copiedThing.stackCount = thing.stackCount;
+                                    copiedThing.TryGetComp<CompQuality>()?.SetQuality(thing.TryGetComp<CompQuality>()?.Quality ?? QualityCategory.Normal, ArtGenerationContext.Colony);
+                                    vehicleOnMap.cargo.Add(copiedThing);
+                                }
+                            }
+                            cargoHolder.Clear();
+                        }
                         // 转移载员
                         List<Pawn> passengersToTransfer = new List<Pawn>(passengers);
                         foreach (Pawn passenger in passengersToTransfer)
@@ -149,10 +233,11 @@ namespace RatkinUnderground
                                 passengers.Remove(passenger);
                                 if (!passenger.IsWorldPawn())
                                 {
-                                    Find.WorldPawns.PassToWorld(passenger, PawnDiscardDecideMode.KeepForever);
+                                    passenger.ExitMap(false,Rot4.South);
                                 }
                                 vehicleOnMap.pawns.TryAddOrTransfer(passenger);
                                 passenger.SetFaction(Faction.OfPlayer);
+
                             }
                         }
 
@@ -160,7 +245,7 @@ namespace RatkinUnderground
                         this.DeSpawn();
                     }
                 };
-                yield return command_Return;
+                yield return command_AddGoodWill;
             }
 
             if (Map.mapPawns.AllPawnsSpawned.Any(p => p.IsColonist ) &&
@@ -184,7 +269,13 @@ namespace RatkinUnderground
                         List<Pawn> passengersToTransfer = new List<Pawn>(passengers);
                         // 使用保存的原始钻机类型
                         ThingDef vehicleDef = originalVehicleDef ?? DefDatabase<ThingDef>.GetNamed("RKU_DrillingVehicle");
-                        RKU_DrillingVehicle drillingVehicle = (RKU_DrillingVehicle)ThingMaker.MakeThing(vehicleDef);
+                        Thing drillingVehicleThing = ThingMaker.MakeThing(vehicleDef);
+                        RKU_DrillingVehicle drillingVehicle = drillingVehicleThing as RKU_DrillingVehicle;
+                        if (drillingVehicle == null)
+                        {
+                            Log.Error($"[RKU] 无法将 {drillingVehicleThing.GetType().Name} 转换为 RKU_DrillingVehicle");
+                            return;
+                        }
                         foreach (var pawn in passengersToTransfer)
                         {
                             if (pawn != null && !pawn.Destroyed)
@@ -205,7 +296,6 @@ namespace RatkinUnderground
                             {
                                 cargoHolder.TryAdd(thing);
                             }
-                            Log.Message($"[RKU] 从敌方地图钻出，恢复cargo到钻机，cargo数量: {cargo.Count}");
                             cargo.Clear();
                         }
 

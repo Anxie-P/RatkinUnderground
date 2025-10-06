@@ -67,7 +67,7 @@ namespace RatkinUnderground
 
             // 检查光照强度
             float glow = Map.glowGrid.GroundGlowAt(Position);
-            if (glow >= 0.5f)
+            if (glow > 0.5f)
             {
                 return;
             }

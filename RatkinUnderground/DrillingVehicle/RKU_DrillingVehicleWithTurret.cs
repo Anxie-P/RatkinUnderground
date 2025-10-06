@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using Verse;
 using Verse.AI;
 using UnityEngine;
-using Mono.Unix.Native;
-using static HarmonyLib.Code;
-using static RimWorld.MechClusterSketch;
 
 namespace RatkinUnderground
 {

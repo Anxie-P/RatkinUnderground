@@ -417,9 +417,8 @@ namespace RatkinUnderground
         // 检查位置是否可以放置隧道
         public static bool CanSpawnTunnelAt(IntVec3 cell, Map map)
         {
-            return cell.Standable(map) &&
-                   !cell.Fogged(map) &&
-                   !cell.Roofed(map);
+            return cell.Standable(map);
+
         }
 
         /// <summary>

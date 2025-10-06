@@ -1,13 +1,7 @@
-using Mono.Unix.Native;
 using RimWorld;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using UnityEngine;
 using Verse;
-using Verse.AI;
-using Verse.AI.Group;
-using Verse.Sound;
+using static UnityEngine.GraphicsBuffer;
 
 namespace RatkinUnderground
 {
@@ -69,6 +63,9 @@ namespace RatkinUnderground
             }
             Scribe_Deep.Look(ref passengers, "passengers", this);
             Scribe_Values.Look(ref originalVehicleDefName, "originalVehicleDefName");
+            Scribe_Values.Look(ref canMove, "canMove");
+            Scribe_Values.Look(ref hitPoints, "hitPoints");
+            Scribe_References.Look(ref faction, "faction");
             Scribe_Collections.Look(ref cargo, "cargo", LookMode.Deep);
         }
 

@@ -1,21 +1,8 @@
-﻿using Mono.Unix.Native;
-using RatkinUnderground;
-using RimWorld;
-using RimWorld.BaseGen;
+﻿using RimWorld;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.UIElements;
 using Verse;
-using Verse.AI;
-using Verse.Noise;
 using Verse.Sound;
-using static UnityEngine.GraphicsBuffer;
-using Random = UnityEngine.Random;
 
 namespace RatkinUnderground
 {
@@ -118,6 +105,7 @@ namespace RatkinUnderground
             {
                 Destroy();
             }
+            this.Map.fogGrid.FloodUnfogAdjacent(this, false);
             if (Map != null && Position.GetFirstPawn(Map) != null)
             {
                 SoundDefOf.Pawn_Melee_Punch_HitPawn.PlayOneShot(new TargetInfo(Position, Map));

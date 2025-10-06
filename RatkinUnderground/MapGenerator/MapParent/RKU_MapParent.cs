@@ -21,12 +21,11 @@ namespace RatkinUnderground
         {
             if (scanMap)
             {
+                // 禁止非钻机进入
+                if (!(caravan is RKU_DrillingVehicleOnMap)) yield break;
+                if (!caravan.IsPlayerControlled)yield break;
                 foreach (var opt in base.GetFloatMenuOptions(caravan))
                     yield return opt;
-
-                if (!caravan.IsPlayerControlled)
-                    yield break;
-
                 // =================================================================
 
                 // 开发模式创建地图
@@ -66,10 +65,6 @@ namespace RatkinUnderground
                 }
 
                 // =================================================================
-
-                // 禁止非钻机进入
-                if (!(caravan is RKU_DrillingVehicleOnMap))
-                    yield break;
 
                 // 进入条件
                 bool canEnter = true;
