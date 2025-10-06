@@ -33,7 +33,7 @@ namespace RatkinUnderground
             lordToil_DefendAndExpandHive.distToHiveToAttack = 500f;
             stateGraph.StartingToil = lordToil_DefendAndExpandHive;
             LordToil_DefendHiveAggressively lordToil_DefendHiveAggressively = new LordToil_DefendHiveAggressively();
-            lordToil_DefendHiveAggressively.distToHiveToAttack = 500f;
+            lordToil_DefendHiveAggressively.distToHiveToAttack = 200f;
             stateGraph.AddToil(lordToil_DefendHiveAggressively);
             LordToil_AssaultColony lordToil_AssaultColony = new LordToil_AssaultColony();
             stateGraph.AddToil(lordToil_AssaultColony);

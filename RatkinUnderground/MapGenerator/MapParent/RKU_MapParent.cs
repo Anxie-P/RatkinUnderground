@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Verse;
@@ -10,7 +11,21 @@ namespace RatkinUnderground
 {
     public class RKU_MapParent : MapParent
     {
-        bool scanMap => def.GetModExtension<RKU_MapParentModExtension>().spawnMap;
+        bool scanMap
+        {
+            get
+            {
+                if (this.def.GetModExtension<RKU_MapParentModExtension>() == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    return def.GetModExtension<RKU_MapParentModExtension>().spawnMap;
+                }
+                
+            }
+        }
         bool isSpawn = false;
         public override void PostMapGenerate()
         {
@@ -21,6 +36,7 @@ namespace RatkinUnderground
         {
             if (scanMap)
             {
+                Log.Message($"当前地图的spawnMap:{def.GetModExtension<RKU_MapParentModExtension>().spawnMap}");
                 // 禁止非钻机进入
                 if (!(caravan is RKU_DrillingVehicleOnMap)) yield break;
                 if (!caravan.IsPlayerControlled)yield break;
