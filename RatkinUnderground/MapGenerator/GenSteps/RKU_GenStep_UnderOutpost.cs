@@ -379,6 +379,7 @@ namespace RatkinUnderground
             for (int i = 0; i < 2; i++)
             {
                 Pawn scout = PawnGenerator.GeneratePawn(DefOfs.RKU_Scout, faction);
+                scout.health.AddHediff(DefOfs.RKU_UnderOutpostHediff);
                 IntVec3 spawnPos = CellFinder.RandomClosewalkCellNear(vehiclePos, map, 3);
                 GenSpawn.Spawn(scout, spawnPos, map);
                 scouts.Add(scout);
@@ -386,6 +387,7 @@ namespace RatkinUnderground
             for (int i = 0; i < 1; i++)
             {
                 Pawn scout = PawnGenerator.GeneratePawn(PawnKindDef.Named("RKU_Commissar"), faction);
+                scout.health.AddHediff(DefOfs.RKU_UnderOutpostHediff);
                 IntVec3 spawnPos = CellFinder.RandomClosewalkCellNear(vehiclePos, map, 3);
                 GenSpawn.Spawn(scout, spawnPos, map);
                 scouts.Add(scout);
