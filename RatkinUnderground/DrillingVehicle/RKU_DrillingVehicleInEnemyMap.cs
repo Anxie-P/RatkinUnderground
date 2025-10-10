@@ -207,6 +207,7 @@ namespace RatkinUnderground
                         vehicleOnMap.destinationTile = base.Map.Tile;
                         vehicleOnMap.hitPoints = this.HitPoints;
                         vehicleOnMap.originalVehicleDefName = originalVehicleDef?.defName ?? "RKU_DrillingVehicle";  // 保存原始钻机类型
+                        Find.WorldObjects.Add(vehicleOnMap);
 
                         // 保存货物
                         if (originalVehicleDef == DefOfs.RKU_DrillingVehicleCargo && cargoHolder != null && cargoHolder.Count > 0)
@@ -231,17 +232,13 @@ namespace RatkinUnderground
                             if (passenger != null && !passenger.Destroyed)
                             {
                                 passengers.Remove(passenger);
-                                if (!passenger.IsWorldPawn())
-                                {
-                                    passenger.ExitMap(false,Rot4.South);
-                                }
-                                vehicleOnMap.pawns.TryAddOrTransfer(passenger);
+                                passenger.DeSpawnOrDeselect();
+                                typeof(WorldPawns).GetMethod("AddPawn", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic)?.Invoke(Find.World.worldPawns, new object[] { passenger });
                                 passenger.SetFaction(Faction.OfPlayer);
-
+                                vehicleOnMap.AddPawn(passenger, false);
                             }
                         }
 
-                        Find.WorldObjects.Add(vehicleOnMap);
                         this.DeSpawn();
                     }
                 };

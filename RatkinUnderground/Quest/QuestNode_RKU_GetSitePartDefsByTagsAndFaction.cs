@@ -46,9 +46,8 @@ public class QuestNode_RKU_GetSitePartDefsByTagsAndFaction : QuestNode
 
     private bool TrySetVars(Slate slate)
     {
-        // 检查好感度是否小于等于-25
         var component = Current.Game.GetComponent<RKU_RadioGameComponent>();
-        if (component == null || component.ralationshipGrade > -25)
+        if (component == null || component.ralationshipGrade != -25)
         {
             return false;
         }

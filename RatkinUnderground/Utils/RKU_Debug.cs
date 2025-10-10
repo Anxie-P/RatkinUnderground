@@ -1,5 +1,6 @@
 ﻿using LudeonTK;
 using RimWorld;
+using RimWorld.QuestGen;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -164,7 +165,7 @@ namespace RatkinUnderground
 
             [DebugAction(
                 category: "RatkinUnderground",
-                name: "士气值 -0.1")]
+                name: "士气值 -0.4")]
             private static void DecreaseMoraleSmall()
             {
                 ModifyMorale(-0.4f);
@@ -185,8 +186,21 @@ namespace RatkinUnderground
             {
                 ModifyCasualty(-10);
             }
-          
-            private static void ModifyMorale(float amount)
+
+            [DebugAction(
+               category: "RatkinUnderground",
+               name: "检测任务")]
+            private static void DetectiveQuest()
+            {
+                foreach (Quest quest in Find.QuestManager.QuestsListForReading)
+                {
+                    if (!quest.dismissed) {
+                        Log.Warning(quest.root.defName);
+                    };
+                }
+            }
+
+                private static void ModifyMorale(float amount)
             {
                 var finalBattle = Find.CurrentMap.GameConditionManager.GetActiveCondition<RKU_GameCondition_FinalBattle>();
                 if (finalBattle != null)

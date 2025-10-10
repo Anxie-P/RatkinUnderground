@@ -65,6 +65,7 @@ namespace RatkinUnderground
                 }
 
                 GenSpawn.Spawn(hive, loc, map, WipeMode.Vanish);
+
                 LetterDef letterDef = LetterDefOf.ThreatSmall;
                 string label = "RKU_GuerrillaAttackLabel".Translate();
                 string text = "RKU_GuerrillaAttackText".Translate();
@@ -158,6 +159,13 @@ namespace RatkinUnderground
             hive.faction = data.faction;
             data.pawns.ForEach(p => hive.GetDirectlyHeldThings().TryAddOrTransfer(p));
             GenSpawn.Spawn(hive, position, targetMap, WipeMode.Vanish);
+
+            var radioComponent = Current.Game.GetComponent<RKU_RadioGameComponent>();
+            if (radioComponent != null)
+            {
+                radioComponent.canEmergency = true;
+                radioComponent.lastEmergencyTick = 0;
+            }
 
             string label = "RKU_GuerrillasArrivedLabel".Translate();
             string text = "RKU_GuerrillasArrivedText".Translate();

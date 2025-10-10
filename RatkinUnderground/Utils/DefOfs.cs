@@ -36,7 +36,6 @@ namespace RatkinUnderground
         public static PawnKindDef RKU_Invader;
         public static HediffDef RKU_ArmorWeaken;
         public static ThingDef RKU_DrillingVehicleCargo;
-        public static HediffDef RKU_SpecialNPCAppearance;
         public static HediffDef RKU_UnderOutpostHediff;
 
         //对话

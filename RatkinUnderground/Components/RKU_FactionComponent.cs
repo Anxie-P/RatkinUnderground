@@ -47,6 +47,10 @@ namespace RatkinUnderground
                 rFaction.leader.gender=Gender.Female;
                 rFaction.ideos.PrimaryIdeo.leaderTitleMale = "RKU_commanderTitle".Translate();
                 rFaction.ideos.PrimaryIdeo.leaderTitleFemale = "RKU_commanderTitle".Translate();
+                rFaction.leader.story.hairDef = DefDatabase<HairDef>.GetNamed("RKU_CommanderHair");
+                rFaction.leader.story.HairColor = new UnityEngine.Color(236,222,227);
+                rFaction.leader.story.Childhood = DefDatabase<AlienRace.AlienBackstoryDef>.GetNamed("Ratkin_GuerrillaCT");
+                rFaction.leader.story.Adulthood = DefDatabase<AlienRace.AlienBackstoryDef>.GetNamed("RKU_GuerrillaAR");
             }
             foreach (FactionDef enemy in enemyFaction)
             {

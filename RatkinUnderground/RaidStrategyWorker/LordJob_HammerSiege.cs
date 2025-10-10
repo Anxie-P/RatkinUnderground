@@ -54,7 +54,7 @@ namespace RatkinUnderground
             Log.Message("[RKU] 添加转换");
             Transition transition = new Transition(startingToil, lordToil_SiegeHammer);
             transition.AddTrigger(new Trigger_Memo("TravelArrived"));
-            transition.AddTrigger(new Trigger_TicksPassed(5000)); // 像原版一样添加超时
+            transition.AddTrigger(new Trigger_TicksPassed(5000)); 
             stateGraph.AddTransition(transition);
 
             // 添加从围攻到退出的转换（当围攻失败时）
@@ -63,19 +63,16 @@ namespace RatkinUnderground
             exitTransition.AddTrigger(new Trigger_FractionPawnsLost(10f));
             stateGraph.AddTransition(exitTransition);
 
-            Log.Message($"[RKU] 创建锤子围攻StateGraph成功 - 围攻点: {siegeSpot}, 蓝图点数: {blueprintPoints}");
             return stateGraph;
         }
 
     public override void Notify_PawnLost(Pawn pawn, PawnLostCondition condition)
     {
-        Log.Message($"[RKU] LordJob_HammerSiege pawn lost: {pawn}, condition: {condition}");
         base.Notify_PawnLost(pawn, condition);
     }
 
     public override void Notify_LordDestroyed()
     {
-        Log.Message("[RKU] LordJob_HammerSiege lord destroyed");
         base.Notify_LordDestroyed();
     }
 

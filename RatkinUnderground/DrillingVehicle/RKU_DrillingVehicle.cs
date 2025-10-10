@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Verse;
 using Verse.AI;
 using UnityEngine;
+using System.Linq;
 
 namespace RatkinUnderground
 {
@@ -116,7 +117,12 @@ namespace RatkinUnderground
                     {
                         if (this.HitPoints <= 10)
                         {
-                            Messages.Message($"钻机耐久过低，无法使用！", MessageTypeDefOf.NegativeEvent);
+                            Messages.Message("RKU_DrillingVehicleLowDurability".Translate(), MessageTypeDefOf.NegativeEvent);
+                            return;
+                        }
+                        if (!Map.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer).Any())
+                        {
+                            Messages.Message("RKU_NoOtherColonistsOnMap".Translate(), MessageTypeDefOf.NegativeEvent);
                             return;
                         }
                         // 准备货物（保存到静态存储）
@@ -171,7 +177,7 @@ namespace RatkinUnderground
                     {
                         if (this.HitPoints <= 10)
                         {
-                            Messages.Message($"钻机耐久过低，无法使用！", MessageTypeDefOf.NegativeEvent);
+                            Messages.Message("RKU_DrillingVehicleLowDurability".Translate(), MessageTypeDefOf.NegativeEvent);
                             return;
                         }
                         // 点击时爆发烟尘效果
@@ -201,6 +207,7 @@ namespace RatkinUnderground
                         vehicleOnMap.destinationTile = base.Map.Tile;
                         vehicleOnMap.hitPoints = this.HitPoints;
                         vehicleOnMap.originalVehicleDefName = this.def.defName;  // 保存原始钻机类型
+                        Find.WorldObjects.Add(vehicleOnMap);
 
                         // 保存货物
                         if (this is RKU_DrillingVehicleCargo cargoVehicle)
@@ -227,16 +234,11 @@ namespace RatkinUnderground
                             if (passenger != null && !passenger.Destroyed)
                             {
                                 passengers.Remove(passenger);
-                                if (!passenger.IsWorldPawn())
-                                {
-                                    passenger.ExitMap(false, Rot4.South);
-                                }
-                                vehicleOnMap.pawns.TryAddOrTransfer(passenger);
-                                passenger.SetFaction(Faction.OfPlayer);
+                                vehicleOnMap.AddPawn(passenger, addCarriedPawnToWorldPawnsIfAny: true);
+                                passenger.ExitMap(allowedToJoinOrCreateCaravan: false, Rot4.South);
                             }
                         }
 
-                        Find.WorldObjects.Add(vehicleOnMap);
                         this.DeSpawn();
                     }
                 };

@@ -171,7 +171,6 @@ namespace RatkinUnderground
             List<Pawn> colonists = map.mapPawns.FreeColonists.ToList();
             if (colonists.Count == 0)
             {
-                // 如果没有殖民者，返回地图中心附近的可站立位置
                 int centerX = map.Size.x / 2;
                 int centerZ = map.Size.z / 2;
                 int searchRadius = 20;
@@ -195,12 +194,12 @@ namespace RatkinUnderground
 
             foreach (Pawn colonist in colonists)
             {
-                if (!colonist.Spawned || colonist.Downed || colonist.Dead) continue;
-                foreach (IntVec3 cell in GenRadial.RadialCellsAround(colonist.Position, 8f, true))
+                if (colonist.IsWorldPawn()||!colonist.Spawned || colonist.Downed || colonist.Dead) continue;
+                foreach (IntVec3 cell in GenRadial.RadialCellsAround(colonist.Position, 32f, true))
                 {
                     if (cell.InBounds(map) &&
                         cell.Standable(map) &&
-                        map.reachability.CanReach(cell, colonist.Position, PathEndMode.Touch, TraverseMode.PassDoors))
+                        colonist.CanReach(cell, PathEndMode.Touch,Danger.Deadly))
                     {
                         return cell; 
                     }

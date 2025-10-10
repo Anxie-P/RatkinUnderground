@@ -18,7 +18,7 @@ namespace RatkinUnderground
         private int animationTimer = 0;
         private int rareTickCounter = 0;
         private Graphic cachedGraphic;
-        private float checkRange = 5f;
+        private float checkRange = 4f;
         private int animationDurationTicks = 180;
 
         public override Graphic Graphic

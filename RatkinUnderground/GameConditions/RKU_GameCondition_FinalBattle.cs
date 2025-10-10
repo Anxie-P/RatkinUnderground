@@ -311,7 +311,7 @@ namespace RatkinUnderground
             else if (random < 0.7f)
                 {
                 // 隧道+ 基础
-                    TriggerRatkinTunnelEvent("RKU_RatkinTunnel_Fir");
+                TriggerRatkinTunnelEvent("RKU_RatkinTunnel_Fir");
                 TriggerBasicRaid(Mathf.Clamp(totalPoints * 0.6f, 500f, 2000f));
             }
             else if (random < 0.9f || !canTriggerThiTunnel)
@@ -323,7 +323,7 @@ namespace RatkinUnderground
                 else
                 {
                 // 10% 概率：伊文+一般 
-                    TriggerRatkinTunnelEvent("RKU_RatkinTunnel_Thi");
+                TriggerRatkinTunnelEvent("RKU_RatkinTunnel_Thi");
                 TriggerBasicRaid(Mathf.Clamp(totalPoints * 0.5f, 500f, 2000f));
             }
                 }
@@ -463,7 +463,7 @@ namespace RatkinUnderground
                 return;
             }
             RaidStrategyDef hammerAttackStrategy = DefDatabase<RaidStrategyDef>.GetNamed("RKU_HammerAttack");
-            IncidentDef raidIncident = IncidentDefOf.RaidEnemy;
+            IncidentDef raidIncident = DefDatabase<IncidentDef>.GetNamed("RKU_IncidentWorker_FinalRaid") ;
             IncidentParms parms = new IncidentParms();
             parms.faction = Utils.OfRKU;
             parms.target = targetMap;

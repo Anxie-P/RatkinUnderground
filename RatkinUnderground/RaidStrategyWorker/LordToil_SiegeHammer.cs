@@ -1,6 +1,7 @@
 using RimWorld;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.AI;
@@ -87,7 +88,37 @@ namespace RatkinUnderground
 
         public override void UpdateAllDuties()
         {
-            base.UpdateAllDuties();
+            try
+            {
+                // 过滤出有效的pawn，因为有机械体
+                var validPawns = lord.ownedPawns.Where(p => p != null && !p.Dead && !p.Downed && p.Spawned && p.def.race.FleshType!=DefDatabase<FleshTypeDef>.GetNamed("Mechanoid")).ToList();
+
+                if (!validPawns.Any())
+                {
+                    return;
+                }
+                base.UpdateAllDuties();
+            }
+            catch (Exception ex)
+            {
+                CleanupInvalidPawns();
+            }
+        }
+
+        private void CleanupInvalidPawns()
+        {
+            try
+            {
+                var invalidPawns = lord.ownedPawns.Where(p => p == null || p.Dead || p.Destroyed || !p.Spawned).ToList();
+                foreach (var invalidPawn in invalidPawns)
+                {
+                    lord.RemovePawn(invalidPawn);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"[RKU] SiegeHammer: Exception in CleanupInvalidPawns: {ex.Message}");
+            }
         }
 
         private static class SiegeBlueprintPlacer_Hammer
@@ -164,12 +195,6 @@ namespace RatkinUnderground
             private static IEnumerable<Blueprint_Build> PlaceHammerAttackers(float points, Map map)
             {
                 ThingDef hammerAttackerDef = DefDatabase<ThingDef>.GetNamed("RKU_HammerAttacker");
-
-                if (hammerAttackerDef == null)
-                {
-                    yield break;
-                }
-
                 Rot4 fixedRotation = Rot4.North;
                 IntVec3 intVec = FindArtySpot(hammerAttackerDef, fixedRotation, map);
 
@@ -238,30 +263,21 @@ namespace RatkinUnderground
 
             private static IntVec3 FindArtySpot(ThingDef artyDef, Rot4 rot, Map map)
             {
-                CellRect cellRect = CellRect.CenteredOn(center, 20);
+                CellRect cellRect = CellRect.CenteredOn(center, 8);
                 cellRect.ClipInsideMap(map);
-                int num = 0;
-                IntVec3 randomCell;
-                do
-                {
-                    num++;
-                    if (num > 400)
-                    {
-                        foreach (IntVec3 cell in cellRect)
-                        {
-                            if (CanPlaceBlueprintAt(cell, rot, artyDef, map, ThingDefOf.Steel))
-                            {
-                                return cell;
-                            }
-                        }
-                        ClearBuildingsAround(center, map, 3);
-                        return center;
-                    }
 
-                    randomCell = cellRect.RandomCell;
+                foreach (IntVec3 cell in cellRect)
+                {
+                    if (map.reachability.CanReach(cell, center, PathEndMode.OnCell, TraverseMode.PassAllDestroyableThingsNotWater, Danger.Deadly) &&
+                        CanPlaceBlueprintAt(cell, rot, artyDef, map, null))
+                    {
+                        return cell;
+                    }
                 }
-                while (!map.reachability.CanReach(randomCell, center, PathEndMode.OnCell, TraverseMode.NoPassClosedDoors, Danger.Deadly) || randomCell.Roofed(map) || !CanPlaceBlueprintAt(randomCell, rot, artyDef, map, ThingDefOf.Steel));
-                return randomCell;
+
+                // 如果没有找到合适的格子，清除周围建筑并返回中心
+                ClearBuildingsAround(center, map, 3);
+                return center;
             }
 
             private static void ClearBuildingsAround(IntVec3 center, Map map, int radius)
@@ -270,10 +286,10 @@ namespace RatkinUnderground
                 {
                     if (cell.InBounds(map))
                     {
-                        Building building = cell.GetEdifice(map);
-                        if (building != null && building.def.destroyable)
+                        Thing thing = cell.GetFirstItem(map);
+                        if (!(thing is Pawn)&&thing != null && thing.def.destroyable)
                         {
-                            building.Destroy(DestroyMode.Vanish);
+                            thing.Destroy(DestroyMode.Vanish);
                         }
                     }
                 }

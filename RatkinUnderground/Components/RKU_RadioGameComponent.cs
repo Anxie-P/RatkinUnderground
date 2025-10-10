@@ -26,6 +26,11 @@ namespace RatkinUnderground
         public int scanCooldownTicks = 900000; // 扫描冷却时间
         public bool canScan = true;
 
+        // 求救呼叫相关
+        public int lastEmergencyTick = 0;
+        public int emergencyCooldownTicks = 420000; // 7天冷却时间
+        public bool canEmergency = true;
+
         // 事件相关
         public HashSet<string> triggeredOnceEvents;
         public Dictionary<string, int> lastTriggerTimes;
@@ -71,6 +76,13 @@ namespace RatkinUnderground
         public int GetRemainingScanCooldownDays()
         {
             int remainingCooldown = scanCooldownTicks - (Find.TickManager.TicksGame - lastScanTick);
+            return Mathf.Max(0, remainingCooldown / 60000);
+        }
+
+        public int GetRemainingEmergencyCooldownDays()
+        {
+            if (canEmergency) return 0;
+            int remainingCooldown = emergencyCooldownTicks - (Find.TickManager.TicksGame - lastEmergencyTick);
             return Mathf.Max(0, remainingCooldown / 60000);
         }
 
@@ -145,14 +157,8 @@ namespace RatkinUnderground
 
         private void TryOfferGuerrillaCampQuest()
         {
-            if (HasQuestInPool("RKU_OpportunitySite_GuerrillaCamp")) return;
             QuestScriptDef questDef = DefDatabase<QuestScriptDef>.GetNamed("RKU_OpportunitySite_GuerrillaCamp", false);
-            if (questDef == null)
-            {
-                guerrillaCampOfferPending = true;
-                return;
-            }
-
+            if (Find.QuestManager.QuestsListForReading.Any(o => o.root == questDef)) return;
             // 创建一个基本的slate来检查任务是否可以运行
             Slate slate = new Slate();
             slate.Set("points", StorytellerUtility.DefaultThreatPointsNow(Find.World));
@@ -188,7 +194,7 @@ namespace RatkinUnderground
         {
             foreach (Quest quest in Find.QuestManager.QuestsListForReading)
             {
-                if (quest.root.defName == questDefName && (quest.State ==QuestState.NotYetAccepted|| quest.State== QuestState.Ongoing))
+                if (quest.root.defName == questDefName && (!quest.dismissed))
                 {
                     return true;
                 }
@@ -352,6 +358,8 @@ namespace RatkinUnderground
             Scribe_Values.Look(ref isWaitingForTrade, "isWaitingForTrade", false);
             Scribe_Values.Look(ref lastScanTick, "lastScanTick", 0);
             Scribe_Values.Look(ref canScan, "canScan", true);
+            Scribe_Values.Look(ref lastEmergencyTick, "lastEmergencyTick", 0);
+            Scribe_Values.Look(ref canEmergency, "canEmergency", true);
             Scribe_Values.Look(ref tradeStartTick, "tradeStartTick", 0);
             Scribe_Values.Look(ref currentTradeDelayTicks, "currentTradeDelayTicks", 0);
             Scribe_Values.Look(ref researchProgress, "researchProgress", 0);

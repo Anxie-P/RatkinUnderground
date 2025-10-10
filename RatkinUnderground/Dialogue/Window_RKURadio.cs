@@ -238,7 +238,7 @@ public class Dialog_RKU_Radio : Window, ITrader
         buttonX += buttonWidth + 15f;
         RKU_RadioButton scanButton = new(buttons, "扫描信号", true, null, new Rect(buttonX, buttonArea.y + 12f, buttonWidth, buttonHeight));
         buttonX += buttonWidth + 15f;
-        RKU_RadioButton rescueButton = new(buttons, "求救呼叫", true, null, new Rect(buttonX, buttonArea.y + 12f, buttonWidth, buttonHeight));
+        RKU_RadioButton rescueButton = new(buttons, "战术支援", true, null, new Rect(buttonX, buttonArea.y + 12f, buttonWidth, buttonHeight));
 
         /*// 交易信号按钮
         string tradeButtonText = "交易信号";
@@ -298,6 +298,13 @@ public class Dialog_RKU_Radio : Window, ITrader
             {
                 rescueButton.buttonText = "<color=#808080>求救呼叫</color>";
                 rescueButton.failReason = "至少需要75的好感才能进行战术支援";
+                rescueButton.canClick = false;
+            }
+            else if (!radioComponent.canEmergency)
+            {
+                int remainingDays = radioComponent.GetRemainingEmergencyCooldownDays();
+                rescueButton.buttonText = $"求救冷却中 ({remainingDays}天)";
+                rescueButton.failReason = $"求救呼叫冷却中，还需{remainingDays}天";
                 rescueButton.canClick = false;
             }
         }
@@ -425,7 +432,6 @@ public class Dialog_RKU_Radio : Window, ITrader
     }
     #endregion
 
-    #region 交易相关方法
     private void UpdateTradeStatus()
     {
         var comp = GetRadioComponent();
@@ -438,6 +444,18 @@ public class Dialog_RKU_Radio : Window, ITrader
             comp.isWaitingForTrade = false;
         }
 
+        // 扫描冷却结束
+        if (!comp.canScan && currentTick - comp.lastScanTick >= comp.scanCooldownTicks)
+        {
+            comp.canScan = true;
+        }
+
+        // 求救呼叫冷却结束
+        if (!comp.canEmergency && currentTick - comp.lastEmergencyTick >= comp.emergencyCooldownTicks)
+        {
+            comp.canEmergency = true;
+        }
+
         // 交易准备完成 - 只设置准备状态，不进入冷却
         if (comp.isWaitingForTrade && currentTick - comp.tradeStartTick >= comp.currentTradeDelayTicks)
         {
@@ -445,6 +463,8 @@ public class Dialog_RKU_Radio : Window, ITrader
             tradeReady = true;
         }
     }
+
+    #region 交易相关方法
 
     private void StartTradeSignal()
     {
@@ -648,6 +668,13 @@ public class Dialog_RKU_Radio : Window, ITrader
         {
             int remainingDays = radioComponent.GetRemainingCooldownDays();
             Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 180f + counts * 25f, statusRect.width - 10f, 20f), "RKU_ScanCooldown".Translate(radioComponent.GetRemainingScanCooldownDays()));
+            counts++;
+        }
+
+        // 添加求救呼叫状态信息
+        if (radioComponent != null && !radioComponent.canEmergency)
+        {
+            Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 180f + counts * 25f, statusRect.width - 10f, 20f), "RKU_EmergencyCooldown".Translate(radioComponent.GetRemainingEmergencyCooldownDays()));
             counts++;
         }
 
