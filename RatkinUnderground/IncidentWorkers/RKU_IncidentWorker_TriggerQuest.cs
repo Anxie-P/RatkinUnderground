@@ -1,6 +1,7 @@
 using System;
 using Verse;
 using RimWorld;
+using RimWorld.QuestGen;
 
 namespace RatkinUnderground
 {
@@ -18,13 +19,21 @@ namespace RatkinUnderground
             {
                 return false;
             }
-
-            Quest quest = QuestUtility.GenerateQuestAndMakeAvailable(questDef, StorytellerUtility.DefaultThreatPointsNow(parms.target));
-            if (quest == null)
+            Slate slate = new Slate();
+            slate.Set("points", StorytellerUtility.DefaultThreatPointsNow(Find.World));
+            slate.Set("asker", Find.FactionManager.FirstFactionOfDef(FactionDef.Named("Rakinia"))?.leader);
+            slate.Set("enemyFaction", Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction));
+            if (questDef.root.TestRun(slate))
             {
-                return false;
+                Quest quest = QuestUtility.GenerateQuestAndMakeAvailable(questDef, StorytellerUtility.DefaultThreatPointsNow(parms.target));
+                QuestUtility.SendLetterQuestAvailable(quest);
+                if (quest == null)
+                {
+                    return false;
+                }
+                return true;
             }
-            return true;
+            return false;
         }
     }
 

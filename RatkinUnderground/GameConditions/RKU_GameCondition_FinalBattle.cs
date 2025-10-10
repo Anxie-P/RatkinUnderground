@@ -14,7 +14,7 @@ namespace RatkinUnderground
 
         // 袭击点数相关
         public float currentRaidPoints = 0f;
-        public float baseRaidPoints = 1000f; // 基础袭击点数
+        public float baseRaidPoints = 700; // 基础袭击点数
         public float raidPointsMultiplier = 1.0f; // 袭击点数倍率
 
         // 殖民地状态检测相关

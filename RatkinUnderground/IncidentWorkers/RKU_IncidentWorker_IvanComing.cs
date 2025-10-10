@@ -32,7 +32,7 @@ namespace RatkinUnderground
                 }
             }
 
-            if (component != null && component.ralationshipGrade <= -50 && !isFinalBattleActive)
+            if (component == null || component?.ralationshipGrade <= -50 || !isFinalBattleActive)
             {
                 return false;
             }

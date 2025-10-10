@@ -120,7 +120,7 @@ namespace RatkinUnderground
                 Faction rFaction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
                 Pawn centiped = PawnGenerator.GeneratePawn(DefDatabase<PawnKindDef>.GetNamed("Mech_CentipedeGunner"));
                 centiped.equipment.DestroyAllEquipment();
-                ThingWithComps weapon = (ThingWithComps)ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_AntiTank"), null);
+                ThingWithComps weapon = (ThingWithComps)ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_IronStarCannon"), null);
                 weapon.TryGetComp<CompQuality>()?.SetQuality(QualityCategory.Legendary, ArtGenerationContext.Outsider);
                 centiped.equipment.AddEquipment(weapon);
                 centiped.Name = new NameTriple("RKU_Iron".Translate(), "RKU_IronStar".Translate(), "RKU_Star".Translate());

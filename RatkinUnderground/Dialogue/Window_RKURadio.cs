@@ -800,7 +800,7 @@ public class Dialog_RKU_Radio : Window, ITrader
             LongEventHandler.QueueLongEvent(() =>
             {
                 pod = SendCargoPod();
-                Find.LetterStack.ReceiveLetter(choiceLetter.Label, choiceLetter.Text, choiceLetter.def, lookTargets: pod);
+                Find.LetterStack.ReceiveLetter(choiceLetter.Label, choiceLetter.Text, choiceLetter.def, lookTargets: pod.usedTarget.ToTargetInfo(pod.Map));
             }, "SendingCargoPod", doAsynchronously: false, null);
         }
 
