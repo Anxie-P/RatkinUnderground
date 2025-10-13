@@ -1,10 +1,11 @@
-﻿using RimWorld;
+﻿using AlienRace;
+using RimWorld;
 using RimWorld.Planet;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 using Verse;
 using Verse.AI;
-using UnityEngine;
-using System.Linq;
 
 namespace RatkinUnderground
 {
@@ -256,6 +257,16 @@ namespace RatkinUnderground
             }
             if (this.Faction.IsPlayer)
             {
+                RKU_DrillingVehicleCargo cargo = this as RKU_DrillingVehicleCargo;
+                if (cargo != null)
+                {
+                    int spare = cargo.maxPassengers - cargo.passengers.Count;
+                    if (spare <= 0)
+                    {
+                        Log.Message("[RKU]无空间");
+                        yield break;
+                    }
+                }
                 if (selPawn.CanReach(this, PathEndMode.InteractionCell, Danger.Deadly))
                 {
                     if (passengers.Contains(selPawn))
@@ -287,12 +298,25 @@ namespace RatkinUnderground
                 yield return option;
             }
             {
+                RKU_DrillingVehicleCargo cargo = this as RKU_DrillingVehicleCargo;
                 // 删除可达性检查，直接创建选项
                 {
                     string translatedLabel = "RKU.EnterVehicle".Translate();
                     // 创建pawn列表的副本，避免闭包捕获问题
                     List<Pawn> capturedPawns = new List<Pawn>(selPawns);
 
+                    // 检查货车载员容量
+                    if (cargo != null)
+                    {
+                        int spare = cargo.maxPassengers - cargo.passengers.Count;
+                        Log.Message($"[RKU] 当前剩余空间：{spare}");
+                        if (spare <= 0) 
+                        {
+                            Log.Message("[RKU]无空间");
+                            yield break;
+                        }
+                        capturedPawns.RemoveRange(spare, capturedPawns.Count - spare);
+                    }
                     FloatMenuOption option = new FloatMenuOption(translatedLabel, () =>
                     {
                         foreach (Pawn pawn in capturedPawns)
