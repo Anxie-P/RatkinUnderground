@@ -188,4 +188,22 @@ namespace RatkinUnderground
             }
         }
     }
+
+    // 触发任务
+    public class DialogueAction_TriggerQuest : DialogueAction
+    {
+        public string questDefName;
+        public override void ExecuteAction(Dialog_RKU_Radio radio)
+        {
+            QuestScriptDef questDef = DefDatabase<QuestScriptDef>.GetNamed(questDefName);
+            if (questDef != null)
+            {
+                Quest quest = QuestUtility.GenerateQuestAndMakeAvailable(questDef, StorytellerUtility.DefaultThreatPointsNow(Find.World));
+                if (quest != null)
+                {
+                    QuestUtility.SendLetterQuestAvailable(quest);
+                }
+            }
+        }
+    }
 } 

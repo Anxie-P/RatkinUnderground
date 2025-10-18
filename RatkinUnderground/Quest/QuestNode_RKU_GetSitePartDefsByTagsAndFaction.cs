@@ -46,11 +46,6 @@ public class QuestNode_RKU_GetSitePartDefsByTagsAndFaction : QuestNode
 
     private bool TrySetVars(Slate slate)
     {
-        var component = Current.Game.GetComponent<RKU_RadioGameComponent>();
-        if (component == null || component.ralationshipGrade != -25)
-        {
-            return false;
-        }
         Faction factionToUse = slate.Get<Faction>("enemyFaction");
         Pawn asker = slate.Get<Pawn>("asker");
         Thing mustBeHostileToFactionOfResolved = mustBeHostileToFactionOf.GetValue(slate);
@@ -67,15 +62,22 @@ public class QuestNode_RKU_GetSitePartDefsByTagsAndFaction : QuestNode
             Faction faction;
             List<SitePartDef> siteParts = new List<SitePartDef>();
 
-            SitePartDef guerrillaCampDef = DefDatabase<SitePartDef>.GetNamed("GuerrillasBanditCamp");
-            if (guerrillaCampDef == null)
+            // tags检测
+            foreach (var sitePartDef in DefDatabase<SitePartDef>.AllDefs)
+            {
+                if (sitePartDef.tags != null && tmpTags.Any(tag => sitePartDef.tags.Contains(tag)))
+                {
+                    siteParts.Add(sitePartDef);
+                }
+            }
+
+            if (siteParts.Count == 0)
             {
                 continue;
             }
-            siteParts = new List<SitePartDef> { guerrillaCampDef };
 
-            FactionDef rkuDef = DefDatabase<FactionDef>.GetNamed("RKU_Faction");
-            faction = Find.FactionManager.FirstFactionOfDef(rkuDef);
+            // 派系检测
+            faction = factionToUse ?? Find.FactionManager.FirstFactionOfDef(DefDatabase<FactionDef>.GetNamed("Rakinia"));
             if (faction == null)
             {
                 continue;
