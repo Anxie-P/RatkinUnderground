@@ -19,6 +19,8 @@ namespace RatkinUnderground
 
         private static bool cargoStorageSaved = false;
 
+        public int enterPawns = 0;
+
         public int maxPassengers
             {
                 get { return MaxPassengers; }
@@ -149,6 +151,7 @@ namespace RatkinUnderground
                 Scribe_Collections.Look(ref cargoStorage, "cargoStorage", LookMode.Value, LookMode.Deep);
                 cargoStorageSaved = false; 
             }
+            Scribe_Values.Look(ref enterPawns, "enterPawns", 0);
         }
 
 
