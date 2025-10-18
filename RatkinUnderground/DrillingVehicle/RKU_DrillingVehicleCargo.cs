@@ -19,6 +19,11 @@ namespace RatkinUnderground
 
         private static bool cargoStorageSaved = false;
 
+        public int maxPassengers
+            {
+                get { return MaxPassengers; }
+            }
+
         public RKU_DrillingVehicleCargo()
         {
             passengers = new ThingOwner<Pawn>(this);
