@@ -190,6 +190,7 @@ namespace RatkinUnderground
         }
 
 
+
         private bool HasQuestInPool(string questDefName)
         {
             foreach (Quest quest in Find.QuestManager.QuestsListForReading)

@@ -1,6 +1,7 @@
 ﻿using RimWorld;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 using Verse.Noise;
 using UnityEngine;
@@ -78,6 +79,12 @@ namespace RatkinUnderground
             }
             // 生成河流
             GenerateRiver(map, riverStart, center, heightMap);
+
+            // 30%概率在地图中心生成冰地板和圣物展台
+            if (Rand.Value < 0.3f)
+            {
+                GenerateIceFloorAndReliquary(map, center);
+            }
         }
 
         private void ClearCell(Map map, IntVec3 cell)
@@ -184,7 +191,7 @@ namespace RatkinUnderground
                     for (int z = -2; z <= 2; z++)
                     {
                         IntVec3 waterCell = new IntVec3(cell.x + x, 0, cell.z + z);
-                        if (waterCell.InBounds(map)&& waterCell.GetTerrain(map)!= TerrainDefOf.WaterDeep)
+                        if (waterCell.InBounds(map) && waterCell.GetTerrain(map) != TerrainDefOf.WaterDeep)
                         {
                             ClearCell(map, waterCell);
                             // 最外侧2格为浅水
@@ -198,6 +205,66 @@ namespace RatkinUnderground
                             }
                         }
                     }
+                }
+            }
+        }
+
+        private void GenerateIceFloorAndReliquary(Map map, IntVec3 center)
+        {
+            float radius = 3.9f;
+            int radiusInt = Mathf.CeilToInt(radius);
+
+            for (int x = center.x - radiusInt; x <= center.x + radiusInt; x++)
+            {
+                for (int z = center.z - radiusInt; z <= center.z + radiusInt; z++)
+                {
+                    IntVec3 cell = new IntVec3(x, 0, z);
+                    if (cell.InBounds(map))
+                    {
+                        float distance = Vector3.Distance(new Vector3(x, 0, z), new Vector3(center.x, 0, center.z));
+                        if (distance <= radius)
+                        {
+                            ClearCell(map, cell);
+                            if ((x == center.x + radiusInt) || (x == center.x - radiusInt) || (z == center.z - radiusInt) || (z == center.z + radiusInt))
+                            {
+                                map.terrainGrid.SetTerrain(cell, TerrainDefOf.Ice);
+                            }
+                        }
+                    }
+                }
+            }
+            // 在地图中心放置圣物展台
+            Building reliquary = (Building)GenSpawn.Spawn(ThingDefOf.Reliquary, center, map);
+            reliquary.Rotation = Rot4.South;
+
+            // 在两侧放火把
+            IntVec3 leftTorchPos = new IntVec3(center.x - 2, 0, center.z);
+            IntVec3 rightTorchPos = new IntVec3(center.x + 2, 0, center.z);
+
+            if (leftTorchPos.InBounds(map))
+            {
+                ClearCell(map, leftTorchPos);
+                GenSpawn.Spawn(ThingDefOf.TorchLamp, leftTorchPos, map);
+            }
+
+            if (rightTorchPos.InBounds(map))
+            {
+                ClearCell(map, rightTorchPos);
+                GenSpawn.Spawn(ThingDefOf.TorchLamp, rightTorchPos, map);
+            }
+            // 生成随机传奇近战武器
+            ThingDef weaponDef = DefDatabase<ThingDef>.AllDefs
+                .Where(def => def.IsWeapon && !def.IsRangedWeapon && def.weaponClasses != null)
+                .RandomElement();
+            if (weaponDef != null)
+            {
+                ThingWithComps weapon = (ThingWithComps)ThingMaker.MakeThing(weaponDef);
+                weapon.TryGetComp<CompQuality>()?.SetQuality(QualityCategory.Legendary, ArtGenerationContext.Outsider);
+                // 将武器放入圣物展台
+                CompRelicContainer relicContainer = reliquary.GetComp<CompRelicContainer>();
+                if (relicContainer != null)
+                {
+                    relicContainer.innerContainer.TryAdd(weapon);
                 }
             }
         }

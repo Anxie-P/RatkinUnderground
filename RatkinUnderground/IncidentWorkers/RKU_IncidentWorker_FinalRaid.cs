@@ -119,13 +119,15 @@ namespace RatkinUnderground
                 //加入奶酪和蜈蚣
                 Faction rFaction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
                 Pawn centiped = PawnGenerator.GeneratePawn(DefDatabase<PawnKindDef>.GetNamed("Mech_CentipedeGunner"));
+                //装备
                 centiped.equipment.DestroyAllEquipment();
+                rFaction.leader.equipment.DestroyAllEquipment();
                 ThingWithComps weapon = (ThingWithComps)ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_IronStarCannon"), null);
                 weapon.TryGetComp<CompQuality>()?.SetQuality(QualityCategory.Legendary, ArtGenerationContext.Outsider);
                 centiped.equipment.AddEquipment(weapon);
-                centiped.Name = new NameTriple("RKU_Iron".Translate(), "RKU_IronStar".Translate(), "RKU_Star".Translate());
-                centiped.health.AddHediff(DefDatabase<HediffDef>.GetNamed("RKU_IronStarHediff"));
-                centiped.SetFaction(rFaction);
+                ThingWithComps weaponL = (ThingWithComps)ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_SVT40M_Elite"), null);
+                weaponL.TryGetComp<CompQuality>()?.SetQuality(QualityCategory.Legendary, ArtGenerationContext.Outsider);
+                rFaction.leader.equipment.AddEquipment(weaponL);
                 pawns.Add(centiped);
                 pawns.Add(rFaction.leader);
                 if (pawns.Count == 0)

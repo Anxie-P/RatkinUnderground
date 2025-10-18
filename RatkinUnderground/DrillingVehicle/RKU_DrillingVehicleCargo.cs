@@ -12,7 +12,6 @@ namespace RatkinUnderground
 {
     public class RKU_DrillingVehicleCargo : RKU_DrillingVehicle
     {
-        private const int MaxPassengers = 2;
         private ThingOwner<Thing> cargo;
         private static Dictionary<string, List<Thing>> cargoStorage = new Dictionary<string, List<Thing>>();
         private Dictionary<ThingDef, int> itemsToLoad = new Dictionary<ThingDef, int>();
@@ -34,16 +33,6 @@ namespace RatkinUnderground
             }
             return cargo;
         }
-
-        public override bool CanAcceptPassenger(Pawn pawn)
-        {
-            if (passengers == null)
-            {
-                passengers = new ThingOwner<Pawn>(this);
-            }
-            return passengers.Count < MaxPassengers && passengers.CanAcceptAnyOf(pawn);
-        }
-
         public override IEnumerable<Gizmo> GetGizmos()
         {
             foreach (Gizmo gizmo in base.GetGizmos())

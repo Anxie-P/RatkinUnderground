@@ -232,10 +232,8 @@ namespace RatkinUnderground
                             if (passenger != null && !passenger.Destroyed)
                             {
                                 passengers.Remove(passenger);
-                                passenger.DeSpawnOrDeselect();
-                                typeof(WorldPawns).GetMethod("AddPawn", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic)?.Invoke(Find.World.worldPawns, new object[] { passenger });
-                                passenger.SetFaction(Faction.OfPlayer);
-                                vehicleOnMap.AddPawn(passenger, false);
+                                vehicleOnMap.AddPawn(passenger, addCarriedPawnToWorldPawnsIfAny: true);
+                                passenger.ExitMap(allowedToJoinOrCreateCaravan: false, Rot4.South);
                             }
                         }
 
