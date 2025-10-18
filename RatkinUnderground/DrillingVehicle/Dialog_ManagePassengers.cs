@@ -1,7 +1,9 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
+using Verse.AI;
 
 namespace RatkinUnderground
 {
@@ -55,6 +57,12 @@ namespace RatkinUnderground
                     {
                         vehicle.GetDirectlyHeldThings().Remove(pawn);
                         GenSpawn.Spawn(pawn, building.Position, building.Map);
+                    }
+
+                    if (vehicle is RKU_DrillingVehicleCargo)
+                    {
+                        RKU_DrillingVehicleCargo cargo = vehicle as RKU_DrillingVehicleCargo;
+                        cargo.enterPawns = Math.Max(0, cargo.enterPawns - 1);
                     }
                 }
 

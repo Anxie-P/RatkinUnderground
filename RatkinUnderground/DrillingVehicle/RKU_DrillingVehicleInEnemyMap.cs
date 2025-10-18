@@ -40,6 +40,7 @@ namespace RatkinUnderground
                 {
                     if (thing != null && !thing.Destroyed)
                     {
+                        Log.Message($"[RKU] 添加钻机货物 {thing.LabelCap} x{thing.stackCount}");
                         cargoHolder.TryAddOrTransfer(thing);
                     }
                 }
@@ -166,6 +167,11 @@ namespace RatkinUnderground
             #endregion
 
             #region 返回
+
+            // 防止货运钻机载员超出上限
+            if (originalVehicleDef == DefOfs.RKU_DrillingVehicleCargo &&
+                passengers.Count > 2) yield break;
+
             if (passengers.Count > 0)
             {
                 Command_Action command_AddGoodWill = new()
@@ -284,14 +290,17 @@ namespace RatkinUnderground
                         drillingVehicle.SetFaction(Faction.OfPlayer);
 
                         // 恢复货物
-                        if (drillingVehicle is RKU_DrillingVehicleCargo cargoVehicle && cargo != null)
+                        if (drillingVehicle is RKU_DrillingVehicleCargo cargoVehicle && cargoHolder != null)
                         {
-                            var cargoHolder = cargoVehicle.GetDirectlyHeldThings();
-                            foreach (Thing thing in cargo)
+                            Log.Message($"[RKU] 钻出 钻机货物 恢复");
+                            var cargo = cargoVehicle.GetDirectlyHeldThings();
+                            List<Thing> thingsToTransfer = cargoHolder.ToList();
+                            foreach (Thing thing in thingsToTransfer)
                             {
-                                cargoHolder.TryAdd(thing);
+                                Log.Message($"[RKU] 钻出 钻机货物 {thing.LabelCap} x{thing.stackCount}");
+                                cargoHolder.TryTransferToContainer(thing, cargo, thing.stackCount, true);
                             }
-                            cargo.Clear();
+                            cargoHolder.Clear();
                         }
 
                         GenSpawn.Spawn(drillingVehicle, Position, Map);
