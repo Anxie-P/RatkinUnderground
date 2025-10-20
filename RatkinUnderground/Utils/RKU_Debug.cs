@@ -230,5 +230,62 @@ namespace RatkinUnderground
                 }
             }
         }
+
+        public static class Debug_TerrainDefs
+        {
+            [DebugAction(
+                category: "RatkinUnderground",
+                name: "List All TerrainDefs")]
+            private static void ListAllTerrainDefs()
+            {
+                var allTerrainDefs = DefDatabase<TerrainDef>.AllDefs.OrderBy(td => td.defName);
+
+                Log.Message($"[RKU_Debug] 找到 {allTerrainDefs.Count()} 个TerrainDef:");
+                Log.Message("=== TerrainDef 列表 ===");
+
+                foreach (var terrainDef in allTerrainDefs)
+                {
+                    string info = $"- {terrainDef.defName}";
+                    if (!string.IsNullOrEmpty(terrainDef.label))
+                    {
+                        info += $" (标签: {terrainDef.label})";
+                    }
+                    if (terrainDef.description != null)
+                    {
+                        info += $" - {terrainDef.description}";
+                    }
+                    Log.Message(info);
+                }
+
+                Log.Message("=== TerrainDef 列表结束 ===");
+                Messages.Message($"已输出 {allTerrainDefs.Count()} 个TerrainDef到日志", MessageTypeDefOf.NeutralEvent);
+            }
+
+            [DebugAction(
+                category: "RatkinUnderground",
+                name: "List TerrainDefs by Category")]
+            private static void ListTerrainDefsByCategory()
+            {
+                var allTerrainDefs = DefDatabase<TerrainDef>.AllDefs;
+
+                var groupedByCategory = allTerrainDefs.GroupBy(td => td.terrainAffordanceNeeded ?? TerrainAffordanceDefOf.Light)
+                    .OrderBy(g => g.Key.defName);
+
+                Log.Message($"[RKU_Debug] TerrainDef 按类别分组:");
+                Log.Message("=== 按TerrainAffordance分类 ===");
+
+                foreach (var group in groupedByCategory)
+                {
+                    Log.Message($"-- {group.Key.defName} ({group.Count()} 个):");
+                    foreach (var terrainDef in group.OrderBy(td => td.defName))
+                    {
+                        Log.Message($"  - {terrainDef.defName}");
+                    }
+                }
+
+                Log.Message("=== 分类列表结束 ===");
+                Messages.Message("已按类别输出TerrainDef到日志", MessageTypeDefOf.NeutralEvent);
+            }
+        }
     }
 }

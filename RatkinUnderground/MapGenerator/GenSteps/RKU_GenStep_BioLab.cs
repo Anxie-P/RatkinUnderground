@@ -5,8 +5,10 @@ using System.Reflection;
 using System.Xml;
 using RimWorld;
 using RimWorld.BaseGen;
+using RimWorld.Planet;
 using UnityEngine;
 using Verse;
+using Verse.AI.Group;
 
 namespace RatkinUnderground;
 
@@ -20,12 +22,17 @@ public class RKU_GenStep_BioLab : GenStep
     public bool unfogged = true;
 
     public override int SeedPart => 487293847;
-    // 字符画布局数据（懒加载）
+    // 字符画布局数据（懒加载并缓存）
+    private List<string> _layoutData;
     private List<string> LayoutData
     {
         get
         {
-            return LoadLayoutFromXml();
+            if (_layoutData == null)
+            {
+                _layoutData = LoadLayoutFromXml();
+            }
+            return _layoutData;
         }
     }
     private List<string> LoadLayoutFromXml()
@@ -45,7 +52,6 @@ public class RKU_GenStep_BioLab : GenStep
             string xmlPath = Path.Combine(modPath, "1.5", "Defs", "MapGenerator", "BioLabLayouts.xml");
             if (!File.Exists(xmlPath))
             {
-                Log.Error("BioLab: XML file not found: " + xmlPath);
                 return new List<string>();
             }
 
@@ -54,18 +60,14 @@ public class RKU_GenStep_BioLab : GenStep
             XmlNode layoutNode = xmlDoc.SelectSingleNode("/Defs/BioLabLayout/layout");
             if (layoutNode == null)
             {
-                Log.Error("BioLab: Layout node not found in XML");
                 return new List<string>();
             }
 
             string layoutText = layoutNode.InnerText.Trim();
             if (string.IsNullOrEmpty(layoutText))
             {
-                Log.Error("BioLab: Layout text is empty");
                 return new List<string>();
             }
-
-            // 按行分割并清理
             var rows = new List<string>();
             var lines = layoutText.Split('\n');
             foreach (var line in lines)
@@ -78,15 +80,22 @@ public class RKU_GenStep_BioLab : GenStep
             }
             return rows;
         }
-        catch (System.Exception ex)
+        catch (System.Exception)
         {
-            Log.Error("Error loading BioLab layout from XML: " + ex.Message);
             return new List<string>();
         }
     }
 
     public override void Generate(Map map, GenStepParams parms)
     {
+
+        // 清理全图的所有气泉
+        var allSteamGeysers = map.listerThings.ThingsOfDef(ThingDef.Named("SteamGeyser")).ToList();
+        foreach (var geyser in allSteamGeysers)
+        {
+            geyser.Destroy();
+        }
+
         // 计算地图中心位置
         int centerX = map.Size.x / 2;
         int centerY = map.Size.z / 2;
@@ -108,7 +117,8 @@ public class RKU_GenStep_BioLab : GenStep
                 IntVec3 pos = new IntVec3(startX + x, 0, startZ + (layoutHeight - 1 - y));
                 if (!pos.InBounds(map))
                     continue;
-
+                // 设置房顶
+                SetAppropriateRoof(map, pos);
                 // 特殊情况
                 int skipChars = 0;
                 if (TryHandleSpecialCell(map, pos, cell, row, x, layoutWidth, out skipChars))
@@ -116,13 +126,39 @@ public class RKU_GenStep_BioLab : GenStep
                     x += skipChars;
                     continue;
                 }
-
                 GenerateCell(map, pos, cell);
             }
         }
+         // 在所有建筑生成完成后生成壁灯
+        GenerateWallLamps(map, layoutRows, startX, startZ, layoutHeight);
         if (unfogged)
         {
             FloodFillerFog.FloodUnfog(IntVec3.Zero, map);
+        }
+    }
+
+    /// <summary>
+    /// 生成壁灯（在所有其他建筑生成完成后）
+    /// </summary>
+    private void GenerateWallLamps(Map map, List<string> layoutRows, int startX, int startZ, int layoutHeight)
+    {
+        for (int y = 0; y < layoutHeight; y++)
+        {
+            string row = layoutRows[y];
+            for (int x = 0; x < row.Length; x++)
+            {
+                char cell = row[x];
+                if (cell == 'L') 
+                {
+                    IntVec3 pos = new IntVec3(startX + x, 0, startZ + (layoutHeight - 1 - y));
+                    if (!pos.InBounds(map)) continue;
+                        Thing wallLamp = ThingMaker.MakeThing(ThingDef.Named("WallLamp"));
+                        TryGetWallLampPositionAndRotation(map, pos, out IntVec3 lampPos, out Rot4 wallLampRot);
+                        GenSpawn.Spawn(wallLamp, lampPos, map, wallLampRot);
+                        ConnectToPower(wallLamp, map);
+                        ApplyTileTerrainPropagation(lampPos, map);
+                }
+            }
         }
     }
 
@@ -145,20 +181,25 @@ public class RKU_GenStep_BioLab : GenStep
         if (cell == 'D' && x + 1 < layoutWidth && row[x + 1] == 'D')
         {
             ThingDef doorDef;
+            Thing door;
             if (ModsConfig.AnomalyActive)
             {
                 doorDef = DefDatabase<ThingDef>.GetNamed("SecurityDoor");
-                Thing door = ThingMaker.MakeThing(doorDef);
+                door = ThingMaker.MakeThing(doorDef);
                 GenSpawn.Spawn(door, pos, map);
+                (door as Building_Door).SetFaction(Find.FactionManager.FirstFactionOfDef(FactionDef.Named("Rakinia")));
+                typeof(Building_Door).GetField("openInt", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(door, false);
+                ConnectToPower(door, map);
             }
             else
             {
                 doorDef = DefDatabase<ThingDef>.GetNamed("OrnateDoor");
                 ThingDef doorStuff = ThingDefOf.Steel; // 使用钢铁作为默认材质
-                Thing door = ThingMaker.MakeThing(doorDef, doorStuff);
+                door = ThingMaker.MakeThing(doorDef, doorStuff);
                 GenSpawn.Spawn(door, pos, map);
 
             }
+            SpawnHiddenConduitIfNeeded(pos, map);
             // 跳过下一个字符，因为已经处理了DD
             skipChars = 1;
             return true;
@@ -169,6 +210,7 @@ public class RKU_GenStep_BioLab : GenStep
 
     private void GenerateCell(Map map, IntVec3 pos, char cellType)
     {
+        map.terrainGrid.SetTerrain(pos, TerrainDefOf.Concrete);
         // 安全地清理位置上的现有物品
         List<Thing> things = pos.GetThingList(map);
         for (int i = things.Count - 1; i >= 0; i--)
@@ -181,48 +223,57 @@ public class RKU_GenStep_BioLab : GenStep
         switch (cellType)
         {
             case '█': // 墙体
+                SpawnHiddenConduitIfNeeded(pos, map);
                 ThingDef wallDef = ThingDefOf.Wall;
-                ThingDef wallStuff = ThingDefOf.Steel; 
+                ThingDef wallStuff = ThingDefOf.Steel;
                 if (wallDef != null)
                 {
                     Thing wall = ThingMaker.MakeThing(wallDef, wallStuff);
                     GenSpawn.Spawn(wall, pos, map);
                 }
-                break;
-
+                // 检查并设置地形传播
+                ApplyTileTerrainPropagation(pos, map);
+                break; 
             case '░': // 空地
                 map.terrainGrid.SetTerrain(pos, TerrainDefOf.Concrete);
                 break;
-            case '□': // 无菌地砖 
+            case '□': // 无菌地砖
                 map.terrainGrid.SetTerrain(pos, TerrainDef.Named("SterileTile"));
+                SpawnHiddenConduitIfNeeded(pos, map);
+                break;
+            case 'T': // 精致地毯
+                map.terrainGrid.SetTerrain(pos, TerrainDef.Named("CarpetFineRed"));
+                SpawnHiddenConduitIfNeeded(pos, map);
                 break;
             case 'D': // 单个钢铁门
                 ThingDef doorDef = ThingDefOf.Door;
-                ThingDef doorStuff = ThingDefOf.Steel; 
+                ThingDef doorStuff = ThingDefOf.Steel;
                 if (doorDef != null)
                 {
-                    Thing door = ThingMaker.MakeThing(doorDef, doorStuff);
-                    GenSpawn.Spawn(door, pos, map);
+                    Thing singleDoor = ThingMaker.MakeThing(doorDef, doorStuff);
+                    GenSpawn.Spawn(singleDoor, pos, map);
                 }
                 break;
             case 'G': // 纵向门
                 ThingDef doorDefG;
+                Thing door;
                 if (ModsConfig.AnomalyActive)
                 {
                     doorDefG = DefDatabase<ThingDef>.GetNamed("SecurityDoor");
-                    Thing door = ThingMaker.MakeThing(doorDefG);
+                    door = ThingMaker.MakeThing(doorDefG);
                     GenSpawn.Spawn(door, pos, map);
+                    (door as Building_Door).SetFaction(Find.FactionManager.FirstFactionOfDef(FactionDef.Named("Rakinia")));
+                    typeof(Building_Door).GetField("openInt", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(door, false);
+                    ConnectToPower(door, map);
                 }
                 else
                 {
                     doorDefG = DefDatabase<ThingDef>.GetNamed("OrnateDoor");
-                    ThingDef doorStuffG = ThingDefOf.Steel; 
-                    Thing door = ThingMaker.MakeThing(doorDefG, doorStuffG);
+                    ThingDef doorStuffG = ThingDefOf.Steel;
+                    door = ThingMaker.MakeThing(doorDefG, doorStuffG);
                     GenSpawn.Spawn(door, pos, map);
-
                 }
-                Thing doorG = ThingMaker.MakeThing(doorDefG);
-                GenSpawn.Spawn(doorG, pos, map,Rot4.East);
+                SpawnHiddenConduitIfNeeded(pos, map);
                 break;
             case 'Z': // 栅栏
                 ThingDef fenceDef = ThingDef.Named("Fence");
@@ -243,16 +294,109 @@ public class RKU_GenStep_BioLab : GenStep
                     plant.Growth = 1f;
                 }
                 break;
-            case 'C': // 仓鼠轮 
-                Thing hamsterWheel = ThingMaker.MakeThing(ThingDef.Named("RK_HamsterWheelGenerator"));
-                GenSpawn.Spawn(hamsterWheel, pos, map);
+            case 'N': // 发电机
+                Thing cpg = ThingMaker.MakeThing(ThingDef.Named("ChemfuelPoweredGenerator"));
+                GenSpawn.Spawn(cpg, pos, map);
+                FillPowerStorage(cpg);
+                FillFuelStorage(cpg);
+                break;
+            case 'F': // 电池
+                Thing btr = ThingMaker.MakeThing(ThingDef.Named("Battery"));
+                GenSpawn.Spawn(btr, pos, map);
+                FillPowerStorage(btr);
                 break;
             case 'B': // 床
                 ThingDef bedStuff = ThingDefOf.WoodLog;
                 Thing bed = ThingMaker.MakeThing(ThingDef.Named("Bed"), bedStuff);
                 GenSpawn.Spawn(bed, pos, map, Rot4.South);
-                // 设置床位置的地形为周围最多的地形
-                SetTerrainToMostCommonAround(map, pos);
+                ApplyTileTerrainPropagation(pos, map);
+                break;
+            case 'C': // 仓鼠轮
+                Thing hamsterWheel = ThingMaker.MakeThing(ThingDef.Named("RK_HamsterWheelGenerator"));
+                GenSpawn.Spawn(hamsterWheel, pos, map);
+                FillPowerStorage(hamsterWheel);
+                break;
+            case 'Q': // 医疗床
+                ThingDef bedQStuff = ThingDefOf.Steel;
+                Thing bedQ = ThingMaker.MakeThing(ThingDef.Named("HospitalBed"),bedQStuff);
+                GenSpawn.Spawn(bedQ, pos, map, Rot4.South);
+                ApplyTileTerrainPropagation(pos, map);
+                break;
+            case 'L': // 壁灯 - 标记位置，稍后处理
+                // 壁灯需要特殊处理，在所有建筑生成完成后才生成
+                // 这里先不处理，在Generate方法末尾统一处理
+                break;
+            case 'A': // 高级研究台
+                ThingDef researchBenchStuff = ThingDefOf.Steel;
+                Thing researchBench = ThingMaker.MakeThing(ThingDef.Named("HiTechResearchBench"), researchBenchStuff);
+                Rot4 researchBenchRotation = GetResearchBenchRotation(pos, map);
+                GenSpawn.Spawn(researchBench, pos, map, researchBenchRotation);
+                ConnectToPower(researchBench, map);
+                ApplyTileTerrainPropagation(pos, map);
+                break;
+            case 'P': // 自动炮塔
+                Thing turret = ThingMaker.MakeThing(ThingDef.Named("Turret_AutoMiniTurret"));
+                GenSpawn.Spawn(turret, pos, map);
+                ConnectToPower(turret, map);
+                ApplyTileTerrainPropagation(pos, map);
+                break;
+            case 'J': // 物品架
+                ThingDef shelfStuff = ThingDefOf.WoodLog;
+                Thing shelf = ThingMaker.MakeThing(ThingDef.Named("Shelf"), shelfStuff);
+                GenSpawn.Spawn(shelf, pos, map);
+                ApplyTileTerrainPropagation(pos, map);
+                break;
+            case 'S': // （豪华）双人床
+                ThingDef royalBedStuff = ThingDefOf.Gold; // 豪华材质
+                Thing doubleBed = ThingMaker.MakeThing(ThingDef.Named("RoyalBed"), royalBedStuff);
+                GenSpawn.Spawn(doubleBed, pos, map, Rot4.South);
+                break;
+            case 'H': // 花盆
+                ThingDef plantPotStuff = ThingDefOf.WoodLog;
+                Thing plantPot = ThingMaker.MakeThing(ThingDef.Named("PlantPot"), plantPotStuff);
+                GenSpawn.Spawn(plantPot, pos, map);
+                ApplyTileTerrainPropagation(pos, map);
+                break;
+            case 'W': // 钢铁餐椅
+                ThingDef chairStuff = ThingDefOf.Steel;
+                Thing diningChair = ThingMaker.MakeThing(ThingDef.Named("DiningChair"), chairStuff);
+                GenSpawn.Spawn(diningChair, pos, map, Rot4.South);
+                break;
+            case 'θ': // 床头柜
+                ThingDef endTableStuff = ThingDefOf.WoodLog;
+                Thing endTable = ThingMaker.MakeThing(ThingDef.Named("EndTable"), endTableStuff);
+                GenSpawn.Spawn(endTable, pos, map);
+                ApplyTileTerrainPropagation(pos, map);
+                break;
+            case 'α':
+                ThingDef dresserStuff = ThingDefOf.Steel;
+                Thing dresser = ThingMaker.MakeThing(ThingDef.Named("Dresser"), dresserStuff);
+                GenSpawn.Spawn(dresser, pos, map);
+                ApplyTileTerrainPropagation(pos, map);
+                break;
+            case 'ω': // 钢铁路障
+                ThingDef barrierStuff = ThingDefOf.Steel;
+                Thing barrier = ThingMaker.MakeThing(ThingDef.Named("Barricade"), barrierStuff);
+                GenSpawn.Spawn(barrier, pos, map);
+                break;
+            case 'τ': // 2*4钢铁桌
+                ThingDef tableStuff = ThingDefOf.Steel;
+                Thing table = ThingMaker.MakeThing(ThingDef.Named("Table2x4c"), tableStuff);
+                GenSpawn.Spawn(table, pos, map,Rot4.East);
+                break;
+            case 'μ': // 灭火器
+                Thing firefoamPopper = ThingMaker.MakeThing(ThingDef.Named("FirefoamPopper"));
+                GenSpawn.Spawn(firefoamPopper, pos, map);
+                break;
+            case 'σ': // 通讯台
+                Thing commsConsole = ThingMaker.MakeThing(ThingDef.Named("CommsConsole"));
+                GenSpawn.Spawn(commsConsole, pos, map);
+                ConnectToPower(commsConsole, map);
+                break;
+            case 'π': // 塑形仓
+                Thing neuralSupercharger = ThingMaker.MakeThing(ThingDef.Named("BiosculpterPod"));
+                GenSpawn.Spawn(neuralSupercharger, pos, map);
+                ConnectToPower(neuralSupercharger, map);
                 break;
             default:
                 map.terrainGrid.SetTerrain(pos, DefDatabase<TerrainDef>.GetNamed("SterileTile"));
@@ -261,53 +405,203 @@ public class RKU_GenStep_BioLab : GenStep
     }
 
     /// <summary>
-    /// 将指定位置的地形设置为周围8格中最多的地形类型
+    /// 为发电设备或电池充满电量
+    /// </summary>
+    /// <param name="thing">发电设备或电池</param>
+    private void FillPowerStorage(Thing thing)
+    {
+        var powerComp = thing.TryGetComp<CompPowerBattery>();
+        if (powerComp != null)
+        {
+            powerComp.SetStoredEnergyPct(1f); // 设置为100%电量
+        }
+    }
+
+    /// <summary>
+    /// 为发电机充满燃料
+    /// </summary>
+    /// <param name="thing">发电机</param>
+    private void FillFuelStorage(Thing thing)
+    {
+        var fuelComp = thing.TryGetComp<CompRefuelable>();
+        if (fuelComp != null)
+        {
+            fuelComp.Refuel(fuelComp.Props.fuelCapacity); // 设置为满燃料
+        }
+    }
+
+    /// <summary>
+    /// 将物品连接到电力网络
+    /// </summary>
+    /// <param name="thing">需要连接电力的物品</param>
+    /// <param name="map">地图</param>
+    private void ConnectToPower(Thing thing, Map map)
+    {
+        var powerComp = thing.TryGetComp<CompPowerTrader>();
+        if (powerComp != null)
+        {
+            powerComp.PowerOn = true;
+            map.powerNetManager.Notify_TransmitterSpawned(powerComp);
+        }
+    }
+
+    /// <summary>
+    /// 为指定位置设置合适的房顶（替换厚岩顶为建造房顶）
     /// </summary>
     /// <param name="map">地图</param>
-    /// <param name="pos">目标位置</param>
-    private void SetTerrainToMostCommonAround(Map map, IntVec3 pos)
+    /// <param name="pos">位置</param>
+    private void SetAppropriateRoof(Map map, IntVec3 pos)
     {
-        // 统计周围8格的地形类型
-        Dictionary<TerrainDef, int> terrainCount = new Dictionary<TerrainDef, int>();
-        
-        for (int x = -1; x <= 1; x++)
+        RoofDef existingRoof = map.roofGrid.RoofAt(pos);
+        if (existingRoof == RoofDefOf.RoofRockThick)
         {
-            for (int z = -1; z <= 1; z++)
+            map.roofGrid.SetRoof(pos, RoofDefOf.RoofConstructed);
+        }
+        else if (existingRoof == null || existingRoof != RoofDefOf.RoofConstructed)
+        {
+            map.roofGrid.SetRoof(pos, RoofDefOf.RoofConstructed);
+        }
+    }
+
+    /// <summary>
+    /// 尝试获取壁灯的位置和朝向，根据周围墙壁的位置确定
+    /// </summary>
+    /// <param name="map">地图</param>
+    /// <param name="originalPos">原始位置</param>
+    /// <param name="lampPos">输出：壁灯实际位置</param>
+    /// <param name="rotation">输出：壁灯朝向</param>
+    /// <returns>是否找到合适的墙壁位置</returns>
+    private bool TryGetWallLampPositionAndRotation(Map map, IntVec3 originalPos, out IntVec3 lampPos, out Rot4 rotation)
+    {
+        lampPos = originalPos;
+        rotation = Rot4.North;
+        IntVec3 northPos = originalPos + IntVec3.North;
+        IntVec3 eastPos = originalPos + IntVec3.East;
+        IntVec3 southPos = originalPos + IntVec3.South;
+        IntVec3 westPos = originalPos + IntVec3.West;
+
+        if (northPos.InBounds(map) && northPos.GetEdifice(map) != null && northPos.GetEdifice(map).def == ThingDefOf.Wall)
+        {
+            lampPos = originalPos;
+            rotation = Rot4.North;
+            return true;
+        }
+        else if (eastPos.InBounds(map) && eastPos.GetEdifice(map) != null && eastPos.GetEdifice(map).def == ThingDefOf.Wall)
+        {
+            lampPos = originalPos;
+            rotation = Rot4.East;
+            return true;
+        }
+        else if (southPos.InBounds(map) && southPos.GetEdifice(map) != null && southPos.GetEdifice(map).def == ThingDefOf.Wall)
+        {
+            lampPos = originalPos;
+            rotation = Rot4.South;
+            return true;
+        }
+        else if (westPos.InBounds(map) && westPos.GetEdifice(map) != null && westPos.GetEdifice(map).def == ThingDefOf.Wall)
+        {
+            lampPos = originalPos;
+            rotation = Rot4.West;
+            return true;
+        }
+        return false;
+    }
+
+    private void SpawnHiddenConduitIfNeeded(IntVec3 pos, Map map)
+    {
+        if (pos.GetFirstThing(map, ThingDef.Named("HiddenConduit")) == null)
+        {
+            Thing conduit = ThingMaker.MakeThing(ThingDef.Named("HiddenConduit"));
+            GenSpawn.Spawn(conduit, pos, map);
+        }
+    }
+
+    /// <summary>
+    /// 获取高级研究台的朝向，朝向南北方向最近的墙壁
+    /// </summary>
+    /// <param name="pos">研究台位置</param>
+    /// <param name="map">地图</param>
+    /// <returns>朝向，如果没有找到墙壁则返回北向</returns>
+    private Rot4 GetResearchBenchRotation(IntVec3 pos, Map map)
+    {
+        const int maxDistance = 5;
+        // 检查方向，最多5格
+        for (int distance = 1; distance <= maxDistance; distance++)
+        {
+            IntVec3 checkPos = pos + IntVec3.North * distance;
+            if (!checkPos.InBounds(map))
+                break;
+            if (checkPos.GetEdifice(map) != null && checkPos.GetEdifice(map).def == ThingDefOf.Wall)
             {
-                if (x == 0 && z == 0) continue; // 跳过中心位置
-                
-                IntVec3 neighborPos = new IntVec3(pos.x + x, pos.y, pos.z + z);
-                if (neighborPos.InBounds(map))
+                return Rot4.North;
+            }
+        }
+        for (int distance = 1; distance <= maxDistance; distance++)
+        {
+            IntVec3 checkPos = pos + IntVec3.South * distance;
+            if (!checkPos.InBounds(map))
+                break;
+
+            if (checkPos.GetEdifice(map) != null && checkPos.GetEdifice(map).def == ThingDefOf.Wall)
+            {
+                return Rot4.South;
+            }
+        }
+        return Rot4.North;
+    }
+
+    /// <summary>
+    /// 检查周围格子的地形，如果有足够的瓷砖或地毯，则设置当前位置的地形
+    /// </summary>
+    /// <param name="pos">当前位置</param>
+    /// <param name="map">地图</param>
+    private void ApplyTileTerrainPropagation(IntVec3 pos, Map map)
+    {
+        // 定义需要检查的地形
+        string[] tileTerrainNames = { "SterileTile", "Floor_Carpet_Fine", "CarpetFineRed" };
+        IntVec3[] adjacentPositions = {
+            pos + IntVec3.North,
+            pos + IntVec3.South,
+            pos + IntVec3.East,
+            pos + IntVec3.West
+        };
+
+        int tileCount = 0;
+        TerrainDef mostCommonTerrain = null;
+        Dictionary<TerrainDef, int> terrainCounts = new Dictionary<TerrainDef, int>();
+
+        foreach (IntVec3 adjacentPos in adjacentPositions)
+        {
+            if (adjacentPos.InBounds(map))
+            {
+                TerrainDef terrain = map.terrainGrid.TerrainAt(adjacentPos);
+                if (terrain != null && tileTerrainNames.Contains(terrain.defName))
                 {
-                    TerrainDef terrain = neighborPos.GetTerrain(map);
-                    if (terrainCount.ContainsKey(terrain))
+                    tileCount++;
+                    if (!terrainCounts.ContainsKey(terrain))
                     {
-                        terrainCount[terrain]++;
+                        terrainCounts[terrain] = 0;
                     }
-                    else
-                    {
-                        terrainCount[terrain] = 1;
-                    }
+                    terrainCounts[terrain]++;
                 }
             }
         }
-        
-        // 找到最多的地形类型
-        TerrainDef mostCommonTerrain = null;
-        int maxCount = 0;
-        foreach (var kvp in terrainCount)
+        // 如果周围有2个或以上的瓷砖/地毯，则设置当前位置为最常见的地形
+        if (tileCount >= 2)
         {
-            if (kvp.Value > maxCount)
+            int maxCount = 0;
+            foreach (var kvp in terrainCounts)
             {
-                maxCount = kvp.Value;
-                mostCommonTerrain = kvp.Key;
+                if (kvp.Value > maxCount)
+                {
+                    maxCount = kvp.Value;
+                    mostCommonTerrain = kvp.Key;
+                }
             }
-        }
-        
-        // 将目标位置的地形设置为周围最多的地形
-        if (mostCommonTerrain != null)
-        {
-            map.terrainGrid.SetTerrain(pos, mostCommonTerrain);
+            if (mostCommonTerrain != null)
+            {
+                map.terrainGrid.SetTerrain(pos, mostCommonTerrain);
+            }
         }
     }
 }

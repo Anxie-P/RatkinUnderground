@@ -40,7 +40,6 @@ namespace RatkinUnderground
 
         //对话
         public static RKU_DialogueEventDef RKU_FirstContact;
-        public static RKU_DialogueEventDef RKU_TradeWelcome;
         public static RKU_DialogueEventDef RKU_ResearchProgress;
         public static RKU_DialogueEventDef RKU_ScanSignal;
     }

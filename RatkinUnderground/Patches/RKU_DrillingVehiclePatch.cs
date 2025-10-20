@@ -150,7 +150,6 @@ public static class RKU_DrillingVehiclePatch
                 {
                     return true;
                 }
-
                 // 如果是殖民地
                 if (map.IsPlayerHome)
                 {
@@ -189,7 +188,7 @@ public static class RKU_DrillingVehiclePatch
                 if (modExtension != null && modExtension.isEncounterMap)
                 {
                     CameraJumper.TryJump(map.Center, map);
-                    IntVec3 target = new IntVec3();
+                    IntVec3 target = new IntVec3(); 
                     if (modExtension.isSpawnCenter)
                     {
                         CellFinder.TryFindRandomCellNear(map.Center, map, 15, (IntVec3 x) => x.Standable(map) && x.InBounds(map), out target);
@@ -222,7 +221,6 @@ public static class RKU_DrillingVehiclePatch
                     caravan.Destroy();
                 }
                 else if (modExtension != null &&! modExtension.isEncounterMap) {
-
                     CameraJumper.TryJump(map.Center, map);
                     IntVec3 target = new IntVec3();
                     if (modExtension.isSpawnCenter)
@@ -276,22 +274,27 @@ public static class RKU_DrillingVehiclePatch
                             canTargetPlants = false,
                             canTargetCorpses = false,
                             mustBeSelectable = true,
-                            validator = (target) => target.Cell.Standable(map) && target.Cell.InBounds(map)
+                            validator = (target) => {
+                                bool valid = target.Cell.Standable(map) && target.Cell.InBounds(map);
+                                if (!valid) {
+                                    Log.Warning($"[RKU] 目标单元格无效: {target.Cell}, 可站立: {target.Cell.Standable(map)}, 在边界内: {target.Cell.InBounds(map)}");
+                                }
+                                return valid;
+                            }
                         },
                         delegate (LocalTargetInfo target)
                         {
                             Func<Pawn, IntVec3> newSpawnCellGetter = (pawn) => target.Cell;
                             CaravanEnterMapUtility.Enter(caravan, map, newSpawnCellGetter, dropInventoryMode, draftColonists);
-
                             RKU_TunnelHiveSpawner tunnelHiveSpawner = (RKU_TunnelHiveSpawner)ThingMaker.MakeThing(DefOfs.RKU_TunnelHiveSpawner);
                             tunnelHiveSpawner.hitPoints = (caravan as RKU_DrillingVehicleOnMap).hitPoints;  // 传递耐久
                             if (!string.IsNullOrEmpty((caravan as RKU_DrillingVehicleOnMap).originalVehicleDefName))
                             {
                                 tunnelHiveSpawner.originalVehicleDef = DefDatabase<ThingDef>.GetNamed((string)(caravan as RKU_DrillingVehicleOnMap).originalVehicleDefName); // 传递原始钻地机类型
                             }
+
                             if (tunnelHiveSpawner.cargo != null) tunnelHiveSpawner.cargo = new List<Thing>((caravan as RKU_DrillingVehicleOnMap).cargo); // 传递货物
                             List<Pawn> pawnsToTransfer2 = new List<Pawn>(caravan.pawns);
-
                             foreach (Pawn pawn in pawnsToTransfer2)
                             {
                                 if (!pawn.Destroyed)
