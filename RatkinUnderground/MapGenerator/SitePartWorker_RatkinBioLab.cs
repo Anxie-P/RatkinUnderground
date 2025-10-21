@@ -33,7 +33,6 @@ namespace RatkinUnderground
         {
             SpawnCombatantsInUpperRooms(map);
             SpawnExperimentSubjectsNearBeds(map);
-            Log.Warning("wc");
         }
 
         private void SpawnCombatantsInUpperRooms(Map map)
@@ -178,6 +177,7 @@ namespace RatkinUnderground
                 {
                     knightCommander.Name = new NameTriple(nameTriple.First, nameTriple.Nick, "Raeline".Translate());
                 }
+
                 // 添加RKU_CombatEfficiency Hediff
                 HediffDef combatEfficiencyDef = DefDatabase<HediffDef>.GetNamedSilentFail("RKU_CombatEfficiency");
                 if (combatEfficiencyDef != null)
@@ -211,6 +211,8 @@ namespace RatkinUnderground
             };
 
             var cells = room.Cells.Where(c => c.Standable(map) && c.GetFirstPawn(map) == null).ToList();
+
+            // 打乱可用位置顺序，实现随机分布
             cells.Shuffle();
 
             List<Pawn> roomDefenders = new List<Pawn>();
@@ -247,8 +249,8 @@ namespace RatkinUnderground
         {
             // 获取地图下半部分的所有床
             var beds = map.listerBuildings.allBuildingsNonColonist
-                .OfType<Building_Bed>()
-                .Where(bed => bed.Position.z <= 120)
+                .Where(bed => bed.Position.z <= 120 &&
+                bed.def == ThingDefOf.Bed)
                 .ToList();
 
             foreach (var bed in beds)
@@ -298,7 +300,7 @@ namespace RatkinUnderground
             {
                 parms.raidStrategy = siegeStrategy;
             }
-            parms.faction = Utils.OfRKU;
+                parms.faction = Utils.OfRKU;
             if (!siegeIncident.Worker.TryExecute(parms))
             {
                 Log.Warning("[RKU] 迫击炮围攻袭击触发失败");
