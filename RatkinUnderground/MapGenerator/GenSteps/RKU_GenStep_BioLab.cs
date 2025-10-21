@@ -231,12 +231,8 @@ public class RKU_GenStep_BioLab : GenStep
                     Thing wall = ThingMaker.MakeThing(wallDef, wallStuff);
                     GenSpawn.Spawn(wall, pos, map);
                 }
-                // 检查并设置地形传播
-                ApplyTileTerrainPropagation(pos, map);
                 break; 
             case '░': // 空地
-                map.terrainGrid.SetTerrain(pos, TerrainDefOf.Concrete);
-                break;
             case '□': // 无菌地砖
                 map.terrainGrid.SetTerrain(pos, TerrainDef.Named("SterileTile"));
                 SpawnHiddenConduitIfNeeded(pos, map);
@@ -441,7 +437,6 @@ public class RKU_GenStep_BioLab : GenStep
         if (powerComp != null)
         {
             powerComp.PowerOn = true;
-            map.powerNetManager.Notify_TransmitterSpawned(powerComp);
         }
     }
 
@@ -509,7 +504,7 @@ public class RKU_GenStep_BioLab : GenStep
 
     private void SpawnHiddenConduitIfNeeded(IntVec3 pos, Map map)
     {
-        if (pos.GetFirstThing(map, ThingDef.Named("HiddenConduit")) == null)
+        if (!pos.GetThingList(map).Any(o=>o.def==ThingDef.Named("HiddenConduit")))
         {
             Thing conduit = ThingMaker.MakeThing(ThingDef.Named("HiddenConduit"));
             GenSpawn.Spawn(conduit, pos, map);

@@ -220,7 +220,7 @@ public static class RKU_DrillingVehiclePatch
                     map.fogGrid.FloodUnfogAdjacent(target, false);
                     caravan.Destroy();
                 }
-                else if (modExtension != null &&! modExtension.isEncounterMap) {
+                else if (modExtension != null &&! modExtension.isEncounterMap||((map.Parent is Site site)&&site.MainSitePartDef==DefDatabase<SitePartDef>.GetNamed("RatkinBioLab"))) {
                     CameraJumper.TryJump(map.Center, map);
                     IntVec3 target = new IntVec3();
                     if (modExtension.isSpawnCenter)
