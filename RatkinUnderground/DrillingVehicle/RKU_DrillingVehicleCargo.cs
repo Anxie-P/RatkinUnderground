@@ -12,7 +12,7 @@ namespace RatkinUnderground
 {
     public class RKU_DrillingVehicleCargo : RKU_DrillingVehicle
     {
-        private byte MaxPassengers=2;
+        private const int MaxPassengers = 2;
         private ThingOwner<Thing> cargo;
         private static Dictionary<string, List<Thing>> cargoStorage = new Dictionary<string, List<Thing>>();
         private Dictionary<ThingDef, int> itemsToLoad = new Dictionary<ThingDef, int>();

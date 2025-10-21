@@ -269,6 +269,10 @@ public class RKU_GenStep_BioLab : GenStep
                     door = ThingMaker.MakeThing(doorDefG, doorStuffG);
                     GenSpawn.Spawn(door, pos, map);
                 }
+                Thing doorG = ThingMaker.MakeThing(doorDefG);
+                GenSpawn.Spawn(doorG, pos, map,Rot4.East);
+                (doorG as Building_Door).SetFaction(Find.FactionManager.FirstFactionOfDef(FactionDef.Named("Rakinia")));
+                ConnectToPower(doorG, map);
                 SpawnHiddenConduitIfNeeded(pos, map);
                 break;
             case 'Z': // 栅栏
@@ -315,12 +319,25 @@ public class RKU_GenStep_BioLab : GenStep
             case 'Q': // 医疗床
                 ThingDef bedQStuff = ThingDefOf.Steel;
                 Thing bedQ = ThingMaker.MakeThing(ThingDef.Named("HospitalBed"),bedQStuff);
-                GenSpawn.Spawn(bedQ, pos, map, Rot4.South);
+                GenSpawn.Spawn(bedQ, pos, map, GetHospitalRotation(pos,map));
                 ApplyTileTerrainPropagation(pos, map);
                 break;
-            case 'L': // 壁灯 - 标记位置，稍后处理
-                // 壁灯需要特殊处理，在所有建筑生成完成后才生成
-                // 这里先不处理，在Generate方法末尾统一处理
+            case 'M': // 医疗柜
+                ThingDef vitalsMonitorStuff = ThingDefOf.Steel;
+                Thing vitalsMonitor = ThingMaker.MakeThing(ThingDefOf.VitalsMonitor);
+                GenSpawn.Spawn(vitalsMonitor, pos, map, GetHospitalRotation(pos, map));
+                ApplyTileTerrainPropagation(pos, map);
+                ConnectToPower(vitalsMonitor, map);
+                break;
+            case 'L': // 壁灯
+                IntVec3 lampPos;
+                Rot4 wallLampRot;
+                if (TryGetWallLampPositionAndRotation(map, pos, out lampPos, out wallLampRot))
+                {
+                    Thing bd = ThingMaker.MakeThing(ThingDef.Named("WallLamp"));
+                    GenSpawn.Spawn(bd, lampPos, map, wallLampRot);
+                    ConnectToPower(bd, map);
+                }
                 break;
             case 'A': // 高级研究台
                 ThingDef researchBenchStuff = ThingDefOf.Steel;
@@ -338,6 +355,10 @@ public class RKU_GenStep_BioLab : GenStep
                 break;
             case 'J': // 物品架
                 ThingDef shelfStuff = ThingDefOf.WoodLog;
+                if (pos.z <= 140)
+                {
+                    shelfStuff = ThingDefOf.Steel;
+                }
                 Thing shelf = ThingMaker.MakeThing(ThingDef.Named("Shelf"), shelfStuff);
                 GenSpawn.Spawn(shelf, pos, map);
                 ApplyTileTerrainPropagation(pos, map);
@@ -350,7 +371,9 @@ public class RKU_GenStep_BioLab : GenStep
             case 'H': // 花盆
                 ThingDef plantPotStuff = ThingDefOf.WoodLog;
                 Thing plantPot = ThingMaker.MakeThing(ThingDef.Named("PlantPot"), plantPotStuff);
+                Thing yellowFlower = ThingMaker.MakeThing(ThingDef.Named("Plant_Daylily"));
                 GenSpawn.Spawn(plantPot, pos, map);
+                GenSpawn.Spawn(yellowFlower, pos, map);
                 ApplyTileTerrainPropagation(pos, map);
                 break;
             case 'W': // 钢铁餐椅
@@ -379,6 +402,16 @@ public class RKU_GenStep_BioLab : GenStep
                 ThingDef tableStuff = ThingDefOf.Steel;
                 Thing table = ThingMaker.MakeThing(ThingDef.Named("Table2x4c"), tableStuff);
                 GenSpawn.Spawn(table, pos, map,Rot4.East);
+                break;
+            case 'ε': // 1*2钢铁桌
+                ThingDef x2tableStuff = ThingDefOf.Steel;
+                Thing microwave = ThingMaker.MakeThing(ThingDef.Named("Table1x2c"), x2tableStuff);
+                GenSpawn.Spawn(microwave, pos, map, Rot4.East);
+                break;
+            case 'ζ': // 黑板
+                ThingDef boardStuff = ThingDef.Named("BlocksMarble");
+                Thing blackBoard = ThingMaker.MakeThing(ThingDefOf.Blackboard, boardStuff);
+                GenSpawn.Spawn(blackBoard, pos, map, Rot4.South);
                 break;
             case 'μ': // 灭火器
                 Thing firefoamPopper = ThingMaker.MakeThing(ThingDef.Named("FirefoamPopper"));
@@ -441,6 +474,22 @@ public class RKU_GenStep_BioLab : GenStep
     }
 
     /// <summary>
+    /// 医院下半部分医疗床朝向处理
+    /// </summary>
+    /// <param name="pos">医疗床位置</param>
+    /// <param name="map">当前地图</param>
+    /// <returns></returns>
+    private Rot4 GetHospitalRotation(IntVec3 pos, Map map)
+    {
+        if (pos.z <= 120 &&
+            pos.z >= 118)
+        {
+            return Rot4.North;
+        }
+        return Rot4.South;
+    }
+
+    /// <summary>
     /// 为指定位置设置合适的房顶（替换厚岩顶为建造房顶）
     /// </summary>
     /// <param name="map">地图</param>
@@ -459,8 +508,9 @@ public class RKU_GenStep_BioLab : GenStep
     }
 
     /// <summary>
-    /// 尝试获取壁灯的位置和朝向，根据周围墙壁的位置确定
+    /// 将指定位置的地形设置为周围8格中最多的地形类型
     /// </summary>
+    /// <param name="thing">需要连接电力的物品</param>
     /// <param name="map">地图</param>
     /// <param name="originalPos">原始位置</param>
     /// <param name="lampPos">输出：壁灯实际位置</param>
