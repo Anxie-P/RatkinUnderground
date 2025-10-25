@@ -27,7 +27,7 @@ namespace RatkinUnderground
             passengers = new ThingOwner<Pawn>(this);
         }
 
-        public override void Tick()
+        protected override void Tick()
         {
             base.Tick();
 

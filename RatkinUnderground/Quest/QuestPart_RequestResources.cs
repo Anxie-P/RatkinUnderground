@@ -58,7 +58,8 @@ namespace RatkinUnderground
             }
 
             // 创建LordJob_WaitForItemsAndReturn
-            var newLord = LordMaker.MakeNewLord(faction, new LordJob_WaitForItemsAndReturn(faction, result, target, thingDef, drillingVehicle, amount, outSignalItemsReceived, outSignalStartReturnToDrillingVehicle), base.Map);
+            var drill = Map.listerBuildings.allBuildingsNonColonist.Find(b => b is RKU_DrillingVehicleInEnemyMap) as RKU_DrillingVehicleInEnemyMap;
+            var newLord = LordMaker.MakeNewLord(faction, new LordJob_WaitForItemsAndReturn(faction, result, target, thingDef, drill, amount, outSignalItemsReceived, outSignalStartReturnToDrillingVehicle), base.Map);
             
             lordCreated = true; // 标记已创建
             return newLord;

@@ -14,10 +14,12 @@ namespace RatkinUnderground
         private Faction faction;
         private Pawn target;
         private ThingDef thingDef;
-        private RKU_DrillingVehicleInEnemyMap drillingVehicle => Map.listerBuildings.allBuildingsNonColonist.Find(b => b is RKU_DrillingVehicleInEnemyMap) as RKU_DrillingVehicleInEnemyMap;
+        //private RKU_DrillingVehicleInEnemyMap drillingVehicle => Map.listerBuildings.allBuildingsNonColonist.Find(b => b is RKU_DrillingVehicleInEnemyMap) as RKU_DrillingVehicleInEnemyMap;
+        private RKU_DrillingVehicleInEnemyMap drillingVehicle;
         private int amount;
         private string outSignalItemsReceived;
         private string outSignalStartReturnToDrillingVehicle;
+
 
         public LordJob_WaitForItemsAndReturn()
         {
@@ -32,6 +34,7 @@ namespace RatkinUnderground
             this.amount = Math.Abs(amount);
             this.outSignalItemsReceived = outSignalItemsReceived;
             this.outSignalStartReturnToDrillingVehicle = outSignalStartReturnToDrillingVehicle;
+            this.drillingVehicle = drillingVehicle;
         }
 
         public override StateGraph CreateGraph()
@@ -54,7 +57,7 @@ namespace RatkinUnderground
             LordToil_WaitForReturnSignal waitForReturnSignal = new LordToil_WaitForReturnSignal();
             stateGraph.AddToil(waitForReturnSignal);
 
-            LordToil_FixDrill fixDrill = new(drillingVehicle);
+            LordToil_FixDrill fixDrill = new(drillingVehicle, target);
             stateGraph.AddToil(fixDrill);
 
             
@@ -78,19 +81,17 @@ namespace RatkinUnderground
             Transition transitionFix = new Transition(fixDrill, waitForReturnSignal);
             transitionFix.AddTrigger(new Trigger_Custom((TriggerSignal s) =>
             {
-                if (drillingVehicle == null)
+                /*if (drillingVehicle == null)
                 {
                     Log.Message("drill为空");
                     return false;
                 }
                 bool hitPoints = drillingVehicle.HitPoints >= drillingVehicle.MaxHitPoints;
-                return hitPoints;
+                return hitPoints;*/
+                bool hasFixDrill = fixDrill.HasFixDrill;
+                return hasFixDrill;
             }));
             transitionFix.AddPostAction(new TransitionAction_EndAllJobs());
-            if (!outSignalItemsReceived.NullOrEmpty())
-            {
-                Log.Message("");
-            }
             if (!outSignalItemsReceived.NullOrEmpty()/* &&
                 drillingVehicle.HitPoints >= drillingVehicle.MaxHitPoints*/)
             {
@@ -178,6 +179,7 @@ namespace RatkinUnderground
             base.ExposeData();
             Scribe_References.Look(ref target, "target");
             Scribe_References.Look(ref faction, "faction");
+            Scribe_References.Look(ref drillingVehicle, "drillingVehicle");
             Scribe_Values.Look(ref idleSpot, "idleSpot");
             Scribe_Values.Look(ref amount, "amount", 0);
             Scribe_Values.Look(ref outSignalItemsReceived, "outSignalItemsReceived");
@@ -326,25 +328,87 @@ namespace RatkinUnderground
     public class LordToil_FixDrill : LordToil
     {
         private RKU_DrillingVehicleInEnemyMap drillingVehicle;
-        public LordToil_FixDrill(RKU_DrillingVehicleInEnemyMap drillingVehicle)
+        public bool HasFixDrill { get; private set; }
+        private Pawn fixPawn;
+        private int ticks = 600;
+
+        public LordToil_FixDrill()
+        {
+
+        }
+        public LordToil_FixDrill(RKU_DrillingVehicleInEnemyMap drillingVehicle, Pawn targetPawn)
         {
             this.drillingVehicle = drillingVehicle;
+            this.fixPawn = targetPawn;
         }
         public override void UpdateAllDuties()
         {
             Log.Message("进入LordToil_FixDrill");
+            Log.Message($"lord.ownedPawns的数量：{lord.ownedPawns}");
             foreach (var p in lord.ownedPawns)
             {
-                if (p == null) continue;
+                if (p == null)
+                {
+                    continue;
+                } 
                 if (drillingVehicle == null)
                 {
                     Log.Message("drill为空");
                     return;
                 } 
                 Job job = JobMaker.MakeJob(JobDefOf.Repair, drillingVehicle);
-                p.jobs.StartJob(job, JobCondition.InterruptForced, null, resumeCurJobAfterwards: false);
+                p.jobs.StartJob(job, JobCondition.InterruptForced);
                 return;
             }
         }
+
+        public override void LordToilTick()
+        {
+            base.LordToilTick();
+            ticks++;
+            try
+            {
+                // 检查是否获得了所有请求的物品
+                if (drillingVehicle != null)
+                {
+                    if (drillingVehicle.HitPoints != drillingVehicle.MaxHitPoints)
+                    {
+                        if (fixPawn == null)
+                        {
+                            Log.Warning("fixpawn为空");
+                            return;
+                        }
+                        if (drillingVehicle == null)
+                        {
+                            Log.Warning("drill为空");
+                            return;
+                        }
+                        if (fixPawn.CurJob != null && 
+                            fixPawn.CurJob.def != JobDefOf.Repair &&
+                            !fixPawn.Downed &&
+                            ticks > 600)
+                        {
+                            ticks = 0;
+                            Job job = JobMaker.MakeJob(JobDefOf.Repair, drillingVehicle);
+                            fixPawn.jobs.StartJob(job, JobCondition.InterruptForced);
+                        }
+                        return;
+                    }
+                    HasFixDrill = true;
+                }
+                else
+                {
+                    Log.Message("【RKU】toil drill为空");
+
+                    //drillingVehicle = Map.listerBuildings.allBuildingsNonColonist.Find(b => b is RKU_DrillingVehicleInEnemyMap) as RKU_DrillingVehicleInEnemyMap;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"[RKU] 检查物品时出错: {ex.Message}");
+            }
+        }
+
     }
+
 } 

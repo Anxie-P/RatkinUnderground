@@ -59,7 +59,7 @@ namespace RatkinUnderground
             initialized = true;
         }
 
-        public override void Tick()
+        protected override void Tick()
         {
             ticks++;
             if (!initialized) return;
@@ -128,8 +128,8 @@ namespace RatkinUnderground
                 def.projectile.explosionRadius,
                 def.projectile.damageDef,
                 this.launcher,    
-                def.projectile.GetDamageAmount(1f),
-                armorPenetration: def.projectile.GetArmorPenetration(1f),
+                def.projectile.GetDamageAmount(1f,null),
+                armorPenetration: 1,
                 def.projectile.soundExplode,
                 equipmentDef,
                 postExplosionSpawnThingDef: null,

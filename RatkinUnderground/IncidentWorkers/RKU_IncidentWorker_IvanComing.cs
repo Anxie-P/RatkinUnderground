@@ -125,7 +125,7 @@ namespace RatkinUnderground
             List<Building> targets = new List<Building>();
 
             // 寻找符合条件的房间
-            List<Room> candidateRooms = map.regionGrid.allRooms
+            List<Room> candidateRooms = map.regionGrid.AllRooms
                 .Where(room => room.GetStat(RoomStatDefOf.Wealth) > 1300f)
                 .OrderByDescending(room => room.GetStat(RoomStatDefOf.Wealth))
                 .ToList();

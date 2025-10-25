@@ -141,7 +141,7 @@ public class RKU_DrillingVehicleOnMap : Caravan
             tweener.ResetTweenedPosToRoot();
         }
     }
-    public override void Tick()
+    protected override void Tick()
     {
         
         base.Tick();

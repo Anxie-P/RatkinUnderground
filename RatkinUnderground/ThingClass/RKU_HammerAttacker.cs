@@ -48,7 +48,7 @@ namespace RatkinUnderground
             base.PostMake();
         }
 
-        public override void Tick()
+        protected override void Tick()
         {
             base.Tick();
             if (!Spawned) return;

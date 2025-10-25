@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using RimWorld.BaseGen;
 using RimWorld.SketchGen;
 using System;
 using System.Collections.Generic;
@@ -18,12 +19,8 @@ namespace RatkinUnderground
 
         private const float DestroyChanceExp = 1.32f;
 
-        protected override bool CanResolveInt(ResolveParams parms)
-        {
-            return true;
-        }
 
-        protected override void ResolveInt(ResolveParams parms)
+        protected override void ResolveInt(SketchResolveParams parms)
         {
             CellRect occupiedRect = parms.sketch.OccupiedRect;
             Rot4 random = Rot4.Random;
@@ -45,7 +42,7 @@ namespace RatkinUnderground
             RepairWalls(parms.sketch);
         }
 
-        private void ClearDisconnectedDoors(ResolveParams parms, IntVec3 position)
+        private void ClearDisconnectedDoors(SketchResolveParams parms, IntVec3 position)
         {
             IntVec3[] cardinalDirectionsAround = GenAdj.CardinalDirectionsAround;
             for (int i = 0; i < cardinalDirectionsAround.Length; i++)
@@ -238,6 +235,11 @@ namespace RatkinUnderground
         private bool HasEdifice(Sketch sketch, IntVec3 pos)
         {
             return sketch.ThingsAt(pos).Any(t => t.def.building != null && t.def.building.isEdifice);
+        }
+
+        protected override bool CanResolveInt(SketchResolveParams parms)
+        {
+            return true;
         }
     }
 }

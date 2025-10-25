@@ -12,7 +12,7 @@ namespace RatkinUnderground.Patches;
 
 [StaticConstructorOnStartup]
 
-[HarmonyPatch(typeof(FactionGenerator), nameof(FactionGenerator.GenerateFactionsIntoWorld))]
+[HarmonyPatch(typeof(FactionGenerator), nameof(FactionGenerator.GenerateFactionsIntoWorldLayer))]
 class GenerateFactions_Patch
 {
     static void Postfix()
@@ -37,7 +37,7 @@ class GenerateFactions_Patch
     }
 }
 
-[HarmonyPatch(typeof(FactionGenerator), nameof(FactionGenerator.NewGeneratedFaction))]
+[HarmonyPatch(typeof(FactionGenerator), nameof(FactionGenerator.NewGeneratedFaction), new Type[] { typeof(FactionGeneratorParms) })]
 public static class Patch_FactionGenerator_NewGeneratedFaction
 {
     static void Postfix(Faction __result, FactionGeneratorParms parms)

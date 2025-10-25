@@ -17,7 +17,7 @@ namespace RatkinUnderground
         private Vector3 exactScale = new Vector3(2f, 1f, 2f);
         private static readonly Color dirtColor = new Color(0.6f, 0.4f, 0.2f, 0.8f); // 土色
 
-        public override void Tick()
+        protected override void Tick()
         {
             base.Tick();
 

@@ -33,7 +33,7 @@ namespace RatkinUnderground
             SoundDef.Named("RKU_BombSet").PlayOneShot(new TargetInfo(Position, Map));
         }
 
-        public override void Tick()
+        protected override void Tick()
         {
             base.Tick();
             if (!Spawned) return;

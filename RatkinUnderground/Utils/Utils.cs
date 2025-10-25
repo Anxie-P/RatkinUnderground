@@ -373,7 +373,7 @@ namespace RatkinUnderground
         public static bool TryFindPlayerRoomPosition(Map map, out IntVec3 loc)
         {
             // 获取所有玩家拥有的房间
-            var playerRooms = map.regionGrid.allRooms
+            var playerRooms = map.regionGrid.AllRooms
                 .Where(room => room.CellCount > 10)
                 .ToList();
 
@@ -541,23 +541,25 @@ namespace RatkinUnderground
             for (int i = 0; i < rangeTiles; i++)
             {
                 List<int> neighbors = new List<int>();
-                grid.GetTileNeighbors(currentTile, neighbors);
+                List<PlanetTile> planetTiles = new List<PlanetTile>();
+                neighbors.ForEach(o => planetTiles.Add(new PlanetTile(o))); 
+                grid.GetTileNeighbors(currentTile, planetTiles);
 
-                var candidates = neighbors.Where(t => !grid[t].WaterCovered &&
+                var candidates = planetTiles.Where(t => !grid[t].WaterCovered &&
                                                  !grid[t].hilliness.Equals(Hilliness.Impassable) &&
                                                  t != currentTile &&
                                                  t != baseTile &&
                                                  !Find.WorldObjects.AnyWorldObjectAt(t)).ToList();
                 if (candidates.Count == 0)
                 {
-                    candidates = neighbors.Where(t => !grid[t].WaterCovered &&
+                    candidates = planetTiles.Where(t => !grid[t].WaterCovered &&
                                                  t != currentTile &&
                                                  t != baseTile &&
                                                  !Find.WorldObjects.AnyWorldObjectAt(t)).ToList();
                 }
                 if (candidates.Count == 0)
                 {
-                    candidates = neighbors.Where(t => 
+                    candidates = planetTiles.Where(t => 
                                                  t != currentTile &&
                                                  t != baseTile &&
                                                  !Find.WorldObjects.AnyWorldObjectAt(t)).ToList();
@@ -584,6 +586,84 @@ namespace RatkinUnderground
                 comp.maxRelationshipGrade = -25;
                 comp.ralationshipGrade = comp.ralationshipGrade;
             }
+        }
+
+        /// <summary>
+        /// 生成随机物品（食物、医药或武器）
+        /// </summary>
+        /// <returns>生成的物品，如果无法生成则返回null</returns>
+        public static Thing GenerateRandomItem()
+        {
+            // 随机选择物品类型：0=食物, 1=医药, 2=武器
+            int itemType = Rand.Range(0, 3);
+
+            switch (itemType)
+            {
+                case 0: // 食物
+                    return GenerateRandomFood();
+                case 1: // 医药
+                    return GenerateRandomMedicine();
+                case 2: // 武器
+                    return GenerateRandomWeapon();
+                default:
+                    return null;
+            }
+        }
+
+        /// <summary>
+        /// 生成随机食物（营养值大于0.8）
+        /// </summary>
+        /// <returns>生成的食物物品，如果无法生成则返回null</returns>
+        public static Thing GenerateRandomFood()
+        {
+            // 选择营养值大于0.8的食物
+            var foodDefs = DefDatabase<ThingDef>.AllDefs
+                .Where(def => def.ingestible != null && def.ingestible.foodType==FoodTypeFlags.Meal)
+                .ToList();
+
+            if (foodDefs.Count == 0) return null;
+
+            ThingDef selectedFood = foodDefs.RandomElement();
+            return ThingMaker.MakeThing(selectedFood);
+        }
+
+        /// <summary>
+        /// 生成随机医药物品
+        /// </summary>
+        /// <returns>生成的医药物品，如果无法生成则返回null</returns>
+        public static Thing GenerateRandomMedicine()
+        {
+            // 选择医药物品
+            var medicineDefs = DefDatabase<ThingDef>.AllDefs
+                .Where(def => def.IsWithinCategory(ThingCategoryDef.Named("Medicine")))
+                .ToList();
+
+            if (medicineDefs.Count == 0) return null;
+
+            ThingDef selectedMedicine = medicineDefs.RandomElement();
+            return ThingMaker.MakeThing(selectedMedicine);
+        }
+
+        /// <summary>
+        /// 生成随机武器（有品质组件）
+        /// </summary>
+        /// <returns>生成的武器物品，如果无法生成则返回null</returns>
+        public static Thing GenerateRandomWeapon()
+        {
+            var weaponDefs = DefDatabase<ThingDef>.AllDefs
+                .Where(def => def.IsWeapon && def.comps != null &&
+                             def.comps.Any(comp => comp.compClass == typeof(CompQuality)) &&
+                             def.weaponClasses != null)
+                .ToList();
+
+            if (weaponDefs.Count == 0) return null;
+
+            ThingDef selectedWeapon = weaponDefs.RandomElement();
+            ThingWithComps weapon = (ThingWithComps)ThingMaker.MakeThing(selectedWeapon,default);
+            QualityCategory quality = (QualityCategory)Rand.Range((int)QualityCategory.Awful, (int)QualityCategory.Masterwork + 1);
+            weapon.TryGetComp<CompQuality>()?.SetQuality(quality, ArtGenerationContext.Outsider);
+
+            return weapon;
         }
     }
 }

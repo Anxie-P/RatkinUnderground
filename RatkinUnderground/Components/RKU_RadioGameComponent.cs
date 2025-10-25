@@ -165,7 +165,7 @@ namespace RatkinUnderground
             slate.Set("asker", Find.FactionManager.FirstFactionOfDef(FactionDef.Named("Rakinia"))?.leader);
             slate.Set("enemyFaction", Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction));
 
-            if (!questDef.CanRun(slate))
+            if (!questDef.CanRun(slate,null))
             {
                 guerrillaCampOfferPending = true;
                 return;

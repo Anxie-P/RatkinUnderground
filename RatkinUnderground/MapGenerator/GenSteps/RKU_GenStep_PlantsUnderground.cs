@@ -25,7 +25,7 @@ namespace RatkinUnderground
             if (map == null) return;
 
             // 获取当前植物密度和期望植物数量
-            float currentPlantDensity = map.wildPlantSpawner.CurrentPlantDensity * CAVE_PLANT_DENSITY_FACTOR;
+            float currentPlantDensity = map.wildPlantSpawner.CurrentPlantDensityFactor * CAVE_PLANT_DENSITY_FACTOR;
             float currentWholeMapNumDesiredPlants = map.wildPlantSpawner.CurrentWholeMapNumDesiredPlants;
 
             // 创建植物集群中心点

@@ -110,7 +110,7 @@ namespace RatkinUnderground
             }
 
             float points = parms.points;
-            parms.points = AdjustedRaidPoints(parms.points, parms.raidArrivalMode, parms.raidStrategy, parms.faction, groupKind, parms.raidAgeRestriction);
+            parms.points = AdjustedRaidPoints(parms.points, parms.raidArrivalMode, parms.raidStrategy, parms.faction, groupKind,null);
 
             if (pawns == null)
             {

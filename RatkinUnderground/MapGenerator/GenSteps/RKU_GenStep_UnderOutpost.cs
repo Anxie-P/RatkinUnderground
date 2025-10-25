@@ -74,11 +74,11 @@ namespace RatkinUnderground
                 return;
             }
 
-            RimWorld.SketchGen.ResolveParams parms2 = default(RimWorld.SketchGen.ResolveParams);
+            SketchResolveParams parms2 = default;
             parms2.sketch = new Sketch();
             parms2.monumentSize = new IntVec2(rect.Width, rect.Height);
             parms2.destroyChanceExp = destroyChanceExp;
-            SketchGen.Generate(DefOfs.RKU_MonumentRuin, parms2).Spawn(map, rect.CenterCell, null, Sketch.SpawnPosType.Unchanged, Sketch.SpawnMode.Normal, wipeIfCollides: false, clearEdificeWhereFloor: false, null, dormant: false, buildRoofsInstantly: false, delegate (SketchEntity entity, IntVec3 cell)
+            SketchGen.Generate(DefOfs.RKU_MonumentRuin, parms2).Spawn(map, rect.CenterCell, null, Sketch.SpawnPosType.Unchanged, Sketch.SpawnMode.Normal, wipeIfCollides: false, false, clearEdificeWhereFloor: false, null, dormant: false, buildRoofsInstantly: false, delegate (SketchEntity entity, IntVec3 cell)
             {
                 IntVec3[] cardinalDirectionsAndInside = GenAdj.CardinalDirectionsAndInside;
                 foreach (IntVec3 intVec in cardinalDirectionsAndInside)
@@ -108,7 +108,7 @@ namespace RatkinUnderground
                     }
                 }
                 return result;
-            });
+            }, null, null);
             SpawnGraffiti(map, rect);
             GenerateDrillingVehicleAndScouts(map, rect);
             SpawnTradingPostInside(map, rect);

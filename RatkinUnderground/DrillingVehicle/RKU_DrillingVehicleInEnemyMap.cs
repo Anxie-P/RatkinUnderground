@@ -76,19 +76,6 @@ namespace RatkinUnderground
             ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, GetDirectlyHeldThings());
         }
 
-        public override void Tick()
-        {
-            base.Tick();
-            if (passengers != null)
-            {
-                passengers.ThingOwnerTick();
-            }
-            if (cargoHolder != null)
-            {
-                cargoHolder.ThingOwnerTick();
-            }
-        }
-
         public override void ExposeData()
         {
             base.ExposeData();
@@ -342,7 +329,7 @@ namespace RatkinUnderground
             }
         }
 
-        public override IEnumerable<FloatMenuOption> GetMultiSelectFloatMenuOptions(List<Pawn> selPawns)
+        public override IEnumerable<FloatMenuOption> GetMultiSelectFloatMenuOptions(IEnumerable<Pawn> selPawns)
         {
 
             foreach (FloatMenuOption option in base.GetMultiSelectFloatMenuOptions(selPawns))

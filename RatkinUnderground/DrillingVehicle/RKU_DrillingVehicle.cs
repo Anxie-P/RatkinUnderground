@@ -94,11 +94,6 @@ namespace RatkinUnderground
 
         #endregion
 
-        public override void Tick()
-        {
-            base.Tick();
-            passengers.ThingOwnerTick();
-        }
 
         public override IEnumerable<Gizmo> GetGizmos()
         {
@@ -289,9 +284,9 @@ namespace RatkinUnderground
             }
         }
 
-        public override IEnumerable<FloatMenuOption> GetMultiSelectFloatMenuOptions(List<Pawn> selPawns)
+        public override IEnumerable<FloatMenuOption> GetMultiSelectFloatMenuOptions(IEnumerable<Pawn> selPawns)
         {
-            Log.Message($"[RKU_DrillingVehicle] GetMultiSelectFloatMenuOptions 被调用，选中pawn数量: {selPawns.Count}, 钻机类型: {this.GetType().Name}");
+            Log.Message($"[RKU_DrillingVehicle] GetMultiSelectFloatMenuOptions 被调用，选中pawn数量: {selPawns.Count()}, 钻机类型: {this.GetType().Name}");
 
             foreach (FloatMenuOption option in base.GetMultiSelectFloatMenuOptions(selPawns))
             {

@@ -121,14 +121,6 @@ namespace RatkinUnderground
             base.DeSpawn(mode);
         }
 
-        public override void Tick()
-        {
-            base.Tick();
-            if (cargo != null)
-            {
-                cargo.ThingOwnerTick();
-            }
-        }
         public override void ExposeData()
         {
             base.ExposeData();
@@ -270,7 +262,7 @@ namespace RatkinUnderground
                 Text.Anchor = TextAnchor.UpperLeft;
 
                 // 显示重量信息
-                CaravanUIUtility.DrawCaravanInfo(new CaravanUIUtility.CaravanInfo(MassUsage, MassCapacity, "", 0f, "", default(Pair<float, float>), default(Pair<ThingDef, float>), "", 0f, "", MassUsage, MassCapacity, ""), null, vehicle.Map.Tile, null, lastMassFlashTime, new Rect(12f, 35f, inRect.width - 24f, 40f), lerpMassColor: false);
+                CaravanUIUtility.DrawCaravanInfo(new CaravanUIUtility.CaravanInfo(MassUsage, MassCapacity, "", 0f, "", default, default, "", 0f, "", MassUsage, MassCapacity, ""), null, vehicle.Map.Tile, null, lastMassFlashTime, new Rect(12f, 35f, inRect.width - 24f, 40f), lerpMassColor: false);
                 inRect.yMin += 52f;
 
                 inRect.yMin += 67f;

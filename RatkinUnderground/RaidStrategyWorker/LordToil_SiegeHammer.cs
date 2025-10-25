@@ -149,7 +149,7 @@ namespace RatkinUnderground
 
             private static bool CanPlaceBlueprintAt(IntVec3 root, Rot4 rot, ThingDef buildingDef, Map map, ThingDef stuffDef)
             {
-                return GenConstruct.CanPlaceBlueprintAt_NewTemp(buildingDef, root, rot, map, godMode: false, null, null, stuffDef, ignoreEdgeArea: true, ignoreInteractionSpots: true, ignoreClearableFreeBuildings: true).Accepted;
+                return GenConstruct.CanPlaceBlueprintAt(buildingDef, root, rot, map, godMode: false, null, null, stuffDef, ignoreEdgeArea: true, ignoreInteractionSpots: true, ignoreClearableFreeBuildings: true).Accepted;
             }
 
             private static IEnumerable<Blueprint_Build> PlaceCoverBlueprints(Map map)

@@ -20,6 +20,9 @@ namespace RatkinUnderground
         private bool hasTriggeredIncident = false;
         //private List<CellRect> roomCells = new List<CellRect>();
 
+        private int assaultTickCounter = 0;
+        private const int ASSAULT_DELAY_TICKS = 5000;
+
         public override void PostMapGenerate(Map map)
         {
             base.PostMapGenerate(map);
@@ -54,7 +57,7 @@ namespace RatkinUnderground
 
             // 找到包含两张豪华双人床的房间
             var nobleRoom = FindRoomWithRoyalBeds(map, 2);
-            var allUpperRooms = map.regionGrid.allRooms
+            var allUpperRooms = map.regionGrid.AllRooms
                 .Where(room => room.CellCount > 5 &&
                               room.Cells.Any(cell => cell.z > 125) &&
                               IsIndoorRoom(room, map))
@@ -90,7 +93,7 @@ namespace RatkinUnderground
 
         private Room FindRoomWithRoyalBeds(Map map, int minBedCount)
         {
-            foreach (var room in map.regionGrid.allRooms)
+            foreach (var room in map.regionGrid.AllRooms)
             {
                 if (room.CellCount <= 5 || !IsIndoorRoom(room, map)) continue;
 
@@ -214,7 +217,7 @@ namespace RatkinUnderground
         private void SpawnDefensiveForceInRoom(Room room, Map map, Faction faction)
         {
             // 根据房间大小决定生成单位数量
-            int unitCount = Math.Max(1, room.CellCount / 50); // 每50个格子至少生成1个单位
+            int unitCount = Math.Min(12, room.CellCount / 50); // 每50个格子至少生成1个单位
             // 鼠族战斗单位列表
             string[] combatantKinds = {
                 "RatkinCombatant", "RatkinVanguard", "RatkinDemonMan",
@@ -320,21 +323,68 @@ namespace RatkinUnderground
             }
         }
 
+        private void TriggerRoomAssault(Map map)
+        {
+            // 获取鼠族王国派系
+            var ratkinFaction = Find.FactionManager.FirstFactionOfDef(FactionDef.Named("Rakinia"));
+            if (ratkinFaction == null) return;
+            var hostilePawns = map.mapPawns.AllPawnsSpawned
+                .Where(p => p.Faction != null && p.Faction.HostileTo(ratkinFaction) && !p.Downed)
+                .ToList();
+
+            if (hostilePawns.Count == 0) return;
+            var allRatkins = map.mapPawns.AllPawnsSpawned
+                .Where(p => p.Faction == ratkinFaction && !p.Downed)
+                .ToList();
+            if (allRatkins.Count == 0) return;
+            var ratkinRooms = map.regionGrid.AllRooms
+                .Where(room => room.CellCount > 5 &&
+                              allRatkins.Any(p => room.ContainsCell(p.Position)))
+                .ToList();
+            if (ratkinRooms.Count == 0) return;
+            var selectedRoom = ratkinRooms.RandomElement();
+            var roomRatkins = allRatkins
+                .Where(p => selectedRoom.ContainsCell(p.Position))
+                .ToList();
+            if (roomRatkins.Count == 0) return;
+
+            foreach (var pawn in roomRatkins)
+            {
+                if (pawn.GetLord() != null)
+                {
+                    pawn.GetLord().RemovePawn(pawn);
+                }
+            }
+
+            var assaultJob = new LordJob_AssaultColony(ratkinFaction, true, false, false, false, true);
+            LordMaker.MakeNewLord(ratkinFaction, assaultJob, map, roomRatkins);
+            Messages.Message($"一些敌对鼠族开始突击了", roomRatkins[0], MessageTypeDefOf.NeutralEvent); 
+        }
+
         public override void SitePartWorkerTick(SitePart sitePart)
         {
             base.SitePartWorkerTick(sitePart);
 
-            if (hasTriggeredIncident) return;
+            Map map = sitePart.site.Map;
+            if (map == null) return;
 
-            tickCounter++;
-            if (tickCounter >= TRIGGER_DELAY_TICKS)
+            // 处理初始incident触发
+            if (!hasTriggeredIncident)
             {
-                Map map = sitePart.site.Map;
-                if (map != null)
+                tickCounter++;
+                if (tickCounter >= TRIGGER_DELAY_TICKS)
                 {
                     TriggerGuerrillaIncident(map);
                     hasTriggeredIncident = true;
                 }
+            }
+
+            // 处理周期性突击逻辑
+            assaultTickCounter++;
+            if (assaultTickCounter >= ASSAULT_DELAY_TICKS)
+            {
+                TriggerRoomAssault(map);
+                assaultTickCounter = 0;
             }
         }
 

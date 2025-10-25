@@ -29,7 +29,7 @@ namespace RatkinUnderground
             drillingVehicle = (IThingHolder)ThingMaker.MakeThing(DefOfs.RKU_DrillingVehicleInEnemyMap_Und);
             ((Thing)drillingVehicle).SetFaction(faction);
             ((Thing)drillingVehicle).HitPoints = ((Thing)drillingVehicle).MaxHitPoints;
-            ((Thing)drillingVehicle).FactionPreventsClaimingOrAdopting(faction, false);
+            ((Thing)drillingVehicle).FactionPreventsClaimingOrAdopting(faction, false,out string rua);
             GenSpawn.Spawn((Thing)drillingVehicle, loc, map);
 
             var drill = ((RKU_DrillingVehicleInEnemyMap_Und)drillingVehicle);

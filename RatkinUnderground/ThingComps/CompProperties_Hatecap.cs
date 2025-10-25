@@ -58,9 +58,9 @@ namespace RatkinUnderground
             }
         }
 
-        public override void PostDeSpawn(Map map)
+        public override void PostDeSpawn(Map map, DestroyMode destroyMode)
         {
-            base.PostDeSpawn(map);
+            base.PostDeSpawn(map, DestroyMode.Vanish);
 
             var typesCount = Rand.RangeInclusive(0, 3);
             for (int i = 0; i < typesCount; i++)

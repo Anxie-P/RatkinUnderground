@@ -74,7 +74,7 @@ namespace RatkinUnderground
                                 Log.Error($"[RKU] RKU_MapParent的QueueLongEvent报错: {ex}");
                             },
                             true,
-                            null
+                            false
                             );
                         }, MenuOptionPriority.Default, null, null, 0f, null, null);
                     }
@@ -132,7 +132,7 @@ namespace RatkinUnderground
                             Log.Error($"[RKU] RKU_MapParent的QueueLongEvent报错: {ex}");
                         },
                         true,                                                
-                        null
+                        false
                         );
                     }, MenuOptionPriority.Default, null, null, 0f, null, null);
                 }

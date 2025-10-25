@@ -34,7 +34,7 @@ public static class RKU_DrillingVehiclePatch
             if (caravanField(__instance) is RKU_DrillingVehicleOnMap)
             {
                 System.Random rand = new System.Random();
-                if (rand.Next(0, 5000)==1) 
+                if (rand.Next(0, 10000)==1) 
                 {
                     Log.Message($"已生成地图");
                     __result = 1f;
@@ -90,33 +90,33 @@ public static class RKU_DrillingVehiclePatch
         }
     }
 
-    [HarmonyPatch(typeof(WorldPathFinder), "FindPath")]
+    [HarmonyPatch(typeof(WorldPathing), "FindPath", new Type[] { typeof(PlanetTile), typeof(PlanetTile), typeof(Caravan), typeof(Func<float, bool>) })]
     public static class FindPath_Patch
     {
-        public static bool Prefix(int startTile, int destTile, Caravan caravan, Func<float, bool> terminator, ref WorldPath __result)
+        public static bool Prefix(PlanetTile startTile, PlanetTile destTile, Caravan caravan, Func<float, bool> terminator, ref WorldPath __result)
         {
             if (caravan is RKU_DrillingVehicleOnMap)
             {
                 WorldPath path = new WorldPath();
-                int currentTile = startTile;
+                int currentTile = startTile.tileId;
 
-                path.AddNodeAtStart(startTile);
+                path.AddNodeAtStart(currentTile);
 
-                while (currentTile != destTile)
+                while (currentTile != destTile.tileId)
                 {
-                    List<int> neighbors = new List<int>();
+                    List<PlanetTile> neighbors = new List<PlanetTile>();
                     Find.WorldGrid.GetTileNeighbors(currentTile, neighbors);
 
                     float minDist = float.MaxValue;
                     int nextTile = currentTile;
 
-                    foreach (int neighbor in neighbors)
+                    foreach (PlanetTile neighbor in neighbors)
                     {
-                        float dist = Find.WorldGrid.ApproxDistanceInTiles(neighbor, destTile);
+                        float dist = Find.WorldGrid.ApproxDistanceInTiles(neighbor.tileId, destTile.tileId);
                         if (dist < minDist)
                         {
                             minDist = dist;
-                            nextTile = neighbor;
+                            nextTile = neighbor.tileId;
                         }
                     }
 
@@ -129,8 +129,8 @@ public static class RKU_DrillingVehiclePatch
                     currentTile = nextTile;
                 }
 
-                path.AddNodeAtStart(destTile);
-                path.SetupFound(Find.WorldGrid.ApproxDistanceInTiles(startTile, destTile));
+                path.AddNodeAtStart(destTile.tileId);
+                path.SetupFound(Find.WorldGrid.ApproxDistanceInTiles(startTile.tileId, destTile.tileId), PlanetLayer.Selected);
 
                 __result = path;
                 return false;
