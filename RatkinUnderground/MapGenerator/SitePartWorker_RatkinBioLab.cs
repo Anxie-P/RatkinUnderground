@@ -18,7 +18,6 @@ namespace RatkinUnderground
         private int tickCounter = 0;
         private const int TRIGGER_DELAY_TICKS = 500;
         private bool hasTriggeredIncident = false;
-        //private List<CellRect> roomCells = new List<CellRect>();
 
         private int assaultTickCounter = 0;
         private const int ASSAULT_DELAY_TICKS = 5000;
@@ -26,7 +25,6 @@ namespace RatkinUnderground
         public override void PostMapGenerate(Map map)
         {
             base.PostMapGenerate(map);
-            map.fogGrid.ClearAllFog();
             ProcessBioLabMap(map);
         }
 
@@ -38,15 +36,6 @@ namespace RatkinUnderground
         {
             SpawnCombatantsInUpperRooms(map);
             SpawnExperimentSubjectsNearBeds(map);
-            var cellRect = new CellRect(63, 63, 125, 125);
-            map.fogGrid.Refog(cellRect);
-            /*if (roomCells!= null)
-            {
-                foreach(var cell in roomCells)
-                {
-                    map.fogGrid.Refog(cell);
-                }
-            }*/
         }
 
         private void SpawnCombatantsInUpperRooms(Map map)
@@ -86,7 +75,6 @@ namespace RatkinUnderground
             // 为其他房间生成防御部队
             foreach (var room in allUpperRooms.Where(r => r.CellCount > 5))
             {
-                // Log.Message($"[RKU] 在房间生成防御部队，房间ID: {room.ID},BorderCells:{room.BorderCells.First()}, cellCount : {room.CellCount}");
                 SpawnDefensiveForceInRoom(room, map, ratkinFaction);
             }
         }
@@ -225,8 +213,7 @@ namespace RatkinUnderground
                 "RatkinKnight"
             };
 
-            var cells = room.Cells.Where(c => c.Standable(map) &&
-                                         c.GetFirstPawn(map) == null).ToList();
+            var cells = room.Cells.Where(c => c.Standable(map) && c.GetFirstPawn(map) == null).ToList();
 
             // 打乱可用位置顺序，实现随机分布
             cells.Shuffle();
