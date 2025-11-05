@@ -46,8 +46,19 @@ namespace RatkinUnderground
                 rFaction.leader.Name = new NameTriple("RKU_Zigstark".Translate(), null, "RKU_Cheesecellar".Translate());
                 SetFactionLeaderTitle(rFaction, "RKU_commanderTitle".Translate());
                 rFaction.leader.gender=Gender.Female;
-                rFaction.ideos.PrimaryIdeo.leaderTitleMale = "RKU_commanderTitle".Translate();
-                rFaction.ideos.PrimaryIdeo.leaderTitleFemale = "RKU_commanderTitle".Translate();
+
+                // 检查是否是经典模式,妈的泰南
+                bool allFactionsSameCulture = Find.FactionManager.AllFactions
+                    .Where(f => f.ideos != null && f.ideos.PrimaryIdeo != null)
+                    .Select(f => f.ideos.PrimaryIdeo)
+                    .Distinct()
+                    .Count() == 1;
+
+                if (!allFactionsSameCulture)
+                {
+                    rFaction.ideos.PrimaryIdeo.leaderTitleMale = "RKU_commanderTitle".Translate();
+                    rFaction.ideos.PrimaryIdeo.leaderTitleFemale = "RKU_commanderTitle".Translate();
+                }
                 rFaction.leader.story.hairDef = DefDatabase<HairDef>.GetNamed("RKU_CommanderHair");
                 rFaction.leader.story.HairColor = new UnityEngine.Color(236,222,227);
                 rFaction.leader.story.Childhood = DefDatabase<AlienRace.AlienBackstoryDef>.GetNamed("Ratkin_GuerrillaCT");
