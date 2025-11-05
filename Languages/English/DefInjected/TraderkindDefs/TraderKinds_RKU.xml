@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!--TraderKinds_RKU 商队内容_RKU-->
+  <!--地鼠物资运输队-->
+  <RKU_RadioShop.label>Ratkin Underground's Supplies Convoy</RKU_RadioShop.label>
+
+  <!--地鼠物资运输队-->
+  <RKU_TradingPost.label>Ratkin Underground's Trading Post</RKU_TradingPost.label>
+
+</LanguageData>

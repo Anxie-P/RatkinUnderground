@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <Operation Class="PatchOperationAdd" MayRequire="fxz.ratkinanomaly.update">
+    <xpath>Defs/HediffDef[defName="RKU_CombatEfficiency"]/stages/li[1]</xpath>
+    <value>
+      <statFactors>
+        <RA_AgingRateFactor>1.2</RA_AgingRateFactor>
+      </statFactors>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd" MayRequire="fxz.ratkinanomaly.update">
+    <xpath>Defs/HediffDef[defName="RKU_CombatEfficiency"]/stages/li[2]</xpath>
+    <value>
+      <statFactors>
+        <RA_AgingRateFactor>1.2</RA_AgingRateFactor>
+      </statFactors>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd" MayRequire="fxz.ratkinanomaly.update">
+    <xpath>Defs/HediffDef[defName="RKU_CombatEfficiency"]/stages/li[3]</xpath>
+    <value>
+      <statFactors>
+        <RA_AgingRateFactor>1.2</RA_AgingRateFactor>
+      </statFactors>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd" MayRequire="fxz.ratkinanomaly.update">
+    <xpath>Defs/HediffDef[defName="RKU_CombatEfficiency"]/stages/li[4]</xpath>
+    <value>
+      <statFactors>
+        <RA_AgingRateFactor>1.2</RA_AgingRateFactor>
+      </statFactors>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd" MayRequire="fxz.ratkinanomaly.update">
+    <xpath>Defs/HediffDef[defName="RKU_CombatEfficiency"]/stages/li[5]</xpath>
+    <value>
+      <statFactors>
+        <RA_AgingRateFactor>1.2</RA_AgingRateFactor>
+      </statFactors>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd" MayRequire="fxz.ratkinanomaly.update">
+    <xpath>Defs/HediffDef[defName="RKU_CombatEfficiency"]/stages/li[6]</xpath>
+    <value>
+      <statFactors>
+        <RA_AgingRateFactor>1.2</RA_AgingRateFactor>
+      </statFactors>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd" MayRequire="fxz.ratkinanomaly.update">
+    <xpath>Defs/HediffDef[defName="RKU_CombatEfficiency"]/stages/li[7]</xpath>
+    <value>
+      <statFactors>
+        <RA_AgingRateFactor>1.2</RA_AgingRateFactor>
+      </statFactors>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd" MayRequire="fxz.ratkinanomaly.update">
+    <xpath>Defs/HediffDef[defName="RKU_CombatEfficiency"]/stages/li[8]</xpath>
+    <value>
+      <statFactors>
+        <RA_AgingRateFactor>1.2</RA_AgingRateFactor>
+      </statFactors>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd" MayRequire="fxz.ratkinanomaly.update">
+    <xpath>Defs/HediffDef[defName="RKU_CombatEfficiency"]/stages/li[9]</xpath>
+    <value>
+      <statFactors>
+        <RA_AgingRateFactor>1.2</RA_AgingRateFactor>
+      </statFactors>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd" MayRequire="fxz.ratkinanomaly.update">
+    <xpath>Defs/HediffDef[defName="RKU_CombatEfficiency"]/stages/li[10]</xpath>
+    <value>
+      <statFactors>
+        <RA_AgingRateFactor>1.2</RA_AgingRateFactor>
+      </statFactors>
+    </value>
+  </Operation>
+</Patch>

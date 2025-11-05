@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!--RKU_Mushrooms-->
+  <!-- 灵感菇 -->
+  <RKU_Mindspark.label>灵感菇</RKU_Mindspark.label>
+  <RKU_Mindspark.description>灵感菇，吃掉可以获得水平最高的技能对应的灵感，摘下来会快速融化成黑色的液体，只能就地吃掉。</RKU_Mindspark.description>
+  <!-- 憎恶菇 -->
+  <RKU_Hatecap.label>憎恶菇</RKU_Hatecap.label>
+  <RKU_Hatecap.description>憎恶菇，气味难闻，但附近往往伴生着有益蘑菇的菌丛。</RKU_Hatecap.description>
+  <!-- 魅惑菇 -->
+  <RKU_Allurecap.label>魅惑菇</RKU_Allurecap.label>
+  <RKU_Allurecap.description>魅惑菇</RKU_Allurecap.description>
+  <!-- 毁灭菇 -->
+  <RKU_Singularitycap.label>反粒子毁灭菇</RKU_Singularitycap.label>
+  <RKU_Singularitycap.description>反粒子毁灭菇，据说它们的孢子是古代武器的原料，但在光照下会一定程度上失活。</RKU_Singularitycap.description>
+
+</LanguageData>
+

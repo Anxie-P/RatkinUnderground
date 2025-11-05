@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <MapGeneratorDef>
+    <defName>RKU_Caves</defName>
+	<forceCaves>true</forceCaves>
+    <genSteps>
+	  <li>RKU_GenStep_ElevationFertility</li> 
+      <li>RockChunks</li>
+      <li>ScenParts</li>
+      <li>RKU_Undercave_RocksFromGrid</li>
+	  <li>RKU_Caves</li>                  
+	  <li>RKU_MakeUpSmallCaves</li>        
+	  <li>RKU_CavesTerrain</li>
+      <li>RKU_PlantsUnderground</li>	  
+      <li>RKU_UnderGroundMouse</li>	  
+    </genSteps>
+	<modExtensions>
+      <li Class="RatkinUnderground.RKU_MapGeneratorDefModExtension">
+        <isEncounterMap>false</isEncounterMap>
+        <requireDrillingVehicle>true</requireDrillingVehicle>
+      </li>
+    </modExtensions>
+  </MapGeneratorDef>
+  
+  <MapGeneratorDef>
+    <defName>RKU_CavesWithLake</defName>
+	<forceCaves>true</forceCaves>
+    <genSteps>
+	  <li>RKU_GenStep_ElevationFertility</li> 
+      <li>RockChunks</li>
+      <li>ScenParts</li>
+      <li>RKU_Undercave_RocksFromGrid</li>
+	  <li>RKU_Caves</li>                  
+	  <li>RKU_MakeUpSmallCaves</li>        
+	  <li>RKU_UnderGroundLake</li>
+	  <li>RKU_CavesTerrain</li>	  
+      <li>RKU_PlantsUnderground</li>	
+	  <li>RKU_UnderGroundMouse</li>	    
+    </genSteps>
+	<modExtensions>
+      <li Class="RatkinUnderground.RKU_MapGeneratorDefModExtension">
+        <isEncounterMap>false</isEncounterMap>
+        <requireDrillingVehicle>true</requireDrillingVehicle>
+      </li>
+    </modExtensions>
+  </MapGeneratorDef>
+  
+   <MapGeneratorDef>
+    <defName>RKU_Worm</defName>
+	<forceCaves>true</forceCaves>
+    <genSteps>
+	  <li>RKU_GenStep_ElevationFertility</li> 
+      <li>RockChunks</li>
+      <li>ScenParts</li>
+      <li>RKU_Undercave_RocksFromGrid</li>
+	  <li>RKU_Caves</li>                  
+	  <li>RKU_MakeUpSmallCaves</li>        
+	  <li>RKU_SmallLake</li>
+	  <li>RKU_CavesTerrain</li>	  
+	  <li>RKU_Worm</li>	  
+	  <li>RKU_PlantsUnderground</li>	  
+    </genSteps>
+	<modExtensions>
+      <li Class="RatkinUnderground.RKU_MapGeneratorDefModExtension">
+        <isEncounterMap>true</isEncounterMap>
+        <requireDrillingVehicle>true</requireDrillingVehicle>
+      </li>
+    </modExtensions>
+  </MapGeneratorDef>
+  
+ <MapGeneratorDef>
+    <defName>RKU_GuerrillaBase</defName>
+    <forceCaves>true</forceCaves>
+    <genSteps>
+      <li>RKU_GenStep_ElevationFertility</li> 
+      <li>RockChunks</li>
+      <li>ScenParts</li>
+      <li>RKU_Undercave_RocksFromGrid</li>
+      <li>RKU_Caves</li>                  
+      <li>RKU_MakeUpSmallCaves</li>        
+      <li>RKU_MiniLake</li>
+      <li>RKU_CavesTerrain</li>
+      <li>RKU_PlantsUnderground</li>	
+      <li>RKU_UnderOutpost</li>	    
+      <li>RKU_UnderGroundMouse</li>	  
+    </genSteps>
+	<modExtensions>
+      <li Class="RatkinUnderground.RKU_MapGeneratorDefModExtension">
+        <isEncounterMap>false</isEncounterMap>
+        <requireDrillingVehicle>true</requireDrillingVehicle>
+      </li>
+    </modExtensions>
+  </MapGeneratorDef> 
+  
+   <MapGeneratorDef>
+    <defName>RKU_FairyRing</defName>
+    <forceCaves>true</forceCaves>
+    <genSteps>
+      <li>RKU_GenStep_ElevationFertility</li> 
+      <li>RockChunks</li>
+      <li>ScenParts</li>
+      <li>RKU_Undercave_RocksFromGrid</li>
+      <li>RKU_Caves</li>                  
+      <li>RKU_MakeUpSmallCaves</li>        
+      <li>RKU_SmallLake</li>
+      <li>RKU_CavesTerrain</li>
+      <li>RKU_PlantsUnderground</li>	
+      <li>RKU_FairyRing</li>	    
+	  <li>RKU_UnderGroundMouse</li>	  
+    </genSteps>
+	<modExtensions>
+      <li Class="RatkinUnderground.RKU_MapGeneratorDefModExtension">
+        <isEncounterMap>false</isEncounterMap>
+		<requireDrillingVehicle>true</requireDrillingVehicle>
+      </li>
+    </modExtensions>
+  </MapGeneratorDef> 
+  
+  <MapGeneratorDef>
+    <defName>RKU_Lode</defName>
+    <forceCaves>true</forceCaves>
+    <genSteps>
+      <li>RKU_GenStep_ElevationFertility</li> 
+      <li>RockChunks</li>
+      <li>ScenParts</li>
+      <li>RKU_Undercave_RocksFromGrid</li>
+      <li>RKU_Caves</li>                  
+      <li>RKU_MakeUpSmallCaves</li>        
+      <li>RKU_SmallLake</li>
+      <li>RKU_CavesTerrain</li>
+      <li>RKU_PlantsUnderground</li>	
+      <li>RKU_Lode</li>	  
+	  <li>RKU_UnderGroundMouse</li>	    
+    </genSteps>
+	<modExtensions>
+      <li Class="RatkinUnderground.RKU_MapGeneratorDefModExtension">
+        <isEncounterMap>false</isEncounterMap>
+        <requireDrillingVehicle>true</requireDrillingVehicle>
+      </li>
+    </modExtensions>
+  </MapGeneratorDef>
+
+  <!-- 血肉洞穴 -->
+  <MapGeneratorDef>
+    <defName>RKU_FleshCave</defName>
+    <forceCaves>true</forceCaves>
+    <genSteps>
+      <li>RKU_GenStep_ElevationFertility</li> 
+      <li>RockChunks</li>
+      <li>ScenParts</li>
+      <li>RKU_Undercave_RocksFromGrid</li>
+      <!-- <li>RKU_Caves</li>                   -->
+      <li>RKU_CavesTerrain</li> 
+      <li>RKU_Flesh</li>	 
+      <li>RKU_PlantsUnderground</li>	
+      <li>RKU_FleshBeast</li>
+	  <li>RKU_UnderGroundMouse</li>	  
+    </genSteps>
+	<modExtensions>
+      <li Class="RatkinUnderground.RKU_MapGeneratorDefModExtension">
+        <isEncounterMap>true</isEncounterMap>
+        <isSpawnCenter>true</isSpawnCenter>
+		    <requireDrillingVehicle>true</requireDrillingVehicle>
+      </li>
+    </modExtensions>
+    <customMapComponents>
+      <li>FleshmassMapComponent</li>
+      <li>RatkinUnderground.RKU_DestroyFleshMap</li>
+    </customMapComponents>
+  </MapGeneratorDef>  
+
+  <GenStepDef>
+    <defName>RKU_GenStep_ElevationFertility</defName>
+    <order>1</order>
+    <genStep Class="RatkinUnderground.RKU_GenStep_ElevationFertility" />
+  </GenStepDef>
+  
+  <GenStepDef>
+    <defName>RKU_CavesTerrain</defName>
+    <order>11</order>
+    <genStep Class="RatkinUnderground.RKU_GenStep_CavesTerrain"/>
+  </GenStepDef>
+  
+  <GenStepDef>
+    <defName>RKU_Worm</defName>
+    <order>11</order>
+    <genStep Class="RatkinUnderground.RKU_GenStep_Worm"/>
+  </GenStepDef>
+  
+  <GenStepDef>
+    <defName>RKU_UnderOutpost</defName>
+    <order>50</order>
+    <genStep Class="RatkinUnderground.RKU_GenStep_UnderOutpost"/>
+  </GenStepDef>
+  
+  <GenStepDef>
+    <defName>RKU_Undercave_RocksFromGrid</defName>
+    <order>2</order>
+    <genStep Class="GenStep_RocksFromGrid">
+      <overrideBlotchesPer10kCells>10</overrideBlotchesPer10kCells>
+    </genStep>
+  </GenStepDef>
+  
+  <GenStepDef>
+    <defName>RKU_Caves</defName>
+    <order>3</order>
+    <genStep Class="RatkinUnderground.RKU_GenStep_Caves"/> 
+  </GenStepDef>
+  
+  <GenStepDef>
+    <defName>RKU_PlantsUnderground</defName>
+    <order>10</order>
+    <genStep Class="RatkinUnderground.RKU_GenStep_PlantsUnderground"/>
+  </GenStepDef>
+  
+  <GenStepDef>
+    <defName>RKU_MakeUpSmallCaves</defName>
+    <order>4</order>
+   <genStep Class="RatkinUnderground.RKU_GenStep_MakeUpSmallCaves">
+      <maxCaveSizeToFill>20</maxCaveSizeToFill> 
+	  <possibleMinerals>
+		  <li>MineableSteel</li>
+		  <li>MineableGold</li>
+		  <li>MineableSilver</li>
+		  <li>RKU_Glowstone</li>
+		  <li>MineableUranium</li>
+		  <li>MineablePlasteel</li>
+		  <li>MineableJade</li>
+		  <li>MineableComponentsIndustrial</li>
+	  </possibleMinerals>
+    </genStep>
+  </GenStepDef>
+  
+  <GenStepDef>
+    <defName>RKU_UnderBase</defName>
+    <order>5</order>
+    <genStep Class="RatkinUnderground.RKU_GenStep_UnderBase">
+	   <pathDef>Concrete</pathDef>
+	   <floorDef>SterileTile</floorDef>
+	   <wallDef>Wall</wallDef>
+    </genStep>
+  </GenStepDef>
+  
+  <GenStepDef>
+    <defName>RKU_FairyRing</defName>
+    <order>5</order>
+    <genStep Class="RatkinUnderground.RKU_GenStep_FairyRing">
+    </genStep>
+  </GenStepDef>
+  
+   <GenStepDef>
+    <defName>RKU_Lode</defName>
+    <order>5</order>
+    <genStep Class="RatkinUnderground.RKU_GenStep_Lode">
+	  <possibleMinerals>
+		  <li>MineableSteel</li>
+		  <li>MineableSilver</li>
+		  <li>MineableComponentsIndustrial</li>
+		  <li>MineableUranium</li>
+		  <li>MineableJade</li>
+		  <li>MineableSilver</li>
+		  <li>MineablePlasteel</li>
+	  </possibleMinerals>
+	  <centerMinerals>
+		  <li>MineableGold</li>
+		  <li>RKU_Glowstone</li>
+		  <li>RKU_Glowstone</li>
+		  <li>RKU_Glowstone</li>
+	  </centerMinerals>
+    </genStep>
+  </GenStepDef>
+  
+   <GenStepDef>
+    <defName>RKU_SmallLake</defName>
+    <order>5</order>
+    <genStep Class="RatkinUnderground.RKU_GenStep_Lake"> 
+		<LAKE_THRESHOLD>0.22</LAKE_THRESHOLD>
+		<SHALLOW_WATER_THRESHOLD>0.26</SHALLOW_WATER_THRESHOLD>
+	</genStep>
+  </GenStepDef>
+  
+  <!-- 我觉得我是个无可救药的傻子，已经完蛋了，我们是垃圾 -->
+   <GenStepDef>
+    <defName>RKU_MiniLake</defName>
+    <order>5</order>
+    <genStep Class="RatkinUnderground.RKU_GenStep_Lake"> 
+		<LAKE_THRESHOLD>0.05</LAKE_THRESHOLD>
+		<SHALLOW_WATER_THRESHOLD>0.09</SHALLOW_WATER_THRESHOLD>
+	</genStep>
+  </GenStepDef>
+  
+  <GenStepDef>
+    <defName>RKU_UnderGroundLake</defName>
+    <order>5</order>
+    <genStep Class="RatkinUnderground.RKU_GenStep_Lake"> 
+		<LAKE_THRESHOLD>0.4</LAKE_THRESHOLD>
+		<SHALLOW_WATER_THRESHOLD>0.45</SHALLOW_WATER_THRESHOLD>
+	</genStep>
+  </GenStepDef>
+  
+   <!-- 鼠鼠！鼠鼠！ -->
+  <GenStepDef>
+    <defName>RKU_UnderGroundMouse</defName>
+    <order>5</order>
+      <genStep Class="RatkinUnderground.RKU_GenStep_Mouse">
+		<mouseSpawnChancePerSoilCell>0.003</mouseSpawnChancePerSoilCell>
+		<ratToRabbitChance>0.01</ratToRabbitChance>
+	</genStep>
+  </GenStepDef>
+
+  <!-- 血肉洞穴生成步骤 -->
+  <GenStepDef>
+    <defName>RKU_Flesh</defName>
+    <order>5</order>
+    <genStep Class="RatkinUnderground.RKU_GenStep_Flesh"> 
+      
+	</genStep>
+  </GenStepDef>
+
+  <!-- 生成哈基瘤 -->
+  <GenStepDef>
+    <defName>RKU_FleshBeast</defName>
+    <order>11</order>
+    <genStep Class="RatkinUnderground.RKU_GenStep_FleshBeast"> 
+	</genStep>
+  </GenStepDef>
+
+</Defs>

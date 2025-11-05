@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: [PAWN_nameDef]出身于一个小村落，路过的军阀劫掠了那里，[PAWN_pronoun]在母亲的惨叫声中逃离了自己的家乡. -->
+  <Ratkin_GuerrillaCA.description>[PAWN_nameDef] hailed from a small village that was plundered by a passing warlord. [PAWN_pronoun] fled [PAWN_possessive] homeland amidst the screams of [PAWN_possessive] mother.</Ratkin_GuerrillaCA.description>
+  <!-- EN: 逃难小鼠 -->
+  <Ratkin_GuerrillaCA.title>Ratkin Refugee</Ratkin_GuerrillaCA.title>
+  <!-- EN: 逃难小鼠 -->
+  <Ratkin_GuerrillaCA.titleShort>Ratkin Refugee</Ratkin_GuerrillaCA.titleShort>
+  
+  <!-- EN: [PAWN_nameDef]出生在在游击队的地下据点里，对地表的一切都感到新奇. -->
+  <Ratkin_GuerrillaCB.description>[PAWN_nameDef] was born in an underground base of the Ratkin Underground Partisans. [PAWN_pronoun] found everything on the surface utterly novel.</Ratkin_GuerrillaCB.description>
+  <!-- EN: 鼠族地下儿童 -->
+  <Ratkin_GuerrillaCB.title>Ratkin Underground Child</Ratkin_GuerrillaCB.title>
+  <!-- EN: 鼠族地下儿童 -->
+  <Ratkin_GuerrillaCB.titleShort>Ratkin Underground Child</Ratkin_GuerrillaCB.titleShort>
+  
+  <!-- EN: 在地下生活中，虫胶是[PAWN_nameDef]和游击队员们为数不多的美味食物，孩子们会为了这些宝贵的美食铤而走险，没有人拦得住他们。 -->
+  <Ratkin_GuerrillaCC.description>In underground life Insect Jelly was one of the few delicacies for [PAWN_nameDef] and the Ratkin Underground Partisans. Children would take great risks for these precious treats and no one could stop them.</Ratkin_GuerrillaCC.description>
+  <!-- EN: 虫胶小偷 -->
+  <Ratkin_GuerrillaCC.title>Insect Jelly Thief</Ratkin_GuerrillaCC.title>
+  <!-- EN: 虫胶小偷 -->
+  <Ratkin_GuerrillaCC.titleShort>Insect Jelly Thief</Ratkin_GuerrillaCC.titleShort>
+  
+  <!-- EN: [PAWN_nameDef]在地洞里穿梭的时候，坠入过诡异的血肉洞穴，幸好在母兽反应过来之前，她惊慌地逃走了。 -->
+  <Ratkin_GuerrillaCD.description>While navigating through the tunnels [PAWN_nameDef] once fell into a bizarre Pit Gate. Fortunately before the Dreadmeld could react [PAWN_pronoun] fled in panic.</Ratkin_GuerrillaCD.description>
+  <!-- EN: 恐惧血肉兽的小鼠 -->
+  <Ratkin_GuerrillaCD.title>Ratkin Child Fearing Fleshbeasts</Ratkin_GuerrillaCD.title>
+  <!-- EN: 恐惧血肉兽的小鼠 -->
+  <Ratkin_GuerrillaCD.titleShort>Ratkin Child Fearing Fleshbeasts</Ratkin_GuerrillaCD.titleShort>
+  
+  <!-- EN: 地下水脉对游击队来说相当宝贵，[PAWN_nameDef]是钻机班里负责找寻水源的行家。 -->
+  <Ratkin_GuerrillaCE.description>The underground watercourses are of great value to the Ratkin Underground Partisans. [PAWN_nameDef] is the specialist in the driller squard entrusted with locating water sources.</Ratkin_GuerrillaCE.description>
+  <!-- EN: 水道猎手 -->
+  <Ratkin_GuerrillaCE.title>Groundwater Hunter</Ratkin_GuerrillaCE.title>
+  <!-- EN: 水道猎手 -->
+  <Ratkin_GuerrillaCE.titleShort>Groundwater Hunter</Ratkin_GuerrillaCE.titleShort>
+  
+  <!-- EN: 地下河里的鱼类是游击队员们少有的“正常食物”，在[PAWN_nameDef]看来，能吃的肉类只有绿色和白色两种。 -->
+  <Ratkin_GuerrillaCF.description>The fish from underground rivers are among the few "conventional foods" for the Ratkin Underground Partisans. In [PAWN_possessive] view, edible meat comes in only two colours: green and white.</Ratkin_GuerrillaCF.description>
+  <!-- EN: 地下渔夫 -->
+  <Ratkin_GuerrillaCF.title>Underground Fisher</Ratkin_GuerrillaCF.title>
+  <!-- EN: 地下渔夫 -->
+  <Ratkin_GuerrillaCF.titleShort>Underground Fisher</Ratkin_GuerrillaCF.titleShort>
+  
+  <!-- EN: 贵族映山红释放的生化武器是王国在战争中取胜的关键，但[PAWN_nameDef]在灾难中幸运地生还了下来。 -->
+  <Ratkin_GuerrillaCG.description>The biochemical weapon deployed by Noble Azalea proved pivotal to the Kingdom's success in the war, yet [PAWN_nameDef] had the fortune to endure the catastrophe.</Ratkin_GuerrillaCG.description>
+  <!-- EN: 鼠族瘟疫幸存者 -->
+  <Ratkin_GuerrillaCG.title>Ratkin Plague Survivor</Ratkin_GuerrillaCG.title>
+  <!-- EN: 瘟疫幸存者 -->
+  <Ratkin_GuerrillaCG.titleShort>Plague Survivor</Ratkin_GuerrillaCG.titleShort>
+  
+  <!-- EN: [PAWN_nameDef]的家人都在瘟疫中丧生，[PAWN_pronoun]被游击队收养，[PAWN_pronoun]对生化武器有着本能的恐惧，但也因此变得更加坚强。 -->
+  <Ratkin_GuerrillaCJ.description>All of [PAWN_nameDef]'s family succumbed to the plague. [PAWN_pronoun] was adopted by the Ratkin Underground Partisans. [PAWN_pronoun] harbours an instinctive fear of biochemical weapons, yet this ordeal has forged [PAWN_pronoun] into a more resilient individual.</Ratkin_GuerrillaCJ.description>
+  <!-- EN: 瘟疫孤儿 -->
+  <Ratkin_GuerrillaCJ.title>Plague Orphan</Ratkin_GuerrillaCJ.title>
+  <!-- EN: 瘟疫孤儿 -->
+  <Ratkin_GuerrillaCJ.titleShort>Plague Orphan</Ratkin_GuerrillaCJ.titleShort>
+  
+  <!-- EN: 从很小的时候，[PAWN_nameDef]就开始学习烹饪，[PAWN_pronoun]能用最普通的食材做出美味的食物，让大家都爱吃。 -->
+  <Ratkin_GuerrillaCM.description>From a tender age, [PAWN_nameDef] began mastering the culinary arts. [PAWN_pronoun] can craft delightful meals from the most ordinary ingredients, rendering them a favourite amongst all.</Ratkin_GuerrillaCM.description>
+  <!-- EN: 地下小厨师 -->
+  <Ratkin_GuerrillaCM.title>Underground Junior Cook</Ratkin_GuerrillaCM.title>
+  <!-- EN: 小厨师 -->
+  <Ratkin_GuerrillaCM.titleShort>Junior Cook</Ratkin_GuerrillaCM.titleShort>
+  
+  <!-- EN: 尽管年龄小，[PAWN_nameDef]却已经学会了基本的防御技巧，[PAWN_pronoun]经常站在哨位上警惕地注视着周围的动静。 -->
+  <Ratkin_GuerrillaCN.description>Despite [PAWN_possessive] young age, [PAWN_nameDef] has already acquired fundamental defensive skills. [PAWN_pronoun] is often stationed at the watch post, maintaining a vigilant observation of the surroundings.</Ratkin_GuerrillaCN.description>
+  <!-- EN: 鼠族小守卫 -->
+  <Ratkin_GuerrillaCN.title>Ratkin Junior Guard</Ratkin_GuerrillaCN.title>
+  <!-- EN: 小守卫 -->
+  <Ratkin_GuerrillaCN.titleShort>Junior Guard</Ratkin_GuerrillaCN.titleShort>
+  
+  <!-- EN: 在地下矿脉中，[PAWN_nameDef]是孩子们中最勤快的矿工，[PAWN_pronoun]能准确地找到矿石的最佳挖掘点。 -->
+  <Ratkin_GuerrillaCP.description>Within the underground mineral veins, [PAWN_nameDef] stands as the most diligent miner among the children. [PAWN_pronoun] possesses the ability to accurately identify optimal excavation sites for ore deposits.</Ratkin_GuerrillaCP.description>
+  <!-- EN: 鼠族小矿工 -->
+  <Ratkin_GuerrillaCP.title>Ratkin Junior Miner</Ratkin_GuerrillaCP.title>
+  <!-- EN: 小矿工 -->
+  <Ratkin_GuerrillaCP.titleShort>Junior Miner</Ratkin_GuerrillaCP.titleShort>
+  
+  <!-- EN: [PAWN_nameDef]喜欢阅读游击队中仅有的几本书籍，[PAWN_pronoun]对知识有着强烈的渴求，经常问一些让大人难以回答的问题。 -->
+  <Ratkin_GuerrillaCQ.description>[PAWN_nameDef] delights in perusing the limited collection of books within the Ratkin Underground Partisans. [PAWN_pronoun] harbours a profound yearning for knowledge and often poses inquiries that even adults find challenging to address.</Ratkin_GuerrillaCQ.description>
+  <!-- EN: 地下小学者 -->
+  <Ratkin_GuerrillaCQ.title>Underground Junior Scholar</Ratkin_GuerrillaCQ.title>
+  <!-- EN: 小学者 -->
+  <Ratkin_GuerrillaCQ.titleShort>Junior Scholar</Ratkin_GuerrillaCQ.titleShort>
+  
+  <!-- EN: [PAWN_nameDef]负责照料游击队种植的蘑菇和苔藓，[PAWN_pronoun]对这些地下作物了如指掌，能让它们在贫瘠的土壤中茁壮成长。 -->
+  <Ratkin_GuerrillaCS.description>[PAWN_nameDef] is charged with tending the mushrooms and lichens cultivated by the Ratkin Underground Partisans. [PAWN_pronoun] possesses an intimate knowledge of these underground crops, ensuring their flourishing even within impoverished soils.</Ratkin_GuerrillaCS.description>
+  <!-- EN: 地下小农民 -->
+  <Ratkin_GuerrillaCS.title>Underground Junior Farmer</Ratkin_GuerrillaCS.title>
+  <!-- EN: 小农民 -->
+  <Ratkin_GuerrillaCS.titleShort>Junior Farmer</Ratkin_GuerrillaCS.titleShort>
+  
+  <!-- EN: [PAWN_nameDef]是一名工厂里的学徒机械师，[PAWN_pronoun]在战争中才能受到赏识而在革命军中担任要务。 -->
+  <Ratkin_GuerrillaCT.description>[PAWN_nameDef] is an apprentice mechanic in a factory. [PAWN_pronoun]'s talents were appreciated during the war, thus [PAWN_pronoun] assumed a vital position within the revolutionary army.</Ratkin_GuerrillaCT.description>
+  <!-- EN: 鼠族学徒工 -->
+  <Ratkin_GuerrillaCT.title>Ratkin Apprentice</Ratkin_GuerrillaCT.title>
+  <!-- EN: 学徒工 -->
+  <Ratkin_GuerrillaCT.titleShort>Apprentice</Ratkin_GuerrillaCT.titleShort>
+  
+  <!-- EN: [PAWN_nameDef]是一个经历过革命军时代的老兵，[PAWN_pronoun] 无比怀念在金合欢领导下的军旅生活，直到那场瘟疫断送了未来的希望。 -->
+  <RKU_GuerrillaAA.description>[PAWN_nameDef] is a veteran who endured the revolutionary army era. [PAWN_pronoun] holds a profound nostalgia for the military life under Acacia's leadership, until that plague extinguished all future hopes.</RKU_GuerrillaAA.description>
+  <!-- EN: 游击队老兵 -->
+  <RKU_GuerrillaAA.title>Ratkin Partisan Veteran</RKU_GuerrillaAA.title>
+  <!-- EN: guerrilla -->
+  <RKU_GuerrillaAA.titleShort>Partisan Veteran</RKU_GuerrillaAA.titleShort>
+  
+  <!-- EN: [PAWN_nameDef]曾是一个贵族的卫兵，在战争时期，[PAWN_pronoun]的主人坐着马车逃离庄园的时候没带上[PAWN_pronoun]，自由是好事，对吧？ -->
+  <RKU_GuerrillaAB.description>[PAWN_nameDef] formerly served as a guard to a noble. During the war, when [PAWN_possessive] master fled the manor by carriage, [PAWN_objective] was not taken along. Freedom is a blessing, is it not?</RKU_GuerrillaAB.description>
+  <!-- EN: 鼠族前卫花使 -->
+  <RKU_GuerrillaAB.title>Former Ratkin Guardener</RKU_GuerrillaAB.title>
+  <!-- EN: guerrilla -->
+  <RKU_GuerrillaAB.titleShort>Former Guardener</RKU_GuerrillaAB.titleShort>
+  
+  <!-- EN: 得益于跑得很快，[PAWN_nameDef]跑赢了生化武器的传染，也跑赢了背后追杀的督战队。革命军在悬铃的领导下陷入了迷惘，以至于对逃兵也放缓了脚步。 -->
+  <RKU_GuerrillaAC.description>By dint of [PAWN_possessive] remarkable swiftness, [PAWN_nameDef] outran the contagion of the biochemical weapon and evaded the pursuing barrier troops. Under Sycamore's leadership, the revolutionary army became so disoriented that they even slackened their pursuit of deserters.</RKU_GuerrillaAC.description>
+  <!-- EN: 游击队通讯员 -->
+  <RKU_GuerrillaAC.title>Partisan Courier</RKU_GuerrillaAC.title>
+  <!-- EN: guerrilla -->
+  <RKU_GuerrillaAC.titleShort>Partisan Courier</RKU_GuerrillaAC.titleShort>
+  
+  <!-- EN: [PAWN_nameDef]曾是战争中东线的一名幸运新兵。[PAWN_pronoun]在革命军的分裂中成长，凭借着那份幸运而坚定地保持着当年的信念，但谁也说不好以后会怎样。 -->
+  <RKU_GuerrillaAE.description>[PAWN_nameDef] was a fortunate conscript on the Eastern Front during the war. [PAWN_pronoun] matured amidst the schism of the revolutionary army, and by virtue of that fortune, [PAWN_pronoun] steadfastly upheld the beliefs of those days. Although none can say what the future may hold.</RKU_GuerrillaAE.description>
+  <!-- EN: 游击队政委 -->
+  <RKU_GuerrillaAE.title>Partisan Commissar</RKU_GuerrillaAE.title>
+  <!-- EN: guerrilla -->
+  <RKU_GuerrillaAE.titleShort>Partisan Commissar</RKU_GuerrillaAE.titleShort>
+  
+  <!-- EN: 在这个地区的游击队领袖曾是炮兵部队的军官，[PAWN_nameDef]是她的老部下之一。 -->
+  <RKU_GuerrillaAF.description>In this region, the Ratkin Underground Partisan leader was formerly an officer in the artillery unit, and [PAWN_nameDef] was one of her former subordinates.</RKU_GuerrillaAF.description>
+  <!-- EN: 游击队政委 -->
+  <RKU_GuerrillaAF.title>Partisan Commissar</RKU_GuerrillaAF.title>
+  <!-- EN: guerrilla -->
+  <RKU_GuerrillaAF.titleShort>Partisan Commissar</RKU_GuerrillaAF.titleShort>
+  
+  <!-- EN: 本地的游击队领袖曾是炮兵部队的军官，[PAWN_nameDef]是她的老部下之一。 -->
+  <RKU_GuerrillaAG.description>The local Ratkin Underground Partisan leader was an officer in the artillery unit, and [PAWN_nameDef] was one of her former subordinates.</RKU_GuerrillaAG.description>
+  <!-- EN: 游击队政委 -->
+  <RKU_GuerrillaAG.title>Partisan Commissar</RKU_GuerrillaAG.title>
+  <!-- EN: guerrilla -->
+  <RKU_GuerrillaAG.titleShort>Partisan Commissar</RKU_GuerrillaAG.titleShort>
+  
+  <!-- EN: [PAWN_nameDef]曾在革命军中担任爆破手，[PAWN_pronoun]精通各种爆炸装置的制作和使用，在地下据点中经常负责维护那些危险的武器。 -->
+  <RKU_GuerrillaAH.description>[PAWN_nameDef] served as a demolitions expert in the revolutionary army. [PAWN_pronoun] acquired mastery over the construction and deployment of various explosive devices, and within the underground base, [PAWN_pronoun] was frequently entrusted with maintaining those perilous weapons.</RKU_GuerrillaAH.description>
+  <!-- EN: 地下爆破专家 -->
+  <RKU_GuerrillaAH.title>Underground Demolitions Expert</RKU_GuerrillaAH.title>
+  <!-- EN: 爆破专家 -->
+  <RKU_GuerrillaAH.titleShort>Underground Demolitions Expert</RKU_GuerrillaAH.titleShort>
+  
+  <!-- EN: [PAWN_nameDef]是游击队中最擅长渗透和收集情报的成员，[PAWN_pronoun]曾经多次伪装成难民潜入敌军营地，带回宝贵的情报。 -->
+  <RKU_GuerrillaAI.description>[PAWN_nameDef] is the most adept member of the Ratkin Underground Partisans at infiltration and intelligence gathering. [PAWN_pronoun] has repeatedly disguised [PAWN_objective] as a refugee to infiltrate enemy camps, bringing back valuable intelligence.</RKU_GuerrillaAI.description>
+  <!-- EN: 鼠族间谍 -->
+  <RKU_GuerrillaAI.title>Ratkin Infiltrator</RKU_GuerrillaAI.title>
+  <!-- EN: 间谍 -->
+  <RKU_GuerrillaAI.titleShort>Infiltrator</RKU_GuerrillaAI.titleShort>
+  
+  <!-- EN: 在瘟疫肆虐期间，[PAWN_nameDef]作为医护兵救治了无数同胞，[PAWN_pronoun]对各种病菌和毒素有着丰富的经验，但也因此变得有些神经质。 -->
+  <RKU_GuerrillaAJ.description>During the plague's devastation, [PAWN_nameDef] served as a medical orderly and attended to innumerable compatriots. [PAWN_pronoun] possesses a wealth of experience with various pathogens and toxins, though this exposure has left [PAWN_pronoun] somewhat neurotic.</RKU_GuerrillaAJ.description>
+  <!-- EN: 瘟疫医护兵 -->
+  <RKU_GuerrillaAJ.title>Ratkin Plague Medic</RKU_GuerrillaAJ.title>
+  <!-- EN: 医护兵 -->
+  <RKU_GuerrillaAJ.titleShort>Medic</RKU_GuerrillaAJ.titleShort>
+  
+  <!-- EN: [PAWN_nameDef]是革命军中的精英狙击手，[PAWN_pronoun]能在数百米外精准击中目标，但在瘟疫后[PAWN_pronoun]变得有些厌倦杀戮。 -->
+  <RKU_GuerrillaAK.description>[PAWN_nameDef] served as an elite sniper in the revolutionary army. [PAWN_pronoun] could precisely strike targets from hundreds of metres away, yet after the plague, [PAWN_pronoun] grew somewhat weary of taking lives.</RKU_GuerrillaAK.description>
+  <!-- EN: 鼠族狙击手 -->
+  <RKU_GuerrillaAK.title>Ratkin Sniper</RKU_GuerrillaAK.title>
+  <!-- EN: 狙击手 -->
+  <RKU_GuerrillaAK.titleShort>Sniper</RKU_GuerrillaAK.titleShort>
+  
+  <!-- EN: [PAWN_nameDef]曾是王国军队的机械维修兵，在战争中投奔了游击队，[PAWN_pronoun]现在负责维护游击队的各种机械设备和武器。 -->
+  <RKU_GuerrillaAL.description>[PAWN_nameDef] served as a mechanical maintenance soldier in the kingdom's army. During the war, [PAWN_pronoun] defected to the Ratkin Underground Partisans. [PAWN_pronoun] is now charged with maintaining the various mechanical equipment and weapons for the partisans.</RKU_GuerrillaAL.description>
+  <!-- EN: 地下机械师 -->
+  <RKU_GuerrillaAL.title>Underground Mechanic</RKU_GuerrillaAL.title>
+  <!-- EN: 机械师 -->
+  <RKU_GuerrillaAL.titleShort>Mechanic</RKU_GuerrillaAL.titleShort>
+  
+  <!-- EN: 在地下据点中，食物供应至关重要，[PAWN_nameDef]作为厨师长负责将各种奇怪的食材变成可口的饭菜，[PAWN_pronoun]的烹饪技巧救活了不少人。 -->
+  <RKU_GuerrillaAM.description>Within the underground base, the sustenance supply is of critical importance. [PAWN_nameDef] serves as the head chef, entrusted with converting an array of peculiar ingredients into palatable meals. [PAWN_possessive] culinary expertise has preserved numerous lives.</RKU_GuerrillaAM.description>
+  <!-- EN: 鼠族厨师长 -->
+  <RKU_GuerrillaAM.title>Ratkin Master Chef</RKU_GuerrillaAM.title>
+  <!-- EN: 厨师长 -->
+  <RKU_GuerrillaAM.titleShort>Master Chef</RKU_GuerrillaAM.titleShort>
+  
+  <!-- EN: [PAWN_nameDef]是游击队中最出色的挖掘专家，[PAWN_pronoun]能在坚硬的岩石中开辟出复杂的隧道网络，为游击队的行动提供了极大的便利。 -->
+  <RKU_GuerrillaAN.description>[PAWN_nameDef] stands as the most accomplished excavation specialist within the Ratkin Underground Partisans. [PAWN_pronoun] excels at carving intricate tunnel networks through the most resilient rock formations, thereby providing considerable facilitation for the partisans' operations.</RKU_GuerrillaAN.description>
+  <!-- EN: 隧道挖掘工 -->
+  <RKU_GuerrillaAN.title>Underground Miner</RKU_GuerrillaAN.title>
+  <!-- EN: 挖掘工 -->
+  <RKU_GuerrillaAN.titleShort>Miner</RKU_GuerrillaAN.titleShort>
+  
+  <!-- EN: [PAWN_nameDef]负责守护游击队的主要据点，[PAWN_pronoun]曾多次击退敌军的入侵，是一位经验丰富的防御专家。 -->
+  <RKU_GuerrillaAP.description>[PAWN_nameDef] is entrusted with the defence of the Ratkin Underground Partisans' primary stronghold. [PAWN_pronoun] has repelled numerous enemy incursions and is a seasoned defence specialist.</RKU_GuerrillaAP.description>
+  <!-- EN: 地下守卫队长 -->
+  <RKU_GuerrillaAP.title>Underground Guard Captain</RKU_GuerrillaAP.title>
+  <!-- EN: 守卫队长 -->
+  <RKU_GuerrillaAP.titleShort>Guard Captain</RKU_GuerrillaAP.titleShort>
+  
+  <!-- EN: [PAWN_nameDef]曾在王国图书馆工作，掌握了丰富的知识，[PAWN_pronoun]现在用这些知识帮助游击队分析敌情和制定战略。 -->
+  <RKU_GuerrillaAQ.description>[PAWN_nameDef] was formerly employed at the kingdom's library, where [PAWN_pronoun] amassed a considerable body of knowledge. [PAWN_pronoun] now employs this learning to aid the Ratkin Underground Partisans in assessing hostile movements and devising tactical plans.</RKU_GuerrillaAQ.description>
+  <!-- EN: 鼠族学者 -->
+  <RKU_GuerrillaAQ.title>Ratkin Scholar</RKU_GuerrillaAQ.title>
+  <!-- EN: 学者 -->
+  <RKU_GuerrillaAQ.titleShort>Scholar</RKU_GuerrillaAQ.titleShort>
+  
+  <!-- EN: [PAWN_nameDef]是一位久经考验的战士、军官、机械师。 -->
+  <RKU_GuerrillaAR.description>[PAWN_nameDef] is a seasoned warrior, officer, and mechanitor.</RKU_GuerrillaAR.description>
+  <!-- EN: 游击队军官 -->
+  <RKU_GuerrillaAR.title>Partisan Officer</RKU_GuerrillaAR.title>
+  <!-- EN: 军官 -->
+  <RKU_GuerrillaAR.titleShort>Officer</RKU_GuerrillaAR.titleShort>
+  
+</LanguageData>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: Assault weapons from underground -->
+  <RKU_UndergroundAssaultWeapons.label>Underground Assault Weapons</RKU_UndergroundAssaultWeapons.label>
+  <!-- EN: The partisans' experience in underground operations combined with advanced industrial strength that they did not have. These weapons are more suitable for close combat, as well as for quickly closing the distance to the enemy.\n		In general, blueprints need to be researched with the Ratkin Underground Partisans faction. -->
+  <RKU_UndergroundAssaultWeapons.description>A product born from the Partisans' experience in underground warfare, combined with the advanced industrial capabilities they themselves lack. These weapons are better suited for close-quarters combat and for rapidly closing the distance with the enemy.\nGenerally, the blueprint must be obtained through joint research with the Ratkin Underground Partisan Faction.</RKU_UndergroundAssaultWeapons.description>
+  
+  <!-- EN: Experimental weapons from the underground -->
+  <RKU_UndergroundExperimentalWeapon.label>Underground Experimental Weapons</RKU_UndergroundExperimentalWeapon.label>
+  <!-- EN: Ancient modified fungi found in extreme underground environments possess weaponization potential, and to unlock this potential, a joint effort between partisans and your colony is needed.\n		In general, blueprints need to be researched with the Ratkin Underground Partisans faction. -->
+  <RKU_UndergroundExperimentalWeapon.description>Ancient modified fungi, discovered in extreme underground environments, possess weaponisation potential. Realizing this potential requires a joint effort between the Partisans and your colony.\nGenerally, the blueprint must be obtained through joint research with the Ratkin Underground Partisan Faction.</RKU_UndergroundExperimentalWeapon.description>
+  
+  <!-- EN: Partisan equipment from the underground -->
+  <RKU_UndergroundGuerrillaEquipments.label>Underground Partisan Weapons</RKU_UndergroundGuerrillaEquipments.label>
+  <!-- EN: The partisans' experience in underground operations combined with advanced industrial strength that they did not have. These equipment are extremely lightweight and can withstand enough damage,it allows the wearer to quickly approach enemies.\n		In general, blueprints need to be researched with the Ratkin Underground Partisans faction. -->
+  <RKU_UndergroundGuerrillaEquipments.description>A product born from the Partisans' experience in underground warfare, combined with the advanced industrial capabilities they themselves lack. These weapons are extremely lightweight yet can withstand sufficient damage, allowing the wearer to quickly close in on enemies.\nGenerally, the blueprint must be obtained through joint research with the Ratkin Underground Partisan Faction.</RKU_UndergroundGuerrillaEquipments.description>
+  
+</LanguageData>

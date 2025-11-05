@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: Partisans SubmachineGun bullet -->
+  <Bullet_GuerrillaSubmachineGun.label>Partisans Submachine Gun Bullet</Bullet_GuerrillaSubmachineGun.label>
+  
+  <!-- EN: armor-piercing flechette -->
+  <Bullet_RKU_ArmorPiercing.label>Armour-piercing Bullet</Bullet_RKU_ArmorPiercing.label>
+  
+  <!-- EN: yunnan bolt-action rifle bullet -->
+  <Bullet_YunNanMushroom.label>Yunnan Mushroom Bullet</Bullet_YunNanMushroom.label>
+  
+  <!-- EN: 炸弹 -->
+  <RKK_BuildingBoomber.label>Bomb</RKK_BuildingBoomber.label>
+  
+  <!-- EN: 毁灭地雷发射器 -->
+  <RKK_Weapon_RangerBow.label>Antigraincap Landmine Launcher</RKK_Weapon_RangerBow.label>
+  <!-- EN: 毁灭地雷发射器，内部装药混合了极具破坏力的毁灭菇提取物，可以打包并发射一颗毁灭粒子地雷到目标地点，地雷需要手动引爆。 -->
+  <RKK_Weapon_RangerBow.description>The Antigraincap Mine Launcher, whose internal charge incorporates highly destructive Antigraincap extract, can package and deploy a single Antigrain Particle Landmine to a designated location. The landmine requires manual detonation.</RKK_Weapon_RangerBow.description>
+  <!-- EN: bow -->
+  <RKK_Weapon_RangerBow.tools.bow.label>Bow</RKK_Weapon_RangerBow.tools.bow.label>
+  <!-- EN: 毁灭地雷发射器 -->
+  <RKK_Weapon_RangerBow.verbs.Verb_Shoot.label>Antigraincap Landmine Launcher</RKK_Weapon_RangerBow.verbs.Verb_Shoot.label>
+  
+  <!-- EN: Partisans anti-tank rifle -->
+  <RKU_AntiTank.label>Prototype Anti-Tank Rifle</RKU_AntiTank.label>
+  <!-- EN: 特殊设计的强大原型反坦克枪！它不仅伤害力惊人，而且能大幅削弱敌方护甲。 -->
+  <RKU_AntiTank.description>A specially designed, formidable prototype anti-tank rifle! Not only does it deliver astonishing damage, but it also significantly reduces enemy armour.</RKU_AntiTank.description>
+  <!-- EN: stock -->
+  <RKU_AntiTank.tools.stock.label>Stock</RKU_AntiTank.tools.stock.label>
+  <!-- EN: Partisans anti-tank rifle -->
+  <RKU_AntiTank.verbs.Verb_Shoot.label>Prototype Anti-Tank Rifle</RKU_AntiTank.verbs.Verb_Shoot.label>
+  
+  <!-- EN: 毁灭粒子地雷 -->
+  <RKU_DestroyerMine.label>Antigrain Particle Landmine</RKU_DestroyerMine.label>
+  
+  <!-- EN: 毁灭粒子地雷 -->
+  <RKU_DestroyerMineBuilding.label>Antigrain Particle Landmine</RKU_DestroyerMineBuilding.label>
+  <!-- EN: 一颗强大的地雷，可以手动引爆造成大范围爆炸 -->
+  <RKU_DestroyerMineBuilding.description>A formidable landmine capable of being manually detonated to cause a large-scale explosion.</RKU_DestroyerMineBuilding.description>
+  
+  <!-- EN: Partisans Submachine Gun -->
+  <RKU_GuerrillaSubmachineGun.label>Partisan Submachine Gun</RKU_GuerrillaSubmachineGun.label>
+  <!-- EN: 游击队冲锋枪，一把适合近距离突袭的武器，射速很快但攻击范围较小，适合勇敢而敏捷的射手。 -->
+  <RKU_GuerrillaSubmachineGun.description>Partisan submachine gun, a weapon suited to close-quarters assaults. Boasting a rapid rate of firing but limited effective range, it is ideal for bold and agile shooters.</RKU_GuerrillaSubmachineGun.description>
+  <!-- EN: stock -->
+  <RKU_GuerrillaSubmachineGun.tools.stock.label>Stock</RKU_GuerrillaSubmachineGun.tools.stock.label>
+  <!-- EN: Partisans Submachine Gun -->
+  <RKU_GuerrillaSubmachineGun.verbs.Verb_Shoot.label>Partisan Submachine Gun</RKU_GuerrillaSubmachineGun.verbs.Verb_Shoot.label>
+  
+  <!-- EN: Iron Star Cannon -->
+  <RKU_IronStarCannon.label>"Iron Star" Auto Cannon</RKU_IronStarCannon.label>
+  <!-- EN: A powerful machine gun was installed on the steel centipede mechanical body of the partisan troop -->
+  <RKU_IronStarCannon.description>A powerful auto cannon was installed on the Centipede Mechanoid of the partisans.</RKU_IronStarCannon.description>
+  <!-- EN: stock -->
+  <RKU_IronStarCannon.tools.stock.label>Stock</RKU_IronStarCannon.tools.stock.label>
+  <!-- EN: Iron Star Cannon -->
+  <RKU_IronStarCannon.verbs.Verb_Shoot.label>"Iron Star" Auto Cannon</RKU_IronStarCannon.verbs.Verb_Shoot.label>
+  
+  <!-- EN: Partisans machinegun -->
+  <RKU_MG42_Gun.label>Partisan Machine Gun</RKU_MG42_Gun.label>
+  <!-- EN: 游击队员偶尔使用的通用机枪，在与军阀们的战斗中非常出色，这些武器有良好的射速和较慢的冷却时间。 -->
+  <RKU_MG42_Gun.description>A general-purpose machine gun occasionally used by partisan fighters, performing excellently in battles against warlords. These weapons feature a good rate of fire and relatively slow cooldown.</RKU_MG42_Gun.description>
+  <!-- EN: barrels -->
+  <RKU_MG42_Gun.tools.barrels.label>barrel</RKU_MG42_Gun.tools.barrels.label>
+  <!-- EN: Partisans machinegun -->
+  <RKU_MG42_Gun.verbs.Verb_Shoot.label>Partisan Machine Gun</RKU_MG42_Gun.verbs.Verb_Shoot.label>
+  
+  <!-- EN: Partisans rifle -->
+  <RKU_SVT40M.label>Partisan Rifle</RKU_SVT40M.label>
+  <!-- EN: 改良于传统的鼠族步枪，这种游击队步枪是更适合近战且火力较强的版本。附带有刺刀。 -->
+  <RKU_SVT40M.description>An improved version of the traditional Ratkin rifle, equipped with a bayonet. This partisan rifle is a variant better suited for close-quarters combat with enhanced firepower.</RKU_SVT40M.description>
+  <!-- EN: stock -->
+  <RKU_SVT40M.tools.stock.label>Stock</RKU_SVT40M.tools.stock.label>
+  <!-- EN: bayonet -->
+  <RKU_SVT40M.tools.bayonet.label>Bayonet</RKU_SVT40M.tools.bayonet.label>
+  <!-- EN: Partisans rifle -->
+  <RKU_SVT40M.verbs.Verb_Shoot.label>Partisan Rifle</RKU_SVT40M.verbs.Verb_Shoot.label>
+  
+  <!-- EN: Verity -->
+  <RKU_SVT40M_Elite.label>Verity</RKU_SVT40M_Elite.label>
+  <!-- EN: 一把历经风霜的步枪。 -->
+  <RKU_SVT40M_Elite.description>A rifle weathered by time.</RKU_SVT40M_Elite.description>
+  <!-- EN: stock -->
+  <RKU_SVT40M_Elite.tools.stock.label>Stock</RKU_SVT40M_Elite.tools.stock.label>
+  <!-- EN: bayonet -->
+  <RKU_SVT40M_Elite.tools.bayonet.label>Bayonet</RKU_SVT40M_Elite.tools.bayonet.label>
+  <!-- EN: Verity -->
+  <RKU_SVT40M_Elite.verbs.Verb_Shoot.label>Verity</RKU_SVT40M_Elite.verbs.Verb_Shoot.label>
+  
+  <!-- EN: 迷幻步枪 -->
+  <RKU_YunNanBoltActionRifle.label>Allure Rifle</RKU_YunNanBoltActionRifle.label>
+  <!-- EN: 一把特殊的步枪，这种武器使用特殊的注射针，能给命中的目标施加神经毒剂，令其产生幻觉。\n————来自彩云之南的赠礼 -->
+  <RKU_YunNanBoltActionRifle.description>A special type of rifle that uses unique injection needles to deliver neurotoxic agents to struck targets, inducing hallucinatory effects.\n— A gift from "South of the Colourful Clouds" (Yunnan).</RKU_YunNanBoltActionRifle.description>
+  <!-- EN: stock -->
+  <RKU_YunNanBoltActionRifle.tools.stock.label>Stock</RKU_YunNanBoltActionRifle.tools.stock.label>
+  <!-- EN: barrel -->
+  <RKU_YunNanBoltActionRifle.tools.barrel.label>Barrel</RKU_YunNanBoltActionRifle.tools.barrel.label>
+  <!-- EN: 迷幻步枪 -->
+  <RKU_YunNanBoltActionRifle.verbs.Verb_Shoot.label>Allure Rifle</RKU_YunNanBoltActionRifle.verbs.Verb_Shoot.label>
+  
+</LanguageData>

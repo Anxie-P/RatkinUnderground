@@ -1,0 +1,16 @@
+D:\Steam\steamapps\common\RimWorld\Mods\250407\1.5\Assemblies\RatkinUnderground.dll
+D:\Steam\steamapps\common\RimWorld\Mods\250407\1.5\Assemblies\RatkinUnderground.pdb
+C:\Steam\steamapps\common\RimWorld\Mods\250407\RatkinUnderground\RatkinUnderground\obj\Debug\RatkinUnderground.csproj.AssemblyReference.cache
+C:\Steam\steamapps\common\RimWorld\Mods\250407\RatkinUnderground\RatkinUnderground\obj\Debug\RatkinUnderground.csproj.CoreCompileInputs.cache
+C:\Steam\steamapps\common\RimWorld\Mods\250407\1.5\Assemblies\RatkinUnderground.dll
+C:\Steam\steamapps\common\RimWorld\Mods\250407\1.5\Assemblies\RatkinUnderground.pdb
+C:\Steam\steamapps\common\RimWorld\Mods\250407\RatkinUnderground\RatkinUnderground\obj\Debug\RatkinUn.1E5FA56E.Up2Date
+C:\Steam\steamapps\common\RimWorld\Mods\250407\RatkinUnderground\RatkinUnderground\obj\Debug\RatkinUnderground.dll
+C:\Steam\steamapps\common\RimWorld\Mods\250407\RatkinUnderground\RatkinUnderground\obj\Debug\RatkinUnderground.pdb
+C:\Steam\steamapps\common\RimWorld\Mods\250407\1.6\RatkinUnderground\RatkinUnderground\obj\Debug\RatkinUnderground.csproj.AssemblyReference.cache
+C:\Steam\steamapps\common\RimWorld\Mods\250407\1.6\RatkinUnderground\RatkinUnderground\obj\Debug\RatkinUnderground.csproj.CoreCompileInputs.cache
+C:\Steam\steamapps\common\RimWorld\Mods\250407\1.6\RatkinUnderground\RatkinUnderground\obj\Debug\RatkinUnderground.dll
+C:\Steam\steamapps\common\RimWorld\Mods\250407\1.6\RatkinUnderground\RatkinUnderground\obj\Debug\RatkinUnderground.pdb
+C:\Steam\steamapps\common\RimWorld\Mods\250407\1.6\RatkinUnderground\RatkinUnderground\obj\Debug\RatkinUn.1E5FA56E.Up2Date
+C:\Steam\steamapps\common\RimWorld\Mods\250407\1.6\Assemblies\RatkinUnderground.dll
+C:\Steam\steamapps\common\RimWorld\Mods\250407\1.6\Assemblies\RatkinUnderground.pdb

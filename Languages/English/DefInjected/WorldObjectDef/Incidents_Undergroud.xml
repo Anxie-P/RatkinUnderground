@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: 地下湖 -->
+  <RKU_MapParent_BuildMap_CavesWithLake.label>Underground Lake</RKU_MapParent_BuildMap_CavesWithLake.label>
+  <!-- EN: 一个地下湖，联通着一条河流。在绕路之前可以采集一些附近的资源，即使并没什么特别的？ -->
+  <RKU_MapParent_BuildMap_CavesWithLake.description>An underground lake connected to a river. Before taking the detour, some nearby resources can be gathered, though nothing particularly noteworthy?</RKU_MapParent_BuildMap_CavesWithLake.description>
+  
+  <!-- EN: 蘑菇圈 -->
+  <RKU_MapParent_BuildMap_FairyRing.label>Mushroom Circle</RKU_MapParent_BuildMap_FairyRing.label>
+  <!-- EN: 钻机挖掘到了一个蘑菇圈！快去采集这些宝贵的天然真菌。 -->
+  <RKU_MapParent_BuildMap_FairyRing.description>The driller has unearthed a mushroom circle. Hurry and gather these precious wild fungi!</RKU_MapParent_BuildMap_FairyRing.description>
+  
+  <!-- EN: 血肉兽洞穴 -->
+  <RKU_MapParent_BuildMap_Flesh.label>Fleshbeasts Cavern</RKU_MapParent_BuildMap_Flesh.label>
+  <!-- EN: 钻机挖掘到了血肉兽们的老巢。注意：杀死母兽后会导致洞穴坍塌 -->
+  <RKU_MapParent_BuildMap_Flesh.description>The driller has reached the lair of the Fleshbeasts. Note: Killing the Dreadmeld will cause the cavern to collapse.</RKU_MapParent_BuildMap_Flesh.description>
+  
+  <!-- EN: 游击队据点 -->
+  <RKU_MapParent_BuildMap_GuerrillaBase.label>Partisan Base</RKU_MapParent_BuildMap_GuerrillaBase.label>
+  <!-- EN: 钻机挖掘到了一个地鼠游击队据点的附近。 -->
+  <RKU_MapParent_BuildMap_GuerrillaBase.description>The driller excavated near a Ratkin Underground Partisan base.</RKU_MapParent_BuildMap_GuerrillaBase.description>
+  
+  <!-- EN: 地下矿脉 -->
+  <RKU_MapParent_BuildMap_Lode.label>Underground Mineral Vein</RKU_MapParent_BuildMap_Lode.label>
+  <!-- EN: 钻机挖掘到了一个地下矿脉的附近，你可以下车挖掘。 -->
+  <RKU_MapParent_BuildMap_Lode.description>The driller excavated near an underground mineral vein. You can get out of the vehicle to dig minerals.</RKU_MapParent_BuildMap_Lode.description>
+  
+  <!-- EN: 虫巢 -->
+  <RKU_MapParent_BuildMap_Worm.label>Insectoids Worm</RKU_MapParent_BuildMap_Worm.label>
+  <!-- EN: 钻机挖掘到了一个虫巢的附近。 -->
+  <RKU_MapParent_BuildMap_Worm.description>The driller excavated near an Insectoids worm.</RKU_MapParent_BuildMap_Worm.description>
+  
+</LanguageData>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: The enemy has deployed their hammer siege weapons! They will pound your defenses with powerful ground-shaking attacks. -->
+  <RKU_HammerAttack.arrivalTextEnemy>The enemy have deployed their heavy siege weapons! They will unleash a barrage of powerful ground-shaking attacks upon your fortifications.</RKU_HammerAttack.arrivalTextEnemy>
+  <!-- EN: Allies are setting up hammer siege weapons to support your defense. -->
+  <RKU_HammerAttack.arrivalTextFriendly>The Allies are deploying heavy siege weapons to support your defences... but will they truly prove effective?</RKU_HammerAttack.arrivalTextFriendly>
+  <!-- EN: Hammer Siege -->
+  <RKU_HammerAttack.letterLabelEnemy>Ground Hammer Siege</RKU_HammerAttack.letterLabelEnemy>
+  <!-- EN: Friendly Siege -->
+  <RKU_HammerAttack.letterLabelFriendly>Friendly Ground Hammer</RKU_HammerAttack.letterLabelFriendly>
+  
+</LanguageData>

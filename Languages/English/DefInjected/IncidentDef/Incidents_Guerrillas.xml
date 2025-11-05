@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: 血战 -->
+  <RKU_FinalBattle.label>Final Battle</RKU_FinalBattle.label>
+  <!-- EN: 终末血战 -->
+  <RKU_FinalBattle.letterLabel>Final Battle</RKU_FinalBattle.letterLabel>
+  <!-- EN: 游击队集结了本地全部的精锐，对殖民地发动了最终的决战，每4小时会根据殖民地状态分配不同强度的袭击，总共6波。 -->
+  <RKU_FinalBattle.letterText>The Partisans have assembled all local elite forces to launch a final battle against the colony. Every four hours, attacks of varying intensity will be launched based on the colony's status, with a total of six waves. </RKU_FinalBattle.letterText>
+  
+  <!-- EN: 游击队物资劫持 -->
+  <RKU_Incident_CaravanHijack.label>Partisan Supply Raid</RKU_Incident_CaravanHijack.label>
+  <!-- EN: 游击队物资劫持 -->
+  <RKU_Incident_CaravanHijack.letterLabel>Partisan Supply Raid</RKU_Incident_CaravanHijack.letterLabel>
+  <!-- EN: 游击队侦察到你的基地里有鼠族王国的一支由贵族带领的商队。他们决定趁机发动突袭，劫持这些珍贵的物资。如果你不予阻止，会得到游击队员们的感谢。 -->
+  <RKU_Incident_CaravanHijack.letterText>The partisans have scouted a merchant caravan from the Ratkin Kingdom, led by nobles, within your base. They have resolved to seize this opportunity to launch a surprise attack and seize these valuable supplies. If you turn a blind eye to this, you will earn the gratitude of the partisans.</RKU_Incident_CaravanHijack.letterText>
+  
+  <!-- EN: 迷茫的白鼠 -->
+  <RKU_Incident_ConfusedRat.label>Confused White Ratkin</RKU_Incident_ConfusedRat.label>
+  <!-- EN: 迷茫的白鼠 -->
+  <RKU_Incident_ConfusedRat.letterLabel>Confused White Ratkin</RKU_Incident_ConfusedRat.letterLabel>
+  <!-- EN: 一只迷茫的白色鼠族出现在附近，看起来十分困惑。 -->
+  <RKU_Incident_ConfusedRat.letterText>A confused white Ratkin appeared nearby, looking thoroughly perplexed.</RKU_Incident_ConfusedRat.letterText>
+  
+  <!-- EN: 游击队开局事件 -->
+  <RKU_Incident_Trigger_GuerrillasComing.label>Partisan Opening Event</RKU_Incident_Trigger_GuerrillasComing.label>
+  
+  <!-- EN: 游击队机密信息保护 -->
+  <RKU_Incident_Trigger_GuerrillaSecretProtection.label>Partisan Secret Intelligence Protection</RKU_Incident_Trigger_GuerrillaSecretProtection.label>
+  
+  <!-- EN: 游击队幸存者救援 -->
+  <RKU_Incident_Trigger_GuerrillaSurvivor.label>Partisan Survivor Rescue</RKU_Incident_Trigger_GuerrillaSurvivor.label>
+  
+  <!-- EN: enemy raid -->
+  <RKU_IncidentWorker_FinalRaid.label>Final Raid</RKU_IncidentWorker_FinalRaid.label>
+  
+  <!-- EN: 地震：血肉兽 -->
+  <RKU_LimitedFleshbeastAttack.label>Earthquake: Fleshbeasts</RKU_LimitedFleshbeastAttack.label>
+  <!-- EN: 地震：血肉兽 -->
+  <RKU_LimitedFleshbeastAttack.letterLabel>Earthquake: Fleshbeasts</RKU_LimitedFleshbeastAttack.letterLabel>
+  <!-- EN: 撼地装置导致的地震惊醒了血肉兽，它们正从地下涌出来！ -->
+  <RKU_LimitedFleshbeastAttack.letterText>The earth-shaking device triggered an earthquake that roused the Fleshbeasts, now surging forth from beneath the ground!</RKU_LimitedFleshbeastAttack.letterText>
+  <!-- EN: Several sinkholes have started appearing. The sounds of writhing flesh and cracking bones can be heard from below. -->
+  <RKU_LimitedFleshbeastAttack.letterTextPlural>The earth-shaking device triggered an earthquake that roused the Fleshbeasts, now surging forth from beneath the ground!</RKU_LimitedFleshbeastAttack.letterTextPlural>
+  
+  <!-- EN: 地震：虫群 -->
+  <RKU_LimitedInsectAttack.label>Earthquake: Insectoids</RKU_LimitedInsectAttack.label>
+  <!-- EN: 地震：虫群 -->
+  <RKU_LimitedInsectAttack.letterLabel>Earthquake: Insectoids</RKU_LimitedInsectAttack.letterLabel>
+  <!-- EN: 撼地装置导致的地震惊醒了虫群，它们正从地下涌出来！ -->
+  <RKU_LimitedInsectAttack.letterText>The earth-shaking device triggered an earthquake that roused the Insectoids, now surging forth from beneath the ground!</RKU_LimitedInsectAttack.letterText>
+  <!-- EN: Several sinkholes have started appearing. The sounds of writhing chitin and skittering legs can be heard from below. -->
+  <RKU_LimitedInsectAttack.letterTextPlural>The earth-shaking device triggered an earthquake that roused the Insectoids, now surging forth from beneath the ground!</RKU_LimitedInsectAttack.letterTextPlural>
+  
+  <!-- EN: 鼠族隧道游击队 -->
+  <RKU_RatkinTunnel_Fir.label>Ratkin Tunnel Partisans</RKU_RatkinTunnel_Fir.label>
+  <!-- EN: 鼠族隧道游击队 -->
+  <RKU_RatkinTunnel_Fir.letterLabel>Ratkin Tunnel Partisans</RKU_RatkinTunnel_Fir.letterLabel>
+  <!-- EN: 侦测到地下活动，一支鼠族地下游击队正在进攻殖民地。 -->
+  <RKU_RatkinTunnel_Fir.letterText>Underground activity detected. A Ratkin Tunnel Partisan unit is currently assaulting the colony.</RKU_RatkinTunnel_Fir.letterText>
+  
+  <!-- EN: ？？？ -->
+  <RKU_RatkinTunnel_Thi.label>???</RKU_RatkinTunnel_Thi.label>
+  <!-- EN: ？？？ -->
+  <RKU_RatkinTunnel_Thi.letterLabel>???</RKU_RatkinTunnel_Thi.letterLabel>
+  <!-- EN: ？？？ -->
+  <RKU_RatkinTunnel_Thi.letterText>???</RKU_RatkinTunnel_Thi.letterText>
+  
+</LanguageData>

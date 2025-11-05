@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN:       游击队起源于十几年前王国掀起的一场革命，\n在领袖金合欢领导下，我们攻陷了王国一半以上的土地。但这些成果最后因为\n金合欢的病逝而告终了，接任的领袖悬铃败给了私心和权欲...这些都是后话了。 -->
+  <RKU_StartupEventC.dialogueText>TODO</RKU_StartupEventC.dialogueText>
+  
+  <!-- EN:       之前曾经有过一场大鼠疫，革命军因为这场瘟疫\n而损失惨重，但后来我们发现这竟是人为的灾难，该为此负责的人已经付出了代价，\n但逝去的生命永远回不来。 -->
+  <RKU_StartupEventD.dialogueText>TODO</RKU_StartupEventD.dialogueText>
+  
+  <!-- EN:       那些军阀很令人讨厌，但其实他们和我们都是\n革命军分裂后的产物。有些人遗忘了当时起义的目标，自己当起了压迫者...\n王国已经摇摇欲坠，如果军阀们掀起的战乱能消失的话，或许我们还能挣得一段时间\n的和平，但仅靠我们这些游击队还不够。 -->
+  <RKU_StartupEventE.dialogueText>TODO</RKU_StartupEventE.dialogueText>
+  
+  <!-- EN:       你认不认识一些白色的鼠族？他们是王国生化实验\n的产物。他们有着共同的姓氏，近似的样貌，还有着敏捷的身手。他们曾经是王国最强\n大隐秘的刺客部队，但他们的故事已经被他们自己终结了。因为有一名特工曾经加入了\n我们，然后亲手杀掉了她的造主。 -->
+  <RKU_StartupEventF.dialogueText>TODO</RKU_StartupEventF.dialogueText>
+  
+</LanguageData>

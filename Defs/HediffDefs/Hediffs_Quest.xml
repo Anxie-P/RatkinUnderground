@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <HediffDef>
+    <defName>RKU_Survivor</defName>
+    <label>任务幸存者检测</label>
+    <description>这条状态是用于检测幸存者的状态，如果死亡/派系改变会发出信号，用于任务结束的判定</description>
+    <descriptionShort>这条状态是用于检测幸存者的状态，如果死亡/派系改变会发出信号，用于任务结束的判定</descriptionShort>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(1, 1, 1)</defaultLabelColor>
+    <priceImpact>false</priceImpact>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0</minSeverity>
+    <maxSeverity>1</maxSeverity>
+    <!-- <scenarioCanAdd>false</scenarioCanAdd> -->
+    <comps>
+      <li Class="RatkinUnderground.HediffCompProperties_SurvivorQuest">
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>RKU_UnderOutpostHediff</defName>
+    <label>锁需求条</label>
+    <description>用于锁定事件小人的需求条防止暴毙</description>
+    <descriptionShort>用于锁定事件小人的需求条防止暴毙</descriptionShort>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(1, 1, 1)</defaultLabelColor>
+    <priceImpact>false</priceImpact>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0</minSeverity>
+    <maxSeverity>1</maxSeverity>
+    <!-- <scenarioCanAdd>false</scenarioCanAdd> -->
+    <comps>
+      <li Class="RatkinUnderground.HediffCompProperties_UnderOutpostHediff">
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>RKU_IronStarHediff</defName>
+    <label>重点改装</label>
+    <description>被重点改装的机械蜈蚣，它是游击队钢铁意志的象征。</description>
+    <descriptionShort>被重点改装的机械蜈蚣，它是游击队钢铁意志的象征</descriptionShort>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(1, 1, 1)</defaultLabelColor>
+    <priceImpact>false</priceImpact>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0</minSeverity>
+    <maxSeverity>1</maxSeverity>
+    <stages>
+      <li>
+        <label>total</label>
+        <statOffsets>
+          <ArmorRating_Sharp>2.0</ArmorRating_Sharp>
+          <ArmorRating_Blunt>2.0</ArmorRating_Blunt>
+          <ArmorRating_Heat>2.0</ArmorRating_Heat>
+        </statOffsets>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>3</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+</Defs>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RKU.RequireDrillingVehicle>此地点只能通过钻机进入。</RKU.RequireDrillingVehicle>
+  <RKU_RadioLeftTitle>游击小队离开</RKU_RadioLeftTitle>
+  <RKU_RadioLeftMessage>游击小队已经离开了，但他们留下了一个加密电台。你可以用这个电台与他们保持联系。</RKU_RadioLeftMessage>
+
+  <!-- 游击队营地任务翻译 -->
+  <RKU_QuestExpiredLabel>任务过期：[resolvedQuestName]</RKU_QuestExpiredLabel>
+  <RKU_QuestExpiredText>土匪营地已经收拾东西搬走了。[resolvedQuestName]任务已过期。</RKU_QuestExpiredText>
+  <RKU_QuestFailedLabel>任务失败：[resolvedQuestName]</RKU_QuestFailedLabel>
+  <RKU_QuestFailedText>被发现后，土匪营地已经解散。[resolvedQuestName]任务已结束。</RKU_QuestFailedText>
+  <RKU_QuestCompletedLabel>付款已到</RKU_QuestCompletedLabel>
+  <RKU_QuestCompletedText>你已经击败了土匪营地！\n\n来自王国的嘉奖已经到达。</RKU_QuestCompletedText>
+  <RKU_FavorReceiverLabel>[asker_faction_royalFavorLabel]</RKU_FavorReceiverLabel>
+  <RKU_FavorReceiverText>这些殖民者参加了[resolvedQuestName]任务的胜利。[asker_definite]想要知道谁应该获得这项服务的[royalFavorReward_amount][asker_faction_royalFavorLabel]。</RKU_FavorReceiverText>
+
+  <!-- 游击队营地任务名称生成规则 -->
+  <RKU_QuestName_1>[bandit] [camp]</RKU_QuestName_1>
+  <RKU_QuestName_2>[bandit] [camp]</RKU_QuestName_2>
+  <RKU_QuestName_3>[asker_nameDef] 和 [camp]</RKU_QuestName_3>
+
+  <!-- 营地类型翻译 -->
+  <RKU_Camp_Camp>营地</RKU_Camp_Camp>
+  <RKU_Camp_Outpost>前哨站</RKU_Camp_Outpost>
+  <RKU_Camp_Lair>巢穴</RKU_Camp_Lair>
+  <RKU_Camp_Encampment>驻营地</RKU_Camp_Encampment>
+
+  <!-- 匪徒类型翻译 -->
+  <RKU_Bandit_Bandit>土匪</RKU_Bandit_Bandit>
+  <RKU_Bandit_Raider>掠夺者</RKU_Bandit_Raider>
+  <RKU_Bandit_Outlaw>亡命之徒</RKU_Bandit_Outlaw>
+  <RKU_Bandit_Desperado>亡命徒</RKU_Bandit_Desperado>
+  <RKU_Bandit_Fugitive>逃犯</RKU_Bandit_Fugitive>
+  <RKU_Bandit_Marauder>掠夺者</RKU_Bandit_Marauder>
+  <RKU_Bandit_Robber>强盗</RKU_Bandit_Robber>
+  <RKU_Bandit_Brigand>匪徒</RKU_Bandit_Brigand>
+
+  <!-- 任务描述翻译 -->
+  <RKU_QuestDescription>[asker_nameFull]，[asker_faction_name]的[asker_faction_leaderTitle]，给我们发来消息。一群匪徒驻扎附近的营地里，一直在袭击他们的商队。\n[asker_nameDef]要求我们摧毁这个营地，这意味着消灭所有敌人和炮塔。[asker_label]说[sitePart0_description]。</RKU_QuestDescription>
+
+  <!-- 钻探载具UI翻译 -->
+  <RKU.OpenRadio>打开无线电</RKU.OpenRadio>
+  <RKU.OpenRadioDesc>呼叫游击队</RKU.OpenRadioDesc>
+  <RKU.ManagePassengers>管理乘客</RKU.ManagePassengers>
+  <RKU.Return>返回</RKU.Return>
+  <RKU.ExitVehicle>退出载具</RKU.ExitVehicle>
+  <RKU.EnterVehicle>进入载具</RKU.EnterVehicle>
+  <RKU.RescueAndEnterVehicle>救援{0}并进入载具</RKU.RescueAndEnterVehicle>
+  <RKU.Move>移动</RKU.Move>
+  <RKU.Drill>钻地！</RKU.Drill>
+  <RKU.ChooseDrillingVehicleSpot>请选择钻机登陆的位置</RKU.ChooseDrillingVehicleSpot>
+  <RKU.Eject>登陆</RKU.Eject>
+  <RKU.CannotSpawnOnImpassable>无法在此处生成</RKU.CannotSpawnOnImpassable>
+
+  <!-- 其他系统翻译 -->
+  <LetterLabelUndercaveCollapsing>地下洞穴坍塌</LetterLabelUndercaveCollapsing>
+  <LetterUndercaveCollapsing>地下洞穴发生了坍塌，部分区域变得不稳定。</LetterUndercaveCollapsing>
+  <CommandStopForceAttack>停止强制攻击</CommandStopForceAttack>
+  <CommandStopForceAttackDesc>停止强制攻击模式</CommandStopForceAttackDesc>
+  <CommandHoldFire>停止射击</CommandHoldFire>
+  <CommandHoldFireDesc>停止射击模式</CommandHoldFireDesc>
+
+  <!-- 硬编码消息翻译 -->
+  <RKU_GoodsArrived>货物准备发送</RKU_GoodsArrived>
+  <RKU_OrderedGoodsArrived>选择位置以递送货舱</RKU_OrderedGoodsArrived>
+  <RKU_YunnanHallucination>芸南幻觉</RKU_YunnanHallucination>
+  <RKU_AteAllurecap>吃了魅惑菇</RKU_AteAllurecap>
+  <RKU_RecoveredFromYunnanHallucination>从芸南幻觉中恢复了过来</RKU_RecoveredFromYunnanHallucination>
+
+  <!-- 角色名字翻译 -->
+  <Raeline>瑞莱茵</Raeline>
+  <RKU_Zigstark>齐格星卡</RKU_Zigstark>
+  <RKU_Cheesecellar>奶酪窖</RKU_Cheesecellar>
+  <RKU_Anzleia>安兹蕾娅</RKU_Anzleia>
+  <RKU_Balsam>凤仙花</RKU_Balsam>
+  <RKU_Iron>钢铁</RKU_Iron>
+  <RKU_Star>星</RKU_Star>
+  <RKU_IronStar>钢铁星</RKU_IronStar>
+
+  <!-- 地图删除对话框翻译 -->
+  <RKU_RandomSiteDeleteMap>删除地图</RKU_RandomSiteDeleteMap>
+  <RKU_CommandViewQuestDesc>删除此地图及其所有内容。这将永久移除地图，无法恢复。</RKU_CommandViewQuestDesc>
+  <RKU_RandomSite_Confirm>确定要删除此地图吗？\n\n这将永久移除地图及其所有殖民者、物品和建筑。</RKU_RandomSite_Confirm>
+  <RKU_RandomSite_Confirm_Accept>确认删除</RKU_RandomSite_Confirm_Accept>
+
+  <!-- 日志消息翻译 -->
+  <RKU_EnteredMentalState>{0}已进入{1}状态</RKU_EnteredMentalState>
+  <RKU_MentalStateError>给予精神状态</RKU_MentalStateError>
+
+  <!-- 电台UI翻译 -->
+  <RKU_GuerrillaRadio>游击队频段</RKU_GuerrillaRadio>
+  <RKU_RoyalRadio>王国军频段</RKU_RoyalRadio>
+  <RKU_RadioOnline>在线</RKU_RadioOnline>
+  <RKU_SignalGood>信号良好</RKU_SignalGood>
+  <RKU_PowerGood>电量充足</RKU_PowerGood>
+  <RKU_UnknownLocation>未知位置</RKU_UnknownLocation>
+  <RKU_TradeSignal>交易信号</RKU_TradeSignal>
+  <RKU_ScanSignal>扫描信号</RKU_ScanSignal>
+  <RKU_TacticalSupport>战术支援</RKU_TacticalSupport>
+  <RKU_TacticalSupportFailReason>至少需要75的好感才能进行战术支援</RKU_TacticalSupportFailReason>
+  <RKU_ProvideSupport>提供支援</RKU_ProvideSupport>
+  <RKU_TradeCooldownText>交易冷却中</RKU_TradeCooldownText>
+  <RKU_StartTrade>开始交易</RKU_StartTrade>
+  <RKU_WaitingForTrade>等待交易...</RKU_WaitingForTrade>
+  <RKU_EmergencyCall>求救呼叫</RKU_EmergencyCall>
+  <RKU_EmergencyCooldownText>求救呼叫冷却中，还需{0}天</RKU_EmergencyCooldownText>
+  <RKU_EmergencyCooldownButton>求救冷却中 ({0}天)</RKU_EmergencyCooldownButton>
+  <RKU_ScanCooldownText>扫描冷却中</RKU_ScanCooldownText>
+  <RKU_ScanFavorRequirement>至少需要50的好感才能进行特殊地点扫描</RKU_ScanFavorRequirement>
+  <RKU_TradeFavorRequirement>至少需要1的好感才能进行地下商队交易</RKU_TradeFavorRequirement>
+  <RKU_SiteDiscoveredLabel>发现：{0}</RKU_SiteDiscoveredLabel>
+  <RKU_SiteDiscoveredText>游击队扫描到了一处新地点:{0}</RKU_SiteDiscoveredText>
+  <RKU_TraderName>地鼠物资运输队</RKU_TraderName>
+  <RKU_SignalIncoming>      信号传入中...</RKU_SignalIncoming>
+  <RKU_StartScanningSignal>开始扫描信号...</RKU_StartScanningSignal>
+  <RKU_EmergencyCallSent>紧急呼叫已发送!</RKU_EmergencyCallSent>
+  <RKU_SignalReceived>已收到信号，我们正在备货！</RKU_SignalReceived>
+  <RKU_TradeSignalSent>交易信号已发送，等待地下运输队到达...</RKU_TradeSignalSent>
+  <RKU_CheckOurGoods>来看看我们准备了什么好东西！</RKU_CheckOurGoods>
+  <RKU_NoNegotiatorAvailable>没有可用的殖民者进行交易。</RKU_NoNegotiatorAvailable>
+  <RKU_GoodsReady>货物已准备完毕，可以开始交易了！</RKU_GoodsReady>
+  <RKU_RadioStatus>电台状态:</RKU_RadioStatus>
+  <RKU_ResearchProgress>研究进度</RKU_ResearchProgress>
+  <RKU_FactionRelation>阵营关系</RKU_FactionRelation>
+  <RKU_TradeCooldown>交易冷却: {0}天</RKU_TradeCooldown>
+  <RKU_ScanCooldown>扫描冷却: {0}天</RKU_ScanCooldown>
+  <RKU_EmergencyCooldown>战术支援: {0}天</RKU_EmergencyCooldown>
+  <RKU_MapLocation>地图位置: {0}</RKU_MapLocation>
+  <RKU_commanderTitle>游击队区域指挥官</RKU_commanderTitle>
+
+  <!-- 开发工具翻译 -->
+  <RKU_CooldownCancelled>冷却已取消</RKU_CooldownCancelled>
+  <RKU_TradeReady>交易已准备就绪</RKU_TradeReady>
+  <RKU_ResearchProgressFull>研究进度已加满</RKU_ResearchProgressFull>
+  <RKU_ResearchProgressHalf>研究进度已加一半</RKU_ResearchProgressHalf>
+  <RKU_RelationIncreased>关系等级已增加10点</RKU_RelationIncreased>
+  <RKU_RelationDecreased>关系等级已减少10点</RKU_RelationDecreased>
+
+  <!-- 魅惑菇消息翻译 -->
+  <RKU_IntendsToEatAllurecap>{0}正打算食用魅惑菇</RKU_IntendsToEatAllurecap>
+
+  <!-- 魅惑菇转化手术翻译 -->
+  <RKU_ConversionSuccess>{0}已被成功转化。</RKU_ConversionSuccess>
+  <RKU_AllurecapConversionCompleted>{0}的魅惑菇转化手术已完成，现在处于深度麻醉状态。</RKU_AllurecapConversionCompleted>
+  <RKU_AlreadyPlayerFaction>目标已经是玩家阵营成员。</RKU_AlreadyPlayerFaction>
+
+  <!-- 游击队事件翻译 -->
+  <RKU_GuerrillaAttackLabel>鼠族隧道游击队</RKU_GuerrillaAttackLabel>
+  <RKU_GuerrillaAttackText>侦测到地下活动，一支鼠族地下游击队正在进攻殖民地</RKU_GuerrillaAttackText>
+  <RKU_GuerrillaAllyLabel>鼠族隧道游击队</RKU_GuerrillaAllyLabel>
+  <RKU_GuerrillaAllyText>侦测到地下活动，一支鼠族地下游击队正在赶来协助殖民地防守，请在大地图上选择他们要前往的位置</RKU_GuerrillaAllyText>
+  <RKU_InvalidTargetSelected>选择的目标无效</RKU_InvalidTargetSelected>
+  <RKU_NoColonistsAtLocation>该位置没有殖民者</RKU_NoColonistsAtLocation>
+  <RKU_GuerrillasArrivedLabel>鼠族游击队已抵达</RKU_GuerrillasArrivedLabel>
+  <RKU_GuerrillasArrivedText>游击队已抵达指定位置，准备协助。</RKU_GuerrillasArrivedText>
+
+  <!-- 钻探载具消息 -->
+  <RKU_DrillingVehicleLowDurability>钻机耐久过低，无法使用！</RKU_DrillingVehicleLowDurability>
+  <RKU_NoOtherColonistsOnMap>地图上没有其他殖民者，不能移动！</RKU_NoOtherColonistsOnMap>
+  <RKU_DrillOutDisabledReason>钻出钻机需要地图内和钻机内都存在殖民者</RKU_DrillOutDisabledReason>
+</LanguageData> 

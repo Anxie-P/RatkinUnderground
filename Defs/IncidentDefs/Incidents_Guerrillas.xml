@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <IncidentDef>
+    <defName>RKU_IncidentWorker_FinalRaid</defName>
+    <label>终末血战</label>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>RatkinUnderground.RKU_IncidentWorker_FinalRaid</workerClass>
+    <baseChance>0</baseChance>
+    <category>ThreatBig</category>
+    <pointsScaleable>true</pointsScaleable>
+    <tale>Raid</tale>
+    <ignoreRecentSelectionWeighting>true</ignoreRecentSelectionWeighting>
+  </IncidentDef>
+
+  <IncidentDef>
+    <defName>RKU_RatkinTunnel_Fir</defName>
+    <label>鼠族隧道游击队</label>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>RatkinUnderground.RKU_IncidentWorker_Guerrillas</workerClass>
+    <letterLabel>鼠族隧道游击队</letterLabel>
+    <letterText>侦测到地下活动，一支鼠族地下游击队正在进攻殖民地。</letterText>
+    <letterDef>ThreatBig</letterDef>
+    <baseChance>0</baseChance>
+    <minRefireDays>10</minRefireDays>
+    <category>ThreatBig</category>
+    <pointsScaleable>true</pointsScaleable>
+    <minThreatPoints>500</minThreatPoints>
+    <tale>Raid</tale>
+  </IncidentDef>
+
+  <IncidentDef>
+    <defName>RKU_Incident_CaravanHijack</defName>
+    <label>游击队物资劫持</label>
+    <category>Misc</category>
+    <pointsScaleable>true</pointsScaleable>
+    <minThreatPoints>1500</minThreatPoints>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>RatkinUnderground.RKU_IncidentWorker_CaravanHijack</workerClass>
+    <letterLabel>游击队物资劫持</letterLabel>
+    <letterText>游击队侦察到你的基地里有鼠族王国的一支由贵族带领的商队。他们决定趁机发动突袭，劫持这些珍贵的物资。如果你不予阻止，会得到游击队员们的感谢。</letterText>
+    <baseChance>4</baseChance>
+    <minRefireDays>30</minRefireDays>
+  </IncidentDef>
+
+  <IncidentDef>
+    <defName>RKU_RatkinTunnel_Thi</defName>
+    <label>？？？</label>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>RatkinUnderground.RKU_IncidentWorker_IvanComing</workerClass>
+    <letterLabel>？？？</letterLabel>
+    <letterText>？？？</letterText>
+    <letterDef>ThreatBig</letterDef>
+    <baseChance>0</baseChance>
+    <minRefireDays>9999</minRefireDays>
+    <category>ThreatBig</category>
+    <pointsScaleable>true</pointsScaleable>
+    <minThreatPoints>0</minThreatPoints>
+    <tale>Raid</tale>
+  </IncidentDef>
+
+  <IncidentDef>
+    <defName>RKU_FinalBattle</defName>
+    <label>血战</label>
+    <category>ThreatBig</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>IncidentWorker_MakeGameCondition</workerClass>
+    <letterLabel>终末血战</letterLabel>
+    <letterText>游击队集结了本地全部的精锐，对殖民地发动了最终的决战，每4小时会根据殖民地状态分配不同强度的袭击，总共6波。</letterText>
+    <letterDef>ThreatBig</letterDef>
+    <gameCondition>RKU_FinalBattle</gameCondition>
+    <durationDays>30</durationDays>
+    <baseChance>0</baseChance>
+  </IncidentDef>
+
+  <IncidentDef>
+    <defName>RKU_LimitedFleshbeastAttack</defName>
+    <label>地震：血肉兽</label>
+    <workerClass>RatkinUnderground.IncidentWorker_LimitedFleshbeastAttack</workerClass>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <category>ThreatBig</category>
+    <pointsScaleable>true</pointsScaleable>
+    <baseChance>0</baseChance>
+    <letterLabel>地震：血肉兽</letterLabel>
+    <letterText>撼地装置导致的地震惊醒了血肉兽，它们正从地下涌出来！</letterText>
+    <letterTextPlural>Several sinkholes have started appearing. The sounds of writhing flesh and cracking bones can be heard from below.</letterTextPlural>
+    <letterDef>ThreatBig</letterDef>
+    <earliestDay>0</earliestDay>
+  </IncidentDef>
+
+  <IncidentDef>
+    <defName>RKU_LimitedInsectAttack</defName>
+    <label>地震：虫群</label>
+    <workerClass>RatkinUnderground.IncidentWorker_LimitedInsectAttack</workerClass>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <category>ThreatBig</category>
+    <pointsScaleable>true</pointsScaleable>
+    <baseChance>0</baseChance>
+    <letterLabel>地震：虫群</letterLabel>
+    <letterText>撼地装置导致的地震惊醒了虫群，它们正从地下涌出来！</letterText>
+    <letterTextPlural>Several sinkholes have started appearing. The sounds of writhing chitin and skittering legs can be heard from below.</letterTextPlural>
+    <letterDef>ThreatBig</letterDef>
+    <earliestDay>0</earliestDay>
+  </IncidentDef>
+
+  <IncidentDef>
+    <defName>RKU_Incident_Trigger_GuerrillasComing</defName>
+    <label>游击队开局事件</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>RatkinUnderground.RKU_IncidentWorker_TriggerQuest</workerClass>
+    <baseChance>20</baseChance>
+    <modExtensions>
+      <li Class="RatkinUnderground.QuestExtension">
+        <quest>RKU_GuerrillasComing</quest>
+      </li>
+    </modExtensions>
+  </IncidentDef>
+
+  <IncidentDef>
+    <defName>RKU_Incident_Trigger_GuerrillaSurvivor</defName>
+    <label>游击队幸存者救援</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>RatkinUnderground.RKU_IncidentWorker_TriggerQuest</workerClass>
+    <baseChance>2</baseChance>
+    <modExtensions>
+      <li Class="RatkinUnderground.QuestExtension">
+        <quest>RKU_GuerrillaSurvivor</quest>
+      </li>
+    </modExtensions>
+  </IncidentDef>
+  
+  <IncidentDef>
+    <defName>RKU_Incident_ConfusedRat</defName>
+    <label>迷茫的白鼠</label>
+    <category>Misc</category>
+	<baseChance>2</baseChance>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>RatkinUnderground.RKU_IncidentWorker_ConfusedRat</workerClass>
+    <letterLabel>迷茫的白鼠</letterLabel>
+    <letterText>一只迷茫的白色鼠族出现在附近，看起来十分困惑。</letterText>
+  </IncidentDef>
+
+  <IncidentDef>
+    <defName>RKU_Incident_Trigger_GuerrillaSecretProtection</defName>
+    <label>游击队机密信息保护</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>RatkinUnderground.RKU_IncidentWorker_TriggerQuest</workerClass>
+    <baseChance>20</baseChance>
+    <minRefireDays>60</minRefireDays>
+    <modExtensions>
+      <li Class="RatkinUnderground.QuestExtension">
+        <quest>RKU_GuerrillaSecretProtection</quest>
+      </li>
+    </modExtensions>
+  </IncidentDef>
+
+</Defs>

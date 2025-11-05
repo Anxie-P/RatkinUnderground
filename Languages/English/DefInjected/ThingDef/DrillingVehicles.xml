@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: Ratkin Drilling Vehicle -->
+  <RKU_DrillingVehicle.label>Ratkin Driller Vehicle</RKU_DrillingVehicle.label>
+  <!-- EN: Ratkin Drilling Vehicle, Dig into the future -->
+  <RKU_DrillingVehicle.description>Ratkin Driller Vehicle, Digs into the Future.</RKU_DrillingVehicle.description>
+  
+  <!-- EN: Drilling Vehicle Projectile -->
+  <RKU_DrillingVehicleBullet.label>Driller Rush Projectile</RKU_DrillingVehicleBullet.label>
+  
+  <!-- EN: Cargo Drilling Vehicle -->
+  <RKU_DrillingVehicleCargo.label>Cargo Driller Vehicle</RKU_DrillingVehicleCargo.label>
+  <!-- EN: A drilling vehicle specialized for transporting cargo, equipped with a large cargo bay but can only accommodate 2 passengers. -->
+  <RKU_DrillingVehicleCargo.description>A driller vehicle specifically designed for transporting cargo, featuring a large cargo capacity but accommodating only two passengers.</RKU_DrillingVehicleCargo.description>
+  
+  <!-- EN: Drilling Vehicle -->
+  <RKU_DrillingVehicleInEnemyMap.label>Driller Vehicle</RKU_DrillingVehicleInEnemyMap.label>
+  <!-- EN: Drilling Vehicle, you need to get back in this car to leave the map. -->
+  <RKU_DrillingVehicleInEnemyMap.description>Driller vehicle. You need to get back in this vehicle to leave the map.</RKU_DrillingVehicleInEnemyMap.description>
+  
+  <!-- EN: Guerrilla Drilling Vehicle -->
+  <RKU_DrillingVehicleInEnemyMap_Und.label>Partisans' Driller Vehicle</RKU_DrillingVehicleInEnemyMap_Und.label>
+  <!-- EN: Guerrilla Drilling Vehicle -->
+  <RKU_DrillingVehicleInEnemyMap_Und.description>Partisans' Driller Vehicle</RKU_DrillingVehicleInEnemyMap_Und.description>
+  
+  <!-- EN: Armed Ratkin Drilling Vehicle -->
+  <RKU_DrillingVehicleWithTurret.label>Armed Ratkin Driller Vehicle</RKU_DrillingVehicleWithTurret.label>
+  <!-- EN: Armed Ratkin Drilling Vehicle, This is no joke! -->
+  <RKU_DrillingVehicleWithTurret.description>Armed Ratkin Driller Vehicle, Not Joking!</RKU_DrillingVehicleWithTurret.description>
+  
+  <!-- EN: Tunnel -->
+  <RKU_TunnelHiveSpawner.label>Tunnel</RKU_TunnelHiveSpawner.label>
+  
+  <!-- EN: Ratkin Faction Tunnel -->
+  <RKU_TunnelHiveSpawner_Und.label>Ratkin Underground Faction Tunnel</RKU_TunnelHiveSpawner_Und.label>
+  
+  <!-- EN: Ratkin Underground Turret Gun -->
+  <RKU_TurretGun.label>Machine Gun</RKU_TurretGun.label>
+  <!-- EN: Ratkin Underground Turret Gun -->
+  <RKU_TurretGun.description>Ratkin Underground Machine Gun</RKU_TurretGun.description>
+  <!-- EN: Ratkin Underground Turret Gun -->
+  <RKU_TurretGun.verbs.Verb_Shoot.label>Ratkin Underground Machine Gun</RKU_TurretGun.verbs.Verb_Shoot.label>
+  
+</LanguageData>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <JobDef>
+        <defName>RKU_SetC4</defName>
+        <driverClass>RatkinUnderground.JobDriver_SetC4</driverClass>
+        <reportString>正在安装炸弹到TargetA</reportString>
+        <alwaysShowWeapon>true</alwaysShowWeapon>
+        <playerInterruptible>true</playerInterruptible>
+        <suspendable>false</suspendable>
+    </JobDef>
+</Defs> 

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- 炸弹设置音效 -->
+  <SoundDef>
+    <defName>RKU_BombSet</defName>
+    <context>MapOnly</context>
+    <eventNames />
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Icraatta</clipPath>
+          </li>
+        </grains>
+        <volumeRange>
+          <min>30</min>
+          <max>30</max>
+        </volumeRange>
+        <pitchRange>
+          <min>1</min>
+          <max>1</max>
+        </pitchRange>
+        <distRange>
+          <min>0</min>
+          <max>50</max>
+        </distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+  
+  <!-- 炸弹循环音效 -->
+  <SoundDef>
+    <defName>RKU_BombLoop</defName>
+    <context>MapOnly</context>
+    <eventNames />
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Icraloop</clipPath>
+          </li>
+        </grains>
+        <volumeRange>
+          <min>15</min>
+          <max>15</max>
+        </volumeRange>
+        <pitchRange>
+          <min>1</min>
+          <max>1</max>
+        </pitchRange>
+        <distRange>
+          <min>0</min>
+          <max>30</max>
+        </distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <!-- 彩蛋 -->
+  <SoundDef>
+    <defName>RKU_EvanHaha</defName>
+    <context>MapOnly</context>
+    <eventNames />
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+	    <onCamera>true</onCamera>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Icraseg</clipPath>
+          </li>
+        </grains>
+        <volumeRange>
+          <min>15</min>
+          <max>15</max>
+        </volumeRange>
+        <pitchRange>
+          <min>1</min>
+          <max>1</max>
+        </pitchRange>
+        <distRange>
+          <min>0</min>
+          <max>30</max>
+        </distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+  
+  <!-- 撼地 -->
+  <SoundDef>
+    <defName>RKU_Hammer</defName>
+    <context>MapOnly</context>
+    <eventNames />
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Boommm</clipPath>
+          </li>
+        </grains>
+        <volumeRange>
+          <min>40</min>
+          <max>40</max>
+        </volumeRange>
+        <pitchRange>
+          <min>1</min>
+          <max>1</max>
+        </pitchRange>
+        <distRange>
+          <min>0</min>
+          <max>50</max>
+        </distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+  
+</Defs>

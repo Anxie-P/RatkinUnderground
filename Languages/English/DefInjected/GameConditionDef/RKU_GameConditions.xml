@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: 血战 -->
+  <RKU_FinalBattle.label>The Final Battle</RKU_FinalBattle.label>
+  <!-- EN: 游击队集结了本地全部的精锐，对殖民地发动了最终的决战，每4小时会根据殖民地状态分配不同强度的袭击，想要在战争中胜利，需要击破他们的士气，或是直接让他们全军覆没。 -->
+  <RKU_FinalBattle.description>The Partisans have assembled all local elite forces to launch a final battle against the colony. Every four hours, attacks of varying intensity will be launched based on the colony's status. To achieve victory in this war, you must either break their morale, or annihilate their entire force.</RKU_FinalBattle.description>
+  <!-- EN: 血战结束了... -->
+  <RKU_FinalBattle.endMessage>The Final Battle has come to an end...</RKU_FinalBattle.endMessage>
+  <!-- EN: 地鼠游击队发动了最终的决战！他们将持续对你的殖民地发动袭击。 -->
+  <RKU_FinalBattle.letterText>The Ratkin Underground Partisans has launched their final battle! They will continue to attack your colony.</RKU_FinalBattle.letterText>
+  
+</LanguageData>

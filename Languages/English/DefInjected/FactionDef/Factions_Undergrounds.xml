@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: 鼠族游击队 -->
+  <RKU_Faction.label>Ratkin Underground</RKU_Faction.label>
+  <!-- EN: 地鼠派系 -->
+  <RKU_Faction.description>A underground Ratkin partisan faction.</RKU_Faction.description>
+  <!-- EN: \n          固定叙述测试\n         -->
+  <RKU_Faction.ideoDescription>ideoDescription</RKU_Faction.ideoDescription>
+  <!-- EN: Partisan regional commander -->
+  <RKU_Faction.leaderTitle>Partisan Regional Commander</RKU_Faction.leaderTitle>
+  <!-- EN: {0} from {1} are attacking your {2}. -->
+  <RKU_Faction.messageDefendersAttacking>{0} from {1} are attacking your {2}.</RKU_Faction.messageDefendersAttacking>
+  <!-- EN: ratkin -->
+  <RKU_Faction.pawnSingular>Ratkin</RKU_Faction.pawnSingular>
+  <!-- EN: Ratkins -->
+  <RKU_Faction.pawnsPlural>Ratkins</RKU_Faction.pawnsPlural>
+  
+</LanguageData>

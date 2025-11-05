@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: 游击队披袍 -->
+  <RKU_Apparel_CaptainCloak.label>Partisan Leader Cloak</RKU_Apparel_CaptainCloak.label>
+  <!-- EN: 游击队政委们喜爱的厚实披袍，能够一定程度上防御远程攻击，但比较重 -->
+  <RKU_Apparel_CaptainCloak.description>The thick cloaks favoured by partisan commissars offer some degree of defence against ranged attacks, though they are rather heavy.</RKU_Apparel_CaptainCloak.description>
+  
+  <!-- EN: 游击队政委制服 -->
+  <RKU_Apparel_CaptainUniform.label>Partisan Commissar Uniform</RKU_Apparel_CaptainUniform.label>
+  <!-- EN: 游击队政委们的制服，他们负责政治宣传，士气激励和机修工作。 -->
+  <RKU_Apparel_CaptainUniform.description>The uniforms of the partisan commissars, who are responsible for political propaganda, morale encouragement, and mechanical repairs.</RKU_Apparel_CaptainUniform.description>
+  
+  <!-- EN: 游击队精英侦察兵制服 -->
+  <RKU_Apparel_EliteScoutUniform.label>Partisan Elite Scout Uniform</RKU_Apparel_EliteScoutUniform.label>
+  <!-- EN: 精英侦察兵的制服，使用了特殊的蘑菇布材质,昂贵且强大，且轻便依旧。 -->
+  <RKU_Apparel_EliteScoutUniform.description>Elite Scout Uniforms, crafted from special Devilstrand fabric, are expensive and powerful, yet remain remarkably lightweight.</RKU_Apparel_EliteScoutUniform.description>
+  
+  <!-- EN: 电台背包 -->
+  <RKU_Apparel_InvaderBag.label>Radio Backpack</RKU_Apparel_InvaderBag.label>
+  <!-- EN: 一个便携式电台，用于与地鼠指挥部通讯，也可以呼叫钻地袭击。 -->
+  <RKU_Apparel_InvaderBag.description>A portable radio for communicating with the Ratkin Underground High Command, which can also be used to call in a burrowing assault.</RKU_Apparel_InvaderBag.description>
+  
+  <!-- EN: 游击队员套装 -->
+  <RKU_Apparel_InvaderUniform.label>Partisan Uniform</RKU_Apparel_InvaderUniform.label>
+  <!-- EN: 地鼠游击队员的制服，他们是游击队的主要作战部队，会在队友身后使用中距离的武器进行支援。同时，他们也负责实施对敌对基地的渗透工作。 -->
+  <RKU_Apparel_InvaderUniform.description>Uniform of the Ratkin Underground Partisans, who form the main combat troops of the partisan forces. They provide support from behind teammates using mid-range weapons, while also being responsible for conducting infiltration operations against enemy bases.</RKU_Apparel_InvaderUniform.description>
+  
+  <!-- EN: 游击队侦察兵制服 -->
+  <RKU_Apparel_ScoutUniform.label>Partisan Scout Uniform</RKU_Apparel_ScoutUniform.label>
+  <!-- EN: 游击队侦察兵的制服，材质粗糙但非常轻便。很可惜他们并没有闲暇打棒球 -->
+  <RKU_Apparel_ScoutUniform.description>Uniform of the Partisan Scouts, made from coarse yet lightweight materials. Pity they don't have leisure time for playing baseball.</RKU_Apparel_ScoutUniform.description>
+  
+</LanguageData>

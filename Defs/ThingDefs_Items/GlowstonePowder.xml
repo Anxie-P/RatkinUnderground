@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+    <ThingDef ParentName="ResourceBase">
+    <defName>RKU_GlowstonePowder</defName>
+    <label>GlowstonePowder</label>
+    <description>The powder of these special minerals is glowing! These mysterious minerals can only be found deep underground, and very few people are able to discover their value.</description>
+    <graphicData>
+        <texPath>Things/Item/Resource/GlowstonePowder</texPath>
+        <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>First</resourceReadoutPriority>
+    <soundInteract>Silver_Drop</soundInteract>
+    <soundDrop>Silver_Drop</soundDrop>
+    <useHitPoints>false</useHitPoints>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <resourceReadoutAlwaysShow>true</resourceReadoutAlwaysShow>
+    <statBases>
+        <MarketValue>1.2</MarketValue>
+        <Mass>0.008</Mass>
+        <StuffPower_Armor_Sharp>0.72</StuffPower_Armor_Sharp>
+        <StuffPower_Armor_Blunt>0.36</StuffPower_Armor_Blunt>
+        <StuffPower_Armor_Heat>0.36</StuffPower_Armor_Heat>
+        <StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
+        <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
+        <SharpDamageMultiplier>0.85</SharpDamageMultiplier>
+        <BluntDamageMultiplier>1.0</BluntDamageMultiplier>
+    </statBases>
+    <thingCategories>
+        <li>ResourcesRaw</li>
+    </thingCategories>
+    <stackLimit>500</stackLimit>
+    <smallVolume>true</smallVolume>
+    <deepCommonality>0.5</deepCommonality>
+    <deepCountPerPortion>70</deepCountPerPortion>
+    <deepLumpSizeRange>2~10</deepLumpSizeRange>
+    <burnableByRecipe>false</burnableByRecipe>
+    <smeltable>false</smeltable>
+    <possessionCount>40</possessionCount>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <allowedArchonexusCount>1000</allowedArchonexusCount>
+    </ThingDef>
+</Defs>

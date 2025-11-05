@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: 游击队政委帽子 -->
+  <RKU_Apparel_CaptainHat.label>Partisan Commissar Cap</RKU_Apparel_CaptainHat.label>
+  <!-- EN: 游击队政委们的帽子，似乎是很久以前的制式了。 -->
+  <RKU_Apparel_CaptainHat.description>Cap of Partisan Commissars, appeared to be of a very old-fashioned design.</RKU_Apparel_CaptainHat.description>
+  
+  <!-- EN: 游击队员护目镜 -->
+  <RKU_Apparel_InvaderHat.label>Partisan Goggles</RKU_Apparel_InvaderHat.label>
+  <!-- EN: 游击队成员们的护目镜，附带有一些用于隐蔽的草木枝。 -->
+  <RKU_Apparel_InvaderHat.description>The partisans' goggles are fitted with foliage for camouflage.</RKU_Apparel_InvaderHat.description>
+  
+  <!-- EN: 游击队侦察兵帽子 -->
+  <RKU_Apparel_ScoutHat.label>Partisan Scout Hat</RKU_Apparel_ScoutHat.label>
+  <!-- EN: 侦察兵常戴的帽子，方便行动且便于隐蔽。 -->
+  <RKU_Apparel_ScoutHat.description>A hat commonly worn by partisan scouts, facilitates movement and concealment.</RKU_Apparel_ScoutHat.description>
+  
+</LanguageData>

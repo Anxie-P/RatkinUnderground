@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <TraderKindDef>
+    <defName>RKU_RadioShop</defName>
+    <label>地鼠物资运输队</label>
+    <stockGenerators>
+      <!-- 矿物 -->
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Steel</thingDef>
+        <countRange>100~500</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Plasteel</thingDef>
+        <countRange>50~200</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Uranium</thingDef>
+        <countRange>20~100</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Gold</thingDef>
+        <countRange>30~150</countRange>
+      </li>
+      <!-- 零8件 -->
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>ComponentIndustrial</thingDef>
+        <countRange>5~20</countRange>
+      </li>
+       <li Class="StockGenerator_SingleDef">
+		<thingDef>Silver</thingDef>
+		<countRange>800~1300</countRange>  
+	   </li>
+      <!-- 收购食物核武器 -->
+      <li Class="StockGenerator_MarketValue">
+        <tradeTag>WeaponRanged</tradeTag>
+        <maxTechLevelGenerate>Industrial</maxTechLevelGenerate>
+        <countRange>2~4</countRange>
+      </li>
+      <li Class="StockGenerator_Category">
+        <categoryDef>WeaponsMelee</categoryDef>
+        <maxTechLevelGenerate>Industrial</maxTechLevelGenerate>
+        <thingDefCountRange>2~4</thingDefCountRange>
+        <countRange>1~3</countRange>
+      </li>
+	  <li Class="StockGenerator_Category">
+        <categoryDef>FoodMeals</categoryDef>
+        <thingDefCountRange>15~15</thingDefCountRange>
+        <countRange>0~1</countRange>
+      </li>
+	  <li Class="StockGenerator_SingleDef">
+        <thingDef>MealSimple</thingDef>
+        <countRange>0~0</countRange>
+      </li>
+	  <li Class="StockGenerator_SingleDef">
+        <thingDef>MealFine</thingDef>
+        <countRange>0~0</countRange>
+      </li>
+	  <li Class="StockGenerator_SingleDef">
+        <thingDef>MealFine_Veg</thingDef>
+        <countRange>0~0</countRange>
+      </li>
+	  <li Class="StockGenerator_SingleDef">
+        <thingDef>MealFine_Meat</thingDef>
+        <countRange>0~0</countRange>
+      </li>
+	  <li Class="StockGenerator_SingleDef">
+        <thingDef>MealLavish</thingDef>
+        <countRange>0~0</countRange>
+      </li>
+	  <li Class="StockGenerator_SingleDef">
+        <thingDef>MealLavish_Veg</thingDef>
+        <countRange>0~0</countRange>
+      </li>
+	  <li Class="StockGenerator_SingleDef">
+        <thingDef>MealLavish_Meat</thingDef>
+        <countRange>0~0</countRange>
+      </li>
+	  <li Class="StockGenerator_SingleDef">
+        <thingDef>MealSurvivalPack</thingDef>
+        <countRange>0~0</countRange>
+      </li>
+	  <li Class="StockGenerator_SingleDef">
+        <thingDef>Kibble</thingDef>
+        <countRange>0~0</countRange>
+      </li>
+	  <li Class="StockGenerator_SingleDef">
+        <thingDef>Pemmican</thingDef>
+        <countRange>0~0</countRange>
+      </li>
+    </stockGenerators>
+  </TraderKindDef>
+
+  <TraderKindDef>
+    <defName>RKU_TradingPost</defName>
+    <label>地鼠物资运输队</label>
+    <stockGenerators>
+      <!-- 矿物 -->
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Steel</thingDef>
+        <countRange>100~500</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Plasteel</thingDef>
+        <countRange>50~200</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Uranium</thingDef>
+        <countRange>20~100</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Gold</thingDef>
+        <countRange>30~150</countRange>
+      </li>
+      <!-- 蘑菇 -->
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>RawFungus</thingDef>
+        <countRange>25~125</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>RKU_RawAllurecap</thingDef>
+        <countRange>8~25</countRange>
+      </li>
+      <!-- 零8件 -->
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>ComponentIndustrial</thingDef>
+        <countRange>5~20</countRange>
+      </li>
+       <li Class="StockGenerator_SingleDef">
+		<thingDef>Silver</thingDef>
+		<countRange>1200~5000</countRange>  
+	   </li>
+      <!-- 收购食物核武器 -->
+      <li Class="StockGenerator_MarketValue">
+        <tradeTag>WeaponRanged</tradeTag>
+        <maxTechLevelGenerate>Industrial</maxTechLevelGenerate>
+        <countRange>2~4</countRange>
+      </li>
+      <li Class="StockGenerator_Category">
+        <categoryDef>WeaponsMelee</categoryDef>
+        <maxTechLevelGenerate>Industrial</maxTechLevelGenerate>
+        <thingDefCountRange>2~4</thingDefCountRange>
+        <countRange>1~3</countRange>
+      </li>
+	  <li Class="StockGenerator_SingleDef">
+        <thingDef>MealSimple</thingDef>
+        <countRange>0~0</countRange>
+      </li>
+	  <li Class="StockGenerator_SingleDef">
+        <thingDef>MealFine</thingDef>
+        <countRange>0~0</countRange>
+      </li>
+	  <li Class="StockGenerator_SingleDef">
+        <thingDef>MealFine_Veg</thingDef>
+        <countRange>0~0</countRange>
+      </li>
+	  <li Class="StockGenerator_SingleDef">
+        <thingDef>MealFine_Meat</thingDef>
+        <countRange>0~0</countRange>
+      </li>
+	  <li Class="StockGenerator_SingleDef">
+        <thingDef>MealLavish</thingDef>
+        <countRange>0~0</countRange>
+      </li>
+	  <li Class="StockGenerator_SingleDef">
+        <thingDef>MealLavish_Veg</thingDef>
+        <countRange>0~0</countRange>
+      </li>
+	  <li Class="StockGenerator_SingleDef">
+        <thingDef>MealLavish_Meat</thingDef>
+        <countRange>0~0</countRange>
+      </li>
+	  <li Class="StockGenerator_SingleDef">
+        <thingDef>MealSurvivalPack</thingDef>
+        <countRange>0~0</countRange>
+      </li>
+	  <li Class="StockGenerator_SingleDef">
+        <thingDef>Kibble</thingDef>
+        <countRange>0~0</countRange>
+      </li>
+	  <li Class="StockGenerator_SingleDef">
+        <thingDef>Pemmican</thingDef>
+        <countRange>0~0</countRange>
+      </li>
+    </stockGenerators>
+  </TraderKindDef>
+
+</Defs>

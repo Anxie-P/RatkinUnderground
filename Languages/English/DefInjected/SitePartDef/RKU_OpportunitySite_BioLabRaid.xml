@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: biological research facility -->
+  <RatkinBioLab.label>TODO</RatkinBioLab.label>
+  <!-- EN: A secret biological research facility operated by the Ratkin Kingdom. -->
+  <RatkinBioLab.description>TODO</RatkinBioLab.description>
+  <!-- EN: Attacking {0}. -->
+  <RatkinBioLab.approachingReportString>TODO</RatkinBioLab.approachingReportString>
+  <!-- EN: Attack {0} -->
+  <RatkinBioLab.approachOrderString>TODO</RatkinBioLab.approachOrderString>
+  <!-- EN: There is an enemy outpost in this area. -->
+  <RatkinBioLab.arrivedLetter>TODO</RatkinBioLab.arrivedLetter>
+  
+</LanguageData>

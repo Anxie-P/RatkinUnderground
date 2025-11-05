@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Jade Crystal Crossbow -->
+  <RKU_JadeCrystalCrossbow.label>Jade Crystal Crossbow</RKU_JadeCrystalCrossbow.label>
+  <RKU_JadeCrystalCrossbow.description>A repeating crossbow with faster firing rate, requires glowstone and jade to manufacture.</RKU_JadeCrystalCrossbow.description>
+
+  <!-- Crossbow Bolt -->
+  <Bolt_RKU_JadeCrystalCrossbow.label>Crossbow Bolt</Bolt_RKU_JadeCrystalCrossbow.label>
+
+</LanguageData>

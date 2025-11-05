@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <HairDef>
+        <defName>RKU_CommanderHair</defName>
+        <label>commander hair</label>
+        <hairGender>Any</hairGender>
+        <texPath>Things/Commander/Hair</texPath>
+        <!-- 移除category和styleTags，让这个头发不会自然出现在游戏中 -->
+    </HairDef>
+</Defs>

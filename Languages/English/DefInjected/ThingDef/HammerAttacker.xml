@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: Hammer Attacker -->
+  <RKU_HammerAttacker.label>Ground Hammer Facility</RKU_HammerAttacker.label>
+  <!-- EN: 地锤装置，地鼠游击队的终极武器，通过巨大的钢芯震击地下岩层以唤醒地下沉睡的怪物们......破坏它可以严重打击敌人的士气。 -->
+  <RKU_HammerAttacker.description>The Ground Hammer Facility, the Ratkin Underground Partisans' ultimate weapon, awakens the slumbering behemoths beneath the earth through massive steel core impacts on underground rock strata... Destroying it can severely demoralise the enemy.</RKU_HammerAttacker.description>
+  
+</LanguageData>

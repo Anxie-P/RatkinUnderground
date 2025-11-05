@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: Allurecap -->
+  <RKU_Allurecap.label>Allurecap</RKU_Allurecap.label>
+  <!-- EN: A mushroom that induces various mental states in those who consume it. -->
+  <RKU_Allurecap.description>The Allurecap.</RKU_Allurecap.description>
+  
+  <!-- EN: Hatecap -->
+  <RKU_Hatecap.label>Hatecap</RKU_Hatecap.label>
+  <!-- EN: It has an unpleasant smell, but clusters of beneficial mushrooms are often found growing alongside it -->
+  <RKU_Hatecap.description>The Hatecap, though foul-smelling, is often accompanied by beneficial fungal clusters in its vicinity.</RKU_Hatecap.description>
+  
+  <!-- EN: Mindspark -->
+  <RKU_Mindspark.label>Inspirationcap</RKU_Mindspark.label>
+  <!-- EN: Eating it grants inspiration corresponding to your highest-level skill. Once picked, it melts quickly into a black liquid and must be eaten on the spot. -->
+  <RKU_Mindspark.description>The Inspirationcap, it grants inspiration corresponding to the highest-level skill when consumed. Once harvested, it will rapidly dissolves into a black liquid and must be eaten immediately on the spot.</RKU_Mindspark.description>
+  
+  <!-- EN: Singularitycap -->
+  <RKU_Singularitycap.label>Antigraincap</RKU_Singularitycap.label>
+  <!-- EN: It is said that their spores were used as raw materials for ancient weapons, but they will be inactivated to a certain extent under light. -->
+  <RKU_Singularitycap.description>The Antigraincap, whose spores are said to have served as raw material for ancient weapons, yet become partially deactivated when exposed to light.</RKU_Singularitycap.description>
+  
+</LanguageData>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="RockBase">
+    <defName>RKU_Glowstone</defName>
+    <label>MineableGlowstone</label>
+    <description>萤石矿</description>
+    <!-- <thingClass>Building</thingClass>
+    <category>Building</category> -->
+    <graphicData>
+      <texPath>Buildings/Wall/RKU_Fluorite</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <linkType>CornerFiller</linkType>
+    </graphicData>
+    <uiIconPath>Buildings/Wall/RKU_Fluorite</uiIconPath>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+    </statBases>
+    <building>
+      <isResourceRock>true</isResourceRock>
+      <mineableThing>RKU_GlowstonePowder</mineableThing>
+      <mineableYield>40</mineableYield>
+      <mineableScatterCommonality>0</mineableScatterCommonality>
+      <mineableScatterLumpSizeRange>5~10</mineableScatterLumpSizeRange>
+      <veinMineable>true</veinMineable>
+    </building>
+    <comps>
+      <li Class="CompProperties_MeditationFocus">
+        <statDef>MeditationFocusStrength</statDef>
+        <focusTypes>
+          <li>Minimal</li>
+        </focusTypes>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>4</glowRadius>
+        <glowColor>(253,183,86,0)</glowColor>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

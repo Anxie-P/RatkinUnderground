@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!--Panjandrum-->
+  <!-- 潘加朱姆 -->
+  <RKU_Panjandrum.label>潘加朱姆</RKU_Panjandrum.label>
+  <RKU_Panjandrum.description>潘加朱姆</RKU_Panjandrum.description>
+  <!-- 潘加朱姆子弹 -->
+  <RKU_PanjandrumBullet.label>潘加朱姆弹射物</RKU_PanjandrumBullet.label>
+
+</LanguageData>

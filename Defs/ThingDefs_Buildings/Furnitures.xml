@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="BuildingBase">
+    <defName>RKU_Radio</defName>
+    <label>Ratkin Radio</label>
+    <description>The Ratkin Underground Radio: Interaction with partisan forces is conducted via this radio. The partisans' attitude, the radio's functions, and the events/quests that will be triggered are all determined by the current favorability level of the partisans. When the favorability level reaches a certain upper limit or lower limit (one tier every 25 points), you need to interact with the partisan leader to expand the range of the favorability level.</description>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Buildings/InMap/RKU_Radio</texPath>
+      <drawSize>1.2</drawSize>
+    </graphicData>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <clearBuildingArea>false</clearBuildingArea>
+    <building>
+      <isEdifice>false</isEdifice>
+    </building>
+    <fillPercent>0.15</fillPercent>
+    <statBases>
+      <MaxHitPoints>105</MaxHitPoints>
+      <Mass>2</Mass>
+      <MarketValue>200</MarketValue>
+      <SellPriceFactor>1.10</SellPriceFactor>
+    </statBases>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <comps>
+		<li Class="RatkinUnderground.CompProperties_RKU_Radio">
+		</li>
+	</comps>
+    <thingCategories>
+      <li>BuildingsFurniture</li>
+    </thingCategories>
+  </ThingDef>
+
+    <!-- 交易站 -->
+    <ThingDef ParentName="BuildingBase">
+        <defName>RKU_TradingPost</defName>
+        <thingClass>RatkinUnderground.RKU_TradingPost</thingClass>
+        <!-- <tickerType>Long</tickerType> -->
+        <label>Trading Post</label>
+        <description>Partisan Outpost Trading Post—what would you like to exchange?</description>
+        <altitudeLayer>Building</altitudeLayer>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Buildings/InMap/RKU_Camp</texPath>
+			<drawSize>4.2</drawSize>
+		</graphicData>
+        <!-- <thingCategories>
+            <li>BuildingsMisc</li>
+        </thingCategories> -->
+        <passability>PassThroughOnly</passability>
+        <rotatable>false</rotatable>
+        <selectable>true</selectable>
+        <fillPercent>0.20</fillPercent>
+        <pathCost>8</pathCost>
+        <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+        <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+        <size>(2,2)</size>
+	    <costStuffCount>85</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+        <!-- <minifiedDef>MinifiedThing</minifiedDef> -->
+        <statBases>
+            <!-- <MaxHitPoints>100</MaxHitPoints> -->
+            <Flammability>0</Flammability>
+            <!-- <Mass>0.1</Mass> -->
+        </statBases>
+        <comps>
+        </comps>
+    </ThingDef>
+</Defs>

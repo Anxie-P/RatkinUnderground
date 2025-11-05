@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!--RKU_Armors RKU_Armor-->
+  <!--Guerrilla Scout Uniform-->
+  <RKU_Apparel_ScoutUniform.label>Guerrilla Scout Uniform</RKU_Apparel_ScoutUniform.label>
+  <RKU_Apparel_ScoutUniform.description>Guerrilla scouts' uniforms, unfortunately, they don't have time to play baseball.</RKU_Apparel_ScoutUniform.description>
+  <!--Guerrilla Elite Scout Uniform-->
+  <RKU_Apparel_EliteScoutUniform.label>Guerrilla Elite Scout Uniform</RKU_Apparel_EliteScoutUniform.label>
+  <RKU_Apparel_EliteScoutUniform.description>Elite scouts' uniforms, which uses a special mushroom fabric material, is expensive and powerful, and remains lightweight.</RKU_Apparel_EliteScoutUniform.description>
+  <!--Guerrilla Member Suit-->
+  <RKU_Apparel_InvaderUniform.label>Guerrilla Member Suit</RKU_Apparel_InvaderUniform.label>
+  <RKU_Apparel_InvaderUniform.description>The uniforms of the Ratkin Underground guerrillas. They are the main combat force of the guerrilla group, fighting with medium-range weapons while also being responsible for carrying out infiltration operations.</RKU_Apparel_InvaderUniform.description>
+  <!--Radio Backpack-->
+  <RKU_Apparel_InvaderBag.label>Radio Backpack</RKU_Apparel_InvaderBag.label>
+  <RKU_Apparel_InvaderBag.description>A portable radio used for communications with the command center, and it can also call for ground strikes.</RKU_Apparel_InvaderBag.description>
+  <!--Guerrilla Commissar Uniform-->
+  <RKU_Apparel_CaptainUniform.label>Guerrilla Commissar Uniform</RKU_Apparel_CaptainUniform.label>
+  <RKU_Apparel_CaptainUniform.description>The uniform of the political commissar, they are responsible for political propaganda and mechanical repair.</RKU_Apparel_CaptainUniform.description>
+  <RKU_CombatMotivation.label>Inspiration</RKU_CombatMotivation.label>
+  <RKU_CombatMotivation.description>Units near the political commissar will receive an incentive effect.</RKU_CombatMotivation.description>
+  <!--Guerrilla Captain Cloak-->
+  <RKU_Apparel_CaptainCloak.label>Guerrilla Captain Cloak</RKU_Apparel_CaptainCloak.label>
+  <RKU_Apparel_CaptainCloak.description>The guerrilla cloak has some ballistic resistance, but it is relatively heavy.</RKU_Apparel_CaptainCloak.description>
+
+</LanguageData>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!--Hediffs_BodyParts-->
+  <!--任务幸存者检测-->
+  <RKU_Survivor.label>任务幸存者检测</RKU_Survivor.label>
+  <RKU_Survivor.description>这条状态是用于检测幸存者的状态，如果死亡/派系改变会发出信号，用于任务结束的判定</RKU_Survivor.description>
+  <RKU_Survivor.descriptionShort>这条状态是用于检测幸存者的状态，如果死亡/派系改变会发出信号，用于任务结束的判定</RKU_Survivor.descriptionShort>
+  
+    <!--RKU_UnderOutpostHediff-->
+  <!--任务幸存者检测-->
+  <RKU_UnderOutpostHediff.label>锁需求条</RKU_UnderOutpostHediff.label>
+  <RKU_UnderOutpostHediff.description>用于锁定事件小人的需求条防止暴毙</RKU_UnderOutpostHediff.description>
+  <RKU_UnderOutpostHediff.descriptionShort>用于锁定事件小人的需求条防止暴毙</RKU_UnderOutpostHediff.descriptionShort>
+
+  <!--RKU_IronStarHediff-->
+  <RKU_IronStarHediff.label>激进改装</RKU_IronStarHediff.label>
+  <RKU_IronStarHediff.description>这台被激进改装的机械蜈蚣来自一个废弃的地下机械体培育设施，移动速度和护甲得到了较大提升，它成为了游击队钢铁意志的象征。</RKU_IronStarHediff.description>
+  <RKU_IronStarHediff.descriptionShort>这台被激进改装的机械蜈蚣来自一个废弃的地下机械体培育设施，移动速度和护甲得到了较大提升，它成为了游击队钢铁意志的象征</RKU_IronStarHediff.descriptionShort>
+</LanguageData>
+

@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_FirstContact</defName>
+    <dialogueText>      感谢你们搭救了我的侦查小队，地上的朋友们。我们是一支
+致力于对抗贵族和军阀，解放贫民的地下游击队。这个加密频段未来将向你们开放。
+我们可以通过这个频段交易一些物资，或是进行更加深度的合作…
+如果我们能成为同志的话。
+（阵营关系限制为-25~25）\n</dialogueText>
+    <priority>1</priority>
+    <triggerOnStartup>true</triggerOnStartup>
+    <triggerOnce>true</triggerOnce>
+    <actions>
+      <li Class="RatkinUnderground.DialogueAction_ChangeFactionRelation">
+        <changeAmount>10</changeAmount>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+  
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_TradeWelcomeA</defName>
+    <dialogueText>交易信号已收到！我们的物资运输队正在路上。\n</dialogueText>
+    <priority>50</priority>
+    <triggerOnTrade>true</triggerOnTrade>
+	<triggerOnStartup>false</triggerOnStartup>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+        <minGrade>0</minGrade>
+      </li>
+    </conditions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+  
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_TradeWelcomeB</defName>
+    <dialogueText>包在我身上！货物运输队在路上了！\n</dialogueText>
+    <priority>50</priority>
+    <triggerOnTrade>true</triggerOnTrade>
+	<triggerOnStartup>false</triggerOnStartup>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+        <minGrade>0</minGrade>
+      </li>
+    </conditions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+  
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_ResearchProgress</defName>
+    <dialogueText>研究进展不错！我们正在分析新的技术。\n</dialogueText>
+    <priority>25</priority>
+    <triggerOnResearch>true</triggerOnResearch>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_ResearchProgress">
+        <minProgress>50.0</minProgress>
+      </li>
+    </conditions>
+    <actions>
+      <li Class="RatkinUnderground.DialogueAction_AddResearchProgress">
+        <progressAmount>5.0</progressAmount>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+  
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_ScanSignal</defName>
+    <dialogueText>正在扫描周围环境...发现了一些有趣的地下结构。</dialogueText>
+    <priority>60</priority>
+    <triggerOnScan>true</triggerOnScan>
+	<triggerOnStartup>false</triggerOnStartup>
+    <cooldownTicks>60000</cooldownTicks>
+  </RatkinUnderground.RKU_DialogueEventDef>
+  
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_EmergencyCallFir</defName>
+    <dialogueText>顶住！地下网络正在响应你的求救信号，我们的援军在路上了！</dialogueText>
+	<triggerNon>true</triggerNon>
+	<triggerOnStartup>false</triggerOnStartup>
+	<actions>
+      <li Class="RatkinUnderground.DialogueAction_TriggerIncident">
+        <incidentDefName>RKU_RatkinTunnel_Fir</incidentDefName>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+  
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_EmergencyCallSec</defName>
+    <dialogueText>周边的小队已经被调遣过去支援了，相信我，会没事的。</dialogueText>
+	<triggerNon>true</triggerNon>
+	<triggerOnStartup>false</triggerOnStartup>
+	<actions>
+      <li Class="RatkinUnderground.DialogueAction_TriggerIncident">
+        <incidentDefName>RKU_RatkinTunnel_Fir</incidentDefName>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+  
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_EmergencyCallThi</defName>
+    <dialogueText>没问题，孩子，你的敌人就是我的敌人。</dialogueText>
+	<triggerNon>true</triggerNon>
+	<triggerOnStartup>false</triggerOnStartup>
+	<actions>
+      <li Class="RatkinUnderground.DialogueAction_TriggerIncident">
+        <incidentDefName>RKU_RatkinTunnel_Fir</incidentDefName>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+  
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_EmergencyCallThir</defName>
+    <dialogueText>他们会得到教训的！</dialogueText>
+	<triggerNon>true</triggerNon>
+	<triggerOnStartup>false</triggerOnStartup>
+	<actions>
+      <li Class="RatkinUnderground.DialogueAction_TriggerIncident">
+        <incidentDefName>RKU_RatkinTunnel_Fir</incidentDefName>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+  
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_TradeCooldown</defName>
+    <dialogueText>交易系统正在冷却中，请稍后再试。</dialogueText>
+    <priority>80</priority>
+    <triggerOnTrade>true</triggerOnTrade>
+	<triggerOnStartup>false</triggerOnStartup>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_TradeStatus">
+        <canTrade>false</canTrade>
+      </li>
+    </conditions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+  
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_WaitingForTrade</defName>
+    <dialogueText>正在等待交易准备完成，请耐心等待...</dialogueText>
+    <priority>70</priority>
+    <triggerOnTrade>true</triggerOnTrade>
+	<triggerOnStartup>false</triggerOnStartup>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_WaitingForTrade">
+        <isWaiting>true</isWaiting>
+      </li>
+    </conditions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+  
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_ColonistCount</defName>
+    <dialogueText>看到你的殖民地发展得不错！我们很乐意与你们合作。</dialogueText>
+    <triggerOnce>true</triggerOnce>
+    <!-- 才发现这是触发优先级 -->
+    <!-- <priority>120</priority> -->
+    <triggerOnStartup>true</triggerOnStartup>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_ColonistCount">
+        <minCount>5</minCount>
+      </li>
+      <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+        <minGrade>25</minGrade>
+      </li>
+    </conditions>
+    <actions>
+      <li Class="RatkinUnderground.DialogueAction_ChangeFactionRelation">
+        <changeAmount>3</changeAmount>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+  
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_ResearchReward_Assault</defName>
+    <dialogueText>      感谢你们的协助！我们完成了一些突击武器蓝图的初步整理，
+现在我们将会把这些蓝图分享给你们的研究员，并且充实我们自己的武装。</dialogueText>
+    <priority>10</priority>
+    <triggerOnce>true</triggerOnce>
+	  <triggerOnStartup>true</triggerOnStartup>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_ResearchGrade">
+        <requiredGrade>1</requiredGrade>
+      </li>
+    </conditions>
+    <actions>
+      <li Class="RatkinUnderground.DialogueAction_SpawnTechprint">
+        <researchDefName>RKU_UndergroundAssaultWeapons</researchDefName>
+        <count>1</count>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+  
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_ResearchReward_Guerrilla</defName>
+    <dialogueText>      我们会把我们的装备制造方法与你们共享，虽然是些破烂货，
+但它们都是在长年的斗争中被检验过的好东西。</dialogueText>
+    <priority>11</priority>
+    <triggerOnce>true</triggerOnce>
+	<triggerOnStartup>true</triggerOnStartup>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_ResearchGrade">
+        <requiredGrade>2</requiredGrade>
+      </li>
+    </conditions>
+    <actions>
+      <li Class="RatkinUnderground.DialogueAction_SpawnTechprint">
+        <researchDefName>RKU_UndergroundGuerrillaEquipments</researchDefName>
+        <count>1</count>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+  
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_ResearchReward_Experimental</defName>
+    <dialogueText>      最新的地下实验武器的蓝图已经被同步到你们那边了，
+朋友们。我们刚刚完成了这些武器装备的可行性分析，但实际应用还得经过进一步的检验和测试。
+到时候就请你们来锻造第一批武器原型了。</dialogueText>
+    <priority>12</priority>
+    <triggerOnce>true</triggerOnce>
+	<triggerOnStartup>true</triggerOnStartup>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_ResearchGrade">
+        <requiredGrade>3</requiredGrade>
+      </li>
+    </conditions>
+    <actions>
+      <li Class="RatkinUnderground.DialogueAction_SpawnTechprint">
+        <researchDefName>RKU_UndergroundExperimentalWeapon</researchDefName>
+        <count>1</count>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+  
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_ResearchReward_Experimental2</defName>
+    <dialogueText>      很好，验证结果很不错，这些武器想必能在之后的战斗
+中大放光彩。制造这些原型武器的材料需要在地下寻找，
+而成品的威力会让你的所有敌人喝上一壶！实战测试也拜托你们那边了！</dialogueText>
+    <priority>13</priority>
+    <triggerOnce>true</triggerOnce>
+	<triggerOnStartup>true</triggerOnStartup>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_ResearchGrade">
+        <requiredGrade>4</requiredGrade>
+      </li>
+    </conditions>
+    <actions>
+      <li Class="RatkinUnderground.DialogueAction_SpawnTechprint">
+        <researchDefName>RKU_UndergroundExperimentalWeapon</researchDefName>
+        <count>1</count>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_BioLabRaid_Offer</defName>
+    <dialogueText>      同志们，情况不妙。根据我们从王国机密中获得的情报，
+我们发现了一个相当可怕的秘密！
+王国重启了一个秘密的生化研究所！十几年前，由贵族映山红领头，这些设施里研发出来
+的病毒几乎摧毁了当时如日中天的革命军，直到一位特工诛杀了那名罪恶滔天的贵族，我
+们才有机会化整为零...我们劫持到了最近的王国资源动向，他们正在向这座设施里运输
+资源和人员，我们不知道他们在做什么。但可以预料到的是，这些东西一旦完成，
+将对所有人都构成巨大的威胁。
+      为了以防万一，我们需要你们的帮助去摧毁这个设施。
+消灭所有敌人，破坏他们的研究设备，拯救所有被奴役的同胞，确保这些危险的东西
+不会落入邪恶的人手中。这将是一次艰难的任务，但对我们的共同事业至关重要。
+如果准备好了就出发吧！我们的部队也随时待命！</dialogueText>
+    <priority>5</priority>
+    <triggerOnce>true</triggerOnce>
+    <triggerOnStartup>true</triggerOnStartup>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+        <minGrade>50</minGrade>
+      </li>
+      <li Class="RatkinUnderground.DialogueCondition_QuestCompleted">
+        <questDefName>RKU_GuerrillaSecretProtection</questDefName>
+      </li>
+    </conditions>
+    <actions>
+      <li Class="RatkinUnderground.DialogueAction_TriggerQuest">
+        <questDefName>RKU_OpportunitySite_BioLabRaid</questDefName>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+
+  <!-- 关系等级特殊对话事件 -->
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_Relation_Warning_Light</defName>
+    <dialogueText>      我们好像有人栽在你手里了，别以为做这种事不会被发现！
+我们的人就在附近。接下来老实一点，我们还有得谈。
+（通过其他方式回升好感，或点击支援按钮联系王国军展开下一步事件）</dialogueText>
+    <priority>20</priority>
+    <triggerOnStartup>true</triggerOnStartup>
+    <triggerOnce>true</triggerOnce>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+        <minGrade>-25</minGrade>
+        <maxGrade>-25</maxGrade>
+      </li>
+    </conditions>
+    <actions>
+      <li Class="RatkinUnderground.DialogueAction_ChangeFactionRelationRange">
+        <min>-50</min>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_Relation_Warning_Serious</defName>
+    <dialogueText>      我警告过你们，但你们还是去把我们的村子毁了！
+他们只是平民而已，你们和那些地主军阀有什么区别？我们会反抗，这些血债必须被偿还！</dialogueText>
+    <priority>20</priority>
+    <triggerOnStartup>true</triggerOnStartup>
+    <triggerOnce>true</triggerOnce>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+        <minGrade>-50</minGrade>
+        <maxGrade>-50</maxGrade>
+      </li>
+    </conditions>
+    <actions>
+      <li Class="RatkinUnderground.DialogueAction_ChangeFactionRelationRange">
+        <max>-50</max>
+        <min>-75</min>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_Relation_Warning_Critical</defName>
+    <dialogueText>      该死的军阀！没人性的畜生！等着被炸上天吧！我们会包围你们，
+把你们杀个片甲不留！</dialogueText>
+    <priority>20</priority>
+    <triggerOnStartup>true</triggerOnStartup>
+    <triggerOnce>true</triggerOnce>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+        <minGrade>-75</minGrade>
+        <maxGrade>-75</maxGrade>
+      </li>
+    </conditions>
+    <actions>
+      <li Class="RatkinUnderground.DialogueAction_ChangeFactionRelationRange">
+        <max>-75</max>
+        <min>-100</min>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_Relation_Improvement</defName>
+    <dialogueText>      看来我们之间的合作得到了一些回报，最好继续下去，我们还会给你们开放
+更多的合作机会...比如说一起研究一些在地下才能见到的，有意思的玩意？
+我们没有足够的人手和科技来实现这些材料的武器化，但想必你们基地里的
+天才们能找到这些东西的价值。
+  你们可以在研究的时候和我们的后勤人员交流，然后我们一起给贵族和军阀们
+准备一些"惊喜"...
+（阵营关系限制改变为-25~50）</dialogueText>
+    <priority>20</priority>
+    <triggerOnStartup>true</triggerOnStartup>
+    <triggerOnce>true</triggerOnce>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+        <minGrade>25</minGrade>
+        <maxGrade>25</maxGrade>
+      </li>
+    </conditions>
+    <actions>
+      <li Class="RatkinUnderground.DialogueAction_ChangeFactionRelationRange">
+        <max>50</max>
+        <min>-25</min>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+  
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_Relation_Better</defName>
+    <dialogueText>      很好，朋友们，看来我们可以进行一些更深层次的合作，我们派出去的
+钻地机小队分散在附近很大一片区域，他们发现过一些很不错的地方，可能
+有着各种各样的物资。但我们并没有足够的人手去探索这些地方，我们会把
+这些位置的坐标同步给你，找到的东西都归你们所有。
+      对了，有些小队可能会需要一些补给，或是有些东西可以和你们交换，
+这些坐标也会被同步给你们。
+（阵营关系限制改变为-25~75）</dialogueText>
+    <priority>20</priority>
+    <triggerOnce>true</triggerOnce>
+	<triggerOnStartup>true</triggerOnStartup>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+        <minGrade>50</minGrade>
+        <maxGrade>50</maxGrade>
+      </li>
+    </conditions>
+    <actions>
+      <li Class="RatkinUnderground.DialogueAction_ChangeFactionRelationRange">
+        <max>75</max>
+        <min>-25</min>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_Relation_Good</defName>
+    <dialogueText>      同志们，很高兴和你们联络。游击队的战士们
+非常希望能与你们并肩作战！如果遇到了什么敌人需要对付，可以直接从
+电台呼叫我们进行支援！周边的小队会优先处理你们的请求，而且我们的部队会随着你们的调动
+抵达附近的位置随时准备支援。
+你们到了哪里我们也会一起，需要打仗的时候就呼叫我们吧！
+（阵营关系限制改变为-25~100）</dialogueText>
+    <priority>20</priority>
+    <triggerOnce>true</triggerOnce>
+	<triggerOnStartup>true</triggerOnStartup>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+        <minGrade>75</minGrade>
+        <maxGrade>75</maxGrade>
+      </li>
+    </conditions>
+    <actions>
+      <li Class="RatkinUnderground.DialogueAction_ChangeFactionRelationRange">
+        <max>100</max>
+        <min>-25</min>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_Relation_Excellent</defName>
+    <dialogueText>      同志，你们用行动证明了什么是真正的盟友！
+在这片黑暗的地下世界，你们的光辉照亮了我们前进的道路。
+我们的钻头永远为你们而转动！无论面对贵族、军阀或是任何威胁，
+我们都将共同建立新的未来——一个属于所有被压迫者的自由世界！
+这份盟约将铭刻在我们的血脉中，直至最后一息！
+（阵营关系限制改变为100~100）</dialogueText>
+    <priority>20</priority>
+    <triggerOnce>true</triggerOnce>
+	<triggerOnStartup>true</triggerOnStartup>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+        <minGrade>100</minGrade>
+        <maxGrade>100</maxGrade>
+      </li>
+    </conditions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+
+
+  <!-- 王国-1 -->
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_ProvideSupport_RoyalNegotiation</defName>
+    <dialogueText>      王国卫花使向您与您的子民致意，亲爱的朋友。
+此次通讯，是为提醒您：一伙被王国通缉的叛乱者已潜入您的领地。
+这些害虫所到之处，良田荒芜，牧群失散，河海无获——
+他们以仇恨为食，散播贫瘠。作为繁花的后裔，
+我们无法坐视悲剧在您的土地上重演。
+      恳请您动用力量与智慧，清除这些尘埃中的蛀虫。
+王国认可您对这片土地的合法统治，并愿意为此提供一切可能必要的支持。</dialogueText>
+    <priority>0</priority>
+    <triggerOnStartup>false</triggerOnStartup>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+        <minGrade>-25</minGrade>
+        <maxGrade>-25</maxGrade>
+      </li>
+    </conditions>
+    <actions>
+      <li Class="RatkinUnderground.DialogueAction_TriggerQuest">
+        <questDefName>RKU_OpportunitySite_GuerrillaCamp</questDefName>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+  
+   <!-- 王国-2 -->
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_ProvideSupport_RoyalNegotiationB</defName>
+    <dialogueText>      上次干的不错，这次有个情况需要给你们透露一下，那些土匪的部队和物资
+正在调动，你们正好就在他们的行进方向上...最近最好谨慎一点，他们狡猾又残忍，别怪
+我们没提醒你。</dialogueText>
+    <priority>0</priority>
+	<triggerOnce>true</triggerOnce>
+    <triggerOnStartup>false</triggerOnStartup>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+        <minGrade>-50</minGrade>
+        <maxGrade>-50</maxGrade>
+      </li>
+    </conditions>
+    <actions>
+      <li Class="RatkinUnderground.DialogueAction_TriggerIncident">
+        <incidentDefName>RKU_RatkinTunnel_Thi</incidentDefName>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+  
+  <!-- 王国-3：好感度-75时触发最终突袭事件 -->
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_ProvideSupport_RoyalNegotiationC</defName>
+    <dialogueText>      听着，作为这片地方的头，我得告诉你...那些家伙是真打算跟你死磕了，
+有人报告那些土匪从地底下掏出来很多老旧火炮，集结了差不多全部兵力准备拿下你们这
+个可怜的小镇子...说到底你们惹上他们都是自己的问题。希望今晚过后我们还能说上话
+...</dialogueText>
+    <priority>0</priority>
+    <triggerOnce>true</triggerOnce>
+    <triggerOnStartup>false</triggerOnStartup>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+        <minGrade>-75</minGrade>
+        <maxGrade>-75</maxGrade>
+      </li>
+    </conditions>
+    <actions>
+      <li Class="RatkinUnderground.DialogueAction_TriggerIncident">
+        <incidentDefName>RKU_FinalBattle</incidentDefName>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+  
+    <!-- 军阀-1 -->
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_ProvideSupport_WarLord1</defName>
+    <dialogueText>      军阀？打！</dialogueText>
+    <priority>60</priority>
+	<triggerOnce>true</triggerOnce>
+    <triggerOnStartup>false</triggerOnStartup>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+        <minGrade>5</minGrade>
+        <maxGrade>100</maxGrade>
+      </li>
+    </conditions>
+    <actions>
+      <li Class="RatkinUnderground.DialogueAction_TriggerQuest">
+        <questDefName>RKU_OpportunitySite_CompoundRaid</questDefName>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+
+</Defs> 

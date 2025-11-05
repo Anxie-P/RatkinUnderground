@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!--DrillingVehicleJobs-->
+  <RKU_EnterDrillingVehicle.reportString>Entering drilling vehicle.</RKU_EnterDrillingVehicle.reportString>
+
+  <RKU_AIEnterDrillingVehicle.reportString>Entering drilling vehicle.</RKU_AIEnterDrillingVehicle.reportString>
+
+  <RKU_AssistResearch.reportString>Assisting research using radio.</RKU_AssistResearch.reportString>
+
+  <RKU_AssistResearch.label>Assist research using radio.</RKU_AssistResearch.label>
+
+  <RKU_LoadDrillingCargoWorkGiver.label>Load drilling cargo.</RKU_LoadDrillingCargoWorkGiver.label>
+
+  <RKU_EatSpecialMushroom.label>Eat special mushroom.</RKU_EatSpecialMushroom.label>
+
+  <RKU_LoadDrillingCargo.reportString>Loading drilling cargo.</RKU_LoadDrillingCargo.reportString>
+
+
+</LanguageData>

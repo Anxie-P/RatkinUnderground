@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: 正在进入钻地机。 -->
+  <RKU_AIEnterDrillingVehicle.reportString>Entering the Driller.</RKU_AIEnterDrillingVehicle.reportString>
+  
+  <RKU_AssistResearch.label>Use radio to assist research</RKU_AssistResearch.label>
+  <!-- EN: 使用电台协助研究 -->
+  <RKU_AssistResearch.reportString>Using radio to assist research.</RKU_AssistResearch.reportString>
+  
+  <!-- EN: eat special mushroom -->
+  <RKU_EatSpecialMushroom.label>Eat Special Mushroom</RKU_EatSpecialMushroom.label>
+  <!-- EN: eating special mushroom -->
+  <RKU_EatSpecialMushroom.reportString>Eating special mushroom.</RKU_EatSpecialMushroom.reportString>
+  
+  <!-- EN: 正在进入钻地机。 -->
+  <RKU_EnterDrillingVehicle.reportString>Entering the Driller.</RKU_EnterDrillingVehicle.reportString>
+  
+  <!-- EN: 正在装载钻机货物。 -->
+  <RKU_LoadDrillingCargo.reportString>Loading Driller Cargo.</RKU_LoadDrillingCargo.reportString>
+  
+</LanguageData>

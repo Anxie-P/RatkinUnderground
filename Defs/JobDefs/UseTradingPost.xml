@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 与交易点交易 -->
+  <JobDef>
+    <defName>RKU_UseTradingPost</defName>
+    <driverClass>RatkinUnderground.JobDriver_UseTradingPost</driverClass>
+    <reportString>正在与 {TargetA} 交互</reportString>
+    <playerInterruptible>true</playerInterruptible>
+    </JobDef>
+</Defs>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: bunker buster -->
+  <RKU_BunkerBuster.label>Mobile Landmine</RKU_BunkerBuster.label>
+  <!-- EN: 钻地炸药，这种武器通过钻地到达目标地点，威力较大且不会受到中途建筑的阻拦，但移动速度很慢。 -->
+  <RKU_BunkerBuster.description>The burrowing dynamite, is a weapon that burrows underground to reach its target location. It possesses considerable destructive power and is not obstructed by structures in its path, though its movement speed is very slow.</RKU_BunkerBuster.description>
+  
+  <!-- EN: RKU_DrillingVehicleBullet -->
+  <RKU_BunkerBusterBullet.label>Mobile Landmine</RKU_BunkerBusterBullet.label>
+  
+</LanguageData>

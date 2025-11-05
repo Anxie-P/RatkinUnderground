@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN:       同志们，情况不妙。根据我们从王国机密中获得的情报，\n我们发现了一个相当可怕的秘密！\n王国重启了一个秘密的生化研究所！十几年前，由贵族映山红领头，这些设施里研发出来\n的病毒几乎摧毁了当时如日中天的革命军，直到一位特工诛杀了那名罪恶滔天的贵族，我\n们才有机会化整为零...我们劫持到了最近的王国资源动向，他们正在向这座设施里运输\n资源和人员，我们不知道他们在做什么。但可以预料到的是，这些东西一旦完成，\n将对所有人都构成巨大的威胁。\n      为了以防万一，我们需要你们的帮助去摧毁这个设施。\n消灭所有敌人，破坏他们的研究设备，拯救所有被奴役的同胞，确保这些危险的东西\n不会落入邪恶的人手中。这将是一次艰难的任务，但对我们的共同事业至关重要。\n如果准备好了就出发吧！我们的部队也随时待命！ -->
+  <RKU_BioLabRaid_Offer.dialogueText>TODO</RKU_BioLabRaid_Offer.dialogueText>
+  
+  <!-- EN:       感谢你们搭救了我的侦查小队，地上的朋友们。我们是一支\n致力于对抗贵族和军阀，解放贫民的地下游击队。这个加密频段未来将向你们开放。\n我们可以通过这个频段交易一些物资，或是进行更加深度的合作…\n如果我们能成为同志的话。\n（阵营关系限制为-25~25）\n -->
+  <RKU_FirstContact.dialogueText>TODO</RKU_FirstContact.dialogueText>
+  
+  <!-- EN:       很好，朋友们，看来我们可以进行一些更深层次的合作，我们派出去的\n钻地机小队分散在附近很大一片区域，他们发现过一些很不错的地方，可能\n有着各种各样的物资。但我们并没有足够的人手去探索这些地方，我们会把\n这些位置的坐标同步给你，找到的东西都归你们所有。\n      对了，有些小队可能会需要一些补给，或是有些东西可以和你们交换，\n这些坐标也会被同步给你们。\n（阵营关系限制改变为-25~75） -->
+  <RKU_Relation_Better.dialogueText>TODO</RKU_Relation_Better.dialogueText>
+  
+  <!-- EN:       同志，你们用行动证明了什么是真正的盟友！\n在这片黑暗的地下世界，你们的光辉照亮了我们前进的道路。\n我们的钻头永远为你们而转动！无论面对贵族、军阀或是任何威胁，\n我们都将共同建立新的未来——一个属于所有被压迫者的自由世界！\n这份盟约将铭刻在我们的血脉中，直至最后一息！\n（阵营关系限制改变为100~100） -->
+  <RKU_Relation_Excellent.dialogueText>TODO</RKU_Relation_Excellent.dialogueText>
+  
+  <!-- EN:       同志们，很高兴和你们联络。游击队的战士们\n非常希望能与你们并肩作战！如果遇到了什么敌人需要对付，可以直接从\n电台呼叫我们进行支援！周边的小队会优先处理你们的请求，而且我们的部队会随着你们的调动\n抵达附近的位置随时准备支援。\n你们到了哪里我们也会一起，需要打仗的时候就呼叫我们吧！\n（阵营关系限制改变为-25~100） -->
+  <RKU_Relation_Good.dialogueText>TODO</RKU_Relation_Good.dialogueText>
+  
+  <!-- EN:       看来我们之间的合作得到了一些回报，最好继续下去，我们还会给你们开放\n更多的合作机会...比如说一起研究一些在地下才能见到的，有意思的玩意？\n我们没有足够的人手和科技来实现这些材料的武器化，但想必你们基地里的\n天才们能找到这些东西的价值。\n  你们可以在研究的时候和我们的后勤人员交流，然后我们一起给贵族和军阀们\n准备一些"惊喜"...\n（阵营关系限制改变为-25~50） -->
+  <RKU_Relation_Improvement.dialogueText>TODO</RKU_Relation_Improvement.dialogueText>
+  
+  <!-- EN:       该死的军阀！没人性的畜生！等着被炸上天吧！我们会包围你们，\n把你们杀个片甲不留！ -->
+  <RKU_Relation_Warning_Critical.dialogueText>TODO</RKU_Relation_Warning_Critical.dialogueText>
+  
+  <!-- EN:       我们好像有人栽在你手里了，别以为做这种事不会被发现！\n我们的人就在附近。接下来老实一点，我们还有得谈。 -->
+  <RKU_Relation_Warning_Light.dialogueText>TODO</RKU_Relation_Warning_Light.dialogueText>
+  
+  <!-- EN:       我警告过你们，但你们还是去把我们的村子毁了！\n他们只是平民而已，你们和那些地主军阀有什么区别？我们会反抗，这些血债必须被偿还！ -->
+  <RKU_Relation_Warning_Serious.dialogueText>TODO</RKU_Relation_Warning_Serious.dialogueText>
+  
+  <!-- EN:       感谢你们的协助！我们完成了一些突击武器蓝图的初步整理，\n现在我们将会把这些蓝图分享给你们的研究员，并且充实我们自己的武装。 -->
+  <RKU_ResearchReward_Assault.dialogueText>TODO</RKU_ResearchReward_Assault.dialogueText>
+  
+  <!-- EN:       最新的地下实验武器的蓝图已经被同步到你们那边了，\n朋友们。我们刚刚完成了这些武器装备的可行性分析，但实际应用还得经过进一步的检验和测试。\n到时候就请你们来锻造第一批武器原型了。 -->
+  <RKU_ResearchReward_Experimental.dialogueText>TODO</RKU_ResearchReward_Experimental.dialogueText>
+  
+  <!-- EN:       很好，验证结果很不错，这些武器想必能在之后的战斗\n中大放光彩。制造这些原型武器的材料需要在地下寻找，\n而成品的威力会让你的所有敌人喝上一壶！实战测试也拜托你们那边了！ -->
+  <RKU_ResearchReward_Experimental2.dialogueText>TODO</RKU_ResearchReward_Experimental2.dialogueText>
+  
+  <!-- EN:       我们会把我们的装备制造方法与你们共享，虽然是些破烂货，\n但它们都是在长年的斗争中被检验过的好东西。 -->
+  <RKU_ResearchReward_Guerrilla.dialogueText>TODO</RKU_ResearchReward_Guerrilla.dialogueText>
+  
+</LanguageData>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN:
+    <li>questDescription->[asker_nameFull], [asker_faction_leaderTitle] of [asker_faction_name], has sent us urgent intelligence. Apparently, a secret biological research facility operated by the Ratkin Kingdom has been discovered. The facility contains dangerous experimental weapons and biological agents that threaten all underground inhabitants. [asker_nameDef] is asking us to destroy the facility, which means eliminating all enemies and destroying the research equipment. [sitePart0_description].</li>
+  -->
+  <RKU_OpportunitySite_BioLabRaid.questDescriptionRules.rulesStrings>TODO</RKU_OpportunitySite_BioLabRaid.questDescriptionRules.rulesStrings>
+  <!-- EN:
+    <li>questName->The [ratkin] [lab]</li>
+    <li>questName->[ratkin] [lab] [raid]</li>
+    <li>questName->[asker_nameDef] and the [lab]</li>
+    <li>lab->Bio-Lab</li>
+    <li>lab->Research Facility</li>
+    <li>lab->Biological Institute</li>
+    <li>raid->Raid</li>
+    <li>raid->Assault</li>
+    <li>raid->Strike</li>
+    <li>ratkin->Ratkin</li>
+    <li>ratkin->Kingdom</li>
+  -->
+  <RKU_OpportunitySite_BioLabRaid.questNameRules.rulesStrings>TODO</RKU_OpportunitySite_BioLabRaid.questNameRules.rulesStrings>
+  <!-- EN: RKU_GuerrillaSecretProtection_Completed -->
+  <RKU_OpportunitySite_BioLabRaid.root.nodes.RKU_CheckOnceEvent.eventKey.slateRef>TODO</RKU_OpportunitySite_BioLabRaid.root.nodes.RKU_CheckOnceEvent.eventKey.slateRef>
+  <!-- EN: Quest expired: [resolvedQuestName] -->
+  <RKU_OpportunitySite_BioLabRaid.root.nodes.WorldObjectTimeout.node.nodes.Letter.label.slateRef>TODO</RKU_OpportunitySite_BioLabRaid.root.nodes.WorldObjectTimeout.node.nodes.Letter.label.slateRef>
+  <!-- EN: The biological research facility has been abandoned. The quest [resolvedQuestName] has expired. -->
+  <RKU_OpportunitySite_BioLabRaid.root.nodes.WorldObjectTimeout.node.nodes.Letter.text.slateRef>TODO</RKU_OpportunitySite_BioLabRaid.root.nodes.WorldObjectTimeout.node.nodes.Letter.text.slateRef>
+  <!-- EN: Quest failed: [resolvedQuestName] -->
+  <RKU_OpportunitySite_BioLabRaid.root.nodes.siteDestroyed.node.nodes.Letter.label.slateRef>TODO</RKU_OpportunitySite_BioLabRaid.root.nodes.siteDestroyed.node.nodes.Letter.label.slateRef>
+  <!-- EN: After being discovered, the biological research facility has been evacuated. The quest [resolvedQuestName] has ended. -->
+  <RKU_OpportunitySite_BioLabRaid.root.nodes.siteDestroyed.node.nodes.Letter.text.slateRef>TODO</RKU_OpportunitySite_BioLabRaid.root.nodes.siteDestroyed.node.nodes.Letter.text.slateRef>
+  <!-- EN: Payment arrived -->
+  <RKU_OpportunitySite_BioLabRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterLabel.slateRef>TODO</RKU_OpportunitySite_BioLabRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterLabel.slateRef>
+  <!-- EN: You have successfully destroyed the biological research facility!\n\nThe payment from the guerrillas has arrived. -->
+  <RKU_OpportunitySite_BioLabRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterText.slateRef>TODO</RKU_OpportunitySite_BioLabRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterText.slateRef>
+  <!-- EN: [asker_faction_royalFavorLabel] -->
+  <RKU_OpportunitySite_BioLabRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.nodeIfChosenPawnSignalUsed.label.slateRef>TODO</RKU_OpportunitySite_BioLabRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.nodeIfChosenPawnSignalUsed.label.slateRef>
+  <!-- EN: These colonists participated in the victory for the quest [resolvedQuestName]. [asker_definite] wants to know who should receive the guerrilla commendation for this service. -->
+  <RKU_OpportunitySite_BioLabRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.nodeIfChosenPawnSignalUsed.text.slateRef>TODO</RKU_OpportunitySite_BioLabRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.nodeIfChosenPawnSignalUsed.text.slateRef>
+  
+</LanguageData>

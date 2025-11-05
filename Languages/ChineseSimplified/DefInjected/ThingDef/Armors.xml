@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!--RKU_Armors RKU_装甲-->
+  <!--游击队侦察兵制服-->
+  <RKU_Apparel_ScoutUniform.label>游击队侦察兵制服</RKU_Apparel_ScoutUniform.label>
+  <RKU_Apparel_ScoutUniform.description>游击队侦察兵的制服，材质粗糙但非常轻便。很可惜他们并没有闲暇打棒球</RKU_Apparel_ScoutUniform.description>
+  <!--游击队精英侦察兵制服-->
+  <RKU_Apparel_EliteScoutUniform.label>游击队精英侦察兵制服</RKU_Apparel_EliteScoutUniform.label>
+  <RKU_Apparel_EliteScoutUniform.description>精英侦察兵的制服，使用了特殊的蘑菇布材质,昂贵且强大，且轻便依旧。</RKU_Apparel_EliteScoutUniform.description>
+  <!--游击队员套装-->
+  <RKU_Apparel_InvaderUniform.label>游击队员套装</RKU_Apparel_InvaderUniform.label>
+  <RKU_Apparel_InvaderUniform.description>地鼠游击队员的制服，他们是游击队的主要作战部队，会在队友身后使用中距离的武器进行支援。同时，他们也负责实施对敌对基地的渗透工作。</RKU_Apparel_InvaderUniform.description>
+  <!--电台背包-->
+  <RKU_Apparel_InvaderBag.label>电台背包</RKU_Apparel_InvaderBag.label>
+  <RKU_Apparel_InvaderBag.description>用于与指挥中心通讯的便携式无线电，还可以呼叫地面打击。</RKU_Apparel_InvaderBag.description>
+  <!--游击队政委制服-->
+  <RKU_Apparel_CaptainUniform.label>游击队政委制服</RKU_Apparel_CaptainUniform.label>
+  <RKU_Apparel_CaptainUniform.description>政委的制服，他们负责政治宣传和机械维修。</RKU_Apparel_CaptainUniform.description>
+  <RKU_CombatMotivation.label>激励</RKU_CombatMotivation.label>
+  <RKU_CombatMotivation.description>政委附近的部队会获得激励效果。</RKU_CombatMotivation.description>
+  <!--游击队队长披袍-->
+  <RKU_Apparel_CaptainCloak.label>游击队队长披袍</RKU_Apparel_CaptainCloak.label>
+  <RKU_Apparel_CaptainCloak.description>游击队披袍，具有一些防弹能力，但相对较重。</RKU_Apparel_CaptainCloak.description>
+
+</LanguageData>

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <IncidentDef>
+    <defName>RKU_Incident_BuildMap_CavesWithLake</defName>
+    <label>钻机遭遇：地下湖</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Caravan</li>
+    </targetTags>
+    <workerClass>RatkinUnderground.RKU_IncidentWorker_BuildMap</workerClass>
+	<letterLabel>钻机遭遇：地下湖</letterLabel>
+	<letterText>钻机小队发现了一个地下湖，联通着一条河流。在绕路之前可以采集一些附近的资源，即使并没什么特别的？</letterText>
+    <modExtensions>
+      <li Class="RatkinUnderground.RKU_WorldObjectDefModExtension">
+        <worldObjectDef>RKU_MapParent_BuildMap_CavesWithLake</worldObjectDef>
+      </li>
+    </modExtensions>
+  </IncidentDef>
+
+   <WorldObjectDef>
+    <defName>RKU_MapParent_BuildMap_CavesWithLake</defName>
+    <label>地下湖</label>
+    <description>一个地下湖，联通着一条河流。在绕路之前可以采集一些附近的资源，即使并没什么特别的？</description>
+	<mapGenerator>RKU_CavesWithLake</mapGenerator>
+    <worldObjectClass>RatkinUnderground.RKU_MapParent</worldObjectClass>
+    <texture>Icons/EnemyPoint</texture>
+    <expandingIcon>true</expandingIcon>
+    <expandingIconTexture>Icons/EnemyPoint</expandingIconTexture>
+    <expandingIconPriority>80</expandingIconPriority>
+    <expandMore>true</expandMore>
+    <blockExitGridUntilBattleIsWon>false</blockExitGridUntilBattleIsWon>
+    <isTempIncidentMapOwner>false</isTempIncidentMapOwner>
+    <IncidentTargetTags>
+      <li>Map_TempIncident</li>
+    </IncidentTargetTags>
+    <modExtensions>
+      <li Class="RatkinUnderground.RKU_MapParentModExtension">
+        <spawnMap>true</spawnMap>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+    
+  <IncidentDef>
+    <defName>RKU_Incident_BuildMap_Worm</defName>
+    <label>钻机遭遇：虫巢</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Caravan</li>
+    </targetTags>
+    <workerClass>RatkinUnderground.RKU_IncidentWorker_BuildMap</workerClass>
+	<letterLabel>钻机遭遇：虫巢</letterLabel>
+	<letterText>钻机挖掘到了一个虫巢的附近。</letterText>
+    <modExtensions>
+      <li Class="RatkinUnderground.RKU_WorldObjectDefModExtension">
+        <worldObjectDef>RKU_MapParent_BuildMap_Worm</worldObjectDef>
+      </li>
+    </modExtensions>
+  </IncidentDef>
+
+   <WorldObjectDef>
+    <defName>RKU_MapParent_BuildMap_Worm</defName>
+    <label>虫巢</label>
+    <description>钻机挖掘到了一个虫巢的附近。</description>
+	<mapGenerator>RKU_Worm</mapGenerator>
+    <worldObjectClass>RatkinUnderground.RKU_MapParent</worldObjectClass>
+    <texture>Icons/EnemyPoint2</texture>
+    <expandingIcon>true</expandingIcon>
+    <expandingIconTexture>Icons/EnemyPoint2</expandingIconTexture>
+    <expandingIconPriority>80</expandingIconPriority>
+    <expandMore>true</expandMore>
+    <blockExitGridUntilBattleIsWon>false</blockExitGridUntilBattleIsWon>
+    <isTempIncidentMapOwner>false</isTempIncidentMapOwner>
+    <IncidentTargetTags>
+      <li>Map_TempIncident</li>
+    </IncidentTargetTags>
+	<modExtensions>
+      <li Class="RatkinUnderground.RKU_MapParentModExtension">
+        <spawnMap>true</spawnMap>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+  
+  <IncidentDef>
+    <defName>RKU_Incident_BuildMap_FairyRing</defName>
+    <label>钻机遭遇：蘑菇圈</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Caravan</li>
+    </targetTags>
+    <workerClass>RatkinUnderground.RKU_IncidentWorker_BuildMap</workerClass>
+	<letterLabel>钻机遭遇：蘑菇圈</letterLabel>
+	<letterText>钻机挖掘到了一个蘑菇圈！快去采集这些宝贵的天然真菌。</letterText>
+    <modExtensions>
+      <li Class="RatkinUnderground.RKU_WorldObjectDefModExtension">
+        <worldObjectDef>RKU_MapParent_BuildMap_FairyRing</worldObjectDef>
+      </li>
+    </modExtensions>
+  </IncidentDef>
+
+   <WorldObjectDef>
+    <defName>RKU_MapParent_BuildMap_FairyRing</defName>
+    <label>蘑菇圈</label>
+    <description>钻机挖掘到了一个蘑菇圈！快去采集这些宝贵的天然真菌。</description>
+	<mapGenerator>RKU_FairyRing</mapGenerator>
+    <worldObjectClass>RatkinUnderground.RKU_MapParent</worldObjectClass>
+    <texture>Icons/EnemyPoint2</texture>
+    <expandingIcon>true</expandingIcon>
+    <expandingIconTexture>Icons/EnemyPoint2</expandingIconTexture>
+    <expandingIconPriority>80</expandingIconPriority>
+    <expandMore>true</expandMore>
+    <blockExitGridUntilBattleIsWon>false</blockExitGridUntilBattleIsWon>
+    <isTempIncidentMapOwner>false</isTempIncidentMapOwner>
+    <IncidentTargetTags>
+      <li>Map_TempIncident</li>
+    </IncidentTargetTags>
+    <modExtensions>
+      <li Class="RatkinUnderground.RKU_MapParentModExtension">
+        <spawnMap>true</spawnMap>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+  
+  <IncidentDef>
+    <defName>RKU_Incident_BuildMap_Lode</defName>
+    <label>钻机遭遇：地下矿脉</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Caravan</li>
+    </targetTags>
+    <workerClass>RatkinUnderground.RKU_IncidentWorker_BuildMap</workerClass>
+	<letterLabel>钻机遭遇：地下矿脉</letterLabel>
+	<letterText>钻机挖掘到了一个地下矿脉的附近，你可以下车挖掘。</letterText>
+    <modExtensions>
+      <li Class="RatkinUnderground.RKU_WorldObjectDefModExtension">
+        <worldObjectDef>RKU_MapParent_BuildMap_Lode</worldObjectDef>
+      </li>
+    </modExtensions>
+  </IncidentDef>
+
+   <WorldObjectDef>
+    <defName>RKU_MapParent_BuildMap_Lode</defName>
+    <label>地下矿脉</label>
+    <description>钻机挖掘到了一个地下矿脉的附近，你可以下车挖掘。</description>
+	<mapGenerator>RKU_Lode</mapGenerator>
+    <worldObjectClass>RatkinUnderground.RKU_MapParent</worldObjectClass>
+    <texture>Icons/EnemyPoint2</texture>
+    <expandingIcon>true</expandingIcon>
+    <expandingIconTexture>Icons/EnemyPoint2</expandingIconTexture>
+    <expandingIconPriority>80</expandingIconPriority>
+    <expandMore>true</expandMore>
+    <blockExitGridUntilBattleIsWon>false</blockExitGridUntilBattleIsWon>
+    <isTempIncidentMapOwner>false</isTempIncidentMapOwner>
+    <IncidentTargetTags>
+      <li>Map_TempIncident</li>
+    </IncidentTargetTags>
+    <modExtensions>
+      <li Class="RatkinUnderground.RKU_MapParentModExtension">
+        <spawnMap>true</spawnMap>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+  
+  <IncidentDef>
+    <defName>RKU_Incident_BuildMap_GuerrillaBase</defName>
+    <label>钻机遭遇：游击队据点</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Caravan</li>
+    </targetTags>
+    <workerClass>RatkinUnderground.RKU_IncidentWorker_BuildMap</workerClass>
+	<letterLabel>钻机遭遇：游击队据点</letterLabel>
+	<letterText>钻机挖掘到了一个地鼠游击队据点附近。</letterText>
+    <modExtensions>
+      <li Class="RatkinUnderground.RKU_WorldObjectDefModExtension">
+        <worldObjectDef>RKU_MapParent_BuildMap_GuerrillaBase</worldObjectDef>
+      </li>
+    </modExtensions>
+  </IncidentDef>
+
+   <WorldObjectDef>
+    <defName>RKU_MapParent_BuildMap_GuerrillaBase</defName>
+    <label>游击队据点</label>
+    <description>钻机挖掘到了一个地鼠游击队据点的附近。</description>
+	<mapGenerator>RKU_GuerrillaBase</mapGenerator>
+    <worldObjectClass>RatkinUnderground.RKU_MapParent</worldObjectClass>
+    <texture>Icons/EnemyPoint2</texture>
+    <expandingIcon>true</expandingIcon>
+    <expandingIconTexture>Icons/EnemyPoint2</expandingIconTexture>
+    <expandingIconPriority>80</expandingIconPriority>
+    <expandMore>true</expandMore>
+    <blockExitGridUntilBattleIsWon>false</blockExitGridUntilBattleIsWon>
+    <isTempIncidentMapOwner>false</isTempIncidentMapOwner>
+    <IncidentTargetTags>
+      <li>Map_TempIncident</li>
+    </IncidentTargetTags>
+    <modExtensions>
+      <li Class="RatkinUnderground.RKU_MapParentModExtension">
+        <spawnMap>true</spawnMap>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+
+  <IncidentDef>
+    <defName>RKU_Incident_BuildMap_Flesh</defName>
+    <label>钻机遭遇：血肉兽洞穴</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Caravan</li>
+    </targetTags>
+    <workerClass>RatkinUnderground.RKU_IncidentWorker_BuildMap</workerClass>
+	<letterLabel>钻机遭遇：血肉兽洞穴</letterLabel>
+	<letterText>钻机挖掘到了血肉兽们的老巢，注意：杀死母兽后会导致洞穴坍塌</letterText>
+    <modExtensions>
+      <li Class="RatkinUnderground.RKU_WorldObjectDefModExtension">
+        <worldObjectDef>RKU_MapParent_BuildMap_Flesh</worldObjectDef>
+      </li>
+    </modExtensions>
+  </IncidentDef>
+
+  <WorldObjectDef>
+    <defName>RKU_MapParent_BuildMap_Flesh</defName>
+    <label>血肉兽洞穴</label>
+    <description>钻机挖掘到了血肉兽们的老巢。注意：杀死母兽后会导致洞穴坍塌</description>
+    <mapGenerator>RKU_FleshCave</mapGenerator>
+    <worldObjectClass>RatkinUnderground.RKU_MapParent</worldObjectClass>
+    <texture>Icons/EnemyPoint2</texture>
+    <expandingIcon>true</expandingIcon>
+    <expandingIconTexture>Icons/EnemyPoint2</expandingIconTexture>
+    <expandingIconPriority>80</expandingIconPriority>
+    <expandMore>true</expandMore>
+    <blockExitGridUntilBattleIsWon>false</blockExitGridUntilBattleIsWon>
+    <isTempIncidentMapOwner>false</isTempIncidentMapOwner>
+    <IncidentTargetTags>
+      <li>Map_TempIncident</li>
+    </IncidentTargetTags>
+  </WorldObjectDef>
+
+ 
+</Defs> 

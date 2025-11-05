@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!--RKU_Backstories-->
+  <RKU_GuerrillaAA.title>游击队老兵</RKU_GuerrillaAA.title>
+  <RKU_GuerrillaAA.titleShort>游击队老兵</RKU_GuerrillaAA.titleShort>
+  <RKU_GuerrillaAA.description>[PAWN_nameDef]是一个经历过革命军时代的老兵，[PAWN_pronoun] 无比怀念在金合欢领导下的军旅生活，直到那场瘟疫断送了未来的希望。</RKU_GuerrillaAA.description>
+
+  <RKU_GuerrillaAB.title>鼠族前卫花使</RKU_GuerrillaAB.title>
+  <RKU_GuerrillaAB.titleShort>鼠族前卫花使</RKU_GuerrillaAB.titleShort>
+  <RKU_GuerrillaAB.description>[PAWN_nameDef]曾是一个贵族的卫兵，在战争时期，[PAWN_pronoun]的主人坐着马车逃离庄园的时候没带上[PAWN_pronoun]，自由是好事，对吧？</RKU_GuerrillaAB.description>
+
+  <RKU_GuerrillaAC.title>游击队通讯员</RKU_GuerrillaAC.title>
+  <RKU_GuerrillaAC.titleShort>游击队通讯员</RKU_GuerrillaAC.titleShort>
+  <RKU_GuerrillaAC.description>得益于跑得很快，[PAWN_nameDef]跑赢了生化武器的传染，也跑赢了背后追杀的督战队。革命军在悬铃的领导下陷入了迷惘，以至于对逃兵也放缓了脚步。</RKU_GuerrillaAC.description>
+
+  <RKU_GuerrillaAD.title>鼠族前卫花使</RKU_GuerrillaAD.title>
+  <RKU_GuerrillaAD.titleShort>鼠族前卫花使</RKU_GuerrillaAD.titleShort>
+  <RKU_GuerrillaAD.description>[PAWN_nameDef]曾是一个贵族的卫兵，在战争时期，[PAWN_pronoun]的主人坐着马车逃离庄园的时候没带上[PAWN_pronoun]，自由是好事，对吧？</RKU_GuerrillaAD.description>
+
+  <RKU_GuerrillaAE.title>游击队政委</RKU_GuerrillaAE.title>
+  <RKU_GuerrillaAE.titleShort>游击队政委</RKU_GuerrillaAE.titleShort>
+  <RKU_GuerrillaAE.description>[PAWN_nameDef]曾是战争中东线的一名幸运新兵。[PAWN_pronoun]在革命军的分裂中成长，凭借着那份幸运而坚定地保持着当年的信念，但谁也说不好以后会怎样。</RKU_GuerrillaAE.description>
+
+  <RKU_GuerrillaAF.title>游击队政委</RKU_GuerrillaAF.title>
+  <RKU_GuerrillaAF.titleShort>游击队政委</RKU_GuerrillaAF.titleShort>
+  <RKU_GuerrillaAF.description>在这个地区的游击队领袖曾是炮兵部队的军官，[PAWN_nameDef]是她的老部下之一。</RKU_GuerrillaAF.description>
+
+  <RKU_GuerrillaAG.title>游击队政委</RKU_GuerrillaAG.title>
+  <RKU_GuerrillaAG.titleShort>游击队政委</RKU_GuerrillaAG.titleShort>
+  <RKU_GuerrillaAG.description>本地的游击队领袖曾是炮兵部队的军官，[PAWN_nameDef]是她的老部下之一。</RKU_GuerrillaAG.description>
+  
+  <RKU_GuerrillaCA.title>逃难小鼠</RKU_GuerrillaCA.title>
+  <RKU_GuerrillaCA.titleShort>逃难小鼠</RKU_GuerrillaCA.titleShort>
+  <RKU_GuerrillaCA.description>[PAWN_nameDef]出身于一个小村落，路过的军阀劫掠了那里，[PAWN_pronoun]在母亲的惨叫声中逃离了自己的家乡.</RKU_GuerrillaCA.description>
+
+  <RKU_GuerrillaCB.title>鼠族地下儿童</RKU_GuerrillaCB.title>
+  <RKU_GuerrillaCB.titleShort>鼠族地下儿童</RKU_GuerrillaCB.titleShort>
+  <RKU_GuerrillaCB.description>[PAWN_nameDef]出生在在游击队的地下据点里，对地表的一切都感到新奇.</RKU_GuerrillaCB.description>
+
+  <RKU_GuerrillaCC.title>虫胶小偷</RKU_GuerrillaCC.title>
+  <RKU_GuerrillaCC.titleShort>虫胶小偷</RKU_GuerrillaCC.titleShort>
+  <RKU_GuerrillaCC.description>在地下生活中，虫胶是[PAWN_nameDef]和游击队员们为数不多的美味食物，孩子们会为了这些宝贵的美食铤而走险，没有人拦得住他们。</RKU_GuerrillaCC.description>
+
+  <RKU_GuerrillaCD.title>恐惧血肉兽的小鼠</RKU_GuerrillaCD.title>
+  <RKU_GuerrillaCD.titleShort>恐惧血肉兽的小鼠</RKU_GuerrillaCD.titleShort>
+  <RKU_GuerrillaCD.description>[PAWN_nameDef]在地洞里穿梭的时候，坠入过诡异的血肉洞穴，幸好在母兽反应过来之前，她惊慌地逃走了。</RKU_GuerrillaCD.description>
+
+  <RKU_GuerrillaCE.title>水道猎手</RKU_GuerrillaCE.title>
+  <RKU_GuerrillaCE.titleShort>水道猎手</RKU_GuerrillaCE.titleShort>
+  <RKU_GuerrillaCE.description>地下水脉对游击队来说相当宝贵，[PAWN_nameDef]是钻机班里负责找寻水源的行家。</RKU_GuerrillaCE.description>
+
+  <RKU_GuerrillaCF.title>地下渔夫</RKU_GuerrillaCF.title>
+  <RKU_GuerrillaCF.titleShort>地下渔夫</RKU_GuerrillaCF.titleShort>
+  <RKU_GuerrillaCF.description>地下河里的鱼类是游击队员们少有的“正常食物”，在[PAWN_nameDef]看来，能吃的肉类只有绿色和白色两种。</RKU_GuerrillaAG.description>
+
+  <RKU_GuerrillaAH.title>地下爆破专家</RKU_GuerrillaAH.title>
+  <RKU_GuerrillaAH.titleShort>地下爆破专家</RKU_GuerrillaAH.titleShort>
+  <RKU_GuerrillaAH.description>[PAWN_nameDef]曾在革命军中担任爆破手，[PAWN_pronoun]精通各种爆炸装置的制作和使用，在地下据点中经常负责维护那些危险的武器。</RKU_GuerrillaAH.description>
+
+  <RKU_GuerrillaAM.title>鼠族厨师长</RKU_GuerrillaAM.title>
+  <RKU_GuerrillaAM.titleShort>厨师长</RKU_GuerrillaAM.titleShort>
+  <RKU_GuerrillaAM.description>在地下据点中，食物供应至关重要，[PAWN_nameDef]作为厨师长负责将各种奇怪的食材变成可口的饭菜，[PAWN_pronoun]的烹饪技巧救活了不少人。</RKU_GuerrillaAM.description>
+
+  <RKU_GuerrillaAN.title>隧道挖掘工</RKU_GuerrillaAN.title>
+  <RKU_GuerrillaAN.titleShort>挖掘工</RKU_GuerrillaAN.titleShort>
+  <RKU_GuerrillaAN.description>[PAWN_nameDef]是游击队中最出色的挖掘专家，[PAWN_pronoun]能在坚硬的岩石中开辟出复杂的隧道网络，为游击队的行动提供了极大的便利。</RKU_GuerrillaAN.description>
+
+  <RKU_GuerrillaAP.title>地下守卫队长</RKU_GuerrillaAP.title>
+  <RKU_GuerrillaAP.titleShort>地下守卫队长</RKU_GuerrillaAP.titleShort>
+  <RKU_GuerrillaAP.description>[PAWN_nameDef]负责守护游击队的主要据点，[PAWN_pronoun]曾多次击退敌军的入侵，是一位经验丰富的防御专家。</RKU_GuerrillaAP.description>
+
+  <RKU_GuerrillaAQ.title>鼠族学者</RKU_GuerrillaAQ.title>
+  <RKU_GuerrillaAQ.titleShort>学者</RKU_GuerrillaAQ.titleShort>
+  <RKU_GuerrillaAQ.description>[PAWN_nameDef]曾在王国图书馆工作，掌握了丰富的知识，[PAWN_pronoun]现在用这些知识帮助游击队分析敌情和制定战略。</RKU_GuerrillaAQ.description>
+
+  <Ratkin_GuerrillaCJ.title>瘟疫孤儿</Ratkin_GuerrillaCJ.title>
+  <Ratkin_GuerrillaCJ.titleShort>瘟疫孤儿</Ratkin_GuerrillaCJ.titleShort>
+  <Ratkin_GuerrillaCJ.description>[PAWN_nameDef]的家人都在瘟疫中丧生，[PAWN_pronoun]被游击队收养，[PAWN_pronoun]对生化武器有着本能的恐惧，但也因此变得更加坚强。</Ratkin_GuerrillaCJ.description>
+
+  <Ratkin_GuerrillaCM.title>地下小厨师</Ratkin_GuerrillaCM.title>
+  <Ratkin_GuerrillaCM.titleShort>地下小厨师</Ratkin_GuerrillaCM.titleShort>
+  <Ratkin_GuerrillaCM.description>从很小的时候，[PAWN_nameDef]就开始学习烹饪，[PAWN_pronoun]能用最普通的食材做出美味的食物，让大家都爱吃。</Ratkin_GuerrillaCM.description>
+
+  <Ratkin_GuerrillaCN.title>鼠族小守卫</Ratkin_GuerrillaCN.title>
+  <Ratkin_GuerrillaCN.titleShort>小守卫</Ratkin_GuerrillaCN.titleShort>
+  <Ratkin_GuerrillaCN.description>尽管年龄小，[PAWN_nameDef]却已经学会了基本的防御技巧，[PAWN_pronoun]经常站在哨位上警惕地注视着周围的动静。</Ratkin_GuerrillaCN.description>
+
+  <Ratkin_GuerrillaCP.title>鼠族小矿工</Ratkin_GuerrillaCP.title>
+  <Ratkin_GuerrillaCP.titleShort>小矿工</Ratkin_GuerrillaCP.titleShort>
+  <Ratkin_GuerrillaCP.description>在地下矿脉中，[PAWN_nameDef]是孩子们中最勤快的矿工，[PAWN_pronoun]能准确地找到矿石的最佳挖掘点。</Ratkin_GuerrillaCP.description>
+
+  <Ratkin_GuerrillaCQ.title>地下小学者</Ratkin_GuerrillaCQ.title>
+  <Ratkin_GuerrillaCQ.titleShort>小学者</Ratkin_GuerrillaCQ.titleShort>
+  <Ratkin_GuerrillaCQ.description>[PAWN_nameDef]喜欢阅读游击队中仅有的几本书籍，[PAWN_pronoun]对知识有着强烈的渴求，经常问一些让大人难以回答的问题。</Ratkin_GuerrillaCQ.description>
+
+  <Ratkin_GuerrillaCS.title>地下小农民</Ratkin_GuerrillaCS.title>
+  <Ratkin_GuerrillaCS.titleShort>小农民</Ratkin_GuerrillaCS.titleShort>
+  <Ratkin_GuerrillaCS.description>[PAWN_nameDef]负责照料游击队种植的蘑菇和苔藓，[PAWN_pronoun]对这些地下作物了如指掌，能让它们在贫瘠的土壤中茁壮成长。</Ratkin_GuerrillaCS.description>
+
+</LanguageData>
+

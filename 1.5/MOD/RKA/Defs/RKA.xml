@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- 叶绿连弩 -->
+	<ThingDef ParentName="RK_NeolithicRangeWeapon">
+		<defName>RKU_JadeCrystalCrossbow</defName>
+		<label>jade crystal crossbow</label>
+		<description>射速更快的连发弩，需要萤石与翡翠制造.</description>
+		<graphicData>
+			<texPath>Things/Item/Weapons/jadeCrystalCrossbow</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<relicChance>0</relicChance>
+		<soundInteract>Bow_Small</soundInteract>
+		<costList>
+			<RA_PaladinCrossBow>1</RA_PaladinCrossBow>
+			<Jade>60</Jade>
+			<RKU_GlowstonePowder>30</RKU_GlowstonePowder>
+		</costList>
+	    <tradeability>None</tradeability>
+		<recipeMaker>
+			<effectWorking>Smith</effectWorking>
+			<researchPrerequisite>RA_PaladinWeapon</researchPrerequisite>
+			<unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+			<recipeUsers Inherit="False">
+			  <li>BioferriteShaper</li>
+			</recipeUsers>
+			<skillRequirements>
+			  <Crafting>8</Crafting>
+			  <Artistic>6</Artistic>
+			</skillRequirements>
+		</recipeMaker>
+		<statBases>
+			<MarketValue>3400</MarketValue>
+			<WorkToMake>15000</WorkToMake>
+			<Mass>0.8</Mass>
+			<AccuracyTouch>0.95</AccuracyTouch>
+			<AccuracyShort>0.90</AccuracyShort>
+			<AccuracyMedium>0.70</AccuracyMedium>
+			<AccuracyLong>0.60</AccuracyLong>
+			<RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags Inherit="false" />
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bolt_RKU_JadeCrystalCrossbow</defaultProjectile>
+				<burstShotCount>9</burstShotCount>
+				<ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+				<warmupTime>1</warmupTime>
+				<range>44.9</range>
+				<soundCast>RA_PaladinCrossBow</soundCast>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>limb</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>arrow</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>15</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+	<ThingDef ParentName="RK_BaseBullet">
+		<defName>Bolt_RKU_JadeCrystalCrossbow</defName>
+		<label>crossbow bolt</label>
+		<graphicData>
+			<texPath>Things/Item/Weapons/JadeArrow</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.5</drawSize>
+		</graphicData>
+		<projectile>
+			<flyOverhead>false</flyOverhead>
+			<damageDef>Arrow</damageDef>
+			<damageAmountBase>10</damageAmountBase>
+			<stoppingPower>1</stoppingPower>
+			<armorPenetrationBase>0.5</armorPenetrationBase>
+			<speed>85</speed>
+		</projectile>
+	</ThingDef>
+
+	<Patch>
+		<Operation Class="PatchOperationAdd">
+			<xpath>Defs/HediffDef[defName="RKU_CombatEfficiency"]/stages/li/statFactors</xpath>
+			<value>
+				<RA_AgingRateFactor>1.3</RA_AgingRateFactor>
+			</value>
+		</Operation>
+	</Patch>
+</Defs>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <RaidStrategyDef>
+    <defName>RKU_HammerAttack</defName>
+    <workerClass>RatkinUnderground.RaidStrategyWorker_HammerAttack</workerClass>
+    <minPawns>6</minPawns>
+    <raidLootValueFactor>0</raidLootValueFactor>
+    <pawnsCanBringFood>true</pawnsCanBringFood>
+    <arriveModes>
+      <li>EdgeWalkIn</li>
+    </arriveModes>
+    <pointsFactorCurve>
+      <points>
+        <li>0, 0.80</li>
+        <li>5000, 0.65</li>
+      </points>
+    </pointsFactorCurve>
+    <selectionWeightPerPointsCurve>
+      <points>
+        <li>(700, 0)</li>
+        <li>(1000, 1.6)</li>
+      </points>
+    </selectionWeightPerPointsCurve>
+    <letterLabelEnemy>Hammer Siege</letterLabelEnemy>
+    <arrivalTextEnemy>The enemy has deployed their hammer siege weapons! They will pound your defenses with powerful ground-shaking attacks.</arrivalTextEnemy>
+    <letterLabelFriendly>Friendly Siege</letterLabelFriendly>
+    <arrivalTextFriendly>Allies are setting up hammer siege weapons to support your defense.</arrivalTextFriendly>
+  </RaidStrategyDef>
+</Defs>

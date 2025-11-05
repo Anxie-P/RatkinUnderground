@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <RecipeDef ParentName="SurgeryFlesh">
+    <defName>RKU_AllurecapConversion</defName>
+    <label>魅惑菇转化</label>
+    <description>使用魅惑菇进行的一种特殊手术，可以强制转化目标的阵营到施术者阵营，并使其陷入15天的深度麻醉状态。</description>
+    <workerClass>RatkinUnderground.Recipe_RKU_AllurecapConversion</workerClass>
+    <jobString>进行魅惑菇转化。</jobString>
+    <workAmount>3000</workAmount>
+    <hideBodyPartNames>true</hideBodyPartNames>
+    <targetsBodyPart>false</targetsBodyPart>
+    <isViolation>true</isViolation>
+    <surgerySuccessChanceFactor>0.8</surgerySuccessChanceFactor>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>RKU_RawAllurecap</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>RKU_RawAllurecap</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+  </RecipeDef>
+
+</Defs>

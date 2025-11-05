@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+      <ThingDef ParentName="BuildingBase">
+
+        <!-- 潘加朱姆 -->
+        <defName>RKU_Panjandrum</defName>
+        <thingClass>RatkinUnderground.RKU_Panjandrum</thingClass>
+        <tickerType>Long</tickerType>
+        <label>panjandrum</label>
+        <description>潘加朱姆</description>
+        <altitudeLayer>Building</altitudeLayer>
+        <!-- <thingCategories>
+            <li>BuildingsMisc</li>
+        </thingCategories> -->
+        <passability>PassThroughOnly</passability>
+        <rotatable>false</rotatable>
+        <selectable>true</selectable>
+        <fillPercent>0.20</fillPercent>
+        <pathCost>8</pathCost>
+        <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+        <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+        <size>(2,2)</size>
+        <graphicData>
+        <drawSize>(2,2)</drawSize>
+
+        <!-- 先随便用个贴图进游戏看看效果 -->
+        <graphicClass>Graphic_Multi</graphicClass>
+        <texPath>Buildings/InMap/RKU_BunkerBuster</texPath>
+        
+        </graphicData>
+        <costList>
+            <Steel>100</Steel>
+        </costList>
+        <designationCategory>Misc</designationCategory>
+        <!-- <minifiedDef>MinifiedThing</minifiedDef> -->
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <Flammability>0</Flammability>
+            <!-- <Mass>0.1</Mass> -->
+        </statBases>
+        <comps>
+        </comps>
+    </ThingDef>
+
+    <!-- 移动中 -->
+    <ThingDef ParentName="BaseBullet">
+        <defName>RKU_PanjandrumBullet</defName>
+        <label>RKU_PanjandrumBullet</label>
+        <thingClass>RatkinUnderground.RKU_PanjandrumBullet</thingClass>
+        <graphicData>
+        <texPath>Buildings/InMap/RKU_BunkerBuster</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <shaderType>CutoutComplex</shaderType>
+        <drawSize>2</drawSize>
+        </graphicData>
+        <projectile>
+            <speed>24</speed> 
+            <arcHeightFactor>0</arcHeightFactor>
+            <!-- <shadowSize>1</shadowSize> -->
+            <damageDef>BombSuper</damageDef>
+            <explosionRadius>14.9</explosionRadius>
+            <!-- <explosionChanceToStartFire>0.22</explosionChanceToStartFire>
+            <explosionDamageFalloff>true</explosionDamageFalloff>
+            <explosionEffect>GiantExplosion</explosionEffect>
+            <flyOverhead>true</flyOverhead>
+            <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof> -->
+            <soundExplode>Explosion_GiantBomb</soundExplode>
+            <!-- <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+            <soundAmbient>MortarRound_Ambient</soundAmbient> -->
+        </projectile>
+    </ThingDef> 
+</Defs> 

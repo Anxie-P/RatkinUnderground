@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!--RKU_BestHelmetBase RKU_头盔-->
+  <!--游击队侦察兵帽子-->
+  <RKU_Apparel_ScoutHat.label>游击队侦察兵帽子</RKU_Apparel_ScoutHat.label>
+  <RKU_Apparel_ScoutHat.description>游击队侦察兵常用的帽子，便于移动和隐藏。</RKU_Apparel_ScoutHat.description>
+  <!--游击队员护目镜-->
+  <RKU_Apparel_InvaderHat.label>游击队员护目镜</RKU_Apparel_InvaderHat.label>
+  <RKU_Apparel_InvaderHat.description>游击队成员的护目镜，装备了一些植被枝叶用于伪装。</RKU_Apparel_InvaderHat.description>
+  <!--游击队政委帽子-->
+  <RKU_Apparel_CaptainHat.label>游击队政委帽子</RKU_Apparel_CaptainHat.label>
+  <RKU_Apparel_CaptainHat.description>游击队政委的帽子，似乎是来自很久以前的制式了。</RKU_Apparel_CaptainHat.description>
+
+</LanguageData>

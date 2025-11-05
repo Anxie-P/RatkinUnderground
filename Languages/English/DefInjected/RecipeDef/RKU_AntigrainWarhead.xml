@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <Make_Shell_AntigrainWarhead.label>Make Antigrain Warhead</Make_Shell_AntigrainWarhead.label>
+  <Make_Shell_AntigrainWarhead.description>Use Antigraincap Spores, Plasteels and Steels to make Antigrain Warhead. This kind of ultra-tech warhead creates a huge explosion.</Make_Shell_AntigrainWarhead.description>
+  <!-- EN: Doing an unknown recipe. -->
+  <Make_Shell_AntigrainWarhead.jobString>Making Antigrain Warhead.</Make_Shell_AntigrainWarhead.jobString>
+  
+</LanguageData>

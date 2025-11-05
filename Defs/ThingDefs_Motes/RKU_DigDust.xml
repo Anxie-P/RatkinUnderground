@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <ThingDef ParentName="MoteBase">
+        <defName>RKU_DigDust</defName>
+        <graphicData>
+            <texPath>UI/Widgets/DesButBG</texPath>
+            <shaderType>Transparent</shaderType>
+            <color>(0,0,0,0)</color>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <thingClass>RatkinUnderground.RKU_DigDust</thingClass>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <mote>
+            <fadeInTime>0.1</fadeInTime>
+            <solidTime>4.9</solidTime>
+            <fadeOutTime>0.1</fadeOutTime>
+            <growthRate>0</growthRate>
+        </mote>
+        <drawOffscreen>true</drawOffscreen>
+    </ThingDef>
+</Defs> 

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: Drilling Vehicle Squad -->
+  <TravelingDrillingVehicle.label>Driller Squad</TravelingDrillingVehicle.label>
+  <!-- EN: A submersible transport drilling vehicle and its crew. -->
+  <TravelingDrillingVehicle.description>A underground drilling-transport vehicle and its crew.</TravelingDrillingVehicle.description>
+  
+</LanguageData>

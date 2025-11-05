@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: armor weakening -->
+  <RKU_ArmorWeaken.label>Armour Reduction</RKU_ArmorWeaken.label>
+  <!-- EN: Target's armor effectiveness is reduced by [severity * 100]%. -->
+  <RKU_ArmorWeaken.description>The armour effectiveness of the Target is reduced by [severity * 100]%.</RKU_ArmorWeaken.description>
+  
+  <!-- EN: combat efficiency modulation -->
+  <RKU_CombatEfficiency.label>Impact of Ratkin Experiments</RKU_CombatEfficiency.label>
+  <!-- EN: A modulation affecting combat and work performance. Effects vary based on severity level. -->
+  <RKU_CombatEfficiency.description>This Ratkin underwent brutal experiments that impaired its combat and work efficiency. Who could have done such a thing?</RKU_CombatEfficiency.description>
+  <!-- EN: severely impaired -->
+  <RKU_CombatEfficiency.stages.severely_impaired.label>Severely Impaired</RKU_CombatEfficiency.stages.severely_impaired.label>
+  <!-- EN: heavily impaired -->
+  <RKU_CombatEfficiency.stages.heavily_impaired.label>Heavily Impaired</RKU_CombatEfficiency.stages.heavily_impaired.label>
+  <!-- EN: moderately impaired -->
+  <RKU_CombatEfficiency.stages.moderately_impaired.label>Moderately Impaired</RKU_CombatEfficiency.stages.moderately_impaired.label>
+  <!-- EN: slightly impaired -->
+  <RKU_CombatEfficiency.stages.slightly_impaired.label>Slightly Impaired</RKU_CombatEfficiency.stages.slightly_impaired.label>
+  <!-- EN: mildly impaired -->
+  <RKU_CombatEfficiency.stages.mildly_impaired.label>Mildly Impaired</RKU_CombatEfficiency.stages.mildly_impaired.label>
+  <!-- EN: mildly enhanced -->
+  <RKU_CombatEfficiency.stages.mildly_enhanced.label>Mildly Enhanced</RKU_CombatEfficiency.stages.mildly_enhanced.label>
+  <!-- EN: slightly enhanced -->
+  <RKU_CombatEfficiency.stages.slightly_enhanced.label>Slightly Enhanced</RKU_CombatEfficiency.stages.slightly_enhanced.label>
+  <!-- EN: moderately enhanced -->
+  <RKU_CombatEfficiency.stages.moderately_enhanced.label>Moderately Enhanced</RKU_CombatEfficiency.stages.moderately_enhanced.label>
+  <!-- EN: heavily enhanced -->
+  <RKU_CombatEfficiency.stages.heavily_enhanced.label>Heavily Enhanced</RKU_CombatEfficiency.stages.heavily_enhanced.label>
+  <!-- EN: severely enhanced -->
+  <RKU_CombatEfficiency.stages.severely_enhanced.label>Severely Enhanced</RKU_CombatEfficiency.stages.severely_enhanced.label>
+  
+  <!-- UNUSED -->
+  <RKU_CombatEfficiency.stages.0.description>Combat and Work Effectiveness is Severely Impaired.</RKU_CombatEfficiency.stages.0.description>
+  <RKU_CombatEfficiency.stages.1.description>Combat and Work Effectiveness is Heavily Impaired.</RKU_CombatEfficiency.stages.1.description>
+  <RKU_CombatEfficiency.stages.2.description>Combat and Work Effectiveness is Moderately Impaired.</RKU_CombatEfficiency.stages.2.description>
+  <RKU_CombatEfficiency.stages.3.description>Combat and Work Effectiveness is Slightly Impaired.</RKU_CombatEfficiency.stages.3.description>
+  <RKU_CombatEfficiency.stages.4.description>Combat and Work Effectiveness is Mildly Impaired.</RKU_CombatEfficiency.stages.4.description>
+  <RKU_CombatEfficiency.stages.5.description>Combat and Work Effectiveness is Mildly Enhanced.</RKU_CombatEfficiency.stages.5.description>
+  <RKU_CombatEfficiency.stages.6.description>Combat and Work Effectiveness is Slightly Enhanced.</RKU_CombatEfficiency.stages.6.description>
+  <RKU_CombatEfficiency.stages.7.description>Combat and Work Effectiveness is Moderately Enhanced.</RKU_CombatEfficiency.stages.7.description>
+  <RKU_CombatEfficiency.stages.8.description>Combat and Work Effectiveness is Heavily Enhanced.</RKU_CombatEfficiency.stages.8.description>
+  <RKU_CombatEfficiency.stages.9.description>Combat and Work Effectiveness is Severely Enhanced.</RKU_CombatEfficiency.stages.9.description>
+  
+  <!-- EN: yun nan toxin -->
+  <RKU_YunNanToxin.label>Poisoning Caused by Yunnan Mushrooms</RKU_YunNanToxin.label>
+  <!-- EN: 芸南蘑菇造成的幻觉 -->
+  <RKU_YunNanToxin.description>Illusions caused by Yunnan mushrooms</RKU_YunNanToxin.description>
+  <!-- EN: 嘿嘿, 嘿嘿, 欸嘿嘿~ -->
+  <RKU_YunNanToxin.descriptionShort>Heh-heh, heh-heh, eh-heh-heh~</RKU_YunNanToxin.descriptionShort>
+  
+</LanguageData>

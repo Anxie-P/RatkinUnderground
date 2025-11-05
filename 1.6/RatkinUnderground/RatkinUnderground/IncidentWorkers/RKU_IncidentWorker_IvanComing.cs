@@ -1,0 +1,217 @@
+﻿using RimWorld;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine.UIElements;
+using Verse;
+using Verse.AI;
+using Verse.AI.Group;
+using Verse.Sound;
+
+namespace RatkinUnderground
+{
+    public class RKU_IncidentWorker_IvanComing : IncidentWorker
+    {
+        protected override bool CanFireNowSub(IncidentParms parms)
+        {
+            // 检查好感度是否小于等与-50，或在最终决战内
+            var component = Current.Game.GetComponent<RKU_RadioGameComponent>();
+            bool isFinalBattleActive = false;
+            foreach (Map map in Find.Maps)
+            {
+                if (map.IsPlayerHome)
+                {
+                    foreach (GameCondition activeCondition in map.gameConditionManager.ActiveConditions)
+                    {
+                        if (activeCondition.def.defName == "RKU_FinalBattle")
+                        {
+                            isFinalBattleActive = true;
+                            break;
+                        }
+                    }
+                    if (isFinalBattleActive) break;
+                }
+            }
+
+            if (component == null || component?.ralationshipGrade <= -50 || !isFinalBattleActive)
+            {
+                return false;
+            }
+
+            // 如果不在最终战中，检查是否已经触发过（只能触发一次）
+            if (!isFinalBattleActive)
+            {
+                string eventKey = "RKU_RatkinTunnel_Thi";
+                if (component.triggeredOnceEvents != null && component.triggeredOnceEvents.Contains(eventKey))
+                {
+                    return false; // 已经触发过，不能再次触发
+                }
+            }
+
+            return base.CanFireNowSub(parms);
+        }
+
+        protected override bool TryExecuteWorker(IncidentParms parms)
+        {
+            Map map = (Map)parms.target;
+
+            List<Pawn> saboteurs = SpawnSaboteurs(map, 3);
+            if (saboteurs == null || saboteurs.Count == 0)
+            {
+                return false;
+            }
+            AssignBombJobs(saboteurs);
+
+            // 修改好感度范围为-50到-75
+            var component = Current.Game.GetComponent<RKU_RadioGameComponent>();
+            if (component != null)
+            {
+                component.minRelationshipGrade = -75;
+                component.maxRelationshipGrade = -50;
+                component.ralationshipGrade = component.ralationshipGrade;
+
+                // 记录事件已触发
+                string eventKey = "RKU_RatkinTunnel_Thi";
+                if (component.triggeredOnceEvents == null)
+                {
+                    component.triggeredOnceEvents = new System.Collections.Generic.HashSet<string>();
+                }
+                component.triggeredOnceEvents.Add(eventKey);
+            }
+
+            SoundDef.Named("RKU_EvanHaha").PlayOneShot(new TargetInfo(map.Center, map));
+            return true;
+        }
+
+        private List<Pawn> SpawnSaboteurs(Map map, int count)
+        {
+            List<Pawn> saboteurs = new List<Pawn>();
+            List<Building> availableTargets = FindBombTargets(map, count);
+
+            if (availableTargets == null || availableTargets.Count == 0)
+            {
+                return saboteurs;
+            }
+
+            for (int i = 0; i < count; i++)
+            {
+                PawnKindDef pawnKind = DefOfs.RKU_Invader;
+                if (pawnKind == null)
+                {
+                    continue;
+                }
+
+                PawnGenerationRequest request = new PawnGenerationRequest(
+                    pawnKind,
+                    faction: null,
+                    forceGenerateNewPawn: false,
+                    canGeneratePawnRelations: true,
+                    allowAddictions: false
+                );
+
+                Pawn saboteur = PawnGenerator.GeneratePawn(request);
+                if (saboteur == null)
+                {
+                    continue;
+                }
+
+                // 禁用自动攻击
+                if (saboteur.mindState?.mentalStateHandler != null)
+                {
+                    saboteur.mindState.mentalStateHandler.neverFleeIndividual = true;
+                }
+                saboteur.mindState.duty = new PawnDuty(DutyDefOf.Steal);
+
+                // 为这个破坏者选择目标（循环使用可用目标）
+                Building target = availableTargets[i % availableTargets.Count];
+
+                // 在地图边缘生成，能够到达目标的位置
+                if (target != null && target.Position.IsValid && map.reachability != null && CellFinder.TryFindRandomEdgeCellWith(
+                    c => c.Standable(map) && map.reachability.CanReachNonLocal(c, target, PathEndMode.Touch, TraverseMode.PassDoors, Danger.Deadly),
+                    map,
+                    CellFinder.EdgeRoadChance_Neutral,
+                    out IntVec3 spawnPos))
+                {
+                    GenSpawn.Spawn(saboteur, spawnPos, map);
+                    saboteurs.Add(saboteur);
+                }
+            }
+
+            return saboteurs;
+        }
+
+        private List<Building> FindBombTargets(Map map, int count)
+        {
+            List<Building> targets = new List<Building>();
+
+            // 寻找符合条件的房间
+            List<Room> candidateRooms = map.regionGrid.AllRooms
+                .Where(room => room.GetStat(RoomStatDefOf.Wealth) > 1300f)
+                .OrderByDescending(room => room.GetStat(RoomStatDefOf.Wealth))
+                .ToList();
+
+            if (candidateRooms.Count == 0) return targets;
+
+            // 从每个房间中收集目标建筑
+            foreach (Room room in candidateRooms)
+            {
+                if (targets.Count >= count) break;
+
+                List<Building> roomBuildings = room.ContainedAndAdjacentThings
+                    .OfType<Building>()
+                    .Where(building =>
+                        building != null &&
+                        building.def != null &&
+                        building.def.building != null &&
+                        (HasBeauty(building) || IsProductionBuilding(building)))
+                    .OrderByDescending(building => building.MarketValue)
+                    .ToList();
+
+                foreach (Building building in roomBuildings)
+                {
+                    if (targets.Count >= count) break;
+                    if (!targets.Contains(building))
+                    {
+                        targets.Add(building);
+                    }
+                }
+            }
+
+            return targets;
+        }
+
+        private bool HasBeauty(Building building)
+        {
+            if (building.def.statBases == null) return false;
+
+            var beautyStat = building.def.statBases.FirstOrDefault(o => o.stat != null && o.stat.defName == "Beauty");
+            return beautyStat != null && beautyStat.value > 20;
+        }
+
+        private bool IsProductionBuilding(Building building)
+        {
+            if (building.def.thingCategories == null) return false;
+
+            var productionCategory = DefDatabase<ThingCategoryDef>.GetNamed("BuildingsProduction", false);
+            return productionCategory != null && building.def.thingCategories.Contains(productionCategory);
+        }
+
+        private void AssignBombJobs(List<Pawn> saboteurs)
+        {
+            List<Building> targets = FindBombTargets(saboteurs[0].Map, saboteurs.Count);
+
+            for (int i = 0; i < saboteurs.Count; i++)
+            {
+                Pawn saboteur = saboteurs[i];
+                Building target = targets.Count > i ? targets[i] : targets[targets.Count - 1];
+
+                Job job = JobMaker.MakeJob(
+                    DefOfs.RKU_SetC4,
+                    target
+                );
+
+                // 强制开始工作
+                saboteur.jobs.StartJob(job, JobCondition.InterruptForced);
+            }
+        }
+    }
+}

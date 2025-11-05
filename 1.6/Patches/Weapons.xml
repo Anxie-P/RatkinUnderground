@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <Operation Class="PatchOperationAdd">
+		<xpath>/Defs/ThingDef[defName = "RK_AssaultRifle"]/weaponTags</xpath>
+		<value>
+			<li>RK_DemomanAssultRifle</li>
+		</value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+		<xpath>/Defs/ThingDef[defName = "RK_Pickaxe"]/weaponTags</xpath>
+		<value>
+			<li>RKU_ScoutWeapon</li>
+		</value>
+  </Operation>
+</Patch>

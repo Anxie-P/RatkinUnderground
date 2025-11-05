@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!--DrillingCargoPod-->
+  <!-- 钻地货舱 -->
+  <RKU_DrillingCargoPodBullet.label>钻地货舱-移动中</RKU_DrillingCargoPodBullet.label>
+  <RKU_DrillingCargoPod.label>钻地货舱</RKU_DrillingCargoPod.label>
+  <RKU_DrillingCargoPod.description>钻地货舱，拆解可以获得交易货物。</RKU_DrillingCargoPod.description>
+
+</LanguageData>

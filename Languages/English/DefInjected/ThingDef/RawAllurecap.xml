@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: raw allurecap -->
+  <RKU_RawAllurecap.label>Allurecap</RKU_RawAllurecap.label>
+  <!-- EN: 新鲜采摘的魅惑菇，可以用于制造一种令神经快速兴奋的药剂，这种药剂有着很高的武器化潜力。 -->
+  <RKU_RawAllurecap.description>Freshly harvested allurecap, can be used to manufacture a potent stimulant that rapidly excites the nervous system, possessing considerable potential for weaponisation. It may also be directly administered during surgical procedures to induce amnesia, though this carries additional side effects.</RKU_RawAllurecap.description>
+  
+  <!-- EN: singularitycap spore powder package -->
+  <RKU_RawSingularitycap.label>Antigraincap Spore</RKU_RawSingularitycap.label>
+  <!-- EN: 反粒子毁灭菇的孢子，可以调和出相当强大的火药，有着很高的武器化潜力。 -->
+  <RKU_RawSingularitycap.description>Antigraincap's spores can be blended into a remarkably potent gun powder, possessing considerable potential for weaponisation.</RKU_RawSingularitycap.description>
+  
+</LanguageData>

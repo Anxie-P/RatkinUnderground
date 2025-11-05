@@ -1,0 +1,117 @@
+﻿using HarmonyLib;
+using RatkinUnderground;
+using RimWorld;
+using RimWorld.Planet;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Verse;
+
+[HarmonyPatch(typeof(CaravanEnterMapUtility), nameof(CaravanEnterMapUtility.Enter),
+    new Type[] { typeof(Caravan), typeof(Map), typeof(Func<Pawn, IntVec3>), typeof(CaravanDropInventoryMode), typeof(bool) })]
+public static class Patch_CaravanEnter
+{
+    static bool Prefix(Caravan caravan, Map map, Func<Pawn, IntVec3> spawnCellGetter,
+                       CaravanDropInventoryMode dropInventoryMode, bool draftColonists)
+    {
+        var modExtension = map.generatorDef.GetModExtension<RKU_MapGeneratorDefModExtension>();
+        if (modExtension != null)
+        {
+            return true;
+        }
+        if (caravan is RKU_DrillingVehicleOnMap rkuCaravan)
+        {
+            if (map == null)
+            {
+                return true;
+            }
+
+            // 移动中触发的事件
+            if (!rkuCaravan.IsArrived()
+                && rkuCaravan.pather.MovingNow)
+            {
+                return true;
+            }
+            
+            CameraJumper.TryJump(map.Center, map);
+
+            Find.Targeter.BeginTargeting(
+                new TargetingParameters
+                {
+                    canTargetLocations = true,
+                    canTargetSelf = false,
+                    canTargetPawns = false,
+                    canTargetBuildings = false
+                },
+                delegate (LocalTargetInfo target)
+                {
+                    try
+                    {
+                        // 获取生成点
+                        IntVec3 spawnPos = target.Cell;
+                        Log.Message($"选择位置:{target.Cell}");
+
+                        // 生成钻机建筑
+                        var vehicle = (RKU_TunnelHiveSpawner)ThingMaker.MakeThing(DefOfs.RKU_TunnelHiveSpawner);
+                        vehicle.hitPoints = rkuCaravan.hitPoints;
+                        vehicle.faction = rkuCaravan.Faction;
+                        if (!string.IsNullOrEmpty(rkuCaravan.originalVehicleDefName))
+                        {
+                            vehicle.originalVehicleDef = DefDatabase<ThingDef>.GetNamed((string)rkuCaravan.originalVehicleDefName); // 传递原始钻地机类型
+                        }
+                        if(vehicle.cargo!=null) vehicle.cargo = new List<Thing>(rkuCaravan.cargo); // 传递货物
+                        map.fogGrid.FloodUnfogAdjacent(target.Cell, false);
+
+                        // 所有pawn移动到钻机
+                        foreach (var p in caravan.PawnsListForReading.ToList())
+                        {
+                            try
+                            {
+                                vehicle.GetDirectlyHeldThings().TryAddOrTransfer(p);
+                                Utils.TryRemoveWorldPawn(p);
+                                rkuCaravan.RemovePawn(p);
+                            }
+                            catch (Exception e)
+                            {
+                                Log.Message($"遍历报错：{e}");
+                            }
+                        }
+
+                        GenSpawn.Spawn(vehicle, spawnPos, map);
+                        // 移除 caravan
+                        if (!caravan.Destroyed)
+                            caravan.Destroy();
+                    }
+                    catch (Exception e)
+                    {
+                        Log.Message($"delegate报错：{e}");
+                    }
+                },
+                null,
+                (LocalTargetInfo target) =>
+                {
+                    try
+                    {
+                        if (!target.IsValid) return false;
+                        if (!target.Cell.InBounds(map)) return false;
+                        if (!target.Cell.Standable(map))
+                        {
+                            Messages.Message("RKU.CannotSpawnOnImpassable".Translate(), MessageTypeDefOf.RejectInput, false);
+                            return false;
+                        }
+                        return true;
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+                }
+                );
+
+            return false;
+        }
+
+        return true;
+    }
+}

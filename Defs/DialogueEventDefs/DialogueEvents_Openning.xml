@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- 协助任务 -->
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventZero</defName>
+		<dialogueText>      王国军的频段没有回应，大概是他们对你并无所求。</dialogueText>
+		<triggerOnStartup>false</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-25</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+		
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventZeroA</defName>
+		<dialogueText>      很感谢你的热心，但最近确实没有什么状况。</dialogueText>
+		<triggerOnStartup>false</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>0</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventZeroB</defName>
+		<dialogueText>      不要管闲事，我还没那么信任你们。</dialogueText>
+		<triggerOnStartup>false</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-25</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+
+	<!-- 日常问候 -->
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventFir</defName>
+		<dialogueText>      连接建立，信号接收正常...想我了没？</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>0</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventSec</defName>
+		<dialogueText>      游击队随时待命。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>50</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventB</defName>
+		<dialogueText>      别着急，慢点说。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>0</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventThi</defName>
+		<dialogueText>      出门探探险怎么样？虽然地下的空气不是那么清新。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>0</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventC</defName>
+		<dialogueText>      游击队起源于十几年前王国掀起的一场革命，在领袖金合欢领导下，
+我们攻陷了王国一半以上的土地。但这些成果最后因为
+金合欢的病逝而告终了，接任的领袖悬铃败给了私心和权欲...这些都是后话了。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>25</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventD</defName>
+		<dialogueText>      之前曾经有过一场大鼠疫，革命军因为这场瘟疫而损失惨重，但后来
+我们发现这竟是人为的灾难，该为此负责的人已经付出了代价，但逝去
+的生命永远回不来。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>24</minGrade>
+				<maxGrade>50</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventDA</defName>
+		<dialogueText>      你有见过王国贩卖人口的商队吗？他们真是死性不改。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>25</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventDB</defName>
+		<dialogueText>      “鼠族恶魔”突击队的概念最早便起源于鼠族内战时期的一支特种部队，
+其最初的成员均为鼠族实验体。这些小白鼠过分的单纯反而令人感到可怜。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>25</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventDC</defName>
+		<dialogueText>      你们殖民地刚起步的时候有没有做过类似劫商队的事？说笑的，我们这的
+纪律都是很严格的，哪怕吃老乡一根玉米也要付钱。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>25</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventDD</defName>
+		<dialogueText>      你会因为鼠族可爱的样貌而心慈手软吗，特别是对那些光鲜亮丽的贵族？
+只要你亲眼见过一个美好的人死在他们的屠刀下，你就不会对他们抱有幻想。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>25</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventDE</defName>
+		<dialogueText>      你可能会有兴趣了解我们领导者的思想。瓦尔纳拉·金合欢，她已经
+离开我们很久了，但又好像从未离开过。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>50</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventDF</defName>
+		<dialogueText>      那些卫花使和士兵，很多也都是为生活所迫才来替有钱有势的人
+卖命，有机会的话我总是想争取这些可怜人加入我们。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>50</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventDG</defName>
+		<dialogueText>      你也听说过闪耀世界吗？很遥远的传说。我有时候也会做做梦，幻
+想有没有这样一批鼠族，无忧无虑、生活在广阔的太空中。
+那对我们来说太虚幻了。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>50</minGrade>
+				<maxGrade>75</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventDH</defName>
+		<dialogueText>      得益于一些战斗中积累的经验，我们现在很重视也很擅长打理卫生。
+敌人的恶毒总是会超出你的想象。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>25</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventDI</defName>
+		<dialogueText>      并不是每个贵族都会成为我们的目标，有些贵族是完全可以争取
+拉拢或改造的。搞清楚谁是敌人非常重要。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>50</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventDJ</defName>
+		<dialogueText>      王国的贵族们总是喜欢用名贵的花彰显自己的身份，把花朵种满他们
+的私人庄园。但在地下，这些埋在粗糙岩层里的宝石，只为理想主义者而闪亮。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>75</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventDK</defName>
+		<dialogueText>      我替全体游击队成员向你们表达敬意，你们迄今以来的工作帮了我
+们很多很多。我相信你们也会乐意看到游击队现在的发展状态的。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>75</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventDL</defName>
+		<dialogueText>      教会？我不稀罕那种东西，没有什么所谓的神，也不需要虚无缥缈的东西
+来麻木人的思想。更别说教义里我们的主神还是只青蛙...</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>75</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventDM</defName>
+		<dialogueText>      我们有些战士对你们那里相当的好奇。你会同意他们来你那里参观
+吗？</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>75</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventE</defName>
+		<dialogueText>      那些军阀很令人讨厌，但其实他们和我们都是革命军分裂后的产物。
+有些人遗忘了当时起义的目标，自己当起了压迫者...王国已经摇摇欲坠，如果军阀
+们掀起的战乱能消失的话，或许我们还能挣得一段时间的和平，但仅靠我们这些游击
+队还不够。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>50</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventF</defName>
+		<dialogueText>      你认不认识一些白色的鼠族？他们是王国生化实验的产物。他们有着共同
+的姓氏，近似的样貌，还有着敏捷的身手。他们曾经是王国最强大隐秘的刺客部队，
+但他们的故事已经被他们自己终结了。因为有一名特工曾经加入了我们，然后亲手杀
+掉了她的造主。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>75</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventG</defName>
+		<dialogueText>      我们其实也有机械化部队的！虽然只有一台从废墟里捡到的机械
+体...</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>0</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventH</defName>
+		<dialogueText>      吃过饭了吗？能吃饱就是好事，至少不会像我们总是为粮食发愁...</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>0</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventI</defName>
+		<dialogueText>      指挥者的压力总是很大呢，那么多孩子的性命就在自己的一念之间。
+      呃，抱歉。有什么事？</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>0</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventJ</defName>
+		<dialogueText>      我对蘑菇的烹饪方法还是颇有心得的，多煎几秒反而变得有毒的
+类型我也见过一些。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>0</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventK</defName>
+		<dialogueText>      你说风信子？光我们团就有七十多个风信子，找哪个？</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>0</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventFor</defName>
+		<dialogueText>      保养钻机可以请教我们的政委，他们的机修水平考试可是很严格的。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>0</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_ResearchProgressA</defName>
+    <dialogueText>      加油，科学家。我们正在分析数据。</dialogueText>
+    <priority>25</priority>
+    <triggerOnResearch>true</triggerOnResearch>
+    <conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>0</minGrade>
+			</li>
+		</conditions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+  
+   <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_ResearchProgressB</defName>
+    <dialogueText>      有些起源于古代地下遗迹的特殊蘑菇，它们只有在特殊环境下才能少量
+生长，虽然很危险，但也有特殊的用处。</dialogueText>
+    <priority>25</priority>
+    <triggerOnResearch>true</triggerOnResearch>
+    <conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>0</minGrade>
+			</li>
+		</conditions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventEnemyFif</defName>
+		<dialogueText>      我们会看住你们的一举一动。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-25</minGrade>
+				<maxGrade>-1</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventEnemyFifA</defName>
+		<dialogueText>      我们之间的事情还有得谈，希望你方能够有个合理的解释。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-25</minGrade>
+				<maxGrade>-1</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventEnemyFifB</defName>
+		<dialogueText>      不要把我们当成什么可以一脚踩死的弱小派系，我们会用事实证明。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-25</minGrade>
+				<maxGrade>-1</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventEnemyFifC</defName>
+		<dialogueText>      就算是为了生存，也不是你们可以做出那种事的理由。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-25</minGrade>
+				<maxGrade>-1</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventEnemyFifD</defName>
+		<dialogueText>      你还有什么好说的吗？</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-25</minGrade>
+				<maxGrade>-1</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventEnemySec</defName>
+		<dialogueText>      之前的事情可没那么容易过去。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-25</minGrade>
+				<maxGrade>-1</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventEnemyThi</defName>
+		<dialogueText>      你们最好拿出点诚意来，否则游击队不会善罢甘休的。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-25</minGrade>
+				<maxGrade>-1</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventEnemyFor</defName>
+		<dialogueText>      不要让我们发现更多的罪状。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-25</minGrade>
+				<maxGrade>-1</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventEnemySix</defName>
+		<dialogueText>      肮脏的土匪！你们会遭报应的！</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-50</minGrade>
+				<maxGrade>-24</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventEnemySixA</defName>
+		<dialogueText>      你们和王国军是一路货色，有过之而无不及。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-50</minGrade>
+				<maxGrade>-24</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventEnemySixB</defName>
+		<dialogueText>      你难道不清楚自己做了什么，还有脸来联系我？</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-50</minGrade>
+				<maxGrade>-24</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventEnemySixC</defName>
+		<dialogueText>      你知道当我探望我们的伤员，看到他们血淋淋的伤口时，我就会想
+到谁吗？你自己心里有答案。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-50</minGrade>
+				<maxGrade>-24</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventEnemySixD</defName>
+		<dialogueText>      你是不是爱看鼠族人濒死时流血流泪的表情？这种人我见过不少，
+我感觉得出来。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-50</minGrade>
+				<maxGrade>-24</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventEnemyEig</defName>
+		<dialogueText>      我们会把你们的土地分给流浪汉，然后用你们的骨灰肥田！</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-50</minGrade>
+				<maxGrade>-24</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventEnemyNin</defName>
+		<dialogueText>      杀你们的人在路上了，晚上记得关门，这样你们的惨叫就不至于
+太吵！</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-50</minGrade>
+				<maxGrade>-24</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventEnemyEle</defName>
+		<dialogueText>      每当我想到有多少人在死前告诉我替他们报仇...我就愤怒得要命！</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-75</minGrade>
+				<maxGrade>-49</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventEnemyEleA</defName>
+		<dialogueText>畜生！地狱见吧！</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-75</minGrade>
+				<maxGrade>-49</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventEnemyEleB</defName>
+		<dialogueText>      你怎么还在这里？很享受自己的“行为艺术”是吗？</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-75</minGrade>
+				<maxGrade>-49</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventEnemyEleC</defName>
+		<dialogueText>      哪怕是屠夫杀猪也远远不会像你做得那么残忍...我们会百倍千倍
+地奉还给你。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-75</minGrade>
+				<maxGrade>-49</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventEnemyEleD</defName>
+		<dialogueText>      每次看到你我都宁愿地狱是真实存在的，要么你下去，要么我下去，
+再见他们一面。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-75</minGrade>
+				<maxGrade>-49</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventEnemyTwe</defName>
+		<dialogueText>我们要在死前杀光你们每一个人！</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-75</minGrade>
+				<maxGrade>-49</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventEnemyThir</defName>
+		<dialogueText>      你们杀了我们一半的人！你们根本不知道他们都是多好的姑娘和
+小伙子...等着在地狱里认识他们吧！</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-75</minGrade>
+				<maxGrade>-49</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventEnemyFour</defName>
+		<dialogueText>...无信号...</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>-100</minGrade>
+				<maxGrade>-74</maxGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+</Defs> 

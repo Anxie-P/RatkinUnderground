@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="CavePlantBase">
+    <defName>RKU_Mindspark</defName>
+    <label>Mindspark</label>
+    <description>Eating it grants inspiration corresponding to your highest-level skill. Once picked, it melts quickly into a black liquid and must be eaten on the spot.</description>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Beauty>2</Beauty>
+      <BeautyOutdoors>2</BeautyOutdoors>
+      <Nutrition>0.5</Nutrition>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Item/Plants/Mindspark</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+	  <drawSize>2</drawSize>
+    </graphicData>
+    <selectable>true</selectable>
+    <neverMultiSelect>false</neverMultiSelect>
+    <pathCost>14</pathCost>
+    <ingestible />
+    <plant>
+	  <wildBiomes IsNull="True" />
+	  <fertilityMin>999</fertilityMin>
+      <wildOrder>0</wildOrder>  
+      <growDays>4</growDays>
+      <dieIfLeafless>true</dieIfLeafless>
+      <harvestYield>50</harvestYield>
+      <harvestTag>Standard</harvestTag>
+      <harvestedThingDef>RawFungus</harvestedThingDef>
+      <maxMeshCount>1</maxMeshCount>
+      <neverBlightable>true</neverBlightable>
+      <visualSizeRange>0.8~1.2</visualSizeRange>
+      <topWindExposure>0.05</topWindExposure>
+      <wildClusterRadius>0</wildClusterRadius>
+      <wildClusterWeight>0</wildClusterWeight>
+      <purpose>Food</purpose>
+      <pollution>Any</pollution>
+    </plant>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>8</glowRadius>
+        <glowColor>(255,215,000,0)</glowColor>
+      </li>
+    <li Class="RatkinUnderground.CompProperties_Mindspark" />
+    </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="CavePlantBase">
+    <defName>RKU_Hatecap</defName>
+    <label>Hatecap</label>
+    <description>It has an unpleasant smell, but clusters of beneficial mushrooms are often found growing alongside it</description>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <Beauty>-10</Beauty>
+      <BeautyOutdoors>-2</BeautyOutdoors>
+      <Nutrition>0.1</Nutrition>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Item/Plants/Hatecap</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>3</drawSize>
+    </graphicData>
+    <selectable>true</selectable>
+    <neverMultiSelect>false</neverMultiSelect>
+    <pathCost>14</pathCost>
+    <ingestible />
+    <plant>
+	  <wildBiomes IsNull="True" />
+      <wildOrder>0</wildOrder>  
+	  <fertilityMin>999</fertilityMin>
+      <growDays>4</growDays>
+      <dieIfLeafless>true</dieIfLeafless>
+      <harvestYield>1</harvestYield>
+      <harvestTag>Standard</harvestTag>
+      <harvestedThingDef>RawFungus</harvestedThingDef>
+      <maxMeshCount>1</maxMeshCount>
+      <neverBlightable>true</neverBlightable>
+      <visualSizeRange>0.8~1.2</visualSizeRange>
+      <topWindExposure>0.05</topWindExposure>
+      <wildClusterRadius>0</wildClusterRadius>
+      <wildClusterWeight>0</wildClusterWeight>
+      <purpose>Misc</purpose>
+      <pollution>Any</pollution>
+    </plant>
+    <comps>
+      <li Class="RatkinUnderground.CompProperties_Hatecap">
+        <toxinRadius>4</toxinRadius>
+      </li>
+    </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="CavePlantBase">
+    <defName>RKU_Allurecap</defName>
+    <label>Allurecap</label>
+    <description>A mushroom that induces various mental states in those who consume it.</description>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Beauty>2</Beauty>
+      <BeautyOutdoors>2</BeautyOutdoors>
+      <Nutrition>0.5</Nutrition>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Item/Plants/Allurecap</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>2</drawSize>
+    </graphicData>
+    <tickerType>Normal</tickerType>
+    <selectable>true</selectable>
+    <neverMultiSelect>false</neverMultiSelect>
+    <pathCost>14</pathCost>
+    <ingestible />
+    <plant>
+      <wildBiomes IsNull="True" />
+      <fertilityMin>999</fertilityMin>
+      <wildOrder>0</wildOrder>  
+      <growDays>4</growDays>
+      <dieIfLeafless>true</dieIfLeafless>
+      <harvestYield>1</harvestYield>
+      <harvestTag>Standard</harvestTag>
+      <harvestedThingDef>RKU_RawAllurecap</harvestedThingDef>
+      <maxMeshCount>1</maxMeshCount>
+      <neverBlightable>true</neverBlightable>
+      <visualSizeRange>0.8~1.2</visualSizeRange>
+      <topWindExposure>0.05</topWindExposure>
+      <wildClusterRadius>0</wildClusterRadius>
+      <wildClusterWeight>0</wildClusterWeight>
+      <purpose>Food</purpose>
+      <pollution>Any</pollution>
+    </plant>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>4</glowRadius>
+        <glowColor>(176,95,211,0)</glowColor>
+      </li>
+      <li Class="RatkinUnderground.CompProperties_Allurecap">
+        <stateList>
+          <li>BerserkTrance</li>
+          <li>MurderousRage</li>
+          <li>Wander_Psychotic_Short</li>
+          <li>PanicFlee</li>
+          <li>Wander_Psychotic_Short</li>
+          <li>BerserkShort</li>
+          <li>WanderConfused</li>
+          <li>GiveUpExit</li>
+          <li>ManhunterBloodRain</li>
+          <li>Wander_Psychotic</li>
+          <li>CubeSculpting</li>     
+          <li>RandomRape</li>        
+        </stateList>
+        <allureRadius>4</allureRadius>
+      </li>
+    </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="CavePlantBase">
+    <defName>RKU_Singularitycap</defName>
+    <label>Singularitycap</label>
+    <description>It is said that their spores were used as raw materials for ancient weapons, but they will be inactivated to a certain extent under light.</description>
+    <tickerType>Normal</tickerType>
+    <thingClass>RatkinUnderground.RKU_Plant_Singularitycap</thingClass>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Beauty>2</Beauty>
+      <BeautyOutdoors>2</BeautyOutdoors>
+      <Nutrition>0.5</Nutrition>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Item/Plants/Singularitycap</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+	  <drawSize>2</drawSize>
+    </graphicData>
+    <selectable>true</selectable>
+    <neverMultiSelect>false</neverMultiSelect>
+    <pathCost>14</pathCost>
+    <ingestible />
+    <plant>
+	  <wildBiomes IsNull="True" />
+	  <fertilityMin>999</fertilityMin>
+      <wildOrder>0</wildOrder>  
+      <growDays>4</growDays>
+      <dieIfLeafless>true</dieIfLeafless>
+      <harvestYield>50</harvestYield>
+      <harvestTag>Standard</harvestTag>
+      <harvestedThingDef>RawFungus</harvestedThingDef>
+      <maxMeshCount>1</maxMeshCount>
+      <neverBlightable>true</neverBlightable>
+      <visualSizeRange>0.8~1.2</visualSizeRange>
+      <topWindExposure>0.05</topWindExposure>
+      <wildClusterRadius>0</wildClusterRadius>
+      <wildClusterWeight>0</wildClusterWeight>
+      <purpose>Food</purpose>
+      <pollution>Any</pollution>
+    </plant>
+    <comps>
+      <li Class="CompProperties_Glower">
+		<glowRadius>4</glowRadius>
+		<glowColor>(68,48,66,0)</glowColor>
+	  </li>
+    </comps>
+  </ThingDef>
+</Defs>

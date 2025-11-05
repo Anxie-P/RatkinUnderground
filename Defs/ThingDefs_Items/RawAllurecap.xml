@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="PlantFoodRawBase">
+    <defName>RKU_RawAllurecap</defName>
+    <label>raw allurecap</label>
+    <description>新鲜采摘的魅惑菇，可以用于制造一种令神经快速兴奋的药剂，这种药剂有着很高的武器化潜力。</description>
+    <stackLimit>75</stackLimit>
+    <graphicData>
+        <texPath>Things/Item/Resource/RawAllurecap</texPath>
+        <graphicClass>Graphic_StackCount</graphicClass>
+        <drawSize>1.7</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>1.1</MarketValue>
+    </statBases>
+    <ingestible>
+      <foodType>Fungus</foodType>
+    </ingestible>
+    <ingredient>
+      <mergeCompatibilityTags>
+        <li MayRequire="Ludeon.RimWorld.Ideology">Fungus</li>
+      </mergeCompatibilityTags>
+    </ingredient>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>30</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+    </comps>
+  </ThingDef>
+  
+   <ThingDef ParentName="PlantFoodRawBase">
+    <defName>RKU_RawSingularitycap</defName>
+    <label>singularitycap spore powder package</label>
+    <description>反粒子毁灭菇的孢子，可以调和出相当强大的火药，有着很高的武器化潜力。</description>
+    <stackLimit>75</stackLimit>
+    <graphicData>
+        <texPath>Things/Item/Resource/RKU_RawSingularitycap</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize>2.5</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>1.1</MarketValue>
+    </statBases>
+    <ingestible>
+      <foodType>Fungus</foodType>
+    </ingestible>
+    <ingredient>
+      <mergeCompatibilityTags>
+        <li MayRequire="Ludeon.RimWorld.Ideology">Fungus</li>
+      </mergeCompatibilityTags>
+    </ingredient>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>30</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+    </comps>
+  </ThingDef>
+</Defs>

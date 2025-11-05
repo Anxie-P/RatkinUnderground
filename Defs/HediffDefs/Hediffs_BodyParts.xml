@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <HediffDef>
+    <defName>RKU_YunNanToxin</defName>
+    <label>yun nan toxin</label>
+    <description>芸南蘑菇造成的幻觉</description>
+    <descriptionShort>嘿嘿, 嘿嘿, 欸嘿嘿~</descriptionShort>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.2, 0.8, 0.2)</defaultLabelColor>
+    <isBad>true</isBad>
+    <priceImpact>false</priceImpact>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0</minSeverity>
+    <maxSeverity>1</maxSeverity>
+    <comps>
+        <li Class="RatkinUnderground.HediffCompProperties_YunNanToxin">
+            <stateList>
+                <li>BerserkTrance</li>
+                <li>MurderousRage</li>
+                <li>Wander_Psychotic_Short</li>
+                <li>PanicFlee</li>
+                <li>Wander_Psychotic_Short</li>
+                <li>BerserkShort</li>
+                <li>WanderConfused</li>
+                <li>GiveUpExit</li>
+                <li>ManhunterBloodRain</li>
+                <li>Wander_Psychotic</li>
+                <li>CubeSculpting</li>      <!-- 不能只让我家小人打仗时拉屎 -->
+                <li>RandomRape</li>         <!-- 这倒提醒我了 -->
+            </stateList>
+        </li>
+        <li Class="HediffCompProperties_Disappears">
+            <disappearsAfterTicks>2500</disappearsAfterTicks> <!-- 60000 ticks = 1天-->
+            <showRemainingTime>true</showRemainingTime>
+        </li>
+    </comps>
+    </HediffDef>
+	
+    <HediffDef>
+      <defName>RKU_ArmorWeaken</defName>
+	  <hediffClass>HediffWithComps</hediffClass>
+      <label>armor weakening</label>
+      <description>Target's armor effectiveness is reduced by [severity * 100]%.</description>
+      <isBad>true</isBad>
+      <minSeverity>0</minSeverity>
+      <maxSeverity>1.0</maxSeverity>
+      <defaultLabelColor>(0.8, 0.2, 0.2)</defaultLabelColor>
+	  <comps>
+        <li Class="HediffCompProperties_SeverityPerDay">
+            <severityPerDay>-4</severityPerDay>
+        </li>
+      </comps>
+      <stages>
+        <li>
+          <minSeverity>0.01</minSeverity>
+          <statOffsets>
+            <ArmorRating_Sharp>-0.15</ArmorRating_Sharp>
+            <ArmorRating_Blunt>-0.15</ArmorRating_Blunt>
+            <ArmorRating_Heat>-0.15</ArmorRating_Heat>
+          </statOffsets>
+        </li>
+        <li>
+          <minSeverity>0.15</minSeverity>
+          <statOffsets>
+            <ArmorRating_Sharp>-0.3</ArmorRating_Sharp>
+            <ArmorRating_Blunt>-0.3</ArmorRating_Blunt>
+            <ArmorRating_Heat>-0.3</ArmorRating_Heat>
+          </statOffsets>
+        </li>
+        <li>
+          <minSeverity>0.3</minSeverity>
+          <statOffsets>
+            <ArmorRating_Sharp>-0.45</ArmorRating_Sharp>
+            <ArmorRating_Blunt>-0.45</ArmorRating_Blunt>
+            <ArmorRating_Heat>-0.45</ArmorRating_Heat>
+          </statOffsets>
+        </li>
+        <li>
+          <minSeverity>0.45</minSeverity>
+          <statOffsets>
+            <ArmorRating_Sharp>-0.6</ArmorRating_Sharp>
+            <ArmorRating_Blunt>-0.6</ArmorRating_Blunt>
+            <ArmorRating_Heat>-0.6</ArmorRating_Heat>
+          </statOffsets>
+        </li>
+        <li>
+          <minSeverity>0.6</minSeverity>
+          <statOffsets>
+            <ArmorRating_Sharp>-0.75</ArmorRating_Sharp>
+            <ArmorRating_Blunt>-0.75</ArmorRating_Blunt>
+            <ArmorRating_Heat>-0.75</ArmorRating_Heat>
+          </statOffsets>
+        </li>
+        <li>
+          <minSeverity>0.75</minSeverity>
+          <statOffsets>
+            <ArmorRating_Sharp>-0.9</ArmorRating_Sharp>
+            <ArmorRating_Blunt>-0.9</ArmorRating_Blunt>
+            <ArmorRating_Heat>-0.9</ArmorRating_Heat>
+          </statOffsets>
+        </li>
+        <li>
+          <minSeverity>0.9</minSeverity>
+          <statOffsets>
+            <ArmorRating_Sharp>-1.0</ArmorRating_Sharp>
+            <ArmorRating_Blunt>-1.0</ArmorRating_Blunt>
+            <ArmorRating_Heat>-1.0</ArmorRating_Heat>
+          </statOffsets>
+        </li>
+      </stages>
+    </HediffDef>
+
+    <HediffDef>
+      <defName>RKU_CombatEfficiency</defName>
+      <hediffClass>HediffWithComps</hediffClass>
+      <label>combat efficiency modulation</label>
+      <description>A modulation affecting combat and work performance. Effects vary based on severity level.</description>
+      <isBad>false</isBad>
+      <minSeverity>0</minSeverity>
+      <maxSeverity>1.0</maxSeverity>
+      <priceImpact>true</priceImpact>
+      <stages>
+        <li>
+          <minSeverity>0.01</minSeverity>
+          <label>severely impaired</label>
+          <painOffset>0.2</painOffset>
+          <capMods>
+            <li>
+              <capacity>Moving</capacity>
+              <offset>-0.4</offset>
+            </li>
+            <li>
+              <capacity>Manipulation</capacity>
+              <offset>-0.3</offset>
+            </li>
+          </capMods>
+          <statOffsets>
+            <ShootingAccuracyPawn>-0.5</ShootingAccuracyPawn>
+            <MeleeHitChance>-0.4</MeleeHitChance>
+            <WorkSpeedGlobal>-0.5</WorkSpeedGlobal>
+            <MiningSpeed>-0.4</MiningSpeed>
+            <PlantWorkSpeed>-0.4</PlantWorkSpeed>
+            <ConstructSuccessChance>-0.3</ConstructSuccessChance>
+          </statOffsets>
+        </li>
+        <li>
+          <minSeverity>0.1</minSeverity>
+          <label>heavily impaired</label>
+          <painOffset>0.15</painOffset>
+          <capMods>
+            <li>
+              <capacity>Moving</capacity>
+              <offset>-0.3</offset>
+            </li>
+            <li>
+              <capacity>Manipulation</capacity>
+              <offset>-0.25</offset>
+            </li>
+          </capMods>
+          <statOffsets>
+            <ShootingAccuracyPawn>-0.4</ShootingAccuracyPawn>
+            <MeleeHitChance>-0.3</MeleeHitChance>
+            <WorkSpeedGlobal>-0.4</WorkSpeedGlobal>
+            <MiningSpeed>-0.3</MiningSpeed>
+            <PlantWorkSpeed>-0.3</PlantWorkSpeed>
+            <ConstructSuccessChance>-0.25</ConstructSuccessChance>
+          </statOffsets>
+        </li>
+        <li>
+          <minSeverity>0.2</minSeverity>
+          <label>moderately impaired</label>
+          <painOffset>0.1</painOffset>
+          <capMods>
+            <li>
+              <capacity>Moving</capacity>
+              <offset>-0.2</offset>
+            </li>
+            <li>
+              <capacity>Manipulation</capacity>
+              <offset>-0.2</offset>
+            </li>
+          </capMods>
+          <statOffsets>
+            <ShootingAccuracyPawn>-0.3</ShootingAccuracyPawn>
+            <MeleeHitChance>-0.25</MeleeHitChance>
+            <WorkSpeedGlobal>-0.3</WorkSpeedGlobal>
+            <MiningSpeed>-0.25</MiningSpeed>
+            <PlantWorkSpeed>-0.25</PlantWorkSpeed>
+            <ConstructSuccessChance>-0.2</ConstructSuccessChance>
+          </statOffsets>
+        </li>
+        <li>
+          <minSeverity>0.3</minSeverity>
+          <label>slightly impaired</label>
+          <painOffset>0.05</painOffset>
+          <capMods>
+            <li>
+              <capacity>Moving</capacity>
+              <offset>-0.1</offset>
+            </li>
+            <li>
+              <capacity>Manipulation</capacity>
+              <offset>-0.1</offset>
+            </li>
+          </capMods>
+          <statOffsets>
+            <ShootingAccuracyPawn>-0.2</ShootingAccuracyPawn>
+            <MeleeHitChance>-0.15</MeleeHitChance>
+            <WorkSpeedGlobal>-0.2</WorkSpeedGlobal>
+            <MiningSpeed>-0.15</MiningSpeed>
+            <PlantWorkSpeed>-0.15</PlantWorkSpeed>
+            <ConstructSuccessChance>-0.1</ConstructSuccessChance>
+          </statOffsets>
+        </li>
+        <li>
+          <minSeverity>0.4</minSeverity>
+          <label>mildly impaired</label>
+          <statOffsets>
+            <ShootingAccuracyPawn>-0.1</ShootingAccuracyPawn>
+            <MeleeHitChance>-0.1</MeleeHitChance>
+            <WorkSpeedGlobal>-0.1</WorkSpeedGlobal>
+            <MiningSpeed>-0.1</MiningSpeed>
+            <PlantWorkSpeed>-0.1</PlantWorkSpeed>
+            <ConstructSuccessChance>-0.05</ConstructSuccessChance>
+          </statOffsets>
+        </li>
+
+        <!-- Positive effects (50-100% severity) -->
+        <li>
+          <minSeverity>0.5</minSeverity>
+          <label>mildly enhanced</label>
+		  <painOffset>-0.1</painOffset>
+          <statOffsets>
+            <ShootingAccuracyPawn>0.1</ShootingAccuracyPawn>
+            <MeleeHitChance>0.1</MeleeHitChance>
+            <WorkSpeedGlobal>0.1</WorkSpeedGlobal>
+            <MiningSpeed>0.1</MiningSpeed>
+            <PlantWorkSpeed>0.1</PlantWorkSpeed>
+            <ConstructSuccessChance>0.05</ConstructSuccessChance>
+          </statOffsets>
+        </li>
+        <li>
+          <minSeverity>0.6</minSeverity>
+          <label>slightly enhanced</label>
+          <capMods>
+            <li>
+              <capacity>Moving</capacity>
+              <offset>0.1</offset>
+            </li>
+            <li>
+              <capacity>Manipulation</capacity>
+              <offset>0.1</offset>
+            </li>
+          </capMods>
+          <statOffsets>
+            <ShootingAccuracyPawn>0.3</ShootingAccuracyPawn>
+            <MeleeHitChance>0.15</MeleeHitChance>
+            <WorkSpeedGlobal>0.2</WorkSpeedGlobal>
+            <MiningSpeed>0.15</MiningSpeed>
+            <PlantWorkSpeed>0.15</PlantWorkSpeed>
+            <ConstructSuccessChance>0.1</ConstructSuccessChance>
+          </statOffsets>
+        </li>
+        <li>
+          <minSeverity>0.7</minSeverity>
+          <label>moderately enhanced</label>
+		  <painOffset>-0.4</painOffset>
+          <capMods>
+            <li>
+              <capacity>Moving</capacity>
+              <offset>0.25</offset>
+            </li>
+            <li>
+              <capacity>Manipulation</capacity>
+              <offset>0.2</offset>
+            </li>
+          </capMods>
+          <statOffsets>
+            <ShootingAccuracyPawn>0.5</ShootingAccuracyPawn>
+            <MeleeHitChance>0.25</MeleeHitChance>
+            <WorkSpeedGlobal>0.3</WorkSpeedGlobal>
+            <MiningSpeed>0.25</MiningSpeed>
+            <PlantWorkSpeed>0.25</PlantWorkSpeed>
+            <ConstructSuccessChance>0.2</ConstructSuccessChance>
+          </statOffsets>
+        </li>
+        <li>
+          <minSeverity>0.8</minSeverity>
+          <label>heavily enhanced</label>
+		  <painOffset>-0.55</painOffset>
+          <capMods>
+            <li>
+              <capacity>Moving</capacity>
+              <offset>0.4</offset>
+            </li>
+            <li>
+              <capacity>Manipulation</capacity>
+              <offset>0.25</offset>
+            </li>
+          </capMods>
+          <statOffsets>
+            <ShootingAccuracyPawn>1</ShootingAccuracyPawn>
+            <MeleeHitChance>0.3</MeleeHitChance>
+            <WorkSpeedGlobal>0.4</WorkSpeedGlobal>
+            <MiningSpeed>0.3</MiningSpeed>
+            <PlantWorkSpeed>0.3</PlantWorkSpeed>
+            <ConstructSuccessChance>0.25</ConstructSuccessChance>
+          </statOffsets>
+        </li>
+        <li>
+          <minSeverity>0.9</minSeverity>
+          <label>severely enhanced</label>
+          <painOffset>-0.8</painOffset>
+          <capMods>
+            <li>
+              <capacity>Moving</capacity>
+              <offset>0.5</offset>
+            </li>
+            <li>
+              <capacity>Manipulation</capacity>
+              <offset>0.5</offset>
+            </li>
+          </capMods>
+          <statOffsets>
+            <ShootingAccuracyPawn>0.5</ShootingAccuracyPawn>
+            <MeleeHitChance>0.4</MeleeHitChance>
+            <WorkSpeedGlobal>0.5</WorkSpeedGlobal>
+            <MiningSpeed>0.4</MiningSpeed>
+            <PlantWorkSpeed>0.4</PlantWorkSpeed>
+            <ConstructSuccessChance>0.3</ConstructSuccessChance>
+          </statOffsets>
+        </li>
+      </stages>
+    </HediffDef>
+
+</Defs>

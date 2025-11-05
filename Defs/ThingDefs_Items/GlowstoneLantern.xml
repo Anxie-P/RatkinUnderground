@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+     <!-- 里面数据还没详细填 -->
+    <ThingDef ParentName="ApparelMakeableBase">
+        <defName>RKU_GlowstoneLantern</defName>
+        <label>glowstone lantern</label>
+        <description>萤石提灯</description>
+        <thingClass>Apparel</thingClass>
+        <graphicData>
+            <texPath>Things/Pawn/Humanlike/Apparel/ShieldBelt/ShieldBelt</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <tickerType>Normal</tickerType>
+        <statBases>
+            <Flammability>0</Flammability>
+            <DeteriorationRate>2</DeteriorationRate>
+            <Beauty>3</Beauty>
+            <Mass>0.5</Mass>
+        </statBases>
+
+        <thingSetMakerTags>
+            <li>RewardStandardQualitySuper</li>
+        </thingSetMakerTags>
+
+        <!-- 造价 -->
+        <costList>
+            <RKU_GlowstonePowder>10</RKU_GlowstonePowder>
+            <Steel>50</Steel>
+            <Plasteel>20</Plasteel>
+        </costList>
+        <!-- 制作 -->
+        <recipeMaker>
+            <unfinishedThingDef>UnfinishedBelt</unfinishedThingDef>
+            <researchPrerequisite>ShieldBelt</researchPrerequisite>
+            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Machining</soundWorking>
+            <recipeUsers>
+                <li>TableMachining</li>
+            </recipeUsers>
+            <useIngredientsForColor>false</useIngredientsForColor>
+            <skillRequirements>
+                <Crafting>6</Crafting>
+            </skillRequirements>
+            <displayPriority>300</displayPriority>
+        </recipeMaker>
+
+        <thingCategories>
+            <!-- 辅助型服装 -->
+            <li>ApparelUtility</li>
+        </thingCategories>
+
+        <apparel>
+            <countsAsClothingForNudity>false</countsAsClothingForNudity>
+            <careIfWornByCorpse>false</careIfWornByCorpse>
+            <wearPerDay>0</wearPerDay>
+            <bodyPartGroups>
+                <li>Waist</li>
+            </bodyPartGroups>
+            <layers>
+                <li>Belt</li>
+            </layers>
+            <tags>
+                <li>RKU_Apparel</li>
+            </tags>
+            <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+        </apparel>
+
+        <tradeTags>
+            <li>Armor</li>
+        </tradeTags>
+
+        <comps>
+            <li Class="RatkinUnderground.CompProperties_RKU_LanternCompProperties">
+                <lightDef>RKU_Light</lightDef>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <!-- 光源 -->
+    <ThingDef ParentName="BuildingBase">
+        <defName>RKU_Light</defName>
+        <label>light</label>
+        <description>光源</description>
+        <graphicData>
+            <texPath>Things/RKU_Light</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <selectable>false</selectable>
+        <building>
+            <isInert>true</isInert>
+            <isEdifice>false</isEdifice>
+            <deconstructible>false</deconstructible>
+        </building>
+        <filthLeaving></filthLeaving>
+        <tickerType>Normal</tickerType>
+        <comps>
+            <li Class="CompProperties_Glower">
+            <overlightRadius>5</overlightRadius>
+            <glowRadius>5</glowRadius>
+            <glowColor>(200,200,150,255)</glowColor>
+            </li>
+        </comps>
+    </ThingDef>
+</Defs>

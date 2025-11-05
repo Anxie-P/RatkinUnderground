@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="BuildingBase" Name ="Graffiti" Abstract="True">
+    <altitudeLayer>Floor</altitudeLayer>
+      <thingClass>Building</thingClass>
+      <selectable>false</selectable>
+        <passability>Standable</passability>
+        <category>Building</category>
+        <rotatable>false</rotatable>
+        <useHitPoints>false</useHitPoints>
+        <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+        <building>
+          <claimable>false</claimable>
+            <deconstructible>true</deconstructible>
+            <alwaysDeconstructible>true</alwaysDeconstructible>
+            <isTargetable>false</isTargetable>
+        </building>
+        <!-- <designationCategory>AM_FLOOR</designationCategory>	  -->
+  </ThingDef>
+
+  <ThingDef ParentName="Graffiti">
+    <defName>RKU_Graffiti_Under</defName>
+    <label>graffiti</label>
+    <description>涂鸦.</description>
+    <graphicData>
+      <texPath>Buildings/InMap/Graffiti/RKU_Graffiti_Under</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.5,1.5)</drawSize>
+    </graphicData>
+    <size>(1,1)</size>
+  </ThingDef>
+
+  <ThingDef ParentName="Graffiti">
+    <defName>RKU_Graffiti_Anarchism</defName>
+    <label>graffiti</label>
+    <description>涂鸦.</description>
+    <graphicData>
+      <texPath>Buildings/InMap/Graffiti/RKU_Graffiti_Anarchism</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.5,1.5)</drawSize>
+    </graphicData>
+    <size>(1,1)</size>
+  </ThingDef>
+</Defs>

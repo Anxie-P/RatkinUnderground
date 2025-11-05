@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN:
+    <li>RKU_GuerrillaSurvivorDesc1</li>
+  -->
+  <RKU_GuerrillaSurvivor.questDescriptionRules.rulesStrings>
+    <li>questDescription->A distress signal has been received from the Ratkin Underground Partisans. A scout was wounded during a mission, but the partisans cannot spare additional Driller Squads for rescue. The local partisan commander requests the colony's assistance in saving this soldier. In return, this partisan will join your colony.</li>
+  </RKU_GuerrillaSurvivor.questDescriptionRules.rulesStrings>
+  <!-- EN:
+    <li>RKU_GuerrillaSurvivorName1</li>
+    <li>RKU_GuerrillaSurvivorName2</li>
+    <li>RKU_GuerrillaSurvivorName3</li>
+    <li>RKU_GuerrillaSurvivorName4</li>
+    <li>RKU_GuerrillaSurvivorName5</li>
+  -->
+  <RKU_GuerrillaSurvivor.questNameRules.rulesStrings>
+    <li>questName->Wounded Partisan Rescue</li>
+  </RKU_GuerrillaSurvivor.questNameRules.rulesStrings>
+  
+</LanguageData>

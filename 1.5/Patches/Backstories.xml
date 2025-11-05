@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  
+  <Operation Class="PatchOperationAdd">
+	<xpath>Defs/AlienRace.AlienBackstoryDef[defName = "Ratkin_WildChild" or defName = "Ratkin_LandRat" or defName = "Ratkin_Student" or defName = "Ratkin_HumanAssistant" or defName = "Ratkin_SlaveKid" or defName = "Ratkin_LaboratoryRats" or defName = "Ratkin_PettyTheft"]/spawnCategories</xpath>
+	<value>
+	  <li>RKU_Commissar</li>
+	</value>
+  </Operation>
+  
+  <Operation Class="PatchOperationAdd">
+	<xpath>Defs/AlienRace.AlienBackstoryDef[defName = "Ratkin_CountryKid" or defName = "Ratkin_ShepherdBoy" or defName = "Ratkin_Orphan" or defName = "Ratkin_Student" or defName = "Ratkin_Kid"]/spawnCategories</xpath>
+	<value>
+	  <li>RKU_Commissar</li>
+	</value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+	<xpath>Defs/AlienRace.AlienBackstoryDef[defName = "Ratkin_WildChild" or defName = "Ratkin_LandRat" or defName = "Ratkin_Student" or defName = "Ratkin_HumanAssistant" or defName = "Ratkin_SlaveKid" or defName = "Ratkin_LaboratoryRats" or defName = "Ratkin_PettyTheft"]/spawnCategories</xpath>
+	<value>
+	  <li>RKU_Invader</li>
+	</value>
+  </Operation>
+  
+  <Operation Class="PatchOperationAdd">
+	<xpath>Defs/AlienRace.AlienBackstoryDef[defName = "Ratkin_CountryKid" or defName = "Ratkin_ShepherdBoy" or defName = "Ratkin_Orphan" or defName = "Ratkin_Student" or defName = "Ratkin_Kid"]/spawnCategories</xpath>
+	<value>
+	  <li>RKU_Invader</li>
+	</value>
+  </Operation>
+</Patch>

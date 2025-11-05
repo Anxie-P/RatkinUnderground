@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: Ratkin Radio -->
+  <RKU_Radio.label>Ratkin Underground Radio</RKU_Radio.label>
+  <!-- EN: The Ratkin Underground Radio: Interaction with partisan forces is conducted via this radio. The partisans' attitude, the radio's functions, and the events/quests that will be triggered are all determined by the current favorability level of the partisans. When the favorability level reaches a certain upper limit or lower limit (one tier every 25 points), you need to interact with the partisan leader to expand the range of the favorability level. -->
+  <RKU_Radio.description>Ratkin Underground radio. Through this radio, you can interact with the partisan forces. The partisans' attitude, the radio station's functions, and the events/quests that will be triggered are determined by the current goodwill level of the partisans. When reaching certain upper or lower limits (in increments of 25), it is necessary to interact with the partisan leader to expand the goodwill range.</RKU_Radio.description>
+  
+  <!-- EN: Trading Post -->
+  <RKU_TradingPost.label>Trading Post</RKU_TradingPost.label>
+  <!-- EN: Partisan Outpost Trading Post—what would you like to exchange? -->
+  <RKU_TradingPost.description>Partisan Base Trading Post: fancy swapping something?</RKU_TradingPost.description>
+  
+</LanguageData>

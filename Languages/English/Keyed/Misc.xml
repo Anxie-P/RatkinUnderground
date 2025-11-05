@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: This location can only be accessed via drilling vehicle. -->
+  <RKU.RequireDrillingVehicle>This location can only be accessed via driller vehicle.</RKU.RequireDrillingVehicle>
+  <!-- EN: Guerrilla Squad Departed -->
+  <RKU_RadioLeftTitle>Partisan Squad Departed</RKU_RadioLeftTitle>
+  <!-- EN: The guerrilla squad has left, but they left behind an encrypted radio. You can use this radio to maintain contact with them. -->
+  <RKU_RadioLeftMessage>The partisan squad has departed, but they left behind an encrypted radio. You can use this radio to maintain contact with them.</RKU_RadioLeftMessage>
+
+  <!-- Guerrilla Camp Quest Translations -->
+  <!-- EN: Quest expired: [resolvedQuestName] -->
+  <RKU_QuestExpiredLabel>Quest Expired: [resolvedQuestName]</RKU_QuestExpiredLabel>
+  <!-- EN: The bandit camp has packed up and moved on. The quest [resolvedQuestName] has expired. -->
+  <RKU_QuestExpiredText>The bandit camp has packed up and moved on. The quest [resolvedQuestName] has expired.</RKU_QuestExpiredText>
+  <!-- EN: Quest failed: [resolvedQuestName] -->
+  <RKU_QuestFailedLabel>Quest failed: [resolvedQuestName]</RKU_QuestFailedLabel>
+  <!-- EN: After being discovered, the bandit camp has dispersed. The quest [resolvedQuestName] has ended. -->
+  <RKU_QuestFailedText>After being discovered, the bandit camp has dispersed. The quest [resolvedQuestName] has ended.</RKU_QuestFailedText>
+  <!-- EN: Payment arrived -->
+  <RKU_QuestCompletedLabel>Payment arrived</RKU_QuestCompletedLabel>
+  <!-- EN: You have defeated the bandit camp!\n\nThe reward from the kingdom has arrived. -->
+  <RKU_QuestCompletedText>You have defeated the bandit camp!\n\nThe reward from the kingdom has arrived. </RKU_QuestCompletedText>
+  <!-- EN: [asker_faction_royalFavorLabel] -->
+  <RKU_FavorReceiverLabel>[asker_faction_royalFavorLabel]</RKU_FavorReceiverLabel>
+  <!-- EN: These colonists participated in the victory for the quest [resolvedQuestName]. [asker_definite] wants to know who should receive the [royalFavorReward_amount] [asker_faction_royalFavorLabel] for this service. -->
+  <RKU_FavorReceiverText>These colonists participated in the victory for the quest [resolvedQuestName]. [asker_definite] wants to know who should receive the [royalFavorReward_amount] [asker_faction_royalFavorLabel] for this service.</RKU_FavorReceiverText>
+
+  <!-- Guerrilla Camp Quest Name Generation Rules -->
+  <!-- EN: The [bandit] [camp] -->
+  <RKU_QuestName_1>[bandit] [camp]</RKU_QuestName_1>
+  <!-- EN: [bandit] [camp] -->
+  <RKU_QuestName_2>[bandit] [camp]</RKU_QuestName_2>
+  <!-- EN: [asker_nameDef] and the [camp] -->
+  <RKU_QuestName_3>[asker_nameDef] 和 [camp]</RKU_QuestName_3>
+
+  <!-- Camp Type Translations -->
+  <!-- EN: Camp -->
+  <RKU_Camp_Camp>Camp</RKU_Camp_Camp>
+  <!-- EN: Outpost -->
+  <RKU_Camp_Outpost>Outpost</RKU_Camp_Outpost>
+  <!-- EN: Lair -->
+  <RKU_Camp_Lair>Lair</RKU_Camp_Lair>
+  <!-- EN: Encampment -->
+  <RKU_Camp_Encampment>Encampment</RKU_Camp_Encampment>
+
+  <!-- Bandit Type Translations -->
+  <!-- EN: Bandit -->
+  <RKU_Bandit_Bandit>Bandit</RKU_Bandit_Bandit>
+  <!-- EN: Raider -->
+  <RKU_Bandit_Raider>Raider</RKU_Bandit_Raider>
+  <!-- EN: Outlaw -->
+  <RKU_Bandit_Outlaw>Outlaw</RKU_Bandit_Outlaw>
+  <!-- EN: Desperado -->
+  <RKU_Bandit_Desperado>Desperado</RKU_Bandit_Desperado>
+  <!-- EN: Fugitive -->
+  <RKU_Bandit_Fugitive>Fugitive</RKU_Bandit_Fugitive>
+  <!-- EN: Marauder -->
+  <RKU_Bandit_Marauder>Marauder</RKU_Bandit_Marauder>
+  <!-- EN: Robber -->
+  <RKU_Bandit_Robber>Robber</RKU_Bandit_Robber>
+  <!-- EN: Brigand -->
+  <RKU_Bandit_Brigand>Brigand</RKU_Bandit_Brigand>
+
+  <!-- Quest Description Translation -->
+  <!-- EN: [asker_nameFull], [asker_faction_leaderTitle] of [asker_faction_name], has sent us a message. Apparently, a band of outlaws based in a nearby camp have been raiding their caravans.
+[asker_nameDef] is asking us to destroy the camp, which means eliminating all enemies and turrets. [asker_label] says that [sitePart0_description]. -->
+  <RKU_QuestDescription>[asker_nameFull], [asker_faction_leaderTitle] of [asker_faction_name], has sent us a message. Apparently, a band of outlaws based in a nearby camp have been raiding their caravans.\n[asker_nameDef] is asking us to destroy the camp, which means eliminating all enemies and turrets. [asker_label] says that [sitePart0_description].</RKU_QuestDescription>
+
+  <!-- Drilling Vehicle UI Translations -->
+  <!-- EN: Open Radio -->
+  <RKU.OpenRadio>Switch on the radio</RKU.OpenRadio>
+  <!-- EN: Call guerrillas -->
+  <RKU.OpenRadioDesc>Call the Partisans.</RKU.OpenRadioDesc>
+  <!-- EN: Manage Passengers -->
+  <RKU.ManagePassengers> Manage Passengers</RKU.ManagePassengers>
+  <!-- EN: Return -->
+  <RKU.Return>Return</RKU.Return>
+  <!-- EN: Exit Vehicle -->
+  <RKU.ExitVehicle>Exit the Vehicle</RKU.ExitVehicle>
+  <!-- EN: Enter Vehicle -->
+  <RKU.EnterVehicle>Enter the Vehicle</RKU.EnterVehicle>
+  <!-- EN: Rescue {0} and enter vehicle -->
+  <RKU.RescueAndEnterVehicle>Rescue {0} and enter vehicle</RKU.RescueAndEnterVehicle>
+  <!-- EN: Move -->
+  <RKU.Move>Move</RKU.Move>
+  <!-- EN: Drill down! -->
+  <RKU.Drill>Drill!</RKU.Drill>
+  <!-- EN: Please choose the rig landing location -->
+  <RKU.ChooseDrillingVehicleSpot>Please choose the Driller landing location</RKU.ChooseDrillingVehicleSpot>
+  <!-- EN: Land -->
+  <RKU.Eject>Land</RKU.Eject>
+  <!-- EN: Cannot spawn here - location is impassable -->
+  <RKU.CannotSpawnOnImpassable>Cannot Spawn Here</RKU.CannotSpawnOnImpassable>
+
+  <!-- Other System Translations -->
+  <!-- EN: Underground Cave Collapsing -->
+  <LetterLabelUndercaveCollapsing>Underground Cave Collapsing</LetterLabelUndercaveCollapsing>
+  <!-- EN: An underground cave has collapsed, making some areas unstable. -->
+  <LetterUndercaveCollapsing>An underground cave has collapsed, making some areas unstable.</LetterUndercaveCollapsing>
+  <!-- EN: Stop Force Attack -->
+  <CommandStopForceAttack>Stop Forced Attacks</CommandStopForceAttack>
+  <!-- EN: Stop force attack mode -->
+  <CommandStopForceAttackDesc>Stop forced attacks mode.</CommandStopForceAttackDesc>
+  <!-- EN: Hold Fire -->
+  <CommandHoldFire>Hold Fire</CommandHoldFire>
+  <!-- EN: Hold fire mode -->
+  <CommandHoldFireDesc>Hold fire mode.</CommandHoldFireDesc>
+
+  <!-- Hardcoded Message Translations -->
+  <!-- EN: Goods Arrived -->
+  <RKU_GoodsArrived>Goods ready to be delivered.</RKU_GoodsArrived>
+  <!-- EN: Your ordered goods have arrived -->
+  <RKU_OrderedGoodsArrived>Choose a position to deliver your goods.</RKU_OrderedGoodsArrived>
+  <!-- EN: Yunnan Hallucination -->
+  <RKU_YunnanHallucination>Yunnan Illusion</RKU_YunnanHallucination>
+  <!-- EN: Ate allurecap -->
+  <RKU_AteAllurecap>Ate Allurecap</RKU_AteAllurecap>
+  <!-- EN: Recovered from Yunnan hallucination -->
+  <RKU_RecoveredFromYunnanHallucination>Recovered from Yunnan Illusion.</RKU_RecoveredFromYunnanHallucination>
+
+  <!-- Character Name Translations -->
+  <!-- EN: Zigstark -->
+  <RKU_Zigstark>Zigstark</RKU_Zigstark>
+  <!-- EN: Cheesecellar -->
+  <RKU_Cheesecellar>Cheesecellar</RKU_Cheesecellar>
+  <!-- EN: Anzleia -->
+  <RKU_Anzleia>Anzleia</RKU_Anzleia>
+  <!-- EN: Balsam -->
+  <RKU_Balsam>Balsam</RKU_Balsam>
+  <!-- EN: Iron -->
+  <RKU_Iron>Iron</RKU_Iron>
+  <!-- EN: Star -->
+  <RKU_Star>Star</RKU_Star>
+  <!-- EN: Iron Star -->
+  <RKU_IronStar>Iron Star</RKU_IronStar>
+
+  <!-- Map Deletion Dialog Translations -->
+  <!-- EN: Delete Map -->
+  <RKU_RandomSiteDeleteMap>Delete Map</RKU_RandomSiteDeleteMap>
+  <!-- EN: Delete this map and all its contents. This will permanently remove the map and cannot be undone. -->
+  <RKU_CommandViewQuestDesc>Delete this map and all its contents. This will permanently remove the map and cannot be undone.</RKU_CommandViewQuestDesc>
+  <!-- EN: Are you sure you want to delete this map?\n\nThis will permanently remove the map and all colonists, items, and buildings on it. -->
+  <RKU_RandomSite_Confirm>Are you sure you want to delete this map?\n\nThis will permanently remove the map and all colonists, items, and buildings on it.</RKU_RandomSite_Confirm>
+  <!-- EN: Confirm Delete -->
+  <RKU_RandomSite_Confirm_Accept>Confirm Delete</RKU_RandomSite_Confirm_Accept>
+
+  <!-- Log Message Translations -->
+  <!-- EN: {0} has entered {1} state -->
+  <RKU_EnteredMentalState>{0} has entered {1} state.</RKU_EnteredMentalState>
+  <!-- EN: Error applying mental state -->
+  <RKU_MentalStateError>Errors in Applying Mental State.</RKU_MentalStateError>
+
+  <!-- Radio UI Translations -->
+  <!-- EN: Guerrilla Radio -->
+  <RKU_GuerrillaRadio>Partisan Radio</RKU_GuerrillaRadio>
+  <!-- EN: Royal Army Radio -->
+  <RKU_RoyalRadio>Royal Army Radio</RKU_RoyalRadio>
+  <RKU_RadioOnline>Online</RKU_RadioOnline>
+  <RKU_SignalGood>Good Signal</RKU_SignalGood>
+  <RKU_PowerGood>Power Sufficient</RKU_PowerGood>
+  <RKU_UnknownLocation>Unknown Location</RKU_UnknownLocation>
+  <RKU_TradeSignal>Trade Signal</RKU_TradeSignal>
+  <RKU_ScanSignal>Scan Signal</RKU_ScanSignal>
+  <RKU_TacticalSupport>Tactical Support</RKU_TacticalSupport>
+  <RKU_TacticalSupportFailReason>At least 75 favor is required for tactical support</RKU_TacticalSupportFailReason>
+  <RKU_ProvideSupport>Provide Support</RKU_ProvideSupport>
+  <RKU_TradeCooldownText>Trade on Cooldown</RKU_TradeCooldownText>
+  <RKU_StartTrade>Start Trade</RKU_StartTrade>
+  <RKU_WaitingForTrade>Waiting for Trade...</RKU_WaitingForTrade>
+  <RKU_EmergencyCall>Emergency Call</RKU_EmergencyCall>
+  <RKU_EmergencyCooldownText>Emergency call on cooldown, {0} days remaining</RKU_EmergencyCooldownText>
+  <RKU_EmergencyCooldownButton>Emergency Cooldown ({0} days)</RKU_EmergencyCooldownButton>
+  <RKU_ScanCooldownText>Scan on Cooldown</RKU_ScanCooldownText>
+  <RKU_ScanFavorRequirement>At least 50 favor is required for special location scanning</RKU_ScanFavorRequirement>
+  <RKU_TradeFavorRequirement>At least 1 favor is required for underground caravan trading</RKU_TradeFavorRequirement>
+  <RKU_SiteDiscoveredLabel>Discovered: {0}</RKU_SiteDiscoveredLabel>
+  <RKU_SiteDiscoveredText>Guerrilla forces have scanned a new location: {0}</RKU_SiteDiscoveredText>
+  <RKU_TraderName>Ratkin Underground Supply Caravan</RKU_TraderName>
+  <!-- EN:        Signal incoming... -->
+  <RKU_SignalIncoming>Signal incoming...</RKU_SignalIncoming>
+  <!-- EN: Starting signal scan... -->
+  <RKU_StartScanningSignal>Starting signal scan...</RKU_StartScanningSignal>
+  <!-- EN: Emergency call sent! -->
+  <RKU_EmergencyCallSent>Emergency call has sent!</RKU_EmergencyCallSent>
+  <!-- EN: Signal received, we're preparing goods! -->
+  <RKU_SignalReceived>Signal received, we're preparing goods!</RKU_SignalReceived>
+  <!-- EN: Trade signal sent, waiting for underground caravan... -->
+  <RKU_TradeSignalSent>Trade signal sent, waiting for underground caravan...</RKU_TradeSignalSent>
+  <!-- EN: Check out what we've prepared! -->
+  <RKU_CheckOurGoods>Check out what we've prepared!</RKU_CheckOurGoods>
+  <!-- EN: No available colonists for trading. -->
+  <RKU_NoNegotiatorAvailable>No available colonists for trading.</RKU_NoNegotiatorAvailable>
+  <!-- EN: Goods are ready, you can start trading now! -->
+  <RKU_GoodsReady>Goods are ready. You can start trading now!</RKU_GoodsReady>
+  <!-- EN: Radio Status: -->
+  <RKU_RadioStatus>Radio Status:</RKU_RadioStatus>
+  <!-- EN: Research Progress -->
+  <RKU_ResearchProgress>Research Progress</RKU_ResearchProgress>
+  <!-- EN: Faction Relation -->
+  <RKU_FactionRelation>Faction Relation</RKU_FactionRelation>
+  <!-- EN: Trade Cooldown: {0} days -->
+  <RKU_TradeCooldown>Trade Cooldown: {0} day(s).</RKU_TradeCooldown>
+  <!-- EN: Scan Cooldown: {0} days -->
+  <RKU_ScanCooldown>Scan Cooldown: {0} day(s).</RKU_ScanCooldown>
+  <!-- EN: Tactical support Cooldown: {0} days -->
+  <RKU_EmergencyCooldown>Tactical Support Cooldown: {0} day(s).</RKU_EmergencyCooldown>
+  <!-- EN: Map Location: {0} -->
+  <RKU_MapLocation>Map Location: {0}</RKU_MapLocation>
+  <!-- EN: Partisan troop regional commander -->
+  <RKU_commanderTitle>Partisan Regional Commander</RKU_commanderTitle>
+  
+
+  <!-- Debug Tool Translations -->
+  <!-- EN: Cooldown cancelled -->
+  <RKU_CooldownCancelled>Cooldown Cancelled.</RKU_CooldownCancelled>
+  <!-- EN: Trade ready -->
+  <RKU_TradeReady>The Trade is Ready.</RKU_TradeReady>
+  <!-- EN: Research progress filled -->
+  <RKU_ResearchProgressFull>Research progress has been filled up.</RKU_ResearchProgressFull>
+  <!-- EN: Research progress increased by half -->
+  <RKU_ResearchProgressHalf>Research progress has been increased by half.</RKU_ResearchProgressHalf>
+  <!-- EN: Relation level increased by 10 -->
+  <RKU_RelationIncreased>Relation level increased by 10.</RKU_RelationIncreased>
+  <!-- EN: Relation level decreased by 10 -->
+  <RKU_RelationDecreased>Relation level decreased by 10.</RKU_RelationDecreased>
+
+  <!-- Allurecap Message Translation -->
+  <!-- EN: {0} intends to eat allurecap -->
+  <RKU_IntendsToEatAllurecap>{0} is planning to eat Allurecap.</RKU_IntendsToEatAllurecap>
+
+  <!-- Guerrilla Event Translations -->
+  <!-- EN: Ratkin Tunnel Guerrillas -->
+  <RKU_GuerrillaAttackLabel>Ratkin Tunnel Partisans</RKU_GuerrillaAttackLabel>
+  <!-- EN: Underground activity detected, a group of ratkin tunnel guerrillas are attacking the colony -->
+  <RKU_GuerrillaAttackText>Underground activity detected, a group of Ratkin Underground Partisans are attacking the colony.</RKU_GuerrillaAttackText>
+  <!-- EN: Ratkin Tunnel Guerrillas -->
+  <RKU_GuerrillaAllyLabel>Ratkin Tunnel Partisans</RKU_GuerrillaAllyLabel>
+  <!-- EN: Underground activity detected, a group of ratkin tunnel guerrillas are coming to assist in colony defense, please select their destination on the world map -->
+  <RKU_GuerrillaAllyText>Underground activity detected, a group of Ratkin Underground Partisan are coming to assist in colony defense. Please select their destination on the World Map.</RKU_GuerrillaAllyText>
+  <!-- EN: Invalid target selected -->
+  <RKU_InvalidTargetSelected>Invalid selecte target.</RKU_InvalidTargetSelected>
+  <!-- EN: No colonists at this location -->
+  <RKU_NoColonistsAtLocation>No colonists at this location.</RKU_NoColonistsAtLocation>
+  <!-- EN: Ratkin Guerrillas Have Arrived -->
+  <RKU_GuerrillasArrivedLabel>Ratkin Partisans have arrived.</RKU_GuerrillasArrivedLabel>
+  <!-- EN: Guerrillas have arrived at the specified location and are ready to assist. -->
+  <RKU_GuerrillasArrivedText>Partisans have arrived at the specified location and are ready to assist.</RKU_GuerrillasArrivedText>
+
+   <!-- Drilling Vehicle Messages -->
+  <!-- EN: Drilling vehicle durability is too low, cannot use! -->
+  <RKU_DrillingVehicleLowDurability>Driller Vehicle durability is too low, cannot use!</RKU_DrillingVehicleLowDurability>
+  <!-- EN: No other colonists on the map, cannot move! -->
+  <RKU_NoOtherColonistsOnMap>No other colonists on the map, cannot move!</RKU_NoOtherColonistsOnMap>
+  <!-- EN: Drilling out of the drilling machine requires colonists to exist both on the map and inside the drilling machine -->
+  <RKU_DrillOutDisabledReason>Drilling out of the drilling machine requires colonists to exist both on the map and inside the drilling machine</RKU_DrillOutDisabledReason>
+</LanguageData>

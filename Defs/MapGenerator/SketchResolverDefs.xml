@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+<!-- 不是这两个byd怎么不传参数啊 -->
+   <SketchResolverDef>
+    <defName>RKU_DamageBuildingsAndRepair</defName>
+    <resolver Class="RatkinUnderground.RKU_SketchResolver_DamageBuildingsAndRepair" />
+  </SketchResolverDef>
+
+  <SketchResolverDef>
+    <defName>RKU_MonumentRuin</defName>
+    <isRoot>true</isRoot>
+    <resolver Class="RatkinUnderground.RKU_SketchResolver_MonumentRuin" />
+  </SketchResolverDef>
+
+
+        
+</Defs>

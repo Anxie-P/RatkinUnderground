@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!--Panjandrum-->
+  <!-- Panjandrum -->
+  <RKU_Panjandrum.label>Panjandrum</RKU_Panjandrum.label>
+  <RKU_Panjandrum.description>Panjandrum</RKU_Panjandrum.description>
+  <!-- Panjandrum Projectile -->
+  <RKU_PanjandrumBullet.label>Panjandrum Projectile</RKU_PanjandrumBullet.label>
+
+</LanguageData>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <MemeDef>
+        <defName>RKU_SharedBurdens</defName>
+        <label>Shared Burdens</label>
+        <description>同甘共苦，目前暂无数据</description>
+        <iconPath>UI/Icons/RKU_Faction</iconPath>
+        <groupDef>GroupRelation</groupDef>
+        <impact>1</impact>
+        <randomizationSelectionWeightFactor>0</randomizationSelectionWeightFactor>
+        <requireOne MayRequire="Ludeon.RimWorld.Ideology">
+          <li>
+            <li MayRequire="Ludeon.RimWorld.Ideology">Charity_Essential</li>
+          </li>
+        </requireOne>
+    </MemeDef>
+</Defs>

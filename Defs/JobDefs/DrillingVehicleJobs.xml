@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <JobDef>
+    <defName>RKU_EnterDrillingVehicle</defName>
+    <driverClass>RatkinUnderground.JobDriver_EnterDrillingVehicle</driverClass>
+    <reportString>正在进入钻地机。</reportString>
+    <waitAfterArriving>60</waitAfterArriving>
+  </JobDef>
+
+  <!-- 地鼠的进钻机AI -->
+  <JobDef>
+    <defName>RKU_AIEnterDrillingVehicle</defName>
+    <driverClass>RatkinUnderground.JobDriver_EnterDrillingVehicle</driverClass>
+    <reportString>正在进入钻地机。</reportString>
+    <waitAfterArriving>60</waitAfterArriving>
+  </JobDef>
+
+    <!-- 科研协助 -->
+    <JobDef>
+        <defName>RKU_AssistResearch</defName>
+        <driverClass>RatkinUnderground.JobDriver_AssistResearch</driverClass>
+        <reportString>使用电台协助研究</reportString>
+        <alwaysShowWeapon>false</alwaysShowWeapon>
+        <suspendable>true</suspendable>
+        <checkOverrideOnDamage>Always</checkOverrideOnDamage>
+        <joySkill>Intellectual</joySkill>
+        <joyXpPerTick>0.0005</joyXpPerTick>
+        <joyKind>Meditative</joyKind>
+    </JobDef>
+	
+  <WorkGiverDef>
+    <defName>RKU_AssistResearch</defName>
+    <label>使用电台协助研究</label>
+    <giverClass>RatkinUnderground.WorkGiver_AssistResearch</giverClass>
+    <workType>Research</workType>
+    <verb>research</verb>
+    <gerund>协助游击队研究中</gerund>
+    <priorityInType>100</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RKU_LoadDrillingCargoWorkGiver</defName>
+    <label>装载钻机货物</label>
+    <giverClass>RatkinUnderground.WorkGiver_LoadDrillingCargo</giverClass>
+    <workType>Hauling</workType>
+    <verb>load cargo</verb>
+    <gerund>装载钻机货物中</gerund>
+    <priorityInType>50</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+  </WorkGiverDef>
+
+  <JobDef>
+    <defName>RKU_EatSpecialMushroom</defName>
+    <label>eat special mushroom</label>
+    <driverClass>RatkinUnderground.JobDriver_EatSpecialMushroom</driverClass>
+    <reportString>eating special mushroom</reportString>
+  </JobDef>
+
+  <JobDef>
+    <defName>RKU_LoadDrillingCargo</defName>
+    <driverClass>RatkinUnderground.JobDriver_LoadDrillingCargo</driverClass>
+    <reportString>正在装载钻机货物。</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <JobDef>
+    <defName>RKU_RescueAndEnterDrillingVehicle</defName>
+    <driverClass>RatkinUnderground.JobDriver_RescueAndEnterDrillingVehicle</driverClass>
+    <reportString>正在救援并进入钻地机。</reportString>
+    <waitAfterArriving>60</waitAfterArriving>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+</Defs> 

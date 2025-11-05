@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 钻地货舱 -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>RKU_DrillingCargoPodBullet</defName>
+    <label>钻地货舱-移动中</label>
+    <thingClass>RatkinUnderground.RKU_DrillingCargoPodBullet</thingClass>
+    <graphicData>
+      <texPath>RKU_Null</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>1</drawSize>
+    </graphicData>
+    <building>
+          <groundSpawnerSustainedEffecter>EmergencePointSustained2X2</groundSpawnerSustainedEffecter>
+          <groundSpawnerCompleteEffecter>EmergencePointComplete2X2</groundSpawnerCompleteEffecter>
+        </building>
+    <projectile>
+      <speed>4</speed>
+      <arcHeightFactor>0</arcHeightFactor>
+      <shadowSize>1</shadowSize>
+      <flyOverhead>true</flyOverhead>
+      <soundAmbient>MortarRound_Ambient</soundAmbient>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>RKU_DrillingCargoPod</defName>
+    <label>钻地货舱</label>
+    <description>钻地货舱，拆解可以获得交易货物。</description>
+    <thingClass>RatkinUnderground.RKU_DrillingCargoPod</thingClass>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <selectable>true</selectable>
+    <fillPercent>0.20</fillPercent>
+    <pathCost>200</pathCost>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <rotatable>false</rotatable>
+    <graphicData>
+      <drawSize>(2.3,2.3)</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Buildings/InMap/RKU_DrillingCargoPod</texPath>
+    </graphicData>
+    <statBases>
+      <Mass>1000</Mass>
+      <MaxHitPoints>500</MaxHitPoints>
+      <Flammability>0</Flammability>
+    </statBases>
+  </ThingDef>
+</Defs>

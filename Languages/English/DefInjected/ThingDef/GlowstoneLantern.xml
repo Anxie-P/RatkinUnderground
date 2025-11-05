@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: glowstone lantern -->
+  <RKU_GlowstoneLantern.label>Glowstone Lantern</RKU_GlowstoneLantern.label>
+  <!-- EN: 萤石提灯 -->
+  <RKU_GlowstoneLantern.description>Glowstone Lantern</RKU_GlowstoneLantern.description>
+  
+  <!-- EN: light -->
+  <RKU_Light.label>Light Source</RKU_Light.label>
+  <!-- EN: 光源 -->
+  <RKU_Light.description>Light source.</RKU_Light.description>
+  
+</LanguageData>

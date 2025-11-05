@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	
+	<!--=================「坚韧」风信子=================-->
+
+	<StorytellerDef ParentName="BaseStoryteller">
+		<defName>RKU_Storytellers_Hyacinth</defName>
+		<label>「Tenacity」Hyacinth</label>
+		<description>Hyacinth is a veteran who survived the revolutionary army era. She once fought against the Kingdom's tyranny alongside Reilainei alongside Acacia's leadership. Although the revolution ultimately failed due to Azalea's biological weapon plague, the Eastern Front forces maintained their combat effectiveness, dispersing into underground work... 
+Hyacinth will provide more stable guerrilla-related events, as well as more frequent combat.</description>
+		<portraitLarge>Storytellers/RKU_Storytellers_Hyacinth</portraitLarge>
+		<portraitTiny>Storytellers/RKU_Storytellers_HyacinthSmall</portraitTiny>
+		<listOrder>60</listOrder>
+		<comps>
+			<li Class="StorytellerCompProperties_RandomMain">
+				<allowedTargetTags>
+					<li>Map_PlayerHome</li>
+				</allowedTargetTags>
+				<minDaysPassed>0</minDaysPassed>
+				<mtbDays>2</mtbDays>
+				<maxThreatBigIntervalDays>18</maxThreatBigIntervalDays>
+				<minIncChancePopulationIntentFactor>0.25</minIncChancePopulationIntentFactor>
+				<randomPointsFactorRange>0.50~1.80</randomPointsFactorRange>
+				<skipThreatBigIfRaidBeacon>true</skipThreatBigIfRaidBeacon>
+				<categoryWeights>
+					<Misc>2.5</Misc>
+					<OrbitalVisitor>3.0</OrbitalVisitor>
+					<FactionArrival>4.0</FactionArrival>
+					<ShipChunkDrop>1.8</ShipChunkDrop>
+					<ThreatSmall>2</ThreatSmall>
+					<ThreatBig>2.5</ThreatBig>
+				</categoryWeights>
+			</li>
+			<li Class="StorytellerCompProperties_CategoryMTB">
+				<category>Misc</category>
+				<allowedTargetTags>
+					<li>Map_PlayerHome</li>
+				</allowedTargetTags>
+				<minDaysPassed>2.5</minDaysPassed>
+				<mtbDays>2.5</mtbDays>
+			</li>
+			<!-- 派系互动 -->
+			<li Class="StorytellerCompProperties_FactionInteraction">
+				<incident>RaidFriendly</incident>
+				<baseIncidentsPerYear>10</baseIncidentsPerYear>
+				<minSpacingDays>0.4</minSpacingDays>
+				<fullAlliesOnly>true</fullAlliesOnly>
+				<minDanger>High</minDanger>
+			</li>
+			<li Class="StorytellerCompProperties_FactionInteraction">
+				<incident>TraderCaravanArrival</incident>
+				<minDaysPassed>5</minDaysPassed>
+				<baseIncidentsPerYear>4</baseIncidentsPerYear>
+				<minSpacingDays>6</minSpacingDays>
+				<allowedTargetTags>
+					<li>Map_PlayerHome</li>
+				</allowedTargetTags>
+			</li>
+			<li Class="StorytellerCompProperties_FactionInteraction">
+				<incident>VisitorGroup</incident>
+				<minDaysPassed>3</minDaysPassed>
+				<baseIncidentsPerYear>3</baseIncidentsPerYear>
+				<minSpacingDays>5</minSpacingDays>
+				<allowedTargetTags>
+					<li>Map_PlayerHome</li>
+				</allowedTargetTags>
+			</li>
+			<li Class="StorytellerCompProperties_FactionInteraction">
+				<incident>TravelerGroup</incident>
+				<minDaysPassed>1</minDaysPassed>
+				<baseIncidentsPerYear>6</baseIncidentsPerYear>
+				<minSpacingDays>1</minSpacingDays>
+				<allowedTargetTags>
+					<li>Map_PlayerHome</li>
+				</allowedTargetTags>
+			</li>
+			<!-- 突袭 -->
+			<li Class="StorytellerCompProperties_ThreatsGenerator">
+				<allowedTargetTags>
+					<li>Map_RaidBeacon</li>
+				</allowedTargetTags>
+				<parms>
+					<allowedThreats>Raids</allowedThreats>
+					<onDays>1.0</onDays>
+					<offDays>0.5</offDays>
+					<minSpacingDays>0.5</minSpacingDays>
+					<numIncidentsRange>1~5</numIncidentsRange>
+					<minThreatPoints>1000</minThreatPoints>
+				</parms>
+			</li>
+			<!-- 瘟疫 -->
+			<li Class="StorytellerCompProperties_Disease">
+				<category>DiseaseHuman</category>
+				<minDaysPassed>20</minDaysPassed>
+			</li>
+			<li Class="StorytellerCompProperties_Disease">
+				<category>DiseaseAnimal</category>
+				<minDaysPassed>20</minDaysPassed>
+			</li>
+			<!-- 友好派系支援 -->
+			<li Class="StorytellerCompProperties_FactionInteraction">
+				<incident>RaidFriendly</incident>
+				<baseIncidentsPerYear>15</baseIncidentsPerYear>
+				<minSpacingDays>0.8</minSpacingDays>
+				<fullAlliesOnly>true</fullAlliesOnly>
+				<minDanger>High</minDanger>
+			</li>
+			<!-- 任务 -->
+			<li Class="StorytellerCompProperties_RandomQuest">
+				<category>GiveQuest</category>
+				<allowedTargetTags>
+					<li>World</li>
+				</allowedTargetTags>
+				<onDays>10</onDays>
+				<numIncidentsRange>2~16</numIncidentsRange>
+				<acceptFractionByDaysPassedCurve>
+					<points>
+						<li>(10, 0)</li>
+						<li>(20, 1)</li>
+					</points>
+				</acceptFractionByDaysPassedCurve>
+				<minSpacingDays>0.2</minSpacingDays>
+				<disableIfAnyModActive>
+					<li>Ludeon.RimWorld.Royalty</li>
+				</disableIfAnyModActive>
+			</li>
+			<li Class="StorytellerCompProperties_RandomQuest">
+				<category>GiveQuest</category>
+				<allowedTargetTags>
+					<li>World</li>
+				</allowedTargetTags>
+				<onDays>12</onDays>
+				<numIncidentsRange>2~16</numIncidentsRange>
+				<acceptFractionByDaysPassedCurve>
+					<points>
+						<li>(10, 0)</li>
+						<li>(20, 1)</li>
+					</points>
+				</acceptFractionByDaysPassedCurve>
+				<minSpacingDays>0.2</minSpacingDays>
+				<enableIfAnyModActive>
+					<li>Ludeon.RimWorld.Royalty</li>
+				</enableIfAnyModActive>
+			</li>
+			<!-- 世界事件 -->
+			<li Class="StorytellerCompProperties_CategoryMTB">
+				<category>Misc</category>
+				<allowedTargetTags>
+					<li>World</li>
+				</allowedTargetTags>
+				<minDaysPassed>0</minDaysPassed>
+				<mtbDays>4</mtbDays>
+			</li>
+			<!-- 外出 -->
+			<li Class="StorytellerCompProperties_CategoryIndividualMTBByBiome">
+				<category>Misc</category>
+				<allowedTargetTags>
+					<li>Caravan</li>
+					<li>Map_TempIncident</li>
+				</allowedTargetTags>
+			</li>
+			<li Class="StorytellerCompProperties_CategoryIndividualMTBByBiome">
+				<category>ThreatSmall</category>
+				<applyCaravanVisibility>true</applyCaravanVisibility>
+				<allowedTargetTags>
+					<li>Caravan</li>
+					<li>Map_TempIncident</li>
+				</allowedTargetTags>
+			</li>
+			<li Class="StorytellerCompProperties_CategoryIndividualMTBByBiome">
+				<category>ThreatBig</category>
+				<applyCaravanVisibility>true</applyCaravanVisibility>
+				<allowedTargetTags>
+					<li>Caravan</li>
+					<li>Map_TempIncident</li>
+				</allowedTargetTags>
+			</li>
+			<!-- 杂项 -->
+			<!-- 深层钻探引起的虫害 -->
+			<li Class="StorytellerCompProperties_DeepDrillInfestation">
+				<baseMtbDaysPerDrill>55</baseMtbDaysPerDrill>
+				<allowedTargetTags>
+					<li>Map_PlayerHome</li>
+					<li>Map_TempIncident</li>
+					<li>Map_Misc</li>
+					<li>Map_RaidBeacon</li>
+				</allowedTargetTags>
+			</li>
+			<!-- 圣物朝圣 -->
+			<li Class="StorytellerCompProperties_OnOffCycle" MayRequire="Ludeon.RimWorld.Ideology">
+				<incident MayRequire="Ludeon.RimWorld.Ideology">GiveQuest_ReliquaryPilgrims</incident>
+				<onDays>30</onDays>
+				<offDays>0</offDays>
+				<minSpacingDays>0.6</minSpacingDays>
+				<numIncidentsRange>1</numIncidentsRange>
+				<allowedTargetTags>
+					<li>Map_PlayerHome</li>
+				</allowedTargetTags>
+				<enableIfAnyModActive>
+					<li>Ludeon.RimWorld.Ideology</li>
+				</enableIfAnyModActive>
+			</li>
+			<!-- ✦ 游击队物资劫持 -->
+			<li Class="StorytellerCompProperties_FactionInteraction">
+				<incident>RKU_Incident_CaravanHijack</incident>
+				<baseIncidentsPerYear>5</baseIncidentsPerYear>
+				<allowedTargetTags>
+					<li>Map_PlayerHome</li>
+				</allowedTargetTags>
+			</li>
+			
+			<!-- ✦ 游击队开局任务 - 3天后固定触发 -->
+			<li Class="StorytellerCompProperties_OnOffCycle">
+				<incident>RKU_Incident_Trigger_GuerrillasComing</incident>
+				<onDays>2</onDays> 
+				<offDays>2</offDays> 
+				<numIncidentsRange>1</numIncidentsRange> 
+			</li>
+			<!-- ✦ 游击队幸存者救援 - 每年约1次 -->
+			<li Class="StorytellerCompProperties_OnOffCycle">
+				<incident>RKU_Incident_Trigger_GuerrillaSurvivor</incident>
+				<onDays>60</onDays>      
+				<offDays>0</offDays>
+				<numIncidentsRange>1</numIncidentsRange> 
+			</li>
+			<!-- ✦ 游击队机密信息 - 每年判定2次 -->
+			<li Class="StorytellerCompProperties_OnOffCycle">
+				<incident>RKU_Incident_Trigger_GuerrillaSecretProtection</incident>
+				<onDays>120</onDays>      
+				<offDays>0</offDays>
+				<numIncidentsRange>2</numIncidentsRange> 
+			</li>
+			<!-- ✦ 迷茫白鼠 - 每年判定2次 -->
+			<li Class="StorytellerCompProperties_OnOffCycle">
+				<incident>RKU_Incident_ConfusedRat</incident>
+				<onDays>60</onDays>      
+				<offDays>0</offDays>
+				<numIncidentsRange>2</numIncidentsRange> 
+			</li>
+			<!-- 黑衣人 -->
+			<li Class="StorytellerCompProperties_Triggered">
+				<incident>StrangerInBlackJoin</incident>
+				<delayTicks>420</delayTicks>
+			</li>
+		</comps>
+	</StorytellerDef>
+
+</Defs>

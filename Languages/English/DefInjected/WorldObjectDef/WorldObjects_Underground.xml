@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- RKU_MapParent_BuildMap_CavesWithLake -->
+  <RKU_MapParent_BuildMap_CavesWithLake.label>Underground Lake</RKU_MapParent_BuildMap_CavesWithLake.label>
+  <RKU_MapParent_BuildMap_CavesWithLake.description>An underground lake connected to a river. You can gather some nearby resources before detouring, even if there's nothing particularly special.</RKU_MapParent_BuildMap_CavesWithLake.description>
+
+  <!-- RKU_MapParent_BuildMap_Worm -->
+  <RKU_MapParent_BuildMap_Worm.label>Insect Nest</RKU_MapParent_BuildMap_Worm.label>
+  <RKU_MapParent_BuildMap_Worm.description>The drilling machine has dug near an insect nest.</RKU_MapParent_BuildMap_Worm.description>
+
+  <!-- RKU_MapParent_BuildMap_FairyRing -->
+  <RKU_MapParent_BuildMap_FairyRing.label>Mushroom Ring</RKU_MapParent_BuildMap_FairyRing.label>
+  <RKU_MapParent_BuildMap_FairyRing.description>The drilling machine has dug into a mushroom ring! Go gather these precious natural fungi.</RKU_MapParent_BuildMap_FairyRing.description>
+
+  <!-- RKU_MapParent_BuildMap_Lode -->
+  <RKU_MapParent_BuildMap_Lode.label>Underground Vein</RKU_MapParent_BuildMap_Lode.label>
+  <RKU_MapParent_BuildMap_Lode.description>The drilling machine has dug near an underground mineral vein. You can disembark to mine it.</RKU_MapParent_BuildMap_Lode.description>
+
+  <!-- RKU_MapParent_BuildMap_GuerrillaBase -->
+  <RKU_MapParent_BuildMap_GuerrillaBase.label>Guerrilla Outpost</RKU_MapParent_BuildMap_GuerrillaBase.label>
+  <RKU_MapParent_BuildMap_GuerrillaBase.description>The drilling machine has dug near a Ratkin guerrilla outpost.</RKU_MapParent_BuildMap_GuerrillaBase.description>
+
+  <!-- RKU_MapParent_BuildMap_Flesh -->
+  <RKU_MapParent_BuildMap_Flesh.label>Fleshbeast Cave</RKU_MapParent_BuildMap_Flesh.label>
+  <RKU_MapParent_BuildMap_Flesh.description>The drilling machine has dug into the fleshbeasts' lair. Note: Killing the mother beast will cause the cave to collapse.</RKU_MapParent_BuildMap_Flesh.description>
+
+</LanguageData>

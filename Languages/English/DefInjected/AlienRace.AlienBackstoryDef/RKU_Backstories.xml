@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- RKU Guerrilla Adult Backstories -->
+
+  <RKU_GuerrillaAH.title>Underground Demolition Expert</RKU_GuerrillaAH.title>
+  <RKU_GuerrillaAH.titleShort>Demo Expert</RKU_GuerrillaAH.titleShort>
+  <RKU_GuerrillaAH.description>[PAWN_nameDef] served as a demolition expert in the revolutionary army. [PAWN_pronoun] is skilled in making and using various explosives, and frequently maintains these dangerous weapons in the underground bases.</RKU_GuerrillaAH.description>
+
+  <RKU_GuerrillaAI.title>Ratkin Spy</RKU_GuerrillaAI.title>
+  <RKU_GuerrillaAI.titleShort>Spy</RKU_GuerrillaAI.titleShort>
+  <RKU_GuerrillaAI.description>[PAWN_nameDef] is the guerrilla's most skilled infiltrator and intelligence gatherer. [PAWN_pronoun] has disguised [PAWN_objective]self as refugees to infiltrate enemy camps multiple times, bringing back valuable information.</RKU_GuerrillaAI.description>
+
+  <RKU_GuerrillaAJ.title>Plague Medic</RKU_GuerrillaAJ.title>
+  <RKU_GuerrillaAJ.titleShort>Medic</RKU_GuerrillaAJ.titleShort>
+  <RKU_GuerrillaAJ.description>During the plague outbreak, [PAWN_nameDef] worked as a medic treating countless comrades. [PAWN_pronoun] has extensive experience with various bacteria and toxins, but has become somewhat neurotic because of it.</RKU_GuerrillaAJ.description>
+
+  <RKU_GuerrillaAK.title>Ratkin Sniper</RKU_GuerrillaAK.title>
+  <RKU_GuerrillaAK.titleShort>Sniper</RKU_GuerrillaAK.titleShort>
+  <RKU_GuerrillaAK.description>[PAWN_nameDef] was an elite sniper in the revolutionary army. [PAWN_pronoun] could accurately hit targets from hundreds of meters away, but after the plague, [PAWN_pronoun] grew weary of killing.</RKU_GuerrillaAK.description>
+
+  <RKU_GuerrillaAL.title>Underground Mechanic</RKU_GuerrillaAL.title>
+  <RKU_GuerrillaAL.titleShort>Mechanic</RKU_GuerrillaAL.titleShort>
+  <RKU_GuerrillaAL.description>[PAWN_nameDef] was a mechanical maintenance soldier in the royal army who defected to the guerrillas during the war. [PAWN_pronoun] now maintains the guerrillas' various mechanical equipment and weapons.</RKU_GuerrillaAL.description>
+
+  <RKU_GuerrillaAM.title>Ratkin Chef</RKU_GuerrillaAM.title>
+  <RKU_GuerrillaAM.titleShort>Chef</RKU_GuerrillaAM.titleShort>
+  <RKU_GuerrillaAM.description>Food supplies are crucial in underground bases, and [PAWN_nameDef] serves as head chef responsible for turning various strange ingredients into edible food. [PAWN_possessive] cooking skills have saved many lives.</RKU_GuerrillaAM.description>
+
+  <RKU_GuerrillaAN.title>Tunnel Digger</RKU_GuerrillaAN.title>
+  <RKU_GuerrillaAN.titleShort>Digger</RKU_GuerrillaAN.titleShort>
+  <RKU_GuerrillaAN.description>[PAWN_nameDef] is the guerrillas' most skilled tunneling expert. [PAWN_pronoun] can carve out complex tunnel networks in hard rock, greatly benefiting the guerrillas' operations.</RKU_GuerrillaAN.description>
+
+  <RKU_GuerrillaAP.title>Underground Guard Captain</RKU_GuerrillaAP.title>
+  <RKU_GuerrillaAP.titleShort>Guard Captain</RKU_GuerrillaAP.titleShort>
+  <RKU_GuerrillaAP.description>[PAWN_nameDef] is responsible for guarding the guerrillas' main base. [PAWN_pronoun] has repelled many enemy invasions and is an experienced defensive expert.</RKU_GuerrillaAP.description>
+
+  <RKU_GuerrillaAQ.title>Ratkin Scholar</RKU_GuerrillaAQ.title>
+  <RKU_GuerrillaAQ.titleShort>Scholar</RKU_GuerrillaAQ.titleShort>
+  <RKU_GuerrillaAQ.description>[PAWN_nameDef] once worked in the royal library and possesses vast knowledge. [PAWN_pronoun] now uses this knowledge to help the guerrillas analyze enemy situations and formulate strategies.</RKU_GuerrillaAQ.description>
+
+  <!-- RKU Guerrilla Childhood Backstories -->
+
+  <Ratkin_GuerrillaCJ.title>Plague Orphan</Ratkin_GuerrillaCJ.title>
+  <Ratkin_GuerrillaCJ.titleShort>Orphan</Ratkin_GuerrillaCJ.titleShort>
+  <Ratkin_GuerrillaCJ.description>All of [PAWN_nameDef]'s family died in the plague. [PAWN_pronoun] was adopted by the guerrillas and has an instinctive fear of biological weapons, but this has made [PAWN_objective] stronger.</Ratkin_GuerrillaCJ.description>
+
+  <Ratkin_GuerrillaCM.title>Underground Child Cook</Ratkin_GuerrillaCM.title>
+  <Ratkin_GuerrillaCM.titleShort>Child Cook</Ratkin_GuerrillaCM.titleShort>
+  <Ratkin_GuerrillaCM.description>From a very young age, [PAWN_nameDef] began learning to cook. [PAWN_pronoun] can make delicious food from the most basic ingredients, which everyone loves to eat.</Ratkin_GuerrillaCM.description>
+
+  <Ratkin_GuerrillaCN.title>Ratkin Child Guard</Ratkin_GuerrillaCN.title>
+  <Ratkin_GuerrillaCN.titleShort>Child Guard</Ratkin_GuerrillaCN.titleShort>
+  <Ratkin_GuerrillaCN.description>Though young, [PAWN_nameDef] has already learned basic defensive techniques. [PAWN_pronoun] often stands watch at the sentry posts, vigilantly observing the surroundings.</Ratkin_GuerrillaCN.description>
+
+  <Ratkin_GuerrillaCP.title>Ratkin Child Miner</Ratkin_GuerrillaCP.title>
+  <Ratkin_GuerrillaCP.titleShort>Child Miner</Ratkin_GuerrillaCP.titleShort>
+  <Ratkin_GuerrillaCP.description>In the underground mines, [PAWN_nameDef] is the hardest-working child miner among them. [PAWN_pronoun] can accurately find the best mining points for ore.</Ratkin_GuerrillaCP.description>
+
+  <Ratkin_GuerrillaCQ.title>Underground Child Scholar</Ratkin_GuerrillaCQ.title>
+  <Ratkin_GuerrillaCQ.titleShort>Child Scholar</Ratkin_GuerrillaCQ.titleShort>
+  <Ratkin_GuerrillaCQ.description>[PAWN_nameDef] likes to read the few books the guerrillas have. [PAWN_pronoun] has a strong thirst for knowledge and often asks questions that are difficult for adults to answer.</Ratkin_GuerrillaCQ.description>
+
+  <Ratkin_GuerrillaCS.title>Underground Child Farmer</Ratkin_GuerrillaCS.title>
+  <Ratkin_GuerrillaCS.titleShort>Child Farmer</Ratkin_GuerrillaCS.titleShort>
+  <Ratkin_GuerrillaCS.description>[PAWN_nameDef] is responsible for tending to the mushrooms and moss the guerrillas cultivate. [PAWN_pronoun] knows these underground crops inside out and can make them thrive in poor soil.</Ratkin_GuerrillaCS.description>
+
+</LanguageData>

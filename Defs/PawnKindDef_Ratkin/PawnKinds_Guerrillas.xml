@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <PawnKindDef Name="RKBasePawnKind_Revolution" ParentName="RKCombatantBase" Abstract="True">
+        <defaultFactionType>RKU_Faction</defaultFactionType>
+        <!-- 地鼠人物命名规则 -->
+        <nameMaker>NamerPerson_RKU</nameMaker>
+		<apparelAllowHeadgearChance>100</apparelAllowHeadgearChance>
+    </PawnKindDef>
+
+    <!-- 政委 -->
+    <PawnKindDef ParentName="RKBasePawnKind_Revolution">
+        <defName>RKU_Commissar</defName>
+		<label>partisans commissar</label>
+		<minGenerationAge>25</minGenerationAge>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>RKU_Commissar</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<apparelRequired>
+			<li>RKU_Apparel_CaptainUniform</li>
+			<li>RKU_Apparel_CaptainHat</li>
+			<li>RKU_Apparel_CaptainCloak</li>
+		</apparelRequired>
+		<apparelMoney>
+			<min>1500</min>
+			<max>2000</max>
+		</apparelMoney>
+		<weaponMoney>
+			<min>2500</min>
+			<max>4000</max>
+		</weaponMoney>
+		<apparelTags>
+			<li>RKU_Commissar</li>
+		</apparelTags>
+		<weaponTags>
+			<li>RKU_ScoutWeapon</li>
+			<li>RKU_LeaderWeapon</li>
+		</weaponTags>
+		<skills>
+			<li>
+				<skill>Shooting</skill>
+				<range>10~14</range>
+			</li>
+			<li>
+				<skill>Medicine</skill>
+				<range>5~7</range>
+			</li>
+			<li>
+				<skill>Crafting</skill>
+				<range>10~14</range>
+			</li>
+		</skills>
+    </PawnKindDef>
+	
+	<!-- 精英政委 -->
+    <PawnKindDef ParentName="RKBasePawnKind_Revolution">
+        <defName>RKU_EliteCommissar</defName>
+		<label>partisans elite commissar</label>
+		<factionLeader>true</factionLeader>	
+		<minGenerationAge>25</minGenerationAge>
+		<minApparelQuality>Good</minApparelQuality>
+		<ignoreFactionApparelStuffRequirements>true</ignoreFactionApparelStuffRequirements>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>RKU_Commissar</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<apparelRequired>
+			<li>RKU_Apparel_CaptainUniform</li>
+			<li>RKU_Apparel_CaptainHat</li>
+			<li>RKU_Apparel_CaptainCloak</li>
+		</apparelRequired>
+		<apparelMoney>
+			<min>3000</min>
+			<max>4500</max>
+		</apparelMoney>
+		<weaponMoney>
+			<min>1500</min>
+			<max>2000</max>
+		</weaponMoney>
+		<apparelTags>
+			<li>RKU_Commissar</li>
+		</apparelTags>
+		<weaponTags>
+			<li>RKU_ScoutWeapon</li>
+			<li>RKU_LeaderWeapon</li>
+		</weaponTags>
+		<skills>
+			<li>
+				<skill>Shooting</skill>
+				<range>10~14</range>
+			</li>
+			<li>
+				<skill>Medicine</skill>
+				<range>5~7</range>
+			</li>
+			<li>
+				<skill>Crafting</skill>
+				<range>10~14</range>
+			</li>
+		</skills>
+    </PawnKindDef>
+	
+	<!-- 入侵者 -->
+    <PawnKindDef ParentName="RKBasePawnKind_Revolution">
+        <defName>RKU_Invader</defName>
+		<label>partisans invader</label>
+		<isFighter>true</isFighter>
+		<minGenerationAge>25</minGenerationAge>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>RKU_Invader</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<apparelRequired>
+			<li>RKU_Apparel_InvaderUniform</li>
+		</apparelRequired>
+		<apparelMoney>
+			<min>2500</min>
+			<max>4000</max>
+		</apparelMoney>
+		<weaponMoney>
+			<min>1800</min>
+			<max>3000</max>
+		</weaponMoney>
+		<apparelTags>
+			<li>RKU_Invader</li>
+			<li>RKU_Apparel_InvaderHat</li>
+		</apparelTags>
+		<skills>
+			<li>
+				<skill>Shooting</skill>
+				<range>5~15</range>
+			</li>
+			<li>
+				<skill>Crafting</skill>
+				<range>3~10</range>
+			</li>
+		</skills>
+		<weaponTags>
+			<li>RKU_Rifle</li>
+			<li MayRequire="bbb.ratkinweapon.morefailure">RK_DemomanAssultRifle</li>
+		</weaponTags>
+    </PawnKindDef>
+	
+	<!-- 精英入侵者 -->
+    <PawnKindDef ParentName="RKBasePawnKind_Revolution">
+        <defName>RKU_EliteInvader</defName>
+		<label>partisans elite invader</label>
+		<isFighter>true</isFighter>
+		<minApparelQuality>Good</minApparelQuality>
+		<minGenerationAge>25</minGenerationAge>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>RKU_Invader</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<apparelRequired>
+			<li>RKU_Apparel_InvaderUniform</li>
+			<li>RKU_Apparel_InvaderBag</li>
+			<li>RKU_MinerHelmet</li>
+		</apparelRequired>
+		<apparelMoney>
+			<min>2500</min>
+			<max>4800</max>
+		</apparelMoney>
+		<weaponMoney>
+			<min>1800</min>
+			<max>3000</max>
+		</weaponMoney>
+		<apparelTags>
+			<li>RKU_Invader</li>
+		</apparelTags>
+		<skills>
+			<li>
+				<skill>Shooting</skill>
+				<range>5~15</range>
+			</li>
+			<li>
+				<skill>Crafting</skill>
+				<range>3~10</range>
+			</li>
+		</skills>
+		<weaponTags>
+			<li>RKU_Rifle</li>
+			<li MayRequire="bbb.ratkinweapon.morefailure">RK_DemomanAssultRifle</li>
+		</weaponTags>
+    </PawnKindDef>
+	
+	 <!-- 侦察兵 -->
+    <PawnKindDef ParentName="RKBasePawnKind_Revolution">
+        <defName>RKU_Scout</defName>
+		<label>ratkin scout</label>
+        <factionLeader>false</factionLeader>	
+		<combatPower>240</combatPower>
+		<isFighter>true</isFighter>
+		<minGenerationAge>15</minGenerationAge>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>RKU_Scout</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<skills>
+			<li>
+				<skill>Shooting</skill>
+				<range>7~14</range>
+			</li>
+		</skills>		
+		<apparelRequired>
+			<li>RKU_Apparel_ScoutUniform</li>
+			<li>RKU_Apparel_ScoutHat</li>
+		</apparelRequired>
+		<gearHealthRange>
+			<min>0.5</min>
+			<max>1</max>
+		</gearHealthRange>
+		<apparelMoney>
+			<min>2500</min>
+			<max>4000</max>
+		</apparelMoney>
+		<weaponMoney>
+			<min>500</min>
+			<max>1200</max>
+		</weaponMoney>
+		<apparelTags>
+			<li>RKU_Scout</li>
+		</apparelTags>
+		<weaponTags>
+			<li>RKU_ScoutWeapon</li>
+		</weaponTags>
+    </PawnKindDef>
+	 <!-- 精英侦察兵 -->
+    <PawnKindDef ParentName="RKBasePawnKind_Revolution">
+        <defName>RKU_EliteScout</defName>
+		<label>ratkin elite scout</label>
+        <factionLeader>false</factionLeader>	
+		<combatPower>240</combatPower>
+		<isFighter>true</isFighter>
+		<minApparelQuality>Good</minApparelQuality>
+		<minGenerationAge>15</minGenerationAge>
+		<skills>
+			<li>
+				<skill>Shooting</skill>
+				<range>11~20</range>
+			</li>
+		</skills>		
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>RKU_Scout</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<apparelRequired>
+			<li>RKU_Apparel_EliteScoutUniform</li>
+			<li>RKU_Apparel_CaptainCloak</li>
+			<li>RKU_MinerHelmet</li>
+		</apparelRequired>
+		<gearHealthRange>
+			<min>0.4</min>
+			<max>0.8</max>
+		</gearHealthRange>
+		<apparelMoney>
+			<min>2500</min>
+			<max>4000</max>
+		</apparelMoney>
+		<weaponMoney>
+			<min>500</min>
+			<max>1000</max>
+		</weaponMoney>
+		<apparelTags>
+			<li>RKU_Scout</li>
+		</apparelTags>
+		<weaponTags>
+			<li>RKU_ScoutWeapon</li>
+		</weaponTags>
+    </PawnKindDef>
+</Defs>

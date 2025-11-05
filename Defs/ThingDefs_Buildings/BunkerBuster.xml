@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="BuildingBase">
+        <!-- 地雷 -->
+        <defName>RKU_BunkerBuster</defName>
+        <thingClass>RatkinUnderground.RKU_BunkerBuster</thingClass>
+        <tickerType>Long</tickerType>
+        <label>bunker buster</label>
+        <description>钻地炸药，这种武器通过钻地到达目标地点，威力较大且不会受到中途建筑的阻拦，但移动速度很慢。</description>
+        <altitudeLayer>Building</altitudeLayer>
+        <thingCategories>
+            <li>BuildingsMisc</li>
+        </thingCategories>
+        <passability>PassThroughOnly</passability>
+        <rotatable>false</rotatable>
+        <selectable>true</selectable>
+        <fillPercent>0.20</fillPercent>
+        <pathCost>8</pathCost>
+        <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+        <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+        <size>(1,1)</size>
+        <graphicData>
+			<drawSize>(1,1)</drawSize>
+			<!-- 先随便用个贴图进游戏看看效果 -->
+			<graphicClass>Graphic_Multi</graphicClass>
+			<texPath>Buildings/InMap/RKU_BunkerBuster</texPath>
+			</graphicData>
+        <costList>
+            <Steel>100</Steel>
+        </costList>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <Flammability>0</Flammability>
+            <Mass>0.1</Mass>
+        </statBases>
+        <comps>
+        </comps>
+    </ThingDef>
+
+    <!-- 移动地雷 -->
+    <ThingDef ParentName="BaseBullet">
+        <defName>RKU_BunkerBusterBullet</defName>
+        <label>RKU_DrillingVehicleBullet</label>
+        <thingClass>RatkinUnderground.RKU_BunkerBusterBullet</thingClass>
+        <graphicData>
+        <texPath>Buildings/InMap/RKU_BunkerBusterProjectile</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <shaderType>CutoutComplex</shaderType>
+        <drawSize>1</drawSize>
+        </graphicData>
+        <building>
+          <groundSpawnerSustainedEffecter>EmergencePointSustained2X2</groundSpawnerSustainedEffecter>
+          <groundSpawnerCompleteEffecter>EmergencePointComplete2X2</groundSpawnerCompleteEffecter>
+        </building>
+        <projectile>
+            <speed>6</speed>
+            <arcHeightFactor>0</arcHeightFactor>
+            <shadowSize>1</shadowSize>
+            <damageDef>BombSuper</damageDef>
+            <explosionRadius>3.9</explosionRadius>
+            <explosionChanceToStartFire>0.22</explosionChanceToStartFire>
+            <explosionDamageFalloff>true</explosionDamageFalloff>
+            <explosionEffect>GiantExplosion</explosionEffect>
+            <flyOverhead>true</flyOverhead>
+            <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+            <soundExplode>Explosion_GiantBomb</soundExplode>
+            <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+            <soundAmbient>MortarRound_Ambient</soundAmbient>
+        </projectile>
+    </ThingDef>
+</Defs>

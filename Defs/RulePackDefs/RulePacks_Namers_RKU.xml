@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- 地鼠命名规则 -->
+  <RulePackDef>
+    <defName>RKU_NameUtility</defName>
+    <rulePack>
+      <rulesStrings>
+        <!-- 名字规则 -->
+        <li>RKU_FirstName->[RKU_FirstName]</li>
+
+        <!-- 姓氏规则 - 完全使用地下主题 -->
+        <li>RKU_LastName->[RKU_Last_Underground]</li>
+      </rulesStrings>
+      <rulesFiles>
+        <!-- 引用我们的名称文件 -->
+        <li>RKU_FirstName->Names/RKU_FirstName</li>
+        <li>RKU_Last_Underground->Names/RKU_Last_Underground</li>
+      </rulesFiles>
+    </rulePack>
+  </RulePackDef>
+
+  <!-- 地鼠人物命名器 -->
+  <RulePackDef>
+    <defName>NamerPerson_RKU</defName>
+    <include>
+      <li>RKU_NameUtility</li>
+    </include>
+    <rulePack>
+      <rulesStrings>
+        <!-- 标准命名格式：名字 + 姓氏 -->
+        <li>r_name(p=4)->[RKU_FirstName] [RKU_LastName]</li>
+        <!-- 备用格式：只用名字 -->
+        <li>r_name->[RKU_FirstName]</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <!-- 地鼠派系命名器 -->
+  <RulePackDef>
+    <defName>NamerFaction_RKU</defName>
+    <rulePack>
+      <rulesStrings>
+        <!-- 地鼠派系名称 -->
+        <li>r_name->地鼠游击队</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <!-- 地鼠定居点命名器 -->
+  <RulePackDef>
+    <defName>NamerSettlement_RKU</defName>
+    <rulePack>
+      <rulesStrings>
+        <!-- 地鼠定居点名称 -->
+        <li>r_name->[RKU_Last_Underground]镇</li>
+        <li>r_name->[RKU_Last_Underground]堡</li>
+        <li>r_name->[RKU_Last_Underground]城</li>
+        <li>r_name->地下[RKU_Last_Underground]</li>
+        <li>r_name->深层[RKU_Last_Underground]</li>
+        <li>r_name->[RKU_Last_Underground]矿</li>
+        <li>r_name->[RKU_Last_Underground]窟</li>
+        <li>r_name->[RKU_Last_Underground]穴</li>
+        <!-- 备用随机生成 -->
+        <li>r_name->[townname_wordgen]</li>
+        <li>townname_wordgen->[RKU_Last_Underground][townend]</li>
+        <li>townend->镇</li>
+        <li>townend->堡</li>
+        <li>townend->城</li>
+        <li>townend->村</li>
+        <li>townend->窟</li>
+        <li>townend->穴</li>
+        <li>townend->矿</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+</Defs>

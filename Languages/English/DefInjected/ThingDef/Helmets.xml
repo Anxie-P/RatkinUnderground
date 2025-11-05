@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!--RKU_BestHelmetBase RKU_Helmet-->
+  <!--Guerrilla Scout Hat-->
+  <RKU_Apparel_ScoutHat.label>Guerrilla Scout Hat</RKU_Apparel_ScoutHat.label>
+  <RKU_Apparel_ScoutHat.description>The hat commonly worn by guerrilla scouts, easy to move and conceal.</RKU_Apparel_ScoutHat.description>
+  <!--Guerrilla Member Goggles-->
+  <RKU_Apparel_InvaderHat.label>Guerrilla Member Goggles</RKU_Apparel_InvaderHat.label>
+  <RKU_Apparel_InvaderHat.description>The goggles of the guerrilla members, equipped with some vegetation branches for concealment.</RKU_Apparel_InvaderHat.description>
+  <!--Guerrilla Commissar Hat-->
+  <RKU_Apparel_CaptainHat.label>Guerrilla Commissar Hat</RKU_Apparel_CaptainHat.label>
+  <RKU_Apparel_CaptainHat.description>The hats of guerrilla political commissars, it seems to be a system from a long time ago.</RKU_Apparel_CaptainHat.description>
+
+</LanguageData>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ResearchProjectDef>
+		<defName>RKU_UndergroundExperimentalWeapon</defName>
+		<label>Experimental weapons from the underground</label>
+		<description>Ancient modified fungi found in extreme underground environments possess weaponization potential, and to unlock this potential, a joint effort between partisans and your colony is needed.
+		In general, blueprints need to be researched with the Ratkin Underground Partisans faction.</description>
+		<tab>RatkinTech</tab>
+		<baseCost>3000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>RKU_UndergroundAssaultWeapons</li>
+		</prerequisites>
+		<heldByFactionCategoryTags>
+			<li>null</li>
+		</heldByFactionCategoryTags>
+		<techprintCount>2</techprintCount>
+		<techprintCommonality>0</techprintCommonality>
+		<researchViewX>4</researchViewX>
+		<researchViewY>2</researchViewY>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef>
+		<defName>RKU_UndergroundAssaultWeapons</defName>
+		<label>Assault weapons from underground</label>
+		<description>The partisans' experience in underground operations combined with advanced industrial strength that they did not have. These weapons are more suitable for close combat, as well as for quickly closing the distance to the enemy.
+		In general, blueprints need to be researched with the Ratkin Underground Partisans faction.</description>
+		<tab>RatkinTech</tab>
+		<baseCost>2500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>Gunsmithing</li>
+		</prerequisites>
+		<techprintCount>1</techprintCount>
+		<heldByFactionCategoryTags>
+			<li>null</li>
+		</heldByFactionCategoryTags>
+		<techprintCommonality>0</techprintCommonality>
+		<researchViewX>3</researchViewX>
+		<researchViewY>2</researchViewY>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef>
+		<defName>RKU_UndergroundGuerrillaEquipments</defName>
+		<label>Partisan equipment from the underground</label>
+		<description>The partisans' experience in underground operations combined with advanced industrial strength that they did not have. These equipment are extremely lightweight and can withstand enough damage,it allows the wearer to quickly approach enemies.
+		In general, blueprints need to be researched with the Ratkin Underground Partisans faction.</description>
+		<tab>RatkinTech</tab>
+		<baseCost>3000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>HighClassClothing</li>
+		</prerequisites>
+		<heldByFactionCategoryTags>
+			<li>null</li>
+		</heldByFactionCategoryTags>
+		<techprintCount>1</techprintCount>
+		<techprintCommonality>0</techprintCommonality>
+		<researchViewX>3</researchViewX>
+		<researchViewY>3</researchViewY>
+	</ResearchProjectDef>
+
+<!-- 	<ResearchProjectDef>
+		<defName>RKU_UndergroundDrillingVehicles</defName>
+		<label>鼠族钻地机</label>
+		<description>鼠族钻地机。
+		研究解锁鼠族钻地机</description>
+		<tab>RatkinTech</tab>
+		<baseCost>3000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<heldByFactionCategoryTags>
+			<li>null</li>
+		</heldByFactionCategoryTags>
+		<techprintCount>1</techprintCount>
+		<techprintCommonality>0</techprintCommonality>
+		<researchViewX>4</researchViewX>
+		<researchViewY>4</researchViewY>
+	</ResearchProjectDef> -->
+</Defs>

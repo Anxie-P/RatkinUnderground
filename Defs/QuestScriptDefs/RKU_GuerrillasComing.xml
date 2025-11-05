@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!--地鼠开局任务-->
+	<QuestScriptDef>
+		<defName>RKU_GuerrillasComing</defName>
+		<autoAccept>false</autoAccept>
+		<defaultHidden>false</defaultHidden>
+		<isRootSpecial>true</isRootSpecial>
+		<rootSelectionWeight>20</rootSelectionWeight>
+		<expireDaysRange>2</expireDaysRange>
+		<questNameRules>
+			<rulesStrings>
+			<li>questName->钻机小队遇险停靠紧急修复</li>
+			</rulesStrings>
+		</questNameRules>
+		<questDescriptionRules>
+			<rulesStrings>
+			<li>questDescription->一支不明阵营的鼠族钻地机小队发来紧急讯号，希望能够在附近停靠一段时间，得到一些物资来修理他们的钻机。你可以向他们的队长提供一些零部件。</li>
+			</rulesStrings>
+		</questDescriptionRules>
+		<root Class="RatkinUnderground.QuestNode_RKU_GuerrillasComing">
+			<pawnCount>5</pawnCount>
+			<delayTicks>60000</delayTicks>
+			<pawnKind>RKU_Scout</pawnKind>
+			<vehicleDef>RKU_DrillingVehicleInEnemyMap</vehicleDef>
+		</root>
+	</QuestScriptDef>
+</Defs>
