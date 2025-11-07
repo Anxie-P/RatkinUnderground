@@ -6,16 +6,20 @@ using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.AI;
+using static UnityEngine.GraphicsBuffer;
 
 namespace RatkinUnderground
 {
     public class RKU_DrillingVehicle : Building, IThingHolder
     {
         public ThingOwner<Pawn> passengers;
-
+        public float fuelAmount => this.TryGetComp<CompRefuelable>()?.Fuel ?? 1f;
+        public CompRefuelable fuelComp => this.TryGetComp<CompRefuelable>();
         public RKU_DrillingVehicle()
         {
             passengers = new ThingOwner<Pawn>(this);
+            /*fuel = def.GetCompProperties<CompProperties_Refuelable>();
+            var fu= fuel.compClass.ChangeType<CompRefuelable>().Fuel;*/
         }
 
         #region 乘客相关
@@ -97,6 +101,10 @@ namespace RatkinUnderground
 
         public override IEnumerable<Gizmo> GetGizmos()
         {
+            foreach (Gizmo gizmo in base.GetGizmos())
+            {
+                yield return gizmo;
+            }
             #region 地图内移动
             if (passengers.Count > 0)
             {
@@ -128,6 +136,7 @@ namespace RatkinUnderground
                         }
 
                         RKU_DrilingBullet projectile = (RKU_DrilingBullet)ThingMaker.MakeThing(DefOfs.RKU_DrillingVehicleBullet);
+                        projectile.vehicle = this;
                         GenSpawn.Spawn(projectile, Position, Map);
 
                         LocalTargetInfo localTargetInfo = target;
@@ -162,7 +171,8 @@ namespace RatkinUnderground
             #endregion
 
             #region 钻地！
-            if (passengers.Count > 0)
+            if (passengers.Count > 0 &&
+                fuelAmount > 0)
             {
                 Command_Action command_AddGoodWill = new()
                 {
@@ -183,6 +193,8 @@ namespace RatkinUnderground
                             FleckMaker.ThrowDustPuffThick((Position + offset).ToVector3(), Map, 2f, Color.gray);
                         }
 
+                        // 消耗燃料
+                        fuelComp.ConsumeFuel(50);
                         // 在钻地机位置留下持续的灰尘效果
                         if (Map != null && Position.IsValid)
                         {
@@ -198,6 +210,7 @@ namespace RatkinUnderground
 
                         //出地图
                         RKU_DrillingVehicleOnMap vehicleOnMap = (RKU_DrillingVehicleOnMap)WorldObjectMaker.MakeWorldObject(DefOfs.TravelingDrillingVehicle);
+                        vehicleOnMap.fuelAmount = fuelAmount;
                         vehicleOnMap.Tile = base.Map.Tile;
                         vehicleOnMap.SetFaction(Faction.OfPlayer);
                         vehicleOnMap.destinationTile = base.Map.Tile;
@@ -309,7 +322,7 @@ namespace RatkinUnderground
                                 {
                                     int currentCount = cargo.passengers.Count;
                                     if (passengers.Contains(selPawn)) currentCount--;
-                                    if (currentCount + 2 > cargo.maxPassengers) 
+                                    if (currentCount + 2 > cargo.maxPassengers)
                                     {
                                         canAddBoth = false;
                                     }
@@ -351,7 +364,7 @@ namespace RatkinUnderground
                     {
                         int spare = cargo.maxPassengers - cargo.passengers.Count;
                         Log.Message($"[RKU] 当前剩余空间：{spare}");
-                        if (spare <= 0) 
+                        if (spare <= 0)
                         {
                             Log.Message("[RKU]无空间");
                             yield break;

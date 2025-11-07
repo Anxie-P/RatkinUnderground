@@ -15,6 +15,7 @@ public class RKU_DrillingVehicleOnMap : Caravan
 {
     public bool isHandled = false; // 标记是否已经处理过进任务地图
 
+    public float fuelAmount = 0f;
     public int destinationTile = -1;
     private bool arrived;
     private int initialTile = -1;
@@ -222,6 +223,7 @@ public class RKU_DrillingVehicleOnMap : Caravan
     public override void ExposeData()
     {
         base.ExposeData();
+        Scribe_Values.Look(ref fuelAmount, "fuelAmount", 0);
         Scribe_Values.Look(ref destinationTile, "destinationTile", 0);
         Scribe_Values.Look(ref arrived, "arrived", defaultValue: false);
         Scribe_Values.Look(ref initialTile, "initialTile", 0);

@@ -14,6 +14,7 @@ namespace RatkinUnderground
         private ThingOwner<Thing> cargoHolder; // 货物存储
         public ThingDef originalVehicleDef; // 保存原始钻机类型
         public List<Thing> cargo = new List<Thing>(); // 保存货物
+        public float fuelAmount = 0f; // 保存燃料量
 
         public RKU_DrillingVehicleInEnemyMap()
         {
@@ -195,6 +196,7 @@ namespace RatkinUnderground
 
                         //出地图
                         RKU_DrillingVehicleOnMap vehicleOnMap = (RKU_DrillingVehicleOnMap)WorldObjectMaker.MakeWorldObject(DefOfs.TravelingDrillingVehicle);
+                        vehicleOnMap.fuelAmount = fuelAmount; 
                         vehicleOnMap.Tile = base.Map.Tile;
                         vehicleOnMap.SetFaction(Faction.OfPlayer);
                         vehicleOnMap.destinationTile = base.Map.Tile;
@@ -270,6 +272,7 @@ namespace RatkinUnderground
                             pawn.SetFaction(Faction.OfPlayer);
                         }
                     }
+                    drillingVehicle.fuelComp.Refuel(fuelAmount);
                     drillingVehicle.HitPoints = this.HitPoints;
                     drillingVehicle.SetFaction(Faction.OfPlayer);
 

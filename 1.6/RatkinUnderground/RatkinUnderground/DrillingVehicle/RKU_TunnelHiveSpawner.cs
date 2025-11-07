@@ -10,6 +10,7 @@ namespace RatkinUnderground
         private ThingOwner<Pawn> passengers;
         public bool canMove = false;
         public int hitPoints;   // 传递耐久
+        public float fuelAmount = 0f; // 初始燃料量
         public Faction faction;
         public IThingHolder drillingVehicle;
 
@@ -63,6 +64,7 @@ namespace RatkinUnderground
             }
             Scribe_Deep.Look(ref passengers, "passengers", this);
             Scribe_Values.Look(ref originalVehicleDefName, "originalVehicleDefName");
+            Scribe_Values.Look(ref fuelAmount, "fuelAmount");
             Scribe_Values.Look(ref canMove, "canMove");
             Scribe_Values.Look(ref hitPoints, "hitPoints");
             Scribe_References.Look(ref faction, "faction");
@@ -101,6 +103,7 @@ namespace RatkinUnderground
             {
                 enemyVehicle.originalVehicleDef = originalVehicleDef;
                 enemyVehicle.cargo = new List<Thing>(cargo); // 传递货物
+                enemyVehicle.fuelAmount = fuelAmount;
                 Log.Message($"[RKU] 传递cargo到RKU_DrillingVehicleInEnemyMap，cargo数量: {enemyVehicle.cargo.Count}");
             }
 
@@ -113,6 +116,13 @@ namespace RatkinUnderground
                     cargoHolder.TryAdd(thing);
                 }
                 cargo.Clear();
+            }
+
+            // 注入燃料
+            if (drillingVehicle is RKU_DrillingVehicle vehicle)
+            {
+                Log.Message($"[RKU] 为钻地车注入燃料，燃料量: {fuelAmount}");
+                vehicle.TryGetComp<CompRefuelable>()?.Refuel(fuelAmount);
             }
 
             // 生成钻地车
