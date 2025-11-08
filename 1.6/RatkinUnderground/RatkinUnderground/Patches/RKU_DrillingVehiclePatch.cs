@@ -157,6 +157,8 @@ public static class RKU_DrillingVehiclePatch
                     IntVec3 target = new IntVec3();
                     CellFinder.TryFindRandomEdgeCellWith((IntVec3 x) => x.Standable(map) && x.InBounds(map), map, CellFinder.EdgeRoadChance_Hostile, out target);
                     RKU_TunnelHiveSpawner tunnelHiveSpawner = (RKU_TunnelHiveSpawner)ThingMaker.MakeThing(DefOfs.RKU_TunnelHiveSpawner);
+                    tunnelHiveSpawner.fuelAmount = (caravan as RKU_DrillingVehicleOnMap).fuelAmount;  // 传递燃料
+                    Log.Message($"燃料量：{tunnelHiveSpawner.fuelAmount}");
                     tunnelHiveSpawner.hitPoints = (caravan as RKU_DrillingVehicleOnMap).hitPoints;  // 传递耐久
                     tunnelHiveSpawner.canMove = true;//可以移动
                     if (!string.IsNullOrEmpty((caravan as RKU_DrillingVehicleOnMap).originalVehicleDefName))
@@ -198,6 +200,8 @@ public static class RKU_DrillingVehiclePatch
                         CellFinder.TryFindRandomEdgeCellWith((IntVec3 x) => x.Standable(map) && x.InBounds(map), map, CellFinder.EdgeRoadChance_Hostile, out target);
                     }
                     RKU_TunnelHiveSpawner tunnelHiveSpawner = (RKU_TunnelHiveSpawner)ThingMaker.MakeThing(DefOfs.RKU_TunnelHiveSpawner);
+                    tunnelHiveSpawner.fuelAmount = (caravan as RKU_DrillingVehicleOnMap).fuelAmount; // 传递燃料
+                    Log.Message($"燃料量：{tunnelHiveSpawner.fuelAmount}");
                     tunnelHiveSpawner.hitPoints = (caravan as RKU_DrillingVehicleOnMap).hitPoints;  // 传递耐久
                     tunnelHiveSpawner.canMove = false;//遇敌地图不能移动
                     if (!string.IsNullOrEmpty((caravan as RKU_DrillingVehicleOnMap).originalVehicleDefName))
@@ -232,6 +236,8 @@ public static class RKU_DrillingVehiclePatch
                         CellFinder.TryFindRandomEdgeCellWith((IntVec3 x) => x.Standable(map) && x.InBounds(map), map, CellFinder.EdgeRoadChance_Hostile, out target);
                     }
                     RKU_TunnelHiveSpawner tunnelHiveSpawner = (RKU_TunnelHiveSpawner)ThingMaker.MakeThing(DefOfs.RKU_TunnelHiveSpawner);
+                    tunnelHiveSpawner.fuelAmount = (caravan as RKU_DrillingVehicleOnMap).fuelAmount;  // 传递燃料
+                    Log.Message($"燃料量：{tunnelHiveSpawner.fuelAmount}");
                     tunnelHiveSpawner.hitPoints = (caravan as RKU_DrillingVehicleOnMap).hitPoints;  // 传递耐久
                     tunnelHiveSpawner.canMove = true;//资源地图可以移动
                     if (!string.IsNullOrEmpty((caravan as RKU_DrillingVehicleOnMap).originalVehicleDefName))
@@ -287,6 +293,8 @@ public static class RKU_DrillingVehiclePatch
                             Func<Pawn, IntVec3> newSpawnCellGetter = (pawn) => target.Cell;
                             CaravanEnterMapUtility.Enter(caravan, map, newSpawnCellGetter, dropInventoryMode, draftColonists);
                             RKU_TunnelHiveSpawner tunnelHiveSpawner = (RKU_TunnelHiveSpawner)ThingMaker.MakeThing(DefOfs.RKU_TunnelHiveSpawner);
+                            tunnelHiveSpawner.fuelAmount = (caravan as RKU_DrillingVehicleOnMap).fuelAmount; // 传递燃料
+                            Log.Message($"燃料量：{tunnelHiveSpawner.fuelAmount}");
                             tunnelHiveSpawner.hitPoints = (caravan as RKU_DrillingVehicleOnMap).hitPoints;  // 传递耐久
                             if (!string.IsNullOrEmpty((caravan as RKU_DrillingVehicleOnMap).originalVehicleDefName))
                             {

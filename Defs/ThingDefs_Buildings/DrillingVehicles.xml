@@ -34,6 +34,26 @@
       <MaxHitPoints>500</MaxHitPoints>
       <Flammability>0</Flammability>
     </statBases>
+    <comps>
+        <li Class="CompProperties_Refuelable">
+          <fuelCapacity>400</fuelCapacity>
+          <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+          <initialConfigurableTargetFuelLevel>400</initialConfigurableTargetFuelLevel>
+          <fuelFilter>
+            <thingDefs>
+              <li>Chemfuel</li>
+            </thingDefs>
+          </fuelFilter>
+          <fuelLabel>Chemfuel</fuelLabel>
+          <fuelGizmoLabel>Chemfuel</fuelGizmoLabel>
+          <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+          <autoRefuelPercent>1</autoRefuelPercent>
+          <showFuelGizmo>true</showFuelGizmo>
+          <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+          <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+          <canEjectFuel>true</canEjectFuel>
+        </li>
+      </comps>
   </ThingDef>
 
   <ThingDef ParentName="BuildingBase">
@@ -83,6 +103,26 @@
       <Flammability>0</Flammability>
       <Mass>1200</Mass>
     </statBases>
+    <comps>
+        <li Class="CompProperties_Refuelable">
+          <fuelCapacity>400</fuelCapacity>
+          <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+          <initialConfigurableTargetFuelLevel>400</initialConfigurableTargetFuelLevel>
+          <fuelFilter>
+            <thingDefs>
+              <li>Chemfuel</li>
+            </thingDefs>
+          </fuelFilter>
+          <fuelLabel>Chemfuel</fuelLabel>
+          <fuelGizmoLabel>Chemfuel</fuelGizmoLabel>
+          <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+          <autoRefuelPercent>1</autoRefuelPercent>
+          <showFuelGizmo>true</showFuelGizmo>
+          <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+          <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+          <canEjectFuel>true</canEjectFuel>
+        </li>
+      </comps>
   </ThingDef>
 
   <ThingDef ParentName="BuildingBase">
@@ -129,6 +169,26 @@
       <MaxHitPoints>500</MaxHitPoints>
       <Flammability>0</Flammability>
     </statBases>
+    <comps>
+        <li Class="CompProperties_Refuelable">
+          <fuelCapacity>400</fuelCapacity>
+          <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+          <initialConfigurableTargetFuelLevel>400</initialConfigurableTargetFuelLevel>
+          <fuelFilter>
+            <thingDefs>
+              <li>Chemfuel</li>
+            </thingDefs>
+          </fuelFilter>
+          <fuelLabel>Chemfuel</fuelLabel>
+          <fuelGizmoLabel>Chemfuel</fuelGizmoLabel>
+          <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+          <autoRefuelPercent>1</autoRefuelPercent>
+          <showFuelGizmo>true</showFuelGizmo>
+          <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+          <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+          <canEjectFuel>true</canEjectFuel>
+        </li>
+      </comps>
   </ThingDef>
   
    <ThingDef ParentName="BaseWeaponTurret">

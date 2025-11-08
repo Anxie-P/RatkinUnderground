@@ -54,6 +54,7 @@ public static class Patch_CaravanEnter
 
                         // 生成钻机建筑
                         var vehicle = (RKU_TunnelHiveSpawner)ThingMaker.MakeThing(DefOfs.RKU_TunnelHiveSpawner);
+                        vehicle.fuelAmount = rkuCaravan.fuelAmount;
                         vehicle.hitPoints = rkuCaravan.hitPoints;
                         vehicle.faction = rkuCaravan.Faction;
                         if (!string.IsNullOrEmpty(rkuCaravan.originalVehicleDefName))

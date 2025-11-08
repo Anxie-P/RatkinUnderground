@@ -138,9 +138,9 @@ namespace RatkinUnderground
                 return;
             }
             Log.Message($"钻机状态: 位置={exactPos}, 方向={Rotation}, 速度={curSpeed}, 目标={worldDestination}");
-            Log.Message($"当前剪掉后的耐久：{vehicle.HitPoints - damage}");
+            Log.Message($"当前剪掉后的耐久：{_vehicle.HitPoints - damage}");
             Log.Message($"当前damage：{damage}");
-            if (vehicle.HitPoints - damage <= 10)
+            if (_vehicle.HitPoints - damage <= 10)
             {
                 Messages.Message($"钻机损坏过于严重，被迫停下！", MessageTypeDefOf.NegativeEvent);
                 Log.Message($"当前位置：{DrawPos}");
@@ -169,7 +169,7 @@ namespace RatkinUnderground
                     Position.GetFirstBuilding(Map).TakeDamage(new DamageInfo(DamageDefOf.Crush, 300, 2f, -1f));
                 }
             }
-            if (vehicle != null)
+            if (_vehicle != null)
             {
                 foreach (IntVec3 item in GenRadial.RadialCellsAround(this.Position, 1, useCenter: true))
                 {
@@ -178,11 +178,11 @@ namespace RatkinUnderground
                         item.GetFirstBuilding(Map).Destroy();
                     }
                 }
-                var newHitPoints = vehicle.HitPoints - damage;
-                vehicle.HitPoints = Math.Max(1, newHitPoints);
+                var newHitPoints = _vehicle.HitPoints - damage;
+                _vehicle.HitPoints = Math.Max(1, newHitPoints);
                 Log.Message($"生成位置：{this.Position}");
-                GenSpawn.Spawn(vehicle, this.Position, this.Map);
-                vehicle.Rotation = FinalRotation;
+                GenSpawn.Spawn(_vehicle, this.Position, this.Map);
+                _vehicle.Rotation = FinalRotation;
             }
             base.Destroy(mode);
         }
@@ -280,11 +280,17 @@ namespace RatkinUnderground
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Deep.Look(ref _vehicle, "vehicle", this);
-            Scribe_Deep.Look(ref curSpeed, "curSpeed", this);
-            Scribe_Deep.Look(ref worldDestination, "worldDestination", this);
-            Scribe_Deep.Look(ref exactPos, "exactPos", this);
+            Scribe_Deep.Look(ref _vehicle, "vehicle");
+            Scribe_Values.Look(ref ticks, "ticks", 0);
+            Scribe_Values.Look(ref exactPos, "exactPos");
+            Scribe_Values.Look(ref dir, "dir");
+            Scribe_Values.Look(ref worldDestination, "worldDestination");
+            Scribe_Values.Look(ref curSpeed, "curSpeed", 0.16f);
+            Scribe_Values.Look(ref isSlow, "isSlow", false);
+            Scribe_Values.Look(ref speedCooldown, "speedCooldown", 0);
+            Scribe_Values.Look(ref damage, "damage", 0);
             Scribe_Values.Look(ref baseTexturePath, "baseTexturePath");
+            Scribe_Values.Look(ref FinalRotation, "FinalRotation", Rot4.South);
         }
     }
 }

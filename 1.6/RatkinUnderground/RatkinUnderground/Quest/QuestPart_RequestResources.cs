@@ -57,6 +57,7 @@ namespace RatkinUnderground
                 }
             }
 
+            var drillingVehicle = Map.listerBuildings.allBuildingsNonColonist.Find(b => b is RKU_DrillingVehicleInEnemyMap) as RKU_DrillingVehicleInEnemyMap;
             // 创建LordJob_WaitForItemsAndReturn
             var newLord = LordMaker.MakeNewLord(faction, new LordJob_WaitForItemsAndReturn(faction, result, target, thingDef, drillingVehicle, amount, outSignalItemsReceived, outSignalStartReturnToDrillingVehicle), base.Map);
             
