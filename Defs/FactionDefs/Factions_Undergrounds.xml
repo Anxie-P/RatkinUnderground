@@ -145,6 +145,16 @@
 			</li>
 			<li>
 				<kindDef>Combat</kindDef>
+				<commonality>30</commonality>
+				<maxTotalPoints>12000</maxTotalPoints>
+				<options>
+					<RKU_EliteScout>1</RKU_EliteScout>
+					<RKU_EliteCommissar>1</RKU_EliteCommissar>
+					<RKU_EliteInvader>2</RKU_EliteInvader>
+				</options>
+			</li>
+			<li>
+				<kindDef>Combat</kindDef>
 				<commonality>25</commonality>
 				<options>
 					<RKU_EliteScout>2</RKU_EliteScout>
@@ -160,7 +170,7 @@
 					<RKU_Invader>2</RKU_Invader>
 				</options>
 			</li>
-			  <li>
+			<li>
 				<kindDef>Settlement</kindDef>
 				<options>
 					<RKU_Commissar>2</RKU_Commissar>

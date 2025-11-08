@@ -60,7 +60,7 @@
 			</bodyPartGroups>
 			<wornGraphicPath>Things/Item/Armors/helm/MinerHelmet</wornGraphicPath>
 			<tags>
-				<li>RKU_Scout</li>
+				<li>RKU_Miner</li>
 				<li>RKU_Invader</li>
 			</tags>
 			<defaultOutfitTags>

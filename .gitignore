@@ -1,0 +1,12 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/1.6/Assemblies/RatkinUnderground.dll
+/1.6/RatkinUnderground/RatkinUnderground/obj/Debug/RatkinUnderground.csproj.AssemblyReference.cache
+/1.6/RatkinUnderground/RatkinUnderground/obj/Debug/RatkinUnderground.dll
+/1.6/RatkinUnderground/RatkinUnderground/obj/Debug/RatkinUnderground.pdb
+/1.6/RatkinUnderground/.vs/RatkinUnderground/FileContentIndex/9329c38e-108d-4e89-a4ab-46771507b5f4.vsidx
+/1.6/RatkinUnderground/.vs/RatkinUnderground/v18/.suo
+/1.6/RatkinUnderground/.vs/RatkinUnderground/v18/DocumentLayout.backup.json
+/1.6/RatkinUnderground/.vs/RatkinUnderground/v18/DocumentLayout.json

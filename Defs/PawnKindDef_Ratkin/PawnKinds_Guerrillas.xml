@@ -6,6 +6,51 @@
         <nameMaker>NamerPerson_RKU</nameMaker>
 		<apparelAllowHeadgearChance>100</apparelAllowHeadgearChance>
     </PawnKindDef>
+	
+	 <!-- 矿工 -->
+    <PawnKindDef ParentName="RKBasePawnKind_Revolution">
+        <defName>RKU_Miner</defName>
+		<label>ratkin miner</label>
+        <factionLeader>false</factionLeader>	
+		<combatPower>120</combatPower>
+		<isFighter>true</isFighter>
+		<minGenerationAge>9</minGenerationAge>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>RKU_Miner</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<skills>
+			<li>
+				<skill>Melee</skill>
+				<range>5~12</range>
+			</li>
+		</skills>		
+		<apparelRequired>
+			<li>RKU_Apparel_ScoutUniform</li>
+			<li>RKU_MinerHelmet</li>
+		</apparelRequired>
+		<gearHealthRange>
+			<min>0.5</min>
+			<max>1</max>
+		</gearHealthRange>
+		<apparelMoney>
+			<min>2000</min>
+			<max>3000</max>
+		</apparelMoney>
+		<weaponMoney>
+			<min>500</min>
+			<max>1200</max>
+		</weaponMoney>
+		<apparelTags>
+			<li>RKU_Miner</li>
+		</apparelTags>
+		<weaponTags>
+			<li>RKU_Miner</li>
+		</weaponTags>
+    </PawnKindDef>
 
     <!-- 政委 -->
     <PawnKindDef ParentName="RKBasePawnKind_Revolution">
