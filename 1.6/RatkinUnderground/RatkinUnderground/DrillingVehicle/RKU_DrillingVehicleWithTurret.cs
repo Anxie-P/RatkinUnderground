@@ -279,7 +279,7 @@ namespace RatkinUnderground
                 targetingParams = new TargetingParameters
                 {
                     canTargetPawns = true,
-                    canTargetBuildings = true,
+                    canTargetBuildings = false,
                     canTargetItems = false,
                     canTargetLocations = false,
                     mapObjectTargetsMustBeAutoAttackable = true
@@ -306,6 +306,31 @@ namespace RatkinUnderground
                 isActive = () => holdFire,
                 toggleAction = () => holdFire = !holdFire
             };
+
+            // 闪光弹gizmo
+            yield return new Command_Target
+            {
+                defaultLabel = "发射闪光弹",
+                defaultDesc = "发射闪光弹，对目标区域造成眩晕效果",
+                icon = ContentFinder<Texture2D>.Get("UI/Commands/Attack"), // 可以后续更换图标
+                targetingParams = new TargetingParameters
+                {
+                    canTargetPawns = true,
+                    canTargetBuildings = false,
+                    canTargetItems = false,
+                    canTargetLocations = true,
+                    mapObjectTargetsMustBeAutoAttackable = false,
+                    validator = (TargetInfo targ) => (targ.Cell - Position).LengthHorizontal <= AttackVerb?.verbProps.range
+                },
+                action = delegate (LocalTargetInfo target)
+                {
+                    if ((target.Cell - Position).LengthHorizontal <= AttackVerb?.verbProps.range)
+                    {
+                        FireFlashbang(target);
+                    }
+                }
+            };
+
             foreach (Gizmo gizmo in base.GetGizmos())
             {
                 yield return gizmo;
@@ -359,98 +384,125 @@ namespace RatkinUnderground
         {
             burstCooldownTicksLeft = (int)(def.building.turretBurstCooldownTime * 60f);
         }
-    }
-    public class TurretTop
-    {
-        private RKU_DrillingVehicleWithTurret parentTurret;
-        private float curRotationInt;
-        private int ticksUntilIdleTurn;
-        private int idleTurnTicksLeft;
-        private bool idleTurnClockwise;
-        private const float IdleTurnDegreesPerTick = 0.26f;
-        private const int IdleTurnDuration = 140;
-        private const int IdleTurnIntervalMin = 150;
-        private const int IdleTurnIntervalMax = 350;
-        public static readonly int ArtworkRotation = -90;
 
-        public float CurRotation
+        // 发射闪光弹
+        private void FireFlashbang(LocalTargetInfo target)
         {
-            get => curRotationInt;
-            set
+            if (!target.IsValid || !Spawned)
             {
-                curRotationInt = value;
-                if (curRotationInt > 360f) curRotationInt -= 360f;
-                if (curRotationInt < 0f) curRotationInt += 360f;
+                return;
+            }
+
+            // 在目标位置创建眩晕爆炸效果
+            GenExplosion.DoExplosion(
+                target.Cell,
+                Map,
+                1.9f,
+                DamageDefOf.Stun,
+                this,
+                20, // damageAmount
+                0f, // armorPenetration
+                doSoundEffects:false
+            );
+
+            for (int i = 0; i < 20; i++)
+            {
+                FleckMaker.Static(target.Cell.ToVector3Shifted(), Map, FleckDefOf.ExplosionFlash, 7f);
             }
         }
 
-        public TurretTop(RKU_DrillingVehicleWithTurret parentTurret)
+        public class TurretTop
         {
-            this.parentTurret = parentTurret;
-        }
+            private RKU_DrillingVehicleWithTurret parentTurret;
+            private float curRotationInt;
+            private int ticksUntilIdleTurn;
+            private int idleTurnTicksLeft;
+            private bool idleTurnClockwise;
+            private const float IdleTurnDegreesPerTick = 0.26f;
+            private const int IdleTurnDuration = 140;
+            private const int IdleTurnIntervalMin = 150;
+            private const int IdleTurnIntervalMax = 350;
+            public static readonly int ArtworkRotation = -90;
 
-        public void SetRotationFromOrientation()
-        {
-            CurRotation = (parentTurret.Rotation == Rot4.North || parentTurret.Rotation == Rot4.West) ? 0 : 180;
-        }
-
-        public void ForceFaceTarget(LocalTargetInfo targ)
-        {
-            if (targ.IsValid)
+            public float CurRotation
             {
-                CurRotation = (targ.Cell.ToVector3Shifted() - parentTurret.DrawPos).AngleFlat();
-            }
-        }
-
-        public void TurretTopTick()
-        {
-            if (parentTurret.CurrentTarget.IsValid)
-            {
-                CurRotation = (parentTurret.CurrentTarget.Cell.ToVector3Shifted() - parentTurret.DrawPos).AngleFlat();
-                ticksUntilIdleTurn = Rand.RangeInclusive(IdleTurnIntervalMin, IdleTurnIntervalMax);
-            }
-            else if (ticksUntilIdleTurn > 0)
-            {
-                ticksUntilIdleTurn--;
-                if (ticksUntilIdleTurn == 0)
+                get => curRotationInt;
+                set
                 {
-                    idleTurnClockwise = Rand.Value < 0.5f;
-                    idleTurnTicksLeft = IdleTurnDuration;
+                    curRotationInt = value;
+                    if (curRotationInt > 360f) curRotationInt -= 360f;
+                    if (curRotationInt < 0f) curRotationInt += 360f;
                 }
             }
-            else
+
+            public TurretTop(RKU_DrillingVehicleWithTurret parentTurret)
             {
-                CurRotation += idleTurnClockwise ? IdleTurnDegreesPerTick : -IdleTurnDegreesPerTick;
-                idleTurnTicksLeft--;
-                if (idleTurnTicksLeft <= 0)
+                this.parentTurret = parentTurret;
+            }
+
+            public void SetRotationFromOrientation()
+            {
+                CurRotation = (parentTurret.Rotation == Rot4.North || parentTurret.Rotation == Rot4.West) ? 0 : 180;
+            }
+
+            public void ForceFaceTarget(LocalTargetInfo targ)
+            {
+                if (targ.IsValid)
                 {
+                    CurRotation = (targ.Cell.ToVector3Shifted() - parentTurret.DrawPos).AngleFlat();
+                }
+            }
+
+            public void TurretTopTick()
+            {
+                if (parentTurret.CurrentTarget.IsValid)
+                {
+                    CurRotation = (parentTurret.CurrentTarget.Cell.ToVector3Shifted() - parentTurret.DrawPos).AngleFlat();
                     ticksUntilIdleTurn = Rand.RangeInclusive(IdleTurnIntervalMin, IdleTurnIntervalMax);
                 }
+                else if (ticksUntilIdleTurn > 0)
+                {
+                    ticksUntilIdleTurn--;
+                    if (ticksUntilIdleTurn == 0)
+                    {
+                        idleTurnClockwise = Rand.Value < 0.5f;
+                        idleTurnTicksLeft = IdleTurnDuration;
+                    }
+                }
+                else
+                {
+                    CurRotation += idleTurnClockwise ? IdleTurnDegreesPerTick : -IdleTurnDegreesPerTick;
+                    idleTurnTicksLeft--;
+                    if (idleTurnTicksLeft <= 0)
+                    {
+                        ticksUntilIdleTurn = Rand.RangeInclusive(IdleTurnIntervalMin, IdleTurnIntervalMax);
+                    }
+                }
             }
-        }
 
-        public void DrawTurret(Vector3 drawLoc, Vector3 recoilDrawOffset, float recoilAngleOffset)
-        {
-            // 根据本体朝向调整偏移量（朝南时反转X轴）
-            float xOffset = parentTurret.def.building.turretTopOffset.x;
-            if (parentTurret.Rotation == Rot4.South) xOffset = -xOffset;
+            public void DrawTurret(Vector3 drawLoc, Vector3 recoilDrawOffset, float recoilAngleOffset)
+            {
+                // 根据本体朝向调整偏移量（朝南时反转X轴）
+                float xOffset = parentTurret.def.building.turretTopOffset.x;
+                if (parentTurret.Rotation == Rot4.South) xOffset = -xOffset;
 
-            Vector3 offset = new Vector3(
-                xOffset,
-                0f,
-                parentTurret.def.building.turretTopOffset.y);
+                Vector3 offset = new Vector3(
+                    xOffset,
+                    0f,
+                    parentTurret.def.building.turretTopOffset.y);
 
-            float drawSize = 1.8f;
-            float aimAngle = parentTurret.AttackVerb?.AimAngleOverride ?? CurRotation;
+                float drawSize = 1.8f;
+                float aimAngle = parentTurret.AttackVerb?.AimAngleOverride ?? CurRotation;
 
-            Vector3 pos = drawLoc + Altitudes.AltIncVect + offset;
+                Vector3 pos = drawLoc + Altitudes.AltIncVect + offset;
 
-            float totalRotation = ArtworkRotation + aimAngle;
-            Quaternion rotation = totalRotation.ToQuat();
+                float totalRotation = ArtworkRotation + aimAngle;
+                Quaternion rotation = totalRotation.ToQuat();
 
-            Vector3 scale = new Vector3(drawSize, 1f, drawSize);
-            Matrix4x4 matrix = Matrix4x4.TRS(pos, rotation, scale);
-            Graphics.DrawMesh(parentTurret.TurretTopMaterial, matrix, parentTurret.def.building.turretGunDef.graphicData.Graphic.MatAt(parentTurret.Rotation), 0);
+                Vector3 scale = new Vector3(drawSize, 1f, drawSize);
+                Matrix4x4 matrix = Matrix4x4.TRS(pos, rotation, scale);
+                Graphics.DrawMesh(parentTurret.TurretTopMaterial, matrix, parentTurret.def.building.turretGunDef.graphicData.Graphic.MatAt(parentTurret.Rotation), 0);
+            }
         }
     }
 }

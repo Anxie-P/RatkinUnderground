@@ -96,9 +96,9 @@
   <RKU_UnknownLocation>未知位置</RKU_UnknownLocation>
   <RKU_TradeSignal>交易信号</RKU_TradeSignal>
   <RKU_ScanSignal>扫描信号</RKU_ScanSignal>
-  <RKU_TacticalSupport>战术支援</RKU_TacticalSupport>
-  <RKU_TacticalSupportFailReason>至少需要75的好感才能进行战术支援</RKU_TacticalSupportFailReason>
-  <RKU_ProvideSupport>提供支援</RKU_ProvideSupport>
+  <RKU_TacticalSupport>请求战术支援</RKU_TacticalSupport>
+  <RKU_TacticalSupportFailReason>至少需要75的好感才能请求战术支援</RKU_TacticalSupportFailReason>
+  <RKU_ProvideSupport>提供战术支援</RKU_ProvideSupport>
   <RKU_TradeCooldownText>交易冷却中</RKU_TradeCooldownText>
   <RKU_StartTrade>开始交易</RKU_StartTrade>
   <RKU_WaitingForTrade>等待交易...</RKU_WaitingForTrade>
@@ -124,7 +124,7 @@
   <RKU_FactionRelation>阵营关系</RKU_FactionRelation>
   <RKU_TradeCooldown>交易冷却: {0}天</RKU_TradeCooldown>
   <RKU_ScanCooldown>扫描冷却: {0}天</RKU_ScanCooldown>
-  <RKU_EmergencyCooldown>战术支援: {0}天</RKU_EmergencyCooldown>
+  <RKU_EmergencyCooldown>请求支援: {0}天</RKU_EmergencyCooldown>
   <RKU_MapLocation>地图位置: {0}</RKU_MapLocation>
   <RKU_commanderTitle>游击队区域指挥官</RKU_commanderTitle>
 
@@ -158,4 +158,17 @@
   <RKU_DrillingVehicleLowDurability>钻机耐久过低，无法使用！</RKU_DrillingVehicleLowDurability>
   <RKU_NoOtherColonistsOnMap>地图上没有其他殖民者，不能移动！</RKU_NoOtherColonistsOnMap>
   <RKU_DrillOutDisabledReason>钻出钻机需要地图内和钻机内都存在殖民者</RKU_DrillOutDisabledReason>
+
+  <!-- 城堡增援消息 -->
+  <RKU_RatkinReinforcementsArrived>鼠族增援部队已抵达！</RKU_RatkinReinforcementsArrived>
+
+  <!-- 游击队最终战败消息 -->
+  <RKU_GuerrillaOrganizationCollapse>游击队组织崩溃</RKU_GuerrillaOrganizationCollapse>
+  <RKU_GuerrillaOrganizationCollapseDesc>游击队遭受了重大损失，士气崩溃，他们的组织已经名存实亡，并且为了逃离这片区域无所不用其极,游击队阵营已被摧毁。</RKU_GuerrillaOrganizationCollapseDesc>
+  <RKU_GuerrillaLeadershipAnnihilated>游击队全军覆没</RKU_GuerrillaLeadershipAnnihilated>
+  <RKU_GuerrillaLeadershipAnnihilatedDesc>游击队的精锐部队及领导层近乎全灭，他们的组织已经灭亡，游击队阵营已被摧毁。</RKU_GuerrillaLeadershipAnnihilatedDesc>
+
+  <!-- 最后的殊死攻击 -->
+  <RKU_FinalDesperateAttack>最后的殊死攻击</RKU_FinalDesperateAttack>
+  <RKU_FinalDesperateAttackDesc>敌人发动了最后的殊死攻击！游击队在濒临崩溃之际，动用了他们最后的杀手锏。</RKU_FinalDesperateAttackDesc>
 </LanguageData> 

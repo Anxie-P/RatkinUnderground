@@ -74,4 +74,22 @@
       </li>
     </stages>
   </HediffDef>
+
+  <HediffDef>
+    <defName>RKU_CivilianMarker</defName>
+    <label>平民标记</label>
+    <description>用于标记农场平民的状态，当玩家接近时会转换为游击队成员</description>
+    <descriptionShort>用于标记农场平民的状态</descriptionShort>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(1, 1, 1)</defaultLabelColor>
+    <priceImpact>false</priceImpact>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0</minSeverity>
+    <maxSeverity>1</maxSeverity>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
 </Defs>

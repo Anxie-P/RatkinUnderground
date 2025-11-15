@@ -400,6 +400,7 @@
 	<smeltable>false</smeltable>
 	<tradeability>None</tradeability>
     <description>一把历经风霜的步枪。</description>
+	<destroyOnDrop>true</destroyOnDrop>
     <graphicData>
       <texPath>Things/Item/Weapons/RKU_SVT40M_Elite</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -419,9 +420,9 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <defaultProjectile>Bullet_RK_Rifle</defaultProjectile>
+        <defaultProjectile>Bullet_RKU_EliteRifle</defaultProjectile>
         <warmupTime>0.6</warmupTime>
-        <range>52</range>
+        <range>55</range>
         <soundCast>Rifle</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
         <muzzleFlashScale>14</muzzleFlashScale>
@@ -446,6 +447,23 @@
         <cooldownTime>2</cooldownTime>
       </li>
     </tools>
+  </ThingDef>
+  
+   <!-- 奶酪爆破弹 -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_RKU_EliteRifle</defName>
+    <label>RKU_EliteRifle rifle bullet</label>
+    <thingClass>RatkinUnderground.RKU_YunNanBullet</thingClass>
+    <projectile>
+	  <damageAmountBase>35</damageAmountBase>
+      <damageDef>Bomb</damageDef>
+      <explosionRadius>1.9</explosionRadius>
+      <speed>80</speed>
+    </projectile>
+    <graphicData>
+      <texPath>Things/Projectile/YunNanMushroom</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
   </ThingDef>
  
   <!-- 游击队轻机枪 -->
@@ -500,7 +518,7 @@
         <defaultProjectile>Bullet_Minigun</defaultProjectile>
         <warmupTime>2.5</warmupTime>
         <range>30.9</range>
-        <burstShotCount>25</burstShotCount>
+        <burstShotCount>15</burstShotCount>
         <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
         <soundCast>Shot_Minigun</soundCast>
         <soundCastTail>GunTail_Medium</soundCastTail>

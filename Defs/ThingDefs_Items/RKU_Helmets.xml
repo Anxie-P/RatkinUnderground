@@ -37,12 +37,8 @@
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<costList>
-			<Steel>25</Steel>
+			<Steel>75</Steel>
 		</costList>
-		<costStuffCount>40</costStuffCount>
-		<stuffCategories>
-			<li>Metallic</li>
-		</stuffCategories>
 		<statBases>
 			<MaxHitPoints>200</MaxHitPoints>
 			<WorkToMake>18000</WorkToMake>
@@ -50,8 +46,8 @@
 			<StuffEffectMultiplierArmor>0.35</StuffEffectMultiplierArmor>
 			<StuffEffectMultiplierInsulation_Cold>0.0</StuffEffectMultiplierInsulation_Cold>
 			<StuffEffectMultiplierInsulation_Heat>0.0</StuffEffectMultiplierInsulation_Heat>			
-			<ArmorRating_Sharp>0.40</ArmorRating_Sharp>
-			<ArmorRating_Blunt>0.20</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.45</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.50</ArmorRating_Blunt>
 			<EquipDelay>1.5</EquipDelay>
 		</statBases>
 		<apparel>
@@ -77,12 +73,6 @@
 				<li>RK_FueledSmithy</li>
 				<li>RK_ElectricSmithy</li>
 			</recipeUsers>
-			<defaultIngredientFilter>
-				<disallowedThingDefs>
-					<li>Gold</li>
-					<li>Silver</li>
-				</disallowedThingDefs>
-			</defaultIngredientFilter>		
 		</recipeMaker>
 		<followStuffColor>false</followStuffColor>
 	</ThingDef>

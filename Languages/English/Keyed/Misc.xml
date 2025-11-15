@@ -253,4 +253,23 @@
   <RKU_NoOtherColonistsOnMap>No other colonists on the map, cannot move!</RKU_NoOtherColonistsOnMap>
   <!-- EN: Drilling out of the drilling machine requires colonists to exist both on the map and inside the drilling machine -->
   <RKU_DrillOutDisabledReason>Drilling out of the drilling machine requires colonists to exist both on the map and inside the drilling machine</RKU_DrillOutDisabledReason>
+
+  <!-- Castle Reinforcement Messages -->
+  <!-- EN: Ratkin reinforcements have arrived! -->
+  <RKU_RatkinReinforcementsArrived>Ratkin reinforcements have arrived!</RKU_RatkinReinforcementsArrived>
+
+  <!-- Guerrilla Final Defeat Messages -->
+  <!-- EN: Guerrilla Organization Collapse -->
+  <RKU_GuerrillaOrganizationCollapse>Guerrilla Organization Collapse</RKU_GuerrillaOrganizationCollapse>
+  <!-- EN: The guerrillas have suffered major losses and morale has collapsed. Their organization is effectively defunct and they will do anything to escape this area.\n\nThe guerrilla faction has been destroyed. -->
+  <RKU_GuerrillaOrganizationCollapseDesc>The guerrillas have suffered major losses and morale has collapsed. Their organization is effectively defunct and they will do anything to escape this area.\n\nThe guerrilla faction has been destroyed.</RKU_GuerrillaOrganizationCollapseDesc>
+  <!-- EN: Guerrilla Army Annihilated -->
+  <RKU_GuerrillaLeadershipAnnihilated>Guerrilla Army Annihilated</RKU_GuerrillaLeadershipAnnihilated>
+  <!-- EN: The guerrilla elite forces and leadership have been nearly annihilated, their organization has perished.\n\nThe guerrilla faction has been removed. -->
+  <RKU_GuerrillaLeadershipAnnihilatedDesc>The guerrilla elite forces and leadership have been nearly annihilated, their organization has perished.\n\nThe guerrilla faction has been destroyed.</RKU_GuerrillaLeadershipAnnihilatedDesc>
+
+  <!-- EN: Final Desperate Attack -->
+  <RKU_FinalDesperateAttack>Final Desperate Attack</RKU_FinalDesperateAttack>
+  <!-- EN: The enemy has launched their final desperate attack! The guerrillas have deployed their ultimate weapon on the brink of collapse. -->
+  <RKU_FinalDesperateAttackDesc>The enemy has launched their final desperate attack! The guerrillas have deployed their ultimate weapon on the brink of collapse.</RKU_FinalDesperateAttackDesc>
 </LanguageData>

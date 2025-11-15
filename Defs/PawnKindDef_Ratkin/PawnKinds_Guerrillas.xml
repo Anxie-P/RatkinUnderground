@@ -4,7 +4,7 @@
         <defaultFactionType>RKU_Faction</defaultFactionType>
         <!-- 地鼠人物命名规则 -->
         <nameMaker>NamerPerson_RKU</nameMaker>
-		<apparelAllowHeadgearChance>100</apparelAllowHeadgearChance>
+		<apparelAllowHeadgearChance>1</apparelAllowHeadgearChance>
     </PawnKindDef>
 	
 	 <!-- 矿工 -->

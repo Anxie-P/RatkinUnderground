@@ -20,16 +20,16 @@ namespace RatkinUnderground
         /// </summary>
         /// <param name="map">地图</param>
         private void SpawnEnemiesInCompound(Map map)
-        {              
+        {
             // 获取鼠族军阀派系
             var ratkinFaction = Find.FactionManager.FirstFactionOfDef(FactionDef.Named("Rakinia_Warlord"));
-            
+
             // 如果没有军阀派系，则查找任意一个海盗阵营
             if (ratkinFaction == null)
             {
                 ratkinFaction = Find.FactionManager.FirstFactionOfDef(DefDatabase<FactionDef>.AllDefs.FirstOrDefault(o=>o.defName.Contains("Pirate")));
             }
-            
+
             if (ratkinFaction == null) return;
 
             // 随机生成7-12个敌人

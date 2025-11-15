@@ -44,6 +44,20 @@ namespace RatkinUnderground
 
         public override void Init()
         {
+            // 检查是否已经存在活跃的RKU_GameCondition_FinalBattle实例
+            foreach (Map map in Find.Maps)
+            {
+                if (map.IsPlayerHome)
+                {
+                    var existingCondition = map.GameConditionManager.GetActiveCondition<RKU_GameCondition_FinalBattle>();
+                    if (existingCondition != null && existingCondition != this)
+                    {
+                        Log.Warning("[RKU] 已存在活跃的最终战斗游戏条件，跳过初始化");
+                        return;
+                    }
+                }
+            }
+
             base.Init();
             nextCheckTick = Find.TickManager.TicksGame + CHECK_INTERVAL_TICKS;
             UpdateColonyStatus();
@@ -188,7 +202,12 @@ namespace RatkinUnderground
             // 士气值降至0
             if (morale <= 0f)
             {
-                Utils.BroadcastRadioMessage("士气崩溃。");
+                Find.LetterStack.ReceiveLetter(
+                    "RKU_GuerrillaOrganizationCollapse".Translate(),
+                    "RKU_GuerrillaOrganizationCollapseDesc".Translate(),
+                    LetterDefOf.PositiveEvent
+                );
+                RemoveGuerrillaFaction();
                 this.End();
                 return;
             }
@@ -196,7 +215,12 @@ namespace RatkinUnderground
             // 死亡500人以上
             if (totalGuerrillaDeaths > 500)
             {
-                Utils.BroadcastRadioMessage("全军覆没。");
+                Find.LetterStack.ReceiveLetter(
+                   "RKU_GuerrillaLeadershipAnnihilated".Translate(),
+                   "RKU_GuerrillaLeadershipAnnihilatedDesc".Translate(),
+                   LetterDefOf.PositiveEvent
+               );
+                RemoveGuerrillaFaction();
                 this.End();
                 return;
             }
@@ -468,16 +492,14 @@ namespace RatkinUnderground
             parms.faction = Utils.OfRKU;
             parms.target = targetMap;
             parms.forced = true;
-            parms.points = Mathf.Max(StorytellerUtility.DefaultThreatPointsNow(targetMap) * 2.0f, 1500f);
+            parms.points = Mathf.Max(StorytellerUtility.DefaultThreatPointsNow(targetMap) * 2.5f, 2000f);
             parms.raidStrategy = hammerAttackStrategy;
-            if (parms.raidArrivalMode == null || parms.raidArrivalMode.defName.Contains("drop"))
+
+            var nonDropModes = DefDatabase<PawnsArrivalModeDef>.AllDefs
+                .Where(d => !d.defName.Contains("Drop")).ToList();
+            if (nonDropModes.Any())
             {
-                var nonDropModes = DefDatabase<PawnsArrivalModeDef>.AllDefs
-                    .Where(d => !d.defName.Contains("Drop")).ToList();
-                if (nonDropModes.Any())
-                {
-                    parms.raidArrivalMode = nonDropModes.RandomElement();
-                }
+                parms.raidArrivalMode = nonDropModes.RandomElement();
             }
 
             if (!raidIncident.Worker.TryExecute(parms))
@@ -494,6 +516,39 @@ namespace RatkinUnderground
             }
             isHammerRaided = true;
         }
+
+        /// <summary>
+        /// 移除游击队阵营
+        /// </summary>
+        private void RemoveGuerrillaFaction()
+        {
+            var guerrillaFaction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
+            if (guerrillaFaction != null)
+            {
+                guerrillaFaction.defeated = true;
+            }
+        }
+
+        /// <summary>
+        /// 重写End方法，如果未触发地锤袭击则在结束时触发一次
+        /// </summary>
+        public override void End()
+        {
+            // 如果直到最后都没有触发地锤袭击，则在结束时触发一次
+            if (!isHammerRaided)
+            {
+                TriggerHammerAttackEvent();
+                // 显示特殊的结束提示
+                Find.LetterStack.ReceiveLetter(
+                    "RKU_FinalDesperateAttack".Translate(),
+                    "RKU_FinalDesperateAttackDesc".Translate(),
+                    LetterDefOf.ThreatBig
+                );
+            }
+
+            base.End();
+        }
+
 
         public override void ExposeData()
         {

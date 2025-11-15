@@ -15,11 +15,7 @@ namespace RatkinUnderground
 
         protected override bool TestRunInt(Slate slate)
         {
-            //if (requiredFactionDefs.GetValue(slate) == null || !requiredFactionDefs.GetValue(slate).Any())
-            //{
-            //    return false;
-            //}
-            return true;//base.TestRunInt(slate);
+            return true;
         }
 
         protected override void RunInt()
@@ -41,8 +37,20 @@ namespace RatkinUnderground
 
             if (selectedFaction == null)
             {
-                base.RunInt();
-                return;
+                // 如果没有找到指定的阵营，则选择任意海盗阵营
+                var pirateFactions = Find.FactionManager.AllFactions
+                    .Where(f => f.def.defName.Contains("Pirate"))
+                    .ToList();
+
+                if (pirateFactions.Any())
+                {
+                    pirateFactions.TryRandomElement(out selectedFaction);
+                }
+                else
+                {
+                    base.RunInt();
+                    return;
+                }
             }
             QuestGen.slate.Set(storeAs.GetValue(slate), selectedFaction);
             if (!selectedFaction.Hidden)

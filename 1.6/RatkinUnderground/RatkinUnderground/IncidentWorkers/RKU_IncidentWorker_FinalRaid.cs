@@ -97,7 +97,11 @@ namespace RatkinUnderground
 
             PawnGroupKindDef groupKind = parms.pawnGroupKind ?? PawnGroupKindDefOf.Combat;
             ResolveRaidStrategy(parms, groupKind);
-            ResolveRaidArriveMode(parms);
+            // 如果raidArrivalMode还没有设置，则解析arrival mode
+            if (parms.raidArrivalMode == null)
+            {
+                ResolveRaidArriveMode(parms);
+            }
             ResolveRaidAgeRestriction(parms);
             if (!debugTest)
             {
@@ -109,8 +113,8 @@ namespace RatkinUnderground
                 return false;
             }
 
+            parms.points = 7000;
             float points = parms.points;
-            parms.points = AdjustedRaidPoints(parms.points, parms.raidArrivalMode, parms.raidStrategy, parms.faction, groupKind,null);
 
             if (pawns == null)
             {
@@ -119,17 +123,41 @@ namespace RatkinUnderground
                 //加入奶酪和蜈蚣
                 Faction rFaction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
                 Pawn centiped = PawnGenerator.GeneratePawn(DefDatabase<PawnKindDef>.GetNamed("Mech_CentipedeGunner"));
-                //装备
-                centiped.equipment.DestroyAllEquipment();
-                rFaction.leader.equipment.DestroyAllEquipment();
-                ThingWithComps weapon = (ThingWithComps)ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_IronStarCannon"), null);
-                weapon.TryGetComp<CompQuality>()?.SetQuality(QualityCategory.Legendary, ArtGenerationContext.Outsider);
-                centiped.equipment.AddEquipment(weapon);
-                ThingWithComps weaponL = (ThingWithComps)ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_SVT40M_Elite"), null);
-                weaponL.TryGetComp<CompQuality>()?.SetQuality(QualityCategory.Legendary, ArtGenerationContext.Outsider);
-                rFaction.leader.equipment.AddEquipment(weaponL);
-                pawns.Add(centiped);
-                pawns.Add(rFaction.leader);
+                if (centiped != null)
+                {
+                    //装备
+                    centiped.equipment?.DestroyAllEquipment();
+                    if (rFaction.leader != null)
+                    {
+                        rFaction.leader.equipment?.DestroyAllEquipment();
+                    }
+                    ThingWithComps weapon = (ThingWithComps)ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_IronStarCannon"), null);
+                    weapon.TryGetComp<CompQuality>()?.SetQuality(QualityCategory.Legendary, ArtGenerationContext.Outsider);
+                    centiped.equipment?.AddEquipment(weapon);
+                    ThingWithComps weaponL = (ThingWithComps)ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_SVT40M_Elite"), null);
+                    weaponL.TryGetComp<CompQuality>()?.SetQuality(QualityCategory.Legendary, ArtGenerationContext.Outsider);
+                    if (rFaction.leader != null)
+                    {
+                        rFaction.leader.equipment?.AddEquipment(weaponL);
+                        // 保证leader技能保底
+                        EnsureMinimumSkills(rFaction.leader);
+                        // 给rFaction.leader加入MechlinkImplant（如果存在的话）
+                        HediffDef mechlinkDef = DefDatabase<HediffDef>.GetNamedSilentFail("MechlinkImplant");
+                        if (mechlinkDef != null && !rFaction.leader.health.hediffSet.HasHediff(mechlinkDef))
+                        {
+                            rFaction.leader.health.AddHediff(mechlinkDef);
+                        }
+                        pawns.Add(rFaction.leader);
+                    }
+                    centiped.SetFaction(rFaction);
+                    // 给蜈蚣加BUff
+                    HediffDef ironStarHediff = DefDatabase<HediffDef>.GetNamedSilentFail("RKU_IronStarHediff");
+                    if (ironStarHediff != null && !centiped.health.hediffSet.HasHediff(ironStarHediff))
+                    {
+                        centiped.health.AddHediff(ironStarHediff);
+                    }
+                    pawns.Add(centiped);
+                }
                 if (pawns.Count == 0)
                 {
                     return false;
@@ -141,6 +169,32 @@ namespace RatkinUnderground
             PostProcessSpawnedPawns(parms, pawns);
             GenerateRaidLoot(parms, points, pawns);
             return true;
+        }
+
+        private void EnsureMinimumSkills(Pawn pawn)
+        {
+            if (pawn.skills == null)
+                return;
+
+            // 技能保底要求
+            var skillRequirements = new Dictionary<SkillDef, int>
+            {
+                { SkillDefOf.Shooting, 15 },
+                { SkillDefOf.Melee, 5 },
+                { SkillDefOf.Social, 15 },
+                { SkillDefOf.Intellectual, 15 },
+                { SkillDefOf.Mining, 5 },
+                { SkillDefOf.Crafting, 10 }
+            };
+
+            foreach (var kvp in skillRequirements)
+            {
+                SkillRecord skill = pawn.skills.GetSkill(kvp.Key);
+                if (skill != null && skill.Level < kvp.Value)
+                {
+                    skill.Level = kvp.Value;
+                }
+            }
         }
     }
 }

@@ -118,8 +118,7 @@ public class RKU_GenStep_BioLab : GenStep
                 IntVec3 pos = new IntVec3(startX + x, 0, startZ + (layoutHeight - 1 - y));
                 if (!pos.InBounds(map))
                     continue;
-                // 设置房顶
-                SetAppropriateRoof(map, pos);
+               
                 // 特殊情况
                 int skipChars = 0;
                 if (TryHandleSpecialCell(map, pos, cell, row, x, layoutWidth, out skipChars))
@@ -130,8 +129,9 @@ public class RKU_GenStep_BioLab : GenStep
                 GenerateCell(map, pos, cell, layoutRows, startX, startZ, layoutHeight);
             }
         }
-        // 在所有建筑生成完成后生成墙体和壁灯
-        GenerateWalls(map, layoutRows, startX, startZ, layoutHeight);
+        // 在所有建筑生成完成后生成墙体、房顶
+        GenerateWallsAndRoof(map, layoutRows, startX, startZ, layoutHeight);
+        // 生成壁灯
         GenerateWallLamps(map, layoutRows, startX, startZ, layoutHeight);
         if (unfogged)
         {
@@ -140,9 +140,14 @@ public class RKU_GenStep_BioLab : GenStep
     }
 
     /// <summary>
-    /// 生成墙体（在所有其他建筑生成完成后）
+    /// 生成墙体和房顶（在所有其他建筑生成完成后统一处理）
     /// </summary>
-    private void GenerateWalls(Map map, List<string> layoutRows, int startX, int startZ, int layoutHeight)
+    /// <param name="map">地图</param>
+    /// <param name="layoutRows">布局行数据</param>
+    /// <param name="startX">起始X坐标</param>
+    /// <param name="startZ">起始Z坐标</param>
+    /// <param name="layoutHeight">布局高度</param>
+    private void GenerateWallsAndRoof(Map map, List<string> layoutRows, int startX, int startZ, int layoutHeight)
     {
         for (int y = 0; y < layoutHeight; y++)
         {
@@ -150,13 +155,18 @@ public class RKU_GenStep_BioLab : GenStep
             for (int x = 0; x < row.Length; x++)
             {
                 char cell = row[x];
-                if (cell == '█')
-                {
-                    IntVec3 pos = new IntVec3(startX + x, 0, startZ + (layoutHeight - 1 - y));
-                    if (!pos.InBounds(map)) continue;
+                IntVec3 pos = new IntVec3(startX + x, 0, startZ + (layoutHeight - 1 - y));
 
+                if (!pos.InBounds(map))
+                    continue;
+
+                // 处理墙体生成
+                if (cell == '█' || cell == ','|| cell == 'd'||cell== '●')
+                {
                     ThingDef wallDef = ThingDefOf.Wall;
                     ThingDef wallStuff = ThingDefOf.Steel;
+                    if (cell == ',') wallStuff = ThingDef.Named("BlocksMarble");
+                    if (cell == 'd') wallStuff = ThingDef.Named("WoodLog");
                     if (wallDef != null)
                     {
                         Thing wall = ThingMaker.MakeThing(wallDef, wallStuff);
@@ -164,12 +174,20 @@ public class RKU_GenStep_BioLab : GenStep
                     }
                     SpawnHiddenConduitIfNeeded(pos, map);
                 }
+                if (cell != '.')
+                {
+                    SetAppropriateRoofForPosition(map, pos);
+                }
+                else
+                {
+                    map.roofGrid.SetRoof(pos, null);
+                }
             }
         }
     }
 
     /// <summary>
-    /// 生成壁灯（在所有其他建筑生成完成后）
+    /// 生成壁灯（在墙体和房顶生成完成后）
     /// </summary>
     private void GenerateWallLamps(Map map, List<string> layoutRows, int startX, int startZ, int layoutHeight)
     {
@@ -183,6 +201,7 @@ public class RKU_GenStep_BioLab : GenStep
                 {
                     IntVec3 pos = new IntVec3(startX + x, 0, startZ + (layoutHeight - 1 - y));
                     if (!pos.InBounds(map)) continue;
+
                     Thing wallLamp = ThingMaker.MakeThing(ThingDef.Named("WallLamp"));
                     TryGetWallLampPositionAndRotation(map, pos, out IntVec3 lampPos, out Rot4 wallLampRot);
                     GenSpawn.Spawn(wallLamp, lampPos, map, wallLampRot);
@@ -253,8 +272,21 @@ public class RKU_GenStep_BioLab : GenStep
         }
         switch (cellType)
         {
+            case '.': // 不管
+                if (!pos.GetTerrain(map).affordances.Any(o => o.defName == "Heavy")) ;
+                {
+                    TerrainDef targetTerrain = TerrainDefOf.Soil;
+                    map.terrainGrid.SetTerrain(pos, targetTerrain);
+                }
+                break;
+            case ',': // 大理石墙
+                break;
             case '░': // 空地
                 map.terrainGrid.SetTerrain(pos, TerrainDef.Named("AncientTile"));
+                SpawnHiddenConduitIfNeeded(pos, map);
+                break;
+            case '♦': // 混凝土
+                map.terrainGrid.SetTerrain(pos, TerrainDef.Named("Concrete"));
                 SpawnHiddenConduitIfNeeded(pos, map);
                 break;
             case '□': // 无菌地砖
@@ -308,6 +340,24 @@ public class RKU_GenStep_BioLab : GenStep
                     GenSpawn.Spawn(fence, pos, map);
                 }
                 break;
+            case 'z': // 木栅栏
+                ThingDef woodFenceDef = ThingDef.Named("Fence");
+                ThingDef woodfenceStuff = ThingDefOf.WoodLog;
+                if (woodFenceDef != null)
+                {
+                    Thing fence = ThingMaker.MakeThing(woodFenceDef, woodfenceStuff);
+                    GenSpawn.Spawn(fence, pos, map);
+                }
+                break;
+            case 'n': // 栅栏门
+                ThingDef fenceGateDef = ThingDef.Named("FenceGate");
+                ThingDef fenceGateStuff = ThingDefOf.WoodLog;
+                if (fenceGateDef != null)
+                {
+                    Thing fence = ThingMaker.MakeThing(fenceGateDef, fenceGateStuff);
+                    GenSpawn.Spawn(fence, pos, map);
+                }
+                break;
             case 'R': // 玫瑰
                 map.terrainGrid.SetTerrain(pos, TerrainDefOf.SoilRich);
                 Thing rose = ThingMaker.MakeThing(ThingDef.Named("Plant_Rose"));
@@ -318,22 +368,80 @@ public class RKU_GenStep_BioLab : GenStep
                     plant.Growth = 1f;
                 }
                 break;
+            case 'j': // 水稻
+                map.terrainGrid.SetTerrain(pos, TerrainDefOf.SoilRich);
+                Thing rice = ThingMaker.MakeThing(ThingDef.Named("Plant_Rice"));
+                Plant ricep = (Plant)GenSpawn.Spawn(rice, pos, map);
+                if (ricep != null)
+                {
+                    ricep.Growth = Rand.Range(0.6f,1f);
+                }
+                break;
+            case '}': // 玉米
+                map.terrainGrid.SetTerrain(pos, TerrainDefOf.SoilRich);
+                Thing corn = ThingMaker.MakeThing(ThingDef.Named("Plant_Corn"));
+                Plant cornp = (Plant)GenSpawn.Spawn(corn, pos, map);
+                if (cornp != null)
+                {
+                    cornp.Growth = Rand.Range(0.6f, 1f);
+                }
+                map.roofGrid.SetRoof(pos, null);
+                break; 
+            case 'a': // 干草
+                map.terrainGrid.SetTerrain(pos, TerrainDefOf.SoilRich);
+                Thing hay = ThingMaker.MakeThing(ThingDef.Named("Plant_Haygrass"));
+                Plant hayp = (Plant)GenSpawn.Spawn(hay, pos, map);
+                if (hayp != null)
+                {
+                    hayp.Growth = Rand.Range(0.6f, 1f);
+                }
+                break;
             case 'N': // 发电机
                 Thing cpg = ThingMaker.MakeThing(ThingDef.Named("ChemfuelPoweredGenerator"));
                 GenSpawn.Spawn(cpg, pos, map);
                 FillPowerStorage(cpg);
                 FillFuelStorage(cpg);
                 break;
+            case '=': // 休眠舱
+                Thing xmc = ThingMaker.MakeThing(ThingDef.Named("AncientCryptosleepCasket"));
+                GenSpawn.Spawn(xmc, pos, map,Rot4.East);
+                break;
+            case 'ｦ': // 古代储物柜（南）
+                Thing cwgS = ThingMaker.MakeThing(ThingDef.Named("AncientLockerBank"));
+                GenSpawn.Spawn(cwgS, pos, map, Rot4.South);
+                break;
+            case 'ｧ': // 古代储物柜（北）
+                Thing cwgN = ThingMaker.MakeThing(ThingDef.Named("AncientLockerBank"));
+                GenSpawn.Spawn(cwgN, pos, map, Rot4.North);
+                break;
+            case 'ｨ': // 古代储物柜（东）
+                Thing cwgE = ThingMaker.MakeThing(ThingDef.Named("AncientLockerBank"));
+                GenSpawn.Spawn(cwgE, pos, map, Rot4.East);
+                break;
             case 'F': // 电池
                 Thing btr = ThingMaker.MakeThing(ThingDef.Named("Battery"));
                 GenSpawn.Spawn(btr, pos, map);
                 FillPowerStorage(btr);
                 break;
+            case 'ﾛ': // 炉灶
+                Thing stove = ThingMaker.MakeThing(ThingDef.Named("ElectricStove"));
+                GenSpawn.Spawn(stove, pos, map, Rot4.North);
+                ApplyTileTerrainPropagation(pos, map);
+                break;
             case 'B': // 床
-                ThingDef bedStuff = ThingDefOf.WoodLog;
-                Thing bed = ThingMaker.MakeThing(ThingDef.Named("Bed"), bedStuff);
+                Thing bed = ThingMaker.MakeThing(ThingDef.Named("Bed"), ThingDefOf.WoodLog);
                 Rot4 bedRotation = (pos.z > 150) && (pos.x <= 80 || pos.x >= 173) ? GetBedRotation(pos, layoutRows, startX, startZ, layoutHeight) : Rot4.South;
                 GenSpawn.Spawn(bed, pos, map, bedRotation);
+                ApplyTileTerrainPropagation(pos, map);
+                break;
+            case 'ﾜ': // 床北
+                Thing bedN = ThingMaker.MakeThing(ThingDef.Named("Bed"), ThingDefOf.WoodLog);
+                GenSpawn.Spawn(bedN, pos, map, Rot4.North);
+                ApplyTileTerrainPropagation(pos, map); 
+                break;
+            case '|': // 火把
+                Thing torch = ThingMaker.MakeThing(ThingDef.Named("TorchLamp"));
+                GenSpawn.Spawn(torch, pos, map);
                 ApplyTileTerrainPropagation(pos, map);
                 break;
             case 'C': // 仓鼠轮
@@ -416,6 +524,12 @@ public class RKU_GenStep_BioLab : GenStep
                 GenSpawn.Spawn(yellowFlower, pos, map);
                 ApplyTileTerrainPropagation(pos, map);
                 break;
+            case 'r': // 畜栏
+                ThingDef penStuff = ThingDefOf.WoodLog;
+                Thing penMarker = ThingMaker.MakeThing(ThingDef.Named("PenMarker"), penStuff);
+                GenSpawn.Spawn(penMarker, pos, map);
+                ApplyTileTerrainPropagation(pos, map);
+                break;
             case 'W': // 钢铁餐椅
                 ThingDef chairStuff = ThingDefOf.Steel;
                 Thing diningChair = ThingMaker.MakeThing(ThingDef.Named("DiningChair"), chairStuff);
@@ -427,7 +541,7 @@ public class RKU_GenStep_BioLab : GenStep
                 GenSpawn.Spawn(endTable, pos, map);
                 ApplyTileTerrainPropagation(pos, map);
                 break;
-            case 'α':
+            case 'α'://矮柜
                 ThingDef dresserStuff = ThingDefOf.Steel;
                 Thing dresser = ThingMaker.MakeThing(ThingDef.Named("Dresser"), dresserStuff);
                 Rot4 dresserRot = Rot4.West;
@@ -444,15 +558,32 @@ public class RKU_GenStep_BioLab : GenStep
                 Thing table = ThingMaker.MakeThing(ThingDef.Named("Table2x4c"), tableStuff);
                 GenSpawn.Spawn(table, pos, map, Rot4.East);
                 break;
+            case 'ﾝ': // 3*3木桌
+                ThingDef table3Stuff = ThingDefOf.Steel;
+                Thing table3 = ThingMaker.MakeThing(ThingDef.Named("Table3x3c"), ThingDefOf.WoodLog);
+                GenSpawn.Spawn(table3, pos, map, Rot4.East);
+                break; 
             case 'ε': // 1*2钢铁桌
                 ThingDef x2tableStuff = ThingDefOf.Steel;
                 Thing microwave = ThingMaker.MakeThing(ThingDef.Named("Table1x2c"), x2tableStuff);
                 GenSpawn.Spawn(microwave, pos, map, Rot4.East);
                 break;
+            case 'ﾖ': //马桶
+                Thing ancientToilet = ThingMaker.MakeThing(ThingDef.Named("AncientToilet"));
+                GenSpawn.Spawn(ancientToilet, pos, map);
+                break; 
             case 'ζ': // 黑板
                 ThingDef boardStuff = ThingDef.Named("BlocksMarble");
                 Thing blackBoard = ThingMaker.MakeThing(ThingDefOf.Blackboard, boardStuff);
                 GenSpawn.Spawn(blackBoard, pos, map, Rot4.South);
+                break;
+            case 'ￓ': // 黑板竖
+                Thing blackBoardw = ThingMaker.MakeThing(ThingDefOf.Blackboard, ThingDefOf.WoodLog);
+                GenSpawn.Spawn(blackBoardw, pos, map, Rot4.East);
+                break;
+            case 'ￛ': // 课桌
+                Thing schoolDesk = ThingMaker.MakeThing(ThingDef.Named("SchoolDesk"), ThingDefOf.WoodLog);
+                GenSpawn.Spawn(schoolDesk, pos, map, Rot4.East);
                 break;
             case 'μ': // 灭火器
                 Thing firefoamPopper = ThingMaker.MakeThing(ThingDef.Named("FirefoamPopper"));
@@ -460,7 +591,7 @@ public class RKU_GenStep_BioLab : GenStep
                 break;
             case 'σ': // 通讯台
                 Thing commsConsole = ThingMaker.MakeThing(ThingDef.Named("CommsConsole"));
-                GenSpawn.Spawn(commsConsole, pos, map);
+                GenSpawn.Spawn(commsConsole, pos, map,Rot4.North);
                 ConnectToPower(commsConsole, map);
                 break;
             case 'π': // 塑形仓
@@ -489,6 +620,10 @@ public class RKU_GenStep_BioLab : GenStep
                 Thing stool = ThingMaker.MakeThing(ThingDef.Named("Stool"), stoolStuff);
                 GenSpawn.Spawn(stool, pos, map, Rot4.South);
                 break;
+            case 'u': // 木板凳竖
+                Thing stoolw = ThingMaker.MakeThing(ThingDef.Named("Stool"), ThingDefOf.WoodLog);
+                GenSpawn.Spawn(stoolw, pos, map, Rot4.West);
+                break;
             case 'U': // 火盆
                 ThingDef brazierStuff = ThingDefOf.Steel;
                 Thing brazier = ThingMaker.MakeThing(ThingDef.Named("Brazier"), brazierStuff);
@@ -498,14 +633,14 @@ public class RKU_GenStep_BioLab : GenStep
             case 'V': // 物品架
                 ThingDef shelfVStuff = ThingDefOf.Steel;
                 Thing shelfV = ThingMaker.MakeThing(ThingDef.Named("Shelf"), shelfVStuff);
-                GenSpawn.Spawn(shelfV, pos, map,Rot4.South);
+                GenSpawn.Spawn(shelfV, pos, map, Rot4.South);
                 ApplyTileTerrainPropagation(pos, map);
 
                 // 30%几率生成第一个物品
                 if (Rand.Range(0f, 1f) < 0.5f)
                 {
                     Thing item1 = Utils.GenerateRandomItem();
-                    GenSpawn.Spawn(item1, pos , map);
+                    GenSpawn.Spawn(item1, pos, map);
 
                     if (item1 != null)
                     {
@@ -513,7 +648,7 @@ public class RKU_GenStep_BioLab : GenStep
                         if (Rand.Range(0f, 1f) < 0.4f)
                         {
                             Thing item2 = Utils.GenerateRandomItem();
-                            GenSpawn.Spawn(item2, pos+new IntVec3(1,0,0), map);
+                            GenSpawn.Spawn(item2, pos + new IntVec3(1, 0, 0), map);
                         }
                     }
                 }
@@ -525,14 +660,22 @@ public class RKU_GenStep_BioLab : GenStep
                 ApplyTileTerrainPropagation(pos, map);
                 break;
             case 'x': // 火化炉
-                Thing electricCrematorium = ThingMaker.MakeThing(ThingDef.Named("ElectricCrematorium"),ThingDefOf.Steel);
+                Thing electricCrematorium = ThingMaker.MakeThing(ThingDef.Named("ElectricCrematorium"), ThingDefOf.Steel);
                 GenSpawn.Spawn(electricCrematorium, pos, map);
                 ApplyTileTerrainPropagation(pos, map);
-                ConnectToPower(electricCrematorium,map);
+                ConnectToPower(electricCrematorium, map);
                 break;
             case 'Y': // 远古路障
-                Thing ancientBarrier = ThingMaker.MakeThing(ThingDef.Named("AncientBarrierLong"));
-                GenSpawn.Spawn(ancientBarrier, pos, map);
+                if (ModsConfig.OdysseyActive)
+                {
+                    Thing ancientBarrier = ThingMaker.MakeThing(ThingDef.Named("AncientBarrierLong"));
+                    GenSpawn.Spawn(ancientBarrier, pos, map);
+                }
+                else
+                {
+                    Thing ancientBarrier = ThingMaker.MakeThing(ThingDef.Named("AncientConcreteBarrier"));
+                    GenSpawn.Spawn(ancientBarrier, pos, map);
+                }
                 break;
             case 'b': // 采矿炸药（大
                 if (ModsConfig.OdysseyActive)
@@ -542,8 +685,7 @@ public class RKU_GenStep_BioLab : GenStep
                 }
                 else
                 {
-                    Thing sandbags = ThingMaker.MakeThing(ThingDef.Named("Sandbags"));
-                    GenSpawn.Spawn(sandbags, pos, map);
+                    SpawnSandbag(pos, map);
                 }
                 break;
             case '?': // 采矿炸药（小
@@ -554,15 +696,11 @@ public class RKU_GenStep_BioLab : GenStep
                 }
                 else
                 {
-                    Thing sandbags = ThingMaker.MakeThing(ThingDef.Named("Sandbags"));
-                    GenSpawn.Spawn(sandbags, pos, map);
+                    SpawnSandbag(pos, map);
                 }
                 break;
             case 's': // 沙袋
-                ThingDef sandbagDef = ThingDef.Named("Sandbags");
-                ThingDef sandbagStuff = ThingDefOf.Cloth; // 沙袋需要材质
-                Thing sandbag = ThingMaker.MakeThing(sandbagDef, sandbagStuff);
-                GenSpawn.Spawn(sandbag, pos, map);
+                SpawnSandbag(pos, map);
                 break;
             case 'e': // 远古发电机（大
                 Thing ancientFuelTankLarge = ThingMaker.MakeThing(ThingDef.Named("AncientGenerator"));
@@ -570,7 +708,11 @@ public class RKU_GenStep_BioLab : GenStep
                 break;
             case 'f': // 远古储物罐（小
                 Thing ancientFuelTankSmall = ThingMaker.MakeThing(ThingDef.Named("AncientCrate"));
-                GenSpawn.Spawn(ancientFuelTankSmall, pos, map);
+                GenSpawn.Spawn(ancientFuelTankSmall, pos, map); 
+                break;
+            case 'ﾰ': // 远古液罐
+                Thing ancientStorageCylinder = ThingMaker.MakeThing(ThingDef.Named("AncientStorageCylinder"));
+                GenSpawn.Spawn(ancientStorageCylinder, pos, map,Rot4.West); 
                 break;
             case 'g': // 平板电视
                 Thing television = ThingMaker.MakeThing(ThingDef.Named("FlatscreenTelevision"));
@@ -616,7 +758,7 @@ public class RKU_GenStep_BioLab : GenStep
                 SpawnHiddenConduitIfNeeded(pos, map);
                 break;
             case '5': // 精致地板（大理石
-                map.terrainGrid.SetTerrain(pos, TerrainDef.Named("Tile_MorbidMarble"));
+                map.terrainGrid.SetTerrain(pos, TerrainDef.Named("TileMarble"));
                 SpawnHiddenConduitIfNeeded(pos, map);
                 break;
             case '6': // 精致地毯（白
@@ -630,6 +772,45 @@ public class RKU_GenStep_BioLab : GenStep
             case '8': // 精致地毯（蓝
                 map.terrainGrid.SetTerrain(pos, TerrainDef.Named("CarpetFineBlue"));
                 SpawnHiddenConduitIfNeeded(pos, map);
+                break;
+            case ':': // 机械加工台
+                Thing machiningTable = ThingMaker.MakeThing(ThingDef.Named("TableMachining"));
+                Rot4 machiningRot = CheckBelowIsWall(layoutRows, pos, startX, startZ, layoutHeight) ? Rot4.South : Rot4.North;
+                GenSpawn.Spawn(machiningTable, pos, map, machiningRot);
+                ConnectToPower(machiningTable, map);
+                ApplyTileTerrainPropagation(pos, map);
+                break;
+            case '(': // 工具柜（竖）
+                Thing toolCabinet = ThingMaker.MakeThing(ThingDef.Named("ToolCabinet"));
+                GenSpawn.Spawn(toolCabinet, pos, map,Rot4.East);
+                ApplyTileTerrainPropagation(pos, map);
+                break;
+            case ')': // 工具柜（横）
+                Thing toolCabinetS = ThingMaker.MakeThing(ThingDef.Named("ToolCabinet"));
+                GenSpawn.Spawn(toolCabinetS, pos, map, Rot4.South);
+                ApplyTileTerrainPropagation(pos, map);
+                break;
+            case 'y': // 锻造台（电力）
+                Thing electricSmithy = ThingMaker.MakeThing(ThingDef.Named("ElectricSmithy"));
+                Rot4 smithyRot = CheckBelowIsWall(layoutRows, pos, startX, startZ, layoutHeight) ? Rot4.South : Rot4.North;
+                GenSpawn.Spawn(electricSmithy, pos, map, smithyRot);
+                ConnectToPower(electricSmithy, map);
+                ApplyTileTerrainPropagation(pos, map);
+                break;
+            case '~': // 钻机
+                Thing drill = ThingMaker.MakeThing(ThingDef.Named("RKU_DrillingVehicle"));
+                GenSpawn.Spawn(drill, pos, map);
+                ApplyTileTerrainPropagation(pos, map);
+                break;
+            case '!': // 货运钻机
+                Thing cargoDrill = ThingMaker.MakeThing(ThingDef.Named("RKU_DrillingVehicleCargo"));
+                GenSpawn.Spawn(cargoDrill, pos, map);
+                ApplyTileTerrainPropagation(pos, map);
+                break;
+            case '@': // 武装钻机
+                Thing armedDrill = ThingMaker.MakeThing(ThingDef.Named("RKU_DrillingVehicleWithTurret"));
+                GenSpawn.Spawn(armedDrill, pos, map);
+                ApplyTileTerrainPropagation(pos, map);
                 break;
             default:
                 map.terrainGrid.SetTerrain(pos, DefDatabase<TerrainDef>.GetNamed("AncientTile"));
@@ -693,13 +874,21 @@ public class RKU_GenStep_BioLab : GenStep
         return Rot4.South;
     }
 
+
     /// <summary>
     /// 为指定位置设置合适的房顶（替换厚岩顶为建造房顶）
     /// </summary>
     /// <param name="map">地图</param>
     /// <param name="pos">位置</param>
-    private void SetAppropriateRoof(Map map, IntVec3 pos)
+    private void SetAppropriateRoofForPosition(Map map, IntVec3 pos)
     {
+        // 如果位置不在房间中，则清除房顶
+        if (!IsPositionInRoom(map, pos))
+        {
+            map.roofGrid.SetRoof(pos, null);
+            return;
+        }
+
         RoofDef existingRoof = map.roofGrid.RoofAt(pos);
         if (existingRoof == RoofDefOf.RoofRockThick)
         {
@@ -709,6 +898,18 @@ public class RKU_GenStep_BioLab : GenStep
         {
             map.roofGrid.SetRoof(pos, RoofDefOf.RoofConstructed);
         }
+    }
+
+    /// <summary>
+    /// 检查指定位置是否在房间中
+    /// </summary>
+    /// <param name="map">地图</param>
+    /// <param name="pos">位置</param>
+    /// <returns>是否在房间中</returns>
+    private bool IsPositionInRoom(Map map, IntVec3 pos)
+    {
+        Room room = pos.GetRoom(map);
+        return room != null;
     }
 
     /// <summary>
@@ -876,5 +1077,40 @@ public class RKU_GenStep_BioLab : GenStep
                 map.terrainGrid.SetTerrain(pos, mostCommonTerrain);
             }
         }
+    }
+
+    /// <summary>
+    /// 在指定位置生成沙袋
+    /// </summary>
+    /// <param name="pos">生成位置</param>
+    /// <param name="map">地图</param>
+    private void SpawnSandbag(IntVec3 pos, Map map)
+    {
+        ThingDef sandbagDef = ThingDef.Named("Sandbags");
+        ThingDef sandbagStuff = ThingDefOf.Cloth;
+        Thing sandbag = ThingMaker.MakeThing(sandbagDef, sandbagStuff);
+        GenSpawn.Spawn(sandbag, pos, map);
+    }
+
+    /// <summary>
+    /// 检查布局中下面一行对应位置是否是墙体
+    /// </summary>
+    /// <param name="layoutRows">布局行数据</param>
+    /// <param name="pos">当前位置（世界坐标）</param>
+    /// <param name="startX">布局起始X坐标</param>
+    /// <param name="startZ">布局起始Z坐标</param>
+    /// <param name="layoutHeight">布局高度</param>
+    /// <returns>如果下面一行对应位置是墙体则返回true</returns>
+    private bool CheckBelowIsWall(List<string> layoutRows, IntVec3 pos, int startX, int startZ, int layoutHeight)
+    {
+        int layoutX = pos.x - startX;
+        int layoutY = layoutHeight - 1 - (pos.z - startZ);
+        int belowY = layoutY + 1;
+        if (belowY < 0 || belowY >= layoutRows.Count)
+            return false;
+        if (layoutX < 0 || layoutX >= layoutRows[belowY].Length)
+            return false;
+        char belowChar = layoutRows[belowY][layoutX];
+        return belowChar == '█' || belowChar == ',' || belowChar == 'd' || belowChar == '●';
     }
 }

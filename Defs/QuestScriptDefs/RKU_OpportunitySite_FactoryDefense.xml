@@ -1,30 +1,27 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  <!-- 炮楼突袭任务 -->
+  <!-- 游击队工厂防御任务 -->
   <QuestScriptDef>
-    <defName>RKU_OpportunitySite_CompoundRaid</defName>
+    <defName>RKU_OpportunitySite_FactoryDefense</defName>
     <rootSelectionWeight>0.1</rootSelectionWeight>
-    <rootMinPoints>600</rootMinPoints>
+    <rootMinPoints>5000</rootMinPoints>
     <canGiveRoyalFavor>false</canGiveRoyalFavor>
-    <expireDaysRange>6~10</expireDaysRange>
+    <expireDaysRange>8~12</expireDaysRange>
     <successHistoryEvent MayRequire="Ludeon.RimWorld.Ideology">Raided_BanditCamp</successHistoryEvent>
     <questNameRules>
       <rulesStrings>
-        <li>questName->攻打[enemy][fortress]</li>
-        <li>questName->突袭[enemy][fortress]</li>
-        <li>questName->[asker_nameDef]的[fortress]任务</li>
-        <li>questName->摧毁[enemy][fortress]</li>
-        <li>fortress->炮楼</li>
-        <li>fortress->堡垒</li>
-        <li>fortress->要塞</li>
-        <li>fortress->据点</li>
-        <li>enemy->军阀</li>
-        <li>enemy->匪徒</li>
+        <li>questName->防御[factory]</li>
+        <li>questName->保卫[factory]</li>
+        <li>questName->[asker_nameDef]的[factory]防御任务</li>
+        <li>questName->坚守[factory]</li>
+        <li>factory->游击队工厂</li>
+        <li>factory->地下工厂</li>
+        <li>factory->钻机工厂</li>
       </rulesStrings>
     </questNameRules>
     <questDescriptionRules>
       <rulesStrings>
-        <li>questDescription->[asker_nameFull]，[asker_faction_name]的[asker_faction_leaderTitle]，向我们发来了紧急情报。附近存在一个由鼠族军阀控制的武装炮楼。这座炮楼外围有完善的防御设施，配备了多座炮塔，守卫森严。[asker_nameDef]希望我们可以消灭所有敌人并摧毁这座防御工事。</li>
+        <li>questDescription->[asker_nameFull]，[asker_faction_name]的[asker_faction_leaderTitle]，向我们发来了紧急求援信号。游击队的重要钻机生产工厂正遭受王国军的猛烈攻击！这座工厂是游击队唯一的载具生产工厂，一旦它被摧毁，游击队会陷入绝境。[asker_nameDef]希望我们可以迅速赶到现场，帮助守卫工厂，击退来袭的敌人并保护重要的生产设备。</li>
       </rulesStrings>
     </questDescriptionRules>
     <root Class="QuestNode_Sequence">
@@ -32,8 +29,8 @@
         <li Class="QuestNode_SubScript">
           <def>Util_RandomizePointsChallengeRating</def>
           <parms>
-            <pointsFactorTwoStar>1.5</pointsFactorTwoStar>
-            <pointsFactorThreeStar>2</pointsFactorThreeStar>
+            <pointsFactorTwoStar>1.8</pointsFactorTwoStar>
+            <pointsFactorThreeStar>2.5</pointsFactorThreeStar>
           </parms>
         </li>
         <li Class="QuestNode_SubScript">
@@ -41,10 +38,9 @@
         </li>
         <li Class="QuestNode_GetMap" />
 
-        <!-- 10好感 -->
         <li Class="RatkinUnderground.QuestNode_RequireFactionGoodwill">
           <faction>RKU_Faction</faction>
-          <minGoodwill>5</minGoodwill>
+          <minGoodwill>75</minGoodwill>
         </li>
 
         <li Class="RatkinUnderground.QuestNode_RKU_GetFactionByDef">
@@ -71,7 +67,7 @@
           <storeAs>enemyFaction</storeAs>
           <allowNeutral>true</allowNeutral>
           <requiredFactionDefs>
-            <li>Rakinia_Warlord</li>
+            <li>Rakinia</li>
           </requiredFactionDefs>
           <allowPermanentEnemy>true</allowPermanentEnemy>
         </li>
@@ -80,7 +76,7 @@
           <storeFactionAs>siteFaction</storeFactionAs>
           <sitePartsTags>
             <li>
-              <tag>RatkinCompound</tag>
+              <tag>RatkinFactory</tag>
             </li>
           </sitePartsTags>
         </li>
@@ -105,7 +101,7 @@
 
         <li Class="QuestNode_Multiply">
           <value1>$rewardValue</value1>
-          <value2>1.8</value2>
+          <value2>2.0</value2>
           <storeAs>rewardValue</storeAs>
         </li>
 
@@ -127,7 +123,7 @@
             <nodes>
               <li Class="QuestNode_Letter">
                 <label TKey="LetterLabelQuestExpired">Quest expired: [resolvedQuestName]</label>
-                <text TKey="LetterTextQuestExpired">炮楼已被废弃。任务[resolvedQuestName]已过期。</text>
+                <text TKey="LetterTextQuestExpired">工厂已被摧毁。任务[resolvedQuestName]已过期。</text>
               </li>
               <li Class="QuestNode_End">
                 <outcome>Fail</outcome>
@@ -142,7 +138,7 @@
             <nodes>
               <li Class="QuestNode_Letter">
                 <label TKey="LetterLabelQuestFailed">Quest failed: [resolvedQuestName]</label>
-                <text TKey="LetterTextQuestFailed">被发现后，军阀炮楼已被撤离。任务[resolvedQuestName]已结束。</text>
+                <text TKey="LetterTextQuestFailed">工厂防御失败。任务[resolvedQuestName]已结束。</text>
               </li>
               <li Class="QuestNode_End">
                 <outcome>Fail</outcome>
@@ -166,7 +162,7 @@
                 </parms>
                 <addCampLootReward>true</addCampLootReward>
                 <customLetterLabel TKey="LetterLabelPaymentArrived">Payment arrived</customLetterLabel>
-                <customLetterText TKey="LetterTextPaymentArrived">你成功摧毁了炮楼！\n\n游击队的报酬已送达。</customLetterText>
+                <customLetterText TKey="LetterTextPaymentArrived">你成功守卫了游击队工厂！\n\n游击队的报酬已送达。</customLetterText>
                 <nodeIfChosenPawnSignalUsed Class="QuestNode_Letter">
                   <letterDef>ChoosePawn</letterDef>
                   <label TKey="LetterLabelFavorReceiver">[asker_faction_royalFavorLabel]</label>
@@ -187,26 +183,25 @@
   </QuestScriptDef>
 
   <SitePartDef ParentName="Outpost">
-    <defName>RatkinCompound</defName>
-    <label>军阀炮楼</label>
-    <description>一座由鼠族军阀控制的武装炮楼，外围有完善的防御设施，配备多座炮塔，防御森严。</description>
+    <defName>RatkinFactory</defName>
+    <label>游击队工厂</label>
+    <description>一座游击队的重要武器生产工厂，装备着先进的武器生产设备。</description>
     <showFactionInInspectString>false</showFactionInInspectString>
     <applyFactionColorToSiteTexture>false</applyFactionColorToSiteTexture>
     <tags Inherit="False">
-      <li>RatkinCompound</li>
+      <li>RatkinFactory</li>
     </tags>
-    <workerClass>RatkinUnderground.SitePartWorker_RatkinCompound</workerClass>
+    <workerClass>RatkinUnderground.SitePartWorker_RatkinFactory</workerClass>
   </SitePartDef>
 
   <GenStepDef>
-    <defName>RatkinCompound</defName>
-    <linkWithSite>RatkinCompound</linkWithSite>
+    <defName>RatkinFactory</defName>
+    <linkWithSite>RatkinFactory</linkWithSite>
     <order>450</order>
     <genStep Class="RatkinUnderground.RKU_GenStep_BioLab">
-      <layoutFilePath>CompoundLayouts.xml</layoutFilePath>
+      <layoutFilePath>FactoryLayouts.xml</layoutFilePath>
       <generateLoot>true</generateLoot>
       <unfogged>true</unfogged>
     </genStep>
   </GenStepDef>
 </Defs>
-

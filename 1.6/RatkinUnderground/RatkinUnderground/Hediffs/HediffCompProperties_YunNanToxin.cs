@@ -45,7 +45,7 @@ namespace RatkinUnderground
         {
             var ele = stateList.RandomElement();
             MentalStateDef state = DefDatabase<MentalStateDef>.GetNamed(ele, false);
-            if (state == null) return;
+            if (state == null||Pawn.DeadOrDowned) return;
             parent.pawn.mindState.mentalStateHandler.TryStartMentalState(state, "RKU_YunnanHallucination".Translate() + ":" + state.label.Translate(), forceWake: true);
             Log.Message("RKU_EnteredMentalState".Translate(parent.pawn, state.defName));
         }

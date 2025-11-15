@@ -516,18 +516,81 @@ public class Dialog_RKU_Radio : Window, ITrader
                     }
                     else
                     {
-                        //善线军阀1
+                        //善线军阀1：好感度 >= 5
                         if (radioComponent.ralationshipGrade >= 5 && radioComponent.ralationshipGrade < 100)
                         {
-                            string eventKey = "RKU_ProvideSupport_WarLord1";
-                            bool hasTriggered = radioComponent.triggeredOnceEvents != null && radioComponent.triggeredOnceEvents.Contains(eventKey);
-                            if (!hasTriggered)
+                            bool hasTriggeredWarLord1 = radioComponent.triggeredOnceEvents != null && radioComponent.triggeredOnceEvents.Contains("RKU_ProvideSupport_WarLord1");
+                            if (!hasTriggeredWarLord1)
                             {
                                 conditionMet = 1; // 军阀-1对话
                             }
                             else
                             {
-                                conditionMet = 0;
+                                //军阀任务2（城堡）：好感度 >= 25
+                                if (radioComponent.ralationshipGrade >= 25)
+                                {
+                                    bool hasTriggeredWarLord2 = radioComponent.triggeredOnceEvents != null && radioComponent.triggeredOnceEvents.Contains("RKU_ProvideSupport_WarLord2");
+                                    if (!hasTriggeredWarLord2)
+                                    {
+                                        conditionMet = 2; // 军阀-2对话（城堡）
+                                    }
+                                    else
+                                    {
+                                        //农场任务
+                                        if (radioComponent.ralationshipGrade >= 45)
+                                        {
+                                            bool hasTriggeredFarm = radioComponent.triggeredOnceEvents != null && radioComponent.triggeredOnceEvents.Contains("RKU_ProvideSupport_FarmRaid");
+                                            if (!hasTriggeredFarm)
+                                            {
+                                                conditionMet = 3; 
+                                            }
+                                            else
+                                            {
+                                                //古代设施任务：
+                                                if (radioComponent.ralationshipGrade >= 55)
+                                                {
+                                                    bool hasTriggeredAncient = radioComponent.triggeredOnceEvents != null && radioComponent.triggeredOnceEvents.Contains("RKU_ProvideSupport_AncientRaid");
+                                                    if (!hasTriggeredAncient)
+                                                    {
+                                                        conditionMet = 4; // 古代设施任务
+                                                    }
+                                                    else
+                                                    {
+                                                        //工厂防御任务：
+                                                        if (radioComponent.ralationshipGrade >= 75)
+                                                        {
+                                                            bool hasTriggeredFactoryDefense = radioComponent.triggeredOnceEvents != null && radioComponent.triggeredOnceEvents.Contains("RKU_ProvideSupport_FactoryDefense");
+                                                            if (!hasTriggeredFactoryDefense)
+                                                            {
+                                                                conditionMet = 5; 
+                                                            }
+                                                            else
+                                                            {
+                                                                conditionMet = 0;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            conditionMet = 0;
+                                                        }
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    conditionMet = 0;
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            conditionMet = 0;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    conditionMet = 0;
+                                }
                             }
                         }
                         else
@@ -594,6 +657,38 @@ public class Dialog_RKU_Radio : Window, ITrader
                         if (warLordEvent != null)
                         {
                             RKU_DialogueManager.ExecuteDialogueEvent(warLordEvent, this);
+                        }
+                        break;
+                    case 2: // 军阀-2对话（城堡）：好感度 >= 25 且 < 100，触发对话并开启城堡任务
+                        isRoyalRadioMode = false;
+                        RKU_DialogueEventDef warLordCastleEvent = DefDatabase<RKU_DialogueEventDef>.GetNamed("RKU_ProvideSupport_WarLord2", false);
+                        if (warLordCastleEvent != null)
+                        {
+                            RKU_DialogueManager.ExecuteDialogueEvent(warLordCastleEvent, this);
+                        }
+                        break;
+                    case 3: // 农场任务：好感度 >= 75，触发对话并开启农场任务
+                        isRoyalRadioMode = false;
+                        RKU_DialogueEventDef farmEvent = DefDatabase<RKU_DialogueEventDef>.GetNamed("RKU_ProvideSupport_FarmRaid", false);
+                        if (farmEvent != null)
+                        {
+                            RKU_DialogueManager.ExecuteDialogueEvent(farmEvent, this);
+                        }
+                        break;
+                    case 4: // 古代设施任务：好感度 >= 100，触发对话并开启古代设施任务
+                        isRoyalRadioMode = false;
+                        RKU_DialogueEventDef ancientEvent = DefDatabase<RKU_DialogueEventDef>.GetNamed("RKU_ProvideSupport_AncientRaid", false);
+                        if (ancientEvent != null)
+                        {
+                            RKU_DialogueManager.ExecuteDialogueEvent(ancientEvent, this);
+                        }
+                        break;
+                    case 5: // 工厂防御任务：好感度 >= 75 且农场任务已完成，触发对话并开启工厂防御任务
+                        isRoyalRadioMode = false;
+                        RKU_DialogueEventDef factoryDefenseEvent = DefDatabase<RKU_DialogueEventDef>.GetNamed("RKU_ProvideSupport_FactoryDefense", false);
+                        if (factoryDefenseEvent != null)
+                        {
+                            RKU_DialogueManager.ExecuteDialogueEvent(factoryDefenseEvent, this);
                         }
                         break;
                     default:
@@ -842,7 +937,7 @@ public class Dialog_RKU_Radio : Window, ITrader
             Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 180f + counts * 25f, statusRect.width - 10f, 20f), "RKU_TradeCooldown".Translate(remainingDays));
             counts++;
         }
-        // 添加扫描状态信息
+        // 扫描状态信息
         if (radioComponent != null && !radioComponent.canScan)
         {
             int remainingDays = radioComponent.GetRemainingCooldownDays();
@@ -850,7 +945,7 @@ public class Dialog_RKU_Radio : Window, ITrader
             counts++;
         }
 
-        // 添加求救呼叫状态信息
+        // 支援状态信息
         if (radioComponent != null && !radioComponent.canEmergency)
         {
             Widgets.Label(new Rect(statusRect.x + 5f, statusRect.y + 180f + counts * 25f, statusRect.width - 10f, 20f), "RKU_EmergencyCooldown".Translate(radioComponent.GetRemainingEmergencyCooldownDays()));
@@ -862,7 +957,7 @@ public class Dialog_RKU_Radio : Window, ITrader
     }
 
     /// <summary>
-    /// 绘制选项失败原因提示
+    /// 绘制失败原因提示
     /// </summary>
     /// <param name="canClick"></param>
     /// <param name="rects"></param>

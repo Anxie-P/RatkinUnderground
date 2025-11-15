@@ -10,17 +10,17 @@
     <successHistoryEvent MayRequire="Ludeon.RimWorld.Ideology">Raided_BanditCamp</successHistoryEvent>
     <questNameRules>
       <rulesStrings>
-        <li>questName->The [ratkin] [lab]</li>
+        <li>questName->[ratkin] [lab]</li>
         <li>questName->[ratkin] [lab] [raid]</li>
-        <li>questName->[asker_nameDef] and the [lab]</li>
-        <li>lab->Bio-Lab</li>
-        <li>lab->Research Facility</li>
-        <li>lab->Biological Institute</li>
-        <li>raid->Raid</li>
-        <li>raid->Assault</li>
-        <li>raid->Strike</li>
-        <li>ratkin->Ratkin</li>
-        <li>ratkin->Kingdom</li>
+        <li>questName->[asker_nameDef] 的 [lab] [raid]</li>
+        <li>lab->生化实验室</li>
+        <li>lab->生物研究设施</li>
+        <li>lab->生化实验机构</li>
+        <li>raid->袭击</li>
+        <li>raid->突袭</li>
+        <li>raid->突击</li>
+        <li>ratkin->鼠族王国</li>
+        <li>ratkin->王国</li>
       </rulesStrings>
     </questNameRules>
     <questDescriptionRules>
@@ -208,7 +208,7 @@
     <linkWithSite>RatkinBioLab</linkWithSite>
     <order>450</order>
     <genStep Class="RatkinUnderground.RKU_GenStep_BioLab">
-      <layoutFilePath>CompoundLayouts.xml</layoutFilePath>
+      <layoutFilePath>BioLabLayouts.xml</layoutFilePath>
       <generateLoot>true</generateLoot>
       <unfogged>true</unfogged>
     </genStep>

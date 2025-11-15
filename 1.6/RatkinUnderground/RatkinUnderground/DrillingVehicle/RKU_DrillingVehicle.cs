@@ -106,7 +106,7 @@ namespace RatkinUnderground
                 yield return gizmo;
             }
             #region 地图内移动
-            if (passengers.Count > 0)
+            if (passengers?.Count > 0)
             {
                 Command_Target command_ChooseTargetInMap = new()
                 {
@@ -154,7 +154,7 @@ namespace RatkinUnderground
             #endregion
 
             #region 载员管理
-            if (this.Faction.IsPlayer)
+            if (this.Faction!=null&&this.Faction.IsPlayer)
             {
                 Command_Action command_ManagePassengers = new()
                 {
@@ -171,7 +171,7 @@ namespace RatkinUnderground
             #endregion
 
             #region 钻地！
-            if (passengers.Count > 0 &&
+            if (passengers?.Count > 0 &&
                 fuelAmount > 0)
             {
                 Command_Action command_AddGoodWill = new()

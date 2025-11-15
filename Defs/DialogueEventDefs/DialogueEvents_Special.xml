@@ -15,6 +15,11 @@
         <changeAmount>10</changeAmount>
       </li>
     </actions>
+	<conditions>
+      <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+        <minGrade>0</minGrade>
+      </li>
+    </conditions>
   </RatkinUnderground.RKU_DialogueEventDef>
   
   <RatkinUnderground.RKU_DialogueEventDef>
@@ -249,17 +254,17 @@
 
   <RatkinUnderground.RKU_DialogueEventDef>
     <defName>RKU_BioLabRaid_Offer</defName>
-    <dialogueText>      同志们，情况不妙。根据我们从王国机密中获得的情报，
-我们发现了一个相当可怕的秘密！
-王国重启了一个秘密的生化研究所！十几年前，由贵族映山红领头，这些设施里研发出来
-的病毒几乎摧毁了当时如日中天的革命军，直到一位特工诛杀了那名罪恶滔天的贵族，我
-们才有机会化整为零...我们劫持到了最近的王国资源动向，他们正在向这座设施里运输
-资源和人员，我们不知道他们在做什么。但可以预料到的是，这些东西一旦完成，
-将对所有人都构成巨大的威胁。
+    <dialogueText>      同志们，情况不妙。根据我们从王国机密中获得的情报，我们发现了一个
+相当可怕的秘密！
+      王国重启了一个秘密的生化研究所！十几年前，由贵族映山红领头，
+这些设施里研发出来的病毒几乎摧毁了当时如日中天的革命军，直到一位特工诛杀了那名
+罪恶滔天的贵族，我们才有机会化整为零...我们劫持到了最近的王国资源动向，他们正
+在向这座设施里运输资源和人员，我们不知道他们在做什么。但可以预料到的是，这些东
+西一旦完成，将对所有人都构成巨大的威胁。
       为了以防万一，我们需要你们的帮助去摧毁这个设施。
 消灭所有敌人，破坏他们的研究设备，拯救所有被奴役的同胞，确保这些危险的东西
 不会落入邪恶的人手中。这将是一次艰难的任务，但对我们的共同事业至关重要。
-如果准备好了就出发吧！我们的部队也随时待命！</dialogueText>
+如果准备好了就出发吧！我们的部队也随时待命！独立团第二营会带上火炮去支援你！</dialogueText>
     <priority>5</priority>
     <triggerOnce>true</triggerOnce>
     <triggerOnStartup>true</triggerOnStartup>
@@ -303,7 +308,8 @@
   <RatkinUnderground.RKU_DialogueEventDef>
     <defName>RKU_Relation_Warning_Serious</defName>
     <dialogueText>      我警告过你们，但你们还是去把我们的村子毁了！
-他们只是平民而已，你们和那些地主军阀有什么区别？我们会反抗，这些血债必须被偿还！</dialogueText>
+他们只是平民而已，你们和那些地主军阀有什么区别？我们会反抗，这些血债必须被偿还！
+（注：敌对状态下杀死游击队成员不会减少派系关系，有害手术或其他行为可以）</dialogueText>
     <priority>20</priority>
     <triggerOnStartup>true</triggerOnStartup>
     <triggerOnce>true</triggerOnce>
@@ -426,7 +432,7 @@
 我们的钻头永远为你们而转动！无论面对贵族、军阀或是任何威胁，
 我们都将共同建立新的未来——一个属于所有被压迫者的自由世界！
 这份盟约将铭刻在我们的血脉中，直至最后一息！
-（阵营关系限制改变为100~100）</dialogueText>
+</dialogueText>
     <priority>20</priority>
     <triggerOnce>true</triggerOnce>
 	<triggerOnStartup>true</triggerOnStartup>
@@ -467,9 +473,21 @@
    <!-- 王国-2 -->
   <RatkinUnderground.RKU_DialogueEventDef>
     <defName>RKU_ProvideSupport_RoyalNegotiationB</defName>
-    <dialogueText>      上次干的不错，这次有个情况需要给你们透露一下，那些土匪的部队和物资
-正在调动，你们正好就在他们的行进方向上...最近最好谨慎一点，他们狡猾又残忍，别怪
-我们没提醒你。</dialogueText>
+    <dialogueText>亲爱的繁花之友：
+      您上次所取得的伟大胜利已经传遍王国上下，无数领地曾遭到那帮恶棍迫害的
+繁花后裔和因祸乱流离失所的鼠族子民都为这个振奋人心的消息流下热泪！繁花们急切
+地想认识与结交您这样一位天生的指挥官与领主。那些曾经在王国会议上对您土地
+宣称的不当指摘也在受您感召的卫花使们的努力下逐渐消弭...言归正传，您为王国
+取得的战果令那帮无耻的恶棍吃痛，从而令他们针对王国策划了疯狂的报复行动：我
+们的线报指出，这帮无耻的恶棍将目标锁定在王国境内驻军薄弱的流民收容所与孤儿
+院等大量手无寸铁的平民聚集的场所，出动大量携带炸药的武装工兵，我们分析其意图
+大抵是制造大规模的恐怖事件...
+      我们的驻军哨所无法第一时间驰援，不得已，卫花使中一部分被那些平民命运
+深切牵动着的、心怀慈悲的繁花后裔，擅作主张，使用一些伪装信号的技术将他们的袭
+击引导到了您那无坚不摧的城墙之下...而今事情已成定局，我们已对擅自主张的卫花
+使作出责罚，希望您不要因此心生芥蒂；我们亦相信以您的才能，这些恶棍的拙劣阴谋
+不足为惧。此次事件过后，王国将对您作出合理的补偿，并再次对您的义举作出表彰与
+嘉奖。</dialogueText>
     <priority>0</priority>
 	<triggerOnce>true</triggerOnce>
     <triggerOnStartup>false</triggerOnStartup>
@@ -486,13 +504,24 @@
     </actions>
   </RatkinUnderground.RKU_DialogueEventDef>
   
-  <!-- 王国-3：好感度-75时触发最终突袭事件 -->
+  <!-- 王国-3：好感度-75时触发最终血战事件 -->
   <RatkinUnderground.RKU_DialogueEventDef>
     <defName>RKU_ProvideSupport_RoyalNegotiationC</defName>
-    <dialogueText>      听着，作为这片地方的头，我得告诉你...那些家伙是真打算跟你死磕了，
-有人报告那些土匪从地底下掏出来很多老旧火炮，集结了差不多全部兵力准备拿下你们这
-个可怜的小镇子...说到底你们惹上他们都是自己的问题。希望今晚过后我们还能说上话
-...</dialogueText>
+    <dialogueText>      致王国的忠实盟友，我们的线报指出...那帮叛逆的指挥官，臭名
+昭著的”奶酪“齐格星卡将亲自率领那帮地底叛逆的大部分兵力进攻你的所在...那位线人
+最后传回的一份目击报告指出，这帮叛逆做好了持续的攻坚准备，有着充分的预备队与
+火炮支援，而且那名匪首亲率的那支精锐卫队...似乎有着装载机炮的战斗机械族以及
+一个用途不详的大型装置...
+      呼...请原谅我的失态，事到如今，相信您也从俘虏的那帮叛逆那里听闻了一些
+...不实的...流言？上次的事情...好吧，相信你也听够这些虚伪的掩饰与奉承了，即使
+不被王国利用，从一开始，你不就乐意成为那些所谓的”理想主义者“的眼中钉肉中刺了么
+？王国存续至今，即使再不堪，亦有着其可取之处：我们背后都有着一股超越性的力量，
+不是吗？所以，我相信你我都是一路人。听着，替王国，也是替电台背后的“你”自己，把
+这帮叛逆不合时宜的迷梦终结在你的城墙之下。王国的部队正在边境与那些该死的军阀
+对峙，所以不会对你有任何官方意义上的增援，听上去很绝望，但我相信对你这个战争天
+才来说没有任何问题。
+给我干掉那帮叛逆和那该死的齐格星卡！繁花周而复始的盛开靠的可不单是清晨的阳光雨
+露，还有夜晚的污泥与鲜血。但愿你我能共浴明天的阳光。</dialogueText>
     <priority>0</priority>
     <triggerOnce>true</triggerOnce>
     <triggerOnStartup>false</triggerOnStartup>
@@ -512,7 +541,11 @@
     <!-- 军阀-1 -->
   <RatkinUnderground.RKU_DialogueEventDef>
     <defName>RKU_ProvideSupport_WarLord1</defName>
-    <dialogueText>      军阀？打！</dialogueText>
+    <dialogueText>      没错，我们确实需要一些帮助...附近的一支军阀部队在此驻扎了
+很久，他们携带了一些重型火炮，并且在附近部署了一座炮楼据点并以此为基础扫荡我们
+的人，这导致我们一直没有办法建立地上据点。他们的位置对我们双方都很危险，希望你
+们能够消灭这些匪徒，我们就可以把珍贵的人力腾出来用以在附近保护平民，建立地上生
+产设施了。</dialogueText>
     <priority>60</priority>
 	<triggerOnce>true</triggerOnce>
     <triggerOnStartup>false</triggerOnStartup>
@@ -525,6 +558,103 @@
     <actions>
       <li Class="RatkinUnderground.DialogueAction_TriggerQuest">
         <questDefName>RKU_OpportunitySite_CompoundRaid</questDefName>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+  
+   <!-- 军阀-2 -->
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_ProvideSupport_WarLord2</defName>
+    <dialogueText>      很感谢你们上次的协助，我们这边的行动也取得了一些成果，游击队
+的行动得到了附近鼠族平民的欢迎，所以我们准备把军阀势力从附近清除出去！这支军阀
+部队的头目驻扎在附近的一座城堡里，如果能够把这座城堡夺取下来将会大大鼓舞这些支
+持我们的人，但我们不能让这些普通农民和矿工对抗变节骑士们。这次还要靠你们的帮助
+了！</dialogueText>
+    <priority>61</priority>
+	<triggerOnce>true</triggerOnce>
+    <triggerOnStartup>false</triggerOnStartup>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+        <minGrade>25</minGrade>
+        <maxGrade>100</maxGrade>
+      </li>
+    </conditions>
+    <actions>
+      <li Class="RatkinUnderground.DialogueAction_TriggerQuest">
+        <questDefName>RKU_OpportunitySite_CastleRaid</questDefName>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+
+   <!-- 农场任务-3 -->
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_ProvideSupport_FarmRaid</defName>
+    <dialogueText>      朋友们，我们发现了一个重要的目标！附近有一片被军阀控制的农场，
+他们在这里奴役平民为他们生产粮食。这里是军阀部队的后勤补给基地。农场里有完善的
+防御工事，包括哨塔和巡逻队。如果我们能夺取这片农场，不仅能切断军阀的粮食供应，
+还能为附近的平民提供食物保障。请帮我们的部队解放这里的老百姓！</dialogueText>
+    <priority>63</priority>
+	<triggerOnce>true</triggerOnce>
+    <triggerOnStartup>false</triggerOnStartup>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+        <minGrade>75</minGrade>
+        <maxGrade>100</maxGrade>
+      </li>
+    </conditions>
+    <actions>
+      <li Class="RatkinUnderground.DialogueAction_TriggerQuest">
+        <questDefName>RKU_OpportunitySite_FarmRaid</questDefName>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+
+   <!-- 古代设施任务-4 -->
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_ProvideSupport_AncientRaid</defName>
+    <dialogueText>      同志们，我们的侦查队发现了一个被敌人占据的古代设施！这座设施似乎是
+一座古代的的军事建筑，里面可能藏有强大的科技和武器。根据我们的情报，设施内部
+被军阀势力占据，他们正在发掘和利用里面的古老科技。如果我们能夺取这座设施，
+不仅能获得珍贵的科技遗产，还能防止这些危险的技术落入军阀手中。敌人的装备十分
+精良，我们会派出使用原型武器的精英部队来协助你们作战！</dialogueText>
+    <priority>64</priority>
+	<triggerOnce>true</triggerOnce>
+    <triggerOnStartup>false</triggerOnStartup>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+        <minGrade>100</minGrade>
+        <maxGrade>100</maxGrade>
+      </li>
+    </conditions>
+    <actions>
+      <li Class="RatkinUnderground.DialogueAction_TriggerQuest">
+        <questDefName>RKU_OpportunitySite_AncientRaid</questDefName>
+      </li>
+    </actions>
+  </RatkinUnderground.RKU_DialogueEventDef>
+
+  <!-- 工厂防御任务-5 -->
+  <RatkinUnderground.RKU_DialogueEventDef>
+    <defName>RKU_ProvideSupport_FactoryDefense</defName>
+    <dialogueText>      （嘈杂的信号音）发生了紧急情况！我们的地下钻机工厂正遭受王国军的猛
+烈攻击！这座工厂是我们唯一的一座钻机生产设施。如果工厂落入敌人手中，我们的抵
+抗运动将遭受重大打击！敌人已经突破了外围防线，正在向核心区域推进。希望你们能
+够立即赶往现场，协助我们的守卫部队击退来袭的敌人，保护重要的生产设备和工人们
+！军阀这次派出的部队太过于强大了，他们背后肯定有着王国，甚至是其他势力的支援
+，这次我们只能靠你们的帮助才能渡过难关了，但如果我们能够挫败他们的进攻...想
+必就能把这场该死的战争结束了！</dialogueText>
+    <priority>65</priority>
+	<triggerOnce>true</triggerOnce>
+    <triggerOnStartup>false</triggerOnStartup>
+    <conditions>
+      <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+        <minGrade>75</minGrade>
+        <maxGrade>100</maxGrade>
+      </li>
+    </conditions>
+    <actions>
+      <li Class="RatkinUnderground.DialogueAction_TriggerQuest">
+        <questDefName>RKU_OpportunitySite_FactoryDefense</questDefName>
       </li>
     </actions>
   </RatkinUnderground.RKU_DialogueEventDef>
