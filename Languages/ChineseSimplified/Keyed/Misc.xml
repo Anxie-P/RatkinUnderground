@@ -171,4 +171,8 @@
   <!-- 最后的殊死攻击 -->
   <RKU_FinalDesperateAttack>最后的殊死攻击</RKU_FinalDesperateAttack>
   <RKU_FinalDesperateAttackDesc>敌人发动了最后的殊死攻击！游击队在濒临崩溃之际，动用了他们最后的杀手锏。</RKU_FinalDesperateAttackDesc>
+
+  <!-- 工厂袭击消息 -->
+  <RKU_EnemyRaid>敌方袭击</RKU_EnemyRaid>
+  <RKU_EnemyRaidDesc>{0}正在发起袭击！\n袭击点数: {1}\n累计敌方死亡: {2}</RKU_EnemyRaidDesc>
 </LanguageData> 

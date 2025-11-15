@@ -21,7 +21,7 @@ public class RKU_GenStep_BioLab : GenStep
     public bool generateLoot = true;
     public bool unfogged = true;
     public string layoutFilePath = "BioLabLayouts.xml"; // 布局文件路径，可在def中配置
-
+    public string placementPosition = "Center";
     public override int SeedPart => 487293847;
     // 字符画布局数据（懒加载并缓存）
     private List<string> _layoutData;
@@ -97,17 +97,13 @@ public class RKU_GenStep_BioLab : GenStep
             geyser.Destroy();
         }
 
-        // 计算地图中心位置
-        int centerX = map.Size.x / 2;
-        int centerY = map.Size.z / 2;
         // 获取布局数据
         var layoutRows = LayoutData;
         // 获取布局尺寸
         int layoutHeight = layoutRows.Count;
         int layoutWidth = layoutHeight > 0 ? layoutRows[0].Length : 0;
-        // 计算布局左上角位置（居中）
-        int startX = centerX - layoutWidth / 2;
-        int startZ = centerY - layoutHeight / 2;
+        // 根据位置参数计算布局左上角位置
+        var (startX, startZ) = CalculateStartPosition(map, layoutWidth, layoutHeight);
         // 遍历布局数据并生成相应地形
         for (int y = 0; y < layoutHeight; y++)
         {
@@ -137,6 +133,52 @@ public class RKU_GenStep_BioLab : GenStep
         {
             FloodFillerFog.FloodUnfog(IntVec3.Zero, map);
         }
+    }
+
+    /// <summary>
+    /// 根据位置参数计算布局的起始位置
+    /// </summary>
+    private (int startX, int startZ) CalculateStartPosition(Map map, int layoutWidth, int layoutHeight)
+    {
+        int centerX = map.Size.x / 2;
+        int centerZ = map.Size.z / 2;
+        int startX, startZ;
+
+        // 根据位置参数计算起始位置
+        switch (placementPosition?.ToLower())
+        {
+            case "top": // 顶端
+                startX = centerX - layoutWidth / 2;
+                startZ = map.Size.z - layoutHeight; // 紧贴顶端
+                break;
+
+            case "bottom": // 底端
+                startX = centerX - layoutWidth / 2;
+                startZ = 0; // 紧贴底端
+                break;
+
+            case "left": // 左侧
+                startX = 0; // 紧贴左侧
+                startZ = centerZ - layoutHeight / 2;
+                break;
+
+            case "right": // 右侧
+                startX = map.Size.x - layoutWidth; // 紧贴右侧
+                startZ = centerZ - layoutHeight / 2;
+                break;
+
+            case "center": // 中心
+            default:
+                startX = centerX - layoutWidth / 2;
+                startZ = centerZ - layoutHeight / 2;
+                break;
+        }
+
+        // 确保位置在地图范围内
+        startX = Mathf.Clamp(startX, 0, map.Size.x - layoutWidth);
+        startZ = Mathf.Clamp(startZ, 0, map.Size.z - layoutHeight);
+
+        return (startX, startZ);
     }
 
     /// <summary>
@@ -174,7 +216,7 @@ public class RKU_GenStep_BioLab : GenStep
                     }
                     SpawnHiddenConduitIfNeeded(pos, map);
                 }
-                if (cell != '.')
+                if (cell != '.'&& cell != '}')
                 {
                     SetAppropriateRoofForPosition(map, pos);
                 }
@@ -281,6 +323,10 @@ public class RKU_GenStep_BioLab : GenStep
                 break;
             case ',': // 大理石墙
                 break;
+            case '*': // 大理石
+                Thing mb = ThingMaker.MakeThing(ThingDef.Named("Marble"));
+                GenSpawn.Spawn(mb, pos, map);
+                break;
             case '░': // 空地
                 map.terrainGrid.SetTerrain(pos, TerrainDef.Named("AncientTile"));
                 SpawnHiddenConduitIfNeeded(pos, map);
@@ -385,7 +431,6 @@ public class RKU_GenStep_BioLab : GenStep
                 {
                     cornp.Growth = Rand.Range(0.6f, 1f);
                 }
-                map.roofGrid.SetRoof(pos, null);
                 break; 
             case 'a': // 干草
                 map.terrainGrid.SetTerrain(pos, TerrainDefOf.SoilRich);

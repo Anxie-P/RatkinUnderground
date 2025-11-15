@@ -67,7 +67,7 @@
           <storeAs>enemyFaction</storeAs>
           <allowNeutral>true</allowNeutral>
           <requiredFactionDefs>
-            <li>Rakinia</li>
+            <li>Rakinia_Warlord</li>
           </requiredFactionDefs>
           <allowPermanentEnemy>true</allowPermanentEnemy>
         </li>
@@ -202,6 +202,7 @@
       <layoutFilePath>FactoryLayouts.xml</layoutFilePath>
       <generateLoot>true</generateLoot>
       <unfogged>true</unfogged>
+	  <placementPosition>top</placementPosition>
     </genStep>
   </GenStepDef>
 </Defs>

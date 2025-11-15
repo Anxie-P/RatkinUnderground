@@ -272,4 +272,10 @@
   <RKU_FinalDesperateAttack>Final Desperate Attack</RKU_FinalDesperateAttack>
   <!-- EN: The enemy has launched their final desperate attack! The guerrillas have deployed their ultimate weapon on the brink of collapse. -->
   <RKU_FinalDesperateAttackDesc>The enemy has launched their final desperate attack! The guerrillas have deployed their ultimate weapon on the brink of collapse.</RKU_FinalDesperateAttackDesc>
+
+  <!-- Factory Raid Messages -->
+  <!-- EN: Enemy Raid -->
+  <RKU_EnemyRaid>Enemy Raid</RKU_EnemyRaid>
+  <!-- EN: {0} is launching a raid!\nRaid Points: {1}\nTotal Enemy Deaths: {2} -->
+  <RKU_EnemyRaidDesc>{0} is launching a raid!\nRaid Points: {1}\nTotal Enemy Deaths: {2}</RKU_EnemyRaidDesc>
 </LanguageData>

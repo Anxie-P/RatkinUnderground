@@ -84,7 +84,6 @@
     <Compile Include="MapGenerator\GenSteps\RKU_GenStep_GuerrillaSurvivor.cs" />
     <Compile Include="MapGenerator\GenSteps\RKU_GenStep_Lode.cs" />
     <Compile Include="MapGenerator\GenSteps\RKU_GenStep_Mouse.cs" />
-    <Compile Include="MapGenerator\MapComponent_RatkinFarm.cs" />
     <Compile Include="MapGenerator\MapParent\RKU_MapParent.cs" />
     <Compile Include="MapGenerator\SitePartWorker_GuerrillaSurvivor.cs" />
     <Compile Include="MapGenerator\SitePartWorker_RatkinAncient.cs" />

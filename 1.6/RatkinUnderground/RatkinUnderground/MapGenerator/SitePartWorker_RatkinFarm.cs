@@ -2,22 +2,23 @@ using RimWorld;
 using RimWorld.Planet;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using Verse;
+using Verse.AI;
 using Verse.AI.Group;
 
 namespace RatkinUnderground
 {
     public class SitePartWorker_RatkinFarm : SitePartWorker
     {
+        private List<Pawn> civilians = new List<Pawn>();
+        private const int DETECTION_RADIUS = 5;
+
         public override void PostMapGenerate(Map map)
         {
             base.PostMapGenerate(map);
             SpawnEnemiesInFarm(map);
             SpawnCiviliansInFarm(map);
-            if (map.GetComponent<MapComponent_RatkinFarm>() == null)
-            {
-                map.components.Add(new MapComponent_RatkinFarm(map));
-            }
         }
 
         /// <summary>
@@ -174,7 +175,87 @@ namespace RatkinUnderground
                 LordMaker.MakeNewLord(null, lordJob, map, civilians);
             }
 
-            map.GetComponent<MapComponent_RatkinFarm>()?.RegisterCivilians(civilians);
+            // 注册平民到列表
+            civilians.AddRange(civilians);
+        }
+
+        public override void SitePartWorkerTick(SitePart sitePart)
+        {
+            base.SitePartWorkerTick(sitePart);
+
+            Map map = sitePart.site.Map;
+            if (map == null) return;
+
+            // 每秒检查一次
+            if (Find.TickManager.TicksGame % 60 != 0) return;
+
+            CheckAndConvertCivilians(map);
+        }
+
+        private void CheckAndConvertCivilians(Map map)
+        {
+            var civiliansToRemove = new List<Pawn>();
+
+            foreach (var civilian in civilians)
+            {
+                if (civilian == null || civilian.Destroyed || civilian.Dead)
+                {
+                    civiliansToRemove.Add(civilian);
+                    continue;
+                }
+                if (IsPlayerOrGuerrillaNearby(civilian, map))
+                {
+                    ConvertToGuerrillaAndLeave(civilian);
+                    civiliansToRemove.Add(civilian);
+                }
+            }
+
+            foreach (var civilian in civiliansToRemove)
+            {
+                civilians.Remove(civilian);
+            }
+        }
+
+        private bool IsPlayerOrGuerrillaNearby(Pawn civilian, Map map)
+        {
+            var guerrillaFaction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
+            if (guerrillaFaction == null) return false;
+
+            foreach (var cell in GenRadial.RadialCellsAround(civilian.Position, DETECTION_RADIUS, true))
+            {
+                if (!cell.InBounds(map)) continue;
+
+                var pawns = cell.GetThingList(map).OfType<Pawn>();
+                foreach (var pawn in pawns)
+                {
+                    if (pawn == civilian) continue;
+                    // 平民检查是否为玩家殖民者或游击队成员
+                    if ((pawn.Faction != null && pawn.Faction.IsPlayer) ||
+                        (pawn.Faction == guerrillaFaction))
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        private void ConvertToGuerrillaAndLeave(Pawn civilian)
+        {
+            var guerrillaFaction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
+            if (guerrillaFaction == null) return;
+
+            civilian.SetFaction(guerrillaFaction);
+            var civilianHediff = civilian.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named("RKU_CivilianMarker"));
+            if (civilianHediff != null)
+            {
+                civilian.health.RemoveHediff(civilianHediff);
+            }
+            if (civilian.GetLord() != null)
+            {
+                civilian.GetLord().Notify_PawnLost(civilian, PawnLostCondition.LeftVoluntarily);
+            }
         }
 
         /// <summary>
