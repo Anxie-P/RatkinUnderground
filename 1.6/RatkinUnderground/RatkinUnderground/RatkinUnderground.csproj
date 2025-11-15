@@ -117,6 +117,7 @@
     <Compile Include="Quest\QuestNode_RKU_GuerrillasComing.cs" />
     <Compile Include="Quest\QuestNode_RKU_GuerrillasSurvivor.cs" />
     <Compile Include="Quest\QuestNode_RKU_RecordOnceEvent.cs" />
+    <Compile Include="Quest\QuestNode_RKU_RemoveTriggeredEvent.cs" />
     <Compile Include="Quest\QuestNode_RKU_UpdateRelationshipLimits.cs" />
     <Compile Include="Quest\QuestNode_SurvivorDead.cs" />
     <Compile Include="Quest\QuestPart_CheckPawnsEntered.cs" />
