@@ -2,9 +2,11 @@ using RimWorld;
 using RimWorld.Planet;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using UnityEngine;
 using Verse;
 using Verse.AI.Group;
+using static RatkinUnderground.QuestNode_RKU_GuerrillasComing;
 using static RatkinUnderground.Utils;
 
 namespace RatkinUnderground
@@ -30,6 +32,7 @@ namespace RatkinUnderground
         {
             base.PostMapGenerate(map);
             SetAllBuildingsFaction(map);
+            SpawnGuerrillas(map);
             lastRaidTick = Find.TickManager.TicksGame;
         }
 
@@ -589,6 +592,44 @@ namespace RatkinUnderground
             {
                 building.SetFaction(guerrillaFaction);
             }
+        }
+
+        /// <summary>
+        /// 生成矿工
+        /// </summary>
+        /// <param name="map"></param>
+        /// <param name="center"></param>
+        /// <param name="count"></param>
+        private void SpawnGuerrillas(Map map)
+        {
+            var allRooms = map.regionGrid.AllRooms
+                .Where(room => room.CellCount > 5 && IsIndoorRoom(room, map))
+                .ToList();
+            List<Pawn> spawnedGuerrillas = new List<Pawn>();
+            var guerrillaFaction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
+            if (guerrillaFaction == null) return;
+            foreach (var room in allRooms)
+            {
+                IntVec3 spawnPos = FindNearbySpawnPosition(room.Cells.RandomElement<IntVec3>(), map, 1, 5);
+                if (spawnPos.IsValid)
+                {
+                    Pawn guerrilla = PawnGenerator.GeneratePawn(new PawnGenerationRequest(
+                        DefOfs.RKU_Miner,
+                        guerrillaFaction,
+                        PawnGenerationContext.NonPlayer,
+                        -1,
+                        forceGenerateNewPawn: true));
+
+                    GenSpawn.Spawn(guerrilla, spawnPos, map);
+                    spawnedGuerrillas.Add(guerrilla);
+                }
+            }
+            Lord lord = LordMaker.MakeNewLord(
+            guerrillaFaction,
+            new LordJob_DefendBase(guerrillaFaction, map.Center, 0),
+            map,
+            spawnedGuerrillas);
+
         }
 
         /// <summary>

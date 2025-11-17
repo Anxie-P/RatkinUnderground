@@ -35,6 +35,7 @@ namespace RatkinUnderground
         public static ThingDef RKU_DrillingVehicle;
         public static PawnKindDef RKU_Scout;
         public static PawnKindDef RKU_Invader;
+        public static PawnKindDef RKU_Miner;
         public static HediffDef RKU_ArmorWeaken;
         public static ThingDef RKU_DrillingVehicleCargo;
         public static HediffDef RKU_UnderOutpostHediff;
