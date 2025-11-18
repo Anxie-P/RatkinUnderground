@@ -122,8 +122,10 @@ public class Comp_RKU_Radio : ThingComp
                         radioComponent.canTrade = true;
                         radioComponent.canScan = true;
                         radioComponent.isWaitingForTrade = false;
+                        radioComponent.canRescue = true;
                         radioComponent.lastTradeTick = 0;
                         radioComponent.lastScanTick = 0;
+                        radioComponent.lastRescueTick = 0;
                         Messages.Message("RKU_CooldownCancelled".Translate(), MessageTypeDefOf.PositiveEvent);
                     }
                 }

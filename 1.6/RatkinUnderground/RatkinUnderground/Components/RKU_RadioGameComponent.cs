@@ -36,6 +36,11 @@ namespace RatkinUnderground
         public Dictionary<string, int> lastTriggerTimes;
         public bool isSearch = false;  // 开始研究
 
+        // 支援相关
+        public int lastRescueTick = 0;
+        public int rescueCooldownTicks = 300000;
+        public bool canRescue = true;
+
         // 延时事件计时器
         public int relationWarningLightTriggerTick = -1;
         public int relationWarningSeriousTriggerTick = -1;
@@ -220,6 +225,8 @@ namespace RatkinUnderground
             Scribe_Values.Look(ref isWaitingForTrade, "isWaitingForTrade", false);
             Scribe_Values.Look(ref lastScanTick, "lastScanTick", 0);
             Scribe_Values.Look(ref canScan, "canScan", true);
+            Scribe_Values.Look(ref lastRescueTick, "lastRescueTick", 0);
+            Scribe_Values.Look(ref canRescue, "canRescue", true);
             Scribe_Values.Look(ref lastEmergencyTick, "lastEmergencyTick", 0);
             Scribe_Values.Look(ref canEmergency, "canEmergency", true);
             Scribe_Values.Look(ref tradeStartTick, "tradeStartTick", 0);

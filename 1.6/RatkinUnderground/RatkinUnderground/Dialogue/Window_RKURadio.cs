@@ -12,6 +12,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Verse;
 using Verse.AI;
+using static Unity.Burst.Intrinsics.X86.Avx;
 
 namespace RatkinUnderground;
 public class Dialog_RKU_Radio : Window, ITrader
@@ -158,6 +159,7 @@ public class Dialog_RKU_Radio : Window, ITrader
         UpdateTradeStatus();
         UpdateScanStatus();
         UpdateTypingEffect();
+        UpdateRescueStatus();
 
         // 窗口标题
         Text.Font = GameFont.Medium;
@@ -477,18 +479,24 @@ public class Dialog_RKU_Radio : Window, ITrader
                     if (radioComponent.ralationshipGrade <= -25)
                     {
                         QuestScriptDef questDef = DefDatabase<QuestScriptDef>.GetNamed("RKU_OpportunitySite_GuerrillaCamp", false);
-                        if (radioComponent.ralationshipGrade == -25 && !Find.QuestManager.QuestsListForReading.Any(o => o.root == questDef))
+                        if (radioComponent.ralationshipGrade == -25 && !Find.QuestManager.QuestsListForReading.Any(o => o.root == questDef) &&
+                            radioComponent.canRescue)
                         {
                             conditionMet = -2;
+                            radioComponent.canRescue = false;
+                            radioComponent.lastRescueTick = Find.TickManager.TicksGame;
                         }
                         else if (radioComponent.ralationshipGrade == -50)
                         {
                             // 检查事件是否已经触发过（只能触发一次）
                             string eventKey = "RKU_RatkinTunnel_Thi";
                             bool hasTriggered = radioComponent.triggeredOnceEvents != null && radioComponent.triggeredOnceEvents.Contains(eventKey);
-                            if (!hasTriggered)
+                            if (!hasTriggered && 
+                                radioComponent.canRescue)
                             {
                                 conditionMet = -3;
+                                radioComponent.canRescue = false;
+                                radioComponent.lastRescueTick = Find.TickManager.TicksGame;
                             }
                             else
                             {
@@ -500,9 +508,12 @@ public class Dialog_RKU_Radio : Window, ITrader
                             // 检查事件是否已经触发过（只能触发一次）
                             string eventKey = "RKU_IncidentWorker_FinalRaid";
                             bool hasTriggered = radioComponent.triggeredOnceEvents != null && radioComponent.triggeredOnceEvents.Contains(eventKey);
-                            if (!hasTriggered)
+                            if (!hasTriggered &&
+                                radioComponent.canRescue)
                             {
                                 conditionMet = -4;
+                                radioComponent.canRescue = false;
+                                radioComponent.lastRescueTick = Find.TickManager.TicksGame;
                             }
                             else
                             {
@@ -520,9 +531,12 @@ public class Dialog_RKU_Radio : Window, ITrader
                         if (radioComponent.ralationshipGrade >= 15 && radioComponent.ralationshipGrade < 100)
                         {
                             bool hasTriggeredWarLord1 = radioComponent.triggeredOnceEvents != null && radioComponent.triggeredOnceEvents.Contains("RKU_ProvideSupport_WarLord1");
-                            if (!hasTriggeredWarLord1)
+                            if (!hasTriggeredWarLord1 &&
+                                radioComponent.canRescue)
                             {
                                 conditionMet = 1; // 军阀-1对话
+                                radioComponent.canRescue = false;
+                                radioComponent.lastRescueTick = Find.TickManager.TicksGame;
                             }
                             else
                             {
@@ -530,9 +544,12 @@ public class Dialog_RKU_Radio : Window, ITrader
                                 if (radioComponent.ralationshipGrade >= 30)
                                 {
                                     bool hasTriggeredWarLord2 = radioComponent.triggeredOnceEvents != null && radioComponent.triggeredOnceEvents.Contains("RKU_ProvideSupport_WarLord2");
-                                    if (!hasTriggeredWarLord2)
+                                    if (!hasTriggeredWarLord2 &&
+                                        radioComponent.canRescue)
                                     {
                                         conditionMet = 2; // 军阀-2对话（城堡）
+                                        radioComponent.canRescue = false;
+                                        radioComponent.lastRescueTick = Find.TickManager.TicksGame;
                                     }
                                     else
                                     {
@@ -540,9 +557,12 @@ public class Dialog_RKU_Radio : Window, ITrader
                                         if (radioComponent.ralationshipGrade >= 55)
                                         {
                                             bool hasTriggeredFarm = radioComponent.triggeredOnceEvents != null && radioComponent.triggeredOnceEvents.Contains("RKU_ProvideSupport_FarmRaid");
-                                            if (!hasTriggeredFarm)
+                                            if (!hasTriggeredFarm &&
+                                                radioComponent.canRescue)
                                             {
-                                                conditionMet = 3; 
+                                                conditionMet = 3;
+                                                radioComponent.canRescue = false;
+                                                radioComponent.lastRescueTick = Find.TickManager.TicksGame;
                                             }
                                             else
                                             {
@@ -550,9 +570,12 @@ public class Dialog_RKU_Radio : Window, ITrader
                                                 if (radioComponent.ralationshipGrade >= 76)
                                                 {
                                                     bool hasTriggeredAncient = radioComponent.triggeredOnceEvents != null && radioComponent.triggeredOnceEvents.Contains("RKU_ProvideSupport_AncientRaid");
-                                                    if (!hasTriggeredAncient)
+                                                    if (!hasTriggeredAncient &&
+                                                        radioComponent.canRescue)
                                                     {
                                                         conditionMet = 4; // 古代设施任务
+                                                        radioComponent.canRescue = false;
+                                                        radioComponent.lastRescueTick = Find.TickManager.TicksGame;
                                                     }
                                                     else
                                                     {
@@ -560,9 +583,12 @@ public class Dialog_RKU_Radio : Window, ITrader
                                                         if (radioComponent.ralationshipGrade >= 80)
                                                         {
                                                             bool hasTriggeredFactoryDefense = radioComponent.triggeredOnceEvents != null && radioComponent.triggeredOnceEvents.Contains("RKU_ProvideSupport_FactoryDefense");
-                                                            if (!hasTriggeredFactoryDefense)
+                                                            if (!hasTriggeredFactoryDefense && 
+                                                                radioComponent.canRescue)
                                                             {
-                                                                conditionMet = 5; 
+                                                                conditionMet = 5;
+                                                                radioComponent.canRescue = false;
+                                                                radioComponent.lastRescueTick = Find.TickManager.TicksGame;
                                                             }
                                                             else
                                                             {
@@ -706,6 +732,9 @@ public class Dialog_RKU_Radio : Window, ITrader
     }
     #endregion
 
+    /// <summary>
+    /// 更新交易状态
+    /// </summary>
     private void UpdateTradeStatus()
     {
         var comp = GetRadioComponent();
@@ -735,6 +764,20 @@ public class Dialog_RKU_Radio : Window, ITrader
         {
             comp.isWaitingForTrade = false;
             tradeReady = true;
+        }
+    }
+
+    /// <summary>
+    /// 更新营救状态
+    /// </summary>
+    private void UpdateRescueStatus()
+    {
+        var comp = GetRadioComponent();
+        int currentTick = Find.TickManager.TicksGame;
+        // 求救呼叫冷却结束
+        if (!comp.canRescue && currentTick - comp.lastRescueTick >= comp.rescueCooldownTicks)
+        {
+            comp.canRescue = true;
         }
     }
 
