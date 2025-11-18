@@ -517,7 +517,7 @@ public class Dialog_RKU_Radio : Window, ITrader
                     else
                     {
                         //善线军阀1：好感度 >= 5
-                        if (radioComponent.ralationshipGrade >= 5 && radioComponent.ralationshipGrade < 100)
+                        if (radioComponent.ralationshipGrade >= 15 && radioComponent.ralationshipGrade < 100)
                         {
                             bool hasTriggeredWarLord1 = radioComponent.triggeredOnceEvents != null && radioComponent.triggeredOnceEvents.Contains("RKU_ProvideSupport_WarLord1");
                             if (!hasTriggeredWarLord1)
@@ -526,8 +526,8 @@ public class Dialog_RKU_Radio : Window, ITrader
                             }
                             else
                             {
-                                //军阀任务2（城堡）：好感度 >= 25
-                                if (radioComponent.ralationshipGrade >= 25)
+                                //军阀任务2（城堡）：好感度 >= 30
+                                if (radioComponent.ralationshipGrade >= 30)
                                 {
                                     bool hasTriggeredWarLord2 = radioComponent.triggeredOnceEvents != null && radioComponent.triggeredOnceEvents.Contains("RKU_ProvideSupport_WarLord2");
                                     if (!hasTriggeredWarLord2)
@@ -537,7 +537,7 @@ public class Dialog_RKU_Radio : Window, ITrader
                                     else
                                     {
                                         //农场任务
-                                        if (radioComponent.ralationshipGrade >= 45)
+                                        if (radioComponent.ralationshipGrade >= 55)
                                         {
                                             bool hasTriggeredFarm = radioComponent.triggeredOnceEvents != null && radioComponent.triggeredOnceEvents.Contains("RKU_ProvideSupport_FarmRaid");
                                             if (!hasTriggeredFarm)
@@ -547,7 +547,7 @@ public class Dialog_RKU_Radio : Window, ITrader
                                             else
                                             {
                                                 //古代设施任务：
-                                                if (radioComponent.ralationshipGrade >= 55)
+                                                if (radioComponent.ralationshipGrade >= 76)
                                                 {
                                                     bool hasTriggeredAncient = radioComponent.triggeredOnceEvents != null && radioComponent.triggeredOnceEvents.Contains("RKU_ProvideSupport_AncientRaid");
                                                     if (!hasTriggeredAncient)
@@ -557,7 +557,7 @@ public class Dialog_RKU_Radio : Window, ITrader
                                                     else
                                                     {
                                                         //工厂防御任务：
-                                                        if (radioComponent.ralationshipGrade >= 75)
+                                                        if (radioComponent.ralationshipGrade >= 80)
                                                         {
                                                             bool hasTriggeredFactoryDefense = radioComponent.triggeredOnceEvents != null && radioComponent.triggeredOnceEvents.Contains("RKU_ProvideSupport_FactoryDefense");
                                                             if (!hasTriggeredFactoryDefense)

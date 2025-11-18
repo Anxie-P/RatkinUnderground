@@ -446,7 +446,11 @@ public class RKU_GenStep_BioLab : GenStep
                 GenSpawn.Spawn(cpg, pos, map);
                 FillPowerStorage(cpg);
                 FillFuelStorage(cpg);
-                break;
+                break; 
+            case 'v': // 发电机
+                Thing geothermalGenerator = ThingMaker.MakeThing(ThingDef.Named("GeothermalGenerator"));
+                GenSpawn.Spawn(geothermalGenerator, pos, map);
+                break; 
             case '=': // 休眠舱
                 Thing xmc = ThingMaker.MakeThing(ThingDef.Named("AncientCryptosleepCasket"));
                 GenSpawn.Spawn(xmc, pos, map,Rot4.East);

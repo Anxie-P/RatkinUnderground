@@ -14,14 +14,12 @@
   <RKK_BuildingBoomber.label>Bomb</RKK_BuildingBoomber.label>
   
   <!-- EN: 毁灭地雷发射器 -->
-  <RKK_Weapon_RangerBow.label>Antigraincap Landmine Launcher</RKK_Weapon_RangerBow.label>
+  <RKK_Weapon_DetroyerLandmineLaunchers.label>Antigraincap Landmine Launcher</RKK_Weapon_DetroyerLandmineLaunchers.label>
   <!-- EN: 毁灭地雷发射器，内部装药混合了极具破坏力的毁灭菇提取物，可以打包并发射一颗毁灭粒子地雷到目标地点，地雷需要手动引爆。 -->
-  <RKK_Weapon_RangerBow.description>The Antigraincap Mine Launcher, whose internal charge incorporates highly destructive Antigraincap extract, can package and deploy a single Antigrain Particle Landmine to a designated location. The landmine requires manual detonation.</RKK_Weapon_RangerBow.description>
-  <!-- EN: bow -->
-  <RKK_Weapon_RangerBow.tools.bow.label>Bow</RKK_Weapon_RangerBow.tools.bow.label>
-  <!-- EN: 毁灭地雷发射器 -->
-  <RKK_Weapon_RangerBow.verbs.Verb_Shoot.label>Antigraincap Landmine Launcher</RKK_Weapon_RangerBow.verbs.Verb_Shoot.label>
-  
+  <RKK_Weapon_DetroyerLandmineLaunchers.description>The Antigraincap Mine Launcher, whose internal charge incorporates highly destructive Antigraincap extract, can package and deploy a single Antigrain Particle Landmine to a designated location. The landmine requires manual detonation.</RKK_Weapon_DetroyerLandmineLaunchers.description>
+  <!-- EN: 毁灭地雷 -->
+  <RKU_DestroyerMine.tools.bow.label>Antigraincap Mine</RKU_DestroyerMine.tools.bow.label>
+
   <!-- EN: Partisans anti-tank rifle -->
   <RKU_AntiTank.label>Prototype Anti-Tank Rifle</RKU_AntiTank.label>
   <!-- EN: 特殊设计的强大原型反坦克枪！它不仅伤害力惊人，而且能大幅削弱敌方护甲。 -->

@@ -4,7 +4,6 @@
 	<author>Anxie</author>
 	<packageId>RKU.RatkinUnderground</packageId>
 	<supportedVersions>
-		<li>1.5</li>
 		<li>1.6</li>
 	</supportedVersions>
 	<loadAfter>
@@ -12,6 +11,28 @@
 		<li>Ludeon.RimWorld.Ideology</li>
 		<li>Solaris.RatkinRaceMod</li>
 	</loadAfter>
-	<description>
-</description>
+<description>
+[h1]原作：风信子的《瑞莱茵雪死里逃生》[/h1]
+[h1]跟随小说世界观，故存在可能导致与鼠族王国、军阀敌对的情节发展方向，请见谅。[/h1]
+
+本模组包含了新的钻机载具、可以使用电台联络的新阵营：鼠族游击队
+以及新的大量事件、任务、装备、特殊地图。
+
+建造钻地机，组建地下远行队来探索大地图！发现神奇的蘑菇，偶尔会有特殊的奇遇！
+
+与游击队联络，与他们交友或背叛，参与鼠族内战的血腥战斗...
+
+探索特殊的自制剧情地图！
+
+揭露王国的阴谋，击败邪恶的军阀！
+[h1]制作者[/h1]
+画师：ICEorANGE、小町蜂雀、羊羊羊乃乃乃、游荡的金楚糕、
+文案：果粒鲜橙多
+[h1]联动[/h1]
+鼠族异象：解锁“召唤黑暗骑士”研究后，可招募“鼠族圣骑士团”
+失能机关：订阅失能机关：机动龙骑，可招募“殖民舰队轨道骑兵”
+冠军侯灵能甲胄：本模组画师ICE的独立mod：https://steamcommunity.com/sharedfiles/filedetails/?id=3353141345
+QA：
+Q：如何开始游击队剧情线？
+A：使用或更换为风信子叙事者，会有快速的保底任务触发，如果需要持续使用其他叙事者，则可以在游戏中打开“MOD调试”菜单选择“Ratkin Underground”点击按钮触发初始任务。</description>
 </ModMetaData>

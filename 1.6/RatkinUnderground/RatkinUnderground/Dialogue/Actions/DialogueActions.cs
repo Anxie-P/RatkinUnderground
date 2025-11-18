@@ -200,4 +200,82 @@ namespace RatkinUnderground
             }
         }
     }
+
+    // 让游击队指挥官和蜈蚣加入玩家殖民地
+    public class DialogueAction_JoinColony : DialogueAction
+    {
+        public override void ExecuteAction(Dialog_RKU_Radio radio)
+        {
+            var map = radio.radio?.Map ?? Find.AnyPlayerHomeMap;
+            if (map == null)
+            {
+                Log.Error("[RKU] DialogueAction_JoinColony: 无法找到目标地图");
+                return;
+            }
+            Faction rFaction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
+            if (rFaction == null || rFaction.leader == null)
+            {
+                Log.Error("[RKU] DialogueAction_JoinColony: 无法找到游击队阵营或指挥官");
+                return;
+            }
+            Pawn leader = rFaction.leader;
+            if (leader.Spawned)
+            {
+                leader.DeSpawn();
+            }
+            leader.SetFaction(Faction.OfPlayer);
+            IntVec3 spawnCell = CellFinder.RandomEdgeCell(map);
+            GenSpawn.Spawn(leader, spawnCell, map);
+            Pawn centiped = PawnGenerator.GeneratePawn(DefDatabase<PawnKindDef>.GetNamed("Mech_CentipedeGunner"));                
+            centiped.equipment?.DestroyAllEquipment();
+                    ThingWithComps weapon = (ThingWithComps)ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_IronStarCannon"), null);
+                    weapon.TryGetComp<CompQuality>()?.SetQuality(QualityCategory.Legendary, ArtGenerationContext.Outsider);
+                    centiped.equipment?.AddEquipment(weapon);
+                    // 给蜈蚣加BUff
+                    HediffDef ironStarHediff = DefDatabase<HediffDef>.GetNamedSilentFail("RKU_IronStarHediff");
+                    if (ironStarHediff != null && !centiped.health.hediffSet.HasHediff(ironStarHediff))
+                    {
+                        centiped.health.AddHediff(ironStarHediff);
+                    }
+            if (centiped != null)
+            {
+                if (centiped.Spawned)
+                {
+                    centiped.DeSpawn();
+                }
+                centiped.SetFaction(Faction.OfPlayer);
+                GenSpawn.Spawn(centiped, spawnCell, map);
+            }
+        }
+    }
+
+    // 让游击队阵营消失
+    public class DialogueAction_DefeatFaction : DialogueAction
+    {
+        public string factionDefName;
+
+        public override void ExecuteAction(Dialog_RKU_Radio radio)
+        {
+            FactionDef factionDef = DefDatabase<FactionDef>.GetNamed(factionDefName, false);
+            Faction faction = Find.FactionManager.FirstFactionOfDef(factionDef);
+            faction.defeated = true;
+            var settlements = Find.WorldObjects.Settlements;
+            for (int i = settlements.Count - 1; i >= 0; i--)
+            {
+                if (settlements[i].Faction == faction)
+                {
+                    Find.WorldObjects.Remove(settlements[i]);
+                    Log.Message($"[RKU] 已移除{faction.Name}的据点");
+                }
+            }
+            var allWorldObjects = Find.WorldObjects.AllWorldObjects;
+            for (int i = allWorldObjects.Count - 1; i >= 0; i--)
+            {
+                if (allWorldObjects[i].Faction == faction)
+                {
+                    Find.WorldObjects.Remove(allWorldObjects[i]);
+                }
+            }
+        }
+    }
 }

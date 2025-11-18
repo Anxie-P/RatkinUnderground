@@ -19,6 +19,7 @@ namespace RatkinUnderground
             base.PostMapGenerate(map);
             SpawnEnemiesInFarm(map);
             SpawnCiviliansInFarm(map);
+            SpawnFoodOnShelves(map);
         }
 
         /// <summary>
@@ -392,5 +393,35 @@ namespace RatkinUnderground
                 }
             }
         }
+
+        /// <summary>
+        /// 在物品架上生成食品
+        /// </summary>
+        private void SpawnFoodOnShelves(Map map)
+        {
+            // 找到地图上所有的物品架
+            var shelves = map.listerThings.ThingsOfDef(ThingDef.Named("Shelf")).ToList();
+
+            if (shelves.Count == 0) return;
+            var selectedShelves = shelves.Where(_ => Rand.Value < 0.5f).ToList();
+            var foodDefs = new List<ThingDef>
+            {
+                ThingDefOf.MealSimple,
+                ThingDefOf.MealFine,
+                ThingDefOf.Pemmican,
+            };
+            foreach (var shelf in selectedShelves)
+            {
+                int foodCount = Rand.RangeInclusive(1, 3);
+                for (int i = 0; i < foodCount; i++)
+                {
+                        ThingDef foodDef = foodDefs.RandomElement();
+                        Thing food = ThingMaker.MakeThing(foodDef);
+                        food.stackCount = Rand.RangeInclusive(1, foodDef.stackLimit);
+                        GenSpawn.Spawn(food, shelf.Position, map);
+                }
+            }
+        }
+
     }
 }

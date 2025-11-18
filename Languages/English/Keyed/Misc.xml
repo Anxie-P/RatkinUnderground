@@ -276,6 +276,30 @@
   <!-- Factory Raid Messages -->
   <!-- EN: Enemy Raid -->
   <RKU_EnemyRaid>Enemy Raid</RKU_EnemyRaid>
-  <!-- EN: {0} is launching a raid!\nRaid Points: {1}\nTotal Enemy Deaths: {2} -->
-  <RKU_EnemyRaidDesc>{0} is launching a raid!\nRaid Points: {1}\nTotal Enemy Deaths: {2}</RKU_EnemyRaidDesc>
+  <!-- EN: {0} is launching a raid on the factory!\nRaid Points: {1}\nTotal Enemy Deaths: {2}/800 -->
+  <RKU_EnemyRaidDesc>{0} is launching a raid on the factory!\nRaid Points: {1}\nTotal Enemy Deaths: {2}/800</RKU_EnemyRaidDesc>
+
+  <!-- Burst Fire Ability Translations -->
+  <!-- EN: Burst Fire -->
+  <RKU_BurstFireLabel>Burst Fire</RKU_BurstFireLabel>
+  <!-- EN: Fire 21 shots in rapid succession, then the weapon will overheat and be unusable for 10 seconds. Cooldown: 30 seconds. -->
+  <RKU_BurstFireDescription>Fire 25 shots in rapid succession, then the weapon will overheat and be unusable for 10 seconds. Cooldown: 30 seconds.</RKU_BurstFireDescription>
+  <!-- EN: Skill on cooldown, {0} seconds remaining -->
+  <RKU_BurstFireCooldown>Skill on cooldown, {0} seconds remaining</RKU_BurstFireCooldown>
+  <!-- EN: Weapon overheating, {0} seconds remaining -->
+  <RKU_BurstFireDisabled>Weapon overheating, {0} seconds remaining</RKU_BurstFireDisabled>
+  <!-- EN: Burst firing in progress... ({0} shots remaining) -->
+  <RKU_BurstFireActive>Burst firing in progress... ({0} shots remaining)</RKU_BurstFireActive>
+  <!-- EN: Weapon is not equipped -->
+  <RKU_BurstFireNoHolder>Weapon is not equipped</RKU_BurstFireNoHolder>
+  <!-- EN: Weapon has no attack capability -->
+  <RKU_BurstFireNoVerb>Weapon has no attack capability</RKU_BurstFireNoVerb>
+  <!-- EN: Cannot attack this target -->
+  <RKU_BurstFireInvalidTarget>Cannot attack this target</RKU_BurstFireInvalidTarget>
+  <!-- EN: Debug Features: -->
+  <RKU_DebugFeatures>Debug Features:</RKU_DebugFeatures>
+  <!-- EN: Try Trigger Guerrillas Coming Quest -->
+  <RKU_TryTriggerGuerrillasQuest>Try Trigger Guerrillas Coming Quest</RKU_TryTriggerGuerrillasQuest>
+  <!-- EN: Please contact the guerrillas on the radio to expand faction relationship limits -->
+  <RKU_RelationLimitExceeded>Please contact the guerrillas on the radio to expand faction relationship limits</RKU_RelationLimitExceeded>
 </LanguageData>

@@ -109,20 +109,26 @@ namespace RatkinUnderground
         public int minRelationshipGrade = -25;
         public int maxRelationshipGrade = 25;
 
-        public int ralationshipGrade
+       public int ralationshipGrade
+{
+    get => _ralationshipGrade;
+    set
+    {
+        // 限制在设置的范围内
+        int clampedValue = Mathf.Clamp(value, minRelationshipGrade, maxRelationshipGrade);
+        if (_ralationshipGrade != clampedValue)
         {
-            get => _ralationshipGrade;
-            set
+            // 检查是否超出限制范围
+            if (value < minRelationshipGrade || value > maxRelationshipGrade)
             {
-                // 限制在设置的范围内
-                int clampedValue = Mathf.Clamp(value, minRelationshipGrade, maxRelationshipGrade);
-                if (_ralationshipGrade != clampedValue)
-                {
-                    _ralationshipGrade = clampedValue;
-                    SyncRelationshipGradeToFaction();
-                }
+                Messages.Message("RKU_RelationLimitExceeded".Translate(), MessageTypeDefOf.RejectInput);
             }
+            
+            _ralationshipGrade = clampedValue;
+            SyncRelationshipGradeToFaction();
         }
+    }
+}
 
         public bool isFinal = false;
 

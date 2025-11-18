@@ -667,4 +667,90 @@
 			</li>
 		</conditions>
 	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<!-- 工厂防御任务完成 -->
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_FactoryDefense_Completed</defName>
+		<dialogueText>      非常感谢你们帮助我们守卫了工厂！同志们。如果没有你们的支
+援，我们可能已经失去这唯一的生产设施，只能继续回到地下积蓄力量了。这份恩情
+我们会永远铭记在心。但战争还并未结束，只要还有军阀在这片土地上作威作福，我
+们就一刻不能懈怠，今后也继续努力吧！</dialogueText>
+		<priority>10</priority>
+		<triggerOnStartup>true</triggerOnStartup>
+		<triggerOnce>true</triggerOnce>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_EventRecorded">
+				<eventKey>RKU_OpportunitySite_FactoryDefense_Completed</eventKey>
+			</li>
+			<li Class="RatkinUnderground.DialogueCondition_FactionExists">
+				<factionDefName>Rakinia_Warlord</factionDefName>
+				<checkDefeated>true</checkDefeated>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<!-- 工厂防御任务失败 -->
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_FactoryDefense_Failed</defName>
+		<dialogueText>      工厂失守了...我们暂时需要撤退隐蔽，转入地下继续潜伏。虽然
+这次失败了，但我们不会放弃。等我们重新组织好力量，一定会再次联系你们。那么，
+再见了...</dialogueText>
+		<priority>10</priority>
+		<triggerOnStartup>true</triggerOnStartup>
+		<triggerOnce>true</triggerOnce>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_EventRecorded">
+				<eventKey>RKU_OpportunitySite_FactoryDefense_Failed</eventKey>
+			</li>
+		</conditions>
+		<actions>
+			<li Class="RatkinUnderground.DialogueAction_DefeatFaction">
+				<factionDefName>RKU_Faction</factionDefName>
+			</li>
+		</actions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<!-- 工厂防御任务完成且军阀被消灭 - 奶酪加入 -->
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_FactoryDefense_Completed_WarlordDefeated</defName>
+		<dialogueText>      终于,同志们，我们可以停战了...不论如何，军阀被彻底灭亡，王国元气大伤，
+但金合欢的继承者们却见到了胜利的曙光。鼠族人被内战的阴霾折磨了十几年，现在我
+们这些老骨头也是时候放下手中的枪，还给孩子们一个安定的未来了。比起我这样的战
+士，游击队现在更需要一个能带领他们发展建设的领袖，那么，不知道你那边还有没有
+位置能提供给一个...勉强还有点水平的机械师？哈哈，我居然已经开始期待退休生活
+了。</dialogueText>
+		<priority>5</priority>
+		<triggerOnStartup>true</triggerOnStartup>
+		<triggerOnce>true</triggerOnce>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_EventRecorded">
+				<eventKey>RKU_OpportunitySite_FactoryDefense_Completed</eventKey>
+			</li>
+			<li Class="RatkinUnderground.DialogueCondition_FactionNotExists">
+				<factionDefName>Rakinia_Warlord</factionDefName>
+				<checkDefeated>true</checkDefeated>
+			</li>
+		</conditions>
+		<actions>
+			<li Class="RatkinUnderground.DialogueAction_JoinColony" />
+		</actions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+
+	<!-- 指挥官加入后发现玩家有齐格星卡的特殊对话 -->
+	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_LeaderJoined_WithZiggyCard</defName>
+		<dialogueText>      我为什么还在这里？不要问，这都是细节~</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<triggerOnce>false</triggerOnce>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_EventRecorded">
+				<eventKey>RKU_OpportunitySite_FactoryDefense_Completed</eventKey>
+			</li>
+			<li Class="RatkinUnderground.DialogueCondition_FactionNotExists">
+				<factionDefName>Rakinia_Warlord</factionDefName>
+				<checkDefeated>true</checkDefeated>
+			</li>
+			<li Class="RatkinUnderground.DialogueCondition_HasZiggyInColony" />
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
 </Defs> 

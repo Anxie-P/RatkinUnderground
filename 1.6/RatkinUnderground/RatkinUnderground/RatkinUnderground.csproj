@@ -123,6 +123,7 @@
     <Compile Include="Quest\QuestPart_DrillingVehicleDeparture.cs" />
     <Compile Include="Quest\QuestPart_CheckGuerrillas.cs" />
     <Compile Include="Quest\QuestPart_RequestResources.cs" />
+    <Compile Include="Quest\QuestPart_RKU_RecordOnceEvent.cs" />
     <Compile Include="Quest\QuestPart_TrackPawnsStatus.cs" />
     <Compile Include="RaidStrategyWorker\LordJob_HammerSiege.cs" />
     <Compile Include="RaidStrategyWorker\LordToil_SiegeHammer.cs" />
@@ -145,6 +146,7 @@
     <Compile Include="ThingComps\CompProperties_Mindspark.cs" />
     <Compile Include="ThingComps\CompProperties_RecordDamage.cs" />
     <Compile Include="ThingComps\CompProperties_RKU_BackpackRadio.cs" />
+    <Compile Include="ThingComps\CompProperties_RKU_BurstFire.cs" />
     <Compile Include="ThingComps\RKU_Projectile_ArmorPiercing.cs" />
     <Compile Include="ThingComps\RKU_YunNanBullet.cs" />
     <Compile Include="Dialogue\Window_RKURadio.cs" />
@@ -187,6 +189,9 @@
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="OberoniaAureaGene">
+      <HintPath>..\..\..\..\..\..\..\workshop\content\294100\3300291918\1.6\Assemblies\OberoniaAureaGene.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />

@@ -34,8 +34,8 @@ public static class EquipmentTracker_Patch
     }
 }
 
-// 这个是把武器上定义的gizmo返回到pawn身上的，现在没用了，但不知道以后有没有用
-/*[StaticConstructorOnStartup]
+// 这个是把武器上定义的gizmo返回到pawn身上的
+[StaticConstructorOnStartup]
 [HarmonyPatch(typeof(Pawn_EquipmentTracker), nameof(Pawn_EquipmentTracker.GetGizmos))]
 public static class EquipmentTracker_WeaponGizmosPatch
 {
@@ -57,4 +57,64 @@ public static class EquipmentTracker_WeaponGizmosPatch
             }
         }
     }
-}*/
+}
+
+// 禁用武器在过热期间的攻击，并在连续射击期间绕过冷却
+[StaticConstructorOnStartup]
+[HarmonyPatch(typeof(Verb), nameof(Verb.Available))]
+public static class Verb_Available_Patch
+{
+    public static void Postfix(Verb __instance, ref bool __result)
+    {
+        if (!(__instance is Verb_Shoot)) return;
+
+        if (__instance.caster is Pawn pawn && pawn.equipment != null && pawn.equipment.Primary != null)
+        {
+            var compEquippable = pawn.equipment.Primary.TryGetComp<CompEquippable>();
+            if (compEquippable != null && compEquippable.PrimaryVerb == __instance)
+            {
+                var burstFireComp = pawn.equipment.Primary.TryGetComp<Comp_RKU_BurstFire>();
+                if (burstFireComp != null)
+                {
+                    // 优先检查：如果武器过热，强制禁用攻击（无论其他条件）
+                    if (burstFireComp.IsWeaponDisabled)
+                    {
+                        __result = false;
+                        return;
+                    }
+                    
+                    // 如果正在连续射击，绕过冷却检查（允许连续射击）
+                    // 但前提是武器没有过热
+                    if (burstFireComp.IsBurstFiring && !__result)
+                    {
+                        __result = true;
+                    }
+                }
+            }
+        }
+    }
+}
+
+[StaticConstructorOnStartup]
+[HarmonyPatch(typeof(Verb), "WarmupTicksLeft", MethodType.Getter)]
+public static class Verb_WarmupTicksLeft_Patch
+{
+    public static void Postfix(Verb __instance, ref int __result)
+    {
+        if (!(__instance is Verb_Shoot)) return;
+
+        if (__instance.caster is Pawn pawn && pawn.equipment != null && pawn.equipment.Primary != null)
+        {
+            var compEquippable = pawn.equipment.Primary.TryGetComp<CompEquippable>();
+            if (compEquippable != null && compEquippable.PrimaryVerb == __instance)
+            {
+                var burstFireComp = pawn.equipment.Primary.TryGetComp<Comp_RKU_BurstFire>();
+                if (burstFireComp != null && burstFireComp.IsBurstFiring)
+                {
+                    __result = 0;
+                }
+            }
+        }
+    }
+}
+

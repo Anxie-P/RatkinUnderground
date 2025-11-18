@@ -50,6 +50,9 @@
   <!-- 地鼠定居点命名器 -->
   <RulePackDef>
     <defName>NamerSettlement_RKU</defName>
+    <include>
+      <li>RKU_NameUtility</li>
+    </include>
     <rulePack>
       <rulesStrings>
         <!-- 地鼠定居点名称 -->

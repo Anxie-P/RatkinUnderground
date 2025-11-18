@@ -30,6 +30,7 @@ namespace RatkinUnderground
         {
             base.PostMapGenerate(map);
             SetAllBuildingsFaction(map);
+            SpawnFoodOnShelves(map);
             lastRaidTick = Find.TickManager.TicksGame;
         }
 
@@ -307,7 +308,6 @@ namespace RatkinUnderground
                     return kingdomFaction;
             }
 
-            // 死亡人数300以上，选择任何可袭击游击队和玩家的敌对势力
             var guerrillaFaction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
             
             // 筛选同时敌对玩家和游击队的派系
@@ -588,6 +588,36 @@ namespace RatkinUnderground
             foreach (var building in nonColonistBuildings)
             {
                 building.SetFaction(guerrillaFaction);
+            }
+        }
+
+        /// <summary>
+        /// 在物品架上生成食品
+        /// </summary>
+        private void SpawnFoodOnShelves(Map map)
+        {
+            // 找到地图上所有的物品架
+            var shelves = map.listerThings.ThingsOfDef(ThingDef.Named("Shelf")).ToList();
+
+            if (shelves.Count == 0) return;
+            var selectedShelves = shelves.Where(_ => Rand.Value < 0.5f).ToList();
+            var foodDefs = new List<ThingDef>
+            {
+                ThingDefOf.MealSimple,
+                ThingDefOf.MealFine,
+                ThingDefOf.Pemmican,
+            };
+
+            foreach (var shelf in selectedShelves)
+            {
+                int foodCount = Rand.RangeInclusive(1, 3);
+                for (int i = 0; i < foodCount; i++)
+                {
+                        ThingDef foodDef = foodDefs.RandomElement();
+                        Thing food = ThingMaker.MakeThing(foodDef);
+                        food.stackCount = Rand.RangeInclusive(1, foodDef.stackLimit);
+                        GenSpawn.Spawn(food, shelf.Position, map);
+                }
             }
         }
 

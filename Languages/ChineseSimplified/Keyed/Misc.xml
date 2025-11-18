@@ -174,5 +174,18 @@
 
   <!-- 工厂袭击消息 -->
   <RKU_EnemyRaid>敌方袭击</RKU_EnemyRaid>
-  <RKU_EnemyRaidDesc>{0}正在发起袭击！\n袭击点数: {1}\n累计敌方死亡: {2}</RKU_EnemyRaidDesc>
+  <RKU_EnemyRaidDesc>{0}正在对工厂发起袭击！\n袭击点数: {1}\n累计敌方死亡人数: {2}/800</RKU_EnemyRaidDesc>
+
+  <!-- 连续射击技能翻译 -->
+  <RKU_BurstFireLabel>连续射击</RKU_BurstFireLabel>
+  <RKU_BurstFireDescription>连续射击25发子弹，之后武器会过热10秒无法使用。冷却时间30秒。</RKU_BurstFireDescription>
+  <RKU_BurstFireCooldown>技能冷却中，剩余 {0} 秒</RKU_BurstFireCooldown>
+  <RKU_BurstFireDisabled>武器过热中，剩余 {0} 秒</RKU_BurstFireDisabled>
+  <RKU_BurstFireActive>正在连续射击中... ({0}发剩余)</RKU_BurstFireActive>
+  <RKU_BurstFireNoHolder>武器未被装备</RKU_BurstFireNoHolder>
+  <RKU_BurstFireNoVerb>武器没有攻击能力</RKU_BurstFireNoVerb>
+  <RKU_BurstFireInvalidTarget>无法攻击该目标</RKU_BurstFireInvalidTarget>
+  <RKU_DebugFeatures>调试功能：</RKU_DebugFeatures>
+  <RKU_TryTriggerGuerrillasQuest>尝试触发游击队到来任务</RKU_TryTriggerGuerrillasQuest>
+  <RKU_RelationLimitExceeded>请在电台上联络游击队以拓展阵营关系限制</RKU_RelationLimitExceeded>
 </LanguageData> 

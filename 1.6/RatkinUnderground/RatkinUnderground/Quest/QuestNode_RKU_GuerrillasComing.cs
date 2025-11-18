@@ -69,89 +69,98 @@ namespace RatkinUnderground
             public List<Pawn> pawns;
             public Thing drillingVehicle;
             public string outSignalCompleted;
-                    protected override void DelayFinished()
-        {
-            try
+            
+            protected override void DelayFinished()
             {
-                Log.Error($"[RepairDelay.DelayFinished] 开始执行延迟完成逻辑");
-                
-                // 优先从slate中获取钻机引用
-                RKU_DrillingVehicleInEnemyMap targetDrillingVehicle = null;
-
-                Map map = Find.AnyPlayerHomeMap;
-                if (map != null)
+                try
                 {
-                    targetDrillingVehicle = map.listerThings.ThingsOfDef(ThingDef.Named("RKU_DrillingVehicleInEnemyMap"))
-                        .OfType<RKU_DrillingVehicleInEnemyMap>()
-                        .FirstOrDefault();
+                    Log.Error($"[RepairDelay.DelayFinished] 开始执行延迟完成逻辑");
+                    
+                    // 优先从slate中获取钻机引用
+                    RKU_DrillingVehicleInEnemyMap targetDrillingVehicle = null;
 
-                    if (targetDrillingVehicle == null)
+                    Map map = Find.AnyPlayerHomeMap;
+                    if (map != null)
                     {
-                        Log.Error($"[RepairDelay.DelayFinished] 未找到钻机，创建新的钻机");
-                        targetDrillingVehicle = (RKU_DrillingVehicleInEnemyMap)ThingMaker.MakeThing(ThingDef.Named("RKU_DrillingVehicleInEnemyMap"));
-                        GenSpawn.Spawn(targetDrillingVehicle, map.Center, map);
-                    }
-                }
+                        targetDrillingVehicle = map.listerThings.ThingsOfDef(ThingDef.Named("RKU_DrillingVehicleInEnemyMap"))
+                            .OfType<RKU_DrillingVehicleInEnemyMap>()
+                            .FirstOrDefault();
 
-                // 检查 JobDef 是否存在
-                if (DefOfs.RKU_AIEnterDrillingVehicle == null)
-                {
-                    Log.Error($"[RepairDelay.DelayFinished] RKU_AIEnterDrillingVehicle JobDef 为 null！");
+                        if (targetDrillingVehicle == null)
+                        {
+                            Log.Error($"[RepairDelay.DelayFinished] 未找到钻机，创建新的钻机");
+                            targetDrillingVehicle = (RKU_DrillingVehicleInEnemyMap)ThingMaker.MakeThing(ThingDef.Named("RKU_DrillingVehicleInEnemyMap"));
+                            GenSpawn.Spawn(targetDrillingVehicle, map.Center, map);
+                        }
+                    }
+
+                    // 检查 JobDef 是否存在
+                    if (DefOfs.RKU_AIEnterDrillingVehicle == null)
+                    {
+                        Log.Error($"[RepairDelay.DelayFinished] RKU_AIEnterDrillingVehicle JobDef 为 null！");
+                        quest.End(QuestEndOutcome.Success, 0, null, outSignalCompleted);
+                        return;
+                    }
+
+                    // 让所有存活的游击队成员进入钻机
+                    if (targetDrillingVehicle != null && pawns != null)
+                    {
+                        int assignedJobs = 0;
+                        foreach (Pawn p in pawns.Where(p => p != null && !p.Dead && !p.Downed && p.Spawned))
+                        {
+                            try
+                            {
+                                // 检查 pawn 是否已经在执行相关任务
+                                if (p.CurJob != null && 
+                                    (p.CurJob.def == DefOfs.RKU_AIEnterDrillingVehicle || 
+                                     p.CurJob.def == DefOfs.RKU_EnterDrillingVehicle))
+                                {
+                                    Log.Error($"[RepairDelay.DelayFinished] Pawn {p.LabelShort} 已经在执行进入钻机任务，跳过");
+                                    continue;
+                                }
+
+                                // 检查 pawn 是否已经在钻机中
+                                if (targetDrillingVehicle.ContainsPassenger(p))
+                                {
+                                    Log.Error($"[RepairDelay.DelayFinished] Pawn {p.LabelShort} 已经在钻机中，跳过");
+                                    continue;
+                                }
+
+                                Job job = new Job(DefOfs.RKU_AIEnterDrillingVehicle, targetDrillingVehicle);
+                                p.jobs.StartJob(job, JobCondition.InterruptForced);
+                                assignedJobs++;
+                                Log.Error($"[RepairDelay.DelayFinished] 为 Pawn {p.LabelShort} 分配了进入钻机任务");
+                            }
+                            catch (Exception ex)
+                            {
+                                Log.Error($"[RepairDelay.DelayFinished] 为 Pawn {p.LabelShort} 分配任务时出错: {ex.Message}");
+                            }
+                        }
+                        Log.Error($"[RepairDelay.DelayFinished] 总共为 {assignedJobs} 个 pawn 分配了任务");
+                    }
+                    else
+                    {
+                        Log.Error($"[RepairDelay.DelayFinished] 未找到钻机或pawns列表为空，无法分配任务");
+                    }
+
+                    // 结束任务
                     quest.End(QuestEndOutcome.Success, 0, null, outSignalCompleted);
-                    return;
                 }
-
-                // 让所有存活的游击队成员进入钻机
-                if (targetDrillingVehicle != null)
+                catch (Exception ex)
                 {
-                    int assignedJobs = 0;
-                    foreach (Pawn p in pawns.Where(p => !p.Dead && !p.Downed && p.Spawned))
-                    {
-                        try
-                        {
-                            // 检查 pawn 是否已经在执行相关任务
-                            if (p.CurJob != null && 
-                                (p.CurJob.def == DefOfs.RKU_AIEnterDrillingVehicle || 
-                                 p.CurJob.def == DefOfs.RKU_EnterDrillingVehicle))
-                            {
-                                Log.Error($"[RepairDelay.DelayFinished] Pawn {p.LabelShort} 已经在执行进入钻机任务，跳过");
-                                continue;
-                            }
-
-                            // 检查 pawn 是否已经在钻机中
-                            if (targetDrillingVehicle.ContainsPassenger(p))
-                            {
-                                Log.Error($"[RepairDelay.DelayFinished] Pawn {p.LabelShort} 已经在钻机中，跳过");
-                                continue;
-                            }
-
-                            Job job = new Job(DefOfs.RKU_AIEnterDrillingVehicle, targetDrillingVehicle);
-                            p.jobs.StartJob(job, JobCondition.InterruptForced);
-                            assignedJobs++;
-                            Log.Error($"[RepairDelay.DelayFinished] 为 Pawn {p.LabelShort} 分配了进入钻机任务");
-                        }
-                        catch (Exception ex)
-                        {
-                            Log.Error($"[RepairDelay.DelayFinished] 为 Pawn {p.LabelShort} 分配任务时出错: {ex.Message}");
-                        }
-                    }
-                    Log.Error($"[RepairDelay.DelayFinished] 总共为 {assignedJobs} 个 pawn 分配了任务");
+                    Log.Error($"[RepairDelay.DelayFinished] 执行延迟完成逻辑时出错: {ex.Message}");
+                    // 即使出错也要结束任务
+                    quest.End(QuestEndOutcome.Success, 0, null, outSignalCompleted);
                 }
-                else
-                {
-                    Log.Error($"[RepairDelay.DelayFinished] 未找到钻机，无法分配任务");
-                }
-
-                // 结束任务
-                quest.End(QuestEndOutcome.Success, 0, null, outSignalCompleted);
             }
-            catch (Exception ex)
+
+            public override void ExposeData()
             {
-                Log.Error($"[RepairDelay.DelayFinished] 执行延迟完成逻辑时出错: {ex.Message}");
-                // 即使出错也要结束任务
-                quest.End(QuestEndOutcome.Success, 0, null, outSignalCompleted);
+                base.ExposeData();
+                Scribe_Collections.Look(ref pawns, "pawns", LookMode.Reference);
+                Scribe_References.Look(ref drillingVehicle, "drillingVehicle");
+                Scribe_Values.Look(ref outSignalCompleted, "outSignalCompleted");
             }
-        }
         }
 
         public class ReminderDelay : QuestPart_Delay
@@ -350,6 +359,7 @@ namespace RatkinUnderground
             //队长
             PawnGenerationRequest requestOfficer = new PawnGenerationRequest(PawnKindDef.Named("RKU_Commissar"), faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: true);
             Pawn pawnOfficer = PawnGenerator.GeneratePawn(requestOfficer);
+            Find.WorldPawns.PassToWorld(pawnOfficer, PawnDiscardDecideMode.KeepForever);
             slate.Set("captain", pawnOfficer);
             Thing researchReward = ThingMaker.MakeThing(ThingDef.Named("Techprint_RKU_UndergroundGuerrillaEquipments"));
             pawnOfficer.inventory?.innerContainer.TryAdd(researchReward);
@@ -359,6 +369,7 @@ namespace RatkinUnderground
             {
                 PawnGenerationRequest request = new PawnGenerationRequest(kind, faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: true);
                 Pawn pawn = PawnGenerator.GeneratePawn(request);
+                Find.WorldPawns.PassToWorld(pawn, PawnDiscardDecideMode.KeepForever);
                 pawns.Add(pawn);
             }
 
@@ -369,7 +380,7 @@ namespace RatkinUnderground
                 comp.parent = p;
                 p.AllComps.Add(comp);
             }
-
+            quest.ReservePawns(pawns);
             string arrivedSignal = QuestGen.GenerateNewSignal("GuerrillasArrived");
             string deliveredSignal = QuestGen.GenerateNewSignal("ResourcesDelivered");
             string acceptSignal = inSignalAccept.GetValue(slate) ?? QuestGenUtility.HardcodedSignalWithQuestID("Initiate");

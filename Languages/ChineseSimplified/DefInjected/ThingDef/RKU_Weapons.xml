@@ -9,8 +9,8 @@
   <!-- 芸南子弹 -->
   <Bullet_YunNanMushroom.label>芸南子弹</Bullet_YunNanMushroom.label>
   <!-- 毁灭地雷发射器 -->
-  <RKK_Weapon_RangerBow.label>毁灭地雷发射器</RKK_Weapon_RangerBow.label>
-  <RKK_Weapon_RangerBow.description>毁灭地雷发射器，内部装药混合了极具破坏力的毁灭菇提取物，可以打包并发射一颗毁灭粒子地雷到目标地点，地雷需要手动引爆。</RKK_Weapon_RangerBow.description>
+  <RKK_Weapon_DetroyerLandmineLaunchers.label>毁灭地雷发射器</RKK_Weapon_DetroyerLandmineLaunchers.label>
+  <RKU_DestroyerMine.description>毁灭地雷发射器，内部装药混合了极具破坏力的毁灭菇提取物，可以打包并发射一颗毁灭粒子地雷到目标地点，地雷需要手动引爆。</RKU_DestroyerMine.description>
   <!-- 毁灭粒子地雷 -->
   <RKU_DestroyerMine.label>毁灭粒子地雷</RKU_DestroyerMine.label>
   <!-- 毁灭粒子地雷建筑 -->

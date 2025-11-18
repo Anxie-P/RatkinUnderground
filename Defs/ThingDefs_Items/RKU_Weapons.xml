@@ -399,7 +399,7 @@
 	<recipeMaker IsNull="True"/>
 	<smeltable>false</smeltable>
 	<tradeability>None</tradeability>
-    <description>一把历经风霜的步枪。</description>
+    <description>一把历经风霜的步枪。衷心提示：如果你捡起了它，就再也不要把它丢在地上，或者这之前...先存档。</description>
 	<destroyOnDrop>true</destroyOnDrop>
     <graphicData>
       <texPath>Things/Item/Weapons/RKU_SVT40M_Elite</texPath>
@@ -423,6 +423,8 @@
         <defaultProjectile>Bullet_RKU_EliteRifle</defaultProjectile>
         <warmupTime>0.6</warmupTime>
         <range>55</range>
+		<burstShotCount>2</burstShotCount>
+        <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
         <soundCast>Rifle</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
         <muzzleFlashScale>14</muzzleFlashScale>
@@ -999,6 +1001,7 @@
   <ThingDef ParentName="BaseHumanMakeableGun">
     <defName>RKU_RifleB</defName>
     <label>莫辛自动步枪 999型</label>
+	<tickerType>Normal</tickerType>
     <description>一把经过狂热改造的步枪，火力十足。可以快速射出大量子弹，但之后会有一段时间不能用。</description>
     <graphicData>
       <texPath>Things/Item/Weapons/RKU_RifleB</texPath>
@@ -1048,6 +1051,17 @@
       <li>RangedLight</li>
       <li>LongShots</li>
     </weaponClasses>
+    <comps>
+      <li Class="RatkinUnderground.CompProperties_RKU_BurstFire">
+        <burstShotCount>25</burstShotCount>
+        <disableDurationTicks>600</disableDurationTicks>
+        <cooldownTicks>1800</cooldownTicks>
+        <ticksBetweenShots>0</ticksBetweenShots>
+        <labelKey>RKU_BurstFireLabel</labelKey>
+        <descriptionKey>RKU_BurstFireDescription</descriptionKey>
+        <iconPath>UI/Commands/Attack</iconPath>
+      </li>
+    </comps>
     <tools>
       <li>
         <label>stock</label>

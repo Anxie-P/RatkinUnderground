@@ -15,7 +15,7 @@ namespace RatkinUnderground
         public override void Notify_QuestSignalReceived(Signal signal)
         {
             base.Notify_QuestSignalReceived(signal);
-            if (pawns.All(p => p.Dead) && failIfAllDead)
+            if (pawns != null && pawns.Count > 0 && pawns.All(p => p != null && p.Dead) && failIfAllDead)
             {
                 Find.SignalManager.SendSignal(new Signal(failSignal));
             }

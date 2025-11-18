@@ -270,5 +270,25 @@ namespace RatkinUnderground
                 Messages.Message("已按类别输出TerrainDef到日志", MessageTypeDefOf.NeutralEvent);
             }
         }
+
+        public static class Debug_WarlordElimination
+        {
+            [DebugAction(
+                category: "RatkinUnderground",
+                name: "Eliminate All Warlords on Map")]
+            private static void EliminateAllWarlords()
+            {
+                Faction warlordFaction = Find.FactionManager.FirstFactionOfDef(FactionDef.Named("Rakinia_Warlord"));
+                // 移除所有军阀相关的世界对象
+                var settlements = Find.WorldObjects.Settlements.Where(s => s.Faction == warlordFaction).ToList();
+                foreach (var settlement in settlements)
+                {
+                    Find.WorldObjects.Remove(settlement);
+                }
+
+                // 设置军阀阵营为被击败状态
+                warlordFaction.defeated = true;
+            }
+        }
     }
 }

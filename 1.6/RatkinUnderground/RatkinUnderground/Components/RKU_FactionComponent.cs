@@ -1,11 +1,13 @@
-﻿using RimWorld;
+﻿using AlienRace;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 using Verse;
-using AlienRace;
+using Verse.Noise;
 
 namespace RatkinUnderground
 {
@@ -59,10 +61,37 @@ namespace RatkinUnderground
                     rFaction.ideos.PrimaryIdeo.leaderTitleMale = "RKU_commanderTitle".Translate();
                     rFaction.ideos.PrimaryIdeo.leaderTitleFemale = "RKU_commanderTitle".Translate();
                 }
-                rFaction.leader.story.hairDef = DefDatabase<HairDef>.GetNamed("RKU_CommanderHair");
-                rFaction.leader.story.HairColor = new UnityEngine.Color(236,222,227);
+                
                 rFaction.leader.story.Childhood = DefDatabase<AlienRace.AlienBackstoryDef>.GetNamed("Ratkin_GuerrillaCT");
                 rFaction.leader.story.Adulthood = DefDatabase<AlienRace.AlienBackstoryDef>.GetNamed("RKU_GuerrillaAR");
+                // 设置指挥官年龄为43岁\装备武器hedoiff
+                SetPawnAge(rFaction.leader, 43);
+                
+                // 清空所有特性并添加坚韧和工作狂特质
+                SetCommanderTraits(rFaction.leader);
+                //沙。。。我真受不了了
+                if (ModsConfig.IsActive("OARK.RatkinFaction.GeneExpand"))
+                {
+                    for (int i = 0; i < rFaction.leader.genes.GenesListForReading.Count; i++)
+                    {
+                        rFaction.leader.genes.RemoveGene(rFaction.leader.genes.GenesListForReading[i]);
+                    }
+                    rFaction.leader.genes.SetXenotype(DefDatabase<XenotypeDef>.GetNamed("OAGene_RatkinBase")) ;
+                }
+                rFaction.leader.story.hairDef = DefDatabase<HairDef>.GetNamed("RKU_CommanderHair");
+                rFaction.leader.story.HairColor = new UnityEngine.Color(236, 222, 227);
+                rFaction.leader.equipment?.DestroyAllEquipment();
+                ThingWithComps weaponL = (ThingWithComps)ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_SVT40M_Elite"), null);
+                weaponL.TryGetComp<CompQuality>()?.SetQuality(QualityCategory.Legendary, ArtGenerationContext.Outsider);
+                rFaction.leader.equipment?.AddEquipment(weaponL);
+                // 保证leader技能保底
+                EnsureMinimumSkills(rFaction.leader);
+                // 给rFaction.leader加入MechlinkImplant（如果存在的话）
+                HediffDef mechlinkDef = DefDatabase<HediffDef>.GetNamedSilentFail("MechlinkImplant");
+                if (mechlinkDef != null && !rFaction.leader.health.hediffSet.HasHediff(mechlinkDef))
+                {
+                    rFaction.leader.health.AddHediff(mechlinkDef);
+                }
             }
             foreach (FactionDef enemy in enemyFaction)
             {
@@ -84,6 +113,68 @@ namespace RatkinUnderground
             if (leaderTitleField != null)
             {
                 leaderTitleField.SetValue(faction, title);
+            }
+        }
+
+        private void SetPawnAge(Pawn pawn, int ageInYears)
+        {
+            if (pawn == null || pawn.ageTracker == null) return;
+
+            // 设置生物年龄为43岁
+            long currentAbsTicks = Find.TickManager.TicksAbs;
+            long ticksPerYear = 3600000L; // RimWorld中每年3600000 ticks
+            long birthAbsTicks = currentAbsTicks - (ageInYears * ticksPerYear);
+            var birthAbsTicksField = typeof(Pawn_AgeTracker).GetField("birthAbsTicks", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            if (birthAbsTicksField != null)
+            {
+                birthAbsTicksField.SetValue(pawn.ageTracker, birthAbsTicks);
+            }
+        }
+
+        private void EnsureMinimumSkills(Pawn pawn)
+        {
+            if (pawn.skills == null)
+                return;
+
+            // 技能保底要求
+            var skillRequirements = new Dictionary<SkillDef, int>
+            {
+                { SkillDefOf.Shooting, 15 },
+                { SkillDefOf.Melee, 5 },
+                { SkillDefOf.Social, 15 },
+                { SkillDefOf.Intellectual, 15 },
+                { SkillDefOf.Mining, 5 },
+                { SkillDefOf.Crafting, 10 }
+            };
+
+            foreach (var kvp in skillRequirements)
+            {
+                SkillRecord skill = pawn.skills.GetSkill(kvp.Key);
+                if (skill != null && skill.Level < kvp.Value)
+                {
+                    skill.Level = kvp.Value;
+                }
+            }
+        }
+
+        private void SetCommanderTraits(Pawn pawn)
+        {
+            if (pawn == null || pawn.story == null || pawn.story.traits == null)
+                return;
+            var traitsToRemove = pawn.story.traits.allTraits.ToList();
+            foreach (var trait in traitsToRemove)
+            {
+                pawn.story.traits.RemoveTrait(trait);
+            }
+            TraitDef toughDef = DefDatabase<TraitDef>.GetNamedSilentFail("Tough");
+            if (toughDef != null)
+            {
+                pawn.story.traits.GainTrait(new Trait(toughDef));
+            }
+            TraitDef industriousDef = DefDatabase<TraitDef>.GetNamedSilentFail("Industriousness");
+            if (industriousDef != null)
+            {
+                pawn.story.traits.GainTrait(new Trait(industriousDef, 2));
             }
         }
     }
