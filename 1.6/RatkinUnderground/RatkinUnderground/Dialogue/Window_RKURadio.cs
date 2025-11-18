@@ -390,8 +390,26 @@ public class Dialog_RKU_Radio : Window, ITrader
                 RKU_DialogueManager.TriggerDialogueEvents(this, "scan");
                 AddMessage("RKU_StartScanningSignal".Translate());
 
-                int tile = Utils.GetRadiusTiles(radio.Map.Tile, 20);
-                try
+                // 防止刷海里
+                int tile = -1;
+                for (int i = 0; i < 50; i++)
+                {
+                    int randTile = Utils.GetRadiusTiles(radio.Map.Tile, 20);
+                    Tile worldTile = Find.WorldGrid[randTile];
+                    if (!worldTile.WaterCovered && !worldTile.hilliness.Equals(Hilliness.Impassable))
+                    {
+                        tile = randTile;
+                        break;
+                    }
+                }
+
+                if (tile == -1)
+                {
+                    Log.Error("[RKU] 尝试多次后仍未在半径20内找到合适的非海洋/非不可逾越山的落地点");
+                    return;
+                }
+
+                    try
                 {
                     // 如果你看到这行，我跟军爷抢饭去了，回来再修
                     // 2025/9/23 别动这块了，修了一晚上，我怕
