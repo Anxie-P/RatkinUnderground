@@ -20,7 +20,7 @@ namespace RatkinUnderground
             base.Notify_GeneratedByQuestGen(part, slate, outExtraDescriptionRules, outExtraDescriptionConstants);
             Log.Message("[RKU] 已执行SitePartWorker_GuerrillaSurvivor");
 
-            PawnGenerationRequest request = new PawnGenerationRequest(PawnKindDef.Named("RKU_Scout"), Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction), PawnGenerationContext.NonPlayer, part.site.Tile, forceGenerateNewPawn: false, allowDead: false, allowDowned: false, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 75f, forceAddFreeWarmLayerIfNeeded: true, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: true, worldPawnFactionDoesntMatter: true);
+            PawnGenerationRequest request = new PawnGenerationRequest(PawnKindDef.Named("RKU_Scout"), Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction), PawnGenerationContext.NonPlayer, part.site.Tile, forceGenerateNewPawn: false, allowDead: false, allowDowned: true, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 75f, forceAddFreeWarmLayerIfNeeded: true, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: true, worldPawnFactionDoesntMatter: true);
             if (Find.Storyteller.difficulty.ChildrenAllowed)
             {
                 request.AllowedDevelopmentalStages |= DevelopmentalStage.Child;
@@ -28,7 +28,9 @@ namespace RatkinUnderground
             
             Pawn pawn = PawnGenerator.GeneratePawn(request);
             // 击倒不死亡，我称为泰南的仁慈，但这任务写起来跟赤石一样难过
-            HealthUtility.DamageUntilDowned(pawn);
+            // 25/11/20 放到genstep里了，不然会导致过早死亡
+            // HealthUtility.DamageUntilDowned(pawn);
+
             pawn.health.AddHediff(HediffDef.Named("RKU_Survivor"));
             pawn.guest.SetGuestStatus(Faction.OfPlayer, GuestStatus.Guest);
 

@@ -30,7 +30,10 @@ namespace RatkinUnderground
 
                 singlePawnToSpawn.mindState.WillJoinColonyIfRescued = true;
                 GenSpawn.Spawn(singlePawnToSpawn, loc, map);
+                HealthUtility.DamageUntilDowned(singlePawnToSpawn);
                 Log.Message($"{singlePawnToSpawn.Name}已生成在{loc},所在地图：{map}");
+
+                parms.sitePart.things.Clear();
             }
             else
             {
