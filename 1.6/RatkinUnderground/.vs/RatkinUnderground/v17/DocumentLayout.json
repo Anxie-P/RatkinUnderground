@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "D:\\Steam\\steamapps\\common\\RimWorld\\Mods\\RatkinUnderground\\1.6\\RatkinUnderground\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|D:\\Steam\\steamapps\\common\\RimWorld\\Mods\\RatkinUnderground\\1.6\\RatkinUnderground\\ratkinunderground\\mapgenerator\\sitepartworker_guerrillasurvivor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|d:\\steam\\steamapps\\common\\rimworld\\mods\\ratkinunderground\\1.6\\ratkinunderground\\ratkinunderground\\mapgenerator\\sitepartworker_guerrillasurvivor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\mapgenerator\\sitepartworker_guerrillasurvivor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,11 +11,11 @@
       "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\mapgenerator\\sitepartworker_ratkinfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|d:\\steam\\steamapps\\common\\rimworld\\mods\\ratkinunderground\\1.6\\ratkinunderground\\ratkinunderground\\quest\\questnode_survivordead.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|D:\\Steam\\steamapps\\common\\RimWorld\\Mods\\RatkinUnderground\\1.6\\RatkinUnderground\\ratkinunderground\\quest\\questnode_survivordead.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\quest\\questnode_survivordead.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|d:\\steam\\steamapps\\common\\rimworld\\mods\\ratkinunderground\\1.6\\ratkinunderground\\ratkinunderground\\mapgenerator\\gensteps\\rku_genstep_guerrillasurvivor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|D:\\Steam\\steamapps\\common\\RimWorld\\Mods\\RatkinUnderground\\1.6\\RatkinUnderground\\ratkinunderground\\mapgenerator\\gensteps\\rku_genstep_guerrillasurvivor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\mapgenerator\\gensteps\\rku_genstep_guerrillasurvivor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -27,7 +27,7 @@
       "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\quest\\questnode_rku_getpawnbyfactiondef.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|d:\\steam\\steamapps\\common\\rimworld\\mods\\ratkinunderground\\1.6\\ratkinunderground\\ratkinunderground\\rku_mod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|D:\\Steam\\steamapps\\common\\RimWorld\\Mods\\RatkinUnderground\\1.6\\RatkinUnderground\\ratkinunderground\\rku_mod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\rku_mod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -39,7 +39,7 @@
       "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\incidentworkers\\rku_incidentworker_triggerquest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|d:\\steam\\steamapps\\common\\rimworld\\mods\\ratkinunderground\\1.6\\ratkinunderground\\ratkinunderground\\thingcomps\\compproperties_rku_radio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|D:\\Steam\\steamapps\\common\\RimWorld\\Mods\\RatkinUnderground\\1.6\\RatkinUnderground\\ratkinunderground\\thingcomps\\compproperties_rku_radio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\thingcomps\\compproperties_rku_radio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -338,7 +338,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
@@ -351,34 +351,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAHIAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-09T14:01:17.669Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "RKU_GenStep_GuerrillaSurvivor.cs",
-              "DocumentMoniker": "D:\\Steam\\steamapps\\common\\RimWorld\\Mods\\RatkinUnderground\\1.6\\RatkinUnderground\\RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_GuerrillaSurvivor.cs",
-              "RelativeDocumentMoniker": "RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_GuerrillaSurvivor.cs",
-              "ToolTip": "D:\\Steam\\steamapps\\common\\RimWorld\\Mods\\RatkinUnderground\\1.6\\RatkinUnderground\\RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_GuerrillaSurvivor.cs",
-              "RelativeToolTip": "RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_GuerrillaSurvivor.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACAAAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T17:50:27.003Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "QuestNode_SurvivorDead.cs",
-              "DocumentMoniker": "D:\\Steam\\steamapps\\common\\RimWorld\\Mods\\RatkinUnderground\\1.6\\RatkinUnderground\\RatkinUnderground\\Quest\\QuestNode_SurvivorDead.cs",
-              "RelativeDocumentMoniker": "RatkinUnderground\\Quest\\QuestNode_SurvivorDead.cs",
-              "ToolTip": "D:\\Steam\\steamapps\\common\\RimWorld\\Mods\\RatkinUnderground\\1.6\\RatkinUnderground\\RatkinUnderground\\Quest\\QuestNode_SurvivorDead.cs",
-              "RelativeToolTip": "RatkinUnderground\\Quest\\QuestNode_SurvivorDead.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T17:43:01.193Z",
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -410,6 +383,43 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SitePartWorker_GuerrillaSurvivor.cs",
+              "DocumentMoniker": "D:\\Steam\\steamapps\\common\\RimWorld\\Mods\\RatkinUnderground\\1.6\\RatkinUnderground\\RatkinUnderground\\MapGenerator\\SitePartWorker_GuerrillaSurvivor.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\MapGenerator\\SitePartWorker_GuerrillaSurvivor.cs",
+              "ToolTip": "D:\\Steam\\steamapps\\common\\RimWorld\\Mods\\RatkinUnderground\\1.6\\RatkinUnderground\\RatkinUnderground\\MapGenerator\\SitePartWorker_GuerrillaSurvivor.cs",
+              "RelativeToolTip": "RatkinUnderground\\MapGenerator\\SitePartWorker_GuerrillaSurvivor.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAxwCYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-20T14:03:23.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RKU_GenStep_GuerrillaSurvivor.cs",
+              "DocumentMoniker": "D:\\Steam\\steamapps\\common\\RimWorld\\Mods\\RatkinUnderground\\1.6\\RatkinUnderground\\RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_GuerrillaSurvivor.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_GuerrillaSurvivor.cs",
+              "ToolTip": "D:\\Steam\\steamapps\\common\\RimWorld\\Mods\\RatkinUnderground\\1.6\\RatkinUnderground\\RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_GuerrillaSurvivor.cs",
+              "RelativeToolTip": "RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_GuerrillaSurvivor.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACAAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T17:50:27.003Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "QuestNode_SurvivorDead.cs",
+              "DocumentMoniker": "D:\\Steam\\steamapps\\common\\RimWorld\\Mods\\RatkinUnderground\\1.6\\RatkinUnderground\\RatkinUnderground\\Quest\\QuestNode_SurvivorDead.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Quest\\QuestNode_SurvivorDead.cs",
+              "ToolTip": "D:\\Steam\\steamapps\\common\\RimWorld\\Mods\\RatkinUnderground\\1.6\\RatkinUnderground\\RatkinUnderground\\Quest\\QuestNode_SurvivorDead.cs",
+              "RelativeToolTip": "RatkinUnderground\\Quest\\QuestNode_SurvivorDead.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T17:43:01.193Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "SitePartWorker_RatkinFactory.cs",
               "DocumentMoniker": "D:\\Steam\\steamapps\\common\\RimWorld\\Mods\\RatkinUnderground\\1.6\\RatkinUnderground\\RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinFactory.cs",
@@ -418,21 +428,7 @@
               "RelativeToolTip": "RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinFactory.cs",
               "ViewState": "AgIAAHMAAAAAAAAAAAAAABEBAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-15T17:35:21.604Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SitePartWorker_GuerrillaSurvivor.cs",
-              "DocumentMoniker": "D:\\Steam\\steamapps\\common\\RimWorld\\Mods\\RatkinUnderground\\1.6\\RatkinUnderground\\RatkinUnderground\\MapGenerator\\SitePartWorker_GuerrillaSurvivor.cs",
-              "RelativeDocumentMoniker": "RatkinUnderground\\MapGenerator\\SitePartWorker_GuerrillaSurvivor.cs",
-              "ToolTip": "D:\\Steam\\steamapps\\common\\RimWorld\\Mods\\RatkinUnderground\\1.6\\RatkinUnderground\\RatkinUnderground\\MapGenerator\\SitePartWorker_GuerrillaSurvivor.cs",
-              "RelativeToolTip": "RatkinUnderground\\MapGenerator\\SitePartWorker_GuerrillaSurvivor.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAwCAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-20T14:03:23.224Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-15T17:35:21.604Z"
             },
             {
               "$type": "Document",
@@ -444,8 +440,7 @@
               "RelativeToolTip": "RatkinUnderground\\RKU_Mod.cs",
               "ViewState": "AgIAAFsAAAAAAAAAAAAkwGYAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T17:30:13.898Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-19T17:30:13.898Z"
             },
             {
               "$type": "Document",
@@ -457,8 +452,7 @@
               "RelativeToolTip": "RatkinUnderground\\IncidentWorkers\\RKU_IncidentWorker_TriggerQuest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T15:19:54.18Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-10T15:19:54.18Z"
             },
             {
               "$type": "Document",
@@ -470,8 +464,7 @@
               "RelativeToolTip": "RatkinUnderground\\Quest\\QuestNode_RKU_GetPawnByFactionDef.cs",
               "ViewState": "AgIAAN8AAAAAAAAAAADwv/MAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T15:37:02.858Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-10T15:37:02.858Z"
             },
             {
               "$type": "Document",
@@ -483,8 +476,7 @@
               "RelativeToolTip": "RatkinUnderground\\ThingComps\\CompProperties_RKU_Radio.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T09:14:15.01Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-16T09:14:15.01Z"
             },
             {
               "$type": "Document",
@@ -496,8 +488,7 @@
               "RelativeToolTip": "RatkinUnderground\\Quest\\QuestNode_RKU_GuerrillasComing.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAuwA4AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T15:38:35.97Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-10T15:38:35.97Z"
             },
             {
               "$type": "Document",
