@@ -11,7 +11,7 @@ namespace RatkinUnderground
 {
     public class HediffCompProperties_SurvivorQuest : HediffCompProperties
     {
-        public string signalTag = "RKU_SurvivorDead";
+        //public string signalTag = "RKU_SurvivorDead";
         public HediffCompProperties_SurvivorQuest()
         {
             this.compClass = typeof(HediffComp_SurvivorQuest);
@@ -36,22 +36,24 @@ namespace RatkinUnderground
                     Faction faction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
                     faction.RelationWith(Faction.OfPlayer).baseGoodwill += 5;
                     Messages.Message("幸存者获救，与游击队的好感度提升了", MessageTypeDefOf.PositiveEvent);
-                    parent.pawn.health.RemoveHediff(parent);
+                    Signal signal = new Signal("RKU_SurvivorRescued" + parent.pawn.ThingID, true);
+                    Find.SignalManager.SendSignal(signal);
+                    parent.pawn.health.RemoveHediff(parent);    
                 }
             }
             public override void Notify_PawnKilled()
             {
                 //Signal signal = new Signal();
                 //Find.SignalManager.SendSignal(signal);
-                Signal signal = new Signal("RKU_SurvivorDead", true);
+                Signal signal = new Signal("RKU_SurvivorDead" + parent.pawn.ThingID, true);
                 
                 if (Find.SignalManager == null)
                 {
-                    Log.Error("[RCPU] SignalManager is not initialized!");
+                    Log.Error("[RKU] SignalManager is not initialized!");
                 }
                 else
                 {
-                    Log.Message("[RCPU] Sending signal: " + signal.tag);
+                    Log.Message("[RKU] Sending signal: " + signal.tag);
                     Find.SignalManager.SendSignal(signal);
                 }
                 parent.pawn.health.RemoveHediff(parent);

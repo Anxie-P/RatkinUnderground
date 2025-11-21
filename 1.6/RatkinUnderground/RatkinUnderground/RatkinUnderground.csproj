@@ -119,6 +119,7 @@
     <Compile Include="Quest\QuestNode_RKU_RecordOnceEvent.cs" />
     <Compile Include="Quest\QuestNode_RKU_UpdateRelationshipLimits.cs" />
     <Compile Include="Quest\QuestNode_SurvivorDead.cs" />
+    <Compile Include="Quest\QuestNode_SurvivorRescued.cs" />
     <Compile Include="Quest\QuestPart_CheckPawnsEntered.cs" />
     <Compile Include="Quest\QuestPart_DrillingVehicleDeparture.cs" />
     <Compile Include="Quest\QuestPart_CheckGuerrillas.cs" />

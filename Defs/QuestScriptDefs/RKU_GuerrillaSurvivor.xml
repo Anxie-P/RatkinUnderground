@@ -23,6 +23,11 @@
 		</questDescriptionRules>
 		<root Class="QuestNode_Sequence">
       <nodes>
+        <!-- <li Class="QuestNode_GeneratePawn">
+          <storeAs>guerrilla</storeAs>
+          <kindDef>RKU_Scout</kindDef>
+          <faction>RKU_Faction</faction>
+        </li> -->
         <li Class="QuestNode_GetMap" />
         <li Class="RatkinUnderground.QuestNode_RequireFactionGoodwill">
           <faction>RKU_Faction</faction>
@@ -102,6 +107,10 @@
           <pawn>$guerrilla</pawn>
           <!-- <node Class="QuestNode_End">
           </node> -->
+        </li>
+
+        <li Class="RatkinUnderground.QuestNode_SurvivorRescued">
+          <pawn>$guerrilla</pawn>
         </li>
 
         <li Class="QuestNode_AddPawnReward">
