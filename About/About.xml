@@ -11,6 +11,11 @@
 		<li>Ludeon.RimWorld.Ideology</li>
 		<li>Solaris.RatkinRaceMod</li>
 	</loadAfter>
+  <modDependencies>
+		<li>
+			<packageId>Solaris.RatkinRaceMod</packageId>
+		</li>
+     </modDependencies>
 <description>
 [h1]原作：风信子的《瑞莱茵雪死里逃生》[/h1]
 [h1]跟随小说世界观，故存在可能导致与鼠族王国、军阀敌对的情节发展方向，请见谅。[/h1]

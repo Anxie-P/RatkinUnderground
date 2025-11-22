@@ -327,7 +327,6 @@ namespace RatkinUnderground
                                         canAddBoth = false;
                                     }
                                 }
-
                                 if (canAddBoth)
                                 {
                                     yield return new FloatMenuOption("RKU.RescueAndEnterVehicle".Translate(downedPawn.LabelShort), () =>

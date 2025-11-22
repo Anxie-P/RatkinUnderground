@@ -92,11 +92,6 @@
 
         <structureMemeWeights>
           <Structure_Ideological MayRequire="Ludeon.RimWorld.Ideology">1</Structure_Ideological>
-          <Structure_Archist MayRequire="Ludeon.RimWorld.Ideology">1</Structure_Archist>
-          <Structure_OriginChristian MayRequire="Ludeon.RimWorld.Ideology">1</Structure_OriginChristian>
-          <Structure_OriginIslamic MayRequire="Ludeon.RimWorld.Ideology">1</Structure_OriginIslamic>
-          <Structure_OriginHindu MayRequire="Ludeon.RimWorld.Ideology">1</Structure_OriginHindu>
-          <Structure_OriginBuddhist MayRequire="Ludeon.RimWorld.Ideology">1</Structure_OriginBuddhist>
 		    </structureMemeWeights>
 
         <!-- 袭击点，目前数据和帝国佬一样 -->

@@ -6,11 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Verse;
-using Verse.Grammar;
 
 namespace RatkinUnderground
 {
-    public class QuestNode_SurvivorDead : QuestNode
+    public class QuestNode_SurvivorRescued : QuestNode
     {
         public SlateRef<Pawn> pawn;
         public QuestNode node;
@@ -25,8 +24,8 @@ namespace RatkinUnderground
                 return;
             }
 
-            QuestPart_PawnDeathTrigger questPart = new QuestPart_PawnDeathTrigger();
-            questPart.inSignal = "RKU_SurvivorDead"+ pawnValue.ThingID;
+            QuestPart_PawnRescuedTrigger questPart = new QuestPart_PawnRescuedTrigger();
+            questPart.inSignal = "RKU_SurvivorRescued" + pawnValue.ThingID;
             questPart.pawn = pawnValue;
 
             QuestGen.quest.AddPart(questPart);
@@ -39,7 +38,7 @@ namespace RatkinUnderground
         }
     }
 
-    public class QuestPart_PawnDeathTrigger : QuestPart
+    public class QuestPart_PawnRescuedTrigger : QuestPart
     {
         public Pawn pawn;
         public string inSignal;
@@ -59,9 +58,9 @@ namespace RatkinUnderground
                 base.Notify_QuestSignalReceived(signal);
                 Log.Message($"当前singnal.tag:{signal.tag}");
                 // 检查任务是否有效且尚未结束
-                if (quest != null && quest.State != QuestState.EndedFailed)
+                if (quest != null && quest.State != QuestState.EndedSuccess)
                 {
-                    quest.End(QuestEndOutcome.Fail, sendLetter: true, playSound: true);
+                    quest.End(QuestEndOutcome.Success, sendLetter: true, playSound: true);
                 }
             }
         }
