@@ -1,5 +1,6 @@
 using RimWorld;
 using RimWorld.Planet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -55,21 +56,13 @@ namespace RatkinUnderground
                 lastRaidTick = Find.TickManager.TicksGame;
                 return;
             }
-
-            // 每秒检查一次
             if (Find.TickManager.TicksGame % CHECK_INTERVAL_TICKS != 0) return;
-
-            // 统计袭击者尸体数量
             CountEnemyCorpses(map);
-
-            // 检查是否应该停止
             if (countedCorpseIds.Count >= MAX_DEATHS_TO_STOP)
             {
                 isStopped = true;
                 return;
             }
-
-            // 检查是否应该触发下次袭击
             CheckAndTriggerNextRaid(map);
         }
 
@@ -107,12 +100,7 @@ namespace RatkinUnderground
         {
             int currentTick = Find.TickManager.TicksGame;
             int ticksSinceLastRaid = currentTick - lastRaidTick;
-
-            // 检查地图上的敌人数量
             int enemyCount = CountEnemiesOnMap(map);
-
-            // 条件1：敌人数量10以下
-            // 条件2：或达到最大间隔时间
             bool shouldTrigger = enemyCount <= MAX_ENEMIES_FOR_NEXT_RAID || ticksSinceLastRaid >= MAX_RAID_INTERVAL_TICKS;
 
             if (shouldTrigger)
@@ -145,41 +133,31 @@ namespace RatkinUnderground
         {
             try
             {
-                // 选择派系
                 Faction raidFaction = SelectRaidFaction();
                 if (raidFaction == null)
                 {
                     Log.Warning("[RKU Factory] 无法找到合适的袭击派系");
                     return;
                 }
-
-                // 初始袭击使用基础点数
                 float raidPoints = BASE_RAID_POINTS;
-
-                // 强制从地图底部（南边缘）进入，距离殖民者至少25格
                 IntVec3 spawnCenter = GetSouthEdgeSpawnPositionAwayFromColonists(map, 25);
                 if (!spawnCenter.IsValid)
                 {
-                    // 如果南边缘没有可用位置，尝试其他边缘（也保持25格距离）
                     spawnCenter = GetRandomEdgePositionAwayFromColonists(map, 25);
                 }
 
-                // 创建袭击参数
                 IncidentParms parms = new IncidentParms();
                 parms.target = map;
                 parms.faction = raidFaction;
                 parms.forced = true;
                 parms.points = raidPoints;
                 parms.spawnCenter = spawnCenter;
-
-                // 设置袭击策略
                 RaidStrategyDef strategy = DefDatabase<RaidStrategyDef>.GetNamed("ImmediateAttack");
                 if (strategy != null)
                 {
                     parms.raidStrategy = strategy;
                 }
 
-                // 设置到达方式（优先使用边缘进入，不使用空投）
                 PawnsArrivalModeDef arrivalMode = DefDatabase<PawnsArrivalModeDef>.AllDefs
                     .FirstOrDefault(d => !d.defName.Contains("Drop") && 
                                         (d.defName.Contains("Edge") || d.defName.Contains("WalkIn")));
@@ -193,15 +171,11 @@ namespace RatkinUnderground
                 {
                     parms.raidArrivalMode = arrivalMode;
                 }
-
-                // 发送袭击信封
                 SendRaidLetter(raidFaction, raidPoints);
-
-                // 触发袭击
                 IncidentDef raidIncident = IncidentDefOf.RaidEnemy;
                 if (!raidIncident.Worker.TryExecute(parms))
                 {
-                    Log.Warning("[RKU Factory] 初始袭击触发失败");
+                    Log.Warning("[RKU Factory] 袭击触发失败");
                 }
             }
             catch (System.Exception e)
@@ -217,15 +191,12 @@ namespace RatkinUnderground
         {
             try
             {
-                // 选择派系
                 Faction raidFaction = SelectRaidFaction();
                 if (raidFaction == null)
                 {
                     Log.Warning("[RKU Factory] 无法找到合适的袭击派系");
                     return;
                 }
-
-                // 计算袭击点数
                 float raidPoints = CalculateRaidPoints();
 
                 // 获取生成位置（优先从地图下方）
@@ -234,23 +205,17 @@ namespace RatkinUnderground
                 {
                     spawnCenter = GetRandomEdgePosition(map);
                 }
-
-                // 创建袭击参数
                 IncidentParms parms = new IncidentParms();
                 parms.target = map;
                 parms.faction = raidFaction;
                 parms.forced = true;
                 parms.points = raidPoints;
                 parms.spawnCenter = spawnCenter;
-
-                // 设置袭击策略
                 RaidStrategyDef strategy = DefDatabase<RaidStrategyDef>.GetNamed("ImmediateAttack");
                 if (strategy != null)
                 {
                     parms.raidStrategy = strategy;
                 }
-
-                // 设置到达方式（优先使用边缘进入，不使用空投）
                 PawnsArrivalModeDef arrivalMode = DefDatabase<PawnsArrivalModeDef>.AllDefs
                     .FirstOrDefault(d => !d.defName.Contains("Drop") && 
                                         (d.defName.Contains("Edge") || d.defName.Contains("WalkIn")));
@@ -264,8 +229,6 @@ namespace RatkinUnderground
                 {
                     parms.raidArrivalMode = arrivalMode;
                 }
-
-                // 发送袭击信封
                 SendRaidLetter(raidFaction, raidPoints);
                 IncidentDef raidIncident = IncidentDefOf.RaidEnemy;
                 if (!raidIncident.Worker.TryExecute(parms))
@@ -299,8 +262,6 @@ namespace RatkinUnderground
                 
                 if (warlordFaction != null)
                     return warlordFaction;
-
-                // 如果没有军阀，尝试王国
                 var kingdomFaction = Find.FactionManager.AllFactions
                     .FirstOrDefault(f => f.def.defName == "Rakinia" && 
                                         !f.defeated && 
@@ -312,19 +273,17 @@ namespace RatkinUnderground
             }
 
             var guerrillaFaction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
-            
-            // 筛选同时敌对玩家和游击队的派系
+                        // 筛选同时敌对玩家和游击队的派系
             var hostileFactions = Find.FactionManager.AllFactions
                 .Where(f => !f.defeated && 
                            f.HostileTo(playerFaction) && 
                            (guerrillaFaction == null || f.HostileTo(guerrillaFaction)) &&
                            !f.Hidden &&
-                           f.def.CanEverBeNonHostile == false) // 确保是永久敌对
+                           f.def.CanEverBeNonHostile == false)
                 .ToList();
 
             if (hostileFactions.Any())
             {
-                // 70%概率选择军阀
                 if (Rand.Value < 0.7f)
                 {
                     var warlordFaction = hostileFactions
@@ -336,7 +295,6 @@ namespace RatkinUnderground
                     }
                 }
                 
-                // 30%概率或其他情况，从所有符合条件的派系中随机选择
                 return hostileFactions.RandomElement();
             }
 
@@ -353,7 +311,6 @@ namespace RatkinUnderground
                 return MAX_RAID_POINTS;
             }
 
-            // 线性插值
             float progress = (float)countedCorpseIds.Count / DEATHS_FOR_MAX_POINTS;
             return BASE_RAID_POINTS + (MAX_RAID_POINTS - BASE_RAID_POINTS) * progress;
         }
@@ -454,14 +411,12 @@ namespace RatkinUnderground
 
             if (colonistPositions.Count == 0)
             {
-                // 如果没有殖民者，使用普通方法
                 return GetRandomEdgePosition(map);
             }
-
             // 尝试从各个边缘找到距离殖民者足够远的位置
             for (int attempts = 0; attempts < 100; attempts++)
             {
-                int edge = Rand.Range(0, 4); // 0=北, 1=东, 2=南, 3=西
+                int edge = Rand.Range(0, 4);
                 IntVec3 pos;
 
                 switch (edge)
@@ -594,45 +549,74 @@ namespace RatkinUnderground
             }
         }
         /// <summary>
-        /// 生成矿工
+        /// 生成游击队单位并让它们守卫各自的房间
         /// </summary>
         /// <param name="map"></param>
-        /// <param name="center"></param>
-        /// <param name="count"></param>
         private void SpawnGuerrillas(Map map)
         {
+            var guerrillaFaction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
+            if (guerrillaFaction == null) return;
+
+            // 找到所有室内房间
             var allRooms = map.regionGrid.AllRooms
                 .Where(room => room.CellCount > 5 && IsIndoorRoom(room, map))
                 .ToList();
-            List<Pawn> spawnedGuerrillas = new List<Pawn>();
-            var guerrillaFaction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
-            if (guerrillaFaction == null) return;
+
+            if (allRooms.Count == 0) return;
+
+            // 为每个房间生成防御部队
             foreach (var room in allRooms)
             {
-                IntVec3 spawnPos = FindNearbySpawnPosition(room.Cells.RandomElement<IntVec3>(), map, 1, 5);
-                if (spawnPos.IsValid)
-                {
-                    Pawn guerrilla = PawnGenerator.GeneratePawn(new PawnGenerationRequest(
-                        DefOfs.RKU_Miner,
-                        guerrillaFaction,
-                        PawnGenerationContext.NonPlayer,
-                        -1,
-                        forceGenerateNewPawn: true));
+                SpawnDefensiveForceInRoom(room, map, guerrillaFaction);
+            }
+        }
 
-                    GenSpawn.Spawn(guerrilla, spawnPos, map);
-                    spawnedGuerrillas.Add(guerrilla);
+        /// <summary>
+        /// 在房间中生成防御部队
+        /// </summary>
+        private void SpawnDefensiveForceInRoom(Room room, Map map, Faction faction)
+        {
+            // 根据房间大小决定生成单位数量
+            int unitCount = Math.Min(6, room.CellCount / 80); 
+            
+            // 游击队战斗单位列表
+            string[] combatantKinds = {
+                "RKU_Scout", "RKU_Invader", "RKU_Commissar",
+                "RKU_EliteScout", "RKU_EliteInvader", "RKU_EliteCommissar"
+            };
+
+            var cells = room.Cells.Where(c => c.Standable(map) && c.GetFirstPawn(map) == null).ToList();
+            cells.Shuffle();
+            List<Pawn> roomDefenders = new List<Pawn>();
+
+            for (int i = 0; i < unitCount && i < cells.Count; i++)
+            {
+                string kindDefName = combatantKinds.RandomElement();
+                var kindDef = DefDatabase<PawnKindDef>.GetNamedSilentFail(kindDefName);
+
+                if (kindDef != null)
+                {
+                    var request = new PawnGenerationRequest(
+                        kindDef,
+                        faction,
+                        PawnGenerationContext.NonPlayer
+                    );
+
+                    var pawn = PawnGenerator.GeneratePawn(request);
+                    GenSpawn.Spawn(pawn, cells[i], map);
+                    roomDefenders.Add(pawn);
                 }
             }
-            Lord lord = LordMaker.MakeNewLord(
-            guerrillaFaction,
-            new LordJob_DefendBase(guerrillaFaction, map.Center, 0),
-            map,
-            spawnedGuerrillas);
 
+            if (roomDefenders.Count > 0)
+            {
+                var leader = roomDefenders[0];
+                var lordJob = new LordJob_DefendPoint(leader.Position);
+                LordMaker.MakeNewLord(faction, lordJob, map, roomDefenders);
+            }
         }
 
 
-        /// <summary>
         /// <summary>
         /// 在物品架上生成食品
         /// </summary>

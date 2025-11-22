@@ -17,6 +17,31 @@ namespace RatkinUnderground
 {
     public class RKU_IncidentWorker_ConfusedRat : IncidentWorker
     {
+        protected override bool CanFireNowSub(IncidentParms parms)
+        {
+            Map map = (Map)parms.target;
+            if (map == null) return base.CanFireNowSub(parms);
+
+            // 检查地图上是否有pawn带有RKU_CombatEfficiency hediff
+            HediffDef combatEfficiencyDef = DefDatabase<HediffDef>.GetNamedSilentFail("RKU_CombatEfficiency");
+            if (combatEfficiencyDef != null)
+            {
+                bool hasCombatEfficiencyPawn = map.mapPawns.AllPawnsSpawned
+                    .Any(pawn => pawn != null && 
+                                 !pawn.Dead && 
+                                 pawn.health?.hediffSet != null &&
+                                 pawn.health.hediffSet.HasHediff(combatEfficiencyDef));
+
+                // 如果存在带有RKU_CombatEfficiency的pawn，70%概率阻止事件触发
+                if (hasCombatEfficiencyPawn && Rand.Value < 0.7f)
+                {
+                    return false;
+                }
+            }
+
+            return base.CanFireNowSub(parms);
+        }
+
         protected override bool TryExecuteWorker(IncidentParms parms)
         {
             Map map = (Map)parms.target;

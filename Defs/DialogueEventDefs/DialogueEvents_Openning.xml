@@ -316,6 +316,18 @@
 	</RatkinUnderground.RKU_DialogueEventDef>
 	
 	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventHA</defName>
+		<dialogueText>      我们曾经有一位成员小时候是贵族的擦鞋工，然后他长大后成了团里
+格斗最强的战士...啊，扯远了。</dialogueText>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>0</minGrade>
+			</li>
+		</conditions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
 		<defName>RKU_StartupEventI</defName>
 		<dialogueText>      指挥者的压力总是很大呢，那么多孩子的性命就在自己的一念之间。
       呃，抱歉。有什么事？</dialogueText>

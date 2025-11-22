@@ -133,6 +133,7 @@
   <RKU_Star>Star</RKU_Star>
   <!-- EN: Iron Star -->
   <RKU_IronStar>Iron Star</RKU_IronStar>
+  <Phosphophyllite>Phosphophyllite</Phosphophyllite>
 
   <!-- Map Deletion Dialog Translations -->
   <!-- EN: Delete Map -->
@@ -170,6 +171,8 @@
   <RKU_EmergencyCall>Emergency Call</RKU_EmergencyCall>
   <RKU_EmergencyCooldownText>Emergency call on cooldown, {0} days remaining</RKU_EmergencyCooldownText>
   <RKU_EmergencyCooldownButton>Emergency Cooldown ({0} days)</RKU_EmergencyCooldownButton>
+  <RKU_RescueCooldownText>Provide support on cooldown, {0} days remaining</RKU_RescueCooldownText>
+  <RKU_RescueCooldownButton>Support Cooldown ({0} days)</RKU_RescueCooldownButton>
   <RKU_ScanCooldownText>Scan on Cooldown</RKU_ScanCooldownText>
   <RKU_ScanFavorRequirement>At least 50 favor is required for special location scanning</RKU_ScanFavorRequirement>
   <RKU_TradeFavorRequirement>At least 1 favor is required for underground caravan trading</RKU_TradeFavorRequirement>
@@ -204,8 +207,14 @@
   <RKU_ScanCooldown>Scan Cooldown: {0} day(s).</RKU_ScanCooldown>
   <!-- EN: Tactical support Cooldown: {0} days -->
   <RKU_EmergencyCooldown>Tactical Support Cooldown: {0} day(s).</RKU_EmergencyCooldown>
+  <!-- EN: Provide support Cooldown: {0} days -->
+  <RKU_RescueCooldown>Provide Support Cooldown: {0} day(s).</RKU_RescueCooldown>
   <!-- EN: Map Location: {0} -->
   <RKU_MapLocation>Map Location: {0}</RKU_MapLocation>
+  <!-- EN: Reset Cooldowns (Dev) -->
+  <RKU_ResetCooldowns>Reset Cooldowns</RKU_ResetCooldowns>
+  <!-- EN: All cooldowns have been reset -->
+  <RKU_CooldownsReset>All cooldowns have been reset</RKU_CooldownsReset>
   <!-- EN: Partisan troop regional commander -->
   <RKU_commanderTitle>Partisan Regional Commander</RKU_commanderTitle>
   
@@ -302,4 +311,8 @@
   <RKU_TryTriggerGuerrillasQuest>Try Trigger Guerrillas Coming Quest</RKU_TryTriggerGuerrillasQuest>
   <!-- EN: Please contact the guerrillas on the radio to expand faction relationship limits -->
   <RKU_RelationLimitExceeded>Please contact the guerrillas on the radio to expand faction relationship limits</RKU_RelationLimitExceeded>
+  <!-- EN: Tech Breakthrough -->
+  <RKU_TechprintReceived>Tech Breakthrough</RKU_TechprintReceived>
+  <!-- EN: {0} technology has achieved a breakthrough, and the blueprint has been organized by your scientists. -->
+  <RKU_TechprintReceivedDesc>{0} technology has achieved a breakthrough, and the blueprint has been organized by your scientists.</RKU_TechprintReceivedDesc>
 </LanguageData>

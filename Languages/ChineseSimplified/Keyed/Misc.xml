@@ -76,6 +76,7 @@
   <RKU_Iron>钢铁</RKU_Iron>
   <RKU_Star>星</RKU_Star>
   <RKU_IronStar>钢铁星</RKU_IronStar>
+  <Phosphophyllite>磷叶石</Phosphophyllite>
 
   <!-- 地图删除对话框翻译 -->
   <RKU_RandomSiteDeleteMap>删除地图</RKU_RandomSiteDeleteMap>
@@ -105,6 +106,8 @@
   <RKU_EmergencyCall>求救呼叫</RKU_EmergencyCall>
   <RKU_EmergencyCooldownText>求救呼叫冷却中，还需{0}天</RKU_EmergencyCooldownText>
   <RKU_EmergencyCooldownButton>求救冷却中 ({0}天)</RKU_EmergencyCooldownButton>
+  <RKU_RescueCooldownText>提供支援冷却中，还需{0}天</RKU_RescueCooldownText>
+  <RKU_RescueCooldownButton>支援冷却中 ({0}天)</RKU_RescueCooldownButton>
   <RKU_ScanCooldownText>扫描冷却中</RKU_ScanCooldownText>
   <RKU_ScanFavorRequirement>至少需要50的好感才能进行特殊地点扫描</RKU_ScanFavorRequirement>
   <RKU_TradeFavorRequirement>至少需要1的好感才能进行地下商队交易</RKU_TradeFavorRequirement>
@@ -125,11 +128,14 @@
   <RKU_TradeCooldown>交易冷却: {0}天</RKU_TradeCooldown>
   <RKU_ScanCooldown>扫描冷却: {0}天</RKU_ScanCooldown>
   <RKU_EmergencyCooldown>请求支援: {0}天</RKU_EmergencyCooldown>
+  <RKU_RescueCooldown>提供支援冷却: {0}天</RKU_RescueCooldown>
   <RKU_MapLocation>地图位置: {0}</RKU_MapLocation>
   <RKU_commanderTitle>游击队区域指挥官</RKU_commanderTitle>
 
   <!-- 开发工具翻译 -->
   <RKU_CooldownCancelled>冷却已取消</RKU_CooldownCancelled>
+  <RKU_ResetCooldowns>重置冷却</RKU_ResetCooldowns>
+  <RKU_CooldownsReset>所有冷却已重置</RKU_CooldownsReset>
   <RKU_TradeReady>交易已准备就绪</RKU_TradeReady>
   <RKU_ResearchProgressFull>研究进度已加满</RKU_ResearchProgressFull>
   <RKU_ResearchProgressHalf>研究进度已加一半</RKU_ResearchProgressHalf>
@@ -188,4 +194,10 @@
   <RKU_DebugFeatures>调试功能：</RKU_DebugFeatures>
   <RKU_TryTriggerGuerrillasQuest>尝试触发游击队到来任务</RKU_TryTriggerGuerrillasQuest>
   <RKU_RelationLimitExceeded>请在电台上联络游击队以拓展阵营关系限制</RKU_RelationLimitExceeded>
+  <!-- 科技蓝图翻译 -->
+  <RKU_TechprintReceived>科技突破</RKU_TechprintReceived>
+  <RKU_TechprintReceivedDesc>{0}的科技取得了突破，蓝图已被你的科学家整理好。</RKU_TechprintReceivedDesc>
+  
+  <!-- 游击队背景故事 -->
+  <RKU_GuerrillaBackgroundStory>这些地下的鼠族来源于十年前被王国击败的革命军残余，他们曾经掌握了包括首都在内的，王国一半的领土。但革命军的组织因为生化鼠疫的肆虐和领导层的变质而四分五裂，大半的部队脱离组织，成为了军阀。十年过去了，大大小小的军阀、贵族仍然在这些混乱的地区肆虐，只有革命军东线的一支部队仍旧保持着当年的编制。他们占据了一处王国的载具工厂，生产钻地机以进行地下游击战。这支部队以拯救平民，结束内战为目标，但他们人数不足，装备落后，势单力薄。</RKU_GuerrillaBackgroundStory>
 </LanguageData> 

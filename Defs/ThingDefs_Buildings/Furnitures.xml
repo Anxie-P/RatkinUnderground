@@ -9,6 +9,7 @@
       <texPath>Buildings/InMap/RKU_Radio</texPath>
       <drawSize>1.2</drawSize>
     </graphicData>
+	<tradeability>None</tradeability>
     <altitudeLayer>BuildingOnTop</altitudeLayer>
     <passability>PassThroughOnly</passability>
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>

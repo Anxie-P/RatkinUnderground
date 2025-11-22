@@ -152,7 +152,7 @@
     <defName>RKU_Incident_ConfusedRat</defName>
     <label>迷茫的白鼠</label>
     <category>Misc</category>
-	<baseChance>2</baseChance>
+	<baseChance>0.3</baseChance>
     <targetTags>
       <li>Map_PlayerHome</li>
     </targetTags>

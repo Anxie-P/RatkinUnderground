@@ -76,7 +76,7 @@
   
   <RatkinUnderground.RKU_DialogueEventDef>
     <defName>RKU_EmergencyCallFir</defName>
-    <dialogueText>顶住！地下网络正在响应你的求救信号，我们的援军在路上了！</dialogueText>
+    <dialogueText>      顶住！地下电台通讯网络正在响应你的求救信号，我们的援军在路上了！</dialogueText>
 	<triggerNon>true</triggerNon>
 	<triggerOnStartup>false</triggerOnStartup>
 	<actions>
@@ -152,8 +152,6 @@
     <defName>RKU_ColonistCount</defName>
     <dialogueText>看到你的殖民地发展得不错！我们很乐意与你们合作。</dialogueText>
     <triggerOnce>true</triggerOnce>
-    <!-- 才发现这是触发优先级 -->
-    <!-- <priority>120</priority> -->
     <triggerOnStartup>true</triggerOnStartup>
     <conditions>
       <li Class="RatkinUnderground.DialogueCondition_ColonistCount">
@@ -194,7 +192,7 @@
     <defName>RKU_ResearchReward_Guerrilla</defName>
     <dialogueText>      我们会把我们的装备制造方法与你们共享，虽然是些破烂货，
 但它们都是在长年的斗争中被检验过的好东西。</dialogueText>
-    <priority>11</priority>
+    <priority>10</priority>
     <triggerOnce>true</triggerOnce>
 	<triggerOnStartup>true</triggerOnStartup>
     <conditions>
@@ -215,7 +213,7 @@
     <dialogueText>      最新的地下实验武器的蓝图已经被同步到你们那边了，
 朋友们。我们刚刚完成了这些武器装备的可行性分析，但实际应用还得经过进一步的检验和测试。
 到时候就请你们来锻造第一批武器原型了。</dialogueText>
-    <priority>12</priority>
+    <priority>10</priority>
     <triggerOnce>true</triggerOnce>
 	<triggerOnStartup>true</triggerOnStartup>
     <conditions>
@@ -236,7 +234,7 @@
     <dialogueText>      很好，验证结果很不错，这些武器想必能在之后的战斗
 中大放光彩。制造这些原型武器的材料需要在地下寻找，
 而成品的威力会让你的所有敌人喝上一壶！实战测试也拜托你们那边了！</dialogueText>
-    <priority>13</priority>
+    <priority>10</priority>
     <triggerOnce>true</triggerOnce>
 	<triggerOnStartup>true</triggerOnStartup>
     <conditions>
@@ -538,26 +536,26 @@
     </actions>
   </RatkinUnderground.RKU_DialogueEventDef>
   
-    <!-- 军阀-1 -->
+  
+  <!-- 农场任务 -->
   <RatkinUnderground.RKU_DialogueEventDef>
-    <defName>RKU_ProvideSupport_WarLord1</defName>
-    <dialogueText>      没错，我们确实需要一些帮助...附近的一支军阀部队在此驻扎了
-很久，他们携带了一些重型火炮，并且在附近部署了一座炮楼据点并以此为基础扫荡我们
-的人，这导致我们一直没有办法建立地上据点。他们的位置对我们双方都很危险，希望你
-们能够消灭这些匪徒，我们就可以把珍贵的人力腾出来用以在附近保护平民，建立地上生
-产设施了。</dialogueText>
-    <priority>60</priority>
+    <defName>RKU_ProvideSupport_FarmRaid</defName>
+    <dialogueText>      没错，我们确实需要一些帮助...附近有一片被军阀控制的农场，
+他们在这里奴役平民为他们生产粮食。这里是军阀部队的后勤补给基地。农场里有完善的
+防御工事，包括哨塔和巡逻队。如果我们能夺取这片农场，不仅能切断军阀的粮食供应，
+还能为附近的平民提供食物保障。请帮我们的部队解放这里的老百姓！</dialogueText>
+    <priority>63</priority>
 	<triggerOnce>true</triggerOnce>
     <triggerOnStartup>false</triggerOnStartup>
     <conditions>
       <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
-        <minGrade>5</minGrade>
+        <minGrade>15</minGrade>
         <maxGrade>100</maxGrade>
       </li>
     </conditions>
     <actions>
       <li Class="RatkinUnderground.DialogueAction_TriggerQuest">
-        <questDefName>RKU_OpportunitySite_CompoundRaid</questDefName>
+        <questDefName>RKU_OpportunitySite_FarmRaid</questDefName>
       </li>
     </actions>
   </RatkinUnderground.RKU_DialogueEventDef>
@@ -575,7 +573,7 @@
     <triggerOnStartup>false</triggerOnStartup>
     <conditions>
       <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
-        <minGrade>25</minGrade>
+        <minGrade>30</minGrade>
         <maxGrade>100</maxGrade>
       </li>
     </conditions>
@@ -585,30 +583,30 @@
       </li>
     </actions>
   </RatkinUnderground.RKU_DialogueEventDef>
-
-   <!-- 农场任务-3 -->
+  
+ <!-- 炮楼 -->
   <RatkinUnderground.RKU_DialogueEventDef>
-    <defName>RKU_ProvideSupport_FarmRaid</defName>
-    <dialogueText>      朋友们，我们发现了一个重要的目标！附近有一片被军阀控制的农场，
-他们在这里奴役平民为他们生产粮食。这里是军阀部队的后勤补给基地。农场里有完善的
-防御工事，包括哨塔和巡逻队。如果我们能夺取这片农场，不仅能切断军阀的粮食供应，
-还能为附近的平民提供食物保障。请帮我们的部队解放这里的老百姓！</dialogueText>
-    <priority>63</priority>
+    <defName>RKU_ProvideSupport_WarLord1</defName>
+    <dialogueText>      朋友们，我们发现了一个重要的目标！附近的一支军阀部队在此驻扎了
+很久，他们携带了一些重型火炮，并且在附近部署了一座炮楼据点并以此为基础扫荡我们
+的人，这导致我们一直没有办法建立地上据点。他们的位置对我们双方都很危险，希望你
+们能够消灭这些匪徒，我们就可以把珍贵的人力腾出来用以在附近保护平民，建立地上生
+产设施了。</dialogueText>
+    <priority>60</priority>
 	<triggerOnce>true</triggerOnce>
     <triggerOnStartup>false</triggerOnStartup>
     <conditions>
       <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
-        <minGrade>75</minGrade>
+        <minGrade>55</minGrade>
         <maxGrade>100</maxGrade>
       </li>
     </conditions>
     <actions>
       <li Class="RatkinUnderground.DialogueAction_TriggerQuest">
-        <questDefName>RKU_OpportunitySite_FarmRaid</questDefName>
+        <questDefName>RKU_OpportunitySite_CompoundRaid</questDefName>
       </li>
     </actions>
   </RatkinUnderground.RKU_DialogueEventDef>
-
    <!-- 古代设施任务-4 -->
   <RatkinUnderground.RKU_DialogueEventDef>
     <defName>RKU_ProvideSupport_AncientRaid</defName>
@@ -622,7 +620,7 @@
     <triggerOnStartup>false</triggerOnStartup>
     <conditions>
       <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
-        <minGrade>100</minGrade>
+        <minGrade>75</minGrade>
         <maxGrade>100</maxGrade>
       </li>
     </conditions>
@@ -648,7 +646,7 @@
     <triggerOnStartup>false</triggerOnStartup>
     <conditions>
       <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
-        <minGrade>75</minGrade>
+        <minGrade>80</minGrade>
         <maxGrade>100</maxGrade>
       </li>
     </conditions>

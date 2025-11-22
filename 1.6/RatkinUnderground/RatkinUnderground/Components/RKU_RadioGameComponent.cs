@@ -28,7 +28,7 @@ namespace RatkinUnderground
 
         // 求救呼叫相关
         public int lastEmergencyTick = 0;
-        public int emergencyCooldownTicks = 420000; // 7天冷却时间
+        public int emergencyCooldownTicks = 300000; // 5天冷却时间
         public bool canEmergency = true;
 
         // 事件相关
@@ -64,36 +64,54 @@ namespace RatkinUnderground
             if (!isWaitingForTrade) return "";
 
             int remainingTicks = currentTradeDelayTicks - (Find.TickManager.TicksGame - tradeStartTick);
-            int remainingSeconds = Mathf.Max(0, remainingTicks / 60);
+            int remainingSeconds = Mathf.Max(0, remainingTicks / TICKS_PER_SECOND);
             return $"{remainingSeconds}s";
+        }
+
+
+        // 时间转换常量
+        private const int TICKS_PER_SECOND = 60; // RimWorld中1秒 = 60 ticks
+        private const int TICKS_PER_DAY = 60000; // RimWorld中1天 = 60000 ticks
+
+        /// <summary>
+        /// 计算剩余冷却天数（通用方法）
+        /// </summary>
+        /// <param name="canUse">是否可以使用（如果为true则返回0）</param>
+        /// <param name="cooldownTicks">冷却总时长（tick）</param>
+        /// <param name="lastUseTick">上次使用时间（tick）</param>
+        /// <returns>剩余冷却天数</returns>
+        private int CalculateRemainingCooldownDays(bool canUse, int cooldownTicks, int lastUseTick)
+        {
+            if (canUse) return 0;
+            int elapsedTicks = Find.TickManager.TicksGame - lastUseTick;
+            int remainingTicks = cooldownTicks - elapsedTicks;
+            return Mathf.Max(0, remainingTicks / TICKS_PER_DAY);
         }
 
         public int GetRemainingCooldownDays()
         {
-            if (canTrade) return 0;
+            return CalculateRemainingCooldownDays(canTrade, tradeCooldownTicks, lastTradeTick);
+        }
 
-            int remainingCooldown = tradeCooldownTicks - (Find.TickManager.TicksGame - lastTradeTick);
-            return Mathf.Max(0, remainingCooldown / 60000);
+        public int GetRemainingRescueCooldownDays()
+        {
+            return CalculateRemainingCooldownDays(canRescue, rescueCooldownTicks, lastRescueTick);
         }
 
         public int GetRemainingScanCooldownDays()
         {
-            int remainingCooldown = scanCooldownTicks - (Find.TickManager.TicksGame - lastScanTick);
-            return Mathf.Max(0, remainingCooldown / 60000);
+            return CalculateRemainingCooldownDays(canScan, scanCooldownTicks, lastScanTick);
         }
 
         public int GetRemainingEmergencyCooldownDays()
         {
-            if (canEmergency) return 0;
-            int remainingCooldown = emergencyCooldownTicks - (Find.TickManager.TicksGame - lastEmergencyTick);
-            return Mathf.Max(0, remainingCooldown / 60000);
+            return CalculateRemainingCooldownDays(canEmergency, emergencyCooldownTicks, lastEmergencyTick);
         }
 
         public void StartTradeSignal()
         {
             if (!canTrade) return;
 
-            // 设置交易延迟
             currentTradeDelayTicks = Rand.Range(minTradeDelayTicks, maxTradeDelayTicks);
             tradeStartTick = Find.TickManager.TicksGame;
             isWaitingForTrade = true;
@@ -103,6 +121,29 @@ namespace RatkinUnderground
         {
             canTrade = true;
             isWaitingForTrade = false;
+        }
+
+        /// <summary>
+        /// 重置所有冷却（开发者工具）
+        /// </summary>
+        public void ResetAllCooldowns()
+        {
+            // 重置交易冷却
+            canTrade = true;
+            isWaitingForTrade = false;
+            lastTradeTick = 0;
+
+            // 重置扫描冷却
+            canScan = true;
+            lastScanTick = 0;
+
+            // 重置救援冷却
+            canRescue = true;
+            lastRescueTick = 0;
+
+            // 重置紧急呼叫冷却
+            canEmergency = true;
+            lastEmergencyTick = 0;
         }
         #endregion
 

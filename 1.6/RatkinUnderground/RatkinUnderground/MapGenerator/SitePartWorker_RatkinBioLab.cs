@@ -202,7 +202,7 @@ namespace RatkinUnderground
                 knightCommander.story.HairColor = Color.white;
                 if (knightCommander.Name is NameTriple nameTriple)
                 {
-                    knightCommander.Name = new NameTriple(nameTriple.First, nameTriple.Nick, "Raeline".Translate());
+                    knightCommander.Name = new NameTriple("Phosphophyllite".Translate(), "Phosphophyllite".Translate(), "Raeline".Translate());
                 }
 
                 // 添加RKU_CombatEfficiency Hediff

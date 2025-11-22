@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+    <!-- 添加武器限制 -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/AlienRace.ThingDef_AlienRace[defName = "Ratkin"]/alienRace/raceRestriction/weaponList</xpath>
+        <value>
+            <li>RKU_SVT40M</li>
+            <li>RKU_SVT40M_Elite</li>
+            <li>RKU_MG42_Gun</li>
+            <li>RKU_PistolA</li>
+            <li>RKU_PistolB</li>
+            <li>RKU_PistolC</li>
+            <li>RKU_RifleB</li>
+        </value>
+    </Operation>
+    
+    <!-- 添加装备限制 -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/AlienRace.ThingDef_AlienRace[defName = "Ratkin"]/alienRace/raceRestriction/apparelList</xpath>
+        <value>
+            <li>RKU_Apparel_ScoutUniform</li>
+            <li>RKU_Apparel_EliteScoutUniform</li>
+            <li>RKU_Apparel_InvaderUniform</li>
+            <li>RKU_Apparel_CaptainUniform</li>
+            <li>RKU_Apparel_CaptainCloak</li>
+            <li>RKU_MinerHelmet</li>
+            <li>RKU_Apparel_ScoutHat</li>
+            <li>RKU_Apparel_InvaderHat</li>
+            <li>RKU_Apparel_CaptainHat</li>
+        </value>
+    </Operation>
+</Patch>
+

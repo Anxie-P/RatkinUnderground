@@ -175,10 +175,22 @@ namespace RatkinUnderground
             var map = radio.radio?.Map;
             if (map == null) return;
 
+            ResearchProjectDef researchDef = ResearchProjectDef.Named(researchDefName);
+            if (researchDef == null) return;
+
+            Thing techprint = null;
             for (int i = 0; i < count; i++)
             {
-                Thing techprint = ThingMaker.MakeThing(ResearchProjectDef.Named(researchDefName).Techprint);
+                techprint = ThingMaker.MakeThing(researchDef.Techprint);
                 GenPlace.TryPlaceThing(techprint, radio.radio.Position, map, ThingPlaceMode.Near);
+            }
+
+            // 发送信封提示
+            if (techprint != null)
+            {
+                string letterLabel = "RKU_TechprintReceived".Translate();
+                string letterText = "RKU_TechprintReceivedDesc".Translate(researchDef.label, count);
+                Find.LetterStack.ReceiveLetter(letterLabel, letterText, LetterDefOf.PositiveEvent, lookTargets: techprint);
             }
         }
     }

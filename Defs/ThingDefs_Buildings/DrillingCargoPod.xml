@@ -16,7 +16,7 @@
           <groundSpawnerCompleteEffecter>EmergencePointComplete2X2</groundSpawnerCompleteEffecter>
         </building>
     <projectile>
-      <speed>4</speed>
+      <speed>24</speed>
       <arcHeightFactor>0</arcHeightFactor>
       <shadowSize>1</shadowSize>
       <flyOverhead>true</flyOverhead>

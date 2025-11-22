@@ -310,6 +310,12 @@ namespace RatkinUnderground
         #region 浮动菜单
         public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn selPawn)
         {
+            // 如果是非玩家派系的钻机（如游击队派系），禁用手动操作
+            if (!Faction.IsPlayer)
+            {
+                yield break;
+            }
+
             foreach (FloatMenuOption option in base.GetFloatMenuOptions(selPawn))
             {
                 yield return option;
@@ -338,11 +344,17 @@ namespace RatkinUnderground
 
         public override IEnumerable<FloatMenuOption> GetMultiSelectFloatMenuOptions(IEnumerable<Pawn> selPawns)
         {
+            // 如果是非玩家派系的钻机（如游击队派系），禁用手动操作
+            if (!Faction.IsPlayer)
+            {
+                yield break;
+            }
 
             foreach (FloatMenuOption option in base.GetMultiSelectFloatMenuOptions(selPawns))
             {
                 yield return option;
             }
+
             {
                 string translatedLabel = "RKU.EnterVehicle".Translate();
                 // 创建pawn列表的副本，避免闭包捕获问题
