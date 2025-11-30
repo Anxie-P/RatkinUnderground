@@ -117,10 +117,6 @@
         <thingDef>RawFungus</thingDef>
         <countRange>25~125</countRange>
       </li>
-      <li Class="StockGenerator_SingleDef">
-        <thingDef>RKU_RawAllurecap</thingDef>
-        <countRange>8~25</countRange>
-      </li>
       <!-- 零8件 -->
       <li Class="StockGenerator_SingleDef">
         <thingDef>ComponentIndustrial</thingDef>

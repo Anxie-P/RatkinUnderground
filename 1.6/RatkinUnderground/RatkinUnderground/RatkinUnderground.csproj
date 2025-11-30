@@ -96,6 +96,7 @@
     <Compile Include="MapGenerator\SketchResolver\RKU_SketchResolver_MonumentRuin.cs" />
     <Compile Include="Motes\RKU_DigDust.cs" />
     <Compile Include="Patches\AlienRace_BodyAddon_Patch.cs" />
+    <Compile Include="Patches\Caravan_GetGizmos_Patch.cs" />
     <Compile Include="Patches\EquipmentTracker_Patch.cs" />
     <Compile Include="Patches\FactionGenerator_Patch.cs" />
     <Compile Include="Patches\FactionGoodwill_Patch.cs" />
