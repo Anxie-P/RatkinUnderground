@@ -57,9 +57,9 @@ namespace RatkinUnderground
 
         public override void ExposeData()
         {
-            Scribe_Values.Look(ref thingDef, "thingDef");
+            Scribe_Defs.Look(ref thingDef, "thingDef");
             Scribe_Values.Look(ref amount, "amount");
-            Scribe_Values.Look(ref target, "target");
+            Scribe_References.Look(ref target, "target");
             Scribe_Values.Look(ref point, "point");
             Scribe_Values.Look(ref wanderRadius, "wanderRadius");
             Scribe_Values.Look(ref defendRadius, "defendRadius");

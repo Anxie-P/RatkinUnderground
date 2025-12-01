@@ -393,7 +393,9 @@ namespace RatkinUnderground
                 scouts.Add(scout);
             }
             //var lord = new LordToil_WaitForSubsidize(vehiclePos, scouts[2], RandThingDef(), 75);
-            var groupLord = new LordJob_WaitForSubsidize(vehiclePos, RandThingDef(), 75, scouts[2]);
+            var thingDef = RandThingDef();
+            var randAmount = RandAmount(thingDef);
+            var groupLord = new LordJob_WaitForSubsidize(vehiclePos, thingDef, randAmount, scouts[2]);
             //groupLord.CreateGraph().AddToil(lord);
             LordMaker.MakeNewLord(faction, groupLord, map, scouts);
             foreach(var g in groupLord.CreateGraph().lordToils)
@@ -402,18 +404,37 @@ namespace RatkinUnderground
             }
         }
 
+        /// <summary>
+        /// 随机物品类型
+        /// </summary>
+        /// <returns></returns>
         ThingDef RandThingDef()
         {
             List<ThingDef> possibleDefs = new List<ThingDef>
             {
                 ThingDefOf.Steel,
                 ThingDefOf.ComponentIndustrial,
-                ThingDef.Named("RawFungus"),
+                ThingDef.Named("Pemmican"),
                 ThingDefOf.MedicineIndustrial
             };
 
             var thingDef = possibleDefs.RandomElement();
             return thingDef;
+        }
+
+        /// <summary>
+        /// 随机数目
+        /// </summary>
+        int RandAmount(ThingDef thingDef)
+        {
+            if(thingDef == ThingDefOf.Steel || thingDef == ThingDef.Named("Pemmican"))
+            {
+                return Rand.RangeInclusive(24, 75);
+            }
+            else
+            {
+                return Rand.RangeInclusive(3, 10);
+            }
         }
 
         /// <summary>
