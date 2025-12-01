@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: 古代设施 -->
+  <RatkinAncient.label>Ancient Facility</RatkinAncient.label>
+  <!-- EN: 一座王国时期的古老地下设施，拥有古老的科技和防御系统。 -->
+  <RatkinAncient.description>An ancient underground facility from the Kingdom period with ancient technology and defense systems.</RatkinAncient.description>
+  <!-- EN: Attacking {0}. -->
+  <RatkinAncient.approachingReportString>Attacking {0}.</RatkinAncient.approachingReportString>
+  <!-- EN: Attack {0} -->
+  <RatkinAncient.approachOrderString>Attack {0}</RatkinAncient.approachOrderString>
+  <!-- EN: There is an enemy outpost in this area. -->
+  <RatkinAncient.arrivedLetter>There is an enemy outpost in this area.</RatkinAncient.arrivedLetter>
+  
+</LanguageData>

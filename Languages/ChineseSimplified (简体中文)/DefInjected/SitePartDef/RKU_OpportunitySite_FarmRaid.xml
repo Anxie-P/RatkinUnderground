@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: 军阀农场 -->
+  <RatkinFarm.label>TODO</RatkinFarm.label>
+  <!-- EN: 一座由鼠族军阀控制的农场，不仅生产粮食，还作为军阀部队的后勤补给基地。 -->
+  <RatkinFarm.description>TODO</RatkinFarm.description>
+  <!-- EN: Attacking {0}. -->
+  <RatkinFarm.approachingReportString>TODO</RatkinFarm.approachingReportString>
+  <!-- EN: Attack {0} -->
+  <RatkinFarm.approachOrderString>TODO</RatkinFarm.approachOrderString>
+  <!-- EN: There is an enemy outpost in this area. -->
+  <RatkinFarm.arrivedLetter>TODO</RatkinFarm.arrivedLetter>
+  
+</LanguageData>

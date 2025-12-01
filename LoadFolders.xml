@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <loadFolders>
-	<v1.5>
+<!-- 	<v1.5>
 		<li>/</li>
 		<li>1.5</li>
 		<li IfModActive="fxz.ratkinanomaly.update">1.5/Mod/RKA</li>
-	</v1.5>
+		<li IfModActive="fxz.ratkinfaction">1.5/Patches/Conditional/fxz_ratkinfaction</li>
+		<li IfModActive="bbb.ratkinweapon.morefailure">1.5/Patches/Conditional/bbb_ratkinweapon_morefailure</li>
+		<li IfModActive="fxz.ratkinanomaly.update">1.5/Patches/Conditional/fxz_ratkinanomaly_update</li>
+	</v1.5> -->
 	<v1.6>
 		<li>/</li>
 		<li>1.6</li>
 		<li IfModActive="fxz.ratkinanomaly.update">1.6/Mod/RKA</li>
+		<li IfModActive="fxz.ratkinfaction">1.6/Patches/Conditional/fxz_ratkinfaction</li>
+		<li IfModActive="bbb.ratkinweapon.morefailure">1.6/Patches/Conditional/bbb_ratkinweapon_morefailure</li>
+		<li IfModActive="fxz.ratkinanomaly.update">1.6/Patches/Conditional/fxz_ratkinanomaly_update</li>
 	</v1.6>
 </loadFolders>

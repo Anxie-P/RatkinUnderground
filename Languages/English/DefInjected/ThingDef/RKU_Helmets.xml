@@ -16,4 +16,8 @@
   <!-- EN: 侦察兵常戴的帽子，方便行动且便于隐蔽。 -->
   <RKU_Apparel_ScoutHat.description>A hat commonly worn by partisan scouts, facilitates movement and concealment.</RKU_Apparel_ScoutHat.description>
   
+    <!-- EN: 地鼠矿工盔 -->
+  <RKU_MinerHelmet.label>Ratkin Underground Miner Helmet</RKU_MinerHelmet.label>
+  <!-- EN: 地下工作用的矿工头盔，附带有一个简易过滤器，地下工作的优选。 -->
+  <RKU_MinerHelmet.description>A miner's helmet for underground work, fitted with a simple filter, is the preferred choice for underground operations.</RKU_MinerHelmet.description>
 </LanguageData>

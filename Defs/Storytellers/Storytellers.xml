@@ -111,15 +111,15 @@ Hyacinth will provide more stable guerrilla-related events, as well as more freq
 				<allowedTargetTags>
 					<li>World</li>
 				</allowedTargetTags>
-				<onDays>10</onDays>
-				<numIncidentsRange>2~16</numIncidentsRange>
+				<onDays>13</onDays>
+				<numIncidentsRange>1~7</numIncidentsRange>
 				<acceptFractionByDaysPassedCurve>
 					<points>
 						<li>(10, 0)</li>
 						<li>(20, 1)</li>
 					</points>
 				</acceptFractionByDaysPassedCurve>
-				<minSpacingDays>0.2</minSpacingDays>
+				<minSpacingDays>0.5</minSpacingDays>
 				<disableIfAnyModActive>
 					<li>Ludeon.RimWorld.Royalty</li>
 				</disableIfAnyModActive>
@@ -129,15 +129,15 @@ Hyacinth will provide more stable guerrilla-related events, as well as more freq
 				<allowedTargetTags>
 					<li>World</li>
 				</allowedTargetTags>
-				<onDays>12</onDays>
-				<numIncidentsRange>2~16</numIncidentsRange>
+				<onDays>13</onDays>
+				<numIncidentsRange>1~7</numIncidentsRange>
 				<acceptFractionByDaysPassedCurve>
 					<points>
 						<li>(10, 0)</li>
 						<li>(20, 1)</li>
 					</points>
 				</acceptFractionByDaysPassedCurve>
-				<minSpacingDays>0.2</minSpacingDays>
+				<minSpacingDays>0.5</minSpacingDays>
 				<enableIfAnyModActive>
 					<li>Ludeon.RimWorld.Royalty</li>
 				</enableIfAnyModActive>

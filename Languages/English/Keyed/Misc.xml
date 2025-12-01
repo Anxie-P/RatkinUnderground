@@ -31,7 +31,8 @@
   <!-- EN: [bandit] [camp] -->
   <RKU_QuestName_2>[bandit] [camp]</RKU_QuestName_2>
   <!-- EN: [asker_nameDef] and the [camp] -->
-  <RKU_QuestName_3>[asker_nameDef] 和 [camp]</RKU_QuestName_3>
+  <!-- EN: [asker_nameDef] 和 [camp] -->
+  <RKU_QuestName_3>[asker_nameDef] and [camp]</RKU_QuestName_3>
 
   <!-- Camp Type Translations -->
   <!-- EN: Camp -->
@@ -100,11 +101,13 @@
   <!-- EN: Stop Force Attack -->
   <CommandStopForceAttack>Stop Forced Attacks</CommandStopForceAttack>
   <!-- EN: Stop force attack mode -->
-  <CommandStopForceAttackDesc>Stop forced attacks mode.</CommandStopForceAttackDesc>
+  <!-- EN: Stop forced attacks mode. -->
+  <CommandStopForceAttackDesc>Stop forced attacks mode</CommandStopForceAttackDesc>
   <!-- EN: Hold Fire -->
   <CommandHoldFire>Hold Fire</CommandHoldFire>
   <!-- EN: Hold fire mode -->
-  <CommandHoldFireDesc>Hold fire mode.</CommandHoldFireDesc>
+  <!-- EN: Hold fire mode. -->
+  <CommandHoldFireDesc>Hold fire mode</CommandHoldFireDesc>
 
   <!-- Hardcoded Message Translations -->
   <!-- EN: Goods Arrived -->
@@ -153,31 +156,49 @@
 
   <!-- Radio UI Translations -->
   <!-- EN: Guerrilla Radio -->
-  <RKU_GuerrillaRadio>Partisan Radio</RKU_GuerrillaRadio>
+  <!-- EN: Partisan Radio -->
+  <RKU_GuerrillaRadio>Partisan Frequency Channel</RKU_GuerrillaRadio>
   <!-- EN: Royal Army Radio -->
-  <RKU_RoyalRadio>Royal Army Radio</RKU_RoyalRadio>
+  <!-- EN: Royal Army Radio -->
+  <RKU_RoyalRadio>Royal Army Frequency Channel</RKU_RoyalRadio>
+  <!-- EN: Online -->
   <RKU_RadioOnline>Online</RKU_RadioOnline>
   <RKU_SignalGood>Good Signal</RKU_SignalGood>
-  <RKU_PowerGood>Power Sufficient</RKU_PowerGood>
+  <!-- EN: Power Sufficient -->
+  <RKU_PowerGood>Sufficient Power</RKU_PowerGood>
+  <!-- EN: Unknown Location -->
   <RKU_UnknownLocation>Unknown Location</RKU_UnknownLocation>
   <RKU_TradeSignal>Trade Signal</RKU_TradeSignal>
   <RKU_ScanSignal>Scan Signal</RKU_ScanSignal>
-  <RKU_TacticalSupport>Tactical Support</RKU_TacticalSupport>
-  <RKU_TacticalSupportFailReason>At least 75 favor is required for tactical support</RKU_TacticalSupportFailReason>
-  <RKU_ProvideSupport>Provide Support</RKU_ProvideSupport>
+  <!-- EN: Tactical Support -->
+  <RKU_TacticalSupport>Request Tactical Support</RKU_TacticalSupport>
+  <!-- EN: At least 75 favor is required for tactical support -->
+  <RKU_TacticalSupportFailReason>A minimum of 75 goodwill is required to request tactical support.</RKU_TacticalSupportFailReason>
+  <!-- EN: Provide Support -->
+  <RKU_ProvideSupport>Provide Tactical Support</RKU_ProvideSupport>
+  <!-- EN: Trade on Cooldown -->
   <RKU_TradeCooldownText>Trade on Cooldown</RKU_TradeCooldownText>
   <RKU_StartTrade>Start Trade</RKU_StartTrade>
   <RKU_WaitingForTrade>Waiting for Trade...</RKU_WaitingForTrade>
   <RKU_EmergencyCall>Emergency Call</RKU_EmergencyCall>
-  <RKU_EmergencyCooldownText>Emergency call on cooldown, {0} days remaining</RKU_EmergencyCooldownText>
-  <RKU_EmergencyCooldownButton>Emergency Cooldown ({0} days)</RKU_EmergencyCooldownButton>
-  <RKU_RescueCooldownText>Provide support on cooldown, {0} days remaining</RKU_RescueCooldownText>
+  <!-- EN: Emergency call on cooldown, {0} days remaining -->
+  <RKU_EmergencyCooldownText>Emergency call on cooldown, {0} days remaining.</RKU_EmergencyCooldownText>
+  <!-- EN: Emergency Cooldown ({0} days) -->
+  <RKU_EmergencyCooldownButton>Emergency on Cooldown ({0} days)</RKU_EmergencyCooldownButton>
+  <!-- EN: Provide support on cooldown, {0} days remaining -->
+  <RKU_RescueCooldownText>Provide support on cooldown, {0} day(s) remaining.</RKU_RescueCooldownText>
+  <!-- EN: Support Cooldown ({0} days) -->
   <RKU_RescueCooldownButton>Support Cooldown ({0} days)</RKU_RescueCooldownButton>
   <RKU_ScanCooldownText>Scan on Cooldown</RKU_ScanCooldownText>
-  <RKU_ScanFavorRequirement>At least 50 favor is required for special location scanning</RKU_ScanFavorRequirement>
-  <RKU_TradeFavorRequirement>At least 1 favor is required for underground caravan trading</RKU_TradeFavorRequirement>
+  <!-- EN: At least 50 favor is required for special location scanning -->
+  <RKU_ScanFavorRequirement>A minimum of 50 goodwill is required for special location scanning.</RKU_ScanFavorRequirement>
+  <!-- EN: At least 1 favor is required for underground caravan trading -->
+  <RKU_TradeFavorRequirement>A minimum of 1 goodwill is required for Ratkin Underground Caravan trading.</RKU_TradeFavorRequirement>
+  <!-- EN: Discovered: {0} -->
   <RKU_SiteDiscoveredLabel>Discovered: {0}</RKU_SiteDiscoveredLabel>
-  <RKU_SiteDiscoveredText>Guerrilla forces have scanned a new location: {0}</RKU_SiteDiscoveredText>
+  <!-- EN: Guerrilla forces have scanned a new location: {0} -->
+  <RKU_SiteDiscoveredText>Partisans have scanned a new location:{0}</RKU_SiteDiscoveredText>
+  <!-- EN: Ratkin Underground Supply Caravan -->
   <RKU_TraderName>Ratkin Underground Supply Caravan</RKU_TraderName>
   <!-- EN:        Signal incoming... -->
   <RKU_SignalIncoming>Signal incoming...</RKU_SignalIncoming>
@@ -190,7 +211,8 @@
   <!-- EN: Trade signal sent, waiting for underground caravan... -->
   <RKU_TradeSignalSent>Trade signal sent, waiting for underground caravan...</RKU_TradeSignalSent>
   <!-- EN: Check out what we've prepared! -->
-  <RKU_CheckOurGoods>Check out what we've prepared!</RKU_CheckOurGoods>
+  <!-- EN: Check out what we've prepared! -->
+  <RKU_CheckOurGoods>Check out what we've prepared</RKU_CheckOurGoods>
   <!-- EN: No available colonists for trading. -->
   <RKU_NoNegotiatorAvailable>No available colonists for trading.</RKU_NoNegotiatorAvailable>
   <!-- EN: Goods are ready, you can start trading now! -->
@@ -206,7 +228,8 @@
   <!-- EN: Scan Cooldown: {0} days -->
   <RKU_ScanCooldown>Scan Cooldown: {0} day(s).</RKU_ScanCooldown>
   <!-- EN: Tactical support Cooldown: {0} days -->
-  <RKU_EmergencyCooldown>Tactical Support Cooldown: {0} day(s).</RKU_EmergencyCooldown>
+  <!-- EN: Tactical Support Cooldown: {0} day(s). -->
+  <RKU_EmergencyCooldown>Request Tactical Support Cooldown: {0} day(s).</RKU_EmergencyCooldown>
   <!-- EN: Provide support Cooldown: {0} days -->
   <RKU_RescueCooldown>Provide Support Cooldown: {0} day(s).</RKU_RescueCooldown>
   <!-- EN: Map Location: {0} -->
@@ -214,7 +237,8 @@
   <!-- EN: Reset Cooldowns (Dev) -->
   <RKU_ResetCooldowns>Reset Cooldowns</RKU_ResetCooldowns>
   <!-- EN: All cooldowns have been reset -->
-  <RKU_CooldownsReset>All cooldowns have been reset</RKU_CooldownsReset>
+  <!-- EN: All cooldowns have been reset -->
+  <RKU_CooldownsReset>All cooldowns have been reset.</RKU_CooldownsReset>
   <!-- EN: Partisan troop regional commander -->
   <RKU_commanderTitle>Partisan Regional Commander</RKU_commanderTitle>
   
@@ -247,7 +271,8 @@
   <!-- EN: Underground activity detected, a group of ratkin tunnel guerrillas are coming to assist in colony defense, please select their destination on the world map -->
   <RKU_GuerrillaAllyText>Underground activity detected, a group of Ratkin Underground Partisan are coming to assist in colony defense. Please select their destination on the World Map.</RKU_GuerrillaAllyText>
   <!-- EN: Invalid target selected -->
-  <RKU_InvalidTargetSelected>Invalid selecte target.</RKU_InvalidTargetSelected>
+  <!-- EN: Invalid selecte target. -->
+  <RKU_InvalidTargetSelected>Invalid selected target.</RKU_InvalidTargetSelected>
   <!-- EN: No colonists at this location -->
   <RKU_NoColonistsAtLocation>No colonists at this location.</RKU_NoColonistsAtLocation>
   <!-- EN: Ratkin Guerrillas Have Arrived -->
@@ -261,7 +286,8 @@
   <!-- EN: No other colonists on the map, cannot move! -->
   <RKU_NoOtherColonistsOnMap>No other colonists on the map, cannot move!</RKU_NoOtherColonistsOnMap>
   <!-- EN: Drilling out of the drilling machine requires colonists to exist both on the map and inside the drilling machine -->
-  <RKU_DrillOutDisabledReason>Drilling out of the drilling machine requires colonists to exist both on the map and inside the drilling machine</RKU_DrillOutDisabledReason>
+  <!-- EN: Drilling out of the drilling machine requires colonists to exist both on the map and inside the drilling machine -->
+  <RKU_DrillOutDisabledReason>The Driller Vehicle requires colonists both on the map and inside the driller to emerge from underground.</RKU_DrillOutDisabledReason>
 
   <!-- Castle Reinforcement Messages -->
   <!-- EN: Ratkin reinforcements have arrived! -->
@@ -269,24 +295,30 @@
 
   <!-- Guerrilla Final Defeat Messages -->
   <!-- EN: Guerrilla Organization Collapse -->
-  <RKU_GuerrillaOrganizationCollapse>Guerrilla Organization Collapse</RKU_GuerrillaOrganizationCollapse>
+  <!-- EN: Guerrilla Organization Collapse -->
+  <RKU_GuerrillaOrganizationCollapse>Partisan Organization Collapse</RKU_GuerrillaOrganizationCollapse>
   <!-- EN: The guerrillas have suffered major losses and morale has collapsed. Their organization is effectively defunct and they will do anything to escape this area.\n\nThe guerrilla faction has been destroyed. -->
-  <RKU_GuerrillaOrganizationCollapseDesc>The guerrillas have suffered major losses and morale has collapsed. Their organization is effectively defunct and they will do anything to escape this area.\n\nThe guerrilla faction has been destroyed.</RKU_GuerrillaOrganizationCollapseDesc>
+  <!-- EN: The guerrillas have suffered major losses and morale has collapsed. Their organization is effectively defunct and they will do anything to escape this area.\n\nThe guerrilla faction has been destroyed. -->
+  <RKU_GuerrillaOrganizationCollapseDesc>The Partisan forces have suffered heavy losses, their morale has collapsed, and their organization now exists in name only. They will stop at nothing to flee this area.\n\nThe Partisan faction has been destroyed.</RKU_GuerrillaOrganizationCollapseDesc>
   <!-- EN: Guerrilla Army Annihilated -->
-  <RKU_GuerrillaLeadershipAnnihilated>Guerrilla Army Annihilated</RKU_GuerrillaLeadershipAnnihilated>
+  <!-- EN: Guerrilla Army Annihilated -->
+  <RKU_GuerrillaLeadershipAnnihilated>Partisans Annihilated</RKU_GuerrillaLeadershipAnnihilated>
   <!-- EN: The guerrilla elite forces and leadership have been nearly annihilated, their organization has perished.\n\nThe guerrilla faction has been removed. -->
-  <RKU_GuerrillaLeadershipAnnihilatedDesc>The guerrilla elite forces and leadership have been nearly annihilated, their organization has perished.\n\nThe guerrilla faction has been destroyed.</RKU_GuerrillaLeadershipAnnihilatedDesc>
+  <!-- EN: The guerrilla elite forces and leadership have been nearly annihilated, their organization has perished.\n\nThe guerrilla faction has been destroyed. -->
+  <RKU_GuerrillaLeadershipAnnihilatedDesc>The Partisan elite forces and leadership have been nearly wiped out. Their organization has been eradicated.\n\nThe Partisan faction has been destroyed.</RKU_GuerrillaLeadershipAnnihilatedDesc>
 
   <!-- EN: Final Desperate Attack -->
   <RKU_FinalDesperateAttack>Final Desperate Attack</RKU_FinalDesperateAttack>
   <!-- EN: The enemy has launched their final desperate attack! The guerrillas have deployed their ultimate weapon on the brink of collapse. -->
-  <RKU_FinalDesperateAttackDesc>The enemy has launched their final desperate attack! The guerrillas have deployed their ultimate weapon on the brink of collapse.</RKU_FinalDesperateAttackDesc>
+  <!-- EN: The enemy has launched their final desperate attack! The guerrillas have deployed their ultimate weapon on the brink of collapse. -->
+  <RKU_FinalDesperateAttackDesc>The enemy has launched their final desperate attack! The partisans have deployed their ultimate weapon on the brink of collapse.</RKU_FinalDesperateAttackDesc>
 
   <!-- Factory Raid Messages -->
   <!-- EN: Enemy Raid -->
   <RKU_EnemyRaid>Enemy Raid</RKU_EnemyRaid>
   <!-- EN: {0} is launching a raid on the factory!\nRaid Points: {1}\nTotal Enemy Deaths: {2}/800 -->
-  <RKU_EnemyRaidDesc>{0} is launching a raid on the factory!\nRaid Points: {1}\nTotal Enemy Deaths: {2}/800</RKU_EnemyRaidDesc>
+  <!-- EN: {0} is launching a raid on the factory!\nRaid Points: {1}\nTotal Enemy Deaths: {2}/800 -->
+  <RKU_EnemyRaidDesc>{0} is launching a raid on the factory!\nRaid Points: {1}\nTotal Enemy Deaths: {2}/800.</RKU_EnemyRaidDesc>
 
   <!-- Burst Fire Ability Translations -->
   <!-- EN: Burst Fire -->
@@ -308,11 +340,33 @@
   <!-- EN: Debug Features: -->
   <RKU_DebugFeatures>Debug Features:</RKU_DebugFeatures>
   <!-- EN: Try Trigger Guerrillas Coming Quest -->
-  <RKU_TryTriggerGuerrillasQuest>Try Trigger Guerrillas Coming Quest</RKU_TryTriggerGuerrillasQuest>
+  <!-- EN: Try Trigger Guerrillas Coming Quest -->
+  <RKU_TryTriggerGuerrillasQuest>Try to trigger Partisans Coming Quest</RKU_TryTriggerGuerrillasQuest>
   <!-- EN: Please contact the guerrillas on the radio to expand faction relationship limits -->
-  <RKU_RelationLimitExceeded>Please contact the guerrillas on the radio to expand faction relationship limits</RKU_RelationLimitExceeded>
+  <!-- EN: Please contact the guerrillas on the radio to expand faction relationship limits -->
+  <RKU_RelationLimitExceeded>Please contact the Partisans on the radio to expand faction relationship limits.</RKU_RelationLimitExceeded>
   <!-- EN: Tech Breakthrough -->
   <RKU_TechprintReceived>Tech Breakthrough</RKU_TechprintReceived>
   <!-- EN: {0} technology has achieved a breakthrough, and the blueprint has been organized by your scientists. -->
   <RKU_TechprintReceivedDesc>{0} technology has achieved a breakthrough, and the blueprint has been organized by your scientists.</RKU_TechprintReceivedDesc>
+  <!-- EN: The guerrillas send a warning: There is a noble here using a very dangerous special weapon. -->
+  <!-- EN: The guerrillas send a warning: There is an enemy here using a very dangerous special weapon. -->
+  <RKU_NobleWarning>The Partisans send a warning: There is an enemy here using a very dangerous special weapon.</RKU_NobleWarning>
+  <!-- EN: The guerrillas send a message: A powerful prototype weapon is stored in the factory, you can search for and use it. -->
+  <!-- EN: The guerrillas send a message: A powerful prototype weapon is stored in the factory, you can search for and use it. -->
+  <RKU_FactoryWeaponMessage>The Partisans send a message: A powerful prototype weapon is stored in the factory, you can search for and use it.</RKU_FactoryWeaponMessage>
+  <!-- EN: The guerrillas send a message: There is a powerful prototype weapon here, you can search for and use it. -->
+  <RKU_AncientWeaponMessage>The Partisans send a message: There is a powerful prototype weapon here, you can search for and use it.</RKU_AncientWeaponMessage>
+  <!-- EN: Settlement Established -->
+  <RKU_GenerateSettled>Settlement Established</RKU_GenerateSettled>
+  <!-- EN: With the help of nearby Ratkin residents, the Ratkin Guerrillas have established a settlement near the colony. -->
+  <RKU_GenerateSettledDesc>With the help of nearby Ratkin residents, the Ratkin Guerrillas have established a settlement near the colony.</RKU_GenerateSettledDesc>
+
+  <!-- Mod Settings Translations -->
+  <!-- EN: Show only current dialogue messages -->
+  <RKU_ShowOnlyCurrentDialogueMessages>Show only current dialogue messages</RKU_ShowOnlyCurrentDialogueMessages>
+  <!-- EN: When enabled, opening the radio dialogue window will clear history messages and only show content from the current conversation. When disabled, all history messages will be retained. -->
+  <RKU_ShowOnlyCurrentDialogueMessagesDesc>When enabled, opening the radio dialogue window will clear history messages and only show content from the current conversation. When disabled, all history messages will be retained.</RKU_ShowOnlyCurrentDialogueMessagesDesc>
+  <!-- EN: Adjust radio dialogue display behavior. When enabled, each time you open the radio will start a new conversation session. -->
+  <RKU_RadioDialogueBehaviorDesc>Adjust radio dialogue display behavior. When enabled, each time you open the radio will start a new conversation session.</RKU_RadioDialogueBehaviorDesc>
 </LanguageData>

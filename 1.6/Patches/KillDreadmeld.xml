@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
-  <Operation Class="PatchOperationAdd">
-		<xpath>/Defs/ThingDef[defName="Dreadmeld"]/comps</xpath>
-		<value>
-			<li Class="RatkinUnderground.CompProperties_KillDreadmeld"/>
-		</value>
-	</Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="Dreadmeld"]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="Dreadmeld"]/comps</xpath>
+      <value>
+        <li Class="RatkinUnderground.CompProperties_KillDreadmeld"/>
+      </value>
+    </match>
+  </Operation>
 </Patch>

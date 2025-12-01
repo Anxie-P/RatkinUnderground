@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <!-- 为RK_AssaultRifle添加武器标签 -->
+  <Operation Class="PatchOperationSequence">
+    <success>Always</success>
+    <operations>
+      <li Class="PatchOperationTest">
+        <xpath>/Defs/ThingDef[defName = "RK_AssaultRifle"]/weaponTags</xpath>
+        <success>Normal</success>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef[defName = "RK_AssaultRifle"]/weaponTags</xpath>
+        <value>
+          <li>RK_DemomanAssultRifle</li>
+        </value>
+      </li>
+    </operations>
+  </Operation>
+
+  <!-- 为RK_Pickaxe添加武器标签 -->
+  <Operation Class="PatchOperationSequence">
+    <success>Always</success>
+    <operations>
+      <li Class="PatchOperationTest">
+        <xpath>/Defs/ThingDef[defName = "RK_Pickaxe"]/weaponTags</xpath>
+        <success>Normal</success>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef[defName = "RK_Pickaxe"]/weaponTags</xpath>
+        <value>
+          <li>RKU_ScoutWeapon</li>
+        </value>
+      </li>
+    </operations>
+  </Operation>
+</Patch>

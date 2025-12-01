@@ -2,8 +2,9 @@
 <Defs>
 
   <RecipeDef>
-    <defName>Make_Shell_AntigrainWarhead</defName>
+    <defName>RKU_Make_Shell_AntigrainWarhead</defName>
     <workAmount>4000</workAmount>
+	<label>制造反粒子弹头</label>
     <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
     <effectWorking>Smith</effectWorking>
     <soundWorking>Recipe_Smith</soundWorking>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: crossbow bolt -->
+  <Bolt_RKU_JadeCrystalCrossbow.label>连弩弩箭</Bolt_RKU_JadeCrystalCrossbow.label>
+  
+  <!-- EN: jade crystal crossbow -->
+  <RKU_JadeCrystalCrossbow.label>叶绿水晶弩</RKU_JadeCrystalCrossbow.label>
+  <!-- EN: 射速更快的连发弩，需要萤石与翡翠制造. -->
+  <RKU_JadeCrystalCrossbow.description>射速更快的连发弩，需要萤石与翡翠制造。</RKU_JadeCrystalCrossbow.description>
+  <!-- EN: limb -->
+  <RKU_JadeCrystalCrossbow.tools.limb.label>TODO</RKU_JadeCrystalCrossbow.tools.limb.label>
+  <!-- EN: arrow -->
+  <RKU_JadeCrystalCrossbow.tools.arrow.label>TODO</RKU_JadeCrystalCrossbow.tools.arrow.label>
+  <!-- EN: jade crystal crossbow -->
+  <RKU_JadeCrystalCrossbow.verbs.Verb_Shoot.label>TODO</RKU_JadeCrystalCrossbow.verbs.Verb_Shoot.label>
+  
+</LanguageData>

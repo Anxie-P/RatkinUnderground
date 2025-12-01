@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: Assault weapons from underground -->
+  <RKU_UndergroundAssaultWeapons.label>地下突击武器</RKU_UndergroundAssaultWeapons.label>
+  <!-- EN: The partisans' experience in underground operations combined with advanced industrial strength that they did not have. These weapons are more suitable for close combat, as well as for quickly closing the distance to the enemy.\n		In general, blueprints need to be researched with the Ratkin Underground Partisans faction. -->
+  <RKU_UndergroundAssaultWeapons.description>游击队关于地下作战的经验，结合他们没有的先进工业实力而诞生的产物。这些武器更适合近距离作战，以及用于快速拉近与敌人的距离.\n  一般情况下，需要与地鼠游击队派系共同研究获得蓝图</RKU_UndergroundAssaultWeapons.description>
+  
+  <!-- EN: Experimental weapons from the underground -->
+  <RKU_UndergroundExperimentalWeapon.label>地下实验武器</RKU_UndergroundExperimentalWeapon.label>
+  <!-- EN: Ancient modified fungi found in extreme underground environments possess weaponization potential, and to unlock this potential, a joint effort between partisans and your colony is needed.\n		In general, blueprints need to be researched with the Ratkin Underground Partisans faction. -->
+  <RKU_UndergroundExperimentalWeapon.description>在极端的地下环境中发现的古代改造菌类拥有武器化的潜力，而将这股潜力发掘出来则需要游击队和你的殖民地共同完成.\n  一般情况下，需要与地鼠游击队派系共同研究获得蓝图</RKU_UndergroundExperimentalWeapon.description>
+  
+  <!-- EN: Partisan equipment from the underground -->
+  <RKU_UndergroundGuerrillaEquipments.label>地下游击装备</RKU_UndergroundGuerrillaEquipments.label>
+  <!-- EN: The partisans' experience in underground operations combined with advanced industrial strength that they did not have. These equipment are extremely lightweight and can withstand enough damage,it allows the wearer to quickly approach enemies.\n		In general, blueprints need to be researched with the Ratkin Underground Partisans faction. -->
+  <RKU_UndergroundGuerrillaEquipments.description>游击队关于地下作战的经验，结合他们没有的先进工业实力而诞生的产物。这些装备极其轻巧且能抵挡足够的伤害，让穿戴者能够快速接近敌人.\n  一般情况下，需要与地鼠游击队派系共同研究获得蓝图</RKU_UndergroundGuerrillaEquipments.description>
+  
+</LanguageData>

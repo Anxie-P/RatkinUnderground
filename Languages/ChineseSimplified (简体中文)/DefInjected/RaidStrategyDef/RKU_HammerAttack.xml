@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: The enemy has deployed their hammer siege weapons! They will pound your defenses with powerful ground-shaking attacks. -->
+  <RKU_HammerAttack.arrivalTextEnemy>敌人已经部署了他们的重型攻城武器！他们将用强大的地面震动攻击猛烈轰击你的防御设施。</RKU_HammerAttack.arrivalTextEnemy>
+  <!-- EN: Allies are setting up hammer siege weapons to support your defense. -->
+  <RKU_HammerAttack.arrivalTextFriendly>盟军正在布置重型攻城武器以支援你的防御...但真的有用吗？</RKU_HammerAttack.arrivalTextFriendly>
+  <!-- EN: Hammer Siege -->
+  <RKU_HammerAttack.letterLabelEnemy>地锤围攻</RKU_HammerAttack.letterLabelEnemy>
+  <!-- EN: Friendly Siege -->
+  <RKU_HammerAttack.letterLabelFriendly>友军地锤</RKU_HammerAttack.letterLabelFriendly>
+  
+</LanguageData>

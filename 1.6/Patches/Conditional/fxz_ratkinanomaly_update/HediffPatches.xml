@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <!-- 为RKU_CombatEfficiency添加衰老因子 -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/StatDef[defName="RA_AgingRateFactor"]</xpath>
+    <match Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+        <li Class="PatchOperationTest">
+          <xpath>/Defs/HediffDef[defName="RKU_CombatEfficiency"]/stages</xpath>
+          <success>Always</success>
+        </li>
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs/HediffDef[defName="RKU_CombatEfficiency"]/stages/li[1]</xpath>
+        <value>
+          <statFactors>
+            <RA_AgingRateFactor>1.2</RA_AgingRateFactor>
+          </statFactors>
+        </value>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs/HediffDef[defName="RKU_CombatEfficiency"]/stages/li[2]</xpath>
+        <value>
+          <statFactors>
+            <RA_AgingRateFactor>1.2</RA_AgingRateFactor>
+          </statFactors>
+        </value>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs/HediffDef[defName="RKU_CombatEfficiency"]/stages/li[3]</xpath>
+        <value>
+          <statFactors>
+            <RA_AgingRateFactor>1.2</RA_AgingRateFactor>
+          </statFactors>
+        </value>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs/HediffDef[defName="RKU_CombatEfficiency"]/stages/li[4]</xpath>
+        <value>
+          <statFactors>
+            <RA_AgingRateFactor>1.2</RA_AgingRateFactor>
+          </statFactors>
+        </value>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs/HediffDef[defName="RKU_CombatEfficiency"]/stages/li[5]</xpath>
+        <value>
+          <statFactors>
+            <RA_AgingRateFactor>1.2</RA_AgingRateFactor>
+          </statFactors>
+        </value>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs/HediffDef[defName="RKU_CombatEfficiency"]/stages/li[6]</xpath>
+        <value>
+          <statFactors>
+            <RA_AgingRateFactor>1.2</RA_AgingRateFactor>
+          </statFactors>
+        </value>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs/HediffDef[defName="RKU_CombatEfficiency"]/stages/li[7]</xpath>
+        <value>
+          <statFactors>
+            <RA_AgingRateFactor>1.2</RA_AgingRateFactor>
+          </statFactors>
+        </value>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs/HediffDef[defName="RKU_CombatEfficiency"]/stages/li[8]</xpath>
+        <value>
+          <statFactors>
+            <RA_AgingRateFactor>1.2</RA_AgingRateFactor>
+          </statFactors>
+        </value>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs/HediffDef[defName="RKU_CombatEfficiency"]/stages/li[9]</xpath>
+        <value>
+          <statFactors>
+            <RA_AgingRateFactor>1.2</RA_AgingRateFactor>
+          </statFactors>
+        </value>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs/HediffDef[defName="RKU_CombatEfficiency"]/stages/li[10]</xpath>
+        <value>
+          <statFactors>
+            <RA_AgingRateFactor>1.2</RA_AgingRateFactor>
+          </statFactors>
+        </value>
+      </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>

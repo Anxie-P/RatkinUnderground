@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: partisans commissar -->
+  <RKU_Commissar.label>游击队政委</RKU_Commissar.label>
+  
+  <!-- EN: partisans elite commissar -->
+  <RKU_EliteCommissar.label>游击队精英政委</RKU_EliteCommissar.label>
+  
+  <!-- EN: partisans elite invader -->
+  <RKU_EliteInvader.label>游击队精英入侵者</RKU_EliteInvader.label>
+  
+  <!-- EN: ratkin elite scout -->
+  <RKU_EliteScout.label>精英侦察兵</RKU_EliteScout.label>
+  
+  <!-- EN: partisans invader -->
+  <RKU_Invader.label>游击队入侵者</RKU_Invader.label>
+  
+  <!-- EN: ratkin miner -->
+  <RKU_Miner.label>TODO</RKU_Miner.label>
+  
+  <!-- EN: ratkin scout -->
+  <RKU_Scout.label>侦察兵</RKU_Scout.label>
+  
+</LanguageData>

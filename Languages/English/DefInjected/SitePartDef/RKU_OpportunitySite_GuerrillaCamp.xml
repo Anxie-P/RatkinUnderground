@@ -2,14 +2,14 @@
 <LanguageData>
   
   <!-- EN: bandit camp -->
-  <GuerrillasBanditCamp.label>TODO</GuerrillasBanditCamp.label>
+  <GuerrillasBanditCamp.label>Bandit Camp</GuerrillasBanditCamp.label>
   <!-- EN: A bandit camp. -->
-  <GuerrillasBanditCamp.description>TODO</GuerrillasBanditCamp.description>
+  <GuerrillasBanditCamp.description>A bandit camp.</GuerrillasBanditCamp.description>
   <!-- EN: Attacking {0}. -->
-  <GuerrillasBanditCamp.approachingReportString>TODO</GuerrillasBanditCamp.approachingReportString>
+  <GuerrillasBanditCamp.approachingReportString>Attacking {0}.</GuerrillasBanditCamp.approachingReportString>
   <!-- EN: Attack {0} -->
-  <GuerrillasBanditCamp.approachOrderString>TODO</GuerrillasBanditCamp.approachOrderString>
+  <GuerrillasBanditCamp.approachOrderString>Attack {0}</GuerrillasBanditCamp.approachOrderString>
   <!-- EN: There is an enemy outpost in this area. -->
-  <GuerrillasBanditCamp.arrivedLetter>TODO</GuerrillasBanditCamp.arrivedLetter>
+  <GuerrillasBanditCamp.arrivedLetter>There is an enemy outpost in this area.</GuerrillasBanditCamp.arrivedLetter>
   
 </LanguageData>

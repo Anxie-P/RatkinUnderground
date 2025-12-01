@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: 鼠族城堡 -->
+  <RatkinCastle.label>Ratkin Castle</RatkinCastle.label>
+  <!-- EN: 一座从王国占领的小型鼠族城堡，但拥有坚固的城墙、高耸的塔楼，和一些变节骑士护卫。 -->
+  <RatkinCastle.description>A small Ratkin castle captured from the Kingdom, but it has sturdy walls, towering towers, and some renegade knights as guards.</RatkinCastle.description>
+  <!-- EN: Attacking {0}. -->
+  <RatkinCastle.approachingReportString>Attacking {0}.</RatkinCastle.approachingReportString>
+  <!-- EN: Attack {0} -->
+  <RatkinCastle.approachOrderString>Attack {0}</RatkinCastle.approachOrderString>
+  <!-- EN: There is an enemy outpost in this area. -->
+  <RatkinCastle.arrivedLetter>There is an enemy outpost in this area.</RatkinCastle.arrivedLetter>
+  
+</LanguageData>

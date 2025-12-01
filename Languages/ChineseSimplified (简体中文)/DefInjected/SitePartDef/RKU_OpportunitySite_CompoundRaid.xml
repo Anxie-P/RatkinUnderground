@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: 军阀炮楼 -->
+  <RatkinCompound.label>TODO</RatkinCompound.label>
+  <!-- EN: 一座由鼠族军阀控制的武装炮楼，外围有完善的防御设施，配备多座炮塔，防御森严。 -->
+  <RatkinCompound.description>TODO</RatkinCompound.description>
+  <!-- EN: Attacking {0}. -->
+  <RatkinCompound.approachingReportString>TODO</RatkinCompound.approachingReportString>
+  <!-- EN: Attack {0} -->
+  <RatkinCompound.approachOrderString>TODO</RatkinCompound.approachOrderString>
+  <!-- EN: There is an enemy outpost in this area. -->
+  <RatkinCompound.arrivedLetter>TODO</RatkinCompound.arrivedLetter>
+  
+</LanguageData>

@@ -19,4 +19,7 @@
   <!-- EN: 正在装载钻机货物。 -->
   <RKU_LoadDrillingCargo.reportString>Loading Driller Cargo.</RKU_LoadDrillingCargo.reportString>
   
+  <!-- EN: 正在救援并进入钻地机。 -->
+  <RKU_RescueAndEnterDrillingVehicle.reportString>Rescuing and entering the Driller.</RKU_RescueAndEnterDrillingVehicle.reportString>
+  
 </LanguageData>

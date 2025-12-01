@@ -16,7 +16,10 @@
   <!-- EN: partisans invader -->
   <RKU_Invader.label>Partisan Invader</RKU_Invader.label>
   
+  <!-- EN: ratkin miner -->
+  <RKU_Miner.label>Ratkin Miner</RKU_Miner.label>
+  
   <!-- EN: ratkin scout -->
-  <RKU_Scout.label>Scout</RKU_Scout.label>
+  <RKU_Scout.label>Ratkin Scout</RKU_Scout.label>
   
 </LanguageData>

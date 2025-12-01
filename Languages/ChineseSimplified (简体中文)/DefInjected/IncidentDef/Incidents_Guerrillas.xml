@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: 血战 -->
+  <RKU_FinalBattle.label>TODO</RKU_FinalBattle.label>
+  <!-- EN: 终末血战 -->
+  <RKU_FinalBattle.letterLabel>TODO</RKU_FinalBattle.letterLabel>
+  <!-- EN: 游击队集结了本地全部的精锐，对殖民地发动了最终的决战，每4小时会根据殖民地状态分配不同强度的袭击，总共6波。 -->
+  <RKU_FinalBattle.letterText>TODO</RKU_FinalBattle.letterText>
+  
+  <!-- EN: 游击队物资劫持 -->
+  <RKU_Incident_CaravanHijack.label>游击队物资劫持</RKU_Incident_CaravanHijack.label>
+  <!-- EN: 游击队物资劫持 -->
+  <RKU_Incident_CaravanHijack.letterLabel>游击队物资劫持</RKU_Incident_CaravanHijack.letterLabel>
+  <!-- EN: 游击队侦察到你的基地里有鼠族王国的一支由贵族带领的商队。他们决定趁机发动突袭，劫持这些珍贵的物资。如果你不予阻止，会得到游击队员们的感谢。 -->
+  <RKU_Incident_CaravanHijack.letterText>游击队侦测到鼠族王国商队在殖民地的存在，并发现有贵族随行。他们决定趁机发动突袭，劫持这些珍贵的物资！</RKU_Incident_CaravanHijack.letterText>
+  
+  <!-- EN: 迷茫的白鼠 -->
+  <RKU_Incident_ConfusedRat.label>迷茫的白鼠</RKU_Incident_ConfusedRat.label>
+  <!-- EN: 迷茫的白鼠 -->
+  <RKU_Incident_ConfusedRat.letterLabel>迷茫的白鼠</RKU_Incident_ConfusedRat.letterLabel>
+  <!-- EN: 一只迷茫的白色鼠族出现在附近，看起来十分困惑。 -->
+  <RKU_Incident_ConfusedRat.letterText>一只迷茫的白色鼠族出现在附近，看起来十分困惑。</RKU_Incident_ConfusedRat.letterText>
+  
+  <!-- EN: 游击队开局事件 -->
+  <RKU_Incident_Trigger_GuerrillasComing.label>TODO</RKU_Incident_Trigger_GuerrillasComing.label>
+  
+  <!-- EN: 游击队机密信息保护 -->
+  <RKU_Incident_Trigger_GuerrillaSecretProtection.label>TODO</RKU_Incident_Trigger_GuerrillaSecretProtection.label>
+  
+  <!-- EN: 游击队幸存者救援 -->
+  <RKU_Incident_Trigger_GuerrillaSurvivor.label>TODO</RKU_Incident_Trigger_GuerrillaSurvivor.label>
+  
+  <!-- EN: 终末血战 -->
+  <RKU_IncidentWorker_FinalRaid.label>TODO</RKU_IncidentWorker_FinalRaid.label>
+  
+  <!-- EN: 地震：血肉兽 -->
+  <RKU_LimitedFleshbeastAttack.label>TODO</RKU_LimitedFleshbeastAttack.label>
+  <!-- EN: 地震：血肉兽 -->
+  <RKU_LimitedFleshbeastAttack.letterLabel>TODO</RKU_LimitedFleshbeastAttack.letterLabel>
+  <!-- EN: 撼地装置导致的地震惊醒了血肉兽，它们正从地下涌出来！ -->
+  <RKU_LimitedFleshbeastAttack.letterText>TODO</RKU_LimitedFleshbeastAttack.letterText>
+  <!-- EN: Several sinkholes have started appearing. The sounds of writhing flesh and cracking bones can be heard from below. -->
+  <RKU_LimitedFleshbeastAttack.letterTextPlural>TODO</RKU_LimitedFleshbeastAttack.letterTextPlural>
+  
+  <!-- EN: 地震：虫群 -->
+  <RKU_LimitedInsectAttack.label>TODO</RKU_LimitedInsectAttack.label>
+  <!-- EN: 地震：虫群 -->
+  <RKU_LimitedInsectAttack.letterLabel>TODO</RKU_LimitedInsectAttack.letterLabel>
+  <!-- EN: 撼地装置导致的地震惊醒了虫群，它们正从地下涌出来！ -->
+  <RKU_LimitedInsectAttack.letterText>TODO</RKU_LimitedInsectAttack.letterText>
+  <!-- EN: Several sinkholes have started appearing. The sounds of writhing chitin and skittering legs can be heard from below. -->
+  <RKU_LimitedInsectAttack.letterTextPlural>TODO</RKU_LimitedInsectAttack.letterTextPlural>
+  
+  <!-- EN: 鼠族隧道游击队 -->
+  <RKU_RatkinTunnel_Fir.label>TODO</RKU_RatkinTunnel_Fir.label>
+  <!-- EN: 鼠族隧道游击队 -->
+  <RKU_RatkinTunnel_Fir.letterLabel>TODO</RKU_RatkinTunnel_Fir.letterLabel>
+  <!-- EN: 侦测到地下活动，一支鼠族地下游击队正在进攻殖民地。 -->
+  <RKU_RatkinTunnel_Fir.letterText>TODO</RKU_RatkinTunnel_Fir.letterText>
+  
+  <!-- EN: ？？？ -->
+  <RKU_RatkinTunnel_Thi.label>TODO</RKU_RatkinTunnel_Thi.label>
+  <!-- EN: ？？？ -->
+  <RKU_RatkinTunnel_Thi.letterLabel>TODO</RKU_RatkinTunnel_Thi.letterLabel>
+  <!-- EN: ？？？ -->
+  <RKU_RatkinTunnel_Thi.letterText>TODO</RKU_RatkinTunnel_Thi.letterText>
+  
+</LanguageData>

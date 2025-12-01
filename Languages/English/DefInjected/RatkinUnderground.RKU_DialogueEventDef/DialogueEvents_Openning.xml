@@ -1,16 +1,244 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
   
-  <!-- EN:       游击队起源于十几年前王国掀起的一场革命，\n在领袖金合欢领导下，我们攻陷了王国一半以上的土地。但这些成果最后因为\n金合欢的病逝而告终了，接任的领袖悬铃败给了私心和权欲...这些都是后话了。 -->
-  <RKU_StartupEventC.dialogueText>TODO</RKU_StartupEventC.dialogueText>
+  <!-- EN:       非常感谢你们帮助我们守卫了工厂！同志们。如果没有你们的支\n援，我们可能已经失去这唯一的生产设施，只能继续回到地下积蓄力量了。这份恩情\n我们会永远铭记在心。但战争还并未结束，只要还有军阀在这片土地上作威作福，我\n们就一刻不能懈怠，今后也继续努力吧！ -->
+  <RKU_FactoryDefense_Completed.dialogueText>Comrades, we thank you for protecting the factory! Your timely help saved 
+our only production site. Without it, we would have been forced underground to 
+recover. We will always remember this kindness. But the war is not over. As long as 
+warlords oppress this land, we cannot rest. Let us keep fighting with steady resolve!</RKU_FactoryDefense_Completed.dialogueText>
   
-  <!-- EN:       之前曾经有过一场大鼠疫，革命军因为这场瘟疫\n而损失惨重，但后来我们发现这竟是人为的灾难，该为此负责的人已经付出了代价，\n但逝去的生命永远回不来。 -->
-  <RKU_StartupEventD.dialogueText>TODO</RKU_StartupEventD.dialogueText>
+  <!-- EN:       终于,同志们，我们可以停战了...不论如何，军阀被彻底灭亡，王国元气大伤，\n但金合欢的继承者们却见到了胜利的曙光。鼠族人被内战的阴霾折磨了十几年，现在我\n们这些老骨头也是时候放下手中的枪，还给孩子们一个安定的未来了。比起我这样的战\n士，游击队现在更需要一个能带领他们发展建设的领袖，那么，不知道你那边还有没有\n位置能提供给一个...勉强还有点水平的机械师？哈哈，我居然已经开始期待退休生活\n了。 -->
+  <RKU_FactoryDefense_Completed_WarlordDefeated.dialogueText>Comrades, at last we can end the war... Despite all 
+challenges, we have crushed the warlords. The Kingdom's strength is broken. 
+Now the Acacia heirs see victory's dawn. For over ten years, our Ratkin people 
+have endured civil strife. We veterans must lay down our arms. We want to give 
+our children a future free from conflict. The Partisan cause no longer needs 
+warriors like me. It needs a leader to guide reconstruction and growth. I ask 
+if your colony might offer a position to one... who is still fairly competent 
+as a Mechanitor. How strange that I already look forward to the peace of 
+retirement, haha.</RKU_FactoryDefense_Completed_WarlordDefeated.dialogueText>
   
-  <!-- EN:       那些军阀很令人讨厌，但其实他们和我们都是\n革命军分裂后的产物。有些人遗忘了当时起义的目标，自己当起了压迫者...\n王国已经摇摇欲坠，如果军阀们掀起的战乱能消失的话，或许我们还能挣得一段时间\n的和平，但仅靠我们这些游击队还不够。 -->
-  <RKU_StartupEventE.dialogueText>TODO</RKU_StartupEventE.dialogueText>
+  <!-- EN:       工厂失守了...我们暂时需要撤退隐蔽，转入地下继续潜伏。虽然\n这次失败了，但我们不会放弃。等我们重新组织好力量，一定会再次联系你们。那么，\n再见了... -->
+  <RKU_FactoryDefense_Failed.dialogueText>The factory is lost... We must pull back now and fade into the shadows.
+From the depths, we will keep fighting. This battle did not go our way, but 
+our will is firm. When we regroup and gather our strength, we will contact 
+you again. So, farewell...</RKU_FactoryDefense_Failed.dialogueText>
   
-  <!-- EN:       你认不认识一些白色的鼠族？他们是王国生化实验\n的产物。他们有着共同的姓氏，近似的样貌，还有着敏捷的身手。他们曾经是王国最强\n大隐秘的刺客部队，但他们的故事已经被他们自己终结了。因为有一名特工曾经加入了\n我们，然后亲手杀掉了她的造主。 -->
-  <RKU_StartupEventF.dialogueText>TODO</RKU_StartupEventF.dialogueText>
+  <!-- EN:       我为什么还在这里？不要问，这都是细节~ -->
+  <RKU_LeaderJoined_WithZiggyCard.dialogueText>You may wonder why I stay. Do not ask. These are mere details~</RKU_LeaderJoined_WithZiggyCard.dialogueText>
+  
+  <!-- EN:       加油，科学家。我们正在分析数据。 -->
+  <RKU_ResearchProgressA.dialogueText>Now press onward, dear scientist. We are analyzing the data.</RKU_ResearchProgressA.dialogueText>
+  
+  <!-- EN:       有些起源于古代地下遗迹的特殊蘑菇，它们只有在特殊环境下才能少量\n生长，虽然很危险，但也有特殊的用处。 -->
+  <RKU_ResearchProgressB.dialogueText>These peculiar mushrooms from ancient ruins grow only in unique environments 
+and in small amounts. They are hazardous but with special use.</RKU_ResearchProgressB.dialogueText>
+  
+  <!-- EN:       别着急，慢点说。 -->
+  <RKU_StartupEventB.dialogueText>Calm down. Now tell the story carefully.</RKU_StartupEventB.dialogueText>
+  
+  <!-- EN:       游击队起源于十几年前王国掀起的一场革命，在领袖金合欢领导下，\n我们攻陷了王国一半以上的土地。但这些成果最后因为\n金合欢的病逝而告终了，接任的领袖悬铃败给了私心和权欲...这些都是后话了。 -->
+  <RKU_StartupEventC.dialogueText>Our Partisan movement began with a Kingdom revolution over ten years ago. Under 
+our revered leader Acacia, we freed more than half the sovereign's lands. But 
+these victories were lost after Acacia fell ill and passed. Her successor 
+Sycamore later betrayed our cause for personal power. That story, however, 
+comes later.</RKU_StartupEventC.dialogueText>
+  
+  <!-- EN:       之前曾经有过一场大鼠疫，革命军因为这场瘟疫而损失惨重，但后来\n我们发现这竟是人为的灾难，该为此负责的人已经付出了代价，但逝去\n的生命永远回不来。 -->
+  <RKU_StartupEventD.dialogueText>The Great Ratkin Pestis struck. It hit our Partisan forces hard. We learned it 
+was man-made. We found those responsible. They paid the price. But we can 
+never bring back the lost.</RKU_StartupEventD.dialogueText>
+  
+  <!-- EN:       你有见过王国贩卖人口的商队吗？他们真是死性不改。 -->
+  <RKU_StartupEventDA.dialogueText>Have you seen the Kingdom's slave caravans? They still cling to their vile 
+trade.</RKU_StartupEventDA.dialogueText>
+  
+  <!-- EN:       “鼠族恶魔”突击队的概念最早便起源于鼠族内战时期的一支特种部队，\n其最初的成员均为鼠族实验体。这些小白鼠过分的单纯反而令人感到可怜。 -->
+  <RKU_StartupEventDB.dialogueText>The "Ratkin Demonmans" commando team started in the civil war as an elite unit. It 
+was first made only of Ratkin Subjects. Their simple ways are deeply moving.</RKU_StartupEventDB.dialogueText>
+  
+  <!-- EN:       你们殖民地刚起步的时候有没有做过类似劫商队的事？说笑的，我们这的\n纪律都是很严格的，哪怕吃老乡一根玉米也要付钱。 -->
+  <RKU_StartupEventDC.dialogueText>Tell me, did your young colony ever raid merchant caravans in its early days? Just 
+joking. We keep strict discipline here. Even taking one ear of corn from a 
+villager requires payment. We make sure to pay for it.</RKU_StartupEventDC.dialogueText>
+  
+  <!-- EN:       你会因为鼠族可爱的样貌而心慈手软吗，特别是对那些光鲜亮丽的贵族？\n只要你亲眼见过一个美好的人死在他们的屠刀下，你就不会对他们抱有幻想。 -->
+  <RKU_StartupEventDD.dialogueText>Do not let the Ratkin aristocracy's fine looks move you. Their noble appearance 
+means nothing. If you saw good people die by their blades, it would shatter 
+any illusions.</RKU_StartupEventDD.dialogueText>
+  
+  <!-- EN:       你可能会有兴趣了解我们领导者的思想。瓦尔纳拉·金合欢，她已经\n离开我们很久了，但又好像从未离开过。 -->
+  <RKU_StartupEventDE.dialogueText>You may want to learn about our late leader's philosophy. Varnara Acacia is gone, 
+but her spirit stays with us. It feels like she never left.</RKU_StartupEventDE.dialogueText>
+  
+  <!-- EN:       那些卫花使和士兵，很多也都是为生活所迫才来替有钱有势的人\n卖命，有机会的话我总是想争取这些可怜人加入我们。 -->
+  <RKU_StartupEventDF.dialogueText>Many Gardeners and common soldiers only serve the rich and powerful because 
+they must. When I can, I always try to bring these lost souls into our 
+ranks.</RKU_StartupEventDF.dialogueText>
+  
+  <!-- EN:       你也听说过闪耀世界吗？很遥远的传说。我有时候也会做做梦，幻\n想有没有这样一批鼠族，无忧无虑、生活在广阔的太空中。\n那对我们来说太虚幻了。 -->
+  <RKU_StartupEventDG.dialogueText>Have you heard the Glitterworld tales? It is a distant, fanciful legend. 
+Sometimes I let myself dream. I imagine Ratkin living carefree among the stars. 
+But that dream is too far from our harsh reality.</RKU_StartupEventDG.dialogueText>
+  
+  <!-- EN:       得益于一些战斗中积累的经验，我们现在很重视也很擅长打理卫生。\n敌人的恶毒总是会超出你的想象。 -->
+  <RKU_StartupEventDH.dialogueText>War taught us to value cleanliness. We mastered keeping things clean. But 
+our enemies' evil always goes beyond what we can imagine.</RKU_StartupEventDH.dialogueText>
+  
+  <!-- EN:       并不是每个贵族都会成为我们的目标，有些贵族是完全可以争取\n拉拢或改造的。搞清楚谁是敌人非常重要。 -->
+  <RKU_StartupEventDI.dialogueText>Not all aristocrats are our enemies. Some nobles can be won over to our side. 
+Others may join our cause or learn to change their ways. But we must 
+know who our real enemies are. This is crucial.</RKU_StartupEventDI.dialogueText>
+  
+  <!-- EN:       王国的贵族们总是喜欢用名贵的花彰显自己的身份，把花朵种满他们\n的私人庄园。但在地下，这些埋在粗糙岩层里的宝石，只为理想主义者而闪亮。 -->
+  <RKU_StartupEventDJ.dialogueText>Kingdom nobles always use rare flowers to show their status. They fill their estates 
+with blooms. But true gems hide in the rough stone. They only shine 
+for those with idealistic hearts.</RKU_StartupEventDJ.dialogueText>
+  
+  <!-- EN:       我替全体游击队成员向你们表达敬意，你们迄今以来的工作帮了我\n们很多很多。我相信你们也会乐意看到游击队现在的发展状态的。 -->
+  <RKU_StartupEventDK.dialogueText>I on behalf of all partisans salute you. Your help has been invaluable so far. I think
+you would be proud to see how our movement grows now.</RKU_StartupEventDK.dialogueText>
+  
+  <!-- EN:       教会？我不稀罕那种东西，没有什么所谓的神，也不需要虚无缥缈的东西\n来麻木人的思想。更别说教义里我们的主神还是只青蛙... -->
+  <RKU_StartupEventDL.dialogueText>The Church? I have no faith in such things. There is no important god. We don't need 
+vague ideas to cloud our minds. It's especially foolish when their main god 
+appears as a frog.</RKU_StartupEventDL.dialogueText>
+  
+  <!-- EN:       我们有些战士对你们那里相当的好奇。你会同意他们来你那里参观\n吗？ -->
+  <RKU_StartupEventDM.dialogueText>"My warriors want to visit you. May they come?</RKU_StartupEventDM.dialogueText>
+  
+  <!-- EN:       那些军阀很令人讨厌，但其实他们和我们都是革命军分裂后的产物。\n有些人遗忘了当时起义的目标，自己当起了压迫者...王国已经摇摇欲坠，如果军阀\n们掀起的战乱能消失的话，或许我们还能挣得一段时间的和平，但仅靠我们这些游击\n队还不够。 -->
+  <RKU_StartupEventE.dialogueText>We dislike the warlords, but we share the same roots from the revolution. Some 
+abandoned the uprising's goals. They became oppressors themselves. The Kingdom 
+now stands at the edge of collapse. If the warlords' wars would end, we might 
+find peace. But our Partisan forces cannot do this alone. We must be honest about 
+that.</RKU_StartupEventE.dialogueText>
+  
+  <!-- EN:       我们会把你们的土地分给流浪汉，然后用你们的骨灰肥田！ -->
+  <RKU_StartupEventEnemyEig.dialogueText>We will give your land to the homeless and use your body to fertilize 
+the soil!</RKU_StartupEventEnemyEig.dialogueText>
+  
+  <!-- EN:       每当我想到有多少人在死前告诉我替他们报仇...我就愤怒得要命！ -->
+  <RKU_StartupEventEnemyEle.dialogueText>I remember every soul who begged me for vengeance with their last breath... 
+This fills me with a deep rage!</RKU_StartupEventEnemyEle.dialogueText>
+  
+  <!-- EN:       你怎么还在这里？很享受自己的“行为艺术”是吗？ -->
+  <RKU_StartupEventEnemyEleB.dialogueText>Why do you stay here? Are you enjoying this show you are putting on?</RKU_StartupEventEnemyEleB.dialogueText>
+  
+  <!-- EN:       哪怕是屠夫杀猪也远远不会像你做得那么残忍...我们会百倍千倍\n地奉还给你。 -->
+  <RKU_StartupEventEnemyEleC.dialogueText>Even butchers show more mercy than you... We will pay you back a hundred times 
+over.</RKU_StartupEventEnemyEleC.dialogueText>
+  
+  <!-- EN:       每次看到你我都宁愿地狱是真实存在的，要么你下去，要么我下去，\n再见他们一面。 -->
+  <RKU_StartupEventEnemyEleD.dialogueText>Every time I see you, I wish hell were real. Either you fall, or I fall. If I 
+fall into that abyss, I could see their faces again.</RKU_StartupEventEnemyEleD.dialogueText>
+  
+  <!-- EN:       我们会看住你们的一举一动。 -->
+  <RKU_StartupEventEnemyFif.dialogueText>We will watch your every move closely.</RKU_StartupEventEnemyFif.dialogueText>
+  
+  <!-- EN:       我们之间的事情还有得谈，希望你方能够有个合理的解释。 -->
+  <RKU_StartupEventEnemyFifA.dialogueText>We still have time to discuss our matters. We trust you will give a 
+satisfactory account in time.</RKU_StartupEventEnemyFifA.dialogueText>
+  
+  <!-- EN:       不要把我们当成什么可以一脚踩死的弱小派系，我们会用事实证明。 -->
+  <RKU_StartupEventEnemyFifB.dialogueText>Do not see us as a small faction to be crushed. We will prove our claims 
+through our actions.</RKU_StartupEventEnemyFifB.dialogueText>
+  
+  <!-- EN:       就算是为了生存，也不是你们可以做出那种事的理由。 -->
+  <RKU_StartupEventEnemyFifC.dialogueText>Survival is no excuse for such actions.</RKU_StartupEventEnemyFifC.dialogueText>
+  
+  <!-- EN:       你还有什么好说的吗？ -->
+  <RKU_StartupEventEnemyFifD.dialogueText>Have you any further comments to tell?</RKU_StartupEventEnemyFifD.dialogueText>
+  
+  <!-- EN:       不要让我们发现更多的罪状。 -->
+  <RKU_StartupEventEnemyFor.dialogueText>We hope this is the last of your crimes.</RKU_StartupEventEnemyFor.dialogueText>
+  
+  <!-- EN:       杀你们的人在路上了，晚上记得关门，这样你们的惨叫就不至于\n太吵！ -->
+  <RKU_StartupEventEnemyNin.dialogueText>Your attackers are on their way. Lock your doors tonight or you will have 
+reason to cry out!</RKU_StartupEventEnemyNin.dialogueText>
+  
+  <!-- EN:       之前的事情可没那么容易过去。 -->
+  <RKU_StartupEventEnemySec.dialogueText>We will not forget what happened. Remember that.</RKU_StartupEventEnemySec.dialogueText>
+  
+  <!-- EN:       肮脏的土匪！你们会遭报应的！ -->
+  <RKU_StartupEventEnemySix.dialogueText>Wretched bandits! You will not escape what is coming!</RKU_StartupEventEnemySix.dialogueText>
+  
+  <!-- EN:       你们和王国军是一路货色，有过之而无不及。 -->
+  <RKU_StartupEventEnemySixA.dialogueText>You are no better than the Royal Army. In truth, you are worse.</RKU_StartupEventEnemySixA.dialogueText>
+  
+  <!-- EN:       你难道不清楚自己做了什么，还有脸来联系我？ -->
+  <RKU_StartupEventEnemySixB.dialogueText>Do you claim not to know what you've done? How dare you contact me like this.</RKU_StartupEventEnemySixB.dialogueText>
+  
+  <!-- EN:       你知道当我探望我们的伤员，看到他们血淋淋的伤口时，我就会想\n到谁吗？你自己心里有答案。 -->
+  <RKU_StartupEventEnemySixC.dialogueText>When I see our wounded comrades, you know who I think of. You know the answer.</RKU_StartupEventEnemySixC.dialogueText>
+  
+  <!-- EN:       你是不是爱看鼠族人濒死时流血流泪的表情？这种人我见过不少，\n我感觉得出来。 -->
+  <RKU_StartupEventEnemySixD.dialogueText>Do you enjoy watching Ratkin die? Do you like seeing their blood and tears? I 
+have met many like you. I can see it in you.</RKU_StartupEventEnemySixD.dialogueText>
+  
+  <!-- EN:       你们最好拿出点诚意来，否则游击队不会善罢甘休的。 -->
+  <RKU_StartupEventEnemyThi.dialogueText>Show us your good faith. Or our Partisans will have to act.</RKU_StartupEventEnemyThi.dialogueText>
+  
+  <!-- EN:       你们杀了我们一半的人！你们根本不知道他们都是多好的姑娘和\n小伙子...等着在地狱里认识他们吧！ -->
+  <RKU_StartupEventEnemyThir.dialogueText>You killed half of us! You have no idea how splendid these girls and boys were
+...You will meet them in hell!</RKU_StartupEventEnemyThir.dialogueText>
+  
+  <!-- EN:       你认不认识一些白色的鼠族？他们是王国生化实验的产物。他们有着共同\n的姓氏，近似的样貌，还有着敏捷的身手。他们曾经是王国最强大隐秘的刺客部队，\n但他们的故事已经被他们自己终结了。因为有一名特工曾经加入了我们，然后亲手杀\n掉了她的造主。 -->
+  <RKU_StartupEventF.dialogueText>Do you know the white-furred Ratkin? The Kingdom made them in labs. They share 
+family names and similar features. They move with great agility. Once they were 
+the Kingdom's most deadly secret assassins. But that story is over. One of them 
+joined us and killed her own creator.</RKU_StartupEventF.dialogueText>
+  
+  <!-- EN:       连接建立，信号接收正常...想我了没？ -->
+  <RKU_StartupEventBuildNewSite.dialogueText>Connection established. Signal clear... Did you miss me?</RKU_StartupEventBuildNewSite.dialogueText>
+  
+  <!-- EN:       连接建立，信号接收正常...想我了没？ -->
+  <RKU_StartupEventFir.dialogueText>Connection established. Signal clear... Did you miss me?</RKU_StartupEventFir.dialogueText>
+  
+  <!-- EN:       保养钻机可以请教我们的政委，他们的机修水平考试可是很严格的。 -->
+  <RKU_StartupEventFor.dialogueText>For driller maintenance, see our Commissars. They have rigorous mechanical 
+exams.</RKU_StartupEventFor.dialogueText>
+  
+  <!-- EN:       我们其实也有机械化部队的！虽然只有一台从废墟里捡到的机械\n体... -->
+  <RKU_StartupEventG.dialogueText>We have our own mechanized forces. Right now we only operate one Mechanoid salvaged 
+from the ruins...</RKU_StartupEventG.dialogueText>
+  
+  <!-- EN:       吃过饭了吗？能吃饱就是好事，至少不会像我们总是为粮食发愁... -->
+  <RKU_StartupEventH.dialogueText>Have you eaten? It's a blessing to have secure food. We're always worried about our 
+supplies...</RKU_StartupEventH.dialogueText>
+  
+  <!-- EN:       我们曾经有一位成员小时候是贵族的擦鞋工，然后他长大后成了团里\n格斗最强的战士...啊，扯远了。 -->
+  <RKU_StartupEventHA.dialogueText>We had a member who used to shine shoes for aristocrats as a child. He grew up to 
+become our best fighter... But I'm getting off track.</RKU_StartupEventHA.dialogueText> 
+
+  <!-- EN:       指挥者的压力总是很大呢，那么多孩子的性命就在自己的一念之间。\n      呃，抱歉。有什么事？ -->
+  <RKU_StartupEventI.dialogueText>Command is a heavy burden. So many young lives depend on my choices. But 
+enough of that. What needs our attention?</RKU_StartupEventI.dialogueText>
+  
+  <!-- EN:       我对蘑菇的烹饪方法还是颇有心得的，多煎几秒反而变得有毒的\n类型我也见过一些。 -->
+  <RKU_StartupEventJ.dialogueText>I know how to cook mushrooms. Overcook them by seconds and they become 
+dangerous.</RKU_StartupEventJ.dialogueText>
+  
+  <!-- EN:       你说风信子？光我们团就有七十多个风信子，找哪个？ -->
+  <RKU_StartupEventK.dialogueText>Are you asking about Hyacinth? That name is common among us. We have over 
+seventy in our regiment alone. Which one do you mean? Tell me more details.</RKU_StartupEventK.dialogueText>
+  
+  <!-- EN:       游击队随时待命。 -->
+  <RKU_StartupEventSec.dialogueText>The Partisans stand ever ready.</RKU_StartupEventSec.dialogueText>
+  
+  <!-- EN:       出门探探险怎么样？虽然地下的空气不是那么清新。 -->
+  <RKU_StartupEventThi.dialogueText>Would you like to explore the tunnels? The air is stale down there, but we know 
+the paths well. Bring your own supplies and stay close. I can send a guide if 
+you need one.</RKU_StartupEventThi.dialogueText>
+  
+  <!-- EN:       王国军的频段没有回应，大概是他们对你并无所求。 -->
+  <RKU_StartupEventZero.dialogueText>The Royal Army frequency channel is silent. They want nothing from you for now.</RKU_StartupEventZero.dialogueText>
+  
+  <!-- EN:       很感谢你的热心，但最近确实没有什么状况。 -->
+  <RKU_StartupEventZeroA.dialogueText>We thank you for your compassion. All is secure now.</RKU_StartupEventZeroA.dialogueText>
+  
+  <!-- EN:       不要管闲事，我还没那么信任你们。 -->
+  <RKU_StartupEventZeroB.dialogueText>Do not interfere in matters that do not concern you. We do not yet have enough
+trust for such actions.</RKU_StartupEventZeroB.dialogueText>
   
 </LanguageData>

@@ -10,10 +10,16 @@
 		<li>Ludeon.RimWorld</li>
 		<li>Ludeon.RimWorld.Ideology</li>
 		<li>Solaris.RatkinRaceMod</li>
+		<li>bbb.ratkinweapon.morefailure</li>
+		<li>fxz.ratkinfaction</li>
+		<li>fxz.ratkinanomaly.update</li>
 	</loadAfter>
   <modDependencies>
 		<li>
 			<packageId>Solaris.RatkinRaceMod</packageId>
+		</li>
+		<li>
+			<packageId>fxz.ratkinfaction</packageId>
 		</li>
      </modDependencies>
 <description>
@@ -28,6 +34,8 @@
 与游击队联络，与他们交友或背叛，研究新锐的武器道具，参与鼠族内战的血腥战斗...
 
 探索特殊的自制剧情地图！揭露王国的阴谋，击败邪恶的军阀！
+
+mod群：1043173211
 
 [h1]制作者名单[/h1]
 主美：薯鼠

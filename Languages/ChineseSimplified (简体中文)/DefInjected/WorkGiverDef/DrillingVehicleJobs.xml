@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: 使用电台协助研究 -->
+  <RKU_AssistResearch.label>TODO</RKU_AssistResearch.label>
+  <!-- EN: 协助游击队研究中 -->
+  <RKU_AssistResearch.gerund>TODO</RKU_AssistResearch.gerund>
+  <!-- EN: research -->
+  <RKU_AssistResearch.verb>TODO</RKU_AssistResearch.verb>
+  
+  <!-- EN: 装载钻机货物 -->
+  <RKU_LoadDrillingCargoWorkGiver.label>TODO</RKU_LoadDrillingCargoWorkGiver.label>
+  <!-- EN: 装载钻机货物中 -->
+  <RKU_LoadDrillingCargoWorkGiver.gerund>TODO</RKU_LoadDrillingCargoWorkGiver.gerund>
+  <!-- EN: load cargo -->
+  <RKU_LoadDrillingCargoWorkGiver.verb>TODO</RKU_LoadDrillingCargoWorkGiver.verb>
+  
+</LanguageData>

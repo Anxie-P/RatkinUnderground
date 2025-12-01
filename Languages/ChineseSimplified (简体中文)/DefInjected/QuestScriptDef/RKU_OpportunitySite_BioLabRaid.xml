@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN:
+    <li>questDescription->[asker_nameFull], [asker_faction_leaderTitle] of [asker_faction_name], has sent us urgent intelligence. Apparently, a secret biological research facility operated by the Ratkin Kingdom has been discovered. The facility contains dangerous experimental weapons and biological agents that threaten all underground inhabitants. [asker_nameDef] is asking us to destroy the facility, which means eliminating all enemies and destroying the research equipment. [sitePart0_description].</li>
+  -->
+  <RKU_OpportunitySite_BioLabRaid.questDescriptionRules.rulesStrings>
+    <li>questDescription->[asker_nameFull]，[asker_faction_name]的[asker_faction_leaderTitle]，向我们发送了紧急情报。一个由王国运营的秘密生物研究设施已经被发现。这个设施进行着存在严重危险的生物实验。[asker_nameDef]要求我们摧毁这个设施，需要消灭所有敌人并破坏设备。</li>
+  </RKU_OpportunitySite_BioLabRaid.questDescriptionRules.rulesStrings>
+  <!-- EN:
+    <li>questName->[ratkin] [lab]</li>
+    <li>questName->[ratkin] [lab] [raid]</li>
+    <li>questName->[asker_nameDef] 的 [lab] [raid]</li>
+    <li>lab->生化实验室</li>
+    <li>lab->生物研究设施</li>
+    <li>lab->生化实验机构</li>
+    <li>raid->袭击</li>
+    <li>raid->突袭</li>
+    <li>raid->突击</li>
+    <li>ratkin->鼠族王国</li>
+    <li>ratkin->王国</li>
+  -->
+  <RKU_OpportunitySite_BioLabRaid.questNameRules.rulesStrings>
+    <li>questName->[ratkin] [lab]</li>
+    <li>questName->[ratkin] [lab] [raid]</li>
+    <li>questName->[asker_nameDef] 的 [lab] [raid]</li>
+    <li>lab->生化实验室</li>
+    <li>lab->生物研究设施</li>
+    <li>lab->生化实验机构</li>
+    <li>raid->袭击</li>
+    <li>raid->突袭</li>
+    <li>raid->突击</li>
+    <li>ratkin->鼠族王国</li>
+    <li>ratkin->王国</li>
+  </RKU_OpportunitySite_BioLabRaid.questNameRules.rulesStrings>
+  <!-- EN: RKU_GuerrillaSecretProtection_Completed -->
+  <RKU_OpportunitySite_BioLabRaid.root.nodes.RKU_CheckOnceEvent.eventKey.slateRef>RKU_GuerrillaSecretProtection_Completed</RKU_OpportunitySite_BioLabRaid.root.nodes.RKU_CheckOnceEvent.eventKey.slateRef>
+  <!-- EN: Quest expired: [resolvedQuestName] -->
+  <RKU_OpportunitySite_BioLabRaid.root.nodes.WorldObjectTimeout.node.nodes.Letter.label.slateRef>任务过期：[resolvedQuestName]</RKU_OpportunitySite_BioLabRaid.root.nodes.WorldObjectTimeout.node.nodes.Letter.label.slateRef>
+  <!-- EN: The biological research facility has been abandoned. The quest [resolvedQuestName] has expired. -->
+  <RKU_OpportunitySite_BioLabRaid.root.nodes.WorldObjectTimeout.node.nodes.Letter.text.slateRef>生物研究设施已被废弃。任务[resolvedQuestName]已过期。</RKU_OpportunitySite_BioLabRaid.root.nodes.WorldObjectTimeout.node.nodes.Letter.text.slateRef>
+  <!-- EN: Quest failed: [resolvedQuestName] -->
+  <RKU_OpportunitySite_BioLabRaid.root.nodes.siteDestroyed.node.nodes.Letter.label.slateRef>任务失败：[resolvedQuestName]</RKU_OpportunitySite_BioLabRaid.root.nodes.siteDestroyed.node.nodes.Letter.label.slateRef>
+  <!-- EN: After being discovered, the biological research facility has been evacuated. The quest [resolvedQuestName] has ended. -->
+  <RKU_OpportunitySite_BioLabRaid.root.nodes.siteDestroyed.node.nodes.Letter.text.slateRef>在被发现后，生物研究设施已被疏散。任务[resolvedQuestName]已结束。</RKU_OpportunitySite_BioLabRaid.root.nodes.siteDestroyed.node.nodes.Letter.text.slateRef>
+  <!-- EN: Payment arrived -->
+  <RKU_OpportunitySite_BioLabRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterLabel.slateRef>报酬已送达</RKU_OpportunitySite_BioLabRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterLabel.slateRef>
+  <!-- EN: You have successfully destroyed the biological research facility!\n\nThe payment from the guerrillas has arrived. -->
+  <RKU_OpportunitySite_BioLabRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterText.slateRef>你们成功摧毁了生物研究设施！\n\n来自游击队的报酬已经抵达。</RKU_OpportunitySite_BioLabRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterText.slateRef>
+  <!-- EN: [asker_faction_royalFavorLabel] -->
+  <RKU_OpportunitySite_BioLabRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.nodeIfChosenPawnSignalUsed.label.slateRef>[asker_faction_royalFavorLabel]</RKU_OpportunitySite_BioLabRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.nodeIfChosenPawnSignalUsed.label.slateRef>
+  <!-- EN: These colonists participated in the victory for the quest [resolvedQuestName]. [asker_definite] wants to know who should receive the guerrilla commendation for this service. -->
+  <RKU_OpportunitySite_BioLabRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.nodeIfChosenPawnSignalUsed.text.slateRef>这些殖民者参与了任务[resolvedQuestName]的胜利。[asker_definite]想知道谁应该因这项服务获得游击队嘉奖。</RKU_OpportunitySite_BioLabRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.nodeIfChosenPawnSignalUsed.text.slateRef>
+  
+</LanguageData>

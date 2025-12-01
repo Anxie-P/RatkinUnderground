@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN:
+    <li>questDescription->[asker_nameFull]，[asker_faction_name]的[asker_faction_leaderTitle]，向我们发来了紧急求援信号。游击队的重要钻机生产工厂正遭受军阀的猛烈攻击！这座工厂是游击队唯一的载具生产工厂，一旦它被摧毁，游击队会陷入绝境。[asker_nameDef]希望我们可以迅速赶到现场，帮助守卫工厂，击退来袭的敌人并保护重要的生产设备。警告：这是一个极为艰难的任务，你需要在设施里和大量敌方单位进行持久的车轮战，直到一方被消灭殆尽。游击队会为你提供食物与电力、营房的保障，但友军单位的数量不会补充。</li>
+  -->
+  <RKU_OpportunitySite_FactoryDefense.questDescriptionRules.rulesStrings>TODO</RKU_OpportunitySite_FactoryDefense.questDescriptionRules.rulesStrings>
+  <!-- EN:
+    <li>questName->防御[factory]</li>
+    <li>questName->保卫[factory]</li>
+    <li>questName->[asker_nameDef]的[factory]防御任务</li>
+    <li>questName->坚守[factory]</li>
+    <li>factory->游击队工厂</li>
+    <li>factory->地下工厂</li>
+    <li>factory->钻机工厂</li>
+  -->
+  <RKU_OpportunitySite_FactoryDefense.questNameRules.rulesStrings>TODO</RKU_OpportunitySite_FactoryDefense.questNameRules.rulesStrings>
+  <!-- EN: Quest expired: [resolvedQuestName] -->
+  <RKU_OpportunitySite_FactoryDefense.root.nodes.WorldObjectTimeout.node.nodes.Letter.label.slateRef>TODO</RKU_OpportunitySite_FactoryDefense.root.nodes.WorldObjectTimeout.node.nodes.Letter.label.slateRef>
+  <!-- EN: 工厂已被摧毁。任务[resolvedQuestName]已过期。 -->
+  <RKU_OpportunitySite_FactoryDefense.root.nodes.WorldObjectTimeout.node.nodes.Letter.text.slateRef>TODO</RKU_OpportunitySite_FactoryDefense.root.nodes.WorldObjectTimeout.node.nodes.Letter.text.slateRef>
+  <!-- EN: RKU_OpportunitySite_FactoryDefense_Failed -->
+  <RKU_OpportunitySite_FactoryDefense.root.nodes.WorldObjectTimeout.node.nodes.RKU_RecordOnceEvent.eventKey.slateRef>TODO</RKU_OpportunitySite_FactoryDefense.root.nodes.WorldObjectTimeout.node.nodes.RKU_RecordOnceEvent.eventKey.slateRef>
+  <!-- EN: Quest failed: [resolvedQuestName] -->
+  <RKU_OpportunitySite_FactoryDefense.root.nodes.siteDestroyed.node.nodes.Letter.label.slateRef>TODO</RKU_OpportunitySite_FactoryDefense.root.nodes.siteDestroyed.node.nodes.Letter.label.slateRef>
+  <!-- EN: 工厂防御失败。任务[resolvedQuestName]已结束。 -->
+  <RKU_OpportunitySite_FactoryDefense.root.nodes.siteDestroyed.node.nodes.Letter.text.slateRef>TODO</RKU_OpportunitySite_FactoryDefense.root.nodes.siteDestroyed.node.nodes.Letter.text.slateRef>
+  <!-- EN: RKU_OpportunitySite_FactoryDefense_Failed -->
+  <RKU_OpportunitySite_FactoryDefense.root.nodes.siteDestroyed.node.nodes.RKU_RecordOnceEvent.eventKey.slateRef>TODO</RKU_OpportunitySite_FactoryDefense.root.nodes.siteDestroyed.node.nodes.RKU_RecordOnceEvent.eventKey.slateRef>
+  <!-- EN: RKU_OpportunitySite_FactoryDefense_Completed -->
+  <RKU_OpportunitySite_FactoryDefense.root.nodes.siteAllEnemiesDefeated.node.nodes.RKU_RecordOnceEvent.eventKey.slateRef>TODO</RKU_OpportunitySite_FactoryDefense.root.nodes.siteAllEnemiesDefeated.node.nodes.RKU_RecordOnceEvent.eventKey.slateRef>
+  <!-- EN: Payment arrived -->
+  <RKU_OpportunitySite_FactoryDefense.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterLabel.slateRef>TODO</RKU_OpportunitySite_FactoryDefense.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterLabel.slateRef>
+  <!-- EN: 你成功守卫了游击队工厂！\n\n游击队的报酬已送达。 -->
+  <RKU_OpportunitySite_FactoryDefense.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterText.slateRef>TODO</RKU_OpportunitySite_FactoryDefense.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterText.slateRef>
+  <!-- EN: [asker_faction_royalFavorLabel] -->
+  <RKU_OpportunitySite_FactoryDefense.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.nodeIfChosenPawnSignalUsed.label.slateRef>TODO</RKU_OpportunitySite_FactoryDefense.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.nodeIfChosenPawnSignalUsed.label.slateRef>
+  <!-- EN: These colonists participated in the victory for the quest [resolvedQuestName]. [asker_definite] wants to know who should receive the guerrilla commendation for this service. -->
+  <RKU_OpportunitySite_FactoryDefense.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.nodeIfChosenPawnSignalUsed.text.slateRef>TODO</RKU_OpportunitySite_FactoryDefense.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.nodeIfChosenPawnSignalUsed.text.slateRef>
+  
+</LanguageData>

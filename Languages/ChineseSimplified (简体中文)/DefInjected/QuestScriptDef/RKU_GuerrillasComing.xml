@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN:
+    <li>questDescription->一支不明阵营的鼠族钻地机小队发来紧急讯号，希望能够在附近停靠一段时间，得到一些物资来修理他们的钻机。你可以向他们的队长提供一些零部件。</li>
+  -->
+  <RKU_GuerrillasComing.questDescriptionRules.rulesStrings>
+    <li>questDescription->一支不明阵营的鼠族钻地机小队发来紧急讯号，希望能够在附近停靠一段时间，得到一些物资来修理他们的钻机。你可以向他们的队长提供一些零部件。</li>
+  </RKU_GuerrillasComing.questDescriptionRules.rulesStrings>
+  <!-- EN:
+    <li>questName->钻机小队遇险停靠紧急修复</li>
+  -->
+  <RKU_GuerrillasComing.questNameRules.rulesStrings>
+    <li>questName->钻机小队遇险停靠紧急修复</li>
+  </RKU_GuerrillasComing.questNameRules.rulesStrings>
+  
+</LanguageData>

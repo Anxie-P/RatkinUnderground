@@ -1,0 +1,488 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: This location can only be accessed via drilling vehicle. -->
+  <!-- EN: This location can only be accessed via driller vehicle. -->
+  <RKU.RequireDrillingVehicle>此地点只能通过钻机进入。</RKU.RequireDrillingVehicle>
+  <!-- EN: Guerrilla Squad Departed -->
+  <!-- EN: Partisan Squad Departed -->
+  <RKU_RadioLeftTitle>游击小队离开</RKU_RadioLeftTitle>
+  <!-- EN: The guerrilla squad has left, but they left behind an encrypted radio. You can use this radio to maintain contact with them. -->
+  <!-- EN: The partisan squad has departed, but they left behind an encrypted radio. You can use this radio to maintain contact with them. -->
+  <RKU_RadioLeftMessage>游击小队已经离开了，但他们留下了一个加密电台。你可以用这个电台与他们保持联系。</RKU_RadioLeftMessage>
+
+  <!-- Guerrilla Camp Quest Translations -->
+  <!-- EN: Quest expired: [resolvedQuestName] -->
+  <!-- EN: Quest Expired: [resolvedQuestName] -->
+  <RKU_QuestExpiredLabel>任务过期：[resolvedQuestName]</RKU_QuestExpiredLabel>
+  <!-- EN: The bandit camp has packed up and moved on. The quest [resolvedQuestName] has expired. -->
+  <!-- EN: The bandit camp has packed up and moved on. The quest [resolvedQuestName] has expired. -->
+  <RKU_QuestExpiredText>土匪营地已经收拾东西搬走了。[resolvedQuestName]任务已过期。</RKU_QuestExpiredText>
+  <!-- EN: Quest failed: [resolvedQuestName] -->
+  <!-- EN: Quest failed: [resolvedQuestName] -->
+  <RKU_QuestFailedLabel>任务失败：[resolvedQuestName]</RKU_QuestFailedLabel>
+  <!-- EN: After being discovered, the bandit camp has dispersed. The quest [resolvedQuestName] has ended. -->
+  <!-- EN: After being discovered, the bandit camp has dispersed. The quest [resolvedQuestName] has ended. -->
+  <RKU_QuestFailedText>被发现后，土匪营地已经解散。[resolvedQuestName]任务已结束。</RKU_QuestFailedText>
+  <!-- EN: Payment arrived -->
+  <!-- EN: Payment arrived -->
+  <RKU_QuestCompletedLabel>付款已到</RKU_QuestCompletedLabel>
+  <!-- EN: You have defeated the bandit camp!\n\nThe reward from the kingdom has arrived. -->
+  <!-- EN: You have defeated the bandit camp!\n\nThe reward from the kingdom has arrived.  -->
+  <RKU_QuestCompletedText>你已经击败了土匪营地！\n\n来自王国的嘉奖已经到达。</RKU_QuestCompletedText>
+  <!-- EN: [asker_faction_royalFavorLabel] -->
+  <!-- EN: [asker_faction_royalFavorLabel] -->
+  <RKU_FavorReceiverLabel>[asker_faction_royalFavorLabel]</RKU_FavorReceiverLabel>
+  <!-- EN: These colonists participated in the victory for the quest [resolvedQuestName]. [asker_definite] wants to know who should receive the [royalFavorReward_amount] [asker_faction_royalFavorLabel] for this service. -->
+  <!-- EN: These colonists participated in the victory for the quest [resolvedQuestName]. [asker_definite] wants to know who should receive the [royalFavorReward_amount] [asker_faction_royalFavorLabel] for this service. -->
+  <RKU_FavorReceiverText>这些殖民者参加了[resolvedQuestName]任务的胜利。[asker_definite]想要知道谁应该获得这项服务的[royalFavorReward_amount][asker_faction_royalFavorLabel]。</RKU_FavorReceiverText>
+
+  <!-- Guerrilla Camp Quest Name Generation Rules -->
+  <!-- EN: The [bandit] [camp] -->
+  <!-- EN: [bandit] [camp] -->
+  <RKU_QuestName_1>[bandit] [camp]</RKU_QuestName_1>
+  <!-- EN: [bandit] [camp] -->
+  <!-- EN: [bandit] [camp] -->
+  <RKU_QuestName_2>[bandit] [camp]</RKU_QuestName_2>
+  <!-- EN: [asker_nameDef] and the [camp] -->
+  <!-- EN: [asker_nameDef] 和 [camp] -->
+  <RKU_QuestName_3>[asker_nameDef] 和 [camp]</RKU_QuestName_3>
+
+  <!-- Camp Type Translations -->
+  <!-- EN: Camp -->
+  <!-- EN: Camp -->
+  <RKU_Camp_Camp>营地</RKU_Camp_Camp>
+  <!-- EN: Outpost -->
+  <!-- EN: Outpost -->
+  <RKU_Camp_Outpost>前哨站</RKU_Camp_Outpost>
+  <!-- EN: Lair -->
+  <!-- EN: Lair -->
+  <RKU_Camp_Lair>巢穴</RKU_Camp_Lair>
+  <!-- EN: Encampment -->
+  <!-- EN: Encampment -->
+  <RKU_Camp_Encampment>驻营地</RKU_Camp_Encampment>
+
+  <!-- Bandit Type Translations -->
+  <!-- EN: Bandit -->
+  <!-- EN: Bandit -->
+  <RKU_Bandit_Bandit>土匪</RKU_Bandit_Bandit>
+  <!-- EN: Raider -->
+  <!-- EN: Raider -->
+  <RKU_Bandit_Raider>掠夺者</RKU_Bandit_Raider>
+  <!-- EN: Outlaw -->
+  <!-- EN: Outlaw -->
+  <RKU_Bandit_Outlaw>亡命之徒</RKU_Bandit_Outlaw>
+  <!-- EN: Desperado -->
+  <!-- EN: Desperado -->
+  <RKU_Bandit_Desperado>亡命徒</RKU_Bandit_Desperado>
+  <!-- EN: Fugitive -->
+  <!-- EN: Fugitive -->
+  <RKU_Bandit_Fugitive>逃犯</RKU_Bandit_Fugitive>
+  <!-- EN: Marauder -->
+  <!-- EN: Marauder -->
+  <RKU_Bandit_Marauder>掠夺者</RKU_Bandit_Marauder>
+  <!-- EN: Robber -->
+  <!-- EN: Robber -->
+  <RKU_Bandit_Robber>强盗</RKU_Bandit_Robber>
+  <!-- EN: Brigand -->
+  <!-- EN: Brigand -->
+  <RKU_Bandit_Brigand>匪徒</RKU_Bandit_Brigand>
+
+  <!-- Quest Description Translation -->
+  <!-- EN: [asker_nameFull], [asker_faction_leaderTitle] of [asker_faction_name], has sent us a message. Apparently, a band of outlaws based in a nearby camp have been raiding their caravans.
+[asker_nameDef] is asking us to destroy the camp, which means eliminating all enemies and turrets. [asker_label] says that [sitePart0_description]. -->
+  <!-- EN: [asker_nameFull], [asker_faction_leaderTitle] of [asker_faction_name], has sent us a message. Apparently, a band of outlaws based in a nearby camp have been raiding their caravans.\n[asker_nameDef] is asking us to destroy the camp, which means eliminating all enemies and turrets. [asker_label] says that [sitePart0_description]. -->
+  <RKU_QuestDescription>[asker_nameFull]，[asker_faction_name]的[asker_faction_leaderTitle]，给我们发来消息。一群匪徒驻扎附近的营地里，一直在袭击他们的商队。\n[asker_nameDef]要求我们摧毁这个营地，这意味着消灭所有敌人和炮塔。[asker_label]说[sitePart0_description]。</RKU_QuestDescription>
+
+  <!-- Drilling Vehicle UI Translations -->
+  <!-- EN: Open Radio -->
+  <!-- EN: Switch on the radio -->
+  <RKU.OpenRadio>打开无线电</RKU.OpenRadio>
+  <!-- EN: Call guerrillas -->
+  <!-- EN: Call the Partisans. -->
+  <RKU.OpenRadioDesc>呼叫游击队</RKU.OpenRadioDesc>
+  <!-- EN: Manage Passengers -->
+  <!-- EN:  Manage Passengers -->
+  <RKU.ManagePassengers>管理乘客</RKU.ManagePassengers>
+  <!-- EN: Return -->
+  <!-- EN: Return -->
+  <RKU.Return>返回</RKU.Return>
+  <!-- EN: Exit Vehicle -->
+  <!-- EN: Exit the Vehicle -->
+  <RKU.ExitVehicle>退出载具</RKU.ExitVehicle>
+  <!-- EN: Enter Vehicle -->
+  <!-- EN: Enter the Vehicle -->
+  <RKU.EnterVehicle>进入载具</RKU.EnterVehicle>
+  <!-- EN: Rescue {0} and enter vehicle -->
+  <!-- EN: Rescue {0} and enter vehicle -->
+  <RKU.RescueAndEnterVehicle>救援{0}并进入载具</RKU.RescueAndEnterVehicle>
+  <!-- EN: Move -->
+  <!-- EN: Move -->
+  <RKU.Move>移动</RKU.Move>
+  <!-- EN: Drill down! -->
+  <!-- EN: Drill! -->
+  <RKU.Drill>钻地！</RKU.Drill>
+  <!-- EN: Please choose the rig landing location -->
+  <!-- EN: Please choose the Driller landing location -->
+  <RKU.ChooseDrillingVehicleSpot>请选择钻机登陆的位置</RKU.ChooseDrillingVehicleSpot>
+  <!-- EN: Land -->
+  <!-- EN: Land -->
+  <RKU.Eject>登陆</RKU.Eject>
+  <!-- EN: Cannot spawn here - location is impassable -->
+  <!-- EN: Cannot Spawn Here -->
+  <RKU.CannotSpawnOnImpassable>无法在此处生成</RKU.CannotSpawnOnImpassable>
+
+  <!-- Other System Translations -->
+  <!-- EN: Underground Cave Collapsing -->
+  <!-- EN: Underground Cave Collapsing -->
+  <LetterLabelUndercaveCollapsing>地下洞穴坍塌</LetterLabelUndercaveCollapsing>
+  <!-- EN: An underground cave has collapsed, making some areas unstable. -->
+  <!-- EN: An underground cave has collapsed, making some areas unstable. -->
+  <LetterUndercaveCollapsing>地下洞穴发生了坍塌，部分区域变得不稳定。</LetterUndercaveCollapsing>
+  <!-- EN: Stop Force Attack -->
+  <!-- EN: Stop Forced Attacks -->
+  <CommandStopForceAttack>停止强制攻击</CommandStopForceAttack>
+  <!-- EN: Stop force attack mode -->
+  <!-- EN: Stop forced attacks mode. -->
+  <CommandStopForceAttackDesc>停止强制攻击模式</CommandStopForceAttackDesc>
+  <!-- EN: Hold Fire -->
+  <!-- EN: Hold Fire -->
+  <CommandHoldFire>停止射击</CommandHoldFire>
+  <!-- EN: Hold fire mode -->
+  <!-- EN: Hold fire mode. -->
+  <CommandHoldFireDesc>停止射击模式</CommandHoldFireDesc>
+
+  <!-- Hardcoded Message Translations -->
+  <!-- EN: Goods Arrived -->
+  <!-- EN: Goods ready to be delivered. -->
+  <RKU_GoodsArrived>货物准备发送</RKU_GoodsArrived>
+  <!-- EN: Your ordered goods have arrived -->
+  <!-- EN: Choose a position to deliver your goods. -->
+  <RKU_OrderedGoodsArrived>选择位置以递送货舱</RKU_OrderedGoodsArrived>
+  <!-- EN: Yunnan Hallucination -->
+  <!-- EN: Yunnan Illusion -->
+  <RKU_YunnanHallucination>芸南幻觉</RKU_YunnanHallucination>
+  <!-- EN: Ate allurecap -->
+  <!-- EN: Ate Allurecap -->
+  <RKU_AteAllurecap>吃了魅惑菇</RKU_AteAllurecap>
+  <!-- EN: Recovered from Yunnan hallucination -->
+  <!-- EN: Recovered from Yunnan Illusion. -->
+  <RKU_RecoveredFromYunnanHallucination>从芸南幻觉中恢复了过来</RKU_RecoveredFromYunnanHallucination>
+
+  <!-- Character Name Translations -->
+  <!-- EN: Zigstark -->
+  <!-- EN: Zigstark -->
+  <Raeline>瑞莱茵</Raeline>
+  <RKU_Zigstark>齐格星卡</RKU_Zigstark>
+  <!-- EN: Cheesecellar -->
+  <!-- EN: Cheesecellar -->
+  <RKU_Cheesecellar>奶酪窖</RKU_Cheesecellar>
+  <!-- EN: Anzleia -->
+  <!-- EN: Anzleia -->
+  <RKU_Anzleia>安兹蕾娅</RKU_Anzleia>
+  <!-- EN: Balsam -->
+  <!-- EN: Balsam -->
+  <RKU_Balsam>凤仙花</RKU_Balsam>
+  <!-- EN: Iron -->
+  <!-- EN: Iron -->
+  <RKU_Iron>钢铁</RKU_Iron>
+  <!-- EN: Star -->
+  <!-- EN: Star -->
+  <RKU_Star>星</RKU_Star>
+  <!-- EN: Iron Star -->
+  <!-- EN: Iron Star -->
+  <RKU_IronStar>钢铁星</RKU_IronStar>
+  <!-- EN: Phosphophyllite -->
+  <Phosphophyllite>磷叶石</Phosphophyllite>
+
+  <!-- Map Deletion Dialog Translations -->
+  <!-- EN: Delete Map -->
+  <!-- EN: Delete Map -->
+  <RKU_RandomSiteDeleteMap>删除地图</RKU_RandomSiteDeleteMap>
+  <!-- EN: Delete this map and all its contents. This will permanently remove the map and cannot be undone. -->
+  <!-- EN: Delete this map and all its contents. This will permanently remove the map and cannot be undone. -->
+  <RKU_CommandViewQuestDesc>删除此地图及其所有内容。这将永久移除地图，无法恢复。</RKU_CommandViewQuestDesc>
+  <!-- EN: Are you sure you want to delete this map?\n\nThis will permanently remove the map and all colonists, items, and buildings on it. -->
+  <!-- EN: Are you sure you want to delete this map?\n\nThis will permanently remove the map and all colonists, items, and buildings on it. -->
+  <RKU_RandomSite_Confirm>确定要删除此地图吗？\n\n这将永久移除地图及其所有殖民者、物品和建筑。</RKU_RandomSite_Confirm>
+  <!-- EN: Confirm Delete -->
+  <!-- EN: Confirm Delete -->
+  <RKU_RandomSite_Confirm_Accept>确认删除</RKU_RandomSite_Confirm_Accept>
+
+  <!-- Log Message Translations -->
+  <!-- EN: {0} has entered {1} state -->
+  <!-- EN: {0} has entered {1} state. -->
+  <RKU_EnteredMentalState>{0}已进入{1}状态</RKU_EnteredMentalState>
+  <!-- EN: Error applying mental state -->
+  <!-- EN: Errors in Applying Mental State. -->
+  <RKU_MentalStateError>给予精神状态</RKU_MentalStateError>
+
+  <!-- Radio UI Translations -->
+  <!-- EN: Guerrilla Radio -->
+  <!-- EN: Partisan Radio -->
+  <RKU_GuerrillaRadio>游击队频段</RKU_GuerrillaRadio>
+  <!-- EN: Royal Army Radio -->
+  <!-- EN: Royal Army Radio -->
+  <RKU_RoyalRadio>王国军频段</RKU_RoyalRadio>
+  <!-- EN: Online -->
+  <RKU_RadioOnline>在线</RKU_RadioOnline>
+  <!-- EN: Good Signal -->
+  <RKU_SignalGood>信号良好</RKU_SignalGood>
+  <!-- EN: Power Sufficient -->
+  <RKU_PowerGood>电量充足</RKU_PowerGood>
+  <!-- EN: Unknown Location -->
+  <RKU_UnknownLocation>未知位置</RKU_UnknownLocation>
+  <!-- EN: Trade Signal -->
+  <RKU_TradeSignal>交易信号</RKU_TradeSignal>
+  <!-- EN: Scan Signal -->
+  <RKU_ScanSignal>扫描信号</RKU_ScanSignal>
+  <!-- EN: Tactical Support -->
+  <RKU_TacticalSupport>请求战术支援</RKU_TacticalSupport>
+  <!-- EN: At least 75 favor is required for tactical support -->
+  <RKU_TacticalSupportFailReason>至少需要75的好感才能请求战术支援</RKU_TacticalSupportFailReason>
+  <!-- EN: Provide Support -->
+  <RKU_ProvideSupport>提供战术支援</RKU_ProvideSupport>
+  <!-- EN: Trade on Cooldown -->
+  <RKU_TradeCooldownText>交易冷却中</RKU_TradeCooldownText>
+  <!-- EN: Start Trade -->
+  <RKU_StartTrade>开始交易</RKU_StartTrade>
+  <!-- EN: Waiting for Trade... -->
+  <RKU_WaitingForTrade>等待交易...</RKU_WaitingForTrade>
+  <!-- EN: Emergency Call -->
+  <RKU_EmergencyCall>求救呼叫</RKU_EmergencyCall>
+  <!-- EN: Emergency call on cooldown, {0} days remaining -->
+  <RKU_EmergencyCooldownText>求救呼叫冷却中，还需{0}天</RKU_EmergencyCooldownText>
+  <!-- EN: Emergency Cooldown ({0} days) -->
+  <RKU_EmergencyCooldownButton>求救冷却中 ({0}天)</RKU_EmergencyCooldownButton>
+  <!-- EN: Provide support on cooldown, {0} days remaining -->
+  <RKU_RescueCooldownText>提供支援冷却中，还需{0}天</RKU_RescueCooldownText>
+  <!-- EN: Support Cooldown ({0} days) -->
+  <RKU_RescueCooldownButton>支援冷却中 ({0}天)</RKU_RescueCooldownButton>
+  <!-- EN: Scan on Cooldown -->
+  <RKU_ScanCooldownText>扫描冷却中</RKU_ScanCooldownText>
+  <!-- EN: At least 50 favor is required for special location scanning -->
+  <RKU_ScanFavorRequirement>至少需要50的好感才能进行特殊地点扫描</RKU_ScanFavorRequirement>
+  <!-- EN: At least 1 favor is required for underground caravan trading -->
+  <RKU_TradeFavorRequirement>至少需要1的好感才能进行地下商队交易</RKU_TradeFavorRequirement>
+  <!-- EN: Discovered: {0} -->
+  <RKU_SiteDiscoveredLabel>发现：{0}</RKU_SiteDiscoveredLabel>
+  <!-- EN: Guerrilla forces have scanned a new location: {0} -->
+  <RKU_SiteDiscoveredText>游击队扫描到了一处新地点:{0}</RKU_SiteDiscoveredText>
+  <!-- EN: Ratkin Underground Supply Caravan -->
+  <RKU_TraderName>地鼠物资运输队</RKU_TraderName>
+  <!-- EN:        Signal incoming... -->
+  <!-- EN: Signal incoming... -->
+  <RKU_SignalIncoming>      信号传入中...</RKU_SignalIncoming>
+  <!-- EN: Starting signal scan... -->
+  <!-- EN: Starting signal scan... -->
+  <RKU_StartScanningSignal>开始扫描信号...</RKU_StartScanningSignal>
+  <!-- EN: Emergency call sent! -->
+  <!-- EN: Emergency call has sent! -->
+  <RKU_EmergencyCallSent>紧急呼叫已发送!</RKU_EmergencyCallSent>
+  <!-- EN: Signal received, we're preparing goods! -->
+  <!-- EN: Signal received, we're preparing goods! -->
+  <RKU_SignalReceived>已收到信号，我们正在备货！</RKU_SignalReceived>
+  <!-- EN: Trade signal sent, waiting for underground caravan... -->
+  <!-- EN: Trade signal sent, waiting for underground caravan... -->
+  <RKU_TradeSignalSent>交易信号已发送，等待地下运输队到达...</RKU_TradeSignalSent>
+  <!-- EN: Check out what we've prepared! -->
+  <!-- EN: Check out what we've prepared! -->
+  <RKU_CheckOurGoods>来看看我们准备了什么好东西！</RKU_CheckOurGoods>
+  <!-- EN: No available colonists for trading. -->
+  <!-- EN: No available colonists for trading. -->
+  <RKU_NoNegotiatorAvailable>没有可用的殖民者进行交易。</RKU_NoNegotiatorAvailable>
+  <!-- EN: Goods are ready, you can start trading now! -->
+  <!-- EN: Goods are ready. You can start trading now! -->
+  <RKU_GoodsReady>货物已准备完毕，可以开始交易了！</RKU_GoodsReady>
+  <!-- EN: Radio Status: -->
+  <!-- EN: Radio Status: -->
+  <RKU_RadioStatus>电台状态:</RKU_RadioStatus>
+  <!-- EN: Research Progress -->
+  <!-- EN: Research Progress -->
+  <RKU_ResearchProgress>研究进度</RKU_ResearchProgress>
+  <!-- EN: Faction Relation -->
+  <!-- EN: Faction Relation -->
+  <RKU_FactionRelation>阵营关系</RKU_FactionRelation>
+  <!-- EN: Trade Cooldown: {0} days -->
+  <!-- EN: Trade Cooldown: {0} day(s). -->
+  <RKU_TradeCooldown>交易冷却: {0}天</RKU_TradeCooldown>
+  <!-- EN: Scan Cooldown: {0} days -->
+  <!-- EN: Scan Cooldown: {0} day(s). -->
+  <RKU_ScanCooldown>扫描冷却: {0}天</RKU_ScanCooldown>
+  <!-- EN: Tactical support Cooldown: {0} days -->
+  <!-- EN: Tactical Support Cooldown: {0} day(s). -->
+  <RKU_EmergencyCooldown>请求支援: {0}天</RKU_EmergencyCooldown>
+  <!-- EN: Provide support Cooldown: {0} days -->
+  <!-- EN: Provide Support Cooldown: {0} day(s). -->
+  <RKU_RescueCooldown>提供支援冷却: {0}天</RKU_RescueCooldown>
+  <!-- EN: Map Location: {0} -->
+  <!-- EN: Map Location: {0} -->
+  <RKU_MapLocation>地图位置: {0}</RKU_MapLocation>
+  <!-- EN: Reset Cooldowns (Dev) -->
+  <!-- EN: Reset Cooldowns -->
+  <RKU_ResetCooldowns>重置冷却</RKU_ResetCooldowns>
+  <!-- EN: All cooldowns have been reset -->
+  <!-- EN: All cooldowns have been reset -->
+  <RKU_CooldownsReset>所有冷却已重置</RKU_CooldownsReset>
+  <!-- EN: Partisan troop regional commander -->
+  <!-- EN: Partisan Regional Commander -->
+  <RKU_commanderTitle>游击队区域指挥官</RKU_commanderTitle>
+  
+
+  <!-- Debug Tool Translations -->
+  <!-- EN: Cooldown cancelled -->
+  <!-- EN: Cooldown Cancelled. -->
+  <RKU_CooldownCancelled>冷却已取消</RKU_CooldownCancelled>
+  <!-- EN: Trade ready -->
+  <!-- EN: The Trade is Ready. -->
+  <RKU_TradeReady>交易已准备就绪</RKU_TradeReady>
+  <!-- EN: Research progress filled -->
+  <!-- EN: Research progress has been filled up. -->
+  <RKU_ResearchProgressFull>研究进度已加满</RKU_ResearchProgressFull>
+  <!-- EN: Research progress increased by half -->
+  <!-- EN: Research progress has been increased by half. -->
+  <RKU_ResearchProgressHalf>研究进度已加一半</RKU_ResearchProgressHalf>
+  <!-- EN: Relation level increased by 10 -->
+  <!-- EN: Relation level increased by 10. -->
+  <RKU_RelationIncreased>关系等级已增加10点</RKU_RelationIncreased>
+  <!-- EN: Relation level decreased by 10 -->
+  <!-- EN: Relation level decreased by 10. -->
+  <RKU_RelationDecreased>关系等级已减少10点</RKU_RelationDecreased>
+
+  <!-- Allurecap Message Translation -->
+  <!-- EN: {0} intends to eat allurecap -->
+  <!-- EN: {0} is planning to eat Allurecap. -->
+  <RKU_IntendsToEatAllurecap>{0}正打算食用魅惑菇</RKU_IntendsToEatAllurecap>
+
+  <!-- Guerrilla Event Translations -->
+  <!-- EN: Ratkin Tunnel Guerrillas -->
+  <!-- EN: Ratkin Tunnel Partisans -->
+  <RKU_GuerrillaAttackLabel>鼠族隧道游击队</RKU_GuerrillaAttackLabel>
+  <!-- EN: Underground activity detected, a group of ratkin tunnel guerrillas are attacking the colony -->
+  <!-- EN: Underground activity detected, a group of Ratkin Underground Partisans are attacking the colony. -->
+  <RKU_GuerrillaAttackText>侦测到地下活动，一支鼠族地下游击队正在进攻殖民地</RKU_GuerrillaAttackText>
+  <!-- EN: Ratkin Tunnel Guerrillas -->
+  <!-- EN: Ratkin Tunnel Partisans -->
+  <RKU_GuerrillaAllyLabel>鼠族隧道游击队</RKU_GuerrillaAllyLabel>
+  <!-- EN: Underground activity detected, a group of ratkin tunnel guerrillas are coming to assist in colony defense, please select their destination on the world map -->
+  <!-- EN: Underground activity detected, a group of Ratkin Underground Partisan are coming to assist in colony defense. Please select their destination on the World Map. -->
+  <RKU_GuerrillaAllyText>侦测到地下活动，一支鼠族地下游击队正在赶来协助殖民地防守，请在大地图上选择他们要前往的位置</RKU_GuerrillaAllyText>
+  <!-- EN: Invalid target selected -->
+  <!-- EN: Invalid selecte target. -->
+  <RKU_InvalidTargetSelected>选择的目标无效</RKU_InvalidTargetSelected>
+  <!-- EN: No colonists at this location -->
+  <!-- EN: No colonists at this location. -->
+  <RKU_NoColonistsAtLocation>该位置没有殖民者</RKU_NoColonistsAtLocation>
+  <!-- EN: Ratkin Guerrillas Have Arrived -->
+  <!-- EN: Ratkin Partisans have arrived. -->
+  <RKU_GuerrillasArrivedLabel>鼠族游击队已抵达</RKU_GuerrillasArrivedLabel>
+  <!-- EN: Guerrillas have arrived at the specified location and are ready to assist. -->
+  <!-- EN: Partisans have arrived at the specified location and are ready to assist. -->
+  <RKU_GuerrillasArrivedText>游击队已抵达指定位置，准备协助。</RKU_GuerrillasArrivedText>
+
+   <!-- Drilling Vehicle Messages -->
+  <!-- EN: Drilling vehicle durability is too low, cannot use! -->
+  <!-- EN: Driller Vehicle durability is too low, cannot use! -->
+  <RKU_DrillingVehicleLowDurability>钻机耐久过低，无法使用！</RKU_DrillingVehicleLowDurability>
+  <!-- EN: No other colonists on the map, cannot move! -->
+  <!-- EN: No other colonists on the map, cannot move! -->
+  <RKU_NoOtherColonistsOnMap>地图上没有其他殖民者，不能移动！</RKU_NoOtherColonistsOnMap>
+  <!-- EN: Drilling out of the drilling machine requires colonists to exist both on the map and inside the drilling machine -->
+  <!-- EN: Drilling out of the drilling machine requires colonists to exist both on the map and inside the drilling machine -->
+  <RKU_DrillOutDisabledReason>钻出钻机需要地图内和钻机内都存在殖民者</RKU_DrillOutDisabledReason>
+
+  <!-- Castle Reinforcement Messages -->
+  <!-- EN: Ratkin reinforcements have arrived! -->
+  <!-- EN: Ratkin reinforcements have arrived! -->
+  <RKU_RatkinReinforcementsArrived>鼠族增援部队已抵达！</RKU_RatkinReinforcementsArrived>
+
+  <!-- Guerrilla Final Defeat Messages -->
+  <!-- EN: Guerrilla Organization Collapse -->
+  <!-- EN: Guerrilla Organization Collapse -->
+  <RKU_GuerrillaOrganizationCollapse>游击队组织崩溃</RKU_GuerrillaOrganizationCollapse>
+  <!-- EN: The guerrillas have suffered major losses and morale has collapsed. Their organization is effectively defunct and they will do anything to escape this area.\n\nThe guerrilla faction has been destroyed. -->
+  <!-- EN: The guerrillas have suffered major losses and morale has collapsed. Their organization is effectively defunct and they will do anything to escape this area.\n\nThe guerrilla faction has been destroyed. -->
+  <RKU_GuerrillaOrganizationCollapseDesc>游击队遭受了重大损失，士气崩溃，他们的组织已经名存实亡，并且为了逃离这片区域无所不用其极,游击队阵营已被摧毁。</RKU_GuerrillaOrganizationCollapseDesc>
+  <!-- EN: Guerrilla Army Annihilated -->
+  <!-- EN: Guerrilla Army Annihilated -->
+  <RKU_GuerrillaLeadershipAnnihilated>游击队全军覆没</RKU_GuerrillaLeadershipAnnihilated>
+  <!-- EN: The guerrilla elite forces and leadership have been nearly annihilated, their organization has perished.\n\nThe guerrilla faction has been removed. -->
+  <!-- EN: The guerrilla elite forces and leadership have been nearly annihilated, their organization has perished.\n\nThe guerrilla faction has been destroyed. -->
+  <RKU_GuerrillaLeadershipAnnihilatedDesc>游击队的精锐部队及领导层近乎全灭，他们的组织已经灭亡，游击队阵营已被摧毁。</RKU_GuerrillaLeadershipAnnihilatedDesc>
+
+  <!-- EN: Final Desperate Attack -->
+  <!-- EN: Final Desperate Attack -->
+  <RKU_FinalDesperateAttack>最后的殊死攻击</RKU_FinalDesperateAttack>
+  <!-- EN: The enemy has launched their final desperate attack! The guerrillas have deployed their ultimate weapon on the brink of collapse. -->
+  <!-- EN: The enemy has launched their final desperate attack! The guerrillas have deployed their ultimate weapon on the brink of collapse. -->
+  <RKU_FinalDesperateAttackDesc>敌人发动了最后的殊死攻击！游击队在濒临崩溃之际，动用了他们最后的杀手锏。</RKU_FinalDesperateAttackDesc>
+
+  <!-- Factory Raid Messages -->
+  <!-- EN: Enemy Raid -->
+  <!-- EN: Enemy Raid -->
+  <RKU_EnemyRaid>敌方袭击</RKU_EnemyRaid>
+  <!-- EN: {0} is launching a raid on the factory!\nRaid Points: {1}\nTotal Enemy Deaths: {2}/800 -->
+  <!-- EN: {0} is launching a raid on the factory!\nRaid Points: {1}\nTotal Enemy Deaths: {2}/800 -->
+  <RKU_EnemyRaidDesc>{0}正在对工厂发起袭击！\n袭击点数: {1}\n累计敌方死亡人数: {2}/800</RKU_EnemyRaidDesc>
+
+  <!-- Burst Fire Ability Translations -->
+  <!-- EN: Burst Fire -->
+  <!-- EN: Burst Fire -->
+  <RKU_BurstFireLabel>连续射击</RKU_BurstFireLabel>
+  <!-- EN: Fire 21 shots in rapid succession, then the weapon will overheat and be unusable for 10 seconds. Cooldown: 30 seconds. -->
+  <!-- EN: Fire 25 shots in rapid succession, then the weapon will overheat and be unusable for 10 seconds. Cooldown: 30 seconds. -->
+  <RKU_BurstFireDescription>连续射击25发子弹，之后武器会过热10秒无法使用。冷却时间30秒。</RKU_BurstFireDescription>
+  <!-- EN: Skill on cooldown, {0} seconds remaining -->
+  <!-- EN: Skill on cooldown, {0} seconds remaining -->
+  <RKU_BurstFireCooldown>技能冷却中，剩余 {0} 秒</RKU_BurstFireCooldown>
+  <!-- EN: Weapon overheating, {0} seconds remaining -->
+  <!-- EN: Weapon overheating, {0} seconds remaining -->
+  <RKU_BurstFireDisabled>武器过热中，剩余 {0} 秒</RKU_BurstFireDisabled>
+  <!-- EN: Burst firing in progress... ({0} shots remaining) -->
+  <!-- EN: Burst firing in progress... ({0} shots remaining) -->
+  <RKU_BurstFireActive>正在连续射击中... ({0}发剩余)</RKU_BurstFireActive>
+  <!-- EN: Weapon is not equipped -->
+  <!-- EN: Weapon is not equipped -->
+  <RKU_BurstFireNoHolder>武器未被装备</RKU_BurstFireNoHolder>
+  <!-- EN: Weapon has no attack capability -->
+  <!-- EN: Weapon has no attack capability -->
+  <RKU_BurstFireNoVerb>武器没有攻击能力</RKU_BurstFireNoVerb>
+  <!-- EN: Cannot attack this target -->
+  <!-- EN: Cannot attack this target -->
+  <RKU_BurstFireInvalidTarget>无法攻击该目标</RKU_BurstFireInvalidTarget>
+  <!-- EN: Debug Features: -->
+  <!-- EN: Debug Features: -->
+  <RKU_DebugFeatures>调试功能：</RKU_DebugFeatures>
+  <!-- EN: Try Trigger Guerrillas Coming Quest -->
+  <!-- EN: Try Trigger Guerrillas Coming Quest -->
+  <RKU_TryTriggerGuerrillasQuest>尝试触发游击队到来任务</RKU_TryTriggerGuerrillasQuest>
+  <!-- EN: Please contact the guerrillas on the radio to expand faction relationship limits -->
+  <!-- EN: Please contact the guerrillas on the radio to expand faction relationship limits -->
+  <RKU_RelationLimitExceeded>请在电台上联络游击队以拓展阵营关系限制</RKU_RelationLimitExceeded>
+  <!-- EN: Tech Breakthrough -->
+  <!-- EN: Tech Breakthrough -->
+  <RKU_TechprintReceived>科技突破</RKU_TechprintReceived>
+  <!-- EN: {0} technology has achieved a breakthrough, and the blueprint has been organized by your scientists. -->
+  <!-- EN: {0} technology has achieved a breakthrough, and the blueprint has been organized by your scientists. -->
+  <RKU_TechprintReceivedDesc>{0}的科技取得了突破，蓝图已被你的科学家整理好。</RKU_TechprintReceivedDesc>
+  <!-- EN: The guerrillas send a warning: There is a noble here using a very dangerous special weapon. -->
+  <!-- EN: The guerrillas send a warning: There is an enemy here using a very dangerous special weapon. -->
+  <RKU_NobleWarning>游击队发来警告：此处有一名敌人使用着十分危险的特殊武器</RKU_NobleWarning>
+  <!-- EN: The guerrillas send a message: A powerful prototype weapon is stored in the factory, you can search for and use it. -->
+  <!-- EN: The guerrillas send a message: A powerful prototype weapon is stored in the factory, you can search for and use it. -->
+  <RKU_FactoryWeaponMessage>游击队发来讯息：工厂里保存有一把强大的原型武器，你可以寻找并使用它</RKU_FactoryWeaponMessage>
+  <!-- EN: The guerrillas send a message: There is a powerful prototype weapon here, you can search for and use it. -->
+  <!-- EN: The guerrillas send a message: There is a powerful prototype weapon here, you can search for and use it. -->
+  <RKU_AncientWeaponMessage>游击队发来讯息：这里有一把强大的原型武器，你可以寻找并使用它</RKU_AncientWeaponMessage>
+  <!-- EN: Settlement Established -->
+  <RKU_GenerateSettled>据点已建立</RKU_GenerateSettled>
+  <!-- EN: With the help of nearby Ratkin residents, the Ratkin Guerrillas have established a settlement near the colony. -->
+  <RKU_GenerateSettledDesc>依靠附近的鼠族居民，地鼠游击队在殖民地附近建立了据点</RKU_GenerateSettledDesc>
+
+  <!-- Mod Settings Translations -->
+  <!-- EN: Show only current dialogue messages -->
+  <RKU_ShowOnlyCurrentDialogueMessages>电台只显示当前对话的消息</RKU_ShowOnlyCurrentDialogueMessages>
+  <!-- EN: When enabled, opening the radio dialogue window will clear history messages and only show content from the current conversation. When disabled, all history messages will be retained. -->
+  <RKU_ShowOnlyCurrentDialogueMessagesDesc>启用后，每次打开电台对话框时将清空历史消息，只显示本次对话的内容。禁用后将保留所有历史消息。</RKU_ShowOnlyCurrentDialogueMessagesDesc>
+  <!-- EN: Adjust radio dialogue display behavior. When enabled, each time you open the radio will start a new conversation session. -->
+  <RKU_RadioDialogueBehaviorDesc>调整电台对话显示行为。启用后每次打开电台都会开始新的对话会话。</RKU_RadioDialogueBehaviorDesc>
+</LanguageData>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: 血战 -->
+  <RKU_FinalBattle.label>TODO</RKU_FinalBattle.label>
+  <!-- EN: 游击队集结了本地全部的精锐，对殖民地发动了最终的决战，每4小时会根据殖民地状态分配不同强度的袭击，想要在战争中胜利，需要击破他们的士气，或是直接让他们全军覆没。 -->
+  <RKU_FinalBattle.description>TODO</RKU_FinalBattle.description>
+  <!-- EN: 血战结束了... -->
+  <RKU_FinalBattle.endMessage>TODO</RKU_FinalBattle.endMessage>
+  <!-- EN: 地鼠游击队发动了最终的决战！他们将持续对你的殖民地发动袭击。 -->
+  <RKU_FinalBattle.letterText>TODO</RKU_FinalBattle.letterText>
+  
+</LanguageData>

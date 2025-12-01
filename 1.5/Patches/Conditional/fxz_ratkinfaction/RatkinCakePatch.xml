@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <!-- 将AC_RatkinCake改为药物类别 -->
+  <Operation Class="PatchOperationSequence">
+    <success>Always</success>
+    <operations>
+      <li Class="PatchOperationTest">
+        <xpath>/Defs/ThingDef[defName="AC_RatkinCake"]/thingCategories</xpath>
+        <success>Normal</success>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[defName="AC_RatkinCake"]/thingCategories</xpath>
+        <value>
+          <thingCategories Inherit="false">
+            <li>Drugs</li>
+          </thingCategories>
+        </value>
+      </li>
+    </operations>
+  </Operation>
+</Patch>

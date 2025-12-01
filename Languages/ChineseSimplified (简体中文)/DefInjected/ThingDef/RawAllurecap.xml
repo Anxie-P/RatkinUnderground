@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: raw allurecap -->
+  <RKU_RawAllurecap.label>魅惑菇</RKU_RawAllurecap.label>
+  <!-- EN: 新鲜采摘的魅惑菇，可以用于制造一种令神经快速兴奋的药剂，这种药剂有着很高的武器化潜力。 -->
+  <RKU_RawAllurecap.description>新鲜采摘的魅惑菇，可以用于制造一种令神经快速兴奋的药剂，这种药剂有着很高的武器化潜力，也可以直接动用于手术来使人失忆，但会伴随着其他的副作用。</RKU_RawAllurecap.description>
+  
+  <!-- EN: singularitycap spore powder package -->
+  <RKU_RawSingularitycap.label>反粒子毁灭菇孢子</RKU_RawSingularitycap.label>
+  <!-- EN: 反粒子毁灭菇的孢子，可以调和出相当强大的火药，有着很高的武器化潜力。 -->
+  <RKU_RawSingularitycap.description>反粒子毁灭菇的孢子，可以调和出相当强大的火药，有着很高的武器化潜力。</RKU_RawSingularitycap.description>
+  
+</LanguageData>

@@ -92,11 +92,14 @@
 	</ThingDef>
 
 	<Patch>
-		<Operation Class="PatchOperationAdd">
-			<xpath>Defs/HediffDef[defName="RKU_CombatEfficiency"]/stages/li/statFactors</xpath>
-			<value>
-				<RA_AgingRateFactor>1.3</RA_AgingRateFactor>
-			</value>
+		<Operation Class="PatchOperationConditional">
+			<xpath>/Defs/StatDef[defName="RA_AgingRateFactor"]</xpath>
+			<match Class="PatchOperationAdd">
+				<xpath>Defs/HediffDef[defName="RKU_CombatEfficiency"]/stages/li/statFactors</xpath>
+				<value>
+					<RA_AgingRateFactor>1.3</RA_AgingRateFactor>
+				</value>
+			</match>
 		</Operation>
 	</Patch>
 </Defs>

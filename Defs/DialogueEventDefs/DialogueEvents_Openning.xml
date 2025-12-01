@@ -24,6 +24,23 @@
 	</RatkinUnderground.RKU_DialogueEventDef>
 	
 	<RatkinUnderground.RKU_DialogueEventDef>
+		<defName>RKU_StartupEventBuildNewSite</defName>
+		<dialogueText>      这次有一个好消息！随着我们最近的胜利，部队在附近建立了一座新
+的地上永久据点，我们可以以此为根据地进行进一步的行动，感谢你们的付出。</dialogueText>
+		<priority>10</priority>
+		<triggerOnce>true</triggerOnce>
+		<triggerOnStartup>true</triggerOnStartup>
+		<conditions>
+			<li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>26</minGrade>
+			</li>
+		</conditions>
+		<actions>
+			<li Class="RatkinUnderground.DialogueAction_SpawnGuerrillaSettlement" />
+		</actions>
+	</RatkinUnderground.RKU_DialogueEventDef>
+	
+	<RatkinUnderground.RKU_DialogueEventDef>
 		<defName>RKU_StartupEventZeroB</defName>
 		<dialogueText>      不要管闲事，我还没那么信任你们。</dialogueText>
 		<triggerOnStartup>false</triggerOnStartup>

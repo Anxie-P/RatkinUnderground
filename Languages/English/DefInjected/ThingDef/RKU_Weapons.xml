@@ -7,6 +7,21 @@
   <!-- EN: armor-piercing flechette -->
   <Bullet_RKU_ArmorPiercing.label>Armour-piercing Bullet</Bullet_RKU_ArmorPiercing.label>
   
+  <!-- EN: RKU_EliteRifle rifle bullet -->
+  <Bullet_RKU_EliteRifle.label>RKU Elite Rifle Bullet</Bullet_RKU_EliteRifle.label>
+  
+  <!-- EN: RKU Pistol A bullet -->
+  <Bullet_RKU_PistolA.label>RKU Pistol A Bullet</Bullet_RKU_PistolA.label>
+  
+  <!-- EN: RKU Pistol B bullet -->
+  <Bullet_RKU_PistolB.label>RKU Pistol B Bullet</Bullet_RKU_PistolB.label>
+  
+  <!-- EN: RKU Pistol C bullet -->
+  <Bullet_RKU_PistolC.label>RKU Pistol C Bullet</Bullet_RKU_PistolC.label>
+  
+  <!-- EN: RKU Rifle B bullet -->
+  <Bullet_RKU_RifleB.label>RKU Rifle B Bullet</Bullet_RKU_RifleB.label>
+  
   <!-- EN: yunnan bolt-action rifle bullet -->
   <Bullet_YunNanMushroom.label>Yunnan Mushroom Bullet</Bullet_YunNanMushroom.label>
   
@@ -14,13 +29,15 @@
   <RKK_BuildingBoomber.label>Bomb</RKK_BuildingBoomber.label>
   
   <!-- EN: 毁灭地雷发射器 -->
-  <RKK_Weapon_DetroyerLandmineLaunchers.label>Antigraincap Landmine Launcher</RKK_Weapon_DetroyerLandmineLaunchers.label>
+  <RKK_Weapon_RangerBow.label>Antigraincap Landmine Launcher</RKK_Weapon_RangerBow.label>
   <!-- EN: 毁灭地雷发射器，内部装药混合了极具破坏力的毁灭菇提取物，可以打包并发射一颗毁灭粒子地雷到目标地点，地雷需要手动引爆。 -->
-  <RKK_Weapon_DetroyerLandmineLaunchers.description>The Antigraincap Mine Launcher, whose internal charge incorporates highly destructive Antigraincap extract, can package and deploy a single Antigrain Particle Landmine to a designated location. The landmine requires manual detonation.</RKK_Weapon_DetroyerLandmineLaunchers.description>
-  <!-- EN: 毁灭地雷 -->
-  <RKU_DestroyerMine.tools.bow.label>Antigraincap Mine</RKU_DestroyerMine.tools.bow.label>
-
-  <!-- EN: Partisans anti-tank rifle -->
+  <RKK_Weapon_RangerBow.description>The Antigraincap Mine Launcher, whose internal charge incorporates highly destructive Antigraincap extract, can package and deploy a single Antigrain Particle Landmine to a designated location. The landmine requires manual detonation.</RKK_Weapon_RangerBow.description>
+  <!-- EN: bow -->
+  <RKK_Weapon_RangerBow.tools.bow.label>Bow</RKK_Weapon_RangerBow.tools.bow.label>
+  <!-- EN: 毁灭地雷发射器 -->
+  <RKK_Weapon_RangerBow.verbs.Verb_Shoot.label>Antigraincap Landmine Launcher</RKK_Weapon_RangerBow.verbs.Verb_Shoot.label>
+  
+ <!-- EN: Partisans anti-tank rifle -->
   <RKU_AntiTank.label>Prototype Anti-Tank Rifle</RKU_AntiTank.label>
   <!-- EN: 特殊设计的强大原型反坦克枪！它不仅伤害力惊人，而且能大幅削弱敌方护甲。 -->
   <RKU_AntiTank.description>A specially designed, formidable prototype anti-tank rifle! Not only does it deliver astonishing damage, but it also significantly reduces enemy armour.</RKU_AntiTank.description>
@@ -46,6 +63,15 @@
   <!-- EN: Partisans Submachine Gun -->
   <RKU_GuerrillaSubmachineGun.verbs.Verb_Shoot.label>Partisan Submachine Gun</RKU_GuerrillaSubmachineGun.verbs.Verb_Shoot.label>
   
+  <!-- EN: 地鼠工作锤 -->
+  <RKU_Hammer.label>Ratkin Underground Track Hammer</RKU_Hammer.label>
+  <!-- EN: 一把铁道锤，因为鼠族王国境内的铁道几乎全部被损毁，所以上了战场。 -->
+  <RKU_Hammer.description>A railway track hammer pressed into battlefield service after the Ratkin Kingdom's railways were almost completely destroyed.</RKU_Hammer.description>
+  <!-- EN: handle -->
+  <RKU_Hammer.tools.handle.label>handle</RKU_Hammer.tools.handle.label>
+  <!-- EN: head -->
+  <RKU_Hammer.tools.head.label>head</RKU_Hammer.tools.head.label>
+  
   <!-- EN: Iron Star Cannon -->
   <RKU_IronStarCannon.label>"Iron Star" Auto Cannon</RKU_IronStarCannon.label>
   <!-- EN: A powerful machine gun was installed on the steel centipede mechanical body of the partisan troop -->
@@ -64,6 +90,44 @@
   <!-- EN: Partisans machinegun -->
   <RKU_MG42_Gun.verbs.Verb_Shoot.label>Partisan Machine Gun</RKU_MG42_Gun.verbs.Verb_Shoot.label>
   
+  <!-- EN: 游击队驳壳枪 -->
+  <RKU_PistolA.label>Partisan "Box Gun"</RKU_PistolA.label>
+  <!-- EN: 一把驳壳枪，可靠又耐用，是往日军官们最喜爱的武器。 -->
+  <RKU_PistolA.description>A machine pistol, reliable and durable, was a favorite weapon of officers in the past.</RKU_PistolA.description>
+  <!-- EN: grip -->
+  <RKU_PistolA.tools.grip.label>grip</RKU_PistolA.tools.grip.label>
+  <!-- EN: 游击队驳壳枪 -->
+  <RKU_PistolA.verbs.Verb_Shoot.label>Partisan "Box Gun"</RKU_PistolA.verbs.Verb_Shoot.label>
+  
+  <!-- EN: 游击队左轮 -->
+  <RKU_PistolB.label>Partisan Revolver</RKU_PistolB.label>
+  <!-- EN: 大口径左轮手枪，生了很多的锈. -->
+  <RKU_PistolB.description>A Partisan Revolver, a large-caliber revolver pistol, heavily rusted.</RKU_PistolB.description>
+  <!-- EN: grip -->
+  <RKU_PistolB.tools.grip.label>grip</RKU_PistolB.tools.grip.label>
+  <!-- EN: 游击队左轮 -->
+  <RKU_PistolB.verbs.Verb_Shoot.label>Partisan Revolver</RKU_PistolB.verbs.Verb_Shoot.label>
+  
+  <!-- EN: 带托驳壳枪 -->
+  <RKU_PistolC.label>"Box Gun" with Stock</RKU_PistolC.label>
+  <!-- EN: 一把带有枪托的驳壳枪，可以提供更好的稳定性。 -->
+  <RKU_PistolC.description>A machine pistol with a stock that provides better stability.</RKU_PistolC.description>
+  <!-- EN: grip -->
+  <RKU_PistolC.tools.grip.label>grip</RKU_PistolC.tools.grip.label>
+  <!-- EN: 带托驳壳枪 -->
+  <RKU_PistolC.verbs.Verb_Shoot.label>"Box Gun" with Stock</RKU_PistolC.verbs.Verb_Shoot.label>
+  
+  <!-- EN: 莫辛自动步枪 999型 -->
+  <RKU_RifleB.label>Mosin Avtomat Type 999</RKU_RifleB.label>
+  <!-- EN: 一把经过狂热改造的步枪，火力十足。可以快速射出大量子弹，但之后会有一段时间不能用。 -->
+  <RKU_RifleB.description>A fanatically modified rifle with immense firepower. It can rapidly fire a large number of bullets, but it will be temporarily unusable afterwards.</RKU_RifleB.description>
+  <!-- EN: stock -->
+  <RKU_RifleB.tools.stock.label>stock</RKU_RifleB.tools.stock.label>
+  <!-- EN: barrel -->
+  <RKU_RifleB.tools.barrel.label>barrel</RKU_RifleB.tools.barrel.label>
+  <!-- EN: 莫辛自动步枪 999型 -->
+  <RKU_RifleB.verbs.Verb_Shoot.label>Mosin Avtomat Type 999</RKU_RifleB.verbs.Verb_Shoot.label>
+  
   <!-- EN: Partisans rifle -->
   <RKU_SVT40M.label>Partisan Rifle</RKU_SVT40M.label>
   <!-- EN: 改良于传统的鼠族步枪，这种游击队步枪是更适合近战且火力较强的版本。附带有刺刀。 -->
@@ -77,8 +141,8 @@
   
   <!-- EN: Verity -->
   <RKU_SVT40M_Elite.label>Verity</RKU_SVT40M_Elite.label>
-  <!-- EN: 一把历经风霜的步枪。 -->
-  <RKU_SVT40M_Elite.description>A rifle weathered by time.</RKU_SVT40M_Elite.description>
+  <!-- EN: 一把历经风霜的步枪。衷心提示：如果你捡起了它，就再也不要把它丢在地上，或者这之前...先存档。 -->
+  <RKU_SVT40M_Elite.description>A rifle weathered by time. </RKU_SVT40M_Elite.description>
   <!-- EN: stock -->
   <RKU_SVT40M_Elite.tools.stock.label>Stock</RKU_SVT40M_Elite.tools.stock.label>
   <!-- EN: bayonet -->
@@ -97,4 +161,12 @@
   <!-- EN: 迷幻步枪 -->
   <RKU_YunNanBoltActionRifle.verbs.Verb_Shoot.label>Allure Rifle</RKU_YunNanBoltActionRifle.verbs.Verb_Shoot.label>
   
+    <!-- EN: 游击队霰弹枪 -->
+  <RKU_Shotgun.label>Partisan Shotgun</RKU_Shotgun.label>
+  <!-- EN: "帝王"霰弹枪，保持游击队一贯的快速射击作风的武器。 -->
+  <RKU_Shotgun.description>"Emperor" shotgun, a weapon that maintains the partisans' consistent rapid-fire style.</RKU_Shotgun.description>
+  <!-- EN: stock -->
+  <RKU_Shotgun.tools.stock.label>Stock</RKU_Shotgun.tools.stock.label>
+  <!-- EN: 游击队霰弹枪 -->
+  <RKU_Shotgun.verbs.RatkinUnderground.RKU_Verb_ShootAllAtOnce.label>Partisan Shotgun</RKU_Shotgun.verbs.RatkinUnderground.RKU_Verb_ShootAllAtOnce.label>
 </LanguageData>

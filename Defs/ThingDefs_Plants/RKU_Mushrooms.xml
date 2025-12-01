@@ -183,7 +183,7 @@
       <dieIfLeafless>true</dieIfLeafless>
       <harvestYield>50</harvestYield>
       <harvestTag>Standard</harvestTag>
-      <harvestedThingDef>RawFungus</harvestedThingDef>
+      <harvestedThingDef>RKU_RawSingularitycap</harvestedThingDef>
       <maxMeshCount>1</maxMeshCount>
       <neverBlightable>true</neverBlightable>
       <visualSizeRange>0.8~1.2</visualSizeRange>
@@ -199,5 +199,25 @@
 		<glowColor>(68,48,66,0)</glowColor>
 	  </li>
     </comps>
+    <modExtensions>
+      <li Class="RatkinUnderground.RKU_SingularitycapExtension">
+        <explosionDamageDef>Bomb</explosionDamageDef>
+        <explosionRadius>8</explosionRadius>
+        <explosionDamageAmount>30</explosionDamageAmount>
+        <explosionArmorPenetration>1</explosionArmorPenetration>
+        <pawnDamageDef>Bomb</pawnDamageDef>
+        <pawnDamageAmount>20</pawnDamageAmount>
+        <pawnArmorPenetration>0</pawnArmorPenetration>
+        <buildingDamageDef>Bomb</buildingDamageDef>
+        <buildingDamageAmount>100</buildingDamageAmount>
+        <buildingArmorPenetration>0</buildingArmorPenetration>
+        <drillingVehicleDamageDef>Bomb</drillingVehicleDamageDef>
+        <drillingVehicleDamagePercent>0.2</drillingVehicleDamagePercent>
+        <drillingVehicleArmorPenetration>0</drillingVehicleArmorPenetration>
+        <checkRange>4</checkRange>
+        <animationDurationTicks>180</animationDurationTicks>
+        <glowThreshold>0.5</glowThreshold>
+      </li>
+    </modExtensions>
   </ThingDef>
 </Defs>

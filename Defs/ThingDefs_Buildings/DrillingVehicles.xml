@@ -75,13 +75,6 @@
 	<building>
 		<expandHomeArea>false</expandHomeArea>
     </building>
-    <comps>
-      <li Class="CompProperties_Transporter">
-        <massCapacity>1000</massCapacity>
-        <restEffectiveness>0.8</restEffectiveness>
-        <showOverallStats>true</showOverallStats>
-      </li>
-    </comps>
     <graphicData>
       <drawSize>(4.5,4.5)</drawSize>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -121,6 +114,11 @@
           <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
           <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
           <canEjectFuel>true</canEjectFuel>
+        </li>
+        <li Class="CompProperties_Transporter">
+          <massCapacity>1000</massCapacity>
+          <canChangeAssignedThingsAfterStarting>true</canChangeAssignedThingsAfterStarting>
+          <showOverallStats>true</showOverallStats>
         </li>
       </comps>
   </ThingDef>
@@ -280,6 +278,24 @@
       <arcHeightFactor>0</arcHeightFactor>
       <shadowSize>1</shadowSize>
     </projectile>
+    <modExtensions>
+      <li Class="RatkinUnderground.RKU_DrillingBulletExtension">
+        <pawnCollisionDamageDef>Cut</pawnCollisionDamageDef>
+        <pawnCollisionDamageAmount>10</pawnCollisionDamageAmount>
+        <pawnCollisionArmorPenetration>0.05</pawnCollisionArmorPenetration>
+        <pawnDestroyDamageDef>Flame</pawnDestroyDamageDef>
+        <pawnDestroyDamageAmount>35</pawnDestroyDamageAmount>
+        <pawnDestroyArmorPenetration>0.4</pawnDestroyArmorPenetration>
+        <buildingCollisionDamageDef>Crush</buildingCollisionDamageDef>
+        <buildingCollisionDamageMultiplier>1</buildingCollisionDamageMultiplier>
+        <buildingCollisionArmorPenetration>2</buildingCollisionArmorPenetration>
+        <buildingDestroyDamageDef>Crush</buildingDestroyDamageDef>
+        <buildingDestroyDamageAmount>300</buildingDestroyDamageAmount>
+        <buildingDestroyArmorPenetration>2</buildingDestroyArmorPenetration>
+        <vehicleDurabilityLossMin>0</vehicleDurabilityLossMin>
+        <vehicleDurabilityLossMax>7</vehicleDurabilityLossMax>
+      </li>
+    </modExtensions>
   </ThingDef>
   
   <WorldObjectDef>

@@ -172,13 +172,16 @@
     <defName>RKU_ResearchReward_Assault</defName>
     <dialogueText>      感谢你们的协助！我们完成了一些突击武器蓝图的初步整理，
 现在我们将会把这些蓝图分享给你们的研究员，并且充实我们自己的武装。</dialogueText>
-    <priority>10</priority>
+    <priority>5</priority>
     <triggerOnce>true</triggerOnce>
 	  <triggerOnStartup>true</triggerOnStartup>
     <conditions>
       <li Class="RatkinUnderground.DialogueCondition_ResearchGrade">
         <requiredGrade>1</requiredGrade>
       </li>
+	  <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>1</minGrade>
+	  </li>
     </conditions>
     <actions>
       <li Class="RatkinUnderground.DialogueAction_SpawnTechprint">
@@ -192,13 +195,16 @@
     <defName>RKU_ResearchReward_Guerrilla</defName>
     <dialogueText>      我们会把我们的装备制造方法与你们共享，虽然是些破烂货，
 但它们都是在长年的斗争中被检验过的好东西。</dialogueText>
-    <priority>10</priority>
+    <priority>5</priority>
     <triggerOnce>true</triggerOnce>
 	<triggerOnStartup>true</triggerOnStartup>
     <conditions>
       <li Class="RatkinUnderground.DialogueCondition_ResearchGrade">
         <requiredGrade>2</requiredGrade>
       </li>
+	   <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>1</minGrade>
+	  </li>
     </conditions>
     <actions>
       <li Class="RatkinUnderground.DialogueAction_SpawnTechprint">
@@ -213,13 +219,16 @@
     <dialogueText>      最新的地下实验武器的蓝图已经被同步到你们那边了，
 朋友们。我们刚刚完成了这些武器装备的可行性分析，但实际应用还得经过进一步的检验和测试。
 到时候就请你们来锻造第一批武器原型了。</dialogueText>
-    <priority>10</priority>
+    <priority>5</priority>
     <triggerOnce>true</triggerOnce>
 	<triggerOnStartup>true</triggerOnStartup>
     <conditions>
       <li Class="RatkinUnderground.DialogueCondition_ResearchGrade">
         <requiredGrade>3</requiredGrade>
       </li>
+	   <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>1</minGrade>
+	  </li>
     </conditions>
     <actions>
       <li Class="RatkinUnderground.DialogueAction_SpawnTechprint">
@@ -234,13 +243,16 @@
     <dialogueText>      很好，验证结果很不错，这些武器想必能在之后的战斗
 中大放光彩。制造这些原型武器的材料需要在地下寻找，
 而成品的威力会让你的所有敌人喝上一壶！实战测试也拜托你们那边了！</dialogueText>
-    <priority>10</priority>
+    <priority>5</priority>
     <triggerOnce>true</triggerOnce>
 	<triggerOnStartup>true</triggerOnStartup>
     <conditions>
       <li Class="RatkinUnderground.DialogueCondition_ResearchGrade">
         <requiredGrade>4</requiredGrade>
       </li>
+	   <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
+				<minGrade>1</minGrade>
+	  </li>
     </conditions>
     <actions>
       <li Class="RatkinUnderground.DialogueAction_SpawnTechprint">

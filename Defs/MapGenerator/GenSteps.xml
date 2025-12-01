@@ -26,16 +26,17 @@
     <defName>RKU_CavesWithLake</defName>
 	<forceCaves>true</forceCaves>
     <genSteps>
-	  <li>RKU_GenStep_ElevationFertility</li> 
+	  <li>RKU_GenStep_ElevationFertility</li>
       <li>RockChunks</li>
       <li>ScenParts</li>
       <li>RKU_Undercave_RocksFromGrid</li>
-	  <li>RKU_Caves</li>                  
-	  <li>RKU_MakeUpSmallCaves</li>        
+	  <li>RKU_Caves</li>
+	  <li>RKU_MakeUpSmallCaves</li>
 	  <li>RKU_UnderGroundLake</li>
-	  <li>RKU_CavesTerrain</li>	  
-      <li>RKU_PlantsUnderground</li>	
-	  <li>RKU_UnderGroundMouse</li>	    
+	  <li>RKU_CavesTerrain</li>
+      <li>RKU_PlantsUnderground</li>
+	  <li>RKU_UnderGroundMouse</li>
+	  <li>RKU_RelicAltar</li>
     </genSteps>
 	<modExtensions>
       <li Class="RatkinUnderground.RKU_MapGeneratorDefModExtension">
@@ -56,9 +57,9 @@
 	  <li>RKU_Caves</li>                  
 	  <li>RKU_MakeUpSmallCaves</li>        
 	  <li>RKU_SmallLake</li>
-	  <li>RKU_CavesTerrain</li>	  
-	  <li>RKU_Worm</li>	  
-	  <li>RKU_PlantsUnderground</li>	  
+	  <li>RKU_CavesTerrain</li>
+	  <li>RKU_Worm</li>
+	  <li>RKU_PlantsUnderground</li>
     </genSteps>
 	<modExtensions>
       <li Class="RatkinUnderground.RKU_MapGeneratorDefModExtension">
@@ -104,9 +105,9 @@
       <li>RKU_MakeUpSmallCaves</li>        
       <li>RKU_SmallLake</li>
       <li>RKU_CavesTerrain</li>
-      <li>RKU_PlantsUnderground</li>	
-      <li>RKU_FairyRing</li>	    
-	  <li>RKU_UnderGroundMouse</li>	  
+      <li>RKU_PlantsUnderground</li>
+      <li>RKU_FairyRing</li>
+	  <li>RKU_UnderGroundMouse</li>
     </genSteps>
 	<modExtensions>
       <li Class="RatkinUnderground.RKU_MapGeneratorDefModExtension">
@@ -128,9 +129,9 @@
       <li>RKU_MakeUpSmallCaves</li>        
       <li>RKU_SmallLake</li>
       <li>RKU_CavesTerrain</li>
-      <li>RKU_PlantsUnderground</li>	
-      <li>RKU_Lode</li>	  
-	  <li>RKU_UnderGroundMouse</li>	    
+      <li>RKU_PlantsUnderground</li>
+      <li>RKU_Lode</li>
+	  <li>RKU_UnderGroundMouse</li>
     </genSteps>
 	<modExtensions>
       <li Class="RatkinUnderground.RKU_MapGeneratorDefModExtension">
@@ -321,7 +322,15 @@
   <GenStepDef>
     <defName>RKU_FleshBeast</defName>
     <order>11</order>
-    <genStep Class="RatkinUnderground.RKU_GenStep_FleshBeast"> 
+    <genStep Class="RatkinUnderground.RKU_GenStep_FleshBeast">
+	</genStep>
+  </GenStepDef>
+
+  <!-- 圣物展台生成 -->
+  <GenStepDef>
+    <defName>RKU_RelicAltar</defName>
+    <order>999</order>
+    <genStep Class="RatkinUnderground.RKU_GenStep_RelicAltar">
 	</genStep>
   </GenStepDef>
 

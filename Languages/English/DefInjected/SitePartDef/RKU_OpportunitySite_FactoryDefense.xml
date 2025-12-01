@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: 游击队工厂 -->
+  <RatkinFactory.label>Partisan Factory</RatkinFactory.label>
+  <!-- EN: 一座游击队的重要武器生产工厂，装备着先进的武器生产设备。 -->
+  <RatkinFactory.description>A major Partisan weapons production factory, equipped with advanced weapon manufacturing equipment.</RatkinFactory.description>
+  <!-- EN: Attacking {0}. -->
+  <RatkinFactory.approachingReportString>Attacking {0}.</RatkinFactory.approachingReportString>
+  <!-- EN: Attack {0} -->
+  <RatkinFactory.approachOrderString>Attack {0}</RatkinFactory.approachOrderString>
+  <!-- EN: There is an enemy outpost in this area. -->
+  <RatkinFactory.arrivedLetter>There is an enemy outpost in this area.</RatkinFactory.arrivedLetter>
+  
+</LanguageData>

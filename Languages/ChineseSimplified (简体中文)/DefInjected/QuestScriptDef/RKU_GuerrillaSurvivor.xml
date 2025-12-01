@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN:
+    <li>RKU_GuerrillaSurvivorDesc1</li>
+  -->
+  <RKU_GuerrillaSurvivor.questDescriptionRules.rulesStrings>
+    <li>questDescription->收到鼠族游击队发来的求救信号，一名侦查员在任务中负伤，但游击队抽不出更多的钻地机小队前往救援，本区域的游击队指挥官请求殖民地前往援助这名士兵，作为回报，这名游击队员会加入殖民地。</li>
+  </RKU_GuerrillaSurvivor.questDescriptionRules.rulesStrings>
+  <!-- EN:
+    <li>RKU_GuerrillaSurvivorName1</li>
+    <li>RKU_GuerrillaSurvivorName2</li>
+    <li>RKU_GuerrillaSurvivorName3</li>
+    <li>RKU_GuerrillaSurvivorName4</li>
+    <li>RKU_GuerrillaSurvivorName5</li>
+  -->
+  <RKU_GuerrillaSurvivor.questNameRules.rulesStrings>
+    <li>questName->游击队伤者营救</li>
+  </RKU_GuerrillaSurvivor.questNameRules.rulesStrings>
+  
+</LanguageData>

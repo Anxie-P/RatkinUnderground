@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: armor weakening -->
+  <RKU_ArmorWeaken.label>护甲削弱</RKU_ArmorWeaken.label>
+  <!-- EN: Target's armor effectiveness is reduced by [severity * 100]%. -->
+  <RKU_ArmorWeaken.description>目标的护甲效果降低 [severity * 100]%。</RKU_ArmorWeaken.description>
+  
+  <!-- EN: combat efficiency modulation -->
+  <RKU_CombatEfficiency.label>鼠体实验影响</RKU_CombatEfficiency.label>
+  <!-- EN: A modulation affecting combat and work performance. Effects vary based on severity level. -->
+  <RKU_CombatEfficiency.description>这名鼠族经历过残酷的实验，导致其战斗和工作效率受到影响，是谁做了这种事情？</RKU_CombatEfficiency.description>
+  <!-- EN: severely impaired -->
+  <RKU_CombatEfficiency.stages.severely_impaired.label>严重受损</RKU_CombatEfficiency.stages.severely_impaired.label>
+  <!-- EN: heavily impaired -->
+  <RKU_CombatEfficiency.stages.heavily_impaired.label>重度受损</RKU_CombatEfficiency.stages.heavily_impaired.label>
+  <!-- EN: moderately impaired -->
+  <RKU_CombatEfficiency.stages.moderately_impaired.label>中度受损</RKU_CombatEfficiency.stages.moderately_impaired.label>
+  <!-- EN: slightly impaired -->
+  <RKU_CombatEfficiency.stages.slightly_impaired.label>轻度受损</RKU_CombatEfficiency.stages.slightly_impaired.label>
+  <!-- EN: mildly impaired -->
+  <RKU_CombatEfficiency.stages.mildly_impaired.label>轻微受损</RKU_CombatEfficiency.stages.mildly_impaired.label>
+  <!-- EN: mildly enhanced -->
+  <RKU_CombatEfficiency.stages.mildly_enhanced.label>轻微增强</RKU_CombatEfficiency.stages.mildly_enhanced.label>
+  <!-- EN: slightly enhanced -->
+  <RKU_CombatEfficiency.stages.slightly_enhanced.label>轻度增强</RKU_CombatEfficiency.stages.slightly_enhanced.label>
+  <!-- EN: moderately enhanced -->
+  <RKU_CombatEfficiency.stages.moderately_enhanced.label>中度增强</RKU_CombatEfficiency.stages.moderately_enhanced.label>
+  <!-- EN: heavily enhanced -->
+  <RKU_CombatEfficiency.stages.heavily_enhanced.label>重度增强</RKU_CombatEfficiency.stages.heavily_enhanced.label>
+  <!-- EN: severely enhanced -->
+  <RKU_CombatEfficiency.stages.severely_enhanced.label>极限增强</RKU_CombatEfficiency.stages.severely_enhanced.label>
+  
+  <!-- UNUSED -->
+  <RKU_CombatEfficiency.stages.0.description>战斗和工作效率严重降低。</RKU_CombatEfficiency.stages.0.description>
+  <RKU_CombatEfficiency.stages.1.description>战斗和工作效率重度降低。</RKU_CombatEfficiency.stages.1.description>
+  <RKU_CombatEfficiency.stages.2.description>战斗和工作效率中度降低。</RKU_CombatEfficiency.stages.2.description>
+  <RKU_CombatEfficiency.stages.3.description>战斗和工作效率轻度降低。</RKU_CombatEfficiency.stages.3.description>
+  <RKU_CombatEfficiency.stages.4.description>战斗和工作效率轻微降低。</RKU_CombatEfficiency.stages.4.description>
+  <RKU_CombatEfficiency.stages.5.description>战斗和工作效率轻微增强。</RKU_CombatEfficiency.stages.5.description>
+  <RKU_CombatEfficiency.stages.6.description>战斗和工作效率轻度增强。</RKU_CombatEfficiency.stages.6.description>
+  <RKU_CombatEfficiency.stages.7.description>战斗和工作效率中度增强。</RKU_CombatEfficiency.stages.7.description>
+  <RKU_CombatEfficiency.stages.8.description>战斗和工作效率重度增强。</RKU_CombatEfficiency.stages.8.description>
+  <RKU_CombatEfficiency.stages.9.description>战斗和工作效率极限增强。</RKU_CombatEfficiency.stages.9.description>
+  
+  <!-- EN: yun nan toxin -->
+  <RKU_YunNanToxin.label>芸南菌子中毒</RKU_YunNanToxin.label>
+  <!-- EN: 芸南蘑菇造成的幻觉 -->
+  <RKU_YunNanToxin.description>芸南蘑菇造成的幻觉</RKU_YunNanToxin.description>
+  <!-- EN: 嘿嘿, 嘿嘿, 欸嘿嘿~ -->
+  <RKU_YunNanToxin.descriptionShort>嘿嘿, 嘿嘿, 欸嘿嘿~</RKU_YunNanToxin.descriptionShort>
+  
+</LanguageData>

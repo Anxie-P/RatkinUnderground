@@ -1,43 +1,212 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
   
-  <!-- EN:       同志们，情况不妙。根据我们从王国机密中获得的情报，\n我们发现了一个相当可怕的秘密！\n王国重启了一个秘密的生化研究所！十几年前，由贵族映山红领头，这些设施里研发出来\n的病毒几乎摧毁了当时如日中天的革命军，直到一位特工诛杀了那名罪恶滔天的贵族，我\n们才有机会化整为零...我们劫持到了最近的王国资源动向，他们正在向这座设施里运输\n资源和人员，我们不知道他们在做什么。但可以预料到的是，这些东西一旦完成，\n将对所有人都构成巨大的威胁。\n      为了以防万一，我们需要你们的帮助去摧毁这个设施。\n消灭所有敌人，破坏他们的研究设备，拯救所有被奴役的同胞，确保这些危险的东西\n不会落入邪恶的人手中。这将是一次艰难的任务，但对我们的共同事业至关重要。\n如果准备好了就出发吧！我们的部队也随时待命！ -->
-  <RKU_BioLabRaid_Offer.dialogueText>TODO</RKU_BioLabRaid_Offer.dialogueText>
+  <!-- EN:       同志们，情况不妙。根据我们从王国机密中获得的情报，我们发现了一个\n相当可怕的秘密！\n      王国重启了一个秘密的生化研究所！十几年前，由贵族映山红领头，\n这些设施里研发出来的病毒几乎摧毁了当时如日中天的革命军，直到一位特工诛杀了那名\n罪恶滔天的贵族，我们才有机会化整为零...我们劫持到了最近的王国资源动向，他们正\n在向这座设施里运输资源和人员，我们不知道他们在做什么。但可以预料到的是，这些东\n西一旦完成，将对所有人都构成巨大的威胁。\n      为了以防万一，我们需要你们的帮助去摧毁这个设施。\n消灭所有敌人，破坏他们的研究设备，拯救所有被奴役的同胞，确保这些危险的东西\n不会落入邪恶的人手中。这将是一次艰难的任务，但对我们的共同事业至关重要。\n如果准备好了就出发吧！我们的部队也随时待命！独立团第二营会带上火炮去支援你！ -->
+  <RKU_BioLabRaid_Offer.dialogueText>Comrades, we have grave news. Intelligence from Kingdom records reveals a 
+terrible secret! They have reactivated a secret bioweapon lab! Over a decade 
+ago, under the noble Azalea, viruses from this lab nearly destroyed our 
+striving revolution. We only survived because an agent killed that wicked 
+aristocrat... Now we intercept Kingdom resources moving to this facility. 
+We don't know their exact work, but if they succeed, it threatens us all. 
+We must destroy this facility. We need your help. Eliminate all resistance. 
+Dismantle their research. Free the enslaved. Secure the dangerous creations. 
+This mission will be hard but vital. Move out when preparations are complete! 
+Our forces are ready! The Second Battalion will provide artillery support!</RKU_BioLabRaid_Offer.dialogueText>
   
+  <!-- EN:       顶住！地下电台通讯网络正在响应你的求救信号，我们的援军在路上了！ -->
+  <RKU_EmergencyCallFir.dialogueText>Hold your ground! Underground Radio Communication Network is responding 
+  to your distress signal. Reinforcements are on the way!</RKU_EmergencyCallFir.dialogueText>
+
   <!-- EN:       感谢你们搭救了我的侦查小队，地上的朋友们。我们是一支\n致力于对抗贵族和军阀，解放贫民的地下游击队。这个加密频段未来将向你们开放。\n我们可以通过这个频段交易一些物资，或是进行更加深度的合作…\n如果我们能成为同志的话。\n（阵营关系限制为-25~25）\n -->
-  <RKU_FirstContact.dialogueText>TODO</RKU_FirstContact.dialogueText>
+  <RKU_FirstContact.dialogueText>Thank you for rescuing our scouts, surface friends. We are the Partisans, an 
+underground movement fighting aristocrats and warlords to free the poor. 
+This encrypted channel is now yours. We can trade vital supplies or work 
+together on larger missions, if we share the same goals as comrades.
+(Faction relationship restricted to -25 to 25)</RKU_FirstContact.dialogueText>
+  
+  <!-- EN:       同志们，我们的侦查队发现了一个被敌人占据的古代设施！这座设施似乎是\n一座古代的的军事建筑，里面可能藏有强大的科技和武器。根据我们的情报，设施内部\n被军阀势力占据，他们正在发掘和利用里面的古老科技。如果我们能夺取这座设施，\n不仅能获得珍贵的科技遗产，还能防止这些危险的技术落入军阀手中。敌人的装备十分\n精良，我们会派出使用原型武器的精英部队来协助你们作战！ -->
+  <RKU_ProvideSupport_AncientRaid.dialogueText>Comrades, our scouts found an ancient base held by enemies! 
+It is an old military structure with powerful tech and weapons inside. 
+Warlords are there, digging up the old tech. If we take it, we secure 
+this precious legacy and stop them from using it. The enemy is heavily 
+armed. We will send elite troops with prototype weapons to back you up!</RKU_ProvideSupport_AncientRaid.dialogueText>
+  
+  <!-- EN:       （嘈杂的信号音）发生了紧急情况！我们的地下钻机工厂正遭受王国军的猛\n烈攻击！这座工厂是我们唯一的一座钻机生产设施。如果工厂落入敌人手中，我们的抵\n抗运动将遭受重大打击！敌人已经突破了外围防线，正在向核心区域推进。希望你们能\n够立即赶往现场，协助我们的守卫部队击退来袭的敌人，保护重要的生产设备和工人们\n！军阀这次派出的部队太过于强大了，他们背后肯定有着王国，甚至是其他势力的支援\n，这次我们只能靠你们的帮助才能渡过难关了，但如果我们能够挫败他们的进攻...想\n必就能把这场该死的战争结束了！ -->
+  <RKU_ProvideSupport_FactoryDefense.dialogueText>(Noisy signal tones)Comrades, we have an emergency! 
+Our underground drill factory is under heavy attack by Royal Army! It 
+is our only production site. If we lose it, our Partisan movement will 
+collapse. The enemy broke through our outer defenses and is moving toward 
+the center. We need you to hurry there and help our troops defend it. 
+Save the machines and workers! These attackers are very strong, likely 
+backed by the Kingdom or others. We depend on your quick help to survive. 
+But if we stop them, we could end this war for good!</RKU_ProvideSupport_FactoryDefense.dialogueText>
+  
+  <!-- EN:       朋友们，我们发现了一个重要的目标！附近有一片被军阀控制的农场，\n他们在这里奴役平民为他们生产粮食。这里是军阀部队的后勤补给基地。农场里有完善的\n防御工事，包括哨塔和巡逻队。如果我们能夺取这片农场，不仅能切断军阀的粮食供应，\n还能为附近的平民提供食物保障。请帮我们的部队解放这里的老百姓！ -->
+  <RKU_ProvideSupport_FarmRaid.dialogueText>Comrades, we found an important target! A warlord-run farm is 
+nearby. They force civilians to grow food for them. It is a key supply 
+base for their forces. The farm has strong defenses with watchtowers 
+and patrols. If we take it, we cut the warlords' food supply. We also 
+get food for the local people. Help us free these people from their 
+oppression!</RKU_ProvideSupport_FarmRaid.dialogueText>
+  
+  <!-- EN:       王国卫花使向您与您的子民致意，亲爱的朋友。\n此次通讯，是为提醒您：一伙被王国通缉的叛乱者已潜入您的领地。\n这些害虫所到之处，良田荒芜，牧群失散，河海无获——\n他们以仇恨为食，散播贫瘠。作为繁花的后裔，\n我们无法坐视悲剧在您的土地上重演。\n      恳请您动用力量与智慧，清除这些尘埃中的蛀虫。\n王国认可您对这片土地的合法统治，并愿意为此提供一切可能必要的支持。 -->
+  <RKU_ProvideSupport_RoyalNegotiation.dialogueText>The Kingdom's Gardeners extend our most cordial 
+greetings to you and your people, dear friend. We dispatch this 
+communication to apprise you that a band of insurgents, proscribed 
+by the Kingdom, have infiltrated your domain. Where these vermin 
+traverse, fertile fields fall barren, herds scatter without trace, 
+and waters yield no sustenance. They subsist upon hatred itself, 
+propagating desolation in their wake. As the scions of the Flourishing 
+Blossom, we cannot remain passive whilst such tragedy threatens to 
+revisit itself upon your lands.</RKU_ProvideSupport_RoyalNegotiation.dialogueText>
+  
+  <!-- EN: 亲爱的繁花之友：\n      您上次所取得的伟大胜利已经传遍王国上下，无数领地曾遭到那帮恶棍迫害的\n繁花后裔和因祸乱流离失所的鼠族子民都为这个振奋人心的消息流下热泪！繁花们急切\n地想认识与结交您这样一位天生的指挥官与领主。那些曾经在王国会议上对您土地\n宣称的不当指摘也在受您感召的卫花使们的努力下逐渐消弭...言归正传，您为王国\n取得的战果令那帮无耻的恶棍吃痛，从而令他们针对王国策划了疯狂的报复行动：我\n们的线报指出，这帮无耻的恶棍将目标锁定在王国境内驻军薄弱的流民收容所与孤儿\n院等大量手无寸铁的平民聚集的场所，出动大量携带炸药的武装工兵，我们分析其意图\n大抵是制造大规模的恐怖事件...\n      我们的驻军哨所无法第一时间驰援，不得已，卫花使中一部分被那些平民命运\n深切牵动着的、心怀慈悲的繁花后裔，擅作主张，使用一些伪装信号的技术将他们的袭\n击引导到了您那无坚不摧的城墙之下...而今事情已成定局，我们已对擅自主张的卫花\n使作出责罚，希望您不要因此心生芥蒂；我们亦相信以您的才能，这些恶棍的拙劣阴谋\n不足为惧。此次事件过后，王国将对您作出合理的补偿，并再次对您的义举作出表彰与\n嘉奖。 -->
+  <RKU_ProvideSupport_RoyalNegotiationB.dialogueText>Dear Friend of the Flourishing Blossom:
+The grand victory you recently achieved has resounded throughout 
+the Kingdom. Countless scions of the Flourishing Blossom, who have 
+endured persecution at the hands of those villains, and the Ratkin subjects 
+displaced by the turmoil, have shed tears of joy at this heartening news. 
+The Flourishing Blossom are most eager to make the acquaintance and 
+friendship of such a natural commander and lord as yourself. Those 
+improper allegations regarding your land claims, once raised in the Kingdom's 
+councils, are gradually being dispelled through the efforts of the Gardeners 
+inspired by your example.
+To return to the matter at hand, the successes you have secured for the 
+Kingdom have caused those unscrupulous villains considerable distress, leading 
+them to devise a mad scheme of retaliation against the Kingdom. Our intelligence 
+indicates that these shameless villains have targeted locations within the 
+Kingdom where defences are sparse, such as refugee shelters and orphanages, 
+places where large numbers of unarmed civilians gather. They have deployed 
+numerous armed sappers carrying explosives, and we assess their intent is 
+likely to perpetrate large-scale acts of terror...
+Our garrison outposts were unable to provide immediate reinforcement. In this 
+exigency, a number of the Gardeners, those scions of the Flourishing Blossom 
+who are profoundly concerned for the fate of those civilians and act out of 
+compassion, took it upon themselves to employ certain signal deception 
+techniques to redirect the assault towards your impregnable walls.
+Now that the matter is settled, we have disciplined those Gardeners who 
+acted without authorisation, and we hope you will not harbour any resentment 
+on this account. We are also confident that, given your talents, these 
+villains' clumsy plots pose no serious threat.
+Following this incident, the Kingdom will provide you with appropriate 
+compensation, and once again extend recognition and rewards for your noble 
+actions.</RKU_ProvideSupport_RoyalNegotiationB.dialogueText>
+  
+  <!-- EN:       致王国的忠实盟友，我们的线报指出...那帮叛逆的指挥官，臭名\n昭著的”奶酪“齐格星卡将亲自率领那帮地底叛逆的大部分兵力进攻你的所在...那位线人\n最后传回的一份目击报告指出，这帮叛逆做好了持续的攻坚准备，有着充分的预备队与\n火炮支援，而且那名匪首亲率的那支精锐卫队...似乎有着装载机炮的战斗机械族以及\n一个用途不详的大型装置...\n      呼...请原谅我的失态，事到如今，相信您也从俘虏的那帮叛逆那里听闻了一些\n...不实的...流言？上次的事情...好吧，相信你也听够这些虚伪的掩饰与奉承了，即使\n不被王国利用，从一开始，你不就乐意成为那些所谓的”理想主义者“的眼中钉肉中刺了么\n？王国存续至今，即使再不堪，亦有着其可取之处：我们背后都有着一股超越性的力量，\n不是吗？所以，我相信你我都是一路人。听着，替王国，也是替电台背后的“你”自己，把\n这帮叛逆不合时宜的迷梦终结在你的城墙之下。王国的部队正在边境与那些该死的军阀\n对峙，所以不会对你有任何官方意义上的增援，听上去很绝望，但我相信对你这个战争天\n才来说没有任何问题。\n给我干掉那帮叛逆和那该死的齐格星卡！繁花周而复始的盛开靠的可不单是清晨的阳光雨\n露，还有夜晚的污泥与鲜血。但愿你我能共浴明天的阳光。 -->
+  <RKU_ProvideSupport_RoyalNegotiationC.dialogueText>To the Kingdom's steadfast ally, our intelligence 
+  indicates... that the commander of those rebels, the notorious "Cheese" 
+Zigstark, shall personally lead the greater part of the underground 
+insurgents in an assault upon your location. The final eyewitness report 
+from our informant suggests these rebels are prepared for a protracted 
+siege, possessing ample reserves and artillery support. Furthermore, the 
+elite guard accompanying that chieftain appears to include combat 
+Mechanoids mounted with autocannons, alongside a large apparatus of 
+undetermined purpose...
+Pray forgive my momentary discomposure. By now, you have doubtless heard 
+certain... unfounded... rumours from captured rebels regarding previous 
+incidents. Very well, I presume you have had your fill of hollow dissembling 
+and flattery. Even without being utilised by the Kingdom, were you not, 
+from the very beginning, quite content to become the bane of those 
+so-called idealists?
+The Kingdom, however flawed its present state, has endured for a reason. 
+We both serve forces that transcend mere mortal concerns, do we not? 
+Thus I perceive we are ultimately of similar disposition.
+Listen then. For the Kingdom, and for the "you" behind this transmission, 
+end these rebels' ill-conceived fantasy beneath your walls. The Kingdom's 
+forces are engaged along the border confronting those accursed warlords, 
+thus no official reinforcements shall be forthcoming. It may sound dire, 
+yet I harbour no doubts for a military prodigy of your calibre.
+Eliminate those insurgents and that wretched Zigstark! The perpetual 
+blooming of the Flourishing Blossom relies not solely upon morning's light 
+and dew, but equally upon the filth and blood of the night. May we both 
+bask in tomorrow's sunlight.</RKU_ProvideSupport_RoyalNegotiationC.dialogueText>
+  
+  <!-- EN:       朋友们，我们发现了一个重要的目标！附近的一支军阀部队在此驻扎了\n很久，他们携带了一些重型火炮，并且在附近部署了一座炮楼据点并以此为基础扫荡我们\n的人，这导致我们一直没有办法建立地上据点。他们的位置对我们双方都很危险，希望你\n们能够消灭这些匪徒，我们就可以把珍贵的人力腾出来用以在附近保护平民，建立地上生\n产设施了。 -->
+  <RKU_ProvideSupport_WarLord1.dialogueText>Friends, we've identified a key target! A warlord force 
+has been camped here for a long time. They have heavy artillery and 
+deployed a fortified Defense Tower outpost they use to harass our 
+personnel. This stops us from building surface bases. Their position 
+threatens us both. If you eliminate these bandits, we can free up our 
+limited manpower to protect civilians and build surface production 
+facilities."</RKU_ProvideSupport_WarLord1.dialogueText>
+  
+  <!-- EN:       很感谢你们上次的协助，我们这边的行动也取得了一些成果，游击队\n的行动得到了附近鼠族平民的欢迎，所以我们准备把军阀势力从附近清除出去！这支军阀\n部队的头目驻扎在附近的一座城堡里，如果能够把这座城堡夺取下来将会大大鼓舞这些支\n持我们的人，但我们不能让这些普通农民和矿工对抗变节骑士们。这次还要靠你们的帮助\n了！ -->
+  <RKU_ProvideSupport_WarLord2.dialogueText>Thank you for your help. Our Partisan work is going 
+well. The local Ratkin support us. We will remove all warlord influence 
+from this area. The warlord chief is in a nearby fortress. Capturing it 
+would inspire our people. But we cannot send farmers and miners to fight 
+knights. We need your help again for this mission.</RKU_ProvideSupport_WarLord2.dialogueText>
   
   <!-- EN:       很好，朋友们，看来我们可以进行一些更深层次的合作，我们派出去的\n钻地机小队分散在附近很大一片区域，他们发现过一些很不错的地方，可能\n有着各种各样的物资。但我们并没有足够的人手去探索这些地方，我们会把\n这些位置的坐标同步给你，找到的东西都归你们所有。\n      对了，有些小队可能会需要一些补给，或是有些东西可以和你们交换，\n这些坐标也会被同步给你们。\n（阵营关系限制改变为-25~75） -->
-  <RKU_Relation_Better.dialogueText>TODO</RKU_Relation_Better.dialogueText>
+  <RKU_Relation_Better.dialogueText>Good. Now we can work together more closely. Our drill 
+teams found promising sites with resources across the territory. We 
+don't have enough people to survey them. We are sending you the coordinates. 
+Keep whatever you find. Some teams may need supplies or have items to trade. 
+We will share these locations with you.
+(Faction relationship restricted to -25 to 75)</RKU_Relation_Better.dialogueText>
   
-  <!-- EN:       同志，你们用行动证明了什么是真正的盟友！\n在这片黑暗的地下世界，你们的光辉照亮了我们前进的道路。\n我们的钻头永远为你们而转动！无论面对贵族、军阀或是任何威胁，\n我们都将共同建立新的未来——一个属于所有被压迫者的自由世界！\n这份盟约将铭刻在我们的血脉中，直至最后一息！\n（阵营关系限制改变为100~100） -->
-  <RKU_Relation_Excellent.dialogueText>TODO</RKU_Relation_Excellent.dialogueText>
+  <!-- EN:       同志，你们用行动证明了什么是真正的盟友！\n在这片黑暗的地下世界，你们的光辉照亮了我们前进的道路。\n我们的钻头永远为你们而转动！无论面对贵族、军阀或是任何威胁，\n我们都将共同建立新的未来——一个属于所有被压迫者的自由世界！\n这份盟约将铭刻在我们的血脉中，直至最后一息！\n -->
+  <RKU_Relation_Excellent.dialogueText>Comrade, your actions show true alliance! Your light 
+guides us in the dark depths. Our drills will always serve you! We will 
+face any threat together. We will build a new future of freedom for all 
+oppressed people! This promise is in our blood, until our last breath!</RKU_Relation_Excellent.dialogueText>
   
   <!-- EN:       同志们，很高兴和你们联络。游击队的战士们\n非常希望能与你们并肩作战！如果遇到了什么敌人需要对付，可以直接从\n电台呼叫我们进行支援！周边的小队会优先处理你们的请求，而且我们的部队会随着你们的调动\n抵达附近的位置随时准备支援。\n你们到了哪里我们也会一起，需要打仗的时候就呼叫我们吧！\n（阵营关系限制改变为-25~100） -->
-  <RKU_Relation_Good.dialogueText>TODO</RKU_Relation_Good.dialogueText>
+  <RKU_Relation_Good.dialogueText>Comrades, it's great to be in touch with you! The Partisan 
+fighters are eager to fight alongside you! If you encounter any enemies 
+that need dealing with, you can directly call us for support via the 
+radio! Nearby squads will prioritize your requests, and our troops will 
+move with your deployments to arrive at nearby locations, always ready 
+to provide support. Wherever you go, we'll be together—just call us when 
+it's time to fight!
+(Faction relationship restricted to -25 to 100)</RKU_Relation_Good.dialogueText>
   
   <!-- EN:       看来我们之间的合作得到了一些回报，最好继续下去，我们还会给你们开放\n更多的合作机会...比如说一起研究一些在地下才能见到的，有意思的玩意？\n我们没有足够的人手和科技来实现这些材料的武器化，但想必你们基地里的\n天才们能找到这些东西的价值。\n  你们可以在研究的时候和我们的后勤人员交流，然后我们一起给贵族和军阀们\n准备一些"惊喜"...\n（阵营关系限制改变为-25~50） -->
-  <RKU_Relation_Improvement.dialogueText>TODO</RKU_Relation_Improvement.dialogueText>
+  <RKU_Relation_Improvement.dialogueText>Our partnership has yielded strong results. We should 
+continue our work together. We will share more opportunities with you... 
+Let us study the unique artifacts found underground. We lack the people 
+and labs to turn them into weapons, but your experts will see their value. 
+Our logistics team can share notes during your research. Together we will 
+prepare special "surprises" for the aristocrats and warlords...
+(Faction relationship restricted to -25 to 50)</RKU_Relation_Improvement.dialogueText>
   
   <!-- EN:       该死的军阀！没人性的畜生！等着被炸上天吧！我们会包围你们，\n把你们杀个片甲不留！ -->
-  <RKU_Relation_Warning_Critical.dialogueText>TODO</RKU_Relation_Warning_Critical.dialogueText>
+  <RKU_Relation_Warning_Critical.dialogueText>Execrable warlords! Soulless beasts! May you all 
+die in explosions! We will blast your positions to dust. Nothing of 
+your cursed enterprise will remain!</RKU_Relation_Warning_Critical.dialogueText>
   
-  <!-- EN:       我们好像有人栽在你手里了，别以为做这种事不会被发现！\n我们的人就在附近。接下来老实一点，我们还有得谈。 -->
-  <RKU_Relation_Warning_Light.dialogueText>TODO</RKU_Relation_Warning_Light.dialogueText>
+  <!-- EN:       我们好像有人栽在你手里了，别以为做这种事不会被发现！\n我们的人就在附近。接下来老实一点，我们还有得谈。\n（通过其他方式回升好感，或点击支援按钮联系王国军展开下一步事件） -->
+  <RKU_Relation_Warning_Light.dialogueText>You killed our people. We know! Our forces are nearby. 
+Stop provoking us. We may still talk. 
+(Faction relationship remains at -75. Regain goodwill through other means, 
+or click Support key to contact Royal Army for next event)</RKU_Relation_Warning_Light.dialogueText>
   
-  <!-- EN:       我警告过你们，但你们还是去把我们的村子毁了！\n他们只是平民而已，你们和那些地主军阀有什么区别？我们会反抗，这些血债必须被偿还！ -->
-  <RKU_Relation_Warning_Serious.dialogueText>TODO</RKU_Relation_Warning_Serious.dialogueText>
+  <!-- EN:       我警告过你们，但你们还是去把我们的村子毁了！\n他们只是平民而已，你们和那些地主军阀有什么区别？我们会反抗，这些血债必须被偿还！\n（注：敌对状态下杀死游击队成员不会减少派系关系，有害手术或其他行为可以） -->
+  <RKU_Relation_Warning_Serious.dialogueText>We warned you. Still you destroyed our villages! 
+They were civilians. How are you different from the warlords? We will 
+fight back. This blood debt will be paid!\n(Note: Faction relationship 
+is now fixed at -75. Killing Partisan members while hostile won't reduce 
+relationship. Harmful surgeries or other actions still can.)</RKU_Relation_Warning_Serious.dialogueText>
   
   <!-- EN:       感谢你们的协助！我们完成了一些突击武器蓝图的初步整理，\n现在我们将会把这些蓝图分享给你们的研究员，并且充实我们自己的武装。 -->
-  <RKU_ResearchReward_Assault.dialogueText>TODO</RKU_ResearchReward_Assault.dialogueText>
+  <RKU_ResearchReward_Assault.dialogueText>Thank you for your help! We have organized assault 
+weapon blueprints. We are sending the schematics to your researchers. 
+This will strengthen our combined forces.</RKU_ResearchReward_Assault.dialogueText>
   
   <!-- EN:       最新的地下实验武器的蓝图已经被同步到你们那边了，\n朋友们。我们刚刚完成了这些武器装备的可行性分析，但实际应用还得经过进一步的检验和测试。\n到时候就请你们来锻造第一批武器原型了。 -->
-  <RKU_ResearchReward_Experimental.dialogueText>TODO</RKU_ResearchReward_Experimental.dialogueText>
+  <RKU_ResearchReward_Experimental.dialogueText>We sent the blueprints for our new underground 
+weapons. We just finished initial tests on these new arms. They need 
+more rigorous trials before use. When ready, we will ask your workshops 
+to build the first prototypes.</RKU_ResearchReward_Experimental.dialogueText>
   
   <!-- EN:       很好，验证结果很不错，这些武器想必能在之后的战斗\n中大放光彩。制造这些原型武器的材料需要在地下寻找，\n而成品的威力会让你的所有敌人喝上一壶！实战测试也拜托你们那边了！ -->
-  <RKU_ResearchReward_Experimental2.dialogueText>TODO</RKU_ResearchReward_Experimental2.dialogueText>
+  <RKU_ResearchReward_Experimental2.dialogueText>Good results on the verification. These weapons 
+will be strong in combat. You must find the materials underground. The 
+finished prototypes will make our enemies pay! We trust your field testing. 
+Use them well!</RKU_ResearchReward_Experimental2.dialogueText>
   
   <!-- EN:       我们会把我们的装备制造方法与你们共享，虽然是些破烂货，\n但它们都是在长年的斗争中被检验过的好东西。 -->
-  <RKU_ResearchReward_Guerrilla.dialogueText>TODO</RKU_ResearchReward_Guerrilla.dialogueText>
+  <RKU_ResearchReward_Guerrilla.dialogueText>We will share our equipment making methods. These 
+are simple tools, but they have proven reliable in many battles.</RKU_ResearchReward_Guerrilla.dialogueText>
   
 </LanguageData>

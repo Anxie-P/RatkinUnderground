@@ -138,12 +138,12 @@
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
         <defaultProjectile>RKU_DestroyerMine</defaultProjectile>
-        <warmupTime>7</warmupTime>
-        <range>32</range>
+        <warmupTime>4.8</warmupTime>
+        <range>40</range>
         <soundCast>Bow_Large</soundCast>
         <burstShotCount>1</burstShotCount>
         <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
-        <minRange>0.9</minRange>
+        <minRange>5</minRange>
       </li>
     </verbs>
     <tools>
@@ -222,6 +222,22 @@
     <thingCategories>
       <li>BuildingsFurniture</li>
     </thingCategories>
+    <modExtensions>
+      <li Class="RatkinUnderground.RKU_DestroyerMineExtension">
+        <explosionDamageDef>Bomb</explosionDamageDef>
+        <explosionRadius>8</explosionRadius>
+        <explosionDamageAmount>6</explosionDamageAmount>
+        <explosionArmorPenetration>1</explosionArmorPenetration>
+        <pawnDamageDef>Bomb</pawnDamageDef>
+        <pawnDamageAmount>20</pawnDamageAmount>
+        <pawnArmorPenetration>0</pawnArmorPenetration>
+        <buildingDamageDef>Bomb</buildingDamageDef>
+        <buildingDamageAmount>100</buildingDamageAmount>
+        <buildingArmorPenetration>0</buildingArmorPenetration>
+        <chainExplosionRadius>15</chainExplosionRadius>
+        <effecterScale>2</effecterScale>
+      </li>
+    </modExtensions>
   </ThingDef>
 
   <!-- 游击冲锋枪 -->
@@ -395,7 +411,7 @@
   <!-- 奶酪步枪 -->
   <ThingDef ParentName="BaseHumanMakeableGun">
     <defName>RKU_SVT40M_Elite</defName>
-    <label>Verity</label>
+    <label>真理</label>
 	<recipeMaker IsNull="True"/>
 	<smeltable>false</smeltable>
 	<tradeability>None</tradeability>
@@ -471,7 +487,7 @@
   <!-- 游击队轻机枪 -->
   <ThingDef ParentName="BaseHumanMakeableGun">
     <defName>RKU_MG42_Gun</defName>
-    <label>Partisans machinegun</label>
+    <label>游击队轻机枪</label>
     <description>游击队员偶尔使用的通用机枪，在与军阀们的战斗中非常出色，这些武器有良好的射速和较慢的冷却时间。</description>
     <graphicData>
       <texPath>Things/Item/Weapons/RKU_MG42_Gun</texPath>
@@ -542,8 +558,8 @@
   <!-- 钢铁星机炮 -->
   <ThingDef ParentName="RK_IndustrialRangeWeapon">
     <defName>RKU_IronStarCannon</defName>
-    <label>Iron Star Cannon</label>
-    <description>A powerful machine gun was installed on the steel centipede mechanical body of the partisan troop</description>
+    <label>钢铁星机炮</label>
+    <description>一门强大的机炮，足以粉碎所有的护甲。</description>
     <graphicData>
       <texPath>Things/Item/Weapons/RKU_BigGun</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -594,7 +610,7 @@
   <!-- 原型反坦克步枪 -->
   <ThingDef ParentName="RK_IndustrialRangeWeapon">
     <defName>RKU_AntiTank</defName>
-    <label>Partisans anti-tank rifle</label>
+    <label>原型反坦克步枪</label>
     <description>特殊设计的强大原型反坦克枪！它不仅伤害力惊人，而且能大幅削弱敌方护甲。</description>
     <graphicData>
       <texPath>Things/Item/Weapons/RKU_LAHTI</texPath>
@@ -1082,6 +1098,81 @@
       </li>
     </tools>
   </ThingDef>
+  
+    <!-- 游击队霰弹枪 -->
+  <ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>RKU_Shotgun</defName>
+    <label>游击队霰弹枪</label>
+	<tickerType>Normal</tickerType>
+    <description>“帝王”霰弹枪，保持游击队一贯的快速射击作风的武器。</description>
+    <graphicData>
+      <texPath>Things/Item/Weapons/RKU_Shotgun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.5</drawSize>
+    </graphicData>
+    <soundInteract>Interact_Shotgun</soundInteract>
+    <statBases>
+      <WorkToMake>10000</WorkToMake>
+      <Mass>3.8</Mass>
+      <AccuracyTouch>0.85</AccuracyTouch>
+      <AccuracyShort>0.45</AccuracyShort>
+      <AccuracyMedium>0.25</AccuracyMedium>
+      <AccuracyLong>0.20</AccuracyLong>
+      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>100</Steel>
+      <WoodLog>25</WoodLog>
+      <ComponentIndustrial>8</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+	  <researchPrerequisite>RKU_UndergroundAssaultWeapons</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+      <displayPriority>150</displayPriority>
+    </recipeMaker>
+    <verbs>
+      <li>
+        <verbClass>RatkinUnderground.RKU_Verb_ShootAllAtOnce</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_RKU_RifleC</defaultProjectile>
+        <warmupTime>0.3</warmupTime>
+        <range>18</range>
+        <burstShotCount>12</burstShotCount>
+        <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+        <soundCast>Shot_Shotgun</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>18</muzzleFlashScale>
+      </li>
+    </verbs>
+    <weaponTags>
+      <li>RKU_Rifle</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedLight</li>
+      <li>LongShots</li>
+    </weaponClasses>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
 
   <!-- 粗制步枪 Bullet -->
   <ThingDef ParentName="BaseBullet">
@@ -1096,6 +1187,22 @@
       <damageAmountBase>14</damageAmountBase>
       <stoppingPower>1.2</stoppingPower>
       <speed>75</speed>
+    </projectile>
+  </ThingDef>
+  
+   <!-- 霰弹 Bullet -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_RKU_RifleC</defName>
+    <label>RKU Rifle C bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Blunt</damageDef>
+      <damageAmountBase>6</damageAmountBase>
+      <stoppingPower>1.2</stoppingPower>
+      <speed>200</speed>
     </projectile>
   </ThingDef>
 
