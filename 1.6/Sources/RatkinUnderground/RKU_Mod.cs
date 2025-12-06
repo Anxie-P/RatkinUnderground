@@ -26,6 +26,9 @@ namespace RatkinUnderground
             listing_Standard.CheckboxLabeled("RKU_ShowOnlyCurrentDialogueMessages".Translate(), ref settings.showOnlyCurrentDialogueMessages,
                 "RKU_ShowOnlyCurrentDialogueMessagesDesc".Translate());
             listing_Standard.Gap(5f);
+            listing_Standard.CheckboxLabeled("RKU_AllowRescueMechs".Translate(), ref settings.allowRescueMechs,
+                "RKU_AllowRescueMechsDesc".Translate());
+            listing_Standard.Gap(5f);
             listing_Standard.Label("RKU_RadioDialogueBehaviorDesc".Translate());
             listing_Standard.Gap(10f);
             listing_Standard.GapLine();

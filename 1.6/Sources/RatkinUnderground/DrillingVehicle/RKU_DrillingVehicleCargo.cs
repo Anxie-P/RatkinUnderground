@@ -28,6 +28,35 @@ namespace RatkinUnderground
             passengers = new ThingOwner<Pawn>(this);
         }
 
+        protected override void Tick()
+        {
+            base.Tick();
+
+            // 检查货物容器中是否有pawn，如果有则移除并提示玩家
+            var cargoContainer = GetCargoContainer();
+            if (cargoContainer != null && cargoContainer.Count > 0)
+            {
+                List<Pawn> pawnsToRemove = new List<Pawn>();
+                foreach (Thing thing in cargoContainer)
+                {
+                    if (thing is Pawn pawn && pawn != null)
+                    {
+                        pawnsToRemove.Add(pawn);
+                    }
+                }
+
+                foreach (Pawn pawn in pawnsToRemove)
+                {
+                    cargoContainer.Remove(pawn);
+                    if (Map != null && Position.IsValid)
+                    {
+                        GenSpawn.Spawn(pawn, Position, Map);
+                        Messages.Message("RKU_PawnInCargo".Translate(pawn.LabelShort), MessageTypeDefOf.CautionInput, false);
+                    }
+                }
+            }
+        }
+
         public ThingOwner GetDirectlyHeldThings()
         {
             // 返回乘客列表，pawn应该进入乘客列表而不是货物容器
@@ -76,8 +105,8 @@ namespace RatkinUnderground
             CompTransporter compTransporter = this.GetComp<CompTransporter>();
             yield return new Command_Action
             {
-                defaultLabel = "CommandLoadTransporter".Translate(),
-                defaultDesc = "CommandLoadTransporterDesc".Translate(),
+                defaultLabel = "RKU_UnloadItems".Translate(),
+                defaultDesc = "RKU_UnloadItemsDesc".Translate(),
                 icon = ContentFinder<Texture2D>.Get("UI/Commands/LoadTransporter"),
                 action = () =>
                 {
@@ -286,7 +315,7 @@ namespace RatkinUnderground
             {
                 transferables = new List<TransferableOneWay>();
                 AddItemsToTransferables();
-                itemsTransfer = new TransferableOneWayWidget(transferables.Where((TransferableOneWay x) => x.ThingDef.category != ThingCategory.Pawn), null, null, "FormCaravanColonyThingCountTip".Translate(), drawMass: true, IgnorePawnsInventoryMode.IgnoreIfAssignedToUnload, includePawnsMassInMassUsage: false, () => MassCapacity - MassUsage, 0f, ignoreSpawnedCorpseGearAndInventoryMass: false, vehicle.Map.Tile, drawMarketValue: true, drawEquippedWeapon: false, drawItemNutrition: true, drawForagedFoodPerDay: false, drawDaysUntilRot: true);
+                itemsTransfer = new TransferableOneWayWidget(transferables.Where((TransferableOneWay x) => x.ThingDef.category == ThingCategory.Item && x.ThingDef != ThingDef.Named("Corpse_Human")), null, null, "FormCaravanColonyThingCountTip".Translate(), drawMass: true, IgnorePawnsInventoryMode.IgnoreIfAssignedToUnload, includePawnsMassInMassUsage: false, () => MassCapacity - MassUsage, 0f, ignoreSpawnedCorpseGearAndInventoryMass: false, vehicle.Map.Tile, drawMarketValue: true, drawEquippedWeapon: false, drawItemNutrition: true, drawForagedFoodPerDay: false, drawDaysUntilRot: true);
                 CountToTransferChanged();
             }
 

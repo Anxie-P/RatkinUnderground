@@ -27,7 +27,7 @@ namespace RatkinUnderground
             this.FailOnDestroyedOrNull(PawnInd);
             this.FailOnDestroyedOrNull(VehicleInd);
             this.FailOnSomeonePhysicallyInteracting(PawnInd);
-            this.FailOn(() => PawnToRescue != null && !PawnToRescue.Downed);
+            this.FailOn(() => PawnToRescue != null && !PawnToRescue.Downed && !(PawnToRescue.IsColonyMech));
 
             // 前往倒地pawn
             yield return Toils_Goto.GotoThing(PawnInd, PathEndMode.ClosestTouch).FailOnSomeonePhysicallyInteracting(PawnInd);

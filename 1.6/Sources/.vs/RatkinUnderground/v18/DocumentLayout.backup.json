@@ -1,0 +1,1021 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|c:\\steam\\steamapps\\common\\rimworld\\mods\\250407\\1.6\\sources\\ratkinunderground\\patches\\equipmenttracker_patch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\patches\\equipmenttracker_patch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|c:\\steam\\steamapps\\common\\rimworld\\mods\\250407\\1.6\\sources\\ratkinunderground\\components\\rku_factioncomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\components\\rku_factioncomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\dialogue\\conditions\\dialogueconditions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\dialogue\\conditions\\dialogueconditions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\patches\\alienrace_bodyaddon_patch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\patches\\alienrace_bodyaddon_patch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\mapgenerator\\sitepartworker_ratkinbiolab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\mapgenerator\\sitepartworker_ratkinbiolab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|c:\\steam\\steamapps\\common\\rimworld\\mods\\250407\\1.6\\sources\\ratkinunderground\\quest\\questnode_rku_guerrillascoming.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\quest\\questnode_rku_guerrillascoming.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|c:\\steam\\steamapps\\common\\rimworld\\mods\\250407\\1.6\\sources\\ratkinunderground\\patches\\verb_casttargeteffectlances_patch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\patches\\verb_casttargeteffectlances_patch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\quest\\questnode_requirefactiongoodwill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\quest\\questnode_requirefactiongoodwill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\mapgenerator\\sitepartworker_ratkinfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\mapgenerator\\sitepartworker_ratkinfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\dialogue\\window_rkuradio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\dialogue\\window_rkuradio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\dialogue\\rku_choiceletter_cargodelivery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\dialogue\\rku_choiceletter_cargodelivery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\incidentworkers\\rku_incidentworker_buildmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\incidentworkers\\rku_incidentworker_buildmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\verbs\\rku_verb_shootallatonce.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\verbs\\rku_verb_shootallatonce.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\incidentworkers\\rku_incidentworker_guerrillas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\incidentworkers\\rku_incidentworker_guerrillas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\drillingvehicle\\rku_drillingvehiclewithturret.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\drillingvehicle\\rku_drillingvehiclewithturret.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\utils\\rku_debug.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\utils\\rku_debug.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\utils\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\utils\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\mapgenerator\\sitepartworker_ratkincastle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\mapgenerator\\sitepartworker_ratkincastle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\mapgenerator\\sitepartworker_ratkincompound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\mapgenerator\\sitepartworker_ratkincompound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\mapgenerator\\sitepartworker_ratkinfarm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\mapgenerator\\sitepartworker_ratkinfarm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\incidentworkers\\rku_incidentworker_confusedrat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\incidentworkers\\rku_incidentworker_confusedrat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\mapgenerator\\gensteps\\rku_genstep_underoutpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\mapgenerator\\gensteps\\rku_genstep_underoutpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\mapgenerator\\sitepartworker_ratkinancient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\mapgenerator\\sitepartworker_ratkinancient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\mapgenerator\\sitepartworker_guerrillasurvivor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\mapgenerator\\sitepartworker_guerrillasurvivor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\gameconditions\\rku_gamecondition_finalbattle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\gameconditions\\rku_gamecondition_finalbattle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\thingcomps\\compproperties_rku_backpackradio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\thingcomps\\compproperties_rku_backpackradio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\thingcomps\\compproperties_rku_burstfire.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\thingcomps\\compproperties_rku_burstfire.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\mapgenerator\\gensteps\\rku_genstep_plantsunderground.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\mapgenerator\\gensteps\\rku_genstep_plantsunderground.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\drillingvehicle\\rku_tunnelhivespawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\drillingvehicle\\rku_tunnelhivespawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\job\\jobdriver_rescueandenterdrillingvehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\job\\jobdriver_rescueandenterdrillingvehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\raidstrategyworker\\raidstrategyworker_hammerattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\raidstrategyworker\\raidstrategyworker_hammerattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\patches\\rku_drillingvehiclepatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\patches\\rku_drillingvehiclepatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\patches\\workgiver_haultotransporter_patch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\patches\\workgiver_haultotransporter_patch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\job\\jobdriver_loaddrillingcargo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\job\\jobdriver_loaddrillingcargo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\quest\\questnode_rku_recordonceevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\quest\\questnode_rku_recordonceevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\dialogue\\actions\\dialogueactions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\dialogue\\actions\\dialogueactions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\incidentworkers\\rku_incidentworker_finalraid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\incidentworkers\\rku_incidentworker_finalraid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\components\\rku_radiogamecomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\components\\rku_radiogamecomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\components\\rku_guerrillasleave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\components\\rku_guerrillasleave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\raidstrategyworker\\lordtoil_siegehammer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\raidstrategyworker\\lordtoil_siegehammer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\drillingvehicle\\rku_drilingbullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\drillingvehicle\\rku_drilingbullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\thingcomps\\compproperties_rku_radio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\thingcomps\\compproperties_rku_radio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\thingcomps\\compproperties_hatecap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\thingcomps\\compproperties_hatecap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\thingcomps\\compproperties_allurecap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\thingcomps\\compproperties_allurecap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\thingclass\\rku_plant_singularitycap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\thingclass\\rku_plant_singularitycap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\mapgenerator\\gensteps\\rku_genstep_relicaltar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\mapgenerator\\gensteps\\rku_genstep_relicaltar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\mapgenerator\\gensteps\\rku_genstep_lake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\mapgenerator\\gensteps\\rku_genstep_lake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\dialogue\\rku_dialoguemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\dialogue\\rku_dialoguemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\utils\\modextentions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\utils\\modextentions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\thingclass\\rku_destroyerminebuilding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\thingclass\\rku_destroyerminebuilding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\incidentworkers\\incidentworker_limitedfleshbeastattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\incidentworkers\\incidentworker_limitedfleshbeastattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\mapgenerator\\gensteps\\rku_genstep_fleshbeast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\mapgenerator\\gensteps\\rku_genstep_fleshbeast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\quest\\questpart_drillingvehicledeparture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\quest\\questpart_drillingvehicledeparture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\quest\\questpart_checkpawnsentered.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\quest\\questpart_checkpawnsentered.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\dialogue\\rku_dialogueeventdef.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\dialogue\\rku_dialogueeventdef.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\quest\\questpart_checkguerrillas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\quest\\questpart_checkguerrillas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\quest\\questnode_survivorrescued.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\quest\\questnode_survivorrescued.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\patches\\factiongoodwill_patch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\patches\\factiongoodwill_patch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\rku_mod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\rku_mod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\ratkinunderground\\quest\\questpart_rku_recordonceevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A50F5BE-2005-448D-96F2-1E6F35C226CE}|RatkinUnderground\\RatkinUnderground.csproj|solutionrelative:ratkinunderground\\quest\\questpart_rku_recordonceevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Utils\\RKU_CustomTargeter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:RatkinUnderground\\Utils\\RKU_CustomTargeter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "QuestNode_RequireFactionGoodwill.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Quest\\QuestNode_RequireFactionGoodwill.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Quest\\QuestNode_RequireFactionGoodwill.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Quest\\QuestNode_RequireFactionGoodwill.cs",
+              "RelativeToolTip": "RatkinUnderground\\Quest\\QuestNode_RequireFactionGoodwill.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAWwD4AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.178Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "QuestNode_RKU_RecordOnceEvent.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Quest\\QuestNode_RKU_RecordOnceEvent.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Quest\\QuestNode_RKU_RecordOnceEvent.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Quest\\QuestNode_RKU_RecordOnceEvent.cs",
+              "RelativeToolTip": "RatkinUnderground\\Quest\\QuestNode_RKU_RecordOnceEvent.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAApwCMAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.178Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EquipmentTracker_Patch.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Patches\\EquipmentTracker_Patch.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Patches\\EquipmentTracker_Patch.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Patches\\EquipmentTracker_Patch.cs",
+              "RelativeToolTip": "RatkinUnderground\\Patches\\EquipmentTracker_Patch.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-06T06:56:49.694Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RKU_FactionComponent.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Components\\RKU_FactionComponent.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Components\\RKU_FactionComponent.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Components\\RKU_FactionComponent.cs",
+              "RelativeToolTip": "RatkinUnderground\\Components\\RKU_FactionComponent.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAAAFEAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-06T06:44:54.607Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SitePartWorker_RatkinBioLab.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinBioLab.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinBioLab.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinBioLab.cs",
+              "RelativeToolTip": "RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinBioLab.cs",
+              "ViewState": "AgIAACgBAAAAAAAAAAAhwD8BAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T13:50:20.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AlienRace_BodyAddon_Patch.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Patches\\AlienRace_BodyAddon_Patch.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Patches\\AlienRace_BodyAddon_Patch.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Patches\\AlienRace_BodyAddon_Patch.cs",
+              "RelativeToolTip": "RatkinUnderground\\Patches\\AlienRace_BodyAddon_Patch.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAowCMAAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.204Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DialogueConditions.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Dialogue\\Conditions\\DialogueConditions.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Dialogue\\Conditions\\DialogueConditions.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Dialogue\\Conditions\\DialogueConditions.cs",
+              "RelativeToolTip": "RatkinUnderground\\Dialogue\\Conditions\\DialogueConditions.cs",
+              "ViewState": "AgIAAN0AAAAAAAAAAAAewPMAAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.204Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "QuestNode_RKU_GuerrillasComing.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Quest\\QuestNode_RKU_GuerrillasComing.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Quest\\QuestNode_RKU_GuerrillasComing.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Quest\\QuestNode_RKU_GuerrillasComing.cs",
+              "RelativeToolTip": "RatkinUnderground\\Quest\\QuestNode_RKU_GuerrillasComing.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-06T06:39:26.012Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Verb_CastTargetEffectLances_Patch.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Patches\\Verb_CastTargetEffectLances_Patch.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Patches\\Verb_CastTargetEffectLances_Patch.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Patches\\Verb_CastTargetEffectLances_Patch.cs",
+              "RelativeToolTip": "RatkinUnderground\\Patches\\Verb_CastTargetEffectLances_Patch.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T14:05:10.11Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SitePartWorker_RatkinFactory.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinFactory.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinFactory.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinFactory.cs",
+              "RelativeToolTip": "RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinFactory.cs",
+              "ViewState": "AgIAAIkCAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T13:44:27.266Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Window_RKURadio.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Dialogue\\Window_RKURadio.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Dialogue\\Window_RKURadio.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Dialogue\\Window_RKURadio.cs",
+              "RelativeToolTip": "RatkinUnderground\\Dialogue\\Window_RKURadio.cs",
+              "ViewState": "AgIAAF4EAAAAAAAAAADwv4sEAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.182Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "RKU_IncidentWorker_BuildMap.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\IncidentWorkers\\RKU_IncidentWorker_BuildMap.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\IncidentWorkers\\RKU_IncidentWorker_BuildMap.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\IncidentWorkers\\RKU_IncidentWorker_BuildMap.cs",
+              "RelativeToolTip": "RatkinUnderground\\IncidentWorkers\\RKU_IncidentWorker_BuildMap.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAADgvywAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T13:37:14.865Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "RKU_ChoiceLetter_CargoDelivery.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Dialogue\\RKU_ChoiceLetter_CargoDelivery.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Dialogue\\RKU_ChoiceLetter_CargoDelivery.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Dialogue\\RKU_ChoiceLetter_CargoDelivery.cs",
+              "RelativeToolTip": "RatkinUnderground\\Dialogue\\RKU_ChoiceLetter_CargoDelivery.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAADwvx0AAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T13:20:10.206Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "RKU_Verb_ShootAllAtOnce.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Verbs\\RKU_Verb_ShootAllAtOnce.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Verbs\\RKU_Verb_ShootAllAtOnce.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Verbs\\RKU_Verb_ShootAllAtOnce.cs",
+              "RelativeToolTip": "RatkinUnderground\\Verbs\\RKU_Verb_ShootAllAtOnce.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxsAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T13:16:08.848Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "RKU_CustomTargeter.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Utils\\RKU_CustomTargeter.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Utils\\RKU_CustomTargeter.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Utils\\RKU_CustomTargeter.cs",
+              "RelativeToolTip": "RatkinUnderground\\Utils\\RKU_CustomTargeter.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAewAwAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T13:15:56.003Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "RKU_IncidentWorker_Guerrillas.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\IncidentWorkers\\RKU_IncidentWorker_Guerrillas.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\IncidentWorkers\\RKU_IncidentWorker_Guerrillas.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\IncidentWorkers\\RKU_IncidentWorker_Guerrillas.cs",
+              "RelativeToolTip": "RatkinUnderground\\IncidentWorkers\\RKU_IncidentWorker_Guerrillas.cs",
+              "ViewState": "AgIAAIUAAAAAAAAAAADgv5oAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.186Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "RKU_DrillingVehicleWithTurret.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\DrillingVehicle\\RKU_DrillingVehicleWithTurret.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\DrillingVehicle\\RKU_DrillingVehicleWithTurret.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\DrillingVehicle\\RKU_DrillingVehicleWithTurret.cs",
+              "RelativeToolTip": "RatkinUnderground\\DrillingVehicle\\RKU_DrillingVehicleWithTurret.cs",
+              "ViewState": "AgIAAAIBAAAAAAAAAADgvxkBAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.188Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "RKU_Debug.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Utils\\RKU_Debug.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Utils\\RKU_Debug.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Utils\\RKU_Debug.cs",
+              "RelativeToolTip": "RatkinUnderground\\Utils\\RKU_Debug.cs",
+              "ViewState": "AgIAACwBAAAAAAAAAAAkwEQBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.196Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Utils.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Utils\\Utils.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Utils\\Utils.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Utils\\Utils.cs",
+              "RelativeToolTip": "RatkinUnderground\\Utils\\Utils.cs",
+              "ViewState": "AgIAAHgCAAAAAAAAAAAawJYCAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.197Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "SitePartWorker_RatkinCompound.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinCompound.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinCompound.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinCompound.cs",
+              "RelativeToolTip": "RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinCompound.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAuwGEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.197Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "SitePartWorker_RatkinCastle.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinCastle.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinCastle.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinCastle.cs",
+              "RelativeToolTip": "RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinCastle.cs",
+              "ViewState": "AgIAAJQAAAAAAAAAAAAQwLAAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.198Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "SitePartWorker_RatkinFarm.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinFarm.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinFarm.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinFarm.cs",
+              "RelativeToolTip": "RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinFarm.cs",
+              "ViewState": "AgIAAMwAAAAAAAAAAAAYwOIAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.198Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "RKU_IncidentWorker_ConfusedRat.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\IncidentWorkers\\RKU_IncidentWorker_ConfusedRat.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\IncidentWorkers\\RKU_IncidentWorker_ConfusedRat.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\IncidentWorkers\\RKU_IncidentWorker_ConfusedRat.cs",
+              "RelativeToolTip": "RatkinUnderground\\IncidentWorkers\\RKU_IncidentWorker_ConfusedRat.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAQwFIAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.199Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "RKU_GenStep_UnderOutpost.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_UnderOutpost.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_UnderOutpost.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_UnderOutpost.cs",
+              "RelativeToolTip": "RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_UnderOutpost.cs",
+              "ViewState": "AgIAAGwBAAAAAAAAAAAawH8BAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.199Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "SitePartWorker_RatkinAncient.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinAncient.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinAncient.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinAncient.cs",
+              "RelativeToolTip": "RatkinUnderground\\MapGenerator\\SitePartWorker_RatkinAncient.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.2Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "SitePartWorker_GuerrillaSurvivor.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\MapGenerator\\SitePartWorker_GuerrillaSurvivor.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\MapGenerator\\SitePartWorker_GuerrillaSurvivor.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\MapGenerator\\SitePartWorker_GuerrillaSurvivor.cs",
+              "RelativeToolTip": "RatkinUnderground\\MapGenerator\\SitePartWorker_GuerrillaSurvivor.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAABkAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.201Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "RKU_GameCondition_FinalBattle.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\GameConditions\\RKU_GameCondition_FinalBattle.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\GameConditions\\RKU_GameCondition_FinalBattle.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\GameConditions\\RKU_GameCondition_FinalBattle.cs",
+              "RelativeToolTip": "RatkinUnderground\\GameConditions\\RKU_GameCondition_FinalBattle.cs",
+              "ViewState": "AgIAAAUBAAAAAAAAAADgvxMBAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.201Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "CompProperties_RKU_BackpackRadio.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\ThingComps\\CompProperties_RKU_BackpackRadio.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\ThingComps\\CompProperties_RKU_BackpackRadio.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\ThingComps\\CompProperties_RKU_BackpackRadio.cs",
+              "RelativeToolTip": "RatkinUnderground\\ThingComps\\CompProperties_RKU_BackpackRadio.cs",
+              "ViewState": "AgIAAIkAAAAAAAAAAAAhwKQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.201Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "CompProperties_RKU_BurstFire.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\ThingComps\\CompProperties_RKU_BurstFire.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\ThingComps\\CompProperties_RKU_BurstFire.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\ThingComps\\CompProperties_RKU_BurstFire.cs",
+              "RelativeToolTip": "RatkinUnderground\\ThingComps\\CompProperties_RKU_BurstFire.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.202Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "RKU_GenStep_PlantsUnderground.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_PlantsUnderground.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_PlantsUnderground.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_PlantsUnderground.cs",
+              "RelativeToolTip": "RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_PlantsUnderground.cs",
+              "ViewState": "AgIAAHMAAAAAAAAAAAAiwI4AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.202Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "RKU_TunnelHiveSpawner.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\DrillingVehicle\\RKU_TunnelHiveSpawner.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\DrillingVehicle\\RKU_TunnelHiveSpawner.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\DrillingVehicle\\RKU_TunnelHiveSpawner.cs",
+              "RelativeToolTip": "RatkinUnderground\\DrillingVehicle\\RKU_TunnelHiveSpawner.cs",
+              "ViewState": "AgIAAIYAAAAAAAAAAADgv50AAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "JobDriver_RescueAndEnterDrillingVehicle.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Job\\JobDriver_RescueAndEnterDrillingVehicle.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Job\\JobDriver_RescueAndEnterDrillingVehicle.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Job\\JobDriver_RescueAndEnterDrillingVehicle.cs",
+              "RelativeToolTip": "RatkinUnderground\\Job\\JobDriver_RescueAndEnterDrillingVehicle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.205Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "RaidStrategyWorker_HammerAttack.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\RaidStrategyWorker\\RaidStrategyWorker_HammerAttack.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\RaidStrategyWorker\\RaidStrategyWorker_HammerAttack.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\RaidStrategyWorker\\RaidStrategyWorker_HammerAttack.cs",
+              "RelativeToolTip": "RatkinUnderground\\RaidStrategyWorker\\RaidStrategyWorker_HammerAttack.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAAwEkAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.205Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "RKU_DrillingVehiclePatch.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Patches\\RKU_DrillingVehiclePatch.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Patches\\RKU_DrillingVehiclePatch.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Patches\\RKU_DrillingVehiclePatch.cs",
+              "RelativeToolTip": "RatkinUnderground\\Patches\\RKU_DrillingVehiclePatch.cs",
+              "ViewState": "AgIAAAwBAAAAAAAAAAAhwCMBAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.206Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "WorkGiver_HaulToTransporter_Patch.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Patches\\WorkGiver_HaulToTransporter_Patch.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Patches\\WorkGiver_HaulToTransporter_Patch.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Patches\\WorkGiver_HaulToTransporter_Patch.cs",
+              "RelativeToolTip": "RatkinUnderground\\Patches\\WorkGiver_HaulToTransporter_Patch.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAApwCIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.207Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "JobDriver_LoadDrillingCargo.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Job\\JobDriver_LoadDrillingCargo.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Job\\JobDriver_LoadDrillingCargo.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Job\\JobDriver_LoadDrillingCargo.cs",
+              "RelativeToolTip": "RatkinUnderground\\Job\\JobDriver_LoadDrillingCargo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.207Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "RKU_IncidentWorker_FinalRaid.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\IncidentWorkers\\RKU_IncidentWorker_FinalRaid.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\IncidentWorkers\\RKU_IncidentWorker_FinalRaid.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\IncidentWorkers\\RKU_IncidentWorker_FinalRaid.cs",
+              "RelativeToolTip": "RatkinUnderground\\IncidentWorkers\\RKU_IncidentWorker_FinalRaid.cs",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAAAHoAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.208Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "DialogueActions.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Dialogue\\Actions\\DialogueActions.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Dialogue\\Actions\\DialogueActions.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Dialogue\\Actions\\DialogueActions.cs",
+              "RelativeToolTip": "RatkinUnderground\\Dialogue\\Actions\\DialogueActions.cs",
+              "ViewState": "AgIAAO8AAAAAAAAAAAASwPkAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.208Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "RKU_RadioGameComponent.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Components\\RKU_RadioGameComponent.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Components\\RKU_RadioGameComponent.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Components\\RKU_RadioGameComponent.cs",
+              "RelativeToolTip": "RatkinUnderground\\Components\\RKU_RadioGameComponent.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAADwvy8AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.209Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "RKU_GuerrillasLeave.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Components\\RKU_GuerrillasLeave.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Components\\RKU_GuerrillasLeave.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Components\\RKU_GuerrillasLeave.cs",
+              "RelativeToolTip": "RatkinUnderground\\Components\\RKU_GuerrillasLeave.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.209Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "LordToil_SiegeHammer.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\RaidStrategyWorker\\LordToil_SiegeHammer.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\RaidStrategyWorker\\LordToil_SiegeHammer.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\RaidStrategyWorker\\LordToil_SiegeHammer.cs",
+              "RelativeToolTip": "RatkinUnderground\\RaidStrategyWorker\\LordToil_SiegeHammer.cs",
+              "ViewState": "AgIAALUAAAAAAAAAAAAAALUAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.21Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "RKU_DrilingBullet.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\DrillingVehicle\\RKU_DrilingBullet.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\DrillingVehicle\\RKU_DrilingBullet.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\DrillingVehicle\\RKU_DrilingBullet.cs",
+              "RelativeToolTip": "RatkinUnderground\\DrillingVehicle\\RKU_DrilingBullet.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAgwHUAAABcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.21Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "CompProperties_RKU_Radio.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\ThingComps\\CompProperties_RKU_Radio.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\ThingComps\\CompProperties_RKU_Radio.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\ThingComps\\CompProperties_RKU_Radio.cs",
+              "RelativeToolTip": "RatkinUnderground\\ThingComps\\CompProperties_RKU_Radio.cs",
+              "ViewState": "AgIAAOMAAAAAAAAAAAAtwO4AAABbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.211Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "CompProperties_Hatecap.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\ThingComps\\CompProperties_Hatecap.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\ThingComps\\CompProperties_Hatecap.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\ThingComps\\CompProperties_Hatecap.cs",
+              "RelativeToolTip": "RatkinUnderground\\ThingComps\\CompProperties_Hatecap.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACAAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.211Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "CompProperties_Allurecap.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\ThingComps\\CompProperties_Allurecap.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\ThingComps\\CompProperties_Allurecap.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\ThingComps\\CompProperties_Allurecap.cs",
+              "RelativeToolTip": "RatkinUnderground\\ThingComps\\CompProperties_Allurecap.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.212Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "RKU_GenStep_RelicAltar.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_RelicAltar.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_RelicAltar.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_RelicAltar.cs",
+              "RelativeToolTip": "RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_RelicAltar.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.212Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "RKU_Plant_Singularitycap.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\ThingClass\\RKU_Plant_Singularitycap.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\ThingClass\\RKU_Plant_Singularitycap.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\ThingClass\\RKU_Plant_Singularitycap.cs",
+              "RelativeToolTip": "RatkinUnderground\\ThingClass\\RKU_Plant_Singularitycap.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAADgv4QAAACZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.213Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "RKU_GenStep_Lake.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_Lake.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_Lake.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_Lake.cs",
+              "RelativeToolTip": "RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_Lake.cs",
+              "ViewState": "AgIAAOIAAAAAAAAAAADgv+sAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.213Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "RKU_DialogueManager.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Dialogue\\RKU_DialogueManager.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Dialogue\\RKU_DialogueManager.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Dialogue\\RKU_DialogueManager.cs",
+              "RelativeToolTip": "RatkinUnderground\\Dialogue\\RKU_DialogueManager.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAADgvy0AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.214Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "ModExtentions.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Utils\\ModExtentions.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Utils\\ModExtentions.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Utils\\ModExtentions.cs",
+              "RelativeToolTip": "RatkinUnderground\\Utils\\ModExtentions.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAswEsAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.215Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "RKU_DestroyerMineBuilding.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\ThingClass\\RKU_DestroyerMineBuilding.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\ThingClass\\RKU_DestroyerMineBuilding.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\ThingClass\\RKU_DestroyerMineBuilding.cs",
+              "RelativeToolTip": "RatkinUnderground\\ThingClass\\RKU_DestroyerMineBuilding.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAADgvyUAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.215Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "IncidentWorker_LimitedFleshbeastAttack.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\IncidentWorkers\\IncidentWorker_LimitedFleshbeastAttack.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\IncidentWorkers\\IncidentWorker_LimitedFleshbeastAttack.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\IncidentWorkers\\IncidentWorker_LimitedFleshbeastAttack.cs",
+              "RelativeToolTip": "RatkinUnderground\\IncidentWorkers\\IncidentWorker_LimitedFleshbeastAttack.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAtwCQAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.216Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "RKU_GenStep_FleshBeast.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_FleshBeast.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_FleshBeast.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_FleshBeast.cs",
+              "RelativeToolTip": "RatkinUnderground\\MapGenerator\\GenSteps\\RKU_GenStep_FleshBeast.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAADgv2YAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.217Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "QuestPart_DrillingVehicleDeparture.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Quest\\QuestPart_DrillingVehicleDeparture.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Quest\\QuestPart_DrillingVehicleDeparture.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Quest\\QuestPart_DrillingVehicleDeparture.cs",
+              "RelativeToolTip": "RatkinUnderground\\Quest\\QuestPart_DrillingVehicleDeparture.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAQwEoAAAB8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.218Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "QuestPart_CheckPawnsEntered.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Quest\\QuestPart_CheckPawnsEntered.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Quest\\QuestPart_CheckPawnsEntered.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Quest\\QuestPart_CheckPawnsEntered.cs",
+              "RelativeToolTip": "RatkinUnderground\\Quest\\QuestPart_CheckPawnsEntered.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAIwDoAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.218Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "RKU_DialogueEventDef.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Dialogue\\RKU_DialogueEventDef.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Dialogue\\RKU_DialogueEventDef.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Dialogue\\RKU_DialogueEventDef.cs",
+              "RelativeToolTip": "RatkinUnderground\\Dialogue\\RKU_DialogueEventDef.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.219Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "QuestPart_CheckGuerrillas.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Quest\\QuestPart_CheckGuerrillas.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Quest\\QuestPart_CheckGuerrillas.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Quest\\QuestPart_CheckGuerrillas.cs",
+              "RelativeToolTip": "RatkinUnderground\\Quest\\QuestPart_CheckGuerrillas.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.22Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "QuestNode_SurvivorRescued.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Quest\\QuestNode_SurvivorRescued.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Quest\\QuestNode_SurvivorRescued.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Quest\\QuestNode_SurvivorRescued.cs",
+              "RelativeToolTip": "RatkinUnderground\\Quest\\QuestNode_SurvivorRescued.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwBQAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.221Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "FactionGoodwill_Patch.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Patches\\FactionGoodwill_Patch.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Patches\\FactionGoodwill_Patch.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Patches\\FactionGoodwill_Patch.cs",
+              "RelativeToolTip": "RatkinUnderground\\Patches\\FactionGoodwill_Patch.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.221Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "RKU_Mod.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\RKU_Mod.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\RKU_Mod.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\RKU_Mod.cs",
+              "RelativeToolTip": "RatkinUnderground\\RKU_Mod.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAvwDUAAABhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.222Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "QuestPart_RKU_RecordOnceEvent.cs",
+              "DocumentMoniker": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Quest\\QuestPart_RKU_RecordOnceEvent.cs",
+              "RelativeDocumentMoniker": "RatkinUnderground\\Quest\\QuestPart_RKU_RecordOnceEvent.cs",
+              "ToolTip": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\250407\\1.6\\Sources\\RatkinUnderground\\Quest\\QuestPart_RKU_RecordOnceEvent.cs",
+              "RelativeToolTip": "RatkinUnderground\\Quest\\QuestPart_RKU_RecordOnceEvent.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAxwBQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:59:42.223Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

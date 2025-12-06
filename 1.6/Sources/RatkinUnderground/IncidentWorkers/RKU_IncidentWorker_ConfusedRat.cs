@@ -64,7 +64,6 @@ namespace RatkinUnderground
                 ratkinKind,
                 null,
                 PawnGenerationContext.NonPlayer,
-                fixedGender: Gender.Male,
                 fixedBiologicalAge: Rand.Range(15, 25),
                 fixedChronologicalAge: Rand.Range(15, 25)
             );

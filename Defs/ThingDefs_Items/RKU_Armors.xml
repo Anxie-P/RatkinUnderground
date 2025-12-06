@@ -78,7 +78,7 @@
       <MoveSpeed>+0.5</MoveSpeed>
       <FilthRate>-0.8</FilthRate>
       <MeleeDodgeChance>0.2</MeleeDodgeChance>
-      <PainShockThreshold>-0.2</PainShockThreshold>
+      <PainShockThreshold>0.2</PainShockThreshold>
       <CarryingCapacity>12</CarryingCapacity>
     </equippedStatOffsets>
     <apparel>
@@ -147,7 +147,7 @@
       <MoveSpeed>+0.4</MoveSpeed>
       <FilthRate>-0.8</FilthRate>
       <MeleeDodgeChance>0.3</MeleeDodgeChance>
-      <PainShockThreshold>-0.2</PainShockThreshold>
+      <PainShockThreshold>0.2</PainShockThreshold>
       <CarryingCapacity>24</CarryingCapacity>
       <Flammability>-0.4</Flammability>
     </equippedStatOffsets>
@@ -213,7 +213,7 @@
     </statBases>
     <equippedStatOffsets>
       <FilthRate>-0.8</FilthRate>
-      <PainShockThreshold>-0.1</PainShockThreshold>
+      <PainShockThreshold>0.1</PainShockThreshold>
       <CarryingCapacity>17</CarryingCapacity>
     </equippedStatOffsets>
     <apparel>
@@ -349,9 +349,8 @@
     <equippedStatOffsets>
       <FilthRate>-0.8</FilthRate>
       <MeleeDodgeChance>0.3</MeleeDodgeChance>
-      <PainShockThreshold>-0.3</PainShockThreshold>
+      <PainShockThreshold>0.3</PainShockThreshold>
       <CarryingCapacity>17</CarryingCapacity>
-	  <StudyEfficiency>0.2</StudyEfficiency>
     </equippedStatOffsets>
     <apparel>
       <bodyPartGroups>
@@ -434,7 +433,7 @@
       <MaxHitPoints>800</MaxHitPoints>
       <WorkToMake>1000</WorkToMake>
       <Mass>3</Mass>
-      <StuffEffectMultiplierArmor>0.7</StuffEffectMultiplierArmor>
+      <StuffEffectMultiplierArmor>0.4</StuffEffectMultiplierArmor>
       <StuffEffectMultiplierInsulation_Cold>2</StuffEffectMultiplierInsulation_Cold>
       <StuffEffectMultiplierInsulation_Heat>1.45</StuffEffectMultiplierInsulation_Heat>
       <ArmorRating_Sharp>0.70</ArmorRating_Sharp>

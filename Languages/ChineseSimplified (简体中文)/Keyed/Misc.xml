@@ -25,7 +25,7 @@
   <RKU_QuestFailedText>被发现后，土匪营地已经解散。[resolvedQuestName]任务已结束。</RKU_QuestFailedText>
   <!-- EN: Payment arrived -->
   <!-- EN: Payment arrived -->
-  <RKU_QuestCompletedLabel>付款已到</RKU_QuestCompletedLabel>
+  <RKU_QuestCompletedLabel>奖励已送达</RKU_QuestCompletedLabel>
   <!-- EN: You have defeated the bandit camp!\n\nThe reward from the kingdom has arrived. -->
   <!-- EN: You have defeated the bandit camp!\n\nThe reward from the kingdom has arrived.  -->
   <RKU_QuestCompletedText>你已经击败了土匪营地！\n\n来自王国的嘉奖已经到达。</RKU_QuestCompletedText>
@@ -114,7 +114,7 @@
   <RKU.EnterVehicle>进入载具</RKU.EnterVehicle>
   <!-- EN: Rescue {0} and enter vehicle -->
   <!-- EN: Rescue {0} and enter vehicle -->
-  <RKU.RescueAndEnterVehicle>救援{0}并进入载具</RKU.RescueAndEnterVehicle>
+  <RKU.RescueAndEnterVehicle>携带{0}并进入载具</RKU.RescueAndEnterVehicle>
   <!-- EN: Move -->
   <!-- EN: Move -->
   <RKU.Move>移动</RKU.Move>
@@ -158,6 +158,8 @@
   <!-- EN: Your ordered goods have arrived -->
   <!-- EN: Choose a position to deliver your goods. -->
   <RKU_OrderedGoodsArrived>选择位置以递送货舱</RKU_OrderedGoodsArrived>
+  <!-- EN: Stop your resistance... -->
+  <RKU_CannotTargetKnightCommander>停止你的抵抗吧...</RKU_CannotTargetKnightCommander>
   <!-- EN: Yunnan Hallucination -->
   <!-- EN: Yunnan Illusion -->
   <RKU_YunnanHallucination>芸南幻觉</RKU_YunnanHallucination>
@@ -283,7 +285,7 @@
   <RKU_SignalReceived>已收到信号，我们正在备货！</RKU_SignalReceived>
   <!-- EN: Trade signal sent, waiting for underground caravan... -->
   <!-- EN: Trade signal sent, waiting for underground caravan... -->
-  <RKU_TradeSignalSent>交易信号已发送，等待地下运输队到达...</RKU_TradeSignalSent>
+  <RKU_TradeSignalSent>交易信号已发送，等待地下运输队到达...（请等待计时结束后再次点击交易按钮）</RKU_TradeSignalSent>
   <!-- EN: Check out what we've prepared! -->
   <!-- EN: Check out what we've prepared! -->
   <RKU_CheckOurGoods>来看看我们准备了什么好东西！</RKU_CheckOurGoods>
@@ -422,7 +424,7 @@
   <RKU_EnemyRaid>敌方袭击</RKU_EnemyRaid>
   <!-- EN: {0} is launching a raid on the factory!\nRaid Points: {1}\nTotal Enemy Deaths: {2}/800 -->
   <!-- EN: {0} is launching a raid on the factory!\nRaid Points: {1}\nTotal Enemy Deaths: {2}/800 -->
-  <RKU_EnemyRaidDesc>{0}正在对工厂发起袭击！\n袭击点数: {1}\n累计敌方死亡人数: {2}/800</RKU_EnemyRaidDesc>
+  <RKU_EnemyRaidDesc>{0}正在对工厂发起袭击！\n袭击点数: {1}\n累计敌方死亡人数: {2}/600</RKU_EnemyRaidDesc>
 
   <!-- Burst Fire Ability Translations -->
   <!-- EN: Burst Fire -->
@@ -470,6 +472,14 @@
   <!-- EN: The guerrillas send a message: A powerful prototype weapon is stored in the factory, you can search for and use it. -->
   <!-- EN: The guerrillas send a message: A powerful prototype weapon is stored in the factory, you can search for and use it. -->
   <RKU_FactoryWeaponMessage>游击队发来讯息：工厂里保存有一把强大的原型武器，你可以寻找并使用它</RKU_FactoryWeaponMessage>
+  <!-- EN: Target is already in your faction -->
+  <RKU_AlreadyPlayerFaction>目标已经在你的派系中</RKU_AlreadyPlayerFaction>
+  <!-- EN: Cannot change destination while drilling vehicle is in motion -->
+  <RKU_CantChangeDestination>钻机移动中无法改变目的地</RKU_CantChangeDestination>
+  <!-- EN: War Continues -->
+  <RKU_FactoryWarLetter>战役胜利？</RKU_FactoryWarLetter>
+  <!-- EN: The troops attacking the guerrilla factory have all been eliminated, and the guerrillas have firmly established themselves here, but as long as the warlords exist for even one day, their war has no possibility of stopping. -->
+  <RKU_FactoryWarContinues>袭击游击队工厂的部队已经尽数被消灭了，游击队已经在此地站稳了脚跟，但只要军阀势力还存在一天，他们的战争便没有停止的可能</RKU_FactoryWarContinues>
   <!-- EN: The guerrillas send a message: There is a powerful prototype weapon here, you can search for and use it. -->
   <!-- EN: The guerrillas send a message: There is a powerful prototype weapon here, you can search for and use it. -->
   <RKU_AncientWeaponMessage>游击队发来讯息：这里有一把强大的原型武器，你可以寻找并使用它</RKU_AncientWeaponMessage>
@@ -485,4 +495,10 @@
   <RKU_ShowOnlyCurrentDialogueMessagesDesc>启用后，每次打开电台对话框时将清空历史消息，只显示本次对话的内容。禁用后将保留所有历史消息。</RKU_ShowOnlyCurrentDialogueMessagesDesc>
   <!-- EN: Adjust radio dialogue display behavior. When enabled, each time you open the radio will start a new conversation session. -->
   <RKU_RadioDialogueBehaviorDesc>调整电台对话显示行为。启用后每次打开电台都会开始新的对话会话。</RKU_RadioDialogueBehaviorDesc>
+  <!-- EN: Unload items -->
+  <RKU_UnloadItems>卸载物品</RKU_UnloadItems>
+  <!-- EN: Unload items, fill 0 to unload -->
+  <RKU_UnloadItemsDesc>卸载物品，物品数量填0卸载</RKU_UnloadItemsDesc>
+  <!-- EN: Please use right-click to put {0} into passenger seat -->
+  <RKU_PawnInCargo>请使用右键将 {0} 放入乘客位</RKU_PawnInCargo>
 </LanguageData>

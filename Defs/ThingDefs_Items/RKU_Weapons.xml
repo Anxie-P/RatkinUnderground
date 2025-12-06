@@ -18,8 +18,8 @@
     <statBases>
       <WorkToMake>20000</WorkToMake>
       <Mass>3.5</Mass>
-      <AccuracyTouch>0.65</AccuracyTouch>
-      <AccuracyShort>0.80</AccuracyShort>
+      <AccuracyTouch>0.75</AccuracyTouch>
+      <AccuracyShort>0.90</AccuracyShort>
       <AccuracyMedium>0.90</AccuracyMedium>
       <AccuracyLong>0.80</AccuracyLong>
       <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
@@ -42,7 +42,7 @@
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
         <defaultProjectile>Bullet_YunNanMushroom</defaultProjectile>
-        <warmupTime>1.7</warmupTime>
+        <warmupTime>1.5</warmupTime>
         <range>36.9</range>
         <soundCast>Shot_BoltActionRifle</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
@@ -112,10 +112,13 @@
     </costList>
     <recipeMaker>
       <researchPrerequisite>RKU_UndergroundExperimentalWeapon</researchPrerequisite>
-      <skillRequirements>
-        <Crafting>5</Crafting>
+	   <skillRequirements>
+        <Crafting>10</Crafting>
       </skillRequirements>
       <displayPriority>150</displayPriority>
+      <recipeUsers Inherit="false">
+        <li>TableMachining</li>
+      </recipeUsers>
     </recipeMaker>
     <statBases>
       <WorkToMake>50000</WorkToMake>

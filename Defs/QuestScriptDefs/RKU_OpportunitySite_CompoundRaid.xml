@@ -201,7 +201,7 @@
   <GenStepDef>
     <defName>RatkinCompound</defName>
     <linkWithSite>RatkinCompound</linkWithSite>
-    <order>450</order>
+    <order>500</order>
     <genStep Class="RatkinUnderground.RKU_GenStep_BioLab">
       <layoutFilePath>CompoundLayouts.xml</layoutFilePath>
       <generateLoot>true</generateLoot>

@@ -53,7 +53,7 @@ namespace RatkinUnderground
                 return false;
             }
 
-            foreach (Map playerMap in Find.Maps.Where(m => m.IsPlayerHome))
+            foreach (Map playerMap in Find.Maps)
             {
                 if (playerMap.listerThings.ThingsOfDef(DefOfs.RKU_Radio).Any())
                 {
@@ -357,27 +357,45 @@ namespace RatkinUnderground
             Faction faction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
             List<Pawn> pawns = new List<Pawn>();
             //队长
-            PawnGenerationRequest requestOfficer = new PawnGenerationRequest(PawnKindDef.Named("RKU_Commissar"), faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: true);
-            Pawn pawnOfficer = PawnGenerator.GeneratePawn(requestOfficer);
-            pawnOfficer.health.hediffSet.Clear();
-            // 锁建造20
-            SkillRecord constructionSkill = pawnOfficer.skills.GetSkill(SkillDefOf.Construction);
-            constructionSkill.Level = 20;
-            constructionSkill.passion = Passion.None;
-            Find.WorldPawns.PassToWorld(pawnOfficer, PawnDiscardDecideMode.KeepForever);
-            slate.Set("captain", pawnOfficer);
-            Thing researchReward = ThingMaker.MakeThing(ThingDef.Named("Techprint_RKU_UndergroundGuerrillaEquipments"));
-            pawnOfficer.inventory?.innerContainer.TryAdd(researchReward);
-            pawns.Add(pawnOfficer);
+            Pawn pawnOfficer = null;
+            PawnKindDef officerKind = PawnKindDef.Named("RKU_Commissar");
+            if (officerKind != null && faction != null)
+            {
+                PawnGenerationRequest requestOfficer = new PawnGenerationRequest(officerKind, faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: true);
+                pawnOfficer = PawnGenerator.GeneratePawn(requestOfficer);
+            }
+
+            if (pawnOfficer != null)
+            {
+                pawnOfficer.health.hediffSet.Clear();
+                // 锁建造20
+                SkillRecord constructionSkill = pawnOfficer.skills.GetSkill(SkillDefOf.Construction);
+                if (constructionSkill != null)
+                {
+                    constructionSkill.Level = 20;
+                    constructionSkill.passion = Passion.None;
+                }
+                Find.WorldPawns.PassToWorld(pawnOfficer, PawnDiscardDecideMode.KeepForever);
+                slate.Set("captain", pawnOfficer);
+                Thing researchReward = ThingMaker.MakeThing(ThingDef.Named("Techprint_RKU_UndergroundGuerrillaEquipments"));
+                pawnOfficer.inventory?.innerContainer.TryAdd(researchReward);
+                pawns.Add(pawnOfficer);
+            }
             //侦察兵
             for (int i = 0; i < numPawns; i++)
             {
-                PawnGenerationRequest request = new PawnGenerationRequest(kind, faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: true);
-                Pawn pawn = PawnGenerator.GeneratePawn(request);
-                // 移除所有hediff
-                pawn.health.hediffSet.Clear();
-                Find.WorldPawns.PassToWorld(pawn, PawnDiscardDecideMode.KeepForever);
-                pawns.Add(pawn);
+                if (kind != null && faction != null)
+                {
+                    PawnGenerationRequest request = new PawnGenerationRequest(kind, faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: true);
+                    Pawn pawn = PawnGenerator.GeneratePawn(request);
+                    if (pawn != null)
+                    {
+                        // 移除所有hediff
+                        pawn.health.hediffSet.Clear();
+                        Find.WorldPawns.PassToWorld(pawn, PawnDiscardDecideMode.KeepForever);
+                        pawns.Add(pawn);
+                    }
+                }
             }
 
             // 添加受伤检测组件
@@ -399,7 +417,7 @@ namespace RatkinUnderground
             SpawnGuerrillas arrivePart = new SpawnGuerrillas();
             arrivePart.inSignal = acceptSignal;
             arrivePart.pawns = pawns;
-            arrivePart.captain = pawnOfficer;
+            arrivePart.captain = pawnOfficer ?? (pawns.Count > 0 ? pawns[0] : null);
             arrivePart.mapParent = targetMap.Parent;
             arrivePart.outSignalArrived = arrivedSignal;
             arrivePart.deliveredSignal = deliveredSignal;
@@ -430,7 +448,7 @@ namespace RatkinUnderground
             requestPart.outSignalItemsReceived = deliveredSignal;
             requestPart.outSignalStartReturnToDrillingVehicle = QuestGen.GenerateNewSignal("StartReturnToDrillingVehicle");
             requestPart.pawns.AddRange(pawns); // 添加所有Pawn，不只是队长
-            requestPart.target = pawnOfficer;
+            requestPart.target = pawnOfficer ?? (pawns.Count > 0 ? pawns[0] : null);
             requestPart.faction = faction;
             requestPart.mapParent = targetMap.Parent;
             requestPart.thingDef = requestedThing;

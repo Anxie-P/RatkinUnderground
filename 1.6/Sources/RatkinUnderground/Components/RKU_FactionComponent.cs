@@ -69,7 +69,7 @@ namespace RatkinUnderground
                 
                 // 清空所有特性并添加坚韧和工作狂特质
                 SetCommanderTraits(rFaction.leader);
-                //沙。。。我真受不了了
+                //沙皇兼容。。。我真受不了了
                 if (ModsConfig.IsActive("OARK.RatkinFaction.GeneExpand"))
                 {
                     for (int i = 0; i < rFaction.leader.genes.GenesListForReading.Count; i++)
@@ -79,7 +79,8 @@ namespace RatkinUnderground
                     rFaction.leader.genes.SetXenotype(DefDatabase<XenotypeDef>.GetNamed("OAGene_RatkinBase")) ;
                 }
                 rFaction.leader.story.hairDef = DefDatabase<HairDef>.GetNamed("RKU_CommanderHair");
-                rFaction.leader.story.HairColor = new UnityEngine.Color(236, 222, 227);
+                //rgbA，头发默认透明是哪个鬼想出来的
+                rFaction.leader.story.HairColor = new UnityEngine.Color(236, 222, 227,1f);
                 rFaction.leader.equipment?.DestroyAllEquipment();
                 ThingWithComps weaponL = (ThingWithComps)ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_SVT40M_Elite"), null);
                 weaponL.TryGetComp<CompQuality>()?.SetQuality(QualityCategory.Legendary, ArtGenerationContext.Outsider);

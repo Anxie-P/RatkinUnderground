@@ -26,9 +26,9 @@
   <!-- EN: 被发现后，鼠族城堡已被撤离。任务[resolvedQuestName]已结束。 -->
   <RKU_OpportunitySite_CastleRaid.root.nodes.siteDestroyed.node.nodes.Letter.text.slateRef>TODO</RKU_OpportunitySite_CastleRaid.root.nodes.siteDestroyed.node.nodes.Letter.text.slateRef>
   <!-- EN: Payment arrived -->
-  <RKU_OpportunitySite_CastleRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterLabel.slateRef>TODO</RKU_OpportunitySite_CastleRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterLabel.slateRef>
+  <RKU_OpportunitySite_CastleRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterLabel.slateRef>奖励已送达</RKU_OpportunitySite_CastleRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterLabel.slateRef>
   <!-- EN: 你成功攻破了城堡！\n\n游击队的报酬已送达。 -->
-  <RKU_OpportunitySite_CastleRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterText.slateRef>TODO</RKU_OpportunitySite_CastleRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterText.slateRef>
+  <RKU_OpportunitySite_CastleRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterText.slateRef>你成功攻破了城堡！\n\n游击队的报酬已送达</RKU_OpportunitySite_CastleRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterText.slateRef>
   <!-- EN: [asker_faction_royalFavorLabel] -->
   <RKU_OpportunitySite_CastleRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.nodeIfChosenPawnSignalUsed.label.slateRef>TODO</RKU_OpportunitySite_CastleRaid.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.nodeIfChosenPawnSignalUsed.label.slateRef>
   <!-- EN: These colonists participated in the victory for the quest [resolvedQuestName]. [asker_definite] wants to know who should receive the guerrilla commendation for this service. -->

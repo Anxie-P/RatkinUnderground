@@ -205,7 +205,7 @@
   <GenStepDef>
     <defName>GuerrillasBanditCamp</defName>
     <linkWithSite>GuerrillasBanditCamp</linkWithSite>
-    <order>450</order>
+    <order>500</order>
     <genStep Class="RatkinUnderground.RKU_GenStep_GuerrillasOutpost"/>
   </GenStepDef>
 </Defs>

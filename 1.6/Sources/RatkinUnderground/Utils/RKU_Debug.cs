@@ -1,5 +1,6 @@
 ﻿using LudeonTK;
 using RimWorld;
+using RimWorld.Planet;
 using RimWorld.QuestGen;
 using System;
 using System.Collections.Generic;
@@ -288,6 +289,63 @@ namespace RatkinUnderground
 
                 // 设置军阀阵营为被击败状态
                 warlordFaction.defeated = true;
+            }
+        }
+
+        public static class Debug_FactoryDefense
+        {
+            [DebugAction(
+                category: "RatkinUnderground",
+                name: "Complete Factory Death Quota (600)")]
+            private static void CompleteFactoryDeathQuota()
+            {
+                // 查找所有地图中的SitePartWorker_RatkinFactory实例
+                // 并修改它们的countedCorpseIds字段
+                foreach (var map in Find.Maps)
+                {
+                    if (map.Parent is Site site)
+                    {
+                        var factorySite = site.parts?.FirstOrDefault(p => p.def.defName == "RKU_FactoryDefense");
+                        if (factorySite != null)
+                        {
+                            var workerType = factorySite.def.workerClass;
+                            var staticWorkerField = workerType.GetField("Instance", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
+                            SitePartWorker_RatkinFactory worker = null;
+
+                            if (staticWorkerField != null)
+                            {
+                                worker = staticWorkerField.GetValue(null) as SitePartWorker_RatkinFactory;
+                            }
+
+                            // 方法2: 如果没有静态实例，创建一个新的并修改
+                            if (worker == null)
+                            {
+                                worker = (SitePartWorker_RatkinFactory)Activator.CreateInstance(workerType);
+                            }
+
+                            if (worker != null)
+                            {
+                                // 通过反射访问私有字段
+                                var countedCorpseIdsField = worker.GetType().GetField("countedCorpseIds", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                                if (countedCorpseIdsField != null)
+                                {
+                                    var countedCorpseIds = countedCorpseIdsField.GetValue(worker) as List<int>;
+                                    if (countedCorpseIds != null)
+                                    {
+                                        // 填补到600个尸体
+                                        const int targetCount = 600;
+                                        while (countedCorpseIds.Count < targetCount)
+                                        {
+                                            countedCorpseIds.Add(-countedCorpseIds.Count - 1);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                Messages.Message("Factory death quota completed!", MessageTypeDefOf.PositiveEvent);
             }
         }
     }

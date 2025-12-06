@@ -24,9 +24,12 @@ public static class EquipmentTracker_Patch
             {
                 foreach (var comp in apparel.AllComps)
                 {
-                    foreach (var extra in comp.CompGetGizmosExtra())
+                    if (comp.GetType() != typeof(CompForbiddable))
                     {
-                        yield return extra;
+                        foreach (var extra in comp.CompGetGizmosExtra())
+                        {
+                            yield return extra;
+                        }
                     }
                 }
             }
@@ -45,13 +48,15 @@ public static class EquipmentTracker_WeaponGizmosPatch
 
         foreach (var equip in __instance.AllEquipmentListForReading)
         {
-            if (equip.def.defName.StartsWith("RKU_"))
+            if ( equip.def.defName.StartsWith("RKU_"))
             {
                 foreach (var comp in equip.AllComps)
                 {
-                    foreach (var extra in comp.CompGetGizmosExtra())
-                    {
-                        yield return extra;
+                    if (comp.GetType()!=typeof( CompForbiddable)) {
+                        foreach (var extra in comp.CompGetGizmosExtra())
+                        {
+                            yield return extra;
+                        }
                     }
                 }
             }

@@ -12,11 +12,12 @@ namespace RatkinUnderground
     public class SitePartWorker_RatkinFarm : SitePartWorker
     {
         private List<Pawn> civilians = new List<Pawn>();
-        private const int DETECTION_RADIUS = 5;
+        private const int DETECTION_RADIUS = 6;
 
         public override void PostMapGenerate(Map map)
         {
             base.PostMapGenerate(map);
+            Utils.ClearNonFactionPawns(map, new List<Faction> { Faction.OfPlayer });
             SpawnEnemiesInFarm(map);
             SpawnCiviliansInFarm(map);
             SpawnFoodOnShelves(map);
@@ -166,7 +167,9 @@ namespace RatkinUnderground
                 var lordJob = new LordJob_DefendPoint(roomCenter);
                 LordMaker.MakeNewLord(null, lordJob, map, civilians);
             }
-            civilians.AddRange(civilians);
+
+            // 添加到类的civilians列表
+            this.civilians.AddRange(civilians);
         }
 
         public override void SitePartWorkerTick(SitePart sitePart)
@@ -184,6 +187,8 @@ namespace RatkinUnderground
 
         private void CheckAndConvertCivilians(Map map)
         {
+            if (civilians.Count == 0) return;
+
             var civiliansToRemove = new List<Pawn>();
 
             foreach (var civilian in civilians)
@@ -214,16 +219,10 @@ namespace RatkinUnderground
             foreach (var cell in GenRadial.RadialCellsAround(civilian.Position, DETECTION_RADIUS, true))
             {
                 if (!cell.InBounds(map)) continue;
-
-                var pawns = cell.GetThingList(map).OfType<Pawn>();
-                foreach (var pawn in pawns)
+                var pawn = cell.GetFirstPawn(map);
+                if (pawn != null && pawn.Faction != null && (pawn.Faction == guerrillaFaction || pawn.Faction == Faction.OfPlayer))
                 {
-                    if (pawn == civilian) continue;
-                    if ((pawn.Faction != null && pawn.IsColonist) ||
-                        (pawn.Faction == guerrillaFaction))
-                    {
-                        return true;
-                    }
+                    return true;
                 }
             }
 
@@ -403,10 +402,10 @@ namespace RatkinUnderground
                 int foodCount = Rand.RangeInclusive(1, 3);
                 for (int i = 0; i < foodCount; i++)
                 {
-                        ThingDef foodDef = foodDefs.RandomElement();
-                        Thing food = ThingMaker.MakeThing(foodDef);
-                        food.stackCount = Rand.RangeInclusive(1, foodDef.stackLimit);
-                        GenSpawn.Spawn(food, shelf.Position, map);
+                    ThingDef foodDef = foodDefs.RandomElement();
+                    Thing food = ThingMaker.MakeThing(foodDef);
+                    food.stackCount = Rand.RangeInclusive(1, foodDef.stackLimit);
+                    GenSpawn.Spawn(food, shelf.Position, map);
                 }
             }
         }

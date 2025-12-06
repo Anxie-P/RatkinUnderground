@@ -15,13 +15,14 @@ namespace RatkinUnderground
 {
     public class SitePartWorker_RatkinFactory : SitePartWorker
     {
+        private static Dictionary<SitePart, bool> destroyedTurretsState = new Dictionary<SitePart, bool>();
         // 状态跟踪
         private List<int> countedCorpseIds = new List<int>(); // 已统计的尸体ID列表
         private int lastRaidTick = 0; // 上次袭击的tick
         private const int CHECK_INTERVAL_TICKS = 60; // 每秒检查（60tick）
-        private const int MAX_DEATHS_TO_STOP = 800; // 达到800人死亡后停止
+        private const int MAX_DEATHS_TO_STOP = 600; // 达到600人死亡后停止
         private const int DEATHS_FOR_FACTION_CHANGE = 300; // 300人死亡后改变派系选择
-        private const int MAX_ENEMIES_FOR_NEXT_RAID = 15; // 地图上敌人数量10以下触发下次袭击
+        private const int MAX_ENEMIES_FOR_NEXT_RAID = 12; // 地图上敌人数量10以下触发下次袭击
         private const int MAX_RAID_INTERVAL_TICKS = 10000; // 最大袭击间隔10000tick
         private const float BASE_RAID_POINTS = 2000f; // 基础袭击点数
         private const float MAX_RAID_POINTS = 5000f; // 最大袭击点数
@@ -33,12 +34,15 @@ namespace RatkinUnderground
         public override void PostMapGenerate(Map map)
         {
             base.PostMapGenerate(map);
+            Utils.ClearNonFactionPawns(map, new List<Faction> { Faction.OfPlayer });
             SetAllBuildingsFaction(map);
             SpawnFoodOnShelves(map);
             SpawnGuerrillas(map);
             SpawnPrototypeWeapon(map);
+            SpawnEnemyTurret(map);
             lastRaidTick = Find.TickManager.TicksGame;
         }
+
 
         public override void SitePartWorkerTick(SitePart sitePart)
         {
@@ -48,7 +52,19 @@ namespace RatkinUnderground
             if (map == null) return;
 
             // 如果已达到停止条件，不再继续
-            if (isStopped) return;
+            if (isStopped)
+            {
+                // 检查是否已摧毁机枪塔（使用静态字典保存状态）
+                bool hasDestroyed = false;
+                destroyedTurretsState.TryGetValue(sitePart, out hasDestroyed);
+
+                if (!hasDestroyed)
+                {
+                    DestroyAllMiniTurrets(map);
+                    destroyedTurretsState[sitePart] = true;
+                }
+                return;
+            }
 
             // 触发初始袭击（开局时立即触发一次）
             if (!hasTriggeredInitialRaid)
@@ -211,9 +227,14 @@ namespace RatkinUnderground
 
                 // 获取生成位置（优先从地图下方）
                 IntVec3 spawnCenter = GetSouthEdgeSpawnPosition(map);
+
+              
+
                 if (!spawnCenter.IsValid || !spawnCenter.InBounds(map) || !spawnCenter.Standable(map))
                 {
-                    spawnCenter = GetRandomEdgePosition(map);
+                    IntVec3 result = new IntVec3();
+                    CellFinder.TryFindRandomEdgeCellWith((IntVec3 x) => x.Standable(map) && map.reachability.CanReachColony(x), map, CellFinder.EdgeRoadChance_Hostile, out result);
+                    spawnCenter = result;
                 }
                 if (!spawnCenter.IsValid || !spawnCenter.InBounds(map) || !spawnCenter.Standable(map))
                 {
@@ -578,6 +599,8 @@ namespace RatkinUnderground
                     if (turretDefs.Contains(defName) || drillDefs.Contains(defName))
                     {
                         building.SetFaction(guerrillaFaction);
+                    }else { 
+                        building.SetFaction(null);
                     }
                 }
             }
@@ -738,6 +761,49 @@ namespace RatkinUnderground
                 GenSpawn.Spawn(weapon, selectedShelf.Position, map);
                 Messages.Message("RKU_FactoryWeaponMessage".Translate(), MessageTypeDefOf.PositiveEvent);
             }
+        }
+
+        /// <summary>
+        /// 在地图边缘生成敌对的机枪塔
+        /// </summary>
+        private void SpawnEnemyTurret(Map map)
+        {
+            Faction enemyFaction = SelectRaidFaction();
+            if (enemyFaction == null) return;
+            IntVec3 spawnPos = GetRandomEdgePosition(map);
+            if (!spawnPos.IsValid || !spawnPos.InBounds(map) || !spawnPos.Standable(map))
+                return;
+            var turretDef = ThingDef.Named("Turret_MiniTurret");
+            if (turretDef != null)
+            {
+                var turret = ThingMaker.MakeThing(turretDef,ThingDefOf.Steel);
+                turret.SetFaction(enemyFaction);
+                GenSpawn.Spawn(turret, spawnPos, map);
+                var powerComp = turret.TryGetComp<CompPowerTrader>();
+                if (powerComp != null)
+                {
+                    powerComp.PowerOn = true;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 摧毁地图上所有的小机枪塔
+        /// </summary>
+        private void DestroyAllMiniTurrets(Map map)
+        {
+            var miniTurrets = map.listerThings.ThingsOfDef(ThingDef.Named("Turret_MiniTurret")).ToList();
+            foreach (var turret in miniTurrets)
+            {
+                if (turret != null && turret.Spawned)
+                {
+                    turret.Destroy();
+                }
+            }
+            // 发送关于战争没有停止的信封
+            string letterLabel = "RKU_FactoryWarLetter".Translate();
+            string letterText = "RKU_FactoryWarContinues".Translate();
+            Find.LetterStack.ReceiveLetter(letterLabel, letterText, LetterDefOf.PositiveEvent);
         }
     }
 }

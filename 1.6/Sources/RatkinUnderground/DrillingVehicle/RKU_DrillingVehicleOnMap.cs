@@ -154,7 +154,7 @@ public class RKU_DrillingVehicleOnMap : Caravan
             if (!arrived && traveledPct > 0.01f)
             {
                 // 强制路径器恢复原来的目标
-                Messages.Message("RKU.CantChangeDestination", MessageTypeDefOf.PositiveEvent);
+                Messages.Message("RKU_CantChangeDestination".Translate(), MessageTypeDefOf.PositiveEvent);
                 pather.StopDead();
                 pather.StartPath(destinationTile, null);
                 return;

@@ -116,8 +116,19 @@ namespace RatkinUnderground
                 {
                     if (thing != null && !thing.Destroyed)
                     {
-                        Log.Message($"[RKU] 恢复货物: {thing.LabelCap} x{thing.stackCount}");
-                        cargoContainer.TryAddOrTransfer(thing, canMergeWithExistingStacks: true);
+                        string label = GetSafeLabel(thing);
+                        Log.Message($"[RKU] 恢复货物: {label}");
+
+                        // 对于Pawn，直接spawn到地图上而不是放入货物容器
+                        if (thing is Pawn pawn)
+                        {
+                            Utils.TryAddWorldPawn(pawn);
+                            GenSpawn.Spawn(pawn, loc, map);
+                        }
+                        else
+                        {
+                            cargoContainer.TryAddOrTransfer(thing, canMergeWithExistingStacks: true);
+                        }
                     }
                 }
                 Log.Message($"[RKU] 恢复后 cargoContainer 数量: {cargoContainer.Count}");
@@ -195,5 +206,27 @@ namespace RatkinUnderground
             return loc;
         }
 
+        private string GetSafeLabel(Thing thing)
+        {
+            try
+            {
+                if (thing is Pawn pawn)
+                {
+                    // 对于Pawn，使用安全的标签获取方式
+                    return $"{pawn.def?.label ?? "Unknown"} ({pawn.Name?.ToStringShort ?? "Unnamed"})";
+                }
+                else
+                {
+                    // 对于普通物品，使用LabelCap
+                    return $"{thing.LabelCap} x{thing.stackCount}";
+                }
+            }
+            catch (System.Exception ex)
+            {
+                // 如果标签获取失败，使用备用方案
+                Log.Warning($"[RKU] 获取标签失败: {thing?.def?.defName ?? "null"}, 错误: {ex.Message}");
+                return $"{thing?.def?.defName ?? "Unknown"} x{thing?.stackCount ?? 1}";
+            }
+        }
     }
 } 

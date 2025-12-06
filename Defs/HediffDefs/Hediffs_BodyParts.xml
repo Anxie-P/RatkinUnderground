@@ -276,6 +276,7 @@
             </li>
           </capMods>
           <statOffsets>
+		    <IncomingDamageFactor>-0.05</IncomingDamageFactor>
             <ShootingAccuracyPawn>0.5</ShootingAccuracyPawn>
             <MeleeHitChance>0.25</MeleeHitChance>
             <WorkSpeedGlobal>0.3</WorkSpeedGlobal>
@@ -299,6 +300,7 @@
             </li>
           </capMods>
           <statOffsets>
+		    <IncomingDamageFactor>-0.1</IncomingDamageFactor>
             <ShootingAccuracyPawn>1</ShootingAccuracyPawn>
             <MeleeHitChance>0.3</MeleeHitChance>
             <WorkSpeedGlobal>0.4</WorkSpeedGlobal>
@@ -322,6 +324,7 @@
             </li>
           </capMods>
           <statOffsets>
+		    <IncomingDamageFactor>-0.2</IncomingDamageFactor>
             <ShootingAccuracyPawn>0.5</ShootingAccuracyPawn>
             <MeleeHitChance>0.4</MeleeHitChance>
             <WorkSpeedGlobal>0.5</WorkSpeedGlobal>

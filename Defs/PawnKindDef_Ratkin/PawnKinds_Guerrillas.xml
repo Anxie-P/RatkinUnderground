@@ -4,6 +4,7 @@
         <defaultFactionType>RKU_Faction</defaultFactionType>
         <!-- 地鼠人物命名规则 -->
         <nameMaker>NamerPerson_RKU</nameMaker>
+		<humanPregnancyChance>0</humanPregnancyChance>
 		<apparelAllowHeadgearChance>1</apparelAllowHeadgearChance>
     </PawnKindDef>
 	

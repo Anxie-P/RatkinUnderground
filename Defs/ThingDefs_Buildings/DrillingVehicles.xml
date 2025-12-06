@@ -17,6 +17,7 @@
     <size>(2,1)</size>
     <uiIconScale>0.6</uiIconScale>
 	<building>
+	    <ai_combatDangerous>true</ai_combatDangerous>
 		<expandHomeArea>false</expandHomeArea>
     </building>
     <graphicData>
@@ -73,6 +74,7 @@
     <size>(2,1)</size>
     <uiIconScale>0.6</uiIconScale>
 	<building>
+		<ai_combatDangerous>true</ai_combatDangerous>
 		<expandHomeArea>false</expandHomeArea>
     </building>
     <graphicData>
@@ -117,8 +119,11 @@
         </li>
         <li Class="CompProperties_Transporter">
           <massCapacity>1000</massCapacity>
-          <canChangeAssignedThingsAfterStarting>true</canChangeAssignedThingsAfterStarting>
-          <showOverallStats>true</showOverallStats>
+          <max1PerGroup>true</max1PerGroup>
+		  <canChangeAssignedThingsAfterStarting>true</canChangeAssignedThingsAfterStarting>
+		  <pawnLoadedSound>Shuttle_PawnLoaded</pawnLoadedSound>
+		  <pawnExitSound>Shuttle_PawnExit</pawnExitSound>
+		  <showMassInInspectString>true</showMassInInspectString>
         </li>
       </comps>
   </ThingDef>
@@ -141,6 +146,7 @@
     <size>(2,1)</size>
     <uiIconScale>1.4</uiIconScale>
 	<building>
+		<ai_combatDangerous>true</ai_combatDangerous>
 	    <turretTopOffset>(-0.27, 0.27)</turretTopOffset>
 		<turretBurstWarmupTime>1.0</turretBurstWarmupTime>
 		<turretBurstCooldownTime>1.0</turretBurstCooldownTime>

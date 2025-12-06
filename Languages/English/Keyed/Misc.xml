@@ -81,7 +81,7 @@
   <!-- EN: Enter Vehicle -->
   <RKU.EnterVehicle>Enter the Vehicle</RKU.EnterVehicle>
   <!-- EN: Rescue {0} and enter vehicle -->
-  <RKU.RescueAndEnterVehicle>Rescue {0} and enter vehicle</RKU.RescueAndEnterVehicle>
+  <RKU.RescueAndEnterVehicle>Take {0} and enter vehicle</RKU.RescueAndEnterVehicle>
   <!-- EN: Move -->
   <RKU.Move>Move</RKU.Move>
   <!-- EN: Drill down! -->
@@ -114,6 +114,8 @@
   <RKU_GoodsArrived>Goods ready to be delivered.</RKU_GoodsArrived>
   <!-- EN: Your ordered goods have arrived -->
   <RKU_OrderedGoodsArrived>Choose a position to deliver your goods.</RKU_OrderedGoodsArrived>
+  <!-- EN: Stop your resistance... -->
+  <RKU_CannotTargetKnightCommander>Stop your resistance...</RKU_CannotTargetKnightCommander>
   <!-- EN: Yunnan Hallucination -->
   <RKU_YunnanHallucination>Yunnan Illusion</RKU_YunnanHallucination>
   <!-- EN: Ate allurecap -->
@@ -318,7 +320,7 @@
   <RKU_EnemyRaid>Enemy Raid</RKU_EnemyRaid>
   <!-- EN: {0} is launching a raid on the factory!\nRaid Points: {1}\nTotal Enemy Deaths: {2}/800 -->
   <!-- EN: {0} is launching a raid on the factory!\nRaid Points: {1}\nTotal Enemy Deaths: {2}/800 -->
-  <RKU_EnemyRaidDesc>{0} is launching a raid on the factory!\nRaid Points: {1}\nTotal Enemy Deaths: {2}/800.</RKU_EnemyRaidDesc>
+  <RKU_EnemyRaidDesc>{0} is launching a raid on the factory!\nRaid Points: {1}\nTotal Enemy Deaths: {2}/600.</RKU_EnemyRaidDesc>
 
   <!-- Burst Fire Ability Translations -->
   <!-- EN: Burst Fire -->
@@ -355,6 +357,14 @@
   <!-- EN: The guerrillas send a message: A powerful prototype weapon is stored in the factory, you can search for and use it. -->
   <!-- EN: The guerrillas send a message: A powerful prototype weapon is stored in the factory, you can search for and use it. -->
   <RKU_FactoryWeaponMessage>The Partisans send a message: A powerful prototype weapon is stored in the factory, you can search for and use it.</RKU_FactoryWeaponMessage>
+  <!-- EN: Target is already in your faction -->
+  <RKU_AlreadyPlayerFaction>Target is already in your faction</RKU_AlreadyPlayerFaction>
+  <!-- EN: Cannot change destination while drilling vehicle is in motion -->
+  <RKU_CantChangeDestination>Cannot change destination while drilling vehicle is in motion</RKU_CantChangeDestination>
+  <!-- EN: War Continues -->
+  <RKU_FactoryWarLetter>Campaign Victory?</RKU_FactoryWarLetter>
+  <!-- EN: The troops attacking the guerrilla factory have all been eliminated, but as long as the warlords exist, the war has no possibility of stopping... -->
+  <RKU_FactoryWarContinues>The troops attacking the partisans factory have all been eliminated, and the partisans have firmly established themselves here, but as long as the warlords exist for even one day, their war has no possibility of stopping.</RKU_FactoryWarContinues>
   <!-- EN: The guerrillas send a message: There is a powerful prototype weapon here, you can search for and use it. -->
   <RKU_AncientWeaponMessage>The Partisans send a message: There is a powerful prototype weapon here, you can search for and use it.</RKU_AncientWeaponMessage>
   <!-- EN: Settlement Established -->
@@ -369,4 +379,14 @@
   <RKU_ShowOnlyCurrentDialogueMessagesDesc>When enabled, opening the radio dialogue window will clear history messages and only show content from the current conversation. When disabled, all history messages will be retained.</RKU_ShowOnlyCurrentDialogueMessagesDesc>
   <!-- EN: Adjust radio dialogue display behavior. When enabled, each time you open the radio will start a new conversation session. -->
   <RKU_RadioDialogueBehaviorDesc>Adjust radio dialogue display behavior. When enabled, each time you open the radio will start a new conversation session.</RKU_RadioDialogueBehaviorDesc>
+  <!-- EN: Allow rescue mechs -->
+  <RKU_AllowRescueMechs>Allow rescue mechs</RKU_AllowRescueMechs>
+  <!-- EN: When enabled, player-controlled mechs can be rescued into the drilling vehicle even if they are not downed -->
+  <RKU_AllowRescueMechsDesc>When enabled, player-controlled mechanoids can be take into the drilling vehicle.</RKU_AllowRescueMechsDesc>
+  <!-- EN: Unload items -->
+  <RKU_UnloadItems>Unload items</RKU_UnloadItems>
+  <!-- EN: Unload items, fill 0 to unload -->
+  <RKU_UnloadItemsDesc>Unload items, enter 0 to unload all</RKU_UnloadItemsDesc>
+  <!-- EN: Please use right-click to put {0} into passenger seat -->
+  <RKU_PawnInCargo>Please use right-click to put {0} into passenger seat</RKU_PawnInCargo>
 </LanguageData>

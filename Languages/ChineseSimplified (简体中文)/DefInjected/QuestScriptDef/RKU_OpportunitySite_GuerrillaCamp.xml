@@ -50,9 +50,9 @@
   <!-- EN: After being discovered, the guerrilla camp has dispersed. The quest [resolvedQuestName] has ended. -->
   <RKU_OpportunitySite_GuerrillaCamp.root.nodes.siteDestroyed.node.nodes.Letter.text.slateRef>TODO</RKU_OpportunitySite_GuerrillaCamp.root.nodes.siteDestroyed.node.nodes.Letter.text.slateRef>
   <!-- EN: Payment arrived -->
-  <RKU_OpportunitySite_GuerrillaCamp.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterLabel.slateRef>TODO</RKU_OpportunitySite_GuerrillaCamp.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterLabel.slateRef>
+  <RKU_OpportunitySite_GuerrillaCamp.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterLabel.slateRef>奖励已送达</RKU_OpportunitySite_GuerrillaCamp.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterLabel.slateRef>
   <!-- EN: You have defeated the guerrilla camp!\n\nThe payment from [asker_faction_name] has arrived. -->
-  <RKU_OpportunitySite_GuerrillaCamp.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterText.slateRef>TODO</RKU_OpportunitySite_GuerrillaCamp.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterText.slateRef>
+  <RKU_OpportunitySite_GuerrillaCamp.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterText.slateRef>你已经摧毁了游击队营地！\n\n来自[asker_faction_name]的奖励已经送达</RKU_OpportunitySite_GuerrillaCamp.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.customLetterText.slateRef>
   <!-- EN: [asker_faction_royalFavorLabel] -->
   <RKU_OpportunitySite_GuerrillaCamp.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.nodeIfChosenPawnSignalUsed.label.slateRef>TODO</RKU_OpportunitySite_GuerrillaCamp.root.nodes.siteAllEnemiesDefeated.node.nodes.GiveRewards.nodeIfChosenPawnSignalUsed.label.slateRef>
   <!-- EN: These colonists participated in the victory for the quest [resolvedQuestName]. [asker_definite] wants to know who should receive the [royalFavorReward_amount] [asker_faction_royalFavorLabel] for this service. -->

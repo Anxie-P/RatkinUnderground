@@ -1086,7 +1086,7 @@ public class Dialog_RKU_Radio : Window, ITrader
         }
     }
 
-    private List<Thing> pendingCargo = new List<Thing>();
+    public List<Thing> pendingCargo = new List<Thing>();
 
     private void AddToCargoList(Thing thing)
     {
@@ -1153,13 +1153,13 @@ public class Dialog_RKU_Radio : Window, ITrader
         // 处理货舱发送逻辑
         if (pendingCargo.Count > 0)
         {
-            ChoiceLetter choiceLetter = LetterMaker.MakeLetter("RKU_GoodsArrived".Translate(), "RKU_OrderedGoodsArrived".Translate(), LetterDefOf.PositiveEvent);
-            RKU_DrillingCargoPodBullet pod = null;
-            LongEventHandler.QueueLongEvent(() =>
-            {
-                pod = SendCargoPod();
-                Find.LetterStack.ReceiveLetter(choiceLetter.Label, choiceLetter.Text, choiceLetter.def, lookTargets: pod.usedTarget.ToTargetInfo(pod.Map));
-            }, "SendingCargoPod", doAsynchronously: false, null);
+            RKU_ChoiceLetter_CargoDelivery cargoLetter = new RKU_ChoiceLetter_CargoDelivery(
+                this,
+                "RKU_GoodsArrived".Translate(),
+                "RKU_OrderedGoodsArrived".Translate(),
+                LetterDefOf.PositiveEvent
+            );
+            Find.LetterStack.ReceiveLetter(cargoLetter);
         }
 
         // 检查是否发生实际交易

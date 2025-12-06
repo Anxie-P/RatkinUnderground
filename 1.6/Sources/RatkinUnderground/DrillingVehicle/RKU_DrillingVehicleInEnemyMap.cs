@@ -41,8 +41,17 @@ namespace RatkinUnderground
                 {
                     if (thing != null && !thing.Destroyed)
                     {
-                        Log.Message($"[RKU] 添加钻机货物 {thing.LabelCap} x{thing.stackCount}");
-                        cargoHolder.TryAddOrTransfer(thing);
+                        string label = GetSafeLabel(thing);
+                        Log.Message($"[RKU] 添加钻机货物 {label}");
+                        if (thing is Pawn pawn)
+                        {
+                            Utils.TryAddWorldPawn(pawn);
+                            passengers.TryAddOrTransfer(pawn);
+                        }
+                        else
+                        {
+                            cargoHolder.TryAddOrTransfer(thing);
+                        }
                     }
                 }
                 cargo.Clear();
@@ -260,7 +269,6 @@ namespace RatkinUnderground
                     RKU_DrillingVehicle drillingVehicle = drillingVehicleThing as RKU_DrillingVehicle;
                     if (drillingVehicle == null)
                     {
-                        Log.Error($"[RKU] 无法将 {drillingVehicleThing.GetType().Name} 转换为 RKU_DrillingVehicle");
                         return;
                     }
                     foreach (var pawn in passengersToTransfer)
@@ -269,7 +277,7 @@ namespace RatkinUnderground
                         {
                             passengers.Remove(pawn);
                             drillingVehicle.AddPassenger(pawn);
-                            if (!pawn.IsPrisonerOfColony)
+                            if (pawn.IsColonist)
                             {
                                 pawn.SetFaction(Faction.OfPlayer);
                             }
@@ -380,5 +388,28 @@ namespace RatkinUnderground
         }
 
         #endregion
+
+        private string GetSafeLabel(Thing thing)
+        {
+            try
+            {
+                if (thing is Pawn pawn)
+                {
+                    // 对于Pawn，使用安全的标签获取方式
+                    return $"{pawn.def?.label ?? "Unknown"} ({pawn.Name?.ToStringShort ?? "Unnamed"})";
+                }
+                else
+                {
+                    // 对于普通物品，使用LabelCap
+                    return $"{thing.LabelCap} x{thing.stackCount}";
+                }
+            }
+            catch (System.Exception ex)
+            {
+                // 如果标签获取失败，使用备用方案
+                Log.Warning($"[RKU] 获取标签失败: {thing?.def?.defName ?? "null"}, 错误: {ex.Message}");
+                return $"{thing?.def?.defName ?? "Unknown"} x{thing?.stackCount ?? 1}";
+            }
+        }
     }
 }

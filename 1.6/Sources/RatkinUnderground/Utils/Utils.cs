@@ -654,7 +654,7 @@ namespace RatkinUnderground
                 .Where(def => def.IsWeapon && def.comps != null &&
                              def.comps.Any(comp => comp.compClass == typeof(CompQuality)) &&
                              def.weaponClasses != null&&
-                             def.tradeability==Tradeability.Buyable&&
+                             def.tradeability!=Tradeability.None &&
                              def.destroyOnDrop==false)
                 .ToList();
 
@@ -666,6 +666,32 @@ namespace RatkinUnderground
             weapon.TryGetComp<CompQuality>()?.SetQuality(quality, ArtGenerationContext.Outsider);
 
             return weapon;
+        }
+
+        /// <summary>
+        /// 清除地图上除了指定派系以外的所有单位
+        /// </summary>
+        /// <param name="map">要清除单位的地图</param>
+        /// <param name="allowedFactions">允许保留的派系列表</param>
+        public static void ClearNonFactionPawns(Map map, List<Faction> allowedFactions)
+        {
+            var pawnsToRemove = new List<Pawn>();
+
+            foreach (var pawn in map.mapPawns.AllPawnsSpawned)
+            {
+                if (pawn == null || pawn.Dead || pawn.Destroyed) continue;
+                bool isRatkin = pawn.def.defName == "Ratkin";
+                bool isAllowedFaction = allowedFactions != null && allowedFactions.Contains(pawn.Faction);
+                if (!isRatkin && !isAllowedFaction)
+                {
+                    pawnsToRemove.Add(pawn);
+                }
+            }
+
+            foreach (var pawn in pawnsToRemove)
+            {
+                pawn.Destroy();
+            }
         }
 
         /// <summary>

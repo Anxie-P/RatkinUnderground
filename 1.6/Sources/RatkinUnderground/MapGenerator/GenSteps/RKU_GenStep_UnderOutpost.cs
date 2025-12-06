@@ -429,7 +429,7 @@ namespace RatkinUnderground
         {
             if(thingDef == ThingDefOf.Steel || thingDef == ThingDef.Named("Pemmican"))
             {
-                return Rand.RangeInclusive(24, 75);
+                return Rand.RangeInclusive(10, 25);
             }
             else
             {
@@ -467,7 +467,8 @@ namespace RatkinUnderground
 
             try
             {
-                ThingDef stuff = DefDatabase<ThingDef>.AllDefs.Where(o=>o.IsStuff&&o.IsLeather).RandomElement();
+                // 随机选择一种皮革作为材料
+                ThingDef stuff = DefDatabase<ThingDef>.AllDefs.Where(o => o.IsStuff && o.IsLeather && o.defName != "Leather_Human").RandomElement();
                 Thing tradingPost = ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("RKU_TradingPost"),stuff);
                 Faction faction = Find.FactionManager.FirstFactionOfDef(DefOfs.RKU_Faction);
                 tradingPost.SetFaction(faction);

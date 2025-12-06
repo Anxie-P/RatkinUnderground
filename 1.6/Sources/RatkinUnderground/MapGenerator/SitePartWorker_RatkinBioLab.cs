@@ -25,6 +25,7 @@ namespace RatkinUnderground
         public override void PostMapGenerate(Map map)
         {
             base.PostMapGenerate(map);
+            Utils.ClearNonFactionPawns(map, new List<Faction> { Faction.OfPlayer });
             ProcessBioLabMap(map);
         }
 
@@ -199,6 +200,8 @@ namespace RatkinUnderground
                 var knightCommander = PawnGenerator.GeneratePawn(commanderRequest);
 
                 // 设置特殊属性
+
+                knightCommander.gender = Gender.Female;
                 knightCommander.story.HairColor = Color.white;
                 if (knightCommander.Name is NameTriple nameTriple)
                 {
@@ -211,7 +214,13 @@ namespace RatkinUnderground
                     combatEfficiency.Severity = 1.0f;
                     knightCommander.health.AddHediff(combatEfficiency);
                 }
+                var traitsToRemove = knightCommander.story.traits.allTraits.ToList();
+                foreach (var trait in traitsToRemove)
+                {
+                    knightCommander.story.traits.RemoveTrait(trait);
+                }
                 knightCommander.story.traits.GainTrait(new Trait(DefDatabase<TraitDef>.GetNamed("Tough")));
+                knightCommander.story.traits.GainTrait(new Trait(TraitDef.Named("PsychicSensitivity"),2));
                 GenSpawn.Spawn(knightCommander, cells[0], map);
                 nobleGroup.Add(knightCommander);
             }
@@ -291,18 +300,25 @@ namespace RatkinUnderground
                 ratkinKind,
                 null,
                 PawnGenerationContext.NonPlayer,
-                fixedGender: Gender.Male,
                 fixedBiologicalAge: Rand.Range(15, 25),
                 fixedChronologicalAge: Rand.Range(15, 25)
             );
 
             Pawn ratkinPawn = PawnGenerator.GeneratePawn(request);
+            if (ModsConfig.IsActive("OARK.RatkinFaction.GeneExpand"))
+            {
+                for (int i = 0; i < ratkinPawn.genes.GenesListForReading.Count; i++)
+                {
+                    ratkinPawn.genes.RemoveGene(ratkinPawn.genes.GenesListForReading[i]);
+                }
+                ratkinPawn.genes.SetXenotype(DefDatabase<XenotypeDef>.GetNamed("OAGene_BiochemicalRatkinI"));
+            }
             GenSpawn.Spawn(ratkinPawn, spawnPos, map);
             ratkinPawn.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.Wander_Psychotic/*DefDatabase<MentalStateDef>.AllDefs.RandomElement()*/);
             ratkinPawn.story.traits.GainTrait(new Trait(DefDatabase<TraitDef>.GetNamed("Tough")));
             ratkinPawn.Name = new NameTriple((ratkinPawn.Name as NameTriple).First, (ratkinPawn.Name as NameTriple).First, "Raeline".Translate());
+            ratkinPawn.story.HairColor = Color.white;
             (ratkinPawn.Position.GetFirstBuilding(map) as Building_Bed).ForPrisoners = true;
-            //ratkinPawn.guest.guestStatusInt = GuestStatus.Prisoner;
             (ratkinPawn.Position.GetFirstBuilding(map) as Building_Bed).GetComp<CompAssignableToPawn>().TryAssignPawn(ratkinPawn);
             HediffDef experimentHediff = DefDatabase<HediffDef>.GetNamed("RKU_CombatEfficiency");
             if (experimentHediff != null)

@@ -177,10 +177,13 @@
 	  <triggerOnStartup>true</triggerOnStartup>
     <conditions>
       <li Class="RatkinUnderground.DialogueCondition_ResearchGrade">
-        <requiredGrade>1</requiredGrade>
+        <requiredGrade>0</requiredGrade>
+      </li>
+	   <li Class="RatkinUnderground.DialogueCondition_ResearchProgress">
+        <minProgress>2000</minProgress>
       </li>
 	  <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
-				<minGrade>1</minGrade>
+		<minGrade>1</minGrade>
 	  </li>
     </conditions>
     <actions>
@@ -200,7 +203,10 @@
 	<triggerOnStartup>true</triggerOnStartup>
     <conditions>
       <li Class="RatkinUnderground.DialogueCondition_ResearchGrade">
-        <requiredGrade>2</requiredGrade>
+        <requiredGrade>1</requiredGrade>
+      </li>
+	   <li Class="RatkinUnderground.DialogueCondition_ResearchProgress">
+        <minProgress>2000</minProgress>
       </li>
 	   <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
 				<minGrade>1</minGrade>
@@ -223,8 +229,11 @@
     <triggerOnce>true</triggerOnce>
 	<triggerOnStartup>true</triggerOnStartup>
     <conditions>
-      <li Class="RatkinUnderground.DialogueCondition_ResearchGrade">
-        <requiredGrade>3</requiredGrade>
+       <li Class="RatkinUnderground.DialogueCondition_ResearchGrade">
+        <requiredGrade>2</requiredGrade>
+      </li>
+	   <li Class="RatkinUnderground.DialogueCondition_ResearchProgress">
+        <minProgress>2000</minProgress>
       </li>
 	   <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
 				<minGrade>1</minGrade>
@@ -247,8 +256,11 @@
     <triggerOnce>true</triggerOnce>
 	<triggerOnStartup>true</triggerOnStartup>
     <conditions>
-      <li Class="RatkinUnderground.DialogueCondition_ResearchGrade">
-        <requiredGrade>4</requiredGrade>
+     <li Class="RatkinUnderground.DialogueCondition_ResearchGrade">
+        <requiredGrade>3</requiredGrade>
+      </li>
+	   <li Class="RatkinUnderground.DialogueCondition_ResearchProgress">
+        <minProgress>2000</minProgress>
       </li>
 	   <li Class="RatkinUnderground.DialogueCondition_RelationshipGrade">
 				<minGrade>1</minGrade>

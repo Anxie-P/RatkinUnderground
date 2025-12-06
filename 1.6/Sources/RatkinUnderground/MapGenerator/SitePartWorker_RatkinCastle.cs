@@ -19,6 +19,7 @@ namespace RatkinUnderground
         public override void PostMapGenerate(Map map)
         {
             base.PostMapGenerate(map);
+            //Utils.ClearNonFactionPawns(map, new List<Faction> { Faction.OfPlayer });
             SpawnEnemiesInCastle(map);
             SpawnItemsOnShelves(map);
             SpawnNobleWithSpecialWeapon(map);

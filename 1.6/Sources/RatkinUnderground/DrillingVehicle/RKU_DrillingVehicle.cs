@@ -315,8 +315,8 @@ namespace RatkinUnderground
                             selPawn.jobs.TryTakeOrderedJob(job);
                         });
 
-                        // 检查地图上是否有倒地的pawn
-                        var downedPawns = Map.mapPawns.AllPawnsSpawned.Where(p => p.Downed && !p.Dead && !passengers.Contains(p)).ToList();
+                        // 检查地图上是否有倒地的pawn或玩家机械体
+                        var downedPawns = Map.mapPawns.AllPawnsSpawned.Where(p => (p.Downed && !p.Dead && !passengers.Contains(p)) || (RKU_Mod.Instance.settings.allowRescueMechs && p.IsColonyMech && !passengers.Contains(p))).ToList();
                         if (downedPawns.Count > 0)
                         {
                             foreach (Pawn downedPawn in downedPawns)

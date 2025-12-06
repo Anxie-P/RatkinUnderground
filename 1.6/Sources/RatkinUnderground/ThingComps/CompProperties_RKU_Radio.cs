@@ -212,7 +212,7 @@ public class Comp_RKU_Radio : ThingComp
                     var component = Current.Game.GetComponent<RKU_RadioGameComponent>();
                     if (component != null)
                     {
-                        if (component.maxRelationshipGrade <= component.ralationshipGrade + 10)
+                        if (component.maxRelationshipGrade <= component.ralationshipGrade)
                         {
                             component.maxRelationshipGrade = component.ralationshipGrade+10;
                         }
@@ -234,7 +234,7 @@ public class Comp_RKU_Radio : ThingComp
                     var component = Current.Game.GetComponent<RKU_RadioGameComponent>();
                     if (component != null)
                     {
-                        if (component.minRelationshipGrade >= component.ralationshipGrade - 10)
+                        if (component.minRelationshipGrade >= component.ralationshipGrade)
                         {
                             component.minRelationshipGrade = component.ralationshipGrade-10;
                         }

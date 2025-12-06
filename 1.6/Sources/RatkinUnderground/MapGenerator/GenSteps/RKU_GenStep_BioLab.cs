@@ -43,7 +43,7 @@ public class RKU_GenStep_BioLab : GenStep
             string modPath = null;
             foreach (var mod in ModsConfig.ActiveModsInLoadOrder)
             {
-                if (mod.PackageId.ToLower() == "rku.ratkinunderground" || mod.RootDir.Name == "250407")
+                if (mod.PackageId.ToLowerInvariant() .Contains( "rku.ratkinunderground") || mod.RootDir.Name == "3613814532")
                 {
                     modPath = mod.RootDir.FullName;
                     break;
